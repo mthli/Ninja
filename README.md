@@ -1,4 +1,4 @@
-NoBrowser
+Berries
 ===
 
 Open links in background without ever living your favorite apps.
@@ -9,8 +9,8 @@ __UNDER DEVELOPMENT!!!__
 
 ## How to use the source code?
 
-Just import the `NoBrowser` folder with your __IntelliJ IDEA__.
+Just import the `Berries` folder with your __IntelliJ IDEA__.
 
 ## License:
 
-_[Apache License, Version 2.0](https://github.com/mthli/NoBrowser/blob/master/LICENSE "Apache License, Version 2.0")_
+_[Apache License, Version 2.0](https://github.com/mthli/Berries/blob/master/LICENSE "Apache License, Version 2.0")_

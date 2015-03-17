@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Menu -->
+    <string name="main_menu_about">About</string>
+    <string name="main_menu_clear">Clear</string>
+    <string name="main_menu_setting">Setting</string>
+
+</resources>
