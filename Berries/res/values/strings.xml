@@ -3,8 +3,79 @@
 <resources>
 
     <!-- Menu -->
-    <string name="main_menu_about">About</string>
-    <string name="main_menu_clear">Clear</string>
-    <string name="main_menu_setting">Setting</string>
+    <string name="main_menu_about">
+        About
+    </string>
+    <string name="history_menu_clear">
+        Clear
+    </string>
+
+    <!-- Setting -->
+    <string name="setting_tag_advanced">
+        Advanced
+    </string>
+    <string name="setting_tag_basics">
+        Basics
+    </string>
+    <string name="setting_title_clear_defaults">
+        Clear defaults
+    </string>
+    <string name="setting_title_double_tap">
+        Double tap
+    </string>
+    <string name="setting_title_history">
+        History
+    </string>
+    <string name="setting_title_incognito_mode">
+        Incognito mode
+    </string>
+    <string name="setting_title_load_images">
+        Load images
+    </string>
+    <string name="setting_title_secondary_browser">
+        Secondary browser
+    </string>
+    <string name="setting_title_text_size">
+        Text size
+    </string>
+    <string name="setting_content_clear_defaults">
+        Clear launch by default settings.
+    </string>
+    <string name="setting_content_double_tap">
+        Double tap links use secondary browser.
+    </string>
+    <string name="setting_content_history">
+        Show history.
+    </string>
+    <string name="setting_content_incognito_mode">
+        Do not leave any record.
+    </string>
+    <string name="setting_content_load_images">
+        Load images when browse the web.
+    </string>
+    <string name="setting_content_secondary_browser">
+        Choose the secondary browser.
+    </string>
+    <string name="setting_content_text_size">
+        Set the default text size.
+    </string>
+    <string-array name="setting_titles">
+        <item>@string/setting_title_secondary_browser</item>
+        <item>@string/setting_title_double_tap</item>
+        <item>@string/setting_title_load_images</item>
+        <item>@string/setting_title_text_size</item>
+        <item>@string/setting_title_history</item>
+        <item>@string/setting_title_incognito_mode</item>
+        <item>@string/setting_title_clear_defaults</item>
+    </string-array>
+    <string-array name="setting_contents">
+        <item>@string/setting_content_secondary_browser</item>
+        <item>@string/setting_content_double_tap</item>
+        <item>@string/setting_content_load_images</item>
+        <item>@string/setting_content_text_size</item>
+        <item>@string/setting_content_history</item>
+        <item>@string/setting_content_incognito_mode</item>
+        <item>@string/setting_content_clear_defaults</item>
+    </string-array>
 
 </resources>

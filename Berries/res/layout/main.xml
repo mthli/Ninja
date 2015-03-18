@@ -3,7 +3,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res/io.github.mthli.Berries"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:descendantFocusability="blocksDescendants">
 
     <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:id="@+id/main_shadow"
@@ -26,5 +27,19 @@
         </android.support.v7.widget.Toolbar>
 
     </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
+
+    <ListView android:id="@+id/main_listview"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_alignParentTop="true"
+              android:layout_marginTop="?attr/actionBarSize"
+              android:paddingLeft="@dimen/default_padding_min"
+              android:paddingRight="@dimen/default_padding_min"
+              android:divider="@color/dividers"
+              android:dividerHeight="@dimen/default_divider_height"
+              android:choiceMode="singleChoice"
+              android:drawSelectorOnTop="true"
+              android:scrollbars="none">
+    </ListView>
 
 </RelativeLayout>

@@ -2,16 +2,6 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/main_menu_clear"
-          android:title="@string/main_menu_clear"
-          android:showAsAction="ifRoom">
-    </item>
-
-    <item android:id="@+id/main_menu_setting"
-          android:title="@string/main_menu_setting"
-          android:showAsAction="collapseActionView">
-    </item>
-
     <item android:id="@+id/main_menu_about"
           android:title="@string/main_menu_about"
           android:showAsAction="collapseActionView">

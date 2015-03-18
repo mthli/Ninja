@@ -13,7 +13,7 @@
     <color name="transparent">@android:color/transparent</color>
 
     <color name="text">#212121</color>
-    <color name="secondary_text">#727272</color>
+    <color name="text_secondary">#727272</color>
     <color name="hint">#B8B8B8</color>
     <color name="dividers">#DADADA</color>
 
