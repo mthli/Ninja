@@ -38,44 +38,26 @@
     <string name="setting_title_text_size">
         Text size
     </string>
-    <string name="setting_content_clear_defaults">
+    <string name="setting_summary_clear_defaults">
         Clear launch by default settings.
     </string>
-    <string name="setting_content_double_tap">
+    <string name="setting_summary_double_tap">
         Double tap links use secondary browser.
     </string>
-    <string name="setting_content_history">
+    <string name="setting_summary_history">
         Show history.
     </string>
-    <string name="setting_content_incognito_mode">
+    <string name="setting_summary_incognito_mode">
         Do not leave any record.
     </string>
-    <string name="setting_content_load_images">
+    <string name="setting_summary_load_images">
         Load images when browse the web.
     </string>
-    <string name="setting_content_secondary_browser">
+    <string name="setting_summary_secondary_browser">
         Choose the secondary browser.
     </string>
-    <string name="setting_content_text_size">
+    <string name="setting_summary_text_size">
         Set the default text size.
     </string>
-    <string-array name="setting_titles">
-        <item>@string/setting_title_secondary_browser</item>
-        <item>@string/setting_title_double_tap</item>
-        <item>@string/setting_title_load_images</item>
-        <item>@string/setting_title_text_size</item>
-        <item>@string/setting_title_history</item>
-        <item>@string/setting_title_incognito_mode</item>
-        <item>@string/setting_title_clear_defaults</item>
-    </string-array>
-    <string-array name="setting_contents">
-        <item>@string/setting_content_secondary_browser</item>
-        <item>@string/setting_content_double_tap</item>
-        <item>@string/setting_content_load_images</item>
-        <item>@string/setting_content_text_size</item>
-        <item>@string/setting_content_history</item>
-        <item>@string/setting_content_incognito_mode</item>
-        <item>@string/setting_content_clear_defaults</item>
-    </string-array>
 
 </resources>

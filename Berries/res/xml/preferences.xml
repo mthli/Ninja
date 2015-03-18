@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:layout="@layout/preference_category_widget"
+                        android:title="@string/setting_tag_basics">
+
+        <Preference android:layout="@layout/preference_item"
+                    android:title="@string/setting_title_secondary_browser"
+                    android:summary="@string/setting_summary_secondary_browser"
+                    android:key="@string/sp_setting_secondary_browser"
+                    android:defaultValue="@null">
+        </Preference>
+
+        <CheckBoxPreference android:layout="@layout/preference_item"
+                            android:title="@string/setting_title_double_tap"
+                            android:summary="@string/setting_summary_double_tap"
+                            android:key="@string/sp_setting_double_tap"
+                            android:defaultValue="false">
+        </CheckBoxPreference>
+
+        <CheckBoxPreference android:layout="@layout/preference_item"
+                            android:title="@string/setting_title_load_images"
+                            android:summary="@string/setting_summary_load_images"
+                            android:key="@string/sp_setting_load_images"
+                            android:defaultValue="true">
+        </CheckBoxPreference>
+
+        <Preference android:layout="@layout/preference_item"
+                    android:title="@string/setting_title_text_size"
+                    android:summary="@string/setting_summary_text_size"
+                    android:key="@string/sp_setting_text_size">
+        </Preference>
+
+        <Preference android:layout="@layout/preference_item"
+                    android:title="@string/setting_title_history"
+                    android:summary="@string/setting_summary_history">
+        </Preference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:layout="@layout/preference_category_widget"
+                        android:title="@string/setting_tag_advanced">
+
+        <CheckBoxPreference android:layout="@layout/preference_item"
+                            android:title="@string/setting_title_incognito_mode"
+                            android:summary="@string/setting_summary_incognito_mode"
+                            android:key="@string/sp_setting_incognito_mode"
+                            android:defaultValue="false">
+        </CheckBoxPreference>
+
+        <Preference android:layout="@layout/preference_item"
+                    android:title="@string/setting_title_clear_defaults"
+                    android:summary="@string/setting_summary_clear_defaults">
+        </Preference>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

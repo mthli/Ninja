@@ -4,27 +4,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-    <android.support.v7.widget.SwitchCompat
-        android:id="@+id/setting_item_switch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_alignParentRight="true"
-        android:paddingRight="@dimen/default_padding"
-        android:visibility="gone">
-    </android.support.v7.widget.SwitchCompat>
+    <FrameLayout android:id="@android:id/widget_frame"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_centerInParent="true"
+                 android:layout_alignParentRight="true"
+                 android:paddingRight="@dimen/default_padding_min">
+    </FrameLayout>
 
     <LinearLayout android:orientation="vertical"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:layout_toLeftOf="@id/setting_item_switch"
+                  android:layout_toLeftOf="@android:id/widget_frame"
                   android:layout_alignParentLeft="true"
                   android:layout_centerInParent="true"
                   android:paddingTop="@dimen/default_padding"
                   android:paddingBottom="@dimen/default_padding"
                   android:paddingLeft="@dimen/default_padding">
 
-        <TextView android:id="@+id/setting_item_title"
+        <TextView android:id="@android:id/title"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:textColor="@color/text"
@@ -33,13 +31,11 @@
                   android:ellipsize="end">
         </TextView>
 
-        <TextView android:id="@+id/setting_item_content"
+        <TextView android:id="@android:id/summary"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:textColor="@color/text_secondary"
-                  android:textSize="@dimen/default_text_size_secondary"
-                  android:singleLine="true"
-                  android:ellipsize="end">
+                  android:textSize="@dimen/default_text_size_secondary">
         </TextView>
 
     </LinearLayout>

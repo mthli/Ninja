@@ -28,18 +28,11 @@
 
     </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-    <ListView android:id="@+id/main_listview"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:layout_alignParentTop="true"
-              android:layout_marginTop="?attr/actionBarSize"
-              android:paddingLeft="@dimen/default_padding_min"
-              android:paddingRight="@dimen/default_padding_min"
-              android:divider="@color/dividers"
-              android:dividerHeight="@dimen/default_divider_height"
-              android:choiceMode="singleChoice"
-              android:drawSelectorOnTop="true"
-              android:scrollbars="none">
-    </ListView>
+    <FrameLayout android:id="@+id/main_container"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:layout_alignParentTop="true"
+                 android:layout_marginTop="?attr/actionBarSize">
+    </FrameLayout>
 
 </RelativeLayout>

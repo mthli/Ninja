@@ -5,14 +5,13 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <TextView android:id="@+id/section_item"
+    <TextView android:id="@android:id/title"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:paddingTop="5dp"
-              android:paddingBottom="5dp"
+              android:paddingTop="@dimen/default_padding_max"
               android:paddingLeft="@dimen/default_padding"
               android:paddingRight="@dimen/default_padding"
-              android:textColor="@color/blue_700"
+              android:textColor="?attr/colorAccent"
               android:textSize="@dimen/default_text_size_secondary"
               android:textStyle="bold">
     </TextView>
