@@ -20,14 +20,14 @@
     <string name="setting_title_clear_defaults">
         Clear defaults
     </string>
-    <string name="setting_title_double_taps">
-        Double taps
-    </string>
     <string name="setting_title_history">
         History
     </string>
-    <string name="setting_title_incognito_mode">
-        Incognito mode
+    <string name="setting_title_incognito">
+        Incognito
+    </string>
+    <string name="setting_title_javascript">
+        JavaScript
     </string>
     <string name="setting_title_load_images">
         Load images
@@ -39,25 +39,25 @@
         Text scaling
     </string>
     <string name="setting_summary_clear_defaults">
-        Clear launch by default settings.
-    </string>
-    <string name="setting_summary_double_taps">
-        Double taps links use secondary browser.
+        Clear launch by default settings
     </string>
     <string name="setting_summary_history">
-        Show history.
+        Show history
     </string>
-    <string name="setting_summary_incognito_mode">
-        Do not leave any record.
+    <string name="setting_summary_incognito">
+        Do not leave any record
+    </string>
+    <string name="setting_summary_javascript">
+        Allow sites to run JavaScript
     </string>
     <string name="setting_summary_load_images">
-        Load images when browse the web.
+        Load images when browse the web
     </string>
     <string name="setting_summary_secondary_browser">
-        Choose the secondary browser.
+        Choose the secondary browser
     </string>
     <string name="setting_summary_text_scaling">
-        Set the default text scaling.
+        Set default text scaling
     </string>
 
 </resources>

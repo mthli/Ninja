@@ -2,6 +2,8 @@
 
 <resources>
 
-    <string name="app_name">Berries</string>
+    <string name="app_name">
+        Berries
+    </string>
 
 </resources>

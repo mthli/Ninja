@@ -1,17 +1,21 @@
 package io.github.mthli.Berries.Fragment;
 
-import android.content.pm.ActivityInfo;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.support.annotation.NonNull;
 import android.view.View;
+import io.github.mthli.Berries.Dialog.PreferenceDialog;
+import io.github.mthli.Berries.Dialog.PreferenceDialogItem;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.PackageUnit;
 
-public class SettingFragment extends PreferenceFragment {
+import java.util.ArrayList;
+import java.util.List;
 
+public class SettingFragment extends PreferenceFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,9 +35,11 @@ public class SettingFragment extends PreferenceFragment {
         Preference preference = getPreferenceManager().findPreference(getString(R.string.sp_setting_secondary_browser));
         String packageName = preference.getSharedPreferences().getString(getString(R.string.sp_setting_secondary_browser), null);
         if (packageName == null) {
-            ActivityInfo info = PackageUnit.getDefaultBrowserInfo(getActivity());
-            preference.getEditor().putString(getString(R.string.sp_setting_secondary_browser), info.packageName).commit();
-            preference.setSummary(PackageUnit.getBrowserName(getActivity(), info.packageName));
+            packageName = PackageUnit.getDefaultBrowserPackageName(getActivity());
+            preference.getEditor().putString(getString(R.string.sp_setting_secondary_browser), packageName).commit();
+            if (packageName != null) {
+                preference.setSummary(PackageUnit.getBrowserName(getActivity(), packageName));
+            }
         } else {
             preference.setSummary(PackageUnit.getBrowserName(getActivity(), packageName));
         }
@@ -46,9 +52,14 @@ public class SettingFragment extends PreferenceFragment {
     public boolean onPreferenceTreeClick(PreferenceScreen screen, @NonNull Preference preference) {
         String key = preference.getKey();
         if (key.equals(getString(R.string.sp_setting_secondary_browser))) {
-            // TODO
-        } else if (key.equals(getString(R.string.sp_setting_double_taps))) {
-            // TODO
+            List<PreferenceDialogItem> list = new ArrayList<PreferenceDialogItem>();
+            for (ResolveInfo info : PackageUnit.getBrowserList(getActivity())) {
+                PreferenceDialogItem item = new PreferenceDialogItem();
+                item.setTitle(PackageUnit.getBrowserName(getActivity(), info.activityInfo.packageName));
+                item.setContent(info.activityInfo.packageName);
+                list.add(item);
+            }
+            PreferenceDialog.show(getActivity(), list, preference);
         } else if (key.equals(getString(R.string.sp_setting_text_scaling))) {
             // TODO
         } else if (key.equals(getString(R.string.sp_setting_history))) {

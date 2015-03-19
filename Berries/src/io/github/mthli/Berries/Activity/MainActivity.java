@@ -14,7 +14,6 @@ import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.ViewUnit;
 
 public class MainActivity extends ActionBarActivity {
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

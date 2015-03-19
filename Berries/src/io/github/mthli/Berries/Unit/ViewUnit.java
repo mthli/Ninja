@@ -11,7 +11,6 @@ import io.github.mthli.Berries.R;
 import java.util.ArrayList;
 
 public class ViewUnit {
-
     public static void setOverflowColor(final Activity activity, final int color) {
         final String overflowDescription = activity.getString(R.string.abc_action_menu_overflow_description);
         final ViewGroup decorView = (ViewGroup) activity.getWindow().getDecorView();

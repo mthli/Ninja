@@ -5,20 +5,12 @@
     <PreferenceCategory android:layout="@layout/preference_category_widget"
                         android:title="@string/setting_tag_basics">
 
-        <!-- TODO -->
         <Preference android:layout="@layout/preference_item"
                     android:title="@string/setting_title_secondary_browser"
                     android:summary="@string/setting_summary_secondary_browser"
                     android:key="@string/sp_setting_secondary_browser"
                     android:defaultValue="@null">
         </Preference>
-
-        <CheckBoxPreference android:layout="@layout/preference_item"
-                            android:title="@string/setting_title_double_taps"
-                            android:summary="@string/setting_summary_double_taps"
-                            android:key="@string/sp_setting_double_taps"
-                            android:defaultValue="true">
-        </CheckBoxPreference>
 
         <CheckBoxPreference android:layout="@layout/preference_item"
                             android:title="@string/setting_title_load_images"
@@ -48,10 +40,17 @@
                         android:title="@string/setting_tag_advanced">
 
         <CheckBoxPreference android:layout="@layout/preference_item"
-                            android:title="@string/setting_title_incognito_mode"
-                            android:summary="@string/setting_summary_incognito_mode"
+                            android:title="@string/setting_title_incognito"
+                            android:summary="@string/setting_summary_incognito"
                             android:key="@string/sp_setting_incognito_mode"
                             android:defaultValue="false">
+        </CheckBoxPreference>
+
+        <CheckBoxPreference android:layout="@layout/preference_item"
+                            android:title="@string/setting_title_javascript"
+                            android:summary="@string/setting_summary_javascript"
+                            android:key="@string/sp_setting_javascript"
+                            android:defaultValue="true">
         </CheckBoxPreference>
 
         <Preference android:layout="@layout/preference_item"

@@ -11,9 +11,6 @@
     <string name="sp_setting_secondary_browser">
         SP_SETTING_SECONDARY_BROWSER
     </string>
-    <string name="sp_setting_double_taps">
-        SP_SETTING_DOUBLE_TAPS
-    </string>
     <string name="sp_setting_load_images">
         SP_SETTING_LOAD_IMAGES
     </string>
@@ -26,8 +23,16 @@
     <string name="sp_setting_incognito_mode">
         SP_SETTING_INCOGNITO_MODE
     </string>
+    <string name="sp_setting_javascript">
+        SP_SETTING_JAVASCRIPT
+    </string>
     <string name="sp_setting_clear_defaults">
         SP_SETTING_CLEAR_DEFAULTS
+    </string>
+
+    <!-- Splash -->
+    <string name="sp_splash_show">
+        SP_SPLASH_SHOW
     </string>
 
 </resources>
