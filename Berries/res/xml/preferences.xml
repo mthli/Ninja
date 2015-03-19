@@ -5,6 +5,7 @@
     <PreferenceCategory android:layout="@layout/preference_category_widget"
                         android:title="@string/setting_tag_basics">
 
+        <!-- TODO -->
         <Preference android:layout="@layout/preference_item"
                     android:title="@string/setting_title_secondary_browser"
                     android:summary="@string/setting_summary_secondary_browser"
@@ -13,10 +14,10 @@
         </Preference>
 
         <CheckBoxPreference android:layout="@layout/preference_item"
-                            android:title="@string/setting_title_double_tap"
-                            android:summary="@string/setting_summary_double_tap"
-                            android:key="@string/sp_setting_double_tap"
-                            android:defaultValue="false">
+                            android:title="@string/setting_title_double_taps"
+                            android:summary="@string/setting_summary_double_taps"
+                            android:key="@string/sp_setting_double_taps"
+                            android:defaultValue="true">
         </CheckBoxPreference>
 
         <CheckBoxPreference android:layout="@layout/preference_item"
@@ -26,15 +27,19 @@
                             android:defaultValue="true">
         </CheckBoxPreference>
 
+        <!-- TODO -->
         <Preference android:layout="@layout/preference_item"
-                    android:title="@string/setting_title_text_size"
-                    android:summary="@string/setting_summary_text_size"
-                    android:key="@string/sp_setting_text_size">
+                    android:title="@string/setting_title_text_scaling"
+                    android:summary="@string/setting_summary_text_scaling"
+                    android:key="@string/sp_setting_text_scaling"
+                    android:defaultValue="@null">
         </Preference>
 
         <Preference android:layout="@layout/preference_item"
                     android:title="@string/setting_title_history"
-                    android:summary="@string/setting_summary_history">
+                    android:summary="@string/setting_summary_history"
+                    android:key="@string/sp_setting_history"
+                    android:defaultValue="@null">
         </Preference>
 
     </PreferenceCategory>
@@ -51,7 +56,9 @@
 
         <Preference android:layout="@layout/preference_item"
                     android:title="@string/setting_title_clear_defaults"
-                    android:summary="@string/setting_summary_clear_defaults">
+                    android:summary="@string/setting_summary_clear_defaults"
+                    android:key="@string/sp_setting_clear_defaults"
+                    android:defaultValue="@null">
         </Preference>
 
     </PreferenceCategory>

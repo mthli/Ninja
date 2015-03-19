@@ -4,24 +4,30 @@
 
     <!-- SP -->
     <string name="sp_name">
-        Berries
+        SP_BERRIES
     </string>
 
     <!-- Setting -->
     <string name="sp_setting_secondary_browser">
         SP_SETTING_SECONDARY_BROWSER
     </string>
-    <string name="sp_setting_double_tap">
-        SP_SETTING_DOUBLE_TAP
+    <string name="sp_setting_double_taps">
+        SP_SETTING_DOUBLE_TAPS
     </string>
     <string name="sp_setting_load_images">
         SP_SETTING_LOAD_IMAGES
     </string>
-    <string name="sp_setting_text_size">
-        SP_SETTING_TEXT_SIZE
+    <string name="sp_setting_text_scaling">
+        SP_SETTING_TEXT_SCALING
+    </string>
+    <string name="sp_setting_history">
+        SP_SETTING_HISTORY
     </string>
     <string name="sp_setting_incognito_mode">
         SP_SETTING_INCOGNITO_MODE
+    </string>
+    <string name="sp_setting_clear_defaults">
+        SP_SETTING_CLEAR_DEFAULTS
     </string>
 
 </resources>

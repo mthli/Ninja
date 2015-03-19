@@ -20,8 +20,8 @@
     <string name="setting_title_clear_defaults">
         Clear defaults
     </string>
-    <string name="setting_title_double_tap">
-        Double tap
+    <string name="setting_title_double_taps">
+        Double taps
     </string>
     <string name="setting_title_history">
         History
@@ -35,14 +35,14 @@
     <string name="setting_title_secondary_browser">
         Secondary browser
     </string>
-    <string name="setting_title_text_size">
-        Text size
+    <string name="setting_title_text_scaling">
+        Text scaling
     </string>
     <string name="setting_summary_clear_defaults">
         Clear launch by default settings.
     </string>
-    <string name="setting_summary_double_tap">
-        Double tap links use secondary browser.
+    <string name="setting_summary_double_taps">
+        Double taps links use secondary browser.
     </string>
     <string name="setting_summary_history">
         Show history.
@@ -56,8 +56,8 @@
     <string name="setting_summary_secondary_browser">
         Choose the secondary browser.
     </string>
-    <string name="setting_summary_text_size">
-        Set the default text size.
+    <string name="setting_summary_text_scaling">
+        Set the default text scaling.
     </string>
 
 </resources>
