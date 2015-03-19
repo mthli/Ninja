@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <integer name="text_size_default">16</integer>
+    <integer name="text_size_max">24</integer>
+    <integer name="text_size_min">12</integer>
+    <integer name="text_size_range">12</integer>
+
+</resources>

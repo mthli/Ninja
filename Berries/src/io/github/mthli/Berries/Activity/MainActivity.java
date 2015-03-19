@@ -1,6 +1,7 @@
 package io.github.mthli.Berries.Activity;
 
 import android.app.ActivityManager;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
@@ -32,8 +33,9 @@ public class MainActivity extends ActionBarActivity {
         }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
+
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         ViewUnit.setOverflowColor(this, getResources().getColor(R.color.white));
 
         if (savedInstanceState == null) {
@@ -51,8 +53,12 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
-            case R.id.main_menu_about:
+            case R.id.main_menu_usage:
                 // TODO
+                break;
+            case R.id.main_menu_about:
+                Intent about = new Intent(this, AboutActivity.class);
+                startActivity(about);
                 break;
             default:
                 break;
@@ -60,6 +66,4 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(menuItem);
     }
-
-    // TODO
 }

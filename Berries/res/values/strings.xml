@@ -2,12 +2,25 @@
 
 <resources>
 
+    <!-- About -->
+    <string name="about_label">
+        About
+    </string>
+
+    <!-- History -->
+    <string name="history_label">
+        History
+    </string>
+
     <!-- Menu -->
+    <string name="history_menu_clear">
+        Clear
+    </string>
     <string name="main_menu_about">
         About
     </string>
-    <string name="history_menu_clear">
-        Clear
+    <string name="main_menu_usage">
+        Usage
     </string>
 
     <!-- Setting -->
@@ -35,8 +48,8 @@
     <string name="setting_title_secondary_browser">
         Secondary browser
     </string>
-    <string name="setting_title_text_scaling">
-        Text scaling
+    <string name="setting_title_text_size">
+        Text size
     </string>
     <string name="setting_summary_clear_defaults">
         Clear launch by default settings
@@ -56,8 +69,16 @@
     <string name="setting_summary_secondary_browser">
         Choose the secondary browser
     </string>
-    <string name="setting_summary_text_scaling">
-        Set default text scaling
+    <string name="setting_summary_text_size">
+        Set default text size
+    </string>
+    <string name="setting_toast_clear_defaults">
+        Successful
+    </string>
+
+    <!-- Text -->
+    <string name="text_size_hint">
+        Currently text size is
     </string>
 
 </resources>

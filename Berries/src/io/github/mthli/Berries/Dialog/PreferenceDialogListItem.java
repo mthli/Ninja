@@ -1,6 +1,6 @@
 package io.github.mthli.Berries.Dialog;
 
-public class PreferenceDialogItem {
+public class PreferenceDialogListItem {
     private String title;
     public String getTitle() {
         return title;
@@ -17,7 +17,7 @@ public class PreferenceDialogItem {
         this.content = content;
     }
 
-    public PreferenceDialogItem() {
+    public PreferenceDialogListItem() {
         this.title = null;
         this.content = null;
     }

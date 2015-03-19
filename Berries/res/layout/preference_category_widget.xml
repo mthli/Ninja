@@ -8,11 +8,11 @@
     <TextView android:id="@android:id/title"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:paddingTop="@dimen/default_padding_max"
-              android:paddingLeft="@dimen/default_padding"
-              android:paddingRight="@dimen/default_padding"
+              android:paddingTop="@dimen/padding_max"
+              android:paddingLeft="@dimen/padding_default"
+              android:paddingRight="@dimen/padding_default"
               android:textColor="?attr/colorAccent"
-              android:textSize="@dimen/default_text_size_secondary"
+              android:textSize="@dimen/text_size_secondary"
               android:textStyle="bold">
     </TextView>
 

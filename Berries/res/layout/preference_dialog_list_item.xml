@@ -5,12 +5,12 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <TextView android:id="@+id/preference_dialog_item"
+    <TextView android:id="@+id/preference_dialog_list_textview"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:layout_margin="@dimen/default_layout_margin"
+              android:layout_margin="@dimen/layout_margin_default"
               android:textColor="@color/text"
-              android:textSize="@dimen/default_text_size">
+              android:textSize="@dimen/text_size_default">
     </TextView>
 
 </LinearLayout>

@@ -19,11 +19,10 @@
                             android:defaultValue="true">
         </CheckBoxPreference>
 
-        <!-- TODO -->
         <Preference android:layout="@layout/preference_item"
-                    android:title="@string/setting_title_text_scaling"
-                    android:summary="@string/setting_summary_text_scaling"
-                    android:key="@string/sp_setting_text_scaling"
+                    android:title="@string/setting_title_text_size"
+                    android:summary="@string/setting_summary_text_size"
+                    android:key="@string/sp_setting_text_size"
                     android:defaultValue="@null">
         </Preference>
 

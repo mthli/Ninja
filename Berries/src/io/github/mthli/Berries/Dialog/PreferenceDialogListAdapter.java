@@ -10,12 +10,12 @@ import io.github.mthli.Berries.R;
 
 import java.util.List;
 
-public class PreferenceDialogAdapter extends ArrayAdapter<PreferenceDialogItem> {
+public class PreferenceDialogListAdapter extends ArrayAdapter<PreferenceDialogListItem> {
     private Context context;
     private int layoutResId;
-    private List<PreferenceDialogItem> list;
+    private List<PreferenceDialogListItem> list;
 
-    public PreferenceDialogAdapter(Context context, int layoutResId, List<PreferenceDialogItem> list) {
+    public PreferenceDialogListAdapter(Context context, int layoutResId, List<PreferenceDialogListItem> list) {
         super(context, layoutResId, list);
 
         this.context = context;
@@ -36,13 +36,13 @@ public class PreferenceDialogAdapter extends ArrayAdapter<PreferenceDialogItem> 
             view = LayoutInflater.from(context).inflate(layoutResId, viewGroup, false);
 
             holder = new Holder();
-            holder.title = (TextView) view.findViewById(R.id.preference_dialog_item);
+            holder.title = (TextView) view.findViewById(R.id.preference_dialog_list_textview);
             view.setTag(holder);
         } else {
             holder = (Holder) view.getTag();
         }
 
-        PreferenceDialogItem item = list.get(position);
+        PreferenceDialogListItem item = list.get(position);
         holder.title.setText(item.getTitle());
 
         return view;
