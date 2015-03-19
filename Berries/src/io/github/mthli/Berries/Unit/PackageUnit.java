@@ -56,4 +56,8 @@ public class PackageUnit {
             return null;
         }
     }
+
+    public static void clearPackagePreference(Context context) {
+        context.getPackageManager().clearPackagePreferredActivities(context.getPackageName());
+    }
 }

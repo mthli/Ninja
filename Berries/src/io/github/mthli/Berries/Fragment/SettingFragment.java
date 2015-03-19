@@ -73,7 +73,7 @@ public class SettingFragment extends PreferenceFragment {
             Intent history = new Intent(getActivity(), HistoryActivity.class);
             startActivity(history);
         } else if (key.equals(getString(R.string.sp_setting_clear_defaults))) {
-            getActivity().getPackageManager().clearPackagePreferredActivities(getActivity().getPackageName());
+            PackageUnit.clearPackagePreference(getActivity());
             Toast.makeText(getActivity(), R.string.setting_toast_clear_defaults, Toast.LENGTH_SHORT).show();
         }
 
