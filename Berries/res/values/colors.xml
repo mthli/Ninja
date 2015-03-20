@@ -21,7 +21,7 @@
     <color name="hint">#B8B8B8</color>
     <color name="dividers">#DADADA</color>
 
-    <!-- AndroidStyleDialogs -->
+    <!-- AndroidStyledDialogs -->
     <color name="sdl_text_primary_light">#DE000000</color>
     <color name="sdl_text_primary_dark">#FFFFFFFF</color>
     <color name="sdl_text_secondary_light">#8A000000</color>

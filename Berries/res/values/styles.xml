@@ -2,7 +2,7 @@
 
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- AndroidStyleDialogs -->
+    <!-- AndroidStyledDialogs -->
     <style name="SDL" />
     <!-- Light Theme-->
     <style name="SDL.Dialog" parent="android:Theme">

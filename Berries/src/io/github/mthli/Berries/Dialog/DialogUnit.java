@@ -5,7 +5,7 @@ import android.content.Context;
 import android.preference.Preference;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.webkit.WebView;
+import android.webkit.*;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SeekBar;
@@ -109,5 +109,18 @@ public class DialogUnit {
         });
 
         builder.create().show();
+    }
+
+
+    public static void show(Context context, String origin, GeolocationPermissions.Callback callback) {
+        // TODO
+    }
+
+    public static void show(Context context, WebView webView, String url, String message, JsResult result) {
+        // TODO
+    }
+
+    public static void show(Context context, WebView webView, String url, String message, String defaultValue, JsPromptResult result) {
+        // TODO
     }
 }

@@ -8,8 +8,11 @@
     <uses-sdk android:minSdkVersion="14" />
 
     <!-- Permission -->
-    <uses-permission android:name="ANDROID.PERMISSION.INTERNET" />
-    <uses-permission android:name="ANDROID.PERMISSION.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <!-- Application -->
     <application android:label="@string/app_name"

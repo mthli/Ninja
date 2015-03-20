@@ -2,22 +2,15 @@ package io.github.mthli.Berries.Network;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.webkit.WebResourceResponse;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.net.http.SslError;
+import android.os.Message;
+import android.webkit.*;
 
 public class BerryWebViewClient extends WebViewClient {
     private Context context;
 
     public BerryWebViewClient(Context context) {
         this.context = context;
-    }
-
-    @Deprecated
-    @Override
-    public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
-        // TODO
-        return null;
     }
 
     @Override
@@ -30,5 +23,35 @@ public class BerryWebViewClient extends WebViewClient {
         // TODO
     }
 
-    // TODO
+    @Override
+    public void onScaleChanged(WebView view, float oldScale, float newScale) {
+        // TODO
+    }
+
+    @Override
+    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+        // TODO
+        return false;
+    }
+
+    @Override
+    public void onFormResubmission(WebView view, Message dontResend, Message resend) {
+        // TODO
+    }
+
+    @Override
+    public void onReceivedHttpAuthRequest(WebView view, HttpAuthHandler handler, String host, String realm) {
+        // TODO
+    }
+
+    @Override
+    public void onReceivedSslError (WebView view, SslErrorHandler handler, SslError error) {
+        // TODO
+    }
+
+    @Override
+    public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+        // TODO
+        return null;
+    }
 }
