@@ -1,4 +1,4 @@
 package io.github.mthli.Berries.Network;
 
-public class BerryDownloadListener {
+public class BerryContainer {
 }

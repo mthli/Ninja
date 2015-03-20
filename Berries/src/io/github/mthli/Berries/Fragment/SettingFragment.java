@@ -10,8 +10,8 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Toast;
 import io.github.mthli.Berries.Activity.HistoryActivity;
-import io.github.mthli.Berries.Dialog.DialogUnit;
-import io.github.mthli.Berries.Dialog.PreferenceDialogListItem;
+import io.github.mthli.Berries.Unit.DialogUnit;
+import io.github.mthli.Berries.View.PreferenceDialogListItem;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.PackageUnit;
 

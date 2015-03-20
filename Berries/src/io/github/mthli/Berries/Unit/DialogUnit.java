@@ -1,4 +1,4 @@
-package io.github.mthli.Berries.Dialog;
+package io.github.mthli.Berries.Unit;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -12,6 +12,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SeekBar;
 import io.github.mthli.Berries.R;
+import io.github.mthli.Berries.View.PreferenceDialogListAdapter;
+import io.github.mthli.Berries.View.PreferenceDialogListItem;
 
 import java.util.List;
 

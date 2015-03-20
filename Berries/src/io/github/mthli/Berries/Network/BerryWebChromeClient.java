@@ -42,11 +42,6 @@ public class BerryWebChromeClient extends WebChromeClient {
     }
 
     @Override
-    public void onReceivedIcon(WebView view, Bitmap favicon) {
-        // TODO
-    }
-
-    @Override
     public void onReceivedTitle(WebView view, String title) {
         // TODO
     }

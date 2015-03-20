@@ -1,4 +1,4 @@
-package io.github.mthli.Berries.Dialog;
+package io.github.mthli.Berries.View;
 
 import android.content.Context;
 import android.view.LayoutInflater;

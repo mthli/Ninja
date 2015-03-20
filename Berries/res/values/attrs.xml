@@ -2,6 +2,13 @@
 
 <resources>
 
+    <!-- AndroidAgo -->
+    <declare-styleable name="RelativeTimeTextView">
+        <attr name="relative_time_prefix" format="string" />
+        <attr name="relative_time_suffix" format="string" />
+        <attr name="reference_time" format="string" />
+    </declare-styleable>
+
     <!-- AndroidStyledDialogs -->
     <declare-styleable name="StyledDialogs">
         <attr name="sdlTextPrimaryColor" format="color|reference" />

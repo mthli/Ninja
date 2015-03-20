@@ -7,6 +7,9 @@
         About
     </string>
 
+    <!-- AndroidAgo -->
+    <string name="android_ago_just_now">Just Now</string>
+
     <!-- History -->
     <string name="history_label">
         History
