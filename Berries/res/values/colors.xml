@@ -21,4 +21,16 @@
     <color name="hint">#B8B8B8</color>
     <color name="dividers">#DADADA</color>
 
+    <!-- AndroidStyleDialogs -->
+    <color name="sdl_text_primary_light">#DE000000</color>
+    <color name="sdl_text_primary_dark">#FFFFFFFF</color>
+    <color name="sdl_text_secondary_light">#8A000000</color>
+    <color name="sdl_text_secondary_dark">#B3FFFFFF</color>
+    <color name="sdl_divider_light">#1F000000</color>
+    <color name="sdl_divider_dark">#1FFFFFFF</color>
+    <color name="sdl_pressed_light">#29000000</color>
+    <color name="sdl_pressed_dark">#29FFFFFF</color>
+    <color name="sdl_background_light">#ffeeeeee</color>
+    <color name="sdl_background_dark">#ff424242</color>
+
 </resources>

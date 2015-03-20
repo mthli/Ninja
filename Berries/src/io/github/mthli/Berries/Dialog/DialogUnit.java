@@ -13,7 +13,7 @@ import io.github.mthli.Berries.R;
 
 import java.util.List;
 
-public class PreferenceDialog {
+public class DialogUnit {
     public static void show(final Context context, final List<PreferenceDialogListItem> list, final Preference preference) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         View view = LayoutInflater.from(context).inflate(R.layout.preference_dialog_list, null, false);

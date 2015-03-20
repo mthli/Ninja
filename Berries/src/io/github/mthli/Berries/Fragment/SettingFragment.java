@@ -10,7 +10,7 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Toast;
 import io.github.mthli.Berries.Activity.HistoryActivity;
-import io.github.mthli.Berries.Dialog.PreferenceDialog;
+import io.github.mthli.Berries.Dialog.DialogUnit;
 import io.github.mthli.Berries.Dialog.PreferenceDialogListItem;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.PackageUnit;
@@ -66,9 +66,9 @@ public class SettingFragment extends PreferenceFragment {
                 item.setContent(info.activityInfo.packageName);
                 list.add(item);
             }
-            PreferenceDialog.show(getActivity(), list, preference);
+            DialogUnit.show(getActivity(), list, preference);
         } else if (key.equals(getString(R.string.sp_setting_text_size))) {
-            PreferenceDialog.show(getActivity(), preference);
+            DialogUnit.show(getActivity(), preference);
         } else if (key.equals(getString(R.string.sp_setting_history))) {
             Intent history = new Intent(getActivity(), HistoryActivity.class);
             startActivity(history);
