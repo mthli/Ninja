@@ -4,13 +4,13 @@
 
     <dimen name="divider_height_default">0.5dp</dimen>
 
-    <dimen name="layout_margin_default">15dp</dimen>
-    <dimen name="layout_margin_max">20dp</dimen>
-    <dimen name="layout_margin_min">10dp</dimen>
+    <dimen name="layout_margin_default">16dp</dimen>
+    <dimen name="layout_margin_max">24dp</dimen>
+    <dimen name="layout_margin_min">12dp</dimen>
 
-    <dimen name="padding_default">15dp</dimen>
-    <dimen name="padding_max">20dp</dimen>
-    <dimen name="padding_min">10dp</dimen>
+    <dimen name="padding_default">16dp</dimen>
+    <dimen name="padding_max">24dp</dimen>
+    <dimen name="padding_min">12dp</dimen>
 
     <dimen name="text_size_default">16sp</dimen>
     <dimen name="text_size_secondary">14sp</dimen>

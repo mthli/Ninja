@@ -8,7 +8,10 @@
              android:layout_width="match_parent"
              android:layout_height="80dp"
              android:layout_alignParentTop="true"
-             android:layout_margin="@dimen/layout_margin_default">
+             android:layout_marginTop="@dimen/layout_margin_default"
+             android:layout_marginBottom="@dimen/layout_margin_default"
+             android:layout_marginLeft="@dimen/layout_margin_max"
+             android:layout_marginRight="@dimen/layout_margin_max">
     </WebView>
 
     <SeekBar android:id="@+id/preference_dialog_web_seekbar"

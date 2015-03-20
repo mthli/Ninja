@@ -2,6 +2,8 @@ package io.github.mthli.Berries.Dialog;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.net.http.SslError;
+import android.os.Message;
 import android.preference.Preference;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -121,6 +123,18 @@ public class DialogUnit {
     }
 
     public static void show(Context context, WebView webView, String url, String message, String defaultValue, JsPromptResult result) {
+        // TODO
+    }
+
+    public static void show(Context context, WebView webView, Message dontResend, Message resend) {
+        // TODO
+    }
+
+    public static void show(Context context, WebView webView, HttpAuthHandler handler, String host, String realm) {
+        // TODO
+    }
+
+    public static void show(Context context, WebView webView, SslErrorHandler handler, SslError error) {
         // TODO
     }
 }
