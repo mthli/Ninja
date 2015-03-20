@@ -6,18 +6,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import com.github.curioustechizen.ago.RelativeTimeTextView;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
 
 import java.util.List;
 
-public class HistoryItemAdapter extends ArrayAdapter<Record> {
+public class IndexItemAdapter extends ArrayAdapter<Record> {
     private Context context;
     private int layoutResId;
     private List<Record> list;
 
-    public HistoryItemAdapter(Context context, int layoutResId, List<Record> list) {
+    public IndexItemAdapter(Context context, int layoutResId, List<Record> list) {
         super(context, layoutResId, list);
 
         this.context = context;
@@ -25,12 +24,13 @@ public class HistoryItemAdapter extends ArrayAdapter<Record> {
         this.list = list;
     }
 
+    // TODO
     class Holder {
         TextView title;
         TextView url;
-        RelativeTimeTextView time;
     }
 
+    // TODO
     @Override
     public View getView(int position, View convertView, ViewGroup viewGroup) {
         View view = convertView;
@@ -40,9 +40,8 @@ public class HistoryItemAdapter extends ArrayAdapter<Record> {
             view = LayoutInflater.from(context).inflate(layoutResId, viewGroup, false);
 
             holder = new Holder();
-            holder.title = (TextView) view.findViewById(R.id.history_item_title);
-            holder.url = (TextView) view.findViewById(R.id.history_item_url);
-            holder.time = (RelativeTimeTextView) view.findViewById(R.id.history_item_time);
+            holder.title = (TextView) view.findViewById(R.id.index_item_title);
+            holder.url = (TextView) view.findViewById(R.id.index_item_url);
 
             view.setTag(holder);
         } else {
@@ -52,7 +51,6 @@ public class HistoryItemAdapter extends ArrayAdapter<Record> {
         Record record = list.get(position);
         holder.title.setText(record.getTitle());
         holder.url.setText(record.getURL());
-        holder.time.setReferenceTime(record.getTime());
 
         return view;
     }

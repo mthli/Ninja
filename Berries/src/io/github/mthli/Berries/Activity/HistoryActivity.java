@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ListView;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.ViewUnit;
 
@@ -44,6 +45,7 @@ public class HistoryActivity extends ActionBarActivity {
             }
         });
 
+        ListView listView = (ListView) findViewById(R.id.history_listview);
         // TODO
     }
 
@@ -56,7 +58,7 @@ public class HistoryActivity extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
-            case android.R.id.home:
+            case R.id.history_menu_clear:
                 // TODO
                 break;
             default:

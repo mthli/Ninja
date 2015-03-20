@@ -23,8 +23,8 @@
         <!-- SplashActivity -->
         <!-- TODO -->
 
-        <!-- MainActivity -->
-        <activity android:name=".Activity.MainActivity"
+        <!-- SettingActivity -->
+        <activity android:name=".Activity.SettingActivity"
                   android:label="@string/app_name"
                   android:theme="@style/Base">
             <intent-filter>

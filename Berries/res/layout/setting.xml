@@ -3,11 +3,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res/io.github.mthli.Berries"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:descendantFocusability="blocksDescendants">
+                android:layout_height="match_parent">
 
     <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
-            android:id="@+id/main_shadow"
+            android:id="@+id/setting_shadow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -19,7 +18,7 @@
             app:z_depth_paddingRight="z_depth0">
 
         <android.support.v7.widget.Toolbar
-                android:id="@+id/main_toolbar"
+                android:id="@+id/setting_toolbar"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:minHeight="?attr/actionBarSize"
@@ -28,7 +27,7 @@
 
     </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-    <FrameLayout android:id="@+id/main_container"
+    <FrameLayout android:id="@+id/setting_container"
                  android:layout_width="match_parent"
                  android:layout_height="match_parent"
                  android:layout_alignParentTop="true"

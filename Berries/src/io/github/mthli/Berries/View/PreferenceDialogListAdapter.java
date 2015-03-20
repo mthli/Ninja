@@ -37,6 +37,7 @@ public class PreferenceDialogListAdapter extends ArrayAdapter<PreferenceDialogLi
 
             holder = new Holder();
             holder.title = (TextView) view.findViewById(R.id.preference_dialog_list_textview);
+
             view.setTag(holder);
         } else {
             holder = (Holder) view.getTag();

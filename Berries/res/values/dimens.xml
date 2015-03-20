@@ -2,7 +2,7 @@
 
 <resources>
 
-    <dimen name="divider_height_default">0.5dp</dimen>
+    <dimen name="divider_height">0.5dp</dimen>
 
     <dimen name="layout_margin_default">16dp</dimen>
     <dimen name="layout_margin_max">24dp</dimen>

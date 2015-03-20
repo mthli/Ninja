@@ -14,11 +14,11 @@ import io.github.mthli.Berries.Fragment.SettingFragment;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.ViewUnit;
 
-public class MainActivity extends ActionBarActivity {
+public class SettingActivity extends ActionBarActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.setting);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -32,7 +32,7 @@ public class MainActivity extends ActionBarActivity {
             setTaskDescription(description);
         }
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.setting_toolbar);
         setSupportActionBar(toolbar);
 
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
@@ -40,23 +40,23 @@ public class MainActivity extends ActionBarActivity {
 
         if (savedInstanceState == null) {
             SettingFragment fragment = new SettingFragment();
-            getFragmentManager().beginTransaction().replace(R.id.main_container, fragment).commit();
+            getFragmentManager().beginTransaction().replace(R.id.setting_container, fragment).commit();
         }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getMenuInflater().inflate(R.menu.setting_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
-            case R.id.main_menu_usage:
+            case R.id.setting_menu_usage:
                 // TODO
                 break;
-            case R.id.main_menu_about:
+            case R.id.setting_menu_about:
                 Intent about = new Intent(this, AboutActivity.class);
                 startActivity(about);
                 break;

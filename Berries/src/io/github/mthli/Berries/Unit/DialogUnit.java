@@ -115,7 +115,6 @@ public class DialogUnit {
         builder.create().show();
     }
 
-
     public static void show(Context context, String origin, GeolocationPermissions.Callback callback) {
         // TODO
     }

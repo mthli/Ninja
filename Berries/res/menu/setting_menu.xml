@@ -2,13 +2,13 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/main_menu_usage"
-          android:title="@string/main_menu_usage"
+    <item android:id="@+id/setting_menu_usage"
+          android:title="@string/setting_menu_usage"
           android:showAsAction="collapseActionView">
     </item>
 
-    <item android:id="@+id/main_menu_about"
-          android:title="@string/main_menu_about"
+    <item android:id="@+id/setting_menu_about"
+          android:title="@string/setting_menu_about"
           android:showAsAction="collapseActionView">
     </item>
 

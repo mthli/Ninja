@@ -1,4 +1,4 @@
-package io.github.mthli.Berries.Network;
+package io.github.mthli.Berries.Browser;
 
 import android.content.Context;
 import android.graphics.Bitmap;

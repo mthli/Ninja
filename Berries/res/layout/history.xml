@@ -28,5 +28,17 @@
     </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
     <!-- TODO -->
+    <ListView android:id="@+id/history_listview"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_alignParentTop="true"
+              android:layout_marginTop="?android:attr/actionBarSize"
+              android:layout_marginLeft="5dp"
+              android:layout_marginRight="5dp"
+              android:divider="@color/dividers"
+              android:dividerHeight="@dimen/divider_height"
+              android:drawSelectorOnTop="true"
+              android:scrollbars="none">
+    </ListView>
 
 </RelativeLayout>
