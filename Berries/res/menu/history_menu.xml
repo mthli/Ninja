@@ -4,7 +4,7 @@
 
     <item android:id="@+id/history_menu_clear"
           android:title="@string/history_menu_clear"
-          android:showAsAction="ifRoom">
+          android:showAsAction="collapseActionView">
     </item>
 
 </menu>
