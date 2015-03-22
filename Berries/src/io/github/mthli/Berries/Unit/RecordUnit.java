@@ -1,5 +1,7 @@
 package io.github.mthli.Berries.Unit;
 
+import io.github.mthli.Berries.Database.Record;
+
 public class RecordUnit {
     public static final String TABLE = "HISTORY";
 
@@ -14,4 +16,12 @@ public class RecordUnit {
             + " " + URL + " text,"
             + " " + TIME + " integer"
             + ")";
+
+    private static Record holder;
+    public synchronized static void hold(Record record) {
+        holder = record;
+    }
+    public synchronized static Record get() {
+        return holder;
+    }
 }

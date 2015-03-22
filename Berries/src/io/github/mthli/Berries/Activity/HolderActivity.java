@@ -7,8 +7,8 @@ import android.os.Bundle;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Service.HolderService;
-import io.github.mthli.Berries.Unit.IntentUnit;
 import io.github.mthli.Berries.Unit.PreferenceUnit;
+import io.github.mthli.Berries.Unit.RecordUnit;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -36,7 +36,7 @@ public class HolderActivity extends Activity {
             public void run() {
                 if (first != null && second == null) {
                     Intent toService = new Intent(HolderActivity.this, HolderService.class);
-                    IntentUnit.putRecord(toService, first);
+                    RecordUnit.hold(first);
                     startService(toService);
                 }
 
@@ -60,7 +60,7 @@ public class HolderActivity extends Activity {
             // TODO: secondary browser
         } else {
             Intent toService = new Intent(HolderActivity.this, HolderService.class);
-            IntentUnit.putRecord(toService, second);
+            RecordUnit.hold(second);
             startService(toService);
         }
 

@@ -83,13 +83,13 @@ public class BerryView {
         }
     }
 
-    public void pageUp(boolean top) {
+    public synchronized void pageUp(boolean top) {
         if (webView != null) {
             webView.pageUp(top);
         }
     }
 
-    public void pageDown(boolean bottom) {
+    public synchronized void pageDown(boolean bottom) {
         if (webView != null) {
             webView.pageDown(bottom);
         }

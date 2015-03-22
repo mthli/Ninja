@@ -7,7 +7,7 @@ import io.github.mthli.Berries.Browser.BerryContainer;
 import io.github.mthli.Berries.Browser.BerryContextWrapper;
 import io.github.mthli.Berries.Browser.BerryView;
 import io.github.mthli.Berries.Database.Record;
-import io.github.mthli.Berries.Unit.IntentUnit;
+import io.github.mthli.Berries.Unit.RecordUnit;
 
 public class HolderService extends Service {
     private BerryContextWrapper context;
@@ -22,7 +22,7 @@ public class HolderService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Record record = IntentUnit.getRecord(intent);
+        Record record = RecordUnit.get();
         BerryView view = new BerryView(context, record);
         BerryContainer.add(view);
 

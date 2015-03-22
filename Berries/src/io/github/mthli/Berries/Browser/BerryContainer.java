@@ -10,16 +10,16 @@ public class BerryContainer {
         return list.get(index);
     }
 
-    public static void set(BerryView view, int index) {
+    public synchronized static void set(BerryView view, int index) {
         list.get(index).finish();
         list.set(index, view);
     }
 
-    public static void add(BerryView view) {
+    public synchronized static void add(BerryView view) {
         list.add(view);
     }
 
-    public static void remove(int index) {
+    public synchronized static void remove(int index) {
         list.get(index).finish();
         list.remove(index);
     }
@@ -28,7 +28,7 @@ public class BerryContainer {
         return list;
     }
 
-    public static void clear() {
+    public synchronized static void clear() {
         for (BerryView view : list) {
             view.finish();
         }
