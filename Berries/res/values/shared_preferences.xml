@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Info -->
+    <string name="sp_name">
+        @string/app_name
+    </string>
+    
+    <!-- Double taps -->
+    <string name="sp_double_taps_interval">
+        SP_DOUBLE_TAP_INTERVAL_TIME
+    </string>
+    <integer name="sp_double_taps_interval_default">
+        365
+    </integer>
+
+    <!-- Secondary browser -->
+    <string name="sp_secondary_browser">
+        SP_SECONDARY_BROWSER
+    </string>
+    <string name="sp_secondary_browser_default">
+        @null
+    </string>
+
+</resources>

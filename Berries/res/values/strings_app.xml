@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Info -->
+    <string name="app_name">Berries</string>
+
+    <!-- Scheme -->
+    <string name="app_scheme_http">http</string>
+    <string name="app_scheme_https">https</string>
+
+</resources>
