@@ -8,6 +8,7 @@ import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Service.HolderService;
 import io.github.mthli.Berries.Unit.IntentUnit;
+import io.github.mthli.Berries.Unit.PreferenceUnit;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -27,8 +28,8 @@ public class HolderActivity extends Activity {
         first.setURL(getIntent().getData().toString());
         first.setTime(System.currentTimeMillis());
 
-        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.sp_name), MODE_PRIVATE);
-        int interval = sharedPreferences.getInt(getString(R.string.sp_double_taps_interval), 300);
+        SharedPreferences sharedPreferences = getSharedPreferences(PreferenceUnit.NAME, MODE_PRIVATE);
+        int interval = sharedPreferences.getInt(PreferenceUnit.DOUBLE_TAPS_INTERVAL, PreferenceUnit.DOUBLE_TAPS_INTERVAL_DEFAULT);
 
         TimerTask task = new TimerTask() {
             @Override
