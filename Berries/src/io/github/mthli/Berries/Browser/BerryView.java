@@ -6,7 +6,6 @@ import android.webkit.WebView;
 import io.github.mthli.Berries.Database.Record;
 
 public class BerryView {
-    // TODO
     private Context context;
     public Context getContext() {
         return context;
@@ -35,15 +34,9 @@ public class BerryView {
     private BerryWebViewClient webViewClient;
     private BerryWebChromeClient webChromeClient;
 
-    public BerryView(Context context, Record record, boolean incognito) {
+    public BerryView(Context context, Record record) {
         this.context = context;
         this.record = record;
-        this.incognito = incognito;
-        this.foreground = false;
-        this.webView = new WebView(context);
-        this.webSettings = this.webView.getSettings();
-        this.webViewClient = new BerryWebViewClient(context);
-        this.webChromeClient = new BerryWebChromeClient(context);
 
         this.initWebView();
     }
@@ -64,7 +57,7 @@ public class BerryView {
         }
     }
 
-    public synchronized void onDestroy() {
+    public synchronized void finish() {
         if (webView != null) {
             // TODO
         }

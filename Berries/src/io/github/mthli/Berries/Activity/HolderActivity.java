@@ -6,13 +6,15 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
+import io.github.mthli.Berries.Service.HolderService;
+import io.github.mthli.Berries.Unit.IntentUnit;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class HolderActivity extends Activity {
-    private Record first;
-    private Record second;
+    private Record first = null;
+    private Record second = null;
 
     private Timer timer;
 
@@ -26,14 +28,17 @@ public class HolderActivity extends Activity {
         first.setTime(System.currentTimeMillis());
 
         SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.sp_name), MODE_PRIVATE);
-        int interval = sharedPreferences.getInt(
-                getString(R.string.sp_double_taps_interval),
-                getResources().getInteger(R.integer.sp_double_taps_interval_default)
-        );
+        int interval = sharedPreferences.getInt(getString(R.string.sp_double_taps_interval), 300);
 
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
+                if (first != null && second == null) {
+                    Intent toService = new Intent(HolderActivity.this, HolderService.class);
+                    IntentUnit.putRecord(toService, first);
+                    startService(toService);
+                }
+
                 timer.cancel();
                 HolderActivity.this.finish();
             }
@@ -50,11 +55,15 @@ public class HolderActivity extends Activity {
         second.setTime(System.currentTimeMillis());
 
         if (first.getURL().equals(second.getURL())) {
-            // TODO
+            Intent toBrowser = new Intent();
+            // TODO: secondary browser
         } else {
-            // TODO
+            Intent toService = new Intent(HolderActivity.this, HolderService.class);
+            IntentUnit.putRecord(toService, second);
+            startService(toService);
         }
 
+        timer.cancel();
         finish();
     }
 }
