@@ -6,7 +6,9 @@ import android.os.IBinder;
 
 public class HolderService extends Service {
     @Override
-    public void onCreate() {}
+    public void onCreate() {
+
+    }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {

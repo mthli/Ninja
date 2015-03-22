@@ -8,12 +8,26 @@
     </string>
     
     <!-- Double taps -->
+    <string name="sp_enable_double_taps">
+        SP_ENABLE_DOUBLE_TAPS
+    </string>
+    <bool name="sp_enable_double_taps_default">
+        true
+    </bool>
     <string name="sp_double_taps_interval">
         SP_DOUBLE_TAP_INTERVAL_TIME
     </string>
     <integer name="sp_double_taps_interval_default">
         365
     </integer>
+
+    <!-- Incognito -->
+    <string name="sp_incognito">
+        SP_INCOGNITO
+    </string>
+    <bool name="sp_incognito_default">
+        false
+    </bool>
 
     <!-- Secondary browser -->
     <string name="sp_secondary_browser">
