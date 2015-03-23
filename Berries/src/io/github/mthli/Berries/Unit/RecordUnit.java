@@ -18,10 +18,10 @@ public class RecordUnit {
             + ")";
 
     private static Record holder;
+    public static Record get() {
+        return holder;
+    }
     public synchronized static void hold(Record record) {
         holder = record;
-    }
-    public synchronized static Record get() {
-        return holder;
     }
 }

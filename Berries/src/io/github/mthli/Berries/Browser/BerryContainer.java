@@ -28,6 +28,10 @@ public class BerryContainer {
         return list;
     }
 
+    public static int size() {
+        return list.size();
+    }
+
     public synchronized static void clear() {
         for (BerryView view : list) {
             view.finish();

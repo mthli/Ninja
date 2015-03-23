@@ -2,9 +2,28 @@
 
 <resources>
 
+    <!-- Notification -->
+    <string name="notification_content_loading">
+        Current completed&#160;
+    </string>
+    <string name="notification_content_done_all">
+        All pages loaded.
+    </string>
+    <string name="notification_action_edit">
+        Edit
+    </string>
+    <string name="notification_action_quit">
+        Quit
+    </string>
+
     <!-- Reocrd -->
     <string name="record_title_default">
         Untitle
+    </string>
+
+    <!-- Toast -->
+    <string name="toast_load_limit_max">
+        Load limit
     </string>
 
 </resources>

@@ -1,5 +1,7 @@
 package io.github.mthli.Berries.Unit;
 
+import android.app.Notification;
+
 public class PreferenceUnit {
     public static final String NAME = "Berries";
 
@@ -11,6 +13,15 @@ public class PreferenceUnit {
 
     public static final String INCOGNITO = "INCOGNITO";
     public static final boolean INCOGNITO_DEFAULT = false;
+
+    public static final String LOAD_LIMIT_MAX = "PAGES_NUMBER_MUX";
+    public static final int LOAD_LIMIT_MAX_DEFAULT = 16;
+
+    public static final String NOTIFICATION_PRIORITY = "NOTIFICATION_PRIORITY";
+    public static final int NOTIFICATION_PRIORITY_DEFAULT = Notification.PRIORITY_DEFAULT;
+
+    public static final String NOTIFICATION_SOUND = "NOTIFICATION_SOUND";
+    public static final boolean NOTIFICATION_SOUND_DEFAULT = false;
 
     public static final String SECONDARY_BROWSER = "SECONDARY_BROWSER";
     public static final String SECONDARY_BROWSER_DEFAULT = null;
