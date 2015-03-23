@@ -40,12 +40,161 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="BerryView.java" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryView.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="-0.4832" vertical-offset="932" max-vertical-offset="4560">
+                    <caret line="57" column="58" selection-start-line="57" selection-start-column="58" selection-end-line="57" selection-end-column="58" />
+                    <folding>
+                      <element signature="method#setController#0;class#BerryView#0" expanded="false" />
+                      <element signature="class#3498:4470" expanded="false" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="Berries" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="LightningView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Lightning-Browser/src/acr/browser/lightning/LightningView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.785714" vertical-offset="960" max-vertical-offset="3090">
+              <caret line="148" column="44" selection-start-line="148" selection-start-column="44" selection-end-line="148" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#31668#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#1859#1891#0" expanded="false" />
+                <element signature="class#3426:4125" expanded="false" />
+                <element signature="e#3502#3545#0" expanded="false" />
+                <element signature="method#onTouch#0;class#3426:4125" expanded="false" />
+                <element signature="method#getHomepage#0;class#LightningView#0" expanded="false" />
+                <element signature="e#5666#5670#0" expanded="false" />
+                <element signature="e#5983#5987#0" expanded="false" />
+                <element signature="e#6792#6796#0" expanded="false" />
+                <element signature="e#7061#7065#0" expanded="false" />
+                <element signature="e#7559#7563#0" expanded="false" />
+                <element signature="e#8084#8116#0" expanded="false" />
+                <element signature="method#initializePreferences#0;class#LightningView#0" expanded="false" />
+                <element signature="e#11145#11177#0" expanded="false" />
+                <element signature="method#initializeSettings#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onPause#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onResume#0;class#LightningView#0" expanded="false" />
+                <element signature="method#setForegroundTab#0;class#LightningView#0" expanded="false" />
+                <element signature="method#getProgress#0;class#LightningView#0" expanded="false" />
+                <element signature="method#stopLoading#0;class#LightningView#0" expanded="false" />
+                <element signature="method#setColorMode#0;class#LightningView#0" expanded="false" />
+                <element signature="method#pauseTimers#0;class#LightningView#0" expanded="false" />
+                <element signature="method#resumeTimers#0;class#LightningView#0" expanded="false" />
+                <element signature="method#requestFocus#0;class#LightningView#0" expanded="false" />
+                <element signature="method#setVisibility#0;class#LightningView#0" expanded="false" />
+                <element signature="method#clearCache#0;class#LightningView#0" expanded="false" />
+                <element signature="method#reload#0;class#LightningView#0" expanded="false" />
+                <element signature="e#14884#14916#0" expanded="false" />
+                <element signature="method#find#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onDestroy#0;class#LightningView#0" expanded="false" />
+                <element signature="method#goBack#0;class#LightningView#0" expanded="false" />
+                <element signature="method#getUserAgent#0;class#LightningView#0" expanded="false" />
+                <element signature="method#goForward#0;class#LightningView#0" expanded="false" />
+                <element signature="method#loadUrl#0;class#LightningView#0" expanded="false" />
+                <element signature="method#invalidate#0;class#LightningView#0" expanded="false" />
+                <element signature="method#getUrl#0;class#LightningView#0" expanded="false" />
+                <element signature="method#shouldInterceptRequest#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+                <element signature="e#17753#17812#0" expanded="false" />
+                <element signature="method#onPageFinished#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onPageStarted#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onReceivedHttpAuthRequest#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+                <element signature="class#21570:21909" expanded="false" />
+                <element signature="method#onClick#0;class#21570:21909" expanded="false" />
+                <element signature="class#21991:22153" expanded="false" />
+                <element signature="method#onClick#0;class#21991:22153" expanded="false" />
+                <element signature="method#onScaleChanged#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onReceivedSslError#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+                <element signature="class#22796:22958" expanded="false" />
+                <element signature="class#23036:23197" expanded="false" />
+                <element signature="method#onFormResubmission#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+                <element signature="class#23801:23968" expanded="false" />
+                <element signature="method#onClick#0;class#23801:23968" expanded="false" />
+                <element signature="class#24046:24217" expanded="false" />
+                <element signature="method#onClick#0;class#24046:24217" expanded="false" />
+                <element signature="method#shouldOverrideUrlLoading#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+                <element signature="class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onProgressChanged#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onReceivedIcon#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onReceivedTitle#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onGeolocationPermissionsShowPrompt#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="class#26680:26864" expanded="false" />
+                <element signature="class#26950:27135" expanded="false" />
+                <element signature="method#onCreateWindow#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onCloseWindow#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#openFileChooser#1;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#openFileChooser#2;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onHideCustomView#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onShowCustomView#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="e#28396#28456#0" expanded="false" />
+                <element signature="e#29075#29084#0" expanded="false" />
+                <element signature="method#onShowCustomView#1;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="e#29205#29265#0" expanded="false" />
+                <element signature="class#Title#0;class#LightningView#0" expanded="false" />
+                <element signature="method#Title#0;class#Title#0;class#LightningView#0" expanded="false" />
+                <element signature="method#setFavicon#0;class#Title#0;class#LightningView#0" expanded="false" />
+                <element signature="method#setTitle#0;class#Title#0;class#LightningView#0" expanded="false" />
+                <element signature="method#setTitleAndFavicon#0;class#Title#0;class#LightningView#0" expanded="false" />
+                <element signature="class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
+                <element signature="docComment;field#mCanTriggerLongPress#0;class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onLongPress#0;class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
+                <element signature="docComment;method#onDoubleTapEvent#0;class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onDoubleTapEvent#0;class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
+                <element signature="docComment;method#onShowPress#0;class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PreferenceUnit.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/PreferenceUnit.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
+              <caret line="20" column="54" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BerryWebViewClient.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryWebViewClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.40308747" vertical-offset="140" max-vertical-offset="810">
+              <caret line="42" column="13" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#592#593#0" expanded="true" />
+                <element signature="e#628#629#0" expanded="true" />
+                <element signature="method#onScaleChanged#0;class#BerryWebViewClient#0" expanded="false" />
+                <element signature="method#shouldOverrideUrlLoading#0;class#BerryWebViewClient#0" expanded="false" />
+                <element signature="method#onFormResubmission#0;class#BerryWebViewClient#0" expanded="false" />
+                <element signature="method#onReceivedHttpAuthRequest#0;class#BerryWebViewClient#0" expanded="false" />
+                <element signature="method#onReceivedSslError#0;class#BerryWebViewClient#0" expanded="false" />
+                <element signature="method#shouldInterceptRequest#0;class#BerryWebViewClient#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -75,20 +224,18 @@
         <option value="$PROJECT_DIR$/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BrowserController.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/BerryUnit.java" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/PreferenceUnit.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryDownloadListener.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryGestureListener.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryWebChromeClient.java" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryWebViewClient.java" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/PreferenceUnit.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryView.java" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryWebViewClient.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2" />
-    <option name="y" value="-3" />
-    <option name="width" value="1370" />
-    <option name="height" value="748" />
+    <option name="width" value="683" />
+    <option name="height" value="741" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -474,8 +621,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="-3" width="1370" height="748" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="0" width="683" height="741" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -496,8 +643,8 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.5949764" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" x="873" y="70" width="366" height="630" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43492064" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.5949764" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" x="873" y="70" width="366" height="630" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43338683" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -632,6 +779,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -867,6 +1015,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.95637584" vertical-offset="0" max-vertical-offset="1140">
           <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -902,13 +1051,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.15100671" vertical-offset="0" max-vertical-offset="596">
           <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/PreferenceUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38593483" vertical-offset="0" max-vertical-offset="583">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -963,39 +1105,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4676617" vertical-offset="0" max-vertical-offset="4125">
-          <caret line="76" column="47" selection-start-line="76" selection-start-column="47" selection-end-line="76" selection-end-column="47" />
-          <folding>
-            <element signature="e#989#990#0" expanded="true" />
-            <element signature="e#1031#1032#0" expanded="true" />
-            <element signature="method#setController#0;class#BerryView#0" expanded="false" />
-            <element signature="class#3667:4639" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryWebViewClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27363184" vertical-offset="0" max-vertical-offset="750">
-          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#563#564#0" expanded="true" />
-            <element signature="e#599#600#0" expanded="true" />
-            <element signature="method#onPageStarted#0;class#BerryWebViewClient#0" expanded="false" />
-            <element signature="method#onPageFinished#0;class#BerryWebViewClient#0" expanded="false" />
-            <element signature="method#onScaleChanged#0;class#BerryWebViewClient#0" expanded="false" />
-            <element signature="method#shouldOverrideUrlLoading#0;class#BerryWebViewClient#0" expanded="false" />
-            <element signature="method#onFormResubmission#0;class#BerryWebViewClient#0" expanded="false" />
-            <element signature="method#onReceivedHttpAuthRequest#0;class#BerryWebViewClient#0" expanded="false" />
-            <element signature="method#onReceivedSslError#0;class#BerryWebViewClient#0" expanded="false" />
-            <element signature="method#shouldInterceptRequest#0;class#BerryWebViewClient#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryWebChromeClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.12437811" vertical-offset="0" max-vertical-offset="900">
@@ -1018,15 +1127,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.4832" vertical-offset="932" max-vertical-offset="4560">
+          <caret line="57" column="58" selection-start-line="57" selection-start-column="58" selection-end-line="57" selection-end-column="58" />
+          <folding>
+            <element signature="method#setController#0;class#BerryView#0" expanded="false" />
+            <element signature="class#3498:4470" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../Lightning-Browser/src/acr/browser/lightning/LightningView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3252174" vertical-offset="6743" max-vertical-offset="7320">
-          <caret line="1078" column="18" selection-start-line="1078" selection-start-column="18" selection-end-line="1078" selection-end-column="18" />
+        <state vertical-scroll-proportion="-11.785714" vertical-offset="960" max-vertical-offset="3090">
+          <caret line="148" column="44" selection-start-line="148" selection-start-column="44" selection-end-line="148" selection-end-column="44" />
           <folding>
             <element signature="e#0#31668#0" expanded="false" />
             <element signature="imports" expanded="false" />
             <element signature="e#1859#1891#0" expanded="false" />
+            <element signature="class#3426:4125" expanded="false" />
             <element signature="e#3502#3545#0" expanded="false" />
+            <element signature="method#onTouch#0;class#3426:4125" expanded="false" />
             <element signature="method#getHomepage#0;class#LightningView#0" expanded="false" />
             <element signature="e#5666#5670#0" expanded="false" />
             <element signature="e#5983#5987#0" expanded="false" />
@@ -1034,10 +1156,12 @@
             <element signature="e#7061#7065#0" expanded="false" />
             <element signature="e#7559#7563#0" expanded="false" />
             <element signature="e#8084#8116#0" expanded="false" />
+            <element signature="method#initializePreferences#0;class#LightningView#0" expanded="false" />
             <element signature="e#11145#11177#0" expanded="false" />
             <element signature="method#initializeSettings#0;class#LightningView#0" expanded="false" />
             <element signature="method#onPause#0;class#LightningView#0" expanded="false" />
             <element signature="method#onResume#0;class#LightningView#0" expanded="false" />
+            <element signature="method#setForegroundTab#0;class#LightningView#0" expanded="false" />
             <element signature="method#getProgress#0;class#LightningView#0" expanded="false" />
             <element signature="method#stopLoading#0;class#LightningView#0" expanded="false" />
             <element signature="method#setColorMode#0;class#LightningView#0" expanded="false" />
@@ -1058,34 +1182,77 @@
             <element signature="method#getUrl#0;class#LightningView#0" expanded="false" />
             <element signature="method#shouldInterceptRequest#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
             <element signature="e#17753#17812#0" expanded="false" />
+            <element signature="method#onPageFinished#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+            <element signature="method#onPageStarted#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
             <element signature="method#onReceivedHttpAuthRequest#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+            <element signature="class#21570:21909" expanded="false" />
+            <element signature="method#onClick#0;class#21570:21909" expanded="false" />
+            <element signature="class#21991:22153" expanded="false" />
+            <element signature="method#onClick#0;class#21991:22153" expanded="false" />
             <element signature="method#onScaleChanged#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
             <element signature="method#onReceivedSslError#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
-            <element signature="e#22910#22911#0" expanded="true" />
-            <element signature="e#22948#22949#0" expanded="true" />
-            <element signature="e#23150#23151#0" expanded="true" />
-            <element signature="e#23187#23188#0" expanded="true" />
+            <element signature="class#22796:22958" expanded="false" />
+            <element signature="class#23036:23197" expanded="false" />
             <element signature="method#onFormResubmission#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+            <element signature="class#23801:23968" expanded="false" />
+            <element signature="method#onClick#0;class#23801:23968" expanded="false" />
+            <element signature="class#24046:24217" expanded="false" />
+            <element signature="method#onClick#0;class#24046:24217" expanded="false" />
+            <element signature="method#shouldOverrideUrlLoading#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+            <element signature="class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+            <element signature="method#onProgressChanged#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+            <element signature="method#onReceivedIcon#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+            <element signature="method#onReceivedTitle#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
             <element signature="method#onGeolocationPermissionsShowPrompt#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
-            <element signature="e#26794#26795#0" expanded="true" />
-            <element signature="e#26854#26855#0" expanded="true" />
-            <element signature="e#27064#27065#0" expanded="true" />
-            <element signature="e#27125#27126#0" expanded="true" />
+            <element signature="class#26680:26864" expanded="false" />
+            <element signature="class#26950:27135" expanded="false" />
+            <element signature="method#onCreateWindow#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
             <element signature="method#onCloseWindow#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
-            <element signature="e#27604#27605#0" expanded="true" />
-            <element signature="e#27658#27659#0" expanded="true" />
+            <element signature="method#openFileChooser#1;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+            <element signature="method#openFileChooser#2;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+            <element signature="method#onHideCustomView#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+            <element signature="method#onShowCustomView#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
             <element signature="e#28396#28456#0" expanded="false" />
             <element signature="e#29075#29084#0" expanded="false" />
+            <element signature="method#onShowCustomView#1;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
             <element signature="e#29205#29265#0" expanded="false" />
             <element signature="class#Title#0;class#LightningView#0" expanded="false" />
             <element signature="method#Title#0;class#Title#0;class#LightningView#0" expanded="false" />
             <element signature="method#setFavicon#0;class#Title#0;class#LightningView#0" expanded="false" />
             <element signature="method#setTitle#0;class#Title#0;class#LightningView#0" expanded="false" />
             <element signature="method#setTitleAndFavicon#0;class#Title#0;class#LightningView#0" expanded="false" />
+            <element signature="class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
             <element signature="docComment;field#mCanTriggerLongPress#0;class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
+            <element signature="method#onLongPress#0;class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
             <element signature="docComment;method#onDoubleTapEvent#0;class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
             <element signature="method#onDoubleTapEvent#0;class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
             <element signature="docComment;method#onShowPress#0;class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/PreferenceUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
+          <caret line="20" column="54" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryWebViewClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40308747" vertical-offset="140" max-vertical-offset="810">
+          <caret line="42" column="13" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#592#593#0" expanded="true" />
+            <element signature="e#628#629#0" expanded="true" />
+            <element signature="method#onScaleChanged#0;class#BerryWebViewClient#0" expanded="false" />
+            <element signature="method#shouldOverrideUrlLoading#0;class#BerryWebViewClient#0" expanded="false" />
+            <element signature="method#onFormResubmission#0;class#BerryWebViewClient#0" expanded="false" />
+            <element signature="method#onReceivedHttpAuthRequest#0;class#BerryWebViewClient#0" expanded="false" />
+            <element signature="method#onReceivedSslError#0;class#BerryWebViewClient#0" expanded="false" />
+            <element signature="method#shouldInterceptRequest#0;class#BerryWebViewClient#0" expanded="false" />
           </folding>
         </state>
       </provider>

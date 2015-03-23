@@ -6,6 +6,7 @@ import android.net.http.SslError;
 import android.os.Message;
 import android.support.annotation.NonNull;
 import android.webkit.*;
+import android.widget.Toast;
 import io.github.mthli.Berries.Database.Record;
 
 public class BerryWebViewClient extends WebViewClient {

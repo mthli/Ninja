@@ -2,6 +2,8 @@ package io.github.mthli.Berries.Browser;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
+import android.support.annotation.NonNull;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,20 +24,8 @@ public class BerryView {
     public Record getRecord() {
         return record;
     }
-    public void setRecord(Record record) {
-        this.record = record;
-        this.webViewClient.setRecord(record);
-        this.webChromeClient.setRecord(record);
-    }
 
-    private boolean incognito;
-    public boolean isIncognito() {
-        return incognito;
-    }
-    public void setIncognito(boolean incognito) {
-        this.incognito = incognito;
-    }
-
+    // TODO
     private boolean foreground;
     public boolean isForeground() {
         return foreground;
@@ -44,6 +34,7 @@ public class BerryView {
         this.foreground = foreground;
     }
 
+    private AdBlock adBlock; // TODO
     private WebView webView;
     private WebSettings webSettings;
     private BerryWebViewClient webViewClient;
@@ -52,6 +43,7 @@ public class BerryView {
     private BerryGestureListener gestureListener;
     private GestureDetector gestureDetector;
 
+    // TODO
     private BrowserController controller;
     public BrowserController getController() {
         return controller;
@@ -63,10 +55,10 @@ public class BerryView {
         this.gestureListener.setController(controller);
     }
 
+    // TODO: Context must have getTheme() and some others.
     public BerryView(Context context, Record record) {
         this.context = context;
         this.record = record;
-        this.incognito = false;
         this.foreground = false;
 
         this.webView = new WebView(context);
@@ -82,6 +74,7 @@ public class BerryView {
         this.initWebView();
         this.initWebSettings();
         this.initPreferences();
+        this.loadUrl(record.getURL());
     }
 
     private synchronized void initWebView() {
@@ -159,7 +152,6 @@ public class BerryView {
         webSettings.setDatabaseEnabled(true);
         webSettings.setDomStorageEnabled(true);
 
-        // TODO: defaultFontSize();
         webSettings.setDefaultTextEncodingName(BrowserUnit.ENCODING);
 
         webSettings.setGeolocationDatabasePath(context.getFilesDir().toString());
@@ -176,11 +168,46 @@ public class BerryView {
 
         SharedPreferences sp = context.getSharedPreferences(PreferenceUnit.NAME, Context.MODE_PRIVATE);
 
+        webSettings.setBlockNetworkImage(
+                sp.getBoolean(PreferenceUnit.IMAGES, PreferenceUnit.IMAGES_DEFAULT)
+        );
+
+        webSettings.setGeolocationEnabled(
+                sp.getBoolean(PreferenceUnit.LOCATION, PreferenceUnit.LOCATION_DEFAULT)
+        );
+
+        if (sp.getBoolean(PreferenceUnit.TEXT_REFLOW, PreferenceUnit.TEXT_REFLOW_DEFAULT)) {
+            webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
+        } else {
+            webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NORMAL);
+        }
+
+        webSettings.setLoadWithOverviewMode(
+                sp.getBoolean(PreferenceUnit.OVERVIEW_MODE, PreferenceUnit.OVERVIEW_MODE_DEFAULT)
+        );
+
+        webSettings.setSaveFormData(
+                sp.getBoolean(PreferenceUnit.SAVE_PASSWORDS, PreferenceUnit.SAVE_PASSWORDS_DEFAULT)
+        );
+
+        webSettings.setSupportMultipleWindows(
+                sp.getBoolean(PreferenceUnit.MULTIPLE_WINDOWS, PreferenceUnit.MULTIPLE_WINDOWS_DEFAULT)
+        );
+
+        webSettings.setTextZoom(
+                sp.getInt(PreferenceUnit.TEXT_ZOOM, PreferenceUnit.TEXT_ZOOM_DEFAULT)
+        );
+
+        webSettings.setUseWideViewPort(
+                sp.getBoolean(PreferenceUnit.WIDE_VIEW_PORT, PreferenceUnit.WIDE_VIEW_PORT_DEFAULT)
+        );
     }
 
-    public synchronized void loadUrl(String url) {
-        if (webView != null) {
-            webView.loadUrl(url);
+    public synchronized void loadUrl(@NonNull String url) {
+        if (webView != null && !url.trim().isEmpty()) {
+            webView.loadUrl(url.trim());
         }
     }
 
