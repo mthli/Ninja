@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.webkit.*;
 import android.widget.Toast;
 import io.github.mthli.Berries.Database.Record;
+import io.github.mthli.Berries.Unit.BrowserUnit;
 
 public class BerryWebViewClient extends WebViewClient {
     private Context context;
@@ -42,6 +43,8 @@ public class BerryWebViewClient extends WebViewClient {
 
     @Override
     public void onPageFinished(WebView view, String url) {
+        controller.updateNotifiaction();
+
         // TODO
     }
 

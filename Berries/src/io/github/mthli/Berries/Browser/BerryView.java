@@ -25,7 +25,6 @@ public class BerryView {
         return record;
     }
 
-    // TODO
     private boolean foreground;
     public boolean isForeground() {
         return foreground;
@@ -43,7 +42,6 @@ public class BerryView {
     private BerryGestureListener gestureListener;
     private GestureDetector gestureDetector;
 
-    // TODO
     private BrowserController controller;
     public BrowserController getController() {
         return controller;
@@ -120,9 +118,9 @@ public class BerryView {
                     loction = y;
                 } else if (action == MotionEvent.ACTION_UP) {
                     if ((y - loction) > 10) {
-                        controller.showToolbar(true);
+                        controller.showToolbar();
                     } else if ((y - loction) < -10) {
-                        controller.showToolbar(false);
+                        controller.hideToolbar();
                     }
 
                     loction = 0;

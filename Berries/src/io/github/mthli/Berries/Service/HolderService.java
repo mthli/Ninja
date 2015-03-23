@@ -9,16 +9,15 @@ import android.widget.Toast;
 import io.github.mthli.Berries.Browser.BerryContainer;
 import io.github.mthli.Berries.Browser.BerryContextWrapper;
 import io.github.mthli.Berries.Browser.BerryView;
+import io.github.mthli.Berries.Browser.BrowserController;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
-import io.github.mthli.Berries.Unit.IntentUnit;
-import io.github.mthli.Berries.Unit.NotificationUnit;
-import io.github.mthli.Berries.Unit.PreferenceUnit;
-import io.github.mthli.Berries.Unit.RecordUnit;
+import io.github.mthli.Berries.Unit.*;
 
-public class HolderService extends Service {
+public class HolderService extends Service implements BrowserController {
     private BerryContextWrapper context;
-    private SharedPreferences sharedPreferences;
+
+    private SharedPreferences sp;
 
     @Override
     public void onCreate() {
@@ -26,7 +25,7 @@ public class HolderService extends Service {
 
         BerryContainer.clear();
         context = new BerryContextWrapper(this);
-        sharedPreferences = getSharedPreferences(PreferenceUnit.NAME, MODE_PRIVATE);
+        sp = getSharedPreferences(PreferenceUnit.NAME, MODE_PRIVATE);
     }
 
     @Override
@@ -42,13 +41,14 @@ public class HolderService extends Service {
         if (BerryContainer.size() < PreferenceUnit.LOAD_LIMIT_MAX_DEFAULT) {
             Record record = RecordUnit.get();
             BerryView view = new BerryView(context, record);
+            view.setController(this);
             BerryContainer.add(view);
         } else {
             Toast.makeText(this, R.string.toast_load_limit_max, Toast.LENGTH_SHORT).show();
         }
 
-        int priority = sharedPreferences.getInt(PreferenceUnit.NOTIFICATION_PRIORITY, PreferenceUnit.NOTIFICATION_PRIORITY_DEFAULT);
-        boolean sound = sharedPreferences.getBoolean(PreferenceUnit.NOTIFICATION_SOUND, PreferenceUnit.NOTIFICATION_SOUND_DEFAULT);
+        int priority = sp.getInt(PreferenceUnit.NOTIFICATION_PRIORITY, PreferenceUnit.NOTIFICATION_PRIORITY_DEFAULT);
+        boolean sound = sp.getBoolean(PreferenceUnit.NOTIFICATION_SOUND, PreferenceUnit.NOTIFICATION_SOUND_DEFAULT);
         Notification.Builder builder = NotificationUnit.getBuilder(this, BerryContainer.size(), 0, priority, sound); // TODO: 0
         Notification notification = builder.build();
         notification.flags = Notification.FLAG_FOREGROUND_SERVICE;
@@ -68,5 +68,40 @@ public class HolderService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         return null;
+    }
+
+    public void updateRecord(Record record) {}
+
+    public void updateProgress(int progress) {}
+
+    public void showToolbar() {}
+
+    public void hideToolbar() {}
+
+    public void onLongPress() {}
+
+    public boolean isToolbarShowing() {
+        return false;
+    }
+
+    public boolean isIncognito() {
+        return sp.getBoolean(PreferenceUnit.INCOGNITO, PreferenceUnit.INCOGNITO_DEFAULT);
+    }
+
+    public void updateNotifiaction() {
+        int done = 0;
+
+        for (BerryView view : BerryContainer.list()) {
+            if (view.getProgress() >= BrowserUnit.PROGRESS_MAX) {
+                done++;
+            }
+        }
+
+        int priority = sp.getInt(PreferenceUnit.NOTIFICATION_PRIORITY, PreferenceUnit.NOTIFICATION_PRIORITY_DEFAULT);
+        boolean sound = sp.getBoolean(PreferenceUnit.NOTIFICATION_SOUND, PreferenceUnit.NOTIFICATION_SOUND_DEFAULT);
+        Notification.Builder builder = NotificationUnit.getBuilder(this, BerryContainer.size(), done, priority, sound); // TODO: 0
+        Notification notification = builder.build();
+        notification.flags = Notification.FLAG_FOREGROUND_SERVICE;
+        startForeground(NotificationUnit.ID, notification);
     }
 }

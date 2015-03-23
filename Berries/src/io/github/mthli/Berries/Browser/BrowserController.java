@@ -3,13 +3,15 @@ package io.github.mthli.Berries.Browser;
 import io.github.mthli.Berries.Database.Record;
 
 public interface BrowserController {
-    public void updateTitle(Record record);
-
-    public void updateURL(Record record);
+    public void updateRecord(Record record);
 
     public void updateProgress(int progress);
 
-    public void showToolbar(boolean show);
+    public void updateNotifiaction();
+
+    public void showToolbar();
+
+    public void hideToolbar();
 
     public boolean isToolbarShowing();
 
