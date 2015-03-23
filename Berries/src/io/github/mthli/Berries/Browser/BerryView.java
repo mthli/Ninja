@@ -22,10 +22,18 @@ public class BerryView {
     public Record getRecord() {
         return record;
     }
+    public void setRecord(Record record) {
+        this.record = record;
+        this.webViewClient.setRecord(record);
+        this.webChromeClient.setRecord(record);
+    }
 
     private boolean incognito;
     public boolean isIncognito() {
         return incognito;
+    }
+    public void setIncognito(boolean incognito) {
+        this.incognito = incognito;
     }
 
     private boolean foreground;
@@ -36,21 +44,41 @@ public class BerryView {
         this.foreground = foreground;
     }
 
-    private BrowserController controller;
-    private GestureDetector detector;
-
     private WebView webView;
     private WebSettings webSettings;
+    private BerryWebViewClient webViewClient;
+    private BerryWebChromeClient webChromeClient;
+    private BerryDownloadListener downloadListener;
+    private BerryGestureListener gestureListener;
+    private GestureDetector gestureDetector;
+
+    private BrowserController controller;
+    public BrowserController getController() {
+        return controller;
+    }
+    public void setController(BrowserController controller) {
+        this.controller = controller;
+        this.webViewClient.setController(controller);
+        this.webChromeClient.setController(controller);
+        this.gestureListener.setController(controller);
+    }
 
     public BerryView(Context context, Record record) {
         this.context = context;
         this.record = record;
-
-        // TODO: controller
-        detector = new GestureDetector(context, new BerryGestureListener(controller));
+        this.incognito = false;
+        this.foreground = false;
 
         this.webView = new WebView(context);
         this.webSettings = webView.getSettings();
+        this.webViewClient = new BerryWebViewClient(context);
+        this.webViewClient.setRecord(record);
+        this.webChromeClient = new BerryWebChromeClient(context);
+        this.webChromeClient.setRecord(record);
+        this.downloadListener = new BerryDownloadListener(context);
+        this.gestureListener = new BerryGestureListener();
+        this.gestureDetector = new GestureDetector(context, gestureListener);
+
         this.initWebView();
         this.initWebSettings();
         this.initPreferences();
@@ -79,8 +107,8 @@ public class BerryView {
 
         webView.setWillNotCacheDrawing(false);
 
-        webView.setWebViewClient(new BerryWebViewClient(context));
-        webView.setWebChromeClient(new BerryWebChromeClient(context));
+        webView.setWebViewClient(webViewClient);
+        webView.setWebChromeClient(webChromeClient);
         webView.setDownloadListener(new BerryDownloadListener(context));
         webView.setOnTouchListener(new View.OnTouchListener() {
             private int action;
@@ -107,7 +135,7 @@ public class BerryView {
                     loction = 0;
                 }
 
-                detector.onTouchEvent(motionEvent);
+                gestureDetector.onTouchEvent(motionEvent);
 
                 return false;
             }

@@ -4,13 +4,13 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 
 public class BerryGestureListener extends GestureDetector.SimpleOnGestureListener {
-    private BrowserController controller;
-
     private boolean longPress = true;
 
-    public BerryGestureListener(BrowserController controller) {
-        super();
-
+    private BrowserController controller;
+    public BrowserController getController() {
+        return controller;
+    }
+    public void setController(BrowserController controller) {
         this.controller = controller;
     }
 
@@ -24,7 +24,6 @@ public class BerryGestureListener extends GestureDetector.SimpleOnGestureListene
     @Override
     public boolean onDoubleTapEvent(MotionEvent e) {
         longPress = false;
-
         return false;
     }
 

@@ -8,7 +8,6 @@ public class BerryDownloadListener implements DownloadListener {
 
     public BerryDownloadListener(Context context) {
         super();
-
         this.context = context;
     }
 
