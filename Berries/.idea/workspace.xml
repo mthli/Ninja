@@ -35,44 +35,142 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
+  <component name="DockManager">
+    <window id="3">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="BerryView.java" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryView.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="0.504" vertical-offset="1485" max-vertical-offset="4050">
+                    <caret line="149" column="0" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+                    <folding>
+                      <element signature="e#548#549#0" expanded="true" />
+                      <element signature="e#578#579#0" expanded="true" />
+                      <element signature="e#638#639#0" expanded="true" />
+                      <element signature="e#667#668#0" expanded="true" />
+                      <element signature="e#734#735#0" expanded="true" />
+                      <element signature="e#766#767#0" expanded="true" />
+                      <element signature="e#835#836#0" expanded="true" />
+                      <element signature="e#868#869#0" expanded="true" />
+                      <element signature="e#920#921#0" expanded="true" />
+                      <element signature="e#964#965#0" expanded="true" />
+                      <element signature="class#2504:3469" expanded="false" />
+                      <element signature="e#5948#5949#0" expanded="true" />
+                      <element signature="e#6007#6008#0" expanded="true" />
+                      <element signature="e#6986#6987#0" expanded="true" />
+                      <element signature="e#7047#7048#0" expanded="true" />
+                      <element signature="e#7084#7085#0" expanded="true" />
+                      <element signature="e#7148#7149#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="Berries" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="HolderService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Service/HolderService.java">
+      <file leaf-file-name="LightningView.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../Lightning-Browser/src/acr/browser/lightning/LightningView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="237" max-vertical-offset="1155">
-              <caret line="34" column="65" selection-start-line="34" selection-start-column="65" selection-end-line="34" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NotificationUnit.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/NotificationUnit.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="558" max-vertical-offset="1035">
-              <caret line="46" column="36" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
+            <state vertical-scroll-proportion="1.1080618" vertical-offset="734" max-vertical-offset="3180">
+              <caret line="314" column="35" selection-start-line="314" selection-start-column="35" selection-end-line="314" selection-end-column="35" />
               <folding>
-                <element signature="e#697#733#0" expanded="true" />
-                <element signature="e#869#925#0" expanded="true" />
-                <element signature="e#1213#1270#0" expanded="true" />
-                <element signature="e#1799#1851#0" expanded="true" />
-                <element signature="e#1930#1982#0" expanded="true" />
+                <element signature="e#0#31668#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#1859#1891#0" expanded="false" />
+                <element signature="method#LightningView#0;class#LightningView#0" expanded="false" />
+                <element signature="class#3426:4125" expanded="false" />
+                <element signature="e#3502#3545#0" expanded="false" />
+                <element signature="method#onTouch#0;class#3426:4125" expanded="false" />
+                <element signature="method#getHomepage#0;class#LightningView#0" expanded="false" />
+                <element signature="e#5666#5670#0" expanded="false" />
+                <element signature="e#5983#5987#0" expanded="false" />
+                <element signature="e#6792#6796#0" expanded="false" />
+                <element signature="e#7061#7065#0" expanded="false" />
+                <element signature="e#7559#7563#0" expanded="false" />
+                <element signature="e#8084#8116#0" expanded="false" />
+                <element signature="e#11145#11177#0" expanded="false" />
+                <element signature="method#initializeSettings#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onPause#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onResume#0;class#LightningView#0" expanded="false" />
+                <element signature="method#setForegroundTab#0;class#LightningView#0" expanded="false" />
+                <element signature="method#getProgress#0;class#LightningView#0" expanded="false" />
+                <element signature="method#stopLoading#0;class#LightningView#0" expanded="false" />
+                <element signature="method#setColorMode#0;class#LightningView#0" expanded="false" />
+                <element signature="method#pauseTimers#0;class#LightningView#0" expanded="false" />
+                <element signature="method#resumeTimers#0;class#LightningView#0" expanded="false" />
+                <element signature="method#requestFocus#0;class#LightningView#0" expanded="false" />
+                <element signature="method#setVisibility#0;class#LightningView#0" expanded="false" />
+                <element signature="method#clearCache#0;class#LightningView#0" expanded="false" />
+                <element signature="method#reload#0;class#LightningView#0" expanded="false" />
+                <element signature="e#14884#14916#0" expanded="false" />
+                <element signature="method#find#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onDestroy#0;class#LightningView#0" expanded="false" />
+                <element signature="method#goBack#0;class#LightningView#0" expanded="false" />
+                <element signature="method#getUserAgent#0;class#LightningView#0" expanded="false" />
+                <element signature="method#goForward#0;class#LightningView#0" expanded="false" />
+                <element signature="method#loadUrl#0;class#LightningView#0" expanded="false" />
+                <element signature="method#invalidate#0;class#LightningView#0" expanded="false" />
+                <element signature="method#getUrl#0;class#LightningView#0" expanded="false" />
+                <element signature="class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#shouldInterceptRequest#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+                <element signature="e#17753#17812#0" expanded="false" />
+                <element signature="method#onPageFinished#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onPageStarted#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onReceivedHttpAuthRequest#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+                <element signature="class#21570:21909" expanded="false" />
+                <element signature="method#onClick#0;class#21570:21909" expanded="false" />
+                <element signature="class#21991:22153" expanded="false" />
+                <element signature="method#onClick#0;class#21991:22153" expanded="false" />
+                <element signature="method#onScaleChanged#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onReceivedSslError#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+                <element signature="class#22796:22958" expanded="false" />
+                <element signature="class#23036:23197" expanded="false" />
+                <element signature="method#onFormResubmission#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+                <element signature="class#23801:23968" expanded="false" />
+                <element signature="method#onClick#0;class#23801:23968" expanded="false" />
+                <element signature="class#24046:24217" expanded="false" />
+                <element signature="method#onClick#0;class#24046:24217" expanded="false" />
+                <element signature="method#shouldOverrideUrlLoading#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+                <element signature="class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onProgressChanged#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onReceivedIcon#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onReceivedTitle#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onGeolocationPermissionsShowPrompt#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="class#26680:26864" expanded="false" />
+                <element signature="class#26950:27135" expanded="false" />
+                <element signature="method#onCreateWindow#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onCloseWindow#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#openFileChooser#1;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#openFileChooser#2;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onHideCustomView#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onShowCustomView#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="e#28396#28456#0" expanded="false" />
+                <element signature="e#29075#29084#0" expanded="false" />
+                <element signature="method#onShowCustomView#1;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+                <element signature="e#29205#29265#0" expanded="false" />
+                <element signature="class#Title#0;class#LightningView#0" expanded="false" />
+                <element signature="method#Title#0;class#Title#0;class#LightningView#0" expanded="false" />
+                <element signature="method#setFavicon#0;class#Title#0;class#LightningView#0" expanded="false" />
+                <element signature="method#setTitle#0;class#Title#0;class#LightningView#0" expanded="false" />
+                <element signature="method#setTitleAndFavicon#0;class#Title#0;class#LightningView#0" expanded="false" />
+                <element signature="class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
+                <element signature="docComment;field#mCanTriggerLongPress#0;class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onLongPress#0;class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
+                <element signature="docComment;method#onDoubleTapEvent#0;class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
+                <element signature="method#onDoubleTapEvent#0;class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
+                <element signature="docComment;method#onShowPress#0;class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="R.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/gen/io/github/mthli/Berries/R.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.10067114" vertical-offset="0" max-vertical-offset="596">
-              <caret line="4" column="91" selection-start-line="4" selection-start-column="91" selection-end-line="4" selection-end-column="91" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -85,34 +183,37 @@
         <option value="$PROJECT_DIR$/res/values/string_app.xml" />
         <option value="$PROJECT_DIR$/res/values/strings_app.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/MainActivity.java" />
-        <option value="$PROJECT_DIR$/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/res/layout/holder.xml" />
         <option value="$PROJECT_DIR$/res/values/strings_sp.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/MainActivity.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryContext.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/AdBlock.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/BrowserActivity.java" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BrowserController.java" />
         <option value="$PROJECT_DIR$/res/values/strings_intent.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryContextWrapper.java" />
         <option value="$PROJECT_DIR$/res/values/shared_preferences.xml" />
         <option value="$PROJECT_DIR$/res/values/intents.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/HolderActivity.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryContainer.java" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryView.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/res/values/themes.xml" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/PreferenceUnit.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/RecordUnit.java" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Service/HolderService.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/IntentUnit.java" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/NotificationUnit.java" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Service/HolderService.java" />
+        <option value="$PROJECT_DIR$/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryDownloadListener.java" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BrowserController.java" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryGestureListener.java" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/BerryUnit.java" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/PreferenceUnit.java" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryView.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1366" />
+    <option name="width" value="683" />
     <option name="height" value="741" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -138,7 +239,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -196,10 +296,6 @@
               <option name="myItemId" value="Berries" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -218,6 +314,10 @@
               <option name="myItemId" value="Berries" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Browser" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -229,17 +329,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gen" />
+              <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Berries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Berries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -254,7 +369,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lightning-Browser/src/acr/browser/lightning/IntentUtils.java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lightning-Browser/src/acr/browser/lightning/BrowserController.java" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -316,6 +431,19 @@
       </ExternalSystemSettings>
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -342,19 +470,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -450,7 +565,7 @@
     </option>
   </component>
   <component name="StructureViewFactory">
-    <option name="ACTIVE_ACTIONS" value=",SHOW_INHERITED,ALPHA_COMPARATOR" />
+    <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -485,7 +600,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="741" extended-state="4" />
+    <frame x="0" y="0" width="683" height="741" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -495,58 +610,28 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32905295" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" x="144" y="154" width="872" height="464" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905295" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32102728" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32857144" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" x="240" y="147" width="1086" height="542" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32857144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5181818" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51648355" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.5949764" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" x="873" y="70" width="366" height="630" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.434992" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.434992" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3258427" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905295" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32857144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.5949764" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" x="873" y="70" width="366" height="630" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.434992" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32905295" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" x="144" y="154" width="872" height="464" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3258427" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32102728" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32857144" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" x="240" y="147" width="1086" height="542" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5181818" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
+    </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -698,20 +783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryWebChromeClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5135136" vertical-offset="957" max-vertical-offset="1290">
-          <caret line="8" column="59" selection-start-line="8" selection-start-column="59" selection-end-line="8" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryWebViewClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.162162" vertical-offset="0" max-vertical-offset="930">
-          <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Lightning-Browser/src/acr/browser/lightning/AdBlock.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.5471698" vertical-offset="902" max-vertical-offset="1485">
@@ -733,24 +804,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Lightning-Browser/src/acr/browser/lightning/BrowserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.912" vertical-offset="0" max-vertical-offset="900">
-          <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Lightning-Browser/src/acr/browser/lightning/IntentUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1680">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Lightning-Browser/src/acr/browser/lightning/LightningView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4087102" vertical-offset="401" max-vertical-offset="6285">
-          <caret line="75" column="33" selection-start-line="75" selection-start-column="33" selection-end-line="75" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -762,13 +819,6 @@
             <element signature="e#485#486#0" expanded="false" />
             <element signature="e#526#527#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BrowserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6530612" vertical-offset="1" max-vertical-offset="345">
-          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -786,13 +836,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.86890244" vertical-offset="45" max-vertical-offset="435">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/HolderActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20134228" vertical-offset="0" max-vertical-offset="1095">
@@ -804,22 +847,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.05033557" vertical-offset="0" max-vertical-offset="596">
           <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45302013" vertical-offset="0" max-vertical-offset="596">
-          <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44630873" vertical-offset="154" max-vertical-offset="2085">
-          <caret line="38" column="29" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -845,14 +872,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/PreferenceUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27684563" vertical-offset="0" max-vertical-offset="596">
-          <caret line="11" column="66" selection-start-line="11" selection-start-column="66" selection-end-line="11" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/RecordUnit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5033557" vertical-offset="0" max-vertical-offset="596">
@@ -868,14 +887,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/IntentUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07550336" vertical-offset="0" max-vertical-offset="596">
-          <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36777583" vertical-offset="0" max-vertical-offset="571">
@@ -884,33 +895,255 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Service/HolderService.java">
+    <entry file="file://$PROJECT_DIR$/gen/io/github/mthli/Berries/R.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="237" max-vertical-offset="1155">
-          <caret line="34" column="65" selection-start-line="34" selection-start-column="65" selection-end-line="34" selection-end-column="65" />
+        <state vertical-scroll-proportion="0.15100671" vertical-offset="0" max-vertical-offset="596">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/NotificationUnit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="558" max-vertical-offset="1035">
+        <state vertical-scroll-proportion="0.42114094" vertical-offset="439" max-vertical-offset="1035">
           <caret line="46" column="36" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
           <folding>
-            <element signature="e#697#733#0" expanded="true" />
-            <element signature="e#869#925#0" expanded="true" />
-            <element signature="e#1213#1270#0" expanded="true" />
-            <element signature="e#1799#1851#0" expanded="true" />
-            <element signature="e#1930#1982#0" expanded="true" />
+            <element signature="e#697#733#0" expanded="false" />
+            <element signature="e#869#925#0" expanded="false" />
+            <element signature="e#1213#1270#0" expanded="false" />
+            <element signature="e#1799#1851#0" expanded="false" />
+            <element signature="e#1930#1982#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gen/io/github/mthli/Berries/R.java">
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryContainer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10067114" vertical-offset="0" max-vertical-offset="596">
-          <caret line="4" column="91" selection-start-line="4" selection-start-column="91" selection-end-line="4" selection-end-column="91" />
+        <state vertical-scroll-proportion="0.57214767" vertical-offset="34" max-vertical-offset="630">
+          <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+          <folding>
+            <element signature="e#734#735#0" expanded="true" />
+            <element signature="e#768#769#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Service/HolderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.95637584" vertical-offset="0" max-vertical-offset="1140">
+          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryWebViewClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2080537" vertical-offset="0" max-vertical-offset="930">
+          <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryWebChromeClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.057047" vertical-offset="0" max-vertical-offset="1290">
+          <caret line="44" column="61" selection-start-line="44" selection-start-column="61" selection-end-line="44" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Lightning-Browser/src/acr/browser/lightning/BrowserActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5128645" vertical-offset="26311" max-vertical-offset="32910">
+          <caret line="1905" column="9" selection-start-line="1905" selection-start-column="9" selection-end-line="1905" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryDownloadListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24875621" vertical-offset="0" max-vertical-offset="603">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryGestureListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45273632" vertical-offset="12" max-vertical-offset="615">
+          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+          <folding>
+            <element signature="e#708#709#0" expanded="true" />
+            <element signature="e#740#741#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Lightning-Browser/src/acr/browser/lightning/BrowserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15422885" vertical-offset="297" max-vertical-offset="900">
+          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BrowserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27363184" vertical-offset="0" max-vertical-offset="603">
+          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/IntentUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07550336" vertical-offset="0" max-vertical-offset="596">
+          <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.504" vertical-offset="1485" max-vertical-offset="4050">
+          <caret line="149" column="0" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+          <folding>
+            <element signature="e#548#549#0" expanded="true" />
+            <element signature="e#578#579#0" expanded="true" />
+            <element signature="e#638#639#0" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
+            <element signature="e#734#735#0" expanded="true" />
+            <element signature="e#766#767#0" expanded="true" />
+            <element signature="e#835#836#0" expanded="true" />
+            <element signature="e#868#869#0" expanded="true" />
+            <element signature="e#920#921#0" expanded="true" />
+            <element signature="e#964#965#0" expanded="true" />
+            <element signature="class#2504:3469" expanded="false" />
+            <element signature="e#5948#5949#0" expanded="true" />
+            <element signature="e#6007#6008#0" expanded="true" />
+            <element signature="e#6986#6987#0" expanded="true" />
+            <element signature="e#7047#7048#0" expanded="true" />
+            <element signature="e#7084#7085#0" expanded="true" />
+            <element signature="e#7148#7149#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/BrowserUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15100671" vertical-offset="0" max-vertical-offset="596">
+          <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/PreferenceUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38593483" vertical-offset="0" max-vertical-offset="583">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Lightning-Browser/src/acr/browser/lightning/LightningView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1080618" vertical-offset="734" max-vertical-offset="3180">
+          <caret line="314" column="35" selection-start-line="314" selection-start-column="35" selection-end-line="314" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#31668#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1859#1891#0" expanded="false" />
+            <element signature="method#LightningView#0;class#LightningView#0" expanded="false" />
+            <element signature="class#3426:4125" expanded="false" />
+            <element signature="e#3502#3545#0" expanded="false" />
+            <element signature="method#onTouch#0;class#3426:4125" expanded="false" />
+            <element signature="method#getHomepage#0;class#LightningView#0" expanded="false" />
+            <element signature="e#5666#5670#0" expanded="false" />
+            <element signature="e#5983#5987#0" expanded="false" />
+            <element signature="e#6792#6796#0" expanded="false" />
+            <element signature="e#7061#7065#0" expanded="false" />
+            <element signature="e#7559#7563#0" expanded="false" />
+            <element signature="e#8084#8116#0" expanded="false" />
+            <element signature="e#11145#11177#0" expanded="false" />
+            <element signature="method#initializeSettings#0;class#LightningView#0" expanded="false" />
+            <element signature="method#onPause#0;class#LightningView#0" expanded="false" />
+            <element signature="method#onResume#0;class#LightningView#0" expanded="false" />
+            <element signature="method#setForegroundTab#0;class#LightningView#0" expanded="false" />
+            <element signature="method#getProgress#0;class#LightningView#0" expanded="false" />
+            <element signature="method#stopLoading#0;class#LightningView#0" expanded="false" />
+            <element signature="method#setColorMode#0;class#LightningView#0" expanded="false" />
+            <element signature="method#pauseTimers#0;class#LightningView#0" expanded="false" />
+            <element signature="method#resumeTimers#0;class#LightningView#0" expanded="false" />
+            <element signature="method#requestFocus#0;class#LightningView#0" expanded="false" />
+            <element signature="method#setVisibility#0;class#LightningView#0" expanded="false" />
+            <element signature="method#clearCache#0;class#LightningView#0" expanded="false" />
+            <element signature="method#reload#0;class#LightningView#0" expanded="false" />
+            <element signature="e#14884#14916#0" expanded="false" />
+            <element signature="method#find#0;class#LightningView#0" expanded="false" />
+            <element signature="method#onDestroy#0;class#LightningView#0" expanded="false" />
+            <element signature="method#goBack#0;class#LightningView#0" expanded="false" />
+            <element signature="method#getUserAgent#0;class#LightningView#0" expanded="false" />
+            <element signature="method#goForward#0;class#LightningView#0" expanded="false" />
+            <element signature="method#loadUrl#0;class#LightningView#0" expanded="false" />
+            <element signature="method#invalidate#0;class#LightningView#0" expanded="false" />
+            <element signature="method#getUrl#0;class#LightningView#0" expanded="false" />
+            <element signature="class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+            <element signature="method#shouldInterceptRequest#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+            <element signature="e#17753#17812#0" expanded="false" />
+            <element signature="method#onPageFinished#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+            <element signature="method#onPageStarted#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+            <element signature="method#onReceivedHttpAuthRequest#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+            <element signature="class#21570:21909" expanded="false" />
+            <element signature="method#onClick#0;class#21570:21909" expanded="false" />
+            <element signature="class#21991:22153" expanded="false" />
+            <element signature="method#onClick#0;class#21991:22153" expanded="false" />
+            <element signature="method#onScaleChanged#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+            <element signature="method#onReceivedSslError#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+            <element signature="class#22796:22958" expanded="false" />
+            <element signature="class#23036:23197" expanded="false" />
+            <element signature="method#onFormResubmission#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+            <element signature="class#23801:23968" expanded="false" />
+            <element signature="method#onClick#0;class#23801:23968" expanded="false" />
+            <element signature="class#24046:24217" expanded="false" />
+            <element signature="method#onClick#0;class#24046:24217" expanded="false" />
+            <element signature="method#shouldOverrideUrlLoading#0;class#LightningWebClient#0;class#LightningView#0" expanded="false" />
+            <element signature="class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+            <element signature="method#onProgressChanged#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+            <element signature="method#onReceivedIcon#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+            <element signature="method#onReceivedTitle#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+            <element signature="method#onGeolocationPermissionsShowPrompt#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+            <element signature="class#26680:26864" expanded="false" />
+            <element signature="class#26950:27135" expanded="false" />
+            <element signature="method#onCreateWindow#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+            <element signature="method#onCloseWindow#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+            <element signature="method#openFileChooser#1;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+            <element signature="method#openFileChooser#2;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+            <element signature="method#onHideCustomView#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+            <element signature="method#onShowCustomView#0;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+            <element signature="e#28396#28456#0" expanded="false" />
+            <element signature="e#29075#29084#0" expanded="false" />
+            <element signature="method#onShowCustomView#1;class#LightningChromeClient#0;class#LightningView#0" expanded="false" />
+            <element signature="e#29205#29265#0" expanded="false" />
+            <element signature="class#Title#0;class#LightningView#0" expanded="false" />
+            <element signature="method#Title#0;class#Title#0;class#LightningView#0" expanded="false" />
+            <element signature="method#setFavicon#0;class#Title#0;class#LightningView#0" expanded="false" />
+            <element signature="method#setTitle#0;class#Title#0;class#LightningView#0" expanded="false" />
+            <element signature="method#setTitleAndFavicon#0;class#Title#0;class#LightningView#0" expanded="false" />
+            <element signature="class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
+            <element signature="docComment;field#mCanTriggerLongPress#0;class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
+            <element signature="method#onLongPress#0;class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
+            <element signature="docComment;method#onDoubleTapEvent#0;class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
+            <element signature="method#onDoubleTapEvent#0;class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
+            <element signature="docComment;method#onShowPress#0;class#CustomGestureListener#0;class#LightningView#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

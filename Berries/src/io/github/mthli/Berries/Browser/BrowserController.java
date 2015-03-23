@@ -14,4 +14,6 @@ public interface BrowserController {
     public boolean isToolbarShowing();
 
     public boolean isIncognito();
+
+    public void onLongPress();
 }

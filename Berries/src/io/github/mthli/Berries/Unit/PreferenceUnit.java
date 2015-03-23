@@ -11,6 +11,9 @@ public class PreferenceUnit {
     public static final String ENABLE_DOUBLE_TAPS = "ENABLE_DOUBLE_TAPS";
     public static final boolean ENABLE_DOUBLE_TAPS_DEFAULT = true;
 
+    public static final String FONT_SIZE = "FONT_SIZE";
+    public static final int FONT_SIZE_DEFAULT = 16;
+
     public static final String INCOGNITO = "INCOGNITO";
     public static final boolean INCOGNITO_DEFAULT = false;
 

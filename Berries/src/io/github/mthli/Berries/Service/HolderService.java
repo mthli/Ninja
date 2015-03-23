@@ -34,8 +34,7 @@ public class HolderService extends Service {
         try {
             if (intent.getExtras().getBoolean(IntentUnit.LIST)) {
                 // TODO
-            }
-            if (intent.getExtras().getBoolean(IntentUnit.QUIT)) {
+            } else if (intent.getExtras().getBoolean(IntentUnit.QUIT)) {
                 this.stopSelf();
             }
         } catch (NullPointerException n) {}
