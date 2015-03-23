@@ -32,6 +32,9 @@ public class HolderService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         try {
+            if (intent.getExtras().getBoolean(IntentUnit.LIST)) {
+                // TODO
+            }
             if (intent.getExtras().getBoolean(IntentUnit.QUIT)) {
                 this.stopSelf();
             }

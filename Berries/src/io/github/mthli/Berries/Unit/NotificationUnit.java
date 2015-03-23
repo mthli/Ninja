@@ -38,13 +38,13 @@ public class NotificationUnit {
             }
         }
 
-        // TODO
-        builder.addAction(R.drawable.ic_action_edit, context.getString(R.string.notification_action_edit), null);
-
         Intent toService = new Intent(context, HolderService.class);
         toService.putExtra(IntentUnit.QUIT, true);
         PendingIntent quit = PendingIntent.getService(context, 0, toService, 0);
         builder.addAction(R.drawable.ic_action_quit, context.getString(R.string.notification_action_quit), quit);
+
+        // TODO
+        builder.addAction(R.drawable.ic_action_list, context.getString(R.string.notification_action_list), null);
 
         return builder;
     }
