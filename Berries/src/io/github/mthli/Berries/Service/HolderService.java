@@ -17,15 +17,12 @@ import io.github.mthli.Berries.Unit.*;
 public class HolderService extends Service implements BrowserController {
     private BerryContextWrapper context;
 
-    private SharedPreferences sp;
-
     @Override
     public void onCreate() {
         super.onCreate();
 
         BerryContainer.clear();
         context = new BerryContextWrapper(this);
-        sp = getSharedPreferences(PreferenceUnit.NAME, MODE_PRIVATE);
     }
 
     @Override
@@ -80,21 +77,12 @@ public class HolderService extends Service implements BrowserController {
     }
 
     public boolean isIncognito() {
+        SharedPreferences sp = getSharedPreferences(PreferenceUnit.NAME, MODE_PRIVATE);
         return sp.getBoolean(PreferenceUnit.INCOGNITO, PreferenceUnit.INCOGNITO_DEFAULT);
     }
 
     public void updateNotification() {
-        int done = 0;
-
-        for (BerryView view : BerryContainer.list()) {
-            if (view.isFinish()) {
-                done++;
-            }
-        }
-
-        int priority = sp.getInt(PreferenceUnit.NOTIFICATION_PRIORITY, PreferenceUnit.NOTIFICATION_PRIORITY_DEFAULT);
-        boolean sound = sp.getBoolean(PreferenceUnit.NOTIFICATION_SOUND, PreferenceUnit.NOTIFICATION_SOUND_DEFAULT);
-        Notification.Builder builder = NotificationUnit.getBuilder(this, BerryContainer.size(), done, priority, sound);
+        Notification.Builder builder = NotificationUnit.getBuilder(this);
         Notification notification = builder.build();
         notification.flags = Notification.FLAG_FOREGROUND_SERVICE;
         startForeground(NotificationUnit.ID, notification);

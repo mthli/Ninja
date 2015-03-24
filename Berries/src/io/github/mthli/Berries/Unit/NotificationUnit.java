@@ -5,14 +5,29 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
+import io.github.mthli.Berries.Browser.BerryContainer;
+import io.github.mthli.Berries.Browser.BerryView;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Service.HolderService;
 
 public class NotificationUnit {
     public static final int ID = 0x65536;
 
-    public static Notification.Builder getBuilder(Context context, int total, int done, int priority, boolean sound) {
+    public static Notification.Builder getBuilder(Context context) {
+        SharedPreferences sp = context.getSharedPreferences(PreferenceUnit.NAME, Context.MODE_PRIVATE);
+        int priority = sp.getInt(PreferenceUnit.NOTIFICATION_PRIORITY, PreferenceUnit.NOTIFICATION_PRIORITY_DEFAULT);
+        boolean sound = sp.getBoolean(PreferenceUnit.NOTIFICATION_SOUND, PreferenceUnit.NOTIFICATION_SOUND_DEFAULT);
+
+        int done = 0;
+        for (BerryView view : BerryContainer.list()) {
+            if (view.isFinish()) {
+                done++;
+            }
+        }
+        int total = BerryContainer.size();
+
         Notification.Builder builder = new Notification.Builder(context);
         builder.setNumber(total);
         builder.setPriority(priority);
