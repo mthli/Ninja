@@ -47,12 +47,7 @@ public class HolderService extends Service implements BrowserController {
             Toast.makeText(this, R.string.toast_load_limit_max, Toast.LENGTH_SHORT).show();
         }
 
-        int priority = sp.getInt(PreferenceUnit.NOTIFICATION_PRIORITY, PreferenceUnit.NOTIFICATION_PRIORITY_DEFAULT);
-        boolean sound = sp.getBoolean(PreferenceUnit.NOTIFICATION_SOUND, PreferenceUnit.NOTIFICATION_SOUND_DEFAULT);
-        Notification.Builder builder = NotificationUnit.getBuilder(this, BerryContainer.size(), 0, priority, sound); // TODO: 0
-        Notification notification = builder.build();
-        notification.flags = Notification.FLAG_FOREGROUND_SERVICE;
-        startForeground(NotificationUnit.ID, notification);
+        updateNotification();
 
         return START_STICKY;
     }
@@ -88,18 +83,18 @@ public class HolderService extends Service implements BrowserController {
         return sp.getBoolean(PreferenceUnit.INCOGNITO, PreferenceUnit.INCOGNITO_DEFAULT);
     }
 
-    public void updateNotifiaction() {
+    public void updateNotification() {
         int done = 0;
 
         for (BerryView view : BerryContainer.list()) {
-            if (view.getProgress() >= BrowserUnit.PROGRESS_MAX) {
+            if (view.isFinish()) {
                 done++;
             }
         }
 
         int priority = sp.getInt(PreferenceUnit.NOTIFICATION_PRIORITY, PreferenceUnit.NOTIFICATION_PRIORITY_DEFAULT);
         boolean sound = sp.getBoolean(PreferenceUnit.NOTIFICATION_SOUND, PreferenceUnit.NOTIFICATION_SOUND_DEFAULT);
-        Notification.Builder builder = NotificationUnit.getBuilder(this, BerryContainer.size(), done, priority, sound); // TODO: 0
+        Notification.Builder builder = NotificationUnit.getBuilder(this, BerryContainer.size(), done, priority, sound);
         Notification notification = builder.build();
         notification.flags = Notification.FLAG_FOREGROUND_SERVICE;
         startForeground(NotificationUnit.ID, notification);

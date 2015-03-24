@@ -30,7 +30,7 @@ public class PreferenceUnit {
     public static final int NOTIFICATION_PRIORITY_DEFAULT = Notification.PRIORITY_DEFAULT;
 
     public static final String NOTIFICATION_SOUND = "NOTIFICATION_SOUND";
-    public static final boolean NOTIFICATION_SOUND_DEFAULT = false;
+    public static final boolean NOTIFICATION_SOUND_DEFAULT = true; //
 
     public static final String OVERVIEW_MODE = "OVERVIEW_MODE";
     public static final boolean OVERVIEW_MODE_DEFAULT = true;

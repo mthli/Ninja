@@ -7,7 +7,7 @@ public interface BrowserController {
 
     public void updateProgress(int progress);
 
-    public void updateNotifiaction();
+    public void updateNotification();
 
     public void showToolbar();
 

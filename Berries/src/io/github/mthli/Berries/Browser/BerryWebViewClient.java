@@ -6,9 +6,7 @@ import android.net.http.SslError;
 import android.os.Message;
 import android.support.annotation.NonNull;
 import android.webkit.*;
-import android.widget.Toast;
 import io.github.mthli.Berries.Database.Record;
-import io.github.mthli.Berries.Unit.BrowserUnit;
 
 public class BerryWebViewClient extends WebViewClient {
     private Context context;
@@ -32,6 +30,11 @@ public class BerryWebViewClient extends WebViewClient {
         this.controller = controller;
     }
 
+    private boolean finish = false;
+    public boolean isFinish() {
+        return finish;
+    }
+
     public BerryWebViewClient(Context context) {
         this.context = context;
     }
@@ -39,13 +42,14 @@ public class BerryWebViewClient extends WebViewClient {
     @Override
     public void onPageStarted(WebView view, String url, Bitmap favicon) {
         // TODO
+        finish = false;
     }
 
     @Override
     public void onPageFinished(WebView view, String url) {
-        controller.updateNotifiaction();
-
         // TODO
+        finish = true;
+        controller.updateNotification();
     }
 
     @Override
@@ -56,6 +60,7 @@ public class BerryWebViewClient extends WebViewClient {
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, String url) {
         // TODO
+        finish = false;
         return false;
     }
 

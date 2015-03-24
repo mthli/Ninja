@@ -240,7 +240,7 @@ public class BerryView {
         }
     }
 
-    public synchronized void finish() {
+    public synchronized void destroy() {
         if (webView != null) {
             webView.stopLoading();
             webView.onPause();
@@ -280,6 +280,10 @@ public class BerryView {
         } else {
             return BrowserUnit.PROGRESS_MAX;
         }
+    }
+
+    public boolean isFinish() {
+        return webViewClient != null && webViewClient.isFinish();
     }
 
     public synchronized void pageUp(boolean top) {
