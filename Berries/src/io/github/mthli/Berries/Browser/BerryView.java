@@ -33,7 +33,6 @@ public class BerryView {
         this.foreground = foreground;
     }
 
-    private AdBlock adBlock; // TODO
     private WebView webView;
     private WebSettings webSettings;
     private BerryWebViewClient webViewClient;
