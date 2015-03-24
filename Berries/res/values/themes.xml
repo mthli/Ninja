@@ -2,8 +2,13 @@
 
 <resources>
 
-    <style name="Base" parent="android:Theme.DeviceDefault.Light.NoActionBar">
-        <!-- TODO -->
+    <style name="Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryDark">@color/color_primary_dark</item>
+        <item name="colorAccent">@color/color_accent</item>
+
+        <item name="android:textColor">@color/text</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
     </style>
 
 </resources>
