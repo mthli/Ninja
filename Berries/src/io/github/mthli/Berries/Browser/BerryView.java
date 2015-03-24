@@ -103,7 +103,7 @@ public class BerryView {
         webView.setOnTouchListener(new View.OnTouchListener() {
             private int action;
             private float y;
-            private float loction;
+            private float location;
 
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -114,15 +114,15 @@ public class BerryView {
                 action = motionEvent.getAction();
                 y = motionEvent.getY();
                 if (action == MotionEvent.ACTION_DOWN) {
-                    loction = y;
+                    location = y;
                 } else if (action == MotionEvent.ACTION_UP) {
-                    if ((y - loction) > 10) {
+                    if ((y - location) > 10) {
                         controller.showToolbar();
-                    } else if ((y - loction) < -10) {
+                    } else if ((y - location) < -10) {
                         controller.hideToolbar();
                     }
 
-                    loction = 0;
+                    location = 0;
                 }
 
                 gestureDetector.onTouchEvent(motionEvent);

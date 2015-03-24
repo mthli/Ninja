@@ -2,7 +2,7 @@
 
 <resources>
 
-    <style name="Base" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Base" parent="Theme.AppCompat.Light">
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorPrimaryDark">@color/color_primary_dark</item>
         <item name="colorAccent">@color/color_accent</item>

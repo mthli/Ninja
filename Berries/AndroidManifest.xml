@@ -24,16 +24,6 @@
                  android:enabled="true"
                  android:largeHeap="true">
 
-        <!-- MainActivity -->
-        <activity android:name=".Activity.MainActivity"
-                  android:label="@string/app_name"
-                  android:theme="@style/Base">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
         <!-- HolderActivity -->
         <activity android:name=".Activity.HolderActivity"
                   android:label="@string/app_name"
@@ -53,6 +43,28 @@
                  android:label="@string/app_name"
                  android:icon="@drawable/ic_launcher">
         </service>
+
+        <!-- MainActivity -->
+        <activity android:name=".Activity.MainActivity"
+                  android:label="@string/app_name"
+                  android:theme="@style/Base">
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+        </activity>
+
+        <!-- TODO: BrowserActivity -->
+        <activity android:name=".Activity.BrowserActivity"
+                  android:label="@string/app_name"
+                  android:theme="@style/Base">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
     </application>
 

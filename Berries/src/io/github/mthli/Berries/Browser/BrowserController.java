@@ -9,8 +9,10 @@ public interface BrowserController {
 
     public void updateNotification();
 
+    // TODO
     public void showToolbar();
 
+    // TODO
     public void hideToolbar();
 
     public boolean isToolbarShowing();

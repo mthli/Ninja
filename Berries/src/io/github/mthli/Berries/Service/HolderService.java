@@ -27,6 +27,8 @@ public class HolderService extends Service implements BrowserController {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        // TODO: when BrowserActivity disappear.
+
         try {
             if (intent.getExtras().getBoolean(IntentUnit.LIST)) {
                 // TODO
