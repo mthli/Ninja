@@ -117,9 +117,9 @@ public class BerryView {
                     location = y;
                 } else if (action == MotionEvent.ACTION_UP) {
                     if ((y - location) > 10) {
-                        controller.showToolbar();
+                        controller.showControlPanel();
                     } else if ((y - location) < -10) {
-                        controller.hideToolbar();
+                        controller.hideControlPanel();
                     }
 
                     location = 0;

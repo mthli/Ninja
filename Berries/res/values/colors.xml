@@ -2,18 +2,23 @@
 
 <resources>
 
-    <color name="color_primary">@color/gray_300</color>
-    <color name="color_primary_dark">@color/gray_500</color>
-    <color name="color_accent">@color/gray_300</color>
+    <color name="color_primary">@color/blue_500</color>
+    <color name="color_primary_dark">@color/blue_700</color>
+    <color name="color_accent">@color/blue_500</color>
 
     <color name="blue_700">#1976D2</color>
     <color name="blue_500">#2196F3</color>
     <color name="blue_300">#64B5F6</color>
     <color name="blue_100">#BBDEFB</color>
 
+    <color name="gray_900">#212121</color>
+    <color name="gray_800">#424242</color>
     <color name="gray_700">#616161</color>
+    <color name="gray_600">#757575</color>
     <color name="gray_500">#9E9E9E</color>
+    <color name="gray_400">#BDBDBD</color>
     <color name="gray_300">#E0E0E0</color>
+    <color name="gray_200">#EEEEEE</color>
     <color name="gray_100">#F5F5F5</color>
 
     <color name="black">#000000</color>

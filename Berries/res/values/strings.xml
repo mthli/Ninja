@@ -5,6 +5,17 @@
     <!-- AndroidAgo -->
     <string name="just_now">Just now</string>
 
+    <!-- Menu -->
+    <string name="browser_menu_share">
+        Share
+    </string>
+    <string name="browser_menu_open_with_browser">
+        Open with browser
+    </string>
+    <string name="browser_menu_copy_links">
+        Copy links
+    </string>
+
     <!-- Notification -->
     <string name="notification_content_loading">
         Current completed&#160;

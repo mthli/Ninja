@@ -1,27 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
 
-    <LinearLayout android:id="@+id/progress_wrapper"
-                  android:layout_width="match_parent"
+    <!-- TODO -->
+    <FrameLayout android:id="@android:id/content"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent">
+    </FrameLayout>
+
+    <!-- TODO -->
+    <LinearLayout android:id="@+id/browser_control_panel"
+                  android:orientation="horizontal"
+                  android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:orientation="vertical" >
+                  android:layout_gravity="bottom|right"
+                  android:layout_marginRight="16dp"
+                  android:layout_marginBottom="16dp">
 
-        <ProgressBar android:id="@+id/progress_bar"
-                     android:layout_width="match_parent"
-                     android:layout_height="2dp"
-                     android:indeterminate="false"
-                     android:indeterminateOnly="false"
-                     android:maxHeight="2dp"
-                     android:minHeight="2dp"
-                     android:progressDrawable="@drawable/progress_bar">
-        </ProgressBar>
+        <ImageButton android:id="@+id/browser_control_list"
+                     android:contentDescription="@null"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:padding="6dp"
+                     android:src="@drawable/browser_control_list"
+                     android:background="@color/black">
+        </ImageButton>
+
+
+        <LinearLayout android:id="@+id/browser_control_ec"
+                      android:orientation="horizontal"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:visibility="gone">
+
+            <ImageButton android:id="@+id/browser_control_history"
+                         android:contentDescription="@null"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:padding="6dp"
+                         android:src="@drawable/browser_control_history"
+                         android:background="@color/black">
+            </ImageButton>
+
+            <ImageButton android:id="@+id/browser_control_share"
+                         android:contentDescription="@null"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:padding="6dp"
+                         android:src="@drawable/browser_control_share"
+                         android:background="@color/black">
+            </ImageButton>
+
+            <ImageButton android:id="@+id/browser_control_copy"
+                         android:contentDescription="@null"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:padding="6dp"
+                         android:src="@drawable/browser_control_copy"
+                         android:background="@color/black">
+            </ImageButton>
+
+        </LinearLayout>
+
+        <ImageButton android:id="@+id/browser_control_more"
+                     android:contentDescription="@null"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:padding="6dp"
+                     android:src="@drawable/browser_control_expand"
+                     android:background="@color/black">
+        </ImageButton>
 
     </LinearLayout>
 
-    <!-- TODO -->
-
-</LinearLayout>
+</FrameLayout>

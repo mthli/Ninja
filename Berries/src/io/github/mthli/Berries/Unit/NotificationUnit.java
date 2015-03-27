@@ -53,13 +53,22 @@ public class NotificationUnit {
             }
         }
 
+        // TODO: SDK
         Intent toService = new Intent(context, HolderService.class);
         toService.putExtra(IntentUnit.QUIT, true);
         PendingIntent quit = PendingIntent.getService(context, 0, toService, 0);
-        builder.addAction(R.drawable.ic_action_quit, context.getString(R.string.notification_action_quit), quit);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            builder.addAction(R.drawable.ic_action_quit_dark, context.getString(R.string.notification_action_quit), quit);
+        } else {
+            builder.addAction(R.drawable.ic_action_quit_light, context.getString(R.string.notification_action_quit), quit);
+        }
 
-        // TODO
-        builder.addAction(R.drawable.ic_action_list, context.getString(R.string.notification_action_list), null);
+        // TODO: SDK
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            builder.addAction(R.drawable.ic_action_list_dark, context.getString(R.string.notification_action_list), null);
+        } else {
+            builder.addAction(R.drawable.ic_action_list_light, context.getString(R.string.notification_action_list), null);
+        }
 
         return builder;
     }

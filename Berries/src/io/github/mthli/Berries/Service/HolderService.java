@@ -42,11 +42,10 @@ public class HolderService extends Service implements BrowserController {
             BerryView view = new BerryView(context, record);
             view.setController(this);
             BerryContainer.add(view);
+            updateNotification();
         } else {
             Toast.makeText(this, R.string.toast_load_limit_max, Toast.LENGTH_SHORT).show();
         }
-
-        updateNotification();
 
         return START_STICKY;
     }
@@ -68,9 +67,9 @@ public class HolderService extends Service implements BrowserController {
 
     public void updateProgress(int progress) {}
 
-    public void showToolbar() {}
+    public void showControlPanel() {}
 
-    public void hideToolbar() {}
+    public void hideControlPanel() {}
 
     public void onLongPress() {}
 

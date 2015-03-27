@@ -2,13 +2,8 @@
 
 <resources>
 
-    <style name="Base" parent="Theme.AppCompat.Light">
-        <item name="colorPrimary">@color/color_primary</item>
-        <item name="colorPrimaryDark">@color/color_primary_dark</item>
-        <item name="colorAccent">@color/color_accent</item>
-
-        <item name="android:textColor">@color/text</item>
-        <item name="android:textColorSecondary">@color/text_secondary</item>
+    <style name="Browser" parent="android:Theme.DeviceDefault.Light.NoActionBar">
+        <!-- Do nothing here -->
     </style>
 
 </resources>

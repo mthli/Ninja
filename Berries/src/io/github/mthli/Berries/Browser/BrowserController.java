@@ -10,10 +10,10 @@ public interface BrowserController {
     public void updateNotification();
 
     // TODO
-    public void showToolbar();
+    public void showControlPanel();
 
     // TODO
-    public void hideToolbar();
+    public void hideControlPanel();
 
     public boolean isToolbarShowing();
 

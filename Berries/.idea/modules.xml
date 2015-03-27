@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Berries.iml" filepath="$PROJECT_DIR$/Berries.iml" />
-      <module fileurl="file://$PROJECT_DIR$/libs/android/support/v7/appcompat/appcompat.iml" filepath="$PROJECT_DIR$/libs/android/support/v7/appcompat/appcompat.iml" />
     </modules>
   </component>
 </project>
