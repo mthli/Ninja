@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BerryContainer {
-    private static List<BerryView> list = new ArrayList<BerryView>();
+    private static List<Berry> list = new ArrayList<Berry>();
 
-    public static BerryView get(int index) {
+    public static Berry get(int index) {
         return list.get(index);
     }
 
-    public synchronized static void set(BerryView view, int index) {
+    public synchronized static void set(Berry view, int index) {
         list.get(index).destroy();
         list.set(index, view);
     }
 
-    public synchronized static void add(BerryView view) {
+    public synchronized static void add(Berry view) {
         list.add(view);
     }
 
@@ -24,7 +24,16 @@ public class BerryContainer {
         list.remove(index);
     }
 
-    public static List<BerryView> list() {
+    public synchronized static void remove(Berry berry) {
+        berry.destroy();
+        list.remove(berry);
+    }
+
+    public static int indexOf(Berry berry) {
+        return list.indexOf(berry);
+    }
+
+    public static List<Berry> list() {
         return list;
     }
 
@@ -33,7 +42,7 @@ public class BerryContainer {
     }
 
     public synchronized static void clear() {
-        for (BerryView view : list) {
+        for (Berry view : list) {
             view.destroy();
         }
 

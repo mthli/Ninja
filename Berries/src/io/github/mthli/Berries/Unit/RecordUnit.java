@@ -1,6 +1,8 @@
 package io.github.mthli.Berries.Unit;
 
+import android.content.Context;
 import io.github.mthli.Berries.Database.Record;
+import io.github.mthli.Berries.R;
 
 public class RecordUnit {
     public static final String TABLE = "HISTORY";
@@ -18,10 +20,19 @@ public class RecordUnit {
             + ")";
 
     private static Record holder;
-    public static Record get() {
+    public static Record getHolder() {
         return holder;
     }
-    public synchronized static void hold(Record record) {
+    public synchronized static void setHolder(Record record) {
         holder = record;
+    }
+
+    public static Record getHome(Context context) {
+        Record record = new Record();
+        record.setTitle(context.getString(R.string.browser_start_page));
+        record.setURL(BrowserUnit.HOME);
+        record.setTime(System.currentTimeMillis());
+
+        return record;
     }
 }

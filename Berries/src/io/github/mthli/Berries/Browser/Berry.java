@@ -10,9 +10,10 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
+import io.github.mthli.Berries.Unit.BrowserUnit;
 import io.github.mthli.Berries.Unit.ConstantUnit;
 
-public class BerryView {
+public class Berry {
     private Context context;
     public Context getContext() {
         return context;
@@ -27,17 +28,11 @@ public class BerryView {
     public boolean isForeground() {
         return foreground;
     }
-    public void setForeground(boolean foreground) {
-        this.foreground = foreground;
-    }
 
     // TODO
     private boolean incognito;
     public boolean isIncognito() {
         return incognito;
-    }
-    public void setIncognito(boolean incognito) {
-        this.incognito = incognito;
     }
 
     private Tab tab;
@@ -46,6 +41,10 @@ public class BerryView {
     }
 
     private WebView webView;
+    public WebView getWebView() {
+        return webView;
+    }
+
     private WebSettings webSettings;
     private BerryWebViewClient webViewClient;
     private BerryWebChromeClient webChromeClient;
@@ -59,19 +58,19 @@ public class BerryView {
     }
     public void setController(BrowserController controller) {
         this.controller = controller;
+        this.tab.setController(controller);
         this.webViewClient.setController(controller);
         this.webChromeClient.setController(controller);
         this.gestureListener.setController(controller);
     }
 
-    public BerryView(Context context, Record record, boolean incognito) {
+    public Berry(Context context, Record record, boolean incognito) {
         this.context = context;
         this.record = record;
         this.foreground = false;
         this.incognito = incognito;
 
-        this.tab = new Tab(context, record, incognito);
-
+        this.tab = new Tab(this);
         this.webView = new WebView(context);
         this.webSettings = webView.getSettings();
         this.webViewClient = new BerryWebViewClient(context);
@@ -98,7 +97,7 @@ public class BerryView {
 
         webView.setBackground(null);
         webView.getRootView().setBackground(null);
-        webView.setBackgroundColor(context.getResources().getColor(R.color.white));
+        webView.setBackgroundColor(context.getResources().getColor(R.color.blue_500)); // TODO
 
         webView.setDrawingCacheBackgroundColor(0x00000000);
         webView.setDrawingCacheEnabled(true);
@@ -163,7 +162,7 @@ public class BerryView {
         webSettings.setDatabaseEnabled(true);
         webSettings.setDomStorageEnabled(true);
 
-        webSettings.setDefaultTextEncodingName("UTF-8");
+        webSettings.setDefaultTextEncodingName(BrowserUnit.ENCODING);
 
         webSettings.setGeolocationDatabasePath(context.getFilesDir().toString());
 
@@ -190,8 +189,14 @@ public class BerryView {
     }
 
     public synchronized void loadUrl(@NonNull String url) {
-        if (webView != null && !url.trim().isEmpty()) {
-            webView.loadUrl(url.trim());
+        url = url.trim();
+        if (webView != null && !url.isEmpty()) {
+            if (url.equals(BrowserUnit.HOME)) {
+                // TODO
+                return;
+            }
+
+            webView.loadUrl(url);
         }
     }
 
@@ -206,7 +211,6 @@ public class BerryView {
             webView.onPause();
         }
     }
-
 
     public synchronized void pauseTimers() {
         if (webView != null) {
@@ -235,6 +239,31 @@ public class BerryView {
             webView.removeAllViews();
             webView.destroyDrawingCache();
             webView = null;
+        }
+    }
+
+    public void activate() {
+        onResume();
+        requestFocus();
+        foreground = true;
+
+        if (tab != null) {
+            tab.activate();
+        }
+    }
+
+    public void deactivate() {
+        onPause();
+        foreground = false;
+
+        if (tab != null) {
+            tab.deactivate();
+        }
+    }
+
+    public void requestFocus() {
+        if (webView != null && !webView.hasFocus()) {
+            webView.requestFocus();
         }
     }
 
@@ -332,5 +361,23 @@ public class BerryView {
         if (webView != null) {
             webView.clearSslPreferences();
         }
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == null) {
+            return false;
+        }
+
+        if (!(object instanceof Berry)) {
+            return false;
+        }
+
+        return this.record.getTime() == ((Berry) object).getRecord().getTime();
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (this.record.getTime() * 31);
     }
 }

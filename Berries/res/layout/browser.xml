@@ -120,14 +120,14 @@
 
         </RelativeLayout>
 
-        <LinearLayout android:id="@+id/progress_wrapper"
+        <LinearLayout android:id="@+id/browser_progress_wrapper"
                       android:orientation="vertical"
                       android:layout_width="match_parent"
                       android:layout_height="2dp"
                       android:visibility="gone">
 
             <!-- TODO: progressDrawable -->
-            <ProgressBar android:id="@android:id/progress"
+            <ProgressBar android:id="@+id/browser_progress_bar"
                          android:layout_width="match_parent"
                          android:layout_height="2dp"
                          android:maxHeight="2dp"
@@ -140,7 +140,7 @@
 
     </LinearLayout>
 
-    <FrameLayout android:id="@android:id/content"
+    <FrameLayout android:id="@+id/browser_frame"
                  android:layout_width="match_parent"
                  android:layout_height="match_parent">
     </FrameLayout>

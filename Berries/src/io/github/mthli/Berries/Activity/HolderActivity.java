@@ -32,7 +32,7 @@ public class HolderActivity extends Activity {
             public void run() {
                 if (first != null && second == null) {
                     Intent toService = new Intent(HolderActivity.this, HolderService.class);
-                    RecordUnit.hold(first);
+                    RecordUnit.setHolder(first);
                     startService(toService);
                 }
 
@@ -56,7 +56,7 @@ public class HolderActivity extends Activity {
             // TODO
         } else {
             Intent toService = new Intent(HolderActivity.this, HolderService.class);
-            RecordUnit.hold(second);
+            RecordUnit.setHolder(second);
             startService(toService);
         }
 

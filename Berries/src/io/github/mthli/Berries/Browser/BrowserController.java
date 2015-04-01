@@ -15,5 +15,9 @@ public interface BrowserController {
 
     boolean isPanelShowing();
 
+    void showSelectedTab(Berry berry);
+
+    void deleteSelectedTab(Berry berry);
+
     void onLongPress();
 }

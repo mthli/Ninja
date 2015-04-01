@@ -7,7 +7,7 @@ import android.os.IBinder;
 import android.widget.Toast;
 import io.github.mthli.Berries.Browser.BerryContainer;
 import io.github.mthli.Berries.Browser.BerryContextWrapper;
-import io.github.mthli.Berries.Browser.BerryView;
+import io.github.mthli.Berries.Browser.Berry;
 import io.github.mthli.Berries.Browser.BrowserController;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
@@ -37,9 +37,9 @@ public class HolderService extends Service implements BrowserController {
         } catch (NullPointerException n) {}
 
         if (BerryContainer.size() < ConstantUnit.LOAD_LIMIT) {
-            Record record = RecordUnit.get();
+            Record record = RecordUnit.getHolder();
             // TODO: SP
-            BerryView view = new BerryView(context, record, false);
+            Berry view = new Berry(context, record, false);
             view.setController(this);
             BerryContainer.add(view);
             updateNotification();
@@ -71,11 +71,15 @@ public class HolderService extends Service implements BrowserController {
 
     public void hideControlPanel() {}
 
-    public void onLongPress() {}
-
     public boolean isPanelShowing() {
         return false;
     }
+
+    public void onLongPress() {}
+
+    public void showSelectedTab(Berry berry) {}
+
+    public void deleteSelectedTab(Berry berry) {}
 
     public void updateNotification() {
         Notification.Builder builder = NotificationUnit.getBuilder(this);

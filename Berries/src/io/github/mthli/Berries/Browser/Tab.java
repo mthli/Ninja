@@ -9,12 +9,10 @@ import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
 
 public class Tab {
+    private Berry berry;
     private Context context;
 
     private Record record;
-    public Record getRecord() {
-        return record;
-    }
     public void setRecord(Record record) {
         this.record = record;
         title.setText(record.getTitle());
@@ -31,10 +29,17 @@ public class Tab {
     private ImageButton closeButton;
     private View incognitoLine;
 
-    public Tab(Context context, Record record, boolean incognito) {
-        this.context = context;
-        this.record = record;
-        this.incognito = incognito;
+    private BrowserController controller;
+    public void setController(BrowserController controller) {
+        this.controller = controller;
+    }
+
+    public Tab(Berry berry) {
+        this.berry = berry;
+        this.context = berry.getContext();
+        this.record = berry.getRecord();
+        this.incognito = berry.isIncognito();
+        this.controller = berry.getController();
 
         initUI();
     }
@@ -44,7 +49,7 @@ public class Tab {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO
+                controller.showSelectedTab(berry);
             }
         });
 
@@ -55,7 +60,7 @@ public class Tab {
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO
+                controller.deleteSelectedTab(berry);
             }
         });
 
@@ -67,16 +72,16 @@ public class Tab {
         }
     }
 
-    public void activateTab() {
+    public void activate() {
         if (view != null) {
             view.setBackgroundColor(context.getResources().getColor(R.color.gray_900));
             closeButton.setVisibility(View.VISIBLE);
         }
     }
 
-    public void deactivateTab() {
+    public void deactivate() {
         if (view != null) {
-            view.setBackgroundColor(context.getResources().getColor(R.color.gray_800));
+            view.setBackgroundColor(context.getResources().getColor(R.color.gray_1000));
             closeButton.setVisibility(View.INVISIBLE);
         }
     }

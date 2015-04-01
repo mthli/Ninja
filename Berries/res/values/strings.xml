@@ -6,6 +6,12 @@
     <string name="just_now">Just now</string>
 
     <!-- Browser -->
+    <string name="browser_start_page">
+        Start page
+    </string>
+    <string name="browser_incognito">
+        Incognito
+    </string>
     <string name="browser_hint_url_input">
         Search or type URL
     </string>
