@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.http.SslError;
 import android.os.Message;
-import android.support.annotation.NonNull;
 import android.webkit.*;
 import io.github.mthli.Berries.Database.Record;
 
@@ -65,17 +64,17 @@ public class BerryWebViewClient extends WebViewClient {
     }
 
     @Override
-    public void onFormResubmission(WebView view, @NonNull Message dontResend, Message resend) {
+    public void onFormResubmission(WebView view, Message dontResend, Message resend) {
         // TODO
     }
 
     @Override
-    public void onReceivedHttpAuthRequest(WebView view, @NonNull HttpAuthHandler handler, String host, String realm) {
+    public void onReceivedHttpAuthRequest(WebView view, HttpAuthHandler handler, String host, String realm) {
         // TODO
     }
 
     @Override
-    public void onReceivedSslError(WebView view, @NonNull SslErrorHandler handler, SslError error) {
+    public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
         // TODO
     }
 

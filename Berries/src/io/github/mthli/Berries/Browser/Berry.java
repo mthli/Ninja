@@ -2,7 +2,6 @@ package io.github.mthli.Berries.Browser;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.annotation.NonNull;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -187,7 +186,7 @@ public class Berry {
         webSettings.setUseWideViewPort(true);
     }
 
-    public synchronized void loadUrl(@NonNull String url) {
+    public synchronized void loadUrl(String url) {
         url = url.trim();
         if (webView != null && !url.isEmpty()) {
             if (url.equals(BrowserUnit.Home)) {

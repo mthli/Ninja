@@ -38,7 +38,7 @@ public class HolderService extends Service implements BrowserController {
 
         if (BerryContainer.size() < BrowserUnit.LOAD_LIMIT) {
             Record record = RecordUnit.getHolder();
-            // TODO: SP
+            // TODO: SP_INCOGNITO
             Berry view = new Berry(context, record, false);
             view.setController(this);
             BerryContainer.add(view);

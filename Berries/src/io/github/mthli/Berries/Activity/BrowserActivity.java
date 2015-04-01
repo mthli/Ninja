@@ -1,9 +1,9 @@
 package io.github.mthli.Berries.Activity;
 
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -66,7 +66,9 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     private void initUI() {
         controlPanel = (LinearLayout) findViewById(R.id.browser_control_panel);
-        ViewCompat.setElevation(controlPanel, ViewUnit.dp2px(this, 2));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            controlPanel.setElevation(ViewUnit.dp2px(this, 2));
+        }
         overflowButton = (ImageButton) findViewById(R.id.browser_overflow_button);
 
         tabsScroll = (HorizontalScrollView) findViewById(R.id.browser_tabs_scroll);
@@ -81,7 +83,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         progressBar = (ProgressBar) findViewById(R.id.browser_progress_bar);
 
         browserFrame = (FrameLayout) findViewById(R.id.browser_frame);
-        newTab(RecordUnit.getHome(this), false, true); // TODO: sp_incognito
+        newTab(RecordUnit.getHome(this), false, true);
 
         overflowButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +95,6 @@ public class BrowserActivity extends Activity implements BrowserController {
             @Override
             public boolean onLongClick(View view) {
                 // TODO
-
                 return true;
             }
         });
