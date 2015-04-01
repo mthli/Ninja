@@ -13,6 +13,9 @@ public class Tab {
     private Context context;
 
     private Record record;
+    public Record getRecord() {
+        return record;
+    }
     public void setRecord(Record record) {
         this.record = record;
         title.setText(record.getTitle());
@@ -84,5 +87,23 @@ public class Tab {
             view.setBackgroundColor(context.getResources().getColor(R.color.gray_1000));
             closeButton.setVisibility(View.INVISIBLE);
         }
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == null) {
+            return false;
+        }
+
+        if (!(object instanceof Tab)) {
+            return false;
+        }
+
+        return this.record.getTime() == ((Tab) object).getRecord().getTime();
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (this.record.getTime() * 31);
     }
 }

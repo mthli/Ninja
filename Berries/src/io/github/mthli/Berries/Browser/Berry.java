@@ -191,7 +191,7 @@ public class Berry {
     public synchronized void loadUrl(@NonNull String url) {
         url = url.trim();
         if (webView != null && !url.isEmpty()) {
-            if (url.equals(BrowserUnit.HOME)) {
+            if (url.equals(BrowserUnit.START_PAGE)) {
                 // TODO
                 return;
             }
@@ -238,7 +238,6 @@ public class Berry {
             webView.setVisibility(View.GONE);
             webView.removeAllViews();
             webView.destroyDrawingCache();
-            webView = null;
         }
     }
 

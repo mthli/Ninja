@@ -25,7 +25,7 @@ public class BerryContainer {
     }
 
     public synchronized static void remove(Berry berry) {
-        berry.destroy();
+        // berry.destroy();
         list.remove(berry);
     }
 

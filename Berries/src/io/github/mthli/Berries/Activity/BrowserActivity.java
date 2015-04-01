@@ -123,8 +123,10 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     private synchronized void addTab(final Berry berry) {
         if (berry.isForeground()) {
-            berry.setVisibility(View.INVISIBLE);
+            berry.setVisibility(View.VISIBLE);
             browserFrame.addView(berry.getWebView());
+        } else {
+            berry.setVisibility(View.INVISIBLE);
         }
 
         final View tabView = berry.getTabView();
@@ -140,6 +142,10 @@ public class BrowserActivity extends Activity implements BrowserController {
 
             @Override
             public void onAnimationEnd(Animation animation) {
+                if (!berry.isForeground()) {
+                    return;
+                }
+
                 Handler handler = new Handler();
                 handler.postDelayed(
                         new Runnable() {
@@ -150,10 +156,6 @@ public class BrowserActivity extends Activity implements BrowserController {
                         },
                         BrowserActivity.this.getResources().getInteger(android.R.integer.config_shortAnimTime)
                 );
-
-                if (berry.isForeground()) {
-                    berry.setVisibility(View.VISIBLE);
-                }
             }
 
             @Override
@@ -180,6 +182,10 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     public synchronized void showSelectedTab(Berry berry) {
+        if (berry == null || berry.equals(currentBerry)) {
+            return;
+        }
+
         showTab(berry);
     }
 
@@ -204,19 +210,22 @@ public class BrowserActivity extends Activity implements BrowserController {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                tabView.setVisibility(View.GONE);
-                tabsContainer.removeView(tabView);
+                new Handler().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        tabView.setVisibility(View.GONE);
+                        tabsContainer.removeView(tabView);
+                    }
+                });
 
                 int index = BerryContainer.indexOf(berry);
-
-                System.out.println("----------------");
-                System.out.println("index = " + index);
-                System.out.println("----------------");
-
-                showTab(BerryContainer.get(--index));
-
                 BerryContainer.remove(berry);
-                berry.destroy();
+
+                index++;
+                if (index >= BerryContainer.size()) {
+                    index = BerryContainer.size() - 1;
+                }
+                showTab(BerryContainer.get(index));
             }
 
             @Override
