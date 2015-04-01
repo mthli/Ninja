@@ -17,7 +17,7 @@ public interface BrowserController {
 
     void showSelectedTab(Berry berry);
 
-    void deleteSelectedTab(Berry berry);
+    void deleteSelectedTab();
 
     void onLongPress();
 }

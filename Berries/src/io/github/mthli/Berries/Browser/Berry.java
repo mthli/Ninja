@@ -243,6 +243,7 @@ public class Berry {
 
     public void activate() {
         onResume();
+        setVisibility(View.VISIBLE);
         requestFocus();
         foreground = true;
 
@@ -253,6 +254,7 @@ public class Berry {
 
     public void deactivate() {
         onPause();
+        setVisibility(View.INVISIBLE);
         foreground = false;
 
         if (tab != null) {

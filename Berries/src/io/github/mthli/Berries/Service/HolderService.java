@@ -79,7 +79,7 @@ public class HolderService extends Service implements BrowserController {
 
     public void showSelectedTab(Berry berry) {}
 
-    public void deleteSelectedTab(Berry berry) {}
+    public void deleteSelectedTab() {}
 
     public void updateNotification() {
         Notification.Builder builder = NotificationUnit.getBuilder(this);

@@ -101,33 +101,10 @@ public class BrowserActivity extends Activity implements BrowserController {
         });
     }
 
-    private synchronized void newTab(Record record, boolean incognito, boolean foreground) {
-        Berry berry = new Berry(this, record, incognito);
+    private synchronized void newTab(Record record, boolean incognito, final boolean foreground) {
+        final Berry berry = new Berry(this, record, incognito);
         berry.setController(this);
         BerryContainer.add(berry);
-
-        if (foreground) {
-            if (currentBerry != null) {
-                browserFrame.removeView(currentBerry.getWebView());
-                currentBerry.deactivate();
-            }
-
-            currentBerry = berry;
-            currentBerry.activate();
-        } else {
-            berry.deactivate();
-        }
-
-        addTab(berry);
-    }
-
-    private synchronized void addTab(final Berry berry) {
-        if (berry.isForeground()) {
-            berry.setVisibility(View.VISIBLE);
-            browserFrame.addView(berry.getWebView());
-        } else {
-            berry.setVisibility(View.INVISIBLE);
-        }
 
         final View tabView = berry.getTabView();
         tabView.setVisibility(View.INVISIBLE);
@@ -142,20 +119,26 @@ public class BrowserActivity extends Activity implements BrowserController {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                if (!berry.isForeground()) {
+                if (!foreground) {
+                    berry.deactivate();
                     return;
                 }
 
-                Handler handler = new Handler();
-                handler.postDelayed(
-                        new Runnable() {
-                            @Override
-                            public void run() {
-                                tabsScroll.smoothScrollTo(tabView.getLeft(), 0);
-                            }
-                        },
-                        BrowserActivity.this.getResources().getInteger(android.R.integer.config_shortAnimTime)
-                );
+                if (currentBerry != null) {
+                    currentBerry.deactivate();
+                    browserFrame.removeView(currentBerry.getWebView());
+                }
+                currentBerry = berry;
+
+                browserFrame.addView(berry.getWebView());
+                berry.activate();
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        tabsScroll.smoothScrollTo(tabView.getLeft(), 0);
+                    }
+                }, BrowserActivity.this.getResources().getInteger(android.R.integer.config_shortAnimTime));
             }
 
             @Override
@@ -166,41 +149,33 @@ public class BrowserActivity extends Activity implements BrowserController {
         tabView.startAnimation(animation);
     }
 
-    private synchronized void showTab(Berry berry) {
-        if (berry == null) {
-            return;
-        }
-
-        if (currentBerry != null) {
-            browserFrame.removeView(currentBerry.getWebView());
-            currentBerry.deactivate();
-        }
-
-        browserFrame.addView(berry.getWebView());
-        currentBerry = berry;
-        currentBerry.activate();
-    }
-
+    // TODO
     public synchronized void showSelectedTab(Berry berry) {
         if (berry == null || berry.equals(currentBerry)) {
             return;
         }
 
-        showTab(berry);
+        if (currentBerry != null) {
+            currentBerry.deactivate();
+            browserFrame.removeView(currentBerry.getWebView());
+        }
+
+        browserFrame.addView(berry.getWebView());
+        berry.activate();
+        currentBerry = berry;
     }
 
-    public synchronized void deleteSelectedTab(Berry berry) {
+    public synchronized void deleteSelectedTab() {
+        if (currentBerry == null) {
+            return;
+        }
+
         if (BerryContainer.size() <= 1) {
             finish();
             return;
         }
 
-        deleteTab(berry);
-    }
-
-    private synchronized void deleteTab(final Berry berry) {
-        final View tabView = berry.getTabView();
-
+        final View tabView = currentBerry.getTabView();
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.slide_out_down);
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -210,22 +185,35 @@ public class BrowserActivity extends Activity implements BrowserController {
 
             @Override
             public void onAnimationEnd(Animation animation) {
+                tabView.setVisibility(View.GONE);
                 new Handler().post(new Runnable() {
                     @Override
                     public void run() {
-                        tabView.setVisibility(View.GONE);
                         tabsContainer.removeView(tabView);
                     }
                 });
 
-                int index = BerryContainer.indexOf(berry);
-                BerryContainer.remove(berry);
+                currentBerry.deactivate();
+                browserFrame.removeView(currentBerry.getWebView());
 
-                index++;
+                int index = BerryContainer.indexOf(currentBerry);
+                BerryContainer.remove(currentBerry);
                 if (index >= BerryContainer.size()) {
                     index = BerryContainer.size() - 1;
                 }
-                showTab(BerryContainer.get(index));
+
+                currentBerry = BerryContainer.get(index);
+                new Handler().postDelayed(
+                        new Runnable() {
+                            @Override
+                            public void run() {
+                                tabsScroll.smoothScrollTo(currentBerry.getTabView().getLeft(), 0);
+                            }
+                        },
+                        BrowserActivity.this.getResources().getInteger(android.R.integer.config_shortAnimTime)
+                );
+                browserFrame.addView(currentBerry.getWebView());
+                currentBerry.activate();
             }
 
             @Override
