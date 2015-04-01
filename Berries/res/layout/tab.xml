@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:descendantFocusability="blocksDescendants">
+
+    <!-- TODO: incognito icon -->
+
+    <TextView android:id="@+id/tab_title"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:layout_centerInParent="true"
+              android:layout_alignParentLeft="true"
+              android:layout_marginLeft="8dp"
+              android:gravity="center_vertical"
+              android:textColor="@color/white"
+              android:textSize="16sp"
+              android:maxLength="10">
+    </TextView>
+
+    <ImageButton android:id="@+id/tab_close_button"
+                 android:contentDescription="@null"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_centerInParent="true"
+                 android:layout_alignParentRight="true"
+                 android:layout_toRightOf="@id/tab_title"
+                 android:layout_marginLeft="8dp"
+                 android:paddingRight="8dp"
+                 android:src="@drawable/browser_cancel_button_selector"
+                 android:background="@color/transparent"
+                 android:visibility="invisible">
+    </ImageButton>
+
+    <!-- TODO -->
+    <View android:id="@+id/tab_line"
+          android:layout_width="1dp"
+          android:layout_height="match_parent"
+          android:layout_centerInParent="true"
+          android:layout_alignParentRight="true"
+          android:layout_toRightOf="@id/tab_close_button"
+          android:background="@color/black"
+          android:visibility="gone">
+    </View>
+
+</RelativeLayout>

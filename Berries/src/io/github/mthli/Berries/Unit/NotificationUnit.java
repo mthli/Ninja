@@ -16,9 +16,9 @@ public class NotificationUnit {
     public static final int ID = 0x65536;
 
     public static Notification.Builder getBuilder(Context context) {
-        SharedPreferences sp = context.getSharedPreferences(PreferenceUnit.NAME, Context.MODE_PRIVATE);
-        int priority = sp.getInt(PreferenceUnit.NOTIFICATION_PRIORITY, PreferenceUnit.NOTIFICATION_PRIORITY_DEFAULT);
-        boolean sound = sp.getBoolean(PreferenceUnit.NOTIFICATION_SOUND, PreferenceUnit.NOTIFICATION_SOUND_DEFAULT);
+        SharedPreferences sp = context.getSharedPreferences(context.getString(R.string.sp_name), Context.MODE_PRIVATE);
+        int priority = sp.getInt(context.getString(R.string.sp_notification_priority), Notification.PRIORITY_DEFAULT);
+        boolean sound = sp.getBoolean(context.getString(R.string.sp_notification_sound), true);
 
         int done = 0;
         for (BerryView view : BerryContainer.list()) {

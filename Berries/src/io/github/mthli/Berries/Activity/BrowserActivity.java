@@ -1,158 +1,101 @@
 package io.github.mthli.Berries.Activity;
 
 import android.app.Activity;
-import android.app.ActivityManager;
-import android.graphics.BitmapFactory;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.*;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
+import android.os.Handler;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.*;
+import io.github.mthli.Berries.Browser.Tab;
+import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
-import io.github.mthli.Berries.Unit.ViewUnit;
 
 public class BrowserActivity extends Activity {
     private LinearLayout controlPanel;
-    private LinearLayout ecPanel;
-    private ImageButton listButton;
-    private ImageButton historyButton;
-    private ImageButton shareButton;
-    private ImageButton copyButton;
-    private ImageButton moreButton;
-    private boolean expand = false;
+    private ImageButton overflowButton;
+
+    private HorizontalScrollView tabsScroll;
+    private LinearLayout tabsContainer;
+    private ImageButton addTabButton;
+
+    private ImageButton bookmarkButton;
+    private AutoCompleteTextView urlInputBox;
+    private ImageButton refreshButton;
+
+    private LinearLayout progressWrapper;
+    private ProgressBar progressBar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.browser);
 
-        // TODO
         initUI();
     }
 
     private void initUI() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ActivityManager.TaskDescription description = new ActivityManager.TaskDescription(
-                    getString(R.string.app_name),
-                    BitmapFactory.decodeResource(getResources(), R.drawable.ic_task_description),
-                    getResources().getColor(R.color.blue_500)
-            );
-            setTaskDescription(description);
-        }
-
         controlPanel = (LinearLayout) findViewById(R.id.browser_control_panel);
-        ecPanel = (LinearLayout) findViewById(R.id.browser_control_ec);
-        listButton = (ImageButton) findViewById(R.id.browser_control_list);
-        historyButton = (ImageButton) findViewById(R.id.browser_control_history);
-        shareButton = (ImageButton) findViewById(R.id.browser_control_share);
-        copyButton = (ImageButton) findViewById(R.id.browser_control_copy);
-        moreButton = (ImageButton) findViewById(R.id.browser_control_more);
+        overflowButton = (ImageButton) findViewById(R.id.browser_overflow_button);
 
-        listButton.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                    listButton.getBackground().setAlpha(155);
-                } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                    listButton.getBackground().setAlpha(255);
-                }
+        tabsScroll = (HorizontalScrollView) findViewById(R.id.browser_tabs_scroll);
+        tabsContainer = (LinearLayout) findViewById(R.id.browser_tabs_container);
+        addTabButton = (ImageButton) findViewById(R.id.browser_add_tab_button);
 
-                return false;
-            }
-        });
-        listButton.setOnClickListener(new View.OnClickListener() {
+        bookmarkButton = (ImageButton) findViewById(R.id.browser_bookmark_button);
+        urlInputBox = (AutoCompleteTextView) findViewById(R.id.browser_url_input);
+        refreshButton = (ImageButton) findViewById(R.id.browser_refresh_button);
+
+        progressWrapper = (LinearLayout) findViewById(R.id.progress_wrapper);
+        progressBar = (ProgressBar) findViewById(android.R.id.progress);
+
+        // TODO
+        addTabButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO
-            }
-        });
-
-        historyButton.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                    historyButton.getBackground().setAlpha(155);
-                } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                    historyButton.getBackground().setAlpha(255);
-                }
-
-                return false;
-            }
-        });
-        historyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // TODO
-            }
-        });
-
-        shareButton.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                    shareButton.getBackground().setAlpha(155);
-                } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                    shareButton.getBackground().setAlpha(255);
-                }
-
-                return false;
-            }
-        });
-        shareButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // TODO
-            }
-        });
-
-        copyButton.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                    copyButton.getBackground().setAlpha(155);
-                } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                    copyButton.getBackground().setAlpha(255);
-                }
-
-                return false;
-            }
-        });
-        copyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // TODO
-            }
-        });
-
-        moreButton.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                    moreButton.getBackground().setAlpha(155);
-                } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                    moreButton.getBackground().setAlpha(255);
-                }
-
-                return false;
-            }
-        });
-        moreButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (expand) {
-                    ViewUnit.collapse(ecPanel);
-                    moreButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_control_expand));
-                    moreButton.setBackgroundColor(getResources().getColor(R.color.black));
-                    expand = false;
-                } else {
-                    ViewUnit.expand(ecPanel);
-                    moreButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_control_collapse));
-                    moreButton.setBackgroundColor(getResources().getColor(R.color.black));
-                    expand = true;
-                }
+                Record record = new Record();
+                record.setTitle("Untitled");
+                record.setURL("www.baidu.com");
+                record.setTime(System.currentTimeMillis());
+                Tab tab = new Tab(BrowserActivity.this, record);
+                addTab(tab);
             }
         });
     }
 
-    // TODO
+    private synchronized void addTab(Tab tab) {
+        tab.activateTab();
+        final View view = tab.getView();
+
+        view.setVisibility(View.INVISIBLE);
+        tabsContainer.addView(view);
+
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.slide_in_up);
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                view.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                Handler handler = new Handler();
+                handler.postDelayed(
+                        new Runnable() {
+                            @Override
+                            public void run() {
+                                tabsScroll.smoothScrollTo(view.getLeft(), 0);
+                            }
+                        },
+                        BrowserActivity.this.getResources().getInteger(android.R.integer.config_shortAnimTime)
+                );
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+                /* Do nothing here */
+            }
+        });
+        view.startAnimation(animation);
+    }
 }

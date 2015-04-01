@@ -2,12 +2,11 @@ package io.github.mthli.Berries.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Service.HolderService;
-import io.github.mthli.Berries.Unit.PreferenceUnit;
+import io.github.mthli.Berries.Unit.ConstantUnit;
 import io.github.mthli.Berries.Unit.RecordUnit;
 
 import java.util.Timer;
@@ -24,12 +23,9 @@ public class HolderActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         first = new Record();
-        first.setTitle(getString(R.string.record_title_default));
+        first.setTitle(getString(R.string.record_untitled));
         first.setURL(getIntent().getData().toString());
         first.setTime(System.currentTimeMillis());
-
-        SharedPreferences sharedPreferences = getSharedPreferences(PreferenceUnit.NAME, MODE_PRIVATE);
-        int interval = sharedPreferences.getInt(PreferenceUnit.DOUBLE_TAPS_INTERVAL, PreferenceUnit.DOUBLE_TAPS_INTERVAL_DEFAULT);
 
         TimerTask task = new TimerTask() {
             @Override
@@ -45,19 +41,19 @@ public class HolderActivity extends Activity {
             }
         };
         timer = new Timer();
-        timer.schedule(task, interval);
+        timer.schedule(task, ConstantUnit.LOAD_LIMIT);
     }
 
     @Override
     public void onNewIntent(Intent intent) {
         second = new Record();
-        second.setTitle(getString(R.string.record_title_default));
+        second.setTitle(getString(R.string.record_untitled));
         second.setURL(intent.getData().toString());
         second.setTime(System.currentTimeMillis());
 
         if (first.getURL().equals(second.getURL())) {
             Intent toBrowser = new Intent();
-            // TODO: secondary browser
+            // TODO
         } else {
             Intent toService = new Intent(HolderActivity.this, HolderService.class);
             RecordUnit.hold(second);

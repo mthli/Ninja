@@ -5,15 +5,9 @@
     <!-- AndroidAgo -->
     <string name="just_now">Just now</string>
 
-    <!-- Menu -->
-    <string name="browser_menu_share">
-        Share
-    </string>
-    <string name="browser_menu_open_with_browser">
-        Open with browser
-    </string>
-    <string name="browser_menu_copy_links">
-        Copy links
+    <!-- Browser -->
+    <string name="browser_hint_url_input">
+        Search or type URL
     </string>
 
     <!-- Notification -->
@@ -31,12 +25,12 @@
     </string>
 
     <!-- Reocrd -->
-    <string name="record_title_default">
-        Untitle
+    <string name="record_untitled">
+        Untitled
     </string>
 
     <!-- Toast -->
-    <string name="toast_load_limit_max">
+    <string name="toast_load_limit">
         Load limit
     </string>
 

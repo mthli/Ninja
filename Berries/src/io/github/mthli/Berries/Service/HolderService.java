@@ -3,7 +3,6 @@ package io.github.mthli.Berries.Service;
 import android.app.Notification;
 import android.app.Service;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.IBinder;
 import android.widget.Toast;
 import io.github.mthli.Berries.Browser.BerryContainer;
@@ -37,14 +36,15 @@ public class HolderService extends Service implements BrowserController {
             }
         } catch (NullPointerException n) {}
 
-        if (BerryContainer.size() < PreferenceUnit.LOAD_LIMIT_MAX_DEFAULT) {
+        if (BerryContainer.size() < ConstantUnit.LOAD_LIMIT) {
             Record record = RecordUnit.get();
-            BerryView view = new BerryView(context, record);
+            // TODO: SP
+            BerryView view = new BerryView(context, record, false);
             view.setController(this);
             BerryContainer.add(view);
             updateNotification();
         } else {
-            Toast.makeText(this, R.string.toast_load_limit_max, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.toast_load_limit, Toast.LENGTH_SHORT).show();
         }
 
         return START_STICKY;
@@ -73,13 +73,8 @@ public class HolderService extends Service implements BrowserController {
 
     public void onLongPress() {}
 
-    public boolean isToolbarShowing() {
+    public boolean isPanelShowing() {
         return false;
-    }
-
-    public boolean isIncognito() {
-        SharedPreferences sp = getSharedPreferences(PreferenceUnit.NAME, MODE_PRIVATE);
-        return sp.getBoolean(PreferenceUnit.INCOGNITO, PreferenceUnit.INCOGNITO_DEFAULT);
     }
 
     public void updateNotification() {

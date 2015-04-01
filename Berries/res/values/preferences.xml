@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string name="sp_name">
+        Berries
+    </string>
+    
+    <string name="sp_images">
+        SP_IMAGES
+    </string>
+    <string name="sp_location">
+        SP_LOCATION
+    </string>
+    <string name="sp_notification_priority">
+        SP_NOTIFICATION_PRIORITY
+    </string>
+    <string name="sp_notification_sound">
+        SP_NOTIFICATION_SOUND
+    </string>
+    <string name="sp_passwords">
+        SP_PASSWORDS
+    </string>
+
+</resources>

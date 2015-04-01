@@ -59,6 +59,7 @@
         <!-- TODO: BrowserActivity -->
         <activity android:name=".Activity.BrowserActivity"
                   android:label="@string/app_name"
+                  android:launchMode="singleTask"
                   android:theme="@style/Browser">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -2,7 +2,6 @@ package io.github.mthli.Berries.Browser;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.support.annotation.NonNull;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -11,8 +10,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
-import io.github.mthli.Berries.Unit.BrowserUnit;
-import io.github.mthli.Berries.Unit.PreferenceUnit;
+import io.github.mthli.Berries.Unit.ConstantUnit;
 
 public class BerryView {
     private Context context;
@@ -31,6 +29,20 @@ public class BerryView {
     }
     public void setForeground(boolean foreground) {
         this.foreground = foreground;
+    }
+
+    // TODO
+    private boolean incognito;
+    public boolean isIncognito() {
+        return incognito;
+    }
+    public void setIncognito(boolean incognito) {
+        this.incognito = incognito;
+    }
+
+    private Tab tab;
+    public View getTabView() {
+        return tab.getView();
     }
 
     private WebView webView;
@@ -52,11 +64,13 @@ public class BerryView {
         this.gestureListener.setController(controller);
     }
 
-    // TODO: Context must have getTheme() and some others.
-    public BerryView(Context context, Record record) {
+    public BerryView(Context context, Record record, boolean incognito) {
         this.context = context;
         this.record = record;
         this.foreground = false;
+        this.incognito = incognito;
+
+        this.tab = new Tab(context, record);
 
         this.webView = new WebView(context);
         this.webSettings = webView.getSettings();
@@ -149,7 +163,7 @@ public class BerryView {
         webSettings.setDatabaseEnabled(true);
         webSettings.setDomStorageEnabled(true);
 
-        webSettings.setDefaultTextEncodingName(BrowserUnit.ENCODING);
+        webSettings.setDefaultTextEncodingName("UTF-8");
 
         webSettings.setGeolocationDatabasePath(context.getFilesDir().toString());
 
@@ -163,43 +177,16 @@ public class BerryView {
             return;
         }
 
-        SharedPreferences sp = context.getSharedPreferences(PreferenceUnit.NAME, Context.MODE_PRIVATE);
+        SharedPreferences sp = context.getSharedPreferences(context.getString(R.string.sp_name), Context.MODE_PRIVATE);
+        webSettings.setBlockNetworkImage(sp.getBoolean(context.getString(R.string.sp_images), true));
+        webSettings.setGeolocationEnabled(sp.getBoolean(context.getString(R.string.sp_location), true));
+        webSettings.setSaveFormData(sp.getBoolean(context.getString(R.string.sp_passwords), true));
 
-        webSettings.setBlockNetworkImage(
-                sp.getBoolean(PreferenceUnit.IMAGES, PreferenceUnit.IMAGES_DEFAULT)
-        );
-
-        webSettings.setGeolocationEnabled(
-                sp.getBoolean(PreferenceUnit.LOCATION, PreferenceUnit.LOCATION_DEFAULT)
-        );
-
-        if (sp.getBoolean(PreferenceUnit.TEXT_REFLOW, PreferenceUnit.TEXT_REFLOW_DEFAULT)) {
-            webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
-        } else {
-            webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NORMAL);
-        }
-
-        webSettings.setLoadWithOverviewMode(
-                sp.getBoolean(PreferenceUnit.OVERVIEW_MODE, PreferenceUnit.OVERVIEW_MODE_DEFAULT)
-        );
-
-        webSettings.setSaveFormData(
-                sp.getBoolean(PreferenceUnit.SAVE_PASSWORDS, PreferenceUnit.SAVE_PASSWORDS_DEFAULT)
-        );
-
-        webSettings.setSupportMultipleWindows(
-                sp.getBoolean(PreferenceUnit.MULTIPLE_WINDOWS, PreferenceUnit.MULTIPLE_WINDOWS_DEFAULT)
-        );
-
-        webSettings.setTextZoom(
-                sp.getInt(PreferenceUnit.TEXT_ZOOM, PreferenceUnit.TEXT_ZOOM_DEFAULT)
-        );
-
-        webSettings.setUseWideViewPort(
-                sp.getBoolean(PreferenceUnit.WIDE_VIEW_PORT, PreferenceUnit.WIDE_VIEW_PORT_DEFAULT)
-        );
+        webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setSupportMultipleWindows(true);
+        webSettings.setTextZoom(100);
+        webSettings.setUseWideViewPort(true);
     }
 
     public synchronized void loadUrl(@NonNull String url) {
@@ -277,7 +264,7 @@ public class BerryView {
         if (webView != null) {
             return webView.getProgress();
         } else {
-            return BrowserUnit.PROGRESS_MAX;
+            return ConstantUnit.PROGRESS_MAX;
         }
     }
 

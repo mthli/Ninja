@@ -1,78 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
 
-    <!-- TODO -->
+    <LinearLayout android:id="@+id/browser_control_panel"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@color/black">
+
+        <RelativeLayout android:id="@+id/browser_tabs_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:minHeight="48dp">
+
+            <ImageButton android:id="@+id/browser_add_tab_button"
+                         android:contentDescription="@null"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_centerInParent="true"
+                         android:layout_alignParentRight="true"
+                         android:layout_marginLeft="8dp"
+                         android:layout_marginRight="8dp"
+                         android:src="@drawable/browser_add_tab_button_selector"
+                         android:background="@color/transparent">
+            </ImageButton>
+
+            <HorizontalScrollView android:id="@+id/browser_tabs_scroll"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="match_parent"
+                                  android:layout_centerInParent="true"
+                                  android:layout_alignParentLeft="true"
+                                  android:layout_toLeftOf="@+id/browser_add_tab_button"
+                                  android:fadingEdge="none"
+                                  android:overScrollMode="never"
+                                  android:scrollbars="none">
+
+                <LinearLayout android:id="@+id/browser_tabs_container"
+                              android:orientation="horizontal"
+                              android:layout_width="wrap_content"
+                              android:layout_height="match_parent">
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+        </RelativeLayout>
+
+        <RelativeLayout android:id="@+id/browser_omnibox_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:minHeight="48dp"
+                        android:background="@color/gray_900">
+
+            <ImageButton android:id="@+id/browser_overflow_button"
+                         android:contentDescription="@null"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_centerInParent="true"
+                         android:layout_alignParentRight="true"
+                         android:layout_marginLeft="8dp"
+                         android:layout_marginRight="8dp"
+                         android:src="@drawable/browser_overflow_button_selector"
+                         android:background="@color/transparent">
+            </ImageButton>
+
+            <RelativeLayout android:id="@+id/browser_url_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:minHeight="36dp"
+                            android:layout_centerInParent="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_toLeftOf="@id/browser_overflow_button"
+                            android:layout_marginLeft="8dp"
+                            android:background="@drawable/browser_omnibox_layout_shape">
+
+                <ImageButton android:id="@+id/browser_bookmark_button"
+                             android:contentDescription="@null"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_centerInParent="true"
+                             android:layout_alignParentLeft="true"
+                             android:layout_margin="4dp"
+                             android:src="@drawable/browser_bookmark_outline_button_selector"
+                             android:background="@color/transparent">
+                </ImageButton>
+
+                <ImageButton android:id="@+id/browser_refresh_button"
+                             android:contentDescription="@null"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_centerInParent="true"
+                             android:layout_alignParentRight="true"
+                             android:layout_margin="4dp"
+                             android:src="@drawable/browser_refresh_button_selector"
+                             android:background="@color/transparent">
+                </ImageButton>
+
+                <!-- TODO: focusable and chooseModeColor -->
+                <AutoCompleteTextView android:id="@+id/browser_url_input"
+                                      android:layout_width="match_parent"
+                                      android:layout_height="wrap_content"
+                                      android:layout_centerInParent="true"
+                                      android:layout_toLeftOf="@id/browser_refresh_button"
+                                      android:layout_toRightOf="@id/browser_bookmark_button"
+                                      android:hint="@string/browser_hint_url_input"
+                                      android:textColor="@color/text"
+                                      android:textColorHint="@color/hint"
+                                      android:textCursorDrawable="@null"
+                                      android:textSize="16sp"
+                                      android:singleLine="true"
+                                      android:imeOptions="actionSend"
+                                      android:inputType="text"
+                                      android:background="@color/white">
+                </AutoCompleteTextView>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout android:id="@+id/progress_wrapper"
+                      android:orientation="vertical"
+                      android:layout_width="match_parent"
+                      android:layout_height="2dp"
+                      android:visibility="gone">
+
+            <!-- TODO: progressDrawable -->
+            <ProgressBar android:id="@android:id/progress"
+                         android:layout_width="match_parent"
+                         android:layout_height="2dp"
+                         android:maxHeight="2dp"
+                         android:minWidth="2dp"
+                         android:indeterminate="false"
+                         android:indeterminateOnly="false">
+            </ProgressBar>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
     <FrameLayout android:id="@android:id/content"
                  android:layout_width="match_parent"
                  android:layout_height="match_parent">
     </FrameLayout>
 
-    <!-- TODO -->
-    <LinearLayout android:id="@+id/browser_control_panel"
-                  android:orientation="horizontal"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_gravity="bottom|right"
-                  android:layout_marginRight="16dp"
-                  android:layout_marginBottom="16dp">
-
-        <ImageButton android:id="@+id/browser_control_list"
-                     android:contentDescription="@null"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:padding="6dp"
-                     android:src="@drawable/browser_control_list"
-                     android:background="@color/black">
-        </ImageButton>
-
-
-        <LinearLayout android:id="@+id/browser_control_ec"
-                      android:orientation="horizontal"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:visibility="gone">
-
-            <ImageButton android:id="@+id/browser_control_history"
-                         android:contentDescription="@null"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:padding="6dp"
-                         android:src="@drawable/browser_control_history"
-                         android:background="@color/black">
-            </ImageButton>
-
-            <ImageButton android:id="@+id/browser_control_share"
-                         android:contentDescription="@null"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:padding="6dp"
-                         android:src="@drawable/browser_control_share"
-                         android:background="@color/black">
-            </ImageButton>
-
-            <ImageButton android:id="@+id/browser_control_copy"
-                         android:contentDescription="@null"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:padding="6dp"
-                         android:src="@drawable/browser_control_copy"
-                         android:background="@color/black">
-            </ImageButton>
-
-        </LinearLayout>
-
-        <ImageButton android:id="@+id/browser_control_more"
-                     android:contentDescription="@null"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:padding="6dp"
-                     android:src="@drawable/browser_control_expand"
-                     android:background="@color/black">
-        </ImageButton>
-
-    </LinearLayout>
-
-</FrameLayout>
+</LinearLayout>
