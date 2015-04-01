@@ -15,7 +15,8 @@ public class RecordHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase database) {
-        database.execSQL(RecordUnit.CREATE_SQL);
+        database.execSQL(RecordUnit.CREATE_BOOKMARKS);
+        database.execSQL(RecordUnit.CREATE_HISTORY);
     }
 
     @Override

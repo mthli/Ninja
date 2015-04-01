@@ -29,22 +29,22 @@ public class RecordAction {
         helper.close();
     }
 
-    public void add(Record record) {
+    public void add(Record record, String table) {
         ContentValues values = new ContentValues();
 
         values.put(RecordUnit.TITLE, record.getTitle());
         values.put(RecordUnit.URL, record.getURL());
         values.put(RecordUnit.TIME, record.getTime());
 
-        database.insert(RecordUnit.TABLE, null, values);
+        database.insert(table, null, values);
     }
 
-    public void delete(Record record) {
-        database.execSQL("DELETE FROM "+ RecordUnit.TABLE + " WHERE " + RecordUnit.TIME + " = " + record.getTime());
+    public void delete(Record record, String table) {
+        database.execSQL("DELETE FROM "+ table + " WHERE " + RecordUnit.TIME + " = " + record.getTime());
     }
 
-    public void clear() {
-        database.execSQL("DELETE FROM " + RecordUnit.TABLE);
+    public void clear(String table) {
+        database.execSQL("DELETE FROM " + table);
     }
 
     public Record get(Cursor cursor) {
@@ -57,11 +57,11 @@ public class RecordAction {
         return record;
     }
 
-    public List<Record> list() {
+    public List<Record> list(String table) {
         List<Record> list = new ArrayList<Record>();
 
         Cursor cursor = database.query(
-                RecordUnit.TABLE,
+                table,
                 new String[] {
                         RecordUnit.TITLE,
                         RecordUnit.URL,

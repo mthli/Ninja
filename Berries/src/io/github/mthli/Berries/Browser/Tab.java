@@ -7,7 +7,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
-import io.github.mthli.Berries.Unit.ViewUnit;
 
 public class Tab {
     private Berry berry;

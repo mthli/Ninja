@@ -9,6 +9,9 @@
     <string name="browser_home">
         Home
     </string>
+    <string name="browser_untitled">
+        Untitled
+    </string>
     <string name="browser_incognito">
         Incognito
     </string>
@@ -28,11 +31,6 @@
     </string>
     <string name="notification_action_quit">
         Quit
-    </string>
-
-    <!-- Reocrd -->
-    <string name="record_untitled">
-        Untitled
     </string>
 
     <!-- Toast -->

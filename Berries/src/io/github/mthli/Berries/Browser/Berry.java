@@ -229,6 +229,18 @@ public class Berry {
         }
     }
 
+    public void requestFocus() {
+        if (webView != null && !webView.hasFocus()) {
+            webView.requestFocus();
+        }
+    }
+
+    public void setVisibility(int visibility) {
+        if (webView != null) {
+            webView.setVisibility(visibility);
+        }
+    }
+
     public synchronized void destroy() {
         if (webView != null) {
             webView.stopLoading();
@@ -258,18 +270,6 @@ public class Berry {
 
         if (tab != null) {
             tab.deactivate();
-        }
-    }
-
-    public void requestFocus() {
-        if (webView != null && !webView.hasFocus()) {
-            webView.requestFocus();
-        }
-    }
-
-    public void setVisibility(int visibility) {
-        if (webView != null) {
-            webView.setVisibility(visibility);
         }
     }
 

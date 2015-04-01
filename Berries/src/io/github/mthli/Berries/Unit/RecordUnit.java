@@ -5,14 +5,23 @@ import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
 
 public class RecordUnit {
-    public static final String TABLE = "HISTORY";
+    public static final String BOOKMARKS = "BOOKMARKS";
+    public static final String HISTORY = "HISTORY";
 
     public static final String TITLE = "TITLE";
     public static final String URL = "URL";
     public static final String TIME = "TIME";
 
-    public static final String CREATE_SQL = "CREATE TABLE "
-            + TABLE
+    public static final String CREATE_HISTORY = "CREATE TABLE "
+            + HISTORY
+            + " ("
+            + " " + TITLE + " text,"
+            + " " + URL + " text,"
+            + " " + TIME + " integer"
+            + ")";
+
+    public static final String CREATE_BOOKMARKS = "CREATE TABLE "
+            + BOOKMARKS
             + " ("
             + " " + TITLE + " text,"
             + " " + URL + " text,"
