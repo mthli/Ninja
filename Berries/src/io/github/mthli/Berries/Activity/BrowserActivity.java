@@ -83,6 +83,21 @@ public class BrowserActivity extends Activity implements BrowserController {
         browserFrame = (FrameLayout) findViewById(R.id.browser_frame);
         newTab(RecordUnit.getHome(this), false, true); // TODO: sp_incognito
 
+        overflowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO
+            }
+        });
+        overflowButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                // TODO
+
+                return true;
+            }
+        });
+
         addTabButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,6 +115,38 @@ public class BrowserActivity extends Activity implements BrowserController {
                 return true;
             }
         });
+
+        bookmarkButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO
+            }
+        });
+        bookmarkButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                // TODO
+
+                return true;
+            }
+        });
+
+        refreshButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO
+            }
+        });
+        refreshButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                // TODO
+
+                return true;
+            }
+        });
+
+        // TODO
     }
 
     private synchronized void newTab(Record record, boolean incognito, final boolean foreground) {
@@ -133,13 +180,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
                 browserFrame.addView(berry.getWebView());
                 berry.activate();
-
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        tabsScroll.smoothScrollTo(tabView.getLeft(), 0);
-                    }
-                }, BrowserActivity.this.getResources().getInteger(android.R.integer.config_shortAnimTime));
+                tabsScroll.smoothScrollTo(tabView.getLeft(), 0);
             }
 
             @Override
@@ -160,17 +201,9 @@ public class BrowserActivity extends Activity implements BrowserController {
             browserFrame.removeView(currentBerry.getWebView());
         }
 
-        new Handler().postDelayed(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        tabsScroll.smoothScrollTo(berry.getTabView().getLeft(), 0);
-                    }
-                },
-                BrowserActivity.this.getResources().getInteger(android.R.integer.config_shortAnimTime)
-        );
         browserFrame.addView(berry.getWebView());
         berry.activate();
+        tabsScroll.smoothScrollTo(berry.getTabView().getLeft(), 0);
         currentBerry = berry;
     }
 
@@ -212,17 +245,9 @@ public class BrowserActivity extends Activity implements BrowserController {
                 }
 
                 currentBerry = BerryContainer.get(index);
-                new Handler().postDelayed(
-                        new Runnable() {
-                            @Override
-                            public void run() {
-                                tabsScroll.smoothScrollTo(currentBerry.getTabView().getLeft(), 0);
-                            }
-                        },
-                        BrowserActivity.this.getResources().getInteger(android.R.integer.config_shortAnimTime)
-                );
                 browserFrame.addView(currentBerry.getWebView());
                 currentBerry.activate();
+                tabsScroll.smoothScrollTo(currentBerry.getTabView().getLeft(), 0);
             }
 
             @Override
