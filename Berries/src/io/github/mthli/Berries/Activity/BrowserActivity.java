@@ -66,7 +66,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     private void initUI() {
         controlPanel = (LinearLayout) findViewById(R.id.browser_control_panel);
-        ViewCompat.setElevation(controlPanel, ViewUnit.getElevation(this, 2));
+        ViewCompat.setElevation(controlPanel, ViewUnit.dp2px(this, 2));
         overflowButton = (ImageButton) findViewById(R.id.browser_overflow_button);
 
         tabsScroll = (HorizontalScrollView) findViewById(R.id.browser_tabs_scroll);
@@ -81,6 +81,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         progressBar = (ProgressBar) findViewById(R.id.browser_progress_bar);
 
         browserFrame = (FrameLayout) findViewById(R.id.browser_frame);
+        newTab(RecordUnit.getHome(this), false, true); // TODO: sp_incognito
 
         addTabButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -149,8 +150,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         tabView.startAnimation(animation);
     }
 
-    // TODO
-    public synchronized void showSelectedTab(Berry berry) {
+    public synchronized void showSelectedTab(final Berry berry) {
         if (berry == null || berry.equals(currentBerry)) {
             return;
         }
@@ -160,6 +160,15 @@ public class BrowserActivity extends Activity implements BrowserController {
             browserFrame.removeView(currentBerry.getWebView());
         }
 
+        new Handler().postDelayed(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        tabsScroll.smoothScrollTo(berry.getTabView().getLeft(), 0);
+                    }
+                },
+                BrowserActivity.this.getResources().getInteger(android.R.integer.config_shortAnimTime)
+        );
         browserFrame.addView(berry.getWebView());
         berry.activate();
         currentBerry = berry;

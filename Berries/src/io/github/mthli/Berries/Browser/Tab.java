@@ -7,6 +7,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
+import io.github.mthli.Berries.Unit.ViewUnit;
 
 public class Tab {
     private Berry berry;
@@ -78,6 +79,7 @@ public class Tab {
     public void activate() {
         if (view != null) {
             view.setBackgroundColor(context.getResources().getColor(R.color.gray_900));
+            title.setWidth((int) ViewUnit.dp2px(context, ViewUnit.WIDTH_MAX));
             closeButton.setVisibility(View.VISIBLE);
         }
     }
@@ -85,6 +87,7 @@ public class Tab {
     public void deactivate() {
         if (view != null) {
             view.setBackgroundColor(context.getResources().getColor(R.color.gray_1000));
+            title.setWidth((int) ViewUnit.dp2px(context, ViewUnit.WIDTH_MIN));
             closeButton.setVisibility(View.INVISIBLE);
         }
     }

@@ -1,18 +1,16 @@
 package io.github.mthli.Berries.Unit;
 
 import android.content.Context;
-import android.view.View;
 
 public class ViewUnit {
-    public static void expand(final View view) {
-        // TODO
+    public static final int WIDTH_MAX = 128;
+    public static final int WIDTH_MIN = 48;
+
+    public static float dp2px(Context context, int dp) {
+        return context.getResources().getDisplayMetrics().density * dp;
     }
 
-    public static void collapse(final View view) {
-        // TODO
-    }
-
-    public static float getElevation(Context context, int degree) {
-        return context.getResources().getDisplayMetrics().density * degree;
+    public static float dp2px(Context context, float dp) {
+        return context.getResources().getDisplayMetrics().density * dp;
     }
 }

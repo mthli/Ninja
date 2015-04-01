@@ -6,7 +6,7 @@ import android.os.Bundle;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Service.HolderService;
-import io.github.mthli.Berries.Unit.ConstantUnit;
+import io.github.mthli.Berries.Unit.BrowserUnit;
 import io.github.mthli.Berries.Unit.RecordUnit;
 
 import java.util.Timer;
@@ -41,7 +41,7 @@ public class HolderActivity extends Activity {
             }
         };
         timer = new Timer();
-        timer.schedule(task, ConstantUnit.LOAD_LIMIT);
+        timer.schedule(task, BrowserUnit.LOAD_LIMIT);
     }
 
     @Override

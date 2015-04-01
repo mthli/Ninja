@@ -29,8 +29,8 @@ public class RecordUnit {
 
     public static Record getHome(Context context) {
         Record record = new Record();
-        record.setTitle(context.getString(R.string.browser_start_page));
-        record.setURL(BrowserUnit.START_PAGE);
+        record.setTitle(context.getString(R.string.browser_home));
+        record.setURL(BrowserUnit.Home);
         record.setTime(System.currentTimeMillis());
 
         return record;

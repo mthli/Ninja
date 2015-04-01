@@ -11,7 +11,6 @@ import android.webkit.WebView;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.BrowserUnit;
-import io.github.mthli.Berries.Unit.ConstantUnit;
 
 public class Berry {
     private Context context;
@@ -97,7 +96,7 @@ public class Berry {
 
         webView.setBackground(null);
         webView.getRootView().setBackground(null);
-        webView.setBackgroundColor(context.getResources().getColor(R.color.blue_500)); // TODO
+        webView.setBackgroundColor(context.getResources().getColor(R.color.white));
 
         webView.setDrawingCacheBackgroundColor(0x00000000);
         webView.setDrawingCacheEnabled(true);
@@ -191,7 +190,7 @@ public class Berry {
     public synchronized void loadUrl(@NonNull String url) {
         url = url.trim();
         if (webView != null && !url.isEmpty()) {
-            if (url.equals(BrowserUnit.START_PAGE)) {
+            if (url.equals(BrowserUnit.Home)) {
                 // TODO
                 return;
             }
@@ -294,7 +293,7 @@ public class Berry {
         if (webView != null) {
             return webView.getProgress();
         } else {
-            return ConstantUnit.PROGRESS_MAX;
+            return BrowserUnit.PROGRESS_MAX;
         }
     }
 

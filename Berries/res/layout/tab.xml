@@ -14,12 +14,11 @@
         <TextView android:id="@+id/tab_title"
                   android:layout_width="wrap_content"
                   android:layout_height="match_parent"
-                  android:layout_marginLeft="8dp"
+                  android:layout_marginLeft="16dp"
                   android:layout_gravity="center_vertical"
                   android:gravity="center_vertical"
                   android:textColor="@color/white"
                   android:textSize="16sp"
-                  android:maxLength="10"
                   android:singleLine="true"
                   android:ellipsize="end">
         </TextView>
