@@ -13,8 +13,8 @@
 
         <RelativeLayout android:id="@+id/browser_tabs_layout"
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:minHeight="48dp">
+                        android:layout_height="36dp"
+                        android:minHeight="36dp">
 
             <ImageButton android:id="@+id/browser_add_tab_button"
                          android:contentDescription="@null"

@@ -70,7 +70,7 @@ public class BerryView {
         this.foreground = false;
         this.incognito = incognito;
 
-        this.tab = new Tab(context, record);
+        this.tab = new Tab(context, record, incognito);
 
         this.webView = new WebView(context);
         this.webSettings = webView.getSettings();

@@ -1,8 +1,10 @@
 package io.github.mthli.Berries.Activity;
 
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -10,6 +12,7 @@ import android.widget.*;
 import io.github.mthli.Berries.Browser.Tab;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
+import io.github.mthli.Berries.Unit.ViewUnit;
 
 public class BrowserActivity extends Activity {
     private LinearLayout controlPanel;
@@ -36,6 +39,7 @@ public class BrowserActivity extends Activity {
 
     private void initUI() {
         controlPanel = (LinearLayout) findViewById(R.id.browser_control_panel);
+        ViewCompat.setElevation(controlPanel, ViewUnit.getElevation(this, 2));
         overflowButton = (ImageButton) findViewById(R.id.browser_overflow_button);
 
         tabsScroll = (HorizontalScrollView) findViewById(R.id.browser_tabs_scroll);
@@ -57,7 +61,7 @@ public class BrowserActivity extends Activity {
                 record.setTitle("Untitled");
                 record.setURL("www.baidu.com");
                 record.setTime(System.currentTimeMillis());
-                Tab tab = new Tab(BrowserActivity.this, record);
+                Tab tab = new Tab(BrowserActivity.this, record, false);
                 addTab(tab);
             }
         });
@@ -68,7 +72,7 @@ public class BrowserActivity extends Activity {
         final View view = tab.getView();
 
         view.setVisibility(View.INVISIBLE);
-        tabsContainer.addView(view);
+        tabsContainer.addView(view, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
 
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.slide_in_up);
         animation.setAnimationListener(new Animation.AnimationListener() {
