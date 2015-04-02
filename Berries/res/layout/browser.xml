@@ -74,6 +74,8 @@
                             android:layout_alignParentLeft="true"
                             android:layout_toLeftOf="@id/browser_overflow_button"
                             android:layout_marginLeft="8dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
                             android:background="@drawable/browser_omnibox_layout_shape">
 
                 <ImageButton android:id="@+id/browser_bookmark_button"
@@ -98,7 +100,7 @@
                              android:background="@color/transparent">
                 </ImageButton>
 
-                <!-- TODO: focusable and chooseModeColor -->
+                <!-- TODO: chooseModeColor -->
                 <AutoCompleteTextView android:id="@+id/browser_url_input"
                                       android:layout_width="match_parent"
                                       android:layout_height="wrap_content"

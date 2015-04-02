@@ -11,6 +11,12 @@
     <string name="browser_hint_url_input">
         Search or type URL
     </string>
+    <string name="browser_tab_bookmarks">
+        Bookmarks
+    </string>
+    <string name="browser_tab_history">
+        History
+    </string>
     <string name="browser_tab_home">
         Homepage
     </string>
