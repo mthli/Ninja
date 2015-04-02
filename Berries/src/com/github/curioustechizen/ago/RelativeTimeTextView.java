@@ -150,7 +150,7 @@ public class RelativeTimeTextView extends TextView {
         long now = System.currentTimeMillis();
         long difference = now - mReferenceTime;
         return (difference >= 0 &&  difference<=DateUtils.MINUTE_IN_MILLIS) ?
-                getResources().getString(R.string.just_now):
+                getResources().getString(R.string.android_ago_just_now):
                 DateUtils.getRelativeTimeSpanString(
                         mReferenceTime,
                         now,

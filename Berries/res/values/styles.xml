@@ -3,7 +3,7 @@
 <resources>
 
     <style name="Browser" parent="android:Theme.DeviceDefault.Light.NoActionBar">
-        <!-- Do nothing here -->
+        <item name="android:textColor">@color/text</item>
     </style>
 
 </resources>

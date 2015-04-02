@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -99,13 +100,13 @@ public class BrowserActivity extends Activity implements BrowserController {
         overflowButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO
+                showOverflow();
             }
         });
         overflowButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                // TODO
+                Toast.makeText(BrowserActivity.this, R.string.browser_toast_more, Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
@@ -122,7 +123,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             public boolean onLongClick(View view) {
                 Record record = RecordUnit.getHome(BrowserActivity.this);
                 newTab(record, true, true);
-                Toast.makeText(BrowserActivity.this, R.string.browser_incognito, Toast.LENGTH_SHORT).show();
+                Toast.makeText(BrowserActivity.this, R.string.browser_toast_incognito, Toast.LENGTH_SHORT).show();
 
                 return true;
             }
@@ -273,5 +274,32 @@ public class BrowserActivity extends Activity implements BrowserController {
             }
         });
         tabView.startAnimation(animation);
+    }
+
+    private void showOverflow() {
+        PopupMenu popupMenu = new PopupMenu(this, addTabButton);
+        popupMenu.getMenuInflater().inflate(R.menu.broswer_menu, popupMenu.getMenu());
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.browser_menu_bookmarks:
+                        break;
+                    case R.id.browser_menu_history:
+                        break;
+                    case R.id.browser_menu_share:
+                        break;
+                    case R.id.browser_menu_setting:
+                        break;
+                    case R.id.browser_menu_quit:
+                        break;
+                    default:
+                        break;
+                }
+
+                return true;
+            }
+        });
+        popupMenu.show();
     }
 }

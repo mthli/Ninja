@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
 
@@ -53,6 +54,13 @@ public class Tab {
             @Override
             public void onClick(View view) {
                 controller.showSelectedTab(berry);
+            }
+        });
+        view.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                Toast.makeText(context, record.getTitle(), Toast.LENGTH_SHORT).show();
+                return true;
             }
         });
 

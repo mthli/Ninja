@@ -3,20 +3,57 @@
 <resources>
     
     <!-- AndroidAgo -->
-    <string name="just_now">Just now</string>
+    <string name="android_ago_just_now">
+        Just now
+    </string>
 
     <!-- Browser -->
-    <string name="browser_home">
-        Homepage
-    </string>
-    <string name="browser_untitled">
-        Untitled
-    </string>
-    <string name="browser_incognito">
-        Incognito
-    </string>
     <string name="browser_hint_url_input">
         Search or type URL
+    </string>
+    <string name="browser_tab_home">
+        Homepage
+    </string>
+    <string name="browser_tab_untitled">
+        Untitled
+    </string>
+    <string name="browser_toast_add_bookmark">
+        Add bookmark
+    </string>
+    <string name="browser_toast_cancel">
+        Cancel refresh
+    </string>
+    <string name="browser_toast_incognito">
+        Incognito
+    </string>
+    <string name="browser_toast_load_limit">
+        Load limit
+    </string>
+    <string name="browser_toast_more">
+        More
+    </string>
+    <string name="browser_toast_refresh">
+        Refresh
+    </string>
+    <string name="browser_toast_remove_bookmark">
+        Remove bookmark
+    </string>
+    
+    <!-- Menu -->
+    <string name="browser_menu_bookmarks">
+        Bookmarks
+    </string>
+    <string name="browser_menu_history">
+        History
+    </string>
+    <string name="browser_menu_quit">
+        Quit
+    </string>
+    <string name="browser_menu_setting">
+        Setting
+    </string>
+    <string name="browser_menu_share">
+        Share
     </string>
 
     <!-- Notification -->
@@ -31,11 +68,6 @@
     </string>
     <string name="notification_action_quit">
         Quit
-    </string>
-
-    <!-- Toast -->
-    <string name="toast_load_limit">
-        Load limit
     </string>
 
 </resources>

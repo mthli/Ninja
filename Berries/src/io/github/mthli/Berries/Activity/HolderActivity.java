@@ -23,7 +23,7 @@ public class HolderActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         first = new Record();
-        first.setTitle(getString(R.string.browser_untitled));
+        first.setTitle(getString(R.string.browser_tab_untitled));
         first.setURL(getIntent().getData().toString());
         first.setTime(System.currentTimeMillis());
 
@@ -47,7 +47,7 @@ public class HolderActivity extends Activity {
     @Override
     public void onNewIntent(Intent intent) {
         second = new Record();
-        second.setTitle(getString(R.string.browser_untitled));
+        second.setTitle(getString(R.string.browser_tab_untitled));
         second.setURL(intent.getData().toString());
         second.setTime(System.currentTimeMillis());
 

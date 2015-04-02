@@ -16,6 +16,24 @@ import io.github.mthli.Berries.Unit.*;
 public class HolderService extends Service implements BrowserController {
     private BerryContextWrapper context;
 
+    public void updateRecord(Record record) {}
+
+    public void updateProgress(int progress) {}
+
+    public void showControlPanel() {}
+
+    public void hideControlPanel() {}
+
+    public boolean isPanelShowing() {
+        return false;
+    }
+
+    public void onLongPress() {}
+
+    public void showSelectedTab(Berry berry) {}
+
+    public void deleteSelectedTab() {}
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -44,7 +62,7 @@ public class HolderService extends Service implements BrowserController {
             BerryContainer.add(view);
             updateNotification();
         } else {
-            Toast.makeText(this, R.string.toast_load_limit, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.browser_toast_load_limit, Toast.LENGTH_SHORT).show();
         }
 
         return START_STICKY;
@@ -62,24 +80,6 @@ public class HolderService extends Service implements BrowserController {
     public IBinder onBind(Intent intent) {
         return null;
     }
-
-    public void updateRecord(Record record) {}
-
-    public void updateProgress(int progress) {}
-
-    public void showControlPanel() {}
-
-    public void hideControlPanel() {}
-
-    public boolean isPanelShowing() {
-        return false;
-    }
-
-    public void onLongPress() {}
-
-    public void showSelectedTab(Berry berry) {}
-
-    public void deleteSelectedTab() {}
 
     public void updateNotification() {
         Notification.Builder builder = NotificationUnit.getBuilder(this);
