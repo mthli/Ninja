@@ -55,6 +55,9 @@
     <string name="browser_menu_quit">
         Quit
     </string>
+    <string name="browser_menu_search">
+        Search
+    </string>
     <string name="browser_menu_setting">
         Setting
     </string>

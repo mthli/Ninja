@@ -63,21 +63,21 @@ public class Berry {
     }
 
     public Berry(Context context, Record record, boolean incognito) {
-        this.context = context;
+        this.context = new BerryContextWrapper(context);
         this.record = record;
         this.foreground = false;
         this.incognito = incognito;
 
         this.tab = new Tab(this);
-        this.webView = new WebView(context);
+        this.webView = new WebView(this.context);
         this.webSettings = webView.getSettings();
-        this.webViewClient = new BerryWebViewClient(context);
+        this.webViewClient = new BerryWebViewClient(this.context);
         this.webViewClient.setRecord(record);
-        this.webChromeClient = new BerryWebChromeClient(context);
+        this.webChromeClient = new BerryWebChromeClient(this.context);
         this.webChromeClient.setRecord(record);
-        this.downloadListener = new BerryDownloadListener(context);
+        this.downloadListener = new BerryDownloadListener(this.context);
         this.gestureListener = new BerryGestureListener();
-        this.gestureDetector = new GestureDetector(context, gestureListener);
+        this.gestureDetector = new GestureDetector(this.context, gestureListener);
 
         this.initWebView();
         this.initWebSettings();

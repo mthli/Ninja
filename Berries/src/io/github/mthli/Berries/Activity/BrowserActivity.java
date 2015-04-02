@@ -287,6 +287,8 @@ public class BrowserActivity extends Activity implements BrowserController {
                         break;
                     case R.id.browser_menu_history:
                         break;
+                    case R.id.browser_menu_search:
+                        break;
                     case R.id.browser_menu_share:
                         break;
                     case R.id.browser_menu_setting:

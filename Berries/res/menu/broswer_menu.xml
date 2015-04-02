@@ -12,6 +12,11 @@
           android:showAsAction="collapseActionView">
     </item>
 
+    <item android:id="@+id/browser_menu_search"
+          android:title="@string/browser_menu_search"
+          android:showAsAction="collapseActionView">
+    </item>
+
     <item android:id="@+id/browser_menu_share"
           android:title="@string/browser_menu_share"
           android:showAsAction="collapseActionView">

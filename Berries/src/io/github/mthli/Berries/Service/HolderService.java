@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.widget.Toast;
 import io.github.mthli.Berries.Browser.BerryContainer;
-import io.github.mthli.Berries.Browser.BerryContextWrapper;
 import io.github.mthli.Berries.Browser.Berry;
 import io.github.mthli.Berries.Browser.BrowserController;
 import io.github.mthli.Berries.Database.Record;
@@ -14,8 +13,6 @@ import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.*;
 
 public class HolderService extends Service implements BrowserController {
-    private BerryContextWrapper context;
-
     public void updateRecord(Record record) {}
 
     public void updateProgress(int progress) {}
@@ -37,9 +34,7 @@ public class HolderService extends Service implements BrowserController {
     @Override
     public void onCreate() {
         super.onCreate();
-
         BerryContainer.clear();
-        context = new BerryContextWrapper(this);
     }
 
     @Override
@@ -57,7 +52,7 @@ public class HolderService extends Service implements BrowserController {
         if (BerryContainer.size() < BrowserUnit.LOAD_LIMIT) {
             Record record = RecordUnit.getHolder();
             // TODO: SP_INCOGNITO
-            Berry view = new Berry(context, record, false);
+            Berry view = new Berry(this, record, false);
             view.setController(this);
             BerryContainer.add(view);
             updateNotification();
