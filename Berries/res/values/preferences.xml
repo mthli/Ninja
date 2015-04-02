@@ -24,5 +24,21 @@
     <string name="sp_passwords">
         SP_PASSWORDS
     </string>
+    <string name="sp_search_engine">
+        SP_SEARCH_ENGINE
+    </string>
+
+    <string name="sp_search_engine_google">
+        <!-- TODO -->
+    </string>
+    <string name="sp_search_engine_duckduckgo">
+        <!-- TODO -->
+    </string>
+    <string name="sp_search_engine_bing">
+        <!-- TODO -->
+    </string>
+    <string name="sp_search_engine_baidu">
+        <!-- TODO -->
+    </string>
 
 </resources>

@@ -5,8 +5,10 @@ import android.content.SharedPreferences;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.BrowserUnit;
@@ -86,10 +88,6 @@ public class Berry {
     }
 
     private synchronized void initWebView() {
-        if (webView == null) {
-            return;
-        }
-
         webView.setAlwaysDrawnWithCacheEnabled(true);
         webView.setAnimationCacheEnabled(true);
 
@@ -108,8 +106,10 @@ public class Berry {
 
         webView.setWillNotCacheDrawing(false);
 
-        webView.setWebViewClient(webViewClient);
-        webView.setWebChromeClient(webChromeClient);
+        // TODO
+        webView.setWebViewClient(new WebViewClient());
+        webView.setWebChromeClient(new WebChromeClient());
+
         webView.setDownloadListener(new BerryDownloadListener(context));
         webView.setOnTouchListener(new View.OnTouchListener() {
             private int action;
@@ -144,10 +144,6 @@ public class Berry {
     }
 
     private synchronized void initWebSettings() {
-        if (webSettings == null) {
-            return;
-        }
-
         webSettings.setAllowContentAccess(true);
         webSettings.setAllowFileAccess(true);
         webSettings.setAllowFileAccessFromFileURLs(true);
@@ -170,12 +166,8 @@ public class Berry {
     }
 
     private synchronized void initPreferences() {
-        if (webView == null || webSettings == null) {
-            return;
-        }
-
         SharedPreferences sp = context.getSharedPreferences(context.getString(R.string.sp_name), Context.MODE_PRIVATE);
-        webSettings.setBlockNetworkImage(sp.getBoolean(context.getString(R.string.sp_images), true));
+        webSettings.setBlockNetworkImage(sp.getBoolean(context.getString(R.string.sp_images), false));
         webSettings.setGeolocationEnabled(sp.getBoolean(context.getString(R.string.sp_location), true));
         webSettings.setSaveFormData(sp.getBoolean(context.getString(R.string.sp_passwords), true));
 
@@ -187,68 +179,46 @@ public class Berry {
     }
 
     public synchronized void loadUrl(String url) {
-        url = url.trim();
-        if (webView != null && !url.isEmpty()) {
-            if (url.equals(BrowserUnit.TAB_HOME)) {
-                // TODO
-                return;
-            }
-
-            webView.loadUrl(url);
-        }
+        webView.loadUrl(url);
     }
 
     public synchronized void invalidate() {
-        if (webView != null) {
-            webView.invalidate();
-        }
+        webView.invalidate();
     }
 
     public synchronized void onPause() {
-        if (webView != null) {
-            webView.onPause();
-        }
+        webView.onPause();
     }
 
     public synchronized void pauseTimers() {
-        if (webView != null) {
-            webView.pauseTimers();
-        }
+        webView.pauseTimers();
     }
 
     public synchronized void onResume() {
-        if (webView != null) {
-            webView.onResume();
-        }
+        webView.onResume();
     }
 
     public synchronized void resumeTimers() {
-        if (webView != null) {
-            webView.resumeTimers();
-        }
+        webView.resumeTimers();
     }
 
     public void requestFocus() {
-        if (webView != null && !webView.hasFocus()) {
+        if (!webView.hasFocus()) {
             webView.requestFocus();
         }
     }
 
     public void setVisibility(int visibility) {
-        if (webView != null) {
-            webView.setVisibility(visibility);
-        }
+        webView.setVisibility(visibility);
     }
 
     public synchronized void destroy() {
-        if (webView != null) {
-            webView.stopLoading();
-            webView.onPause();
-            webView.clearHistory();
-            webView.setVisibility(View.GONE);
-            webView.removeAllViews();
-            webView.destroyDrawingCache();
-        }
+        webView.stopLoading();
+        webView.onPause();
+        webView.clearHistory();
+        webView.setVisibility(View.GONE);
+        webView.removeAllViews();
+        webView.destroyDrawingCache();
     }
 
     public void activate() {
@@ -256,110 +226,78 @@ public class Berry {
         setVisibility(View.VISIBLE);
         requestFocus();
         foreground = true;
-
-        if (tab != null) {
-            tab.activate();
-        }
+        tab.activate();
     }
 
     public void deactivate() {
         onPause();
         setVisibility(View.INVISIBLE);
         foreground = false;
-
-        if (tab != null) {
-            tab.deactivate();
-        }
+        tab.deactivate();
     }
 
     public boolean isShown() {
-        return webView != null && webView.isShown();
+        return webView.isShown();
     }
 
     public synchronized void stopLoading() {
-        if (webView != null) {
-            webView.stopLoading();
-        }
+        webView.stopLoading();
     }
 
     public synchronized void reload() {
-        if (webView != null) {
-            webView.reload();
-        }
+        webView.reload();
     }
 
     public int getProgress() {
-        if (webView != null) {
-            return webView.getProgress();
-        } else {
-            return BrowserUnit.PROGRESS_MAX;
-        }
+        return webView.getProgress();
     }
 
     public boolean isFinish() {
-        return webViewClient != null && webViewClient.isFinish();
+        return webViewClient.isFinish();
     }
 
     public synchronized void pageUp(boolean top) {
-        if (webView != null) {
-            webView.pageUp(top);
-        }
+        webView.pageUp(top);
     }
 
     public synchronized void pageDown(boolean bottom) {
-        if (webView != null) {
-            webView.pageDown(bottom);
-        }
+        webView.pageDown(bottom);
     }
 
     public synchronized void goBack() {
-        if (webView != null) {
-            webView.goBack();
-        }
+        webView.goBack();
     }
 
     public synchronized void goForward() {
-        if (webView != null) {
-            webView.goForward();
-        }
+        webView.goForward();
     }
 
     public boolean canGoBack() {
-        return webView != null && webView.canGoBack();
+        return webView.canGoBack();
     }
 
     public boolean canGoForward() {
-        return webView != null && webView.canGoForward();
+        return webView.canGoForward();
     }
 
     public synchronized void clearCache(boolean clear) {
-        if (webView != null) {
-            webView.clearCache(clear);
-        }
+        webView.clearCache(clear);
     }
 
     public synchronized void clearFormData() {
-        if (webView != null) {
-            webView.clearFormData();
-        }
+        webView.clearFormData();
     }
 
     public synchronized void clearHistory() {
-        if (webView != null) {
-            webView.clearHistory();
-        }
+        webView.clearHistory();
     }
 
     public synchronized void clearMatches() {
-        if (webView != null) {
-            webView.clearMatches();
-        }
+        webView.clearMatches();
     }
 
     public synchronized void clearSslPreferences() {
-        if (webView != null) {
-            webView.clearSslPreferences();
-        }
+        webView.clearSslPreferences();
     }
 
     @Override

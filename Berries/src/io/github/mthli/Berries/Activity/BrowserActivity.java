@@ -19,6 +19,7 @@ import io.github.mthli.Berries.Browser.Berry;
 import io.github.mthli.Berries.Browser.BrowserController;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
+import io.github.mthli.Berries.Unit.BrowserUnit;
 import io.github.mthli.Berries.Unit.RecordUnit;
 import io.github.mthli.Berries.Unit.ViewUnit;
 
@@ -172,13 +173,19 @@ public class BrowserActivity extends Activity implements BrowserController {
         urlInputBox.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    String query = urlInputBox.getText().toString();
-                    if (!query.isEmpty()) {
-                        // TODO: search or url
-                    }
+                if (!(actionId == EditorInfo.IME_ACTION_DONE)) {
+                    return false;
                 }
-                return true;
+
+                String query = urlInputBox.getText().toString().trim();
+                if (query.isEmpty()) {
+                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_input_empty, Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+                query = BrowserUnit.queryWrapper(BrowserActivity.this, query);
+                currentBerry.loadUrl(query);
+
+                return false;
             }
         });
 

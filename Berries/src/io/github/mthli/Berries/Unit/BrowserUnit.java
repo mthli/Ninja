@@ -1,14 +1,15 @@
 package io.github.mthli.Berries.Unit;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import io.github.mthli.Berries.R;
 
-import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import static android.util.Patterns.GOOD_IRI_CHAR;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
 
 public class BrowserUnit {
     public static final int LOAD_LIMIT = 8;
@@ -16,17 +17,10 @@ public class BrowserUnit {
     public static final int PROGRESS_MIN = 0;
 
     public static final String URL_ENCODING = "UTF-8";
-    public static Pattern URL_PATTERN = Pattern.compile("(?:(http|https|file)\\:\\/\\/)?"           // scheme
-            + "(?:([-A-Za-z0-9$_.+!*'(),;?&=]+(?:\\:[-A-Za-z0-9$_.+!*'(),;?&=]+)?)@)?"              // auth_info
-            + "([" + GOOD_IRI_CHAR + "%_-][" + GOOD_IRI_CHAR + "%_\\.-]*|\\[[0-9a-fA-F:\\.]+\\])?"  // host
-            + "(?:\\:([0-9]*))?"                                                                    // port
-            + "(\\/?[^#]*)?"                                                                        // path
-            + ".*", Pattern.CASE_INSENSITIVE);                                                      // anchor
-    private static final int URL_PATTERN_GROUP_SCHEME = 1;
-    private static final int URL_PATTERN_GROUP_AUTH_INFO = 2;
-    private static final int URL_PATTERN_GROUP_HOST = 3;
-    private static final int URL_PATTERN_GROUP_PORT = 4;
-    private static final int URL_PATTERN_GROUP_PATH = 5;
+    public static final String URL_SCHEME_HTTP = "http";
+    public static final String URL_SCHEME_HTTPS = "https";
+    public static final String URL_SCHEME_FILE = "file";
+    public static final String URL_SCHEME_FTP = "ftp";
 
     public static final String TAB_HOME = "about:home";
     public static final String TAB_UNTITLED = "about:untitled";
@@ -42,83 +36,41 @@ public class BrowserUnit {
     }
 
     public static boolean isURL(String url) {
-        return (URL_PATTERN.matcher(url)).matches();
+        if (url == null) {
+            return false;
+        }
+
+        try {
+            new URL(url);
+            return true;
+        } catch (MalformedURLException m) {
+            return false;
+        }
     }
 
-    public static String getScheme(String url) {
-        Matcher matcher = URL_PATTERN.matcher(url);
-        String scheme = matcher.group(URL_PATTERN_GROUP_SCHEME);
-        if (scheme != null) {
-            scheme = scheme.toLowerCase(Locale.ROOT);
+    public static String queryWrapper(Context context, String query) {
+        try {
+            query = URLEncoder.encode(query, URL_ENCODING);
+        } catch (UnsupportedEncodingException u) {}
+
+        if (isURL(query)) {
+            return query;
         }
 
-        if (getPort(url) == 443 && (scheme == null ||scheme.isEmpty())) {
-            scheme = "https";
-        }
-        if (scheme == null || scheme.isEmpty()) {
-            scheme = "http";
-        }
-
-        return scheme;
-    }
-
-    public static String getAuthInfo(String url) {
-        return (URL_PATTERN.matcher(url)).group(URL_PATTERN_GROUP_AUTH_INFO);
-    }
-
-    public static String getHost(String url) {
-        Matcher matcher = URL_PATTERN.matcher(url);
-        String host = matcher.group(URL_PATTERN_GROUP_HOST);
-        if (host != null) {
-            host = host.toLowerCase(Locale.ROOT);
-        }
-
-        return host;
-    }
-
-    public static int getPort(String url) {
-        int port = -1;
-
-        Matcher matcher = URL_PATTERN.matcher(url);
-        String temp = matcher.group(URL_PATTERN_GROUP_PORT);
-        if (temp != null && !temp.isEmpty()) {
-            port = Integer.parseInt(temp);
-        }
-
-        if (port < 0 && url.startsWith("https://")) {
-            port = 443;
-        }
-        if (port < 0) {
-            port = 80;
-        }
-
-        return port;
-    }
-
-    public static String getPath(String url) {
-        String path = "/";
-
-        Matcher matcher = URL_PATTERN.matcher(url);
-        String temp = matcher.group(URL_PATTERN_GROUP_PATH);
-        if (temp != null && !temp.isEmpty()) {
-            if (temp.charAt(0) == '/') {
-                path = temp;
-            } else {
-                path += temp;
-            }
-        }
-
-        return path;
-    }
-
-    public static String getEntireURL(String url) {
-        String authInfo = getAuthInfo(url);
-        if (authInfo == null || authInfo.isEmpty()) {
-            authInfo = "";
+        if (!query.contains(".") || query.contains(" ")) {
+            SharedPreferences sp = context.getSharedPreferences(
+                    context.getString(R.string.sp_name),
+                    Context.MODE_PRIVATE
+            );
+            String searchEngine = sp.getString(
+                    context.getString(R.string.sp_search_engine),
+                    context.getString(R.string.sp_search_engine_google)
+            );
+            query = searchEngine + query;
         } else {
-            authInfo += "@";
+            query = URL_SCHEME_HTTP + "://" + query;
         }
 
-        return getScheme(url) + "://" + authInfo + getHost(url) + ":" + getPort(url) + getPath(url);
+        return query;
     }
 }

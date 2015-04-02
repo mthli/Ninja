@@ -50,24 +50,43 @@
     <option name="PATCH_PATH" value="" />
   </component>
   <component name="DockManager">
-    <window id="1">
+    <window id="3">
       <content type="file-editors">
         <state>
           <leaf>
             <file leaf-file-name="BrowserUnit.java" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/BrowserUnit.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.822884">
-                    <caret line="113" column="50" selection-start-line="113" selection-start-column="50" selection-end-line="113" selection-end-column="50" />
+                  <state vertical-scroll-proportion="0.3291536">
+                    <caret line="53" column="51" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
                     <folding>
-                      <element signature="imports" expanded="false" />
-                      <element signature="method#isNetworkAvailable#0;class#BrowserUnit#0" expanded="false" />
-                      <element signature="method#getScheme#0;class#BrowserUnit#0" expanded="false" />
-                      <element signature="method#getAuthInfo#0;class#BrowserUnit#0" expanded="false" />
-                      <element signature="method#getHost#0;class#BrowserUnit#0" expanded="false" />
-                      <element signature="method#getPort#0;class#BrowserUnit#0" expanded="false" />
-                      <element signature="method#getPath#0;class#BrowserUnit#0" expanded="false" />
-                      <element signature="method#getEntireURL#0;class#BrowserUnit#0" expanded="false" />
+                      <element signature="e#1959#1994#0" expanded="true" />
+                      <element signature="e#2120#2164#0" expanded="true" />
+                      <element signature="e#2186#2237#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="BrowserActivity.java" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/BrowserActivity.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="0.0">
+                    <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
+                    <folding>
+                      <element signature="e#1711#1712#0" expanded="true" />
+                      <element signature="e#1739#1740#0" expanded="true" />
+                      <element signature="method#onDestroy#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#onConfigurationChanged#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="e#6050#6788#0" expanded="true" />
+                      <element signature="e#6787#6788#0" expanded="true" />
+                      <element signature="class#7379:8311" expanded="false" />
+                      <element signature="method#onAnimationEnd#0;class#7379:8311" expanded="false" />
+                      <element signature="method#onAnimationRepeat#0;class#7379:8311" expanded="false" />
+                      <element signature="method#onAnimationStart#0;class#9252:10722" expanded="false" />
+                      <element signature="method#onAnimationEnd#0;class#9252:10722" expanded="false" />
+                      <element signature="e#11006#11807#0" expanded="true" />
+                      <element signature="e#11806#11807#0" expanded="true" />
                     </folding>
                   </state>
                 </provider>
@@ -83,37 +102,122 @@
     <favorites_list name="Berries">
       <favorite_root url="file://$USER_HOME$/GitHub/Thunder-Browser/src/acr/browser/thunder/BrowserActivity.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
       <favorite_root url="file://$USER_HOME$/GitHub/Thunder-Browser/src/acr/browser/thunder/LightningView.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      <favorite_root url="file://$PROJECT_DIR$/../Lightning-Browser/src/acr/browser/lightning/WebAddress.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      <favorite_root url="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/BrowserUnit.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      <favorite_root url="file://$PROJECT_DIR$/../Lightning-Browser/src/acr/browser/lightning/BrowserActivity.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
     </favorites_list>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BrowserActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/BrowserActivity.java">
+      <file leaf-file-name="BrowserActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/GitHub/Thunder-Browser/src/acr/browser/thunder/BrowserActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.102649">
-              <caret line="176" column="43" selection-start-line="176" selection-start-column="43" selection-end-line="176" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1819" column="86" selection-start-line="1819" selection-start-column="86" selection-end-line="1819" selection-end-column="86" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1662#1663#0" expanded="true" />
-                <element signature="e#1690#1691#0" expanded="true" />
-                <element signature="method#onCreate#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="e#3921#4072#0" expanded="true" />
-                <element signature="e#4071#4072#0" expanded="true" />
-                <element signature="e#5768#5951#0" expanded="true" />
-                <element signature="e#5950#5951#0" expanded="true" />
-                <element signature="e#6001#6473#0" expanded="true" />
-                <element signature="e#6472#6473#0" expanded="true" />
-                <element signature="method#newTab#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="class#7064:7996" expanded="false" />
-                <element signature="method#onAnimationEnd#0;class#7064:7996" expanded="false" />
-                <element signature="method#onAnimationRepeat#0;class#7064:7996" expanded="false" />
-                <element signature="method#showSelectedTab#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#deleteSelectedTab#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="class#8937:10407" expanded="false" />
-                <element signature="method#onAnimationStart#0;class#8937:10407" expanded="false" />
-                <element signature="method#onAnimationEnd#0;class#8937:10407" expanded="false" />
-                <element signature="method#onAnimationRepeat#0;class#8937:10407" expanded="false" />
-                <element signature="method#showOverflow#0;class#BrowserActivity#0" expanded="false" />
+                <element signature="e#3345#3355#0" expanded="false" />
+                <element signature="e#5556#5557#0" expanded="false" />
+                <element signature="e#5601#5602#0" expanded="false" />
+                <element signature="e#7773#7774#0" expanded="false" />
+                <element signature="e#7788#7789#0" expanded="false" />
+                <element signature="e#10856#10857#0" expanded="false" />
+                <element signature="e#10877#10878#0" expanded="false" />
+                <element signature="e#10935#10936#0" expanded="false" />
+                <element signature="e#10962#10963#0" expanded="false" />
+                <element signature="e#11855#11856#0" expanded="false" />
+                <element signature="e#11878#11879#0" expanded="false" />
+                <element signature="e#12903#13075#0" expanded="false" />
+                <element signature="e#13074#13075#0" expanded="false" />
+                <element signature="e#13160#13454#0" expanded="false" />
+                <element signature="e#13453#13454#0" expanded="false" />
+                <element signature="e#13536#13711#0" expanded="false" />
+                <element signature="e#13710#13711#0" expanded="false" />
+                <element signature="e#14012#14607#0" expanded="false" />
+                <element signature="e#14606#14607#0" expanded="false" />
+                <element signature="e#15213#15863#0" expanded="false" />
+                <element signature="e#15862#15863#0" expanded="false" />
+                <element signature="e#16439#17069#0" expanded="false" />
+                <element signature="e#17068#17069#0" expanded="false" />
+                <element signature="e#17857#18461#0" expanded="false" />
+                <element signature="e#18460#18461#0" expanded="false" />
+                <element signature="e#19070#19729#0" expanded="false" />
+                <element signature="e#19728#19729#0" expanded="false" />
+                <element signature="e#21326#21701#0" expanded="false" />
+                <element signature="e#21700#21701#0" expanded="false" />
+                <element signature="e#24843#24844#0" expanded="false" />
+                <element signature="e#24875#24876#0" expanded="false" />
+                <element signature="e#27800#27801#0" expanded="false" />
+                <element signature="e#27828#27829#0" expanded="false" />
+                <element signature="e#30330#32462#0" expanded="false" />
+                <element signature="e#32461#32462#0" expanded="false" />
+                <element signature="e#32749#32847#0" expanded="false" />
+                <element signature="e#32846#32847#0" expanded="false" />
+                <element signature="e#32878#33079#0" expanded="false" />
+                <element signature="e#33078#33079#0" expanded="false" />
+                <element signature="e#33113#33269#0" expanded="false" />
+                <element signature="e#33268#33269#0" expanded="false" />
+                <element signature="e#33302#33406#0" expanded="false" />
+                <element signature="e#33405#33406#0" expanded="false" />
+                <element signature="e#33443#33831#0" expanded="false" />
+                <element signature="e#33830#33831#0" expanded="false" />
+                <element signature="e#33870#34264#0" expanded="false" />
+                <element signature="e#34263#34264#0" expanded="false" />
+                <element signature="e#34295#34819#0" expanded="false" />
+                <element signature="e#34818#34819#0" expanded="false" />
+                <element signature="e#34852#35335#0" expanded="false" />
+                <element signature="e#35334#35335#0" expanded="false" />
+                <element signature="e#35375#36214#0" expanded="false" />
+                <element signature="e#36213#36214#0" expanded="false" />
+                <element signature="e#36729#36730#0" expanded="false" />
+                <element signature="e#36775#36776#0" expanded="false" />
+                <element signature="e#36917#36918#0" expanded="false" />
+                <element signature="e#36965#36966#0" expanded="false" />
+                <element signature="e#37640#37641#0" expanded="false" />
+                <element signature="e#37665#37666#0" expanded="false" />
+                <element signature="e#38204#38688#0" expanded="false" />
+                <element signature="e#38687#38688#0" expanded="false" />
+                <element signature="e#39932#40750#0" expanded="false" />
+                <element signature="e#40749#40750#0" expanded="false" />
+                <element signature="e#41836#41837#0" expanded="false" />
+                <element signature="e#41892#41893#0" expanded="false" />
+                <element signature="e#48121#48122#0" expanded="false" />
+                <element signature="e#48140#48141#0" expanded="false" />
+                <element signature="e#48993#48994#0" expanded="false" />
+                <element signature="e#49015#49016#0" expanded="false" />
+                <element signature="e#50181#50182#0" expanded="false" />
+                <element signature="e#50215#50216#0" expanded="false" />
+                <element signature="e#51175#51176#0" expanded="false" />
+                <element signature="e#51233#51234#0" expanded="false" />
+                <element signature="e#51683#51937#0" expanded="false" />
+                <element signature="e#51936#51937#0" expanded="false" />
+                <element signature="e#53798#53799#0" expanded="false" />
+                <element signature="e#53818#53819#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="preferences.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/values/preferences.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Berry.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/Berry.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.72039473">
+              <caret line="169" column="99" selection-start-line="169" selection-start-column="99" selection-end-line="169" selection-end-column="99" />
+              <folding>
+                <element signature="e#5705#5742#0" expanded="true" />
+                <element signature="e#6287#6288#0" expanded="true" />
+                <element signature="e#6323#6324#0" expanded="true" />
+                <element signature="e#7851#7852#0" expanded="true" />
+                <element signature="e#7898#7899#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -139,7 +243,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/res/drawable/browser_control_history.xml" />
         <option value="$PROJECT_DIR$/res/drawable/browser_control_share.xml" />
         <option value="$PROJECT_DIR$/res/menu/history_menu.xml" />
         <option value="$PROJECT_DIR$/res/menu/main_menu.xml" />
@@ -171,25 +274,26 @@
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/RecordUnit.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Database/RecordHelper.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Database/RecordAction.java" />
-        <option value="$PROJECT_DIR$/res/values/preferences.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryWebViewClient.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/MainActivity.java" />
         <option value="$PROJECT_DIR$/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/project.properties" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/Tab.java" />
         <option value="$PROJECT_DIR$/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/res/layout/tab.xml" />
         <option value="$PROJECT_DIR$/res/menu/broswer_menu.xml" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/Berry.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryContextWrapper.java" />
-        <option value="$PROJECT_DIR$/res/layout/browser.xml" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Service/HolderService.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/WebAddress.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/Address.java" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/BrowserActivity.java" />
+        <option value="$PROJECT_DIR$/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/res/layout/browser.xml" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/Tab.java" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryWebChromeClient.java" />
+        <option value="$PROJECT_DIR$/res/values/preferences.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/BrowserUnit.java" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/BrowserActivity.java" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/Berry.java" />
       </list>
     </option>
   </component>
@@ -486,7 +590,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lightning-Browser/src/acr/browser/lightning/SpaceTokenizer.java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lightning-Browser/src/acr/browser/lightning/BrowserActivity.java" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -721,23 +825,23 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41893938" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32905295" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="496" y="224" width="872" height="464" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32905295" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="381" y="257" width="868" height="437" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3022152" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30176565" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32810047" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905295" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3081862" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.32857144" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="6" y="51" width="1354" height="640" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30793652" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.32857144" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="8" y="64" width="1350" height="613" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32857144" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5368917" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="614" y="168" width="491" height="573" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5354985" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="614" y="168" width="491" height="573" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.5949764" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" x="843" y="110" width="449" height="613" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.47777778" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.5949764" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" x="613" y="128" width="449" height="613" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.47460318" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -756,22 +860,22 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32857144" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.5949764" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" x="843" y="110" width="449" height="613" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47833067" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.5949764" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" x="685" y="104" width="449" height="613" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4751204" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32905295" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="425" y="188" width="872" height="464" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32905295" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="381" y="257" width="868" height="437" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41893938" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3022152" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30176565" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3081862" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32857144" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="6" y="51" width="1354" height="640" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5368917" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="614" y="168" width="491" height="573" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32810047" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30793652" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32857144" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="14" y="32" width="1354" height="640" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.53625375" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="614" y="168" width="491" height="573" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -799,59 +903,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BrowserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47263682">
-          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryGestureListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12437811">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryDownloadListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12437811">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryWebChromeClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2238806">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryWebViewClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5422885">
-          <caret line="76" column="49" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable-xxhdpi/ic_notification_berries.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable-xxhdpi/ic_action_bookmark_full_active.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/drawable-xxhdpi/ic_action_add_active.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -949,62 +1000,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/Tab.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3842282">
-          <caret line="61" column="86" selection-start-line="61" selection-start-column="86" selection-end-line="61" selection-end-column="86" />
-          <folding>
-            <element signature="e#1360#1530#0" expanded="false" />
-            <element signature="e#1529#1530#0" expanded="false" />
-            <element signature="e#1569#1815#0" expanded="false" />
-            <element signature="e#1814#1815#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Database/Record.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05033557">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Database/RecordAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8624161">
-          <caret line="80" column="29" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/IntentUnit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.05033557">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/RecordUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.05704698">
-          <caret line="7" column="55" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/ViewUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10067114">
-          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/NotificationUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6610738">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1052,55 +1051,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryContextWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27363184">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/Berry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.840796">
-          <caret line="64" column="68" selection-start-line="0" selection-start-column="0" selection-end-line="382" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#setController#0;class#Berry#0" expanded="false" />
-            <element signature="method#Berry#0;class#Berry#0" expanded="false" />
-            <element signature="method#initWebView#0;class#Berry#0" expanded="false" />
-            <element signature="class#3602:4580" expanded="false" />
-            <element signature="method#onTouch#0;class#3602:4580" expanded="false" />
-            <element signature="method#initWebSettings#0;class#Berry#0" expanded="false" />
-            <element signature="method#initPreferences#0;class#Berry#0" expanded="false" />
-            <element signature="method#loadUrl#0;class#Berry#0" expanded="false" />
-            <element signature="method#invalidate#0;class#Berry#0" expanded="false" />
-            <element signature="method#onPause#0;class#Berry#0" expanded="false" />
-            <element signature="method#pauseTimers#0;class#Berry#0" expanded="false" />
-            <element signature="method#onResume#0;class#Berry#0" expanded="false" />
-            <element signature="method#resumeTimers#0;class#Berry#0" expanded="false" />
-            <element signature="method#requestFocus#0;class#Berry#0" expanded="false" />
-            <element signature="method#setVisibility#0;class#Berry#0" expanded="false" />
-            <element signature="method#destroy#0;class#Berry#0" expanded="false" />
-            <element signature="method#activate#0;class#Berry#0" expanded="false" />
-            <element signature="method#deactivate#0;class#Berry#0" expanded="false" />
-            <element signature="method#stopLoading#0;class#Berry#0" expanded="false" />
-            <element signature="method#reload#0;class#Berry#0" expanded="false" />
-            <element signature="method#getProgress#0;class#Berry#0" expanded="false" />
-            <element signature="method#pageUp#0;class#Berry#0" expanded="false" />
-            <element signature="method#pageDown#0;class#Berry#0" expanded="false" />
-            <element signature="method#goBack#0;class#Berry#0" expanded="false" />
-            <element signature="method#goForward#0;class#Berry#0" expanded="false" />
-            <element signature="method#clearCache#0;class#Berry#0" expanded="false" />
-            <element signature="method#clearFormData#0;class#Berry#0" expanded="false" />
-            <element signature="method#clearHistory#0;class#Berry#0" expanded="false" />
-            <element signature="method#clearMatches#0;class#Berry#0" expanded="false" />
-            <element signature="method#clearSslPreferences#0;class#Berry#0" expanded="false" />
-            <element signature="method#equals#0;class#Berry#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/menu/broswer_menu.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39800996">
@@ -1109,56 +1059,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/browser.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6782609">
-          <caret line="115" column="68" selection-start-line="115" selection-start-column="68" selection-end-line="115" selection-end-column="68" />
-          <folding>
-            <element signature="n#RelativeLayout#0;n#LinearLayout#0;n#LinearLayout#0;n#!!top" expanded="false" />
-            <element signature="n#ImageButton#0;n#RelativeLayout#1;n#LinearLayout#0;n#LinearLayout#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17412935">
-          <caret line="13" column="78" selection-start-line="13" selection-start-column="78" selection-end-line="13" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57093424">
-          <caret line="40" column="47" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Service/HolderService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2686567">
-          <caret line="53" column="51" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/AdBlock.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.5721393">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/GitHub/Thunder-Browser/src/acr/browser/thunder/WebAddress.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4477612">
-          <caret line="18" column="61" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
           <folding />
         </state>
       </provider>
@@ -1179,60 +1083,310 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Lightning-Browser/src/acr/browser/lightning/WebAddress.java">
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/RecordUnit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="161" column="29" selection-start-line="161" selection-start-column="29" selection-end-line="161" selection-end-column="29" />
+        <state vertical-scroll-proportion="-0.019900497">
+          <caret line="8" column="51" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/browser.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21565217">
+          <caret line="115" column="68" selection-start-line="115" selection-start-column="68" selection-end-line="115" selection-end-column="68" />
           <folding>
-            <element signature="e#3710#3711#0" expanded="false" />
-            <element signature="e#3737#3738#0" expanded="false" />
+            <element signature="n#RelativeLayout#0;n#LinearLayout#0;n#LinearLayout#0;n#!!top" expanded="false" />
+            <element signature="n#ImageButton#0;n#RelativeLayout#1;n#LinearLayout#0;n#LinearLayout#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/BrowserUnit.java">
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.822884">
-          <caret line="113" column="50" selection-start-line="113" selection-start-column="50" selection-end-line="113" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.14925373">
+          <caret line="12" column="78" selection-start-line="12" selection-start-column="78" selection-end-line="12" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/GitHub/Thunder-Browser/src/acr/browser/thunder/WebAddress.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="61" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Lightning-Browser/src/acr/browser/lightning/WebAddress.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="27" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/Tab.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.8656716">
+          <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Database/RecordAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4726368">
+          <caret line="80" column="29" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Service/HolderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07960199">
+          <caret line="53" column="51" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/NotificationUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.9402985">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/ViewUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09950249">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Database/Record.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.049751244">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.04477612">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryContextWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27363184">
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryDownloadListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12437811">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryWebChromeClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12935324">
+          <caret line="73" column="13" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryWebViewClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.5422885">
+          <caret line="76" column="49" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BrowserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09950249">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryGestureListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12437811">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Lightning-Browser/src/acr/browser/lightning/BrowserActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.16144201">
+          <caret line="1322" column="9" selection-start-line="1322" selection-start-column="9" selection-end-line="1322" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03979239">
+          <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/GitHub/Thunder-Browser/src/acr/browser/thunder/BrowserActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1819" column="86" selection-start-line="1819" selection-start-column="86" selection-end-line="1819" selection-end-column="86" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#isNetworkAvailable#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#getScheme#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#getAuthInfo#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#getHost#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#getPort#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#getPath#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#getEntireURL#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="e#3345#3355#0" expanded="false" />
+            <element signature="e#5556#5557#0" expanded="false" />
+            <element signature="e#5601#5602#0" expanded="false" />
+            <element signature="e#7773#7774#0" expanded="false" />
+            <element signature="e#7788#7789#0" expanded="false" />
+            <element signature="e#10856#10857#0" expanded="false" />
+            <element signature="e#10877#10878#0" expanded="false" />
+            <element signature="e#10935#10936#0" expanded="false" />
+            <element signature="e#10962#10963#0" expanded="false" />
+            <element signature="e#11855#11856#0" expanded="false" />
+            <element signature="e#11878#11879#0" expanded="false" />
+            <element signature="e#12903#13075#0" expanded="false" />
+            <element signature="e#13074#13075#0" expanded="false" />
+            <element signature="e#13160#13454#0" expanded="false" />
+            <element signature="e#13453#13454#0" expanded="false" />
+            <element signature="e#13536#13711#0" expanded="false" />
+            <element signature="e#13710#13711#0" expanded="false" />
+            <element signature="e#14012#14607#0" expanded="false" />
+            <element signature="e#14606#14607#0" expanded="false" />
+            <element signature="e#15213#15863#0" expanded="false" />
+            <element signature="e#15862#15863#0" expanded="false" />
+            <element signature="e#16439#17069#0" expanded="false" />
+            <element signature="e#17068#17069#0" expanded="false" />
+            <element signature="e#17857#18461#0" expanded="false" />
+            <element signature="e#18460#18461#0" expanded="false" />
+            <element signature="e#19070#19729#0" expanded="false" />
+            <element signature="e#19728#19729#0" expanded="false" />
+            <element signature="e#21326#21701#0" expanded="false" />
+            <element signature="e#21700#21701#0" expanded="false" />
+            <element signature="e#24843#24844#0" expanded="false" />
+            <element signature="e#24875#24876#0" expanded="false" />
+            <element signature="e#27800#27801#0" expanded="false" />
+            <element signature="e#27828#27829#0" expanded="false" />
+            <element signature="e#30330#32462#0" expanded="false" />
+            <element signature="e#32461#32462#0" expanded="false" />
+            <element signature="e#32749#32847#0" expanded="false" />
+            <element signature="e#32846#32847#0" expanded="false" />
+            <element signature="e#32878#33079#0" expanded="false" />
+            <element signature="e#33078#33079#0" expanded="false" />
+            <element signature="e#33113#33269#0" expanded="false" />
+            <element signature="e#33268#33269#0" expanded="false" />
+            <element signature="e#33302#33406#0" expanded="false" />
+            <element signature="e#33405#33406#0" expanded="false" />
+            <element signature="e#33443#33831#0" expanded="false" />
+            <element signature="e#33830#33831#0" expanded="false" />
+            <element signature="e#33870#34264#0" expanded="false" />
+            <element signature="e#34263#34264#0" expanded="false" />
+            <element signature="e#34295#34819#0" expanded="false" />
+            <element signature="e#34818#34819#0" expanded="false" />
+            <element signature="e#34852#35335#0" expanded="false" />
+            <element signature="e#35334#35335#0" expanded="false" />
+            <element signature="e#35375#36214#0" expanded="false" />
+            <element signature="e#36213#36214#0" expanded="false" />
+            <element signature="e#36729#36730#0" expanded="false" />
+            <element signature="e#36775#36776#0" expanded="false" />
+            <element signature="e#36917#36918#0" expanded="false" />
+            <element signature="e#36965#36966#0" expanded="false" />
+            <element signature="e#37640#37641#0" expanded="false" />
+            <element signature="e#37665#37666#0" expanded="false" />
+            <element signature="e#38204#38688#0" expanded="false" />
+            <element signature="e#38687#38688#0" expanded="false" />
+            <element signature="e#39932#40750#0" expanded="false" />
+            <element signature="e#40749#40750#0" expanded="false" />
+            <element signature="e#41836#41837#0" expanded="false" />
+            <element signature="e#41892#41893#0" expanded="false" />
+            <element signature="e#48121#48122#0" expanded="false" />
+            <element signature="e#48140#48141#0" expanded="false" />
+            <element signature="e#48993#48994#0" expanded="false" />
+            <element signature="e#49015#49016#0" expanded="false" />
+            <element signature="e#50181#50182#0" expanded="false" />
+            <element signature="e#50215#50216#0" expanded="false" />
+            <element signature="e#51175#51176#0" expanded="false" />
+            <element signature="e#51233#51234#0" expanded="false" />
+            <element signature="e#51683#51937#0" expanded="false" />
+            <element signature="e#51936#51937#0" expanded="false" />
+            <element signature="e#53798#53799#0" expanded="false" />
+            <element signature="e#53818#53819#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/BrowserActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.102649">
-          <caret line="176" column="43" selection-start-line="176" selection-start-column="43" selection-end-line="176" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1662#1663#0" expanded="true" />
-            <element signature="e#1690#1691#0" expanded="true" />
-            <element signature="method#onCreate#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="e#3921#4072#0" expanded="true" />
-            <element signature="e#4071#4072#0" expanded="true" />
-            <element signature="e#5768#5951#0" expanded="true" />
-            <element signature="e#5950#5951#0" expanded="true" />
-            <element signature="e#6001#6473#0" expanded="true" />
-            <element signature="e#6472#6473#0" expanded="true" />
-            <element signature="method#newTab#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#7064:7996" expanded="false" />
-            <element signature="method#onAnimationEnd#0;class#7064:7996" expanded="false" />
-            <element signature="method#onAnimationRepeat#0;class#7064:7996" expanded="false" />
-            <element signature="method#showSelectedTab#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#deleteSelectedTab#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#8937:10407" expanded="false" />
-            <element signature="method#onAnimationStart#0;class#8937:10407" expanded="false" />
-            <element signature="method#onAnimationEnd#0;class#8937:10407" expanded="false" />
-            <element signature="method#onAnimationRepeat#0;class#8937:10407" expanded="false" />
-            <element signature="method#showOverflow#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="e#1711#1712#0" expanded="true" />
+            <element signature="e#1739#1740#0" expanded="true" />
+            <element signature="method#onDestroy#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onConfigurationChanged#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="e#6050#6788#0" expanded="true" />
+            <element signature="e#6787#6788#0" expanded="true" />
+            <element signature="class#7379:8311" expanded="false" />
+            <element signature="method#onAnimationEnd#0;class#7379:8311" expanded="false" />
+            <element signature="method#onAnimationRepeat#0;class#7379:8311" expanded="false" />
+            <element signature="method#onAnimationStart#0;class#9252:10722" expanded="false" />
+            <element signature="method#onAnimationEnd#0;class#9252:10722" expanded="false" />
+            <element signature="e#11006#11807#0" expanded="true" />
+            <element signature="e#11806#11807#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/BrowserUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3291536">
+          <caret line="53" column="51" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
+          <folding>
+            <element signature="e#1959#1994#0" expanded="true" />
+            <element signature="e#2120#2164#0" expanded="true" />
+            <element signature="e#2186#2237#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/preferences.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/Berry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72039473">
+          <caret line="169" column="99" selection-start-line="169" selection-start-column="99" selection-end-line="169" selection-end-column="99" />
+          <folding>
+            <element signature="e#5705#5742#0" expanded="true" />
+            <element signature="e#6287#6288#0" expanded="true" />
+            <element signature="e#6323#6324#0" expanded="true" />
+            <element signature="e#7851#7852#0" expanded="true" />
+            <element signature="e#7898#7899#0" expanded="true" />
           </folding>
         </state>
       </provider>

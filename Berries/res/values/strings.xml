@@ -32,6 +32,9 @@
     <string name="browser_toast_incognito">
         Incognito
     </string>
+    <string name="browser_toast_input_empty">
+        You haven\'t input anything
+    </string>
     <string name="browser_toast_load_limit">
         Load limit
     </string>

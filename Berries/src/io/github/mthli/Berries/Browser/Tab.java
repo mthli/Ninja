@@ -84,17 +84,13 @@ public class Tab {
     }
 
     public void activate() {
-        if (view != null) {
-            view.setBackgroundColor(context.getResources().getColor(R.color.gray_900));
-            closeButton.setVisibility(View.VISIBLE);
-        }
+        view.setBackgroundColor(context.getResources().getColor(R.color.gray_900));
+        closeButton.setVisibility(View.VISIBLE);
     }
 
     public void deactivate() {
-        if (view != null) {
-            view.setBackgroundColor(context.getResources().getColor(R.color.gray_1000));
-            closeButton.setVisibility(View.GONE);
-        }
+        view.setBackgroundColor(context.getResources().getColor(R.color.gray_1000));
+        closeButton.setVisibility(View.GONE);
     }
 
     @Override
