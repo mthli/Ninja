@@ -30,6 +30,7 @@ public class BerryWebChromeClient extends WebChromeClient {
     }
 
     public BerryWebChromeClient(Context context) {
+        super();
         this.context = context;
     }
 
@@ -67,36 +68,7 @@ public class BerryWebChromeClient extends WebChromeClient {
     }
 
     @Override
-    public void onRequestFocus (WebView view) {
+    public void onRequestFocus(WebView view) {
         // TODO
-    }
-
-    @Override
-    public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
-        // TODO
-    }
-
-    @Override
-    public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
-        // TODO
-        return true;
-    }
-
-    @Override
-    public boolean onJsBeforeUnload(WebView view, String url, String message, JsResult result) {
-        // TODO
-        return true;
-    }
-
-    @Override
-    public boolean onJsConfirm(WebView view, String url, String message, JsResult result) {
-        // TODO
-        return true;
-    }
-
-    @Override
-    public boolean onJsPrompt(WebView view, String url, String message, String defaultValue, JsPromptResult result) {
-        // TODO
-        return true;
     }
 }
