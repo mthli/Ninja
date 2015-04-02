@@ -3,7 +3,8 @@
 <resources>
 
     <color name="blue_700">#1976D2</color>
-    <color name="blue_500">#2169F3</color>
+    <!-- TODO -->
+    <color name="blue_500">#2196F3</color>
     <color name="blue_300">#64B5F6</color>
 
     <color name="gray_1000">#101010</color>
