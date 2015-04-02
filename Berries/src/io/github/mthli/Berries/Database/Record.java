@@ -30,4 +30,10 @@ public class Record {
         this.url = null;
         this.time = 0l;
     }
+
+    public Record(String title, String url, long time) {
+        this.title = title;
+        this.url = url;
+        this.time = time;
+    }
 }

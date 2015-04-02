@@ -183,7 +183,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                     return false;
                 }
                 query = BrowserUnit.queryWrapper(BrowserActivity.this, query);
-                currentBerry.loadUrl(query);
+                currentBerry.load(new Record(getString(R.string.browser_tab_untitled), query, System.currentTimeMillis()));
 
                 return false;
             }
@@ -223,6 +223,13 @@ public class BrowserActivity extends Activity implements BrowserController {
                 browserFrame.addView(berry.getWebView());
                 berry.activate();
                 tabsScroll.smoothScrollTo(tabView.getLeft(), 0);
+
+                Record record = berry.getRecord();
+                if (record.getURL().equals(BrowserUnit.TAB_HOME)) {
+                    urlInputBox.setText(null);
+                } else {
+                    urlInputBox.setText(record.getURL());
+                }
             }
 
             @Override
@@ -242,11 +249,18 @@ public class BrowserActivity extends Activity implements BrowserController {
             currentBerry.deactivate();
             browserFrame.removeView(currentBerry.getWebView());
         }
+        currentBerry = berry;
 
         browserFrame.addView(berry.getWebView());
         berry.activate();
         tabsScroll.smoothScrollTo(berry.getTabView().getLeft(), 0);
-        currentBerry = berry;
+
+        Record record = berry.getRecord();
+        if (record.getURL().equals(BrowserUnit.TAB_HOME)) {
+            urlInputBox.setText(null);
+        } else {
+            urlInputBox.setText(record.getURL());
+        }
     }
 
     public synchronized void deleteSelectedTab() {

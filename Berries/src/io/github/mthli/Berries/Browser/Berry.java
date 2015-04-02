@@ -2,8 +2,6 @@ package io.github.mthli.Berries.Browser;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -29,7 +27,6 @@ public class Berry {
         return foreground;
     }
 
-    // TODO
     private boolean incognito;
     public boolean isIncognito() {
         return incognito;
@@ -46,11 +43,6 @@ public class Berry {
     }
 
     private WebSettings webSettings;
-    private BerryWebViewClient webViewClient;
-    private BerryWebChromeClient webChromeClient;
-    private BerryDownloadListener downloadListener;
-    private BerryGestureListener gestureListener;
-    private GestureDetector gestureDetector;
 
     private BrowserController controller;
     public BrowserController getController() {
@@ -59,9 +51,6 @@ public class Berry {
     public void setController(BrowserController controller) {
         this.controller = controller;
         this.tab.setController(controller);
-        this.webViewClient.setController(controller);
-        this.webChromeClient.setController(controller);
-        this.gestureListener.setController(controller);
     }
 
     public Berry(Context context, Record record, boolean incognito) {
@@ -73,18 +62,10 @@ public class Berry {
         this.tab = new Tab(this);
         this.webView = new WebView(this.context);
         this.webSettings = webView.getSettings();
-        this.webViewClient = new BerryWebViewClient(this.context);
-        this.webViewClient.setRecord(record);
-        this.webChromeClient = new BerryWebChromeClient(this.context);
-        this.webChromeClient.setRecord(record);
-        this.downloadListener = new BerryDownloadListener(this.context);
-        this.gestureListener = new BerryGestureListener();
-        this.gestureDetector = new GestureDetector(this.context, gestureListener);
 
         this.initWebView();
         this.initWebSettings();
         this.initPreferences();
-        this.loadUrl(record.getURL());
     }
 
     private synchronized void initWebView() {
@@ -109,38 +90,6 @@ public class Berry {
         // TODO
         webView.setWebViewClient(new WebViewClient());
         webView.setWebChromeClient(new WebChromeClient());
-
-        webView.setDownloadListener(new BerryDownloadListener(context));
-        webView.setOnTouchListener(new View.OnTouchListener() {
-            private int action;
-            private float y;
-            private float location;
-
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (view != null && !view.hasFocus()) {
-                    view.requestFocus();
-                }
-
-                action = motionEvent.getAction();
-                y = motionEvent.getY();
-                if (action == MotionEvent.ACTION_DOWN) {
-                    location = y;
-                } else if (action == MotionEvent.ACTION_UP) {
-                    if ((y - location) > 10) {
-                        controller.showControlPanel();
-                    } else if ((y - location) < -10) {
-                        controller.hideControlPanel();
-                    }
-
-                    location = 0;
-                }
-
-                gestureDetector.onTouchEvent(motionEvent);
-
-                return false;
-            }
-        });
     }
 
     private synchronized void initWebSettings() {
@@ -162,12 +111,13 @@ public class Berry {
 
         webSettings.setSupportZoom(true);
         webSettings.setBuiltInZoomControls(true);
-        webSettings.setDisplayZoomControls(true);
+        webSettings.setDisplayZoomControls(false);
     }
 
     private synchronized void initPreferences() {
         SharedPreferences sp = context.getSharedPreferences(context.getString(R.string.sp_name), Context.MODE_PRIVATE);
         webSettings.setBlockNetworkImage(sp.getBoolean(context.getString(R.string.sp_images), false));
+        webSettings.setJavaScriptEnabled(sp.getBoolean(context.getString(R.string.sp_javascript), true));
         webSettings.setGeolocationEnabled(sp.getBoolean(context.getString(R.string.sp_location), true));
         webSettings.setSaveFormData(sp.getBoolean(context.getString(R.string.sp_passwords), true));
 
@@ -178,8 +128,9 @@ public class Berry {
         webSettings.setUseWideViewPort(true);
     }
 
-    public synchronized void loadUrl(String url) {
-        webView.loadUrl(url);
+    public synchronized void load(Record record) {
+        this.record = record;
+        webView.loadUrl(record.getURL());
     }
 
     public synchronized void invalidate() {
@@ -253,7 +204,8 @@ public class Berry {
     }
 
     public boolean isFinish() {
-        return webViewClient.isFinish();
+        // TODO
+        return false;
     }
 
     public synchronized void pageUp(boolean top) {
