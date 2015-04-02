@@ -85,8 +85,7 @@ public class Tab {
     public void deactivate() {
         if (view != null) {
             view.setBackgroundColor(context.getResources().getColor(R.color.gray_1000));
-            // TODO
-            closeButton.setVisibility(View.INVISIBLE);
+            closeButton.setVisibility(View.GONE);
         }
     }
 

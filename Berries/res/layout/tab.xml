@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
+             android:layout_width="wrap_content"
              android:layout_height="match_parent"
              android:descendantFocusability="blocksDescendants">
 
-    <LinearLayout android:orientation="horizontal"
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:layout_gravity="center_vertical"
-                  android:gravity="center_vertical">
+    <FrameLayout android:layout_width="144dp"
+                 android:layout_height="match_parent"
+                 android:layout_gravity="center_vertical"
+                 android:gravity="center_vertical">
 
         <TextView android:id="@+id/tab_title"
-                  android:layout_width="72dp"
+                  android:layout_width="wrap_content"
                   android:layout_height="match_parent"
                   android:layout_marginLeft="16dp"
-                  android:layout_gravity="center_vertical"
-                  android:gravity="center_vertical"
+                  android:layout_marginRight="16dp"
+                  android:layout_gravity="center_vertical|left"
+                  android:gravity="center_vertical|left"
                   android:textColor="@color/white"
                   android:textSize="16sp"
                   android:singleLine="true"
-                  android:ellipsize="end">
+                  android:ellipsize="none">
         </TextView>
 
         <ImageButton android:id="@+id/tab_close_button"
                      android:contentDescription="@null"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
-                     android:layout_marginLeft="8dp"
                      android:layout_marginRight="8dp"
-                     android:layout_gravity="center_vertical"
-                     android:src="@drawable/browser_cancel_button_selector"
-                     android:background="@color/transparent"
-                     android:visibility="invisible">
+                     android:layout_gravity="center_vertical|right"
+                     android:paddingLeft="8dp"
+                     android:src="@drawable/browser_cl_button_selector"
+                     android:background="@color/gray_900"
+                     android:visibility="gone">
         </ImageButton>
 
-    </LinearLayout>
+    </FrameLayout>
 
     <View android:id="@+id/tab_incognito_line"
           android:layout_width="match_parent"
