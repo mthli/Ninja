@@ -160,7 +160,7 @@ public class Berry {
         webSettings.setDatabaseEnabled(true);
         webSettings.setDomStorageEnabled(true);
 
-        webSettings.setDefaultTextEncodingName(BrowserUnit.ENCODING);
+        webSettings.setDefaultTextEncodingName(BrowserUnit.URL_ENCODING);
 
         webSettings.setGeolocationDatabasePath(context.getFilesDir().toString());
 
@@ -189,7 +189,7 @@ public class Berry {
     public synchronized void loadUrl(String url) {
         url = url.trim();
         if (webView != null && !url.isEmpty()) {
-            if (url.equals(BrowserUnit.Home)) {
+            if (url.equals(BrowserUnit.TAB_HOME)) {
                 // TODO
                 return;
             }

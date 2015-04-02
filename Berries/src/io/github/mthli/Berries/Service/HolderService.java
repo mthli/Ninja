@@ -49,6 +49,7 @@ public class HolderService extends Service implements BrowserController {
             }
         } catch (NullPointerException n) {}
 
+        // TODO: Network available
         if (BerryContainer.size() < BrowserUnit.LOAD_LIMIT) {
             Record record = RecordUnit.getHolder();
             // TODO: SP_INCOGNITO

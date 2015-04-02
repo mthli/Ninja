@@ -38,6 +38,9 @@
     <string name="browser_toast_more">
         More
     </string>
+    <string name="browser_toast_network_error">
+        Network is not available
+    </string>
     <string name="browser_toast_refresh">
         Refresh
     </string>

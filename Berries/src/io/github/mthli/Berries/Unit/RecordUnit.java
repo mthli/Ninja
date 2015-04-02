@@ -39,7 +39,7 @@ public class RecordUnit {
     public static Record getHome(Context context) {
         Record record = new Record();
         record.setTitle(context.getString(R.string.browser_tab_home));
-        record.setURL(BrowserUnit.Home);
+        record.setURL(BrowserUnit.TAB_HOME);
         record.setTime(System.currentTimeMillis());
 
         return record;

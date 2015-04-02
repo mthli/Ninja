@@ -7,10 +7,12 @@ import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.inputmethod.EditorInfo;
 import android.widget.*;
 import io.github.mthli.Berries.Browser.BerryContainer;
 import io.github.mthli.Berries.Browser.Berry;
@@ -135,7 +137,6 @@ public class BrowserActivity extends Activity implements BrowserController {
                 Record record = RecordUnit.getHome(BrowserActivity.this);
                 newTab(record, true, true);
                 Toast.makeText(BrowserActivity.this, R.string.browser_toast_incognito, Toast.LENGTH_SHORT).show();
-
                 return true;
             }
         });
@@ -150,7 +151,6 @@ public class BrowserActivity extends Activity implements BrowserController {
             @Override
             public boolean onLongClick(View view) {
                 // TODO
-
                 return true;
             }
         });
@@ -165,12 +165,23 @@ public class BrowserActivity extends Activity implements BrowserController {
             @Override
             public boolean onLongClick(View view) {
                 // TODO
-
                 return true;
             }
         });
 
-        // TODO
+        urlInputBox.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    String query = urlInputBox.getText().toString();
+                    if (!query.isEmpty()) {
+                        // TODO: search or url
+                    }
+                }
+                return true;
+            }
+        });
+
     }
 
     private synchronized void newTab(Record record, boolean incognito, final boolean foreground) {
