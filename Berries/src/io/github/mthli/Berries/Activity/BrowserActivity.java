@@ -2,6 +2,7 @@ package io.github.mthli.Berries.Activity;
 
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.content.res.Configuration;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
@@ -74,6 +75,16 @@ public class BrowserActivity extends Activity implements BrowserController {
     public void onDestroy() {
         BerryContainer.clear();
         super.onDestroy();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (newConfig.orientation== Configuration.ORIENTATION_LANDSCAPE) {
+            /* Do nothing */
+        } else {
+            /* Do nothing */
+        }
     }
 
     private void initUI() {
