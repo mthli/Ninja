@@ -5,27 +5,27 @@ import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
 
 public class RecordUnit {
-    public static final String BOOKMARKS = "BOOKMARKS";
-    public static final String HISTORY = "HISTORY";
+    public static final String TABLE_BOOKMARKS = "BOOKMARKS";
+    public static final String TABLE_HISTORY = "HISTORY";
 
-    public static final String TITLE = "TITLE";
-    public static final String URL = "URL";
-    public static final String TIME = "TIME";
+    public static final String COLUMN_TITLE = "TITLE";
+    public static final String COLUMN_URL = "URL";
+    public static final String COLUMN_TIME = "TIME";
 
     public static final String CREATE_HISTORY = "CREATE TABLE "
-            + HISTORY
+            + TABLE_HISTORY
             + " ("
-            + " " + TITLE + " text,"
-            + " " + URL + " text,"
-            + " " + TIME + " integer"
+            + " " + COLUMN_TITLE + " text,"
+            + " " + COLUMN_URL + " text,"
+            + " " + COLUMN_TIME + " integer"
             + ")";
 
     public static final String CREATE_BOOKMARKS = "CREATE TABLE "
-            + BOOKMARKS
+            + TABLE_BOOKMARKS
             + " ("
-            + " " + TITLE + " text,"
-            + " " + URL + " text,"
-            + " " + TIME + " integer"
+            + " " + COLUMN_TITLE + " text,"
+            + " " + COLUMN_URL + " text,"
+            + " " + COLUMN_TIME + " integer"
             + ")";
 
     private static Record holder;

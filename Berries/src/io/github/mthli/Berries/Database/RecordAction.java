@@ -32,30 +32,52 @@ public class RecordAction {
     public void add(Record record, String table) {
         ContentValues values = new ContentValues();
 
-        values.put(RecordUnit.TITLE, record.getTitle());
-        values.put(RecordUnit.URL, record.getURL());
-        values.put(RecordUnit.TIME, record.getTime());
+        values.put(RecordUnit.COLUMN_TITLE, record.getTitle());
+        values.put(RecordUnit.COLUMN_URL, record.getURL());
+        values.put(RecordUnit.COLUMN_TIME, record.getTime());
 
         database.insert(table, null, values);
     }
 
     public void update(Record record, String table) {
         ContentValues values = new ContentValues();
+        values.put(RecordUnit.COLUMN_TITLE, record.getTitle());
+        values.put(RecordUnit.COLUMN_URL, record.getURL());
 
-        values.put(RecordUnit.TITLE, record.getTitle());
-        values.put(RecordUnit.URL, record.getURL());
-        values.put(RecordUnit.TIME, record.getTime());
-
-        // TODO
+        database.update(
+                table,
+                values,
+                RecordUnit.COLUMN_TIME + "=?",
+                new String[] {String.valueOf(record.getTime())}
+        );
     }
 
     public boolean check(Record record, String table) {
-        // TODO
+        Cursor cursor = database.query(
+                table,
+                new String[] {RecordUnit.COLUMN_TIME},
+                RecordUnit.COLUMN_TIME + "=?",
+                new String[] {String.valueOf(record.getTime())},
+                null,
+                null,
+                null
+        );
+
+        if (cursor != null) {
+            boolean result = false;
+            if (cursor.moveToFirst()) {
+                result = true;
+            }
+            cursor.close();
+
+            return result;
+        }
+
         return false;
     }
 
     public void delete(Record record, String table) {
-        database.execSQL("DELETE FROM "+ table + " WHERE " + RecordUnit.TIME + " = " + record.getTime());
+        database.execSQL("DELETE FROM "+ table + " WHERE " + RecordUnit.COLUMN_TIME + " = " + record.getTime());
     }
 
     public void clear(String table) {
@@ -78,15 +100,15 @@ public class RecordAction {
         Cursor cursor = database.query(
                 table,
                 new String[] {
-                        RecordUnit.TITLE,
-                        RecordUnit.URL,
-                        RecordUnit.TIME
+                        RecordUnit.COLUMN_TITLE,
+                        RecordUnit.COLUMN_URL,
+                        RecordUnit.COLUMN_TIME
                 },
                 null,
                 null,
                 null,
                 null,
-                RecordUnit.TIME + " desc"
+                RecordUnit.COLUMN_TIME + " desc"
         );
 
         if (cursor == null) {
@@ -98,7 +120,6 @@ public class RecordAction {
             list.add(get(cursor));
             cursor.moveToNext();
         }
-
         cursor.close();
 
         return list;
