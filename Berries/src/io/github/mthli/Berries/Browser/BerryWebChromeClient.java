@@ -11,17 +11,12 @@ public class BerryWebChromeClient extends WebChromeClient {
     private Berry berry;
     private Context context;
     private Record record;
-
     private BrowserController controller;
-    public void setController(BrowserController controller) {
-        this.controller = controller;
-    }
 
     public BerryWebChromeClient(Berry berry) {
         super();
         this.berry = berry;
         this.context = berry.getContext();
-        this.controller = berry.getController();
     }
 
     @Override
@@ -47,8 +42,6 @@ public class BerryWebChromeClient extends WebChromeClient {
 
     @Override
     public void onReceivedTitle(WebView view, String title) {
-        System.out.println("onReceivedTitle()");
-
         super.onReceivedTitle(view, title);
         berry.update(title, view.getUrl());
     }

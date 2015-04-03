@@ -28,17 +28,11 @@ public class Tab {
     private TextView title;
     private ImageButton closeButton;
 
-    private BrowserController controller;
-    public void setController(BrowserController controller) {
-        this.controller = controller;
-    }
-
     public Tab(Berry berry) {
         this.berry = berry;
         this.context = berry.getContext();
         this.record = berry.getRecord();
         this.incognito = berry.isIncognito();
-        this.controller = berry.getController();
 
         initUI();
     }
@@ -48,7 +42,7 @@ public class Tab {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                controller.showSelectedTab(berry);
+                berry.getController().showSelectedTab(berry);
             }
         });
         view.setOnLongClickListener(new View.OnLongClickListener() {
@@ -66,7 +60,7 @@ public class Tab {
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                controller.deleteSelectedTab();
+                berry.getController().deleteSelectedTab();
             }
         });
 

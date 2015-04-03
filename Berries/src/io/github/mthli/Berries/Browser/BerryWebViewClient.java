@@ -9,11 +9,7 @@ public class BerryWebViewClient extends WebViewClient {
     private Berry berry;
     private Context context;
     private Record record;
-
     private BrowserController controller;
-    public void setController(BrowserController controller) {
-        this.controller = controller;
-    }
 
     private boolean finish = false;
     public boolean isFinish() {
@@ -24,7 +20,6 @@ public class BerryWebViewClient extends WebViewClient {
         super();
         this.berry = berry;
         this.context = berry.getContext();
-        this.controller = berry.getController();
     }
 
     @Override

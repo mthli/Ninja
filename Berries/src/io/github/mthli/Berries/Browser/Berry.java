@@ -50,7 +50,6 @@ public class Berry {
     }
     public void setController(BrowserController controller) {
         this.controller = controller;
-        this.tab.setController(controller);
     }
 
     public Berry(Context context, Record record, boolean incognito) {
