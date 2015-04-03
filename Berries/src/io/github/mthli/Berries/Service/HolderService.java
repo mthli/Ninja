@@ -4,6 +4,8 @@ import android.app.Notification;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import android.os.Message;
+import android.webkit.WebView;
 import android.widget.Toast;
 import io.github.mthli.Berries.Browser.BerryContainer;
 import io.github.mthli.Berries.Browser.Berry;
@@ -13,22 +15,33 @@ import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.*;
 
 public class HolderService extends Service implements BrowserController {
+    @Override
     public void updateInputBox(String query) {}
 
+    @Override
     public void updateProgress(int progress) {}
 
+    @Override
     public void showControlPanel() {}
 
+    @Override
     public void hideControlPanel() {}
 
+    @Override
     public boolean isControlPanelShowing() {
         return false;
     }
 
+    @Override
+    public void onCreateView(WebView view, boolean incognito, Message resultMsg) {}
+
+    @Override
     public void onLongPress() {}
 
+    @Override
     public void showSelectedTab(Berry berry) {}
 
+    @Override
     public void deleteSelectedTab() {}
 
     @Override
@@ -77,6 +90,7 @@ public class HolderService extends Service implements BrowserController {
         return null;
     }
 
+    @Override
     public void updateNotification() {
         Notification.Builder builder = NotificationUnit.getBuilder(this);
         Notification notification = builder.build();

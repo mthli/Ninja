@@ -2,6 +2,7 @@ package io.github.mthli.Berries.Browser;
 
 import android.content.Context;
 import android.os.Message;
+import android.view.View;
 import android.webkit.*;
 import io.github.mthli.Berries.Unit.BrowserUnit;
 
@@ -22,9 +23,8 @@ public class BerryWebChromeClient extends WebChromeClient {
 
     @Override
     public boolean onCreateWindow(WebView view, boolean isDialog, boolean isUserGesture, Message resultMsg) {
-        System.out.println("onCreateWindow()");
-        // TODO
-        return super.onCreateWindow(view, isDialog, isUserGesture, resultMsg);
+        berry.getController().onCreateView(view, berry.isIncognito(), resultMsg);
+        return isUserGesture;
     }
 
     @Override
@@ -43,5 +43,33 @@ public class BerryWebChromeClient extends WebChromeClient {
     public void onReceivedTitle(WebView view, String title) {
         berry.update(title, view.getUrl());
         super.onReceivedTitle(view, title);
+    }
+
+    /**
+     * TODO: support this method
+     * @link http://developer.android.com/reference/android/webkit/WebChromeClient.html#onShowCustomView(android.view.View,%20int,%20android.webkit.WebChromeClient.CustomViewCallback)
+     */
+    @Deprecated
+    @Override
+    public void onShowCustomView(View view, int requestedOrientation, WebChromeClient.CustomViewCallback callback) {
+        super.onShowCustomView(view, requestedOrientation, callback);
+    }
+
+    /**
+     * TODO: support this method
+     * @link http://developer.android.com/reference/android/webkit/WebChromeClient.html#onShowCustomView(android.view.View,%20android.webkit.WebChromeClient.CustomViewCallback)
+     */
+    @Override
+    public void onShowCustomView(View view, WebChromeClient.CustomViewCallback callback) {
+        super.onShowCustomView(view, callback);
+    }
+
+    /**
+     * TODO: support this method
+     * @link http://developer.android.com/reference/android/webkit/WebChromeClient.html#onHideCustomView()
+     */
+    @Override
+    public void onHideCustomView() {
+        super.onHideCustomView();
     }
 }

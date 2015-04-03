@@ -95,4 +95,17 @@ public class BerryWebViewClient extends WebViewClient {
 
         return super.shouldInterceptRequest(view, url);
     }
+
+    @Override
+    public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+        if (adBlock.isAd(request.getUrl().toString())) {
+            return new WebResourceResponse(
+                    BrowserUnit.URL_TYPE_TEXT_PLAIN,
+                    BrowserUnit.URL_ENCODING,
+                    new ByteArrayInputStream("".getBytes())
+            );
+        }
+
+        return super.shouldInterceptRequest(view, request);
+    }
 }

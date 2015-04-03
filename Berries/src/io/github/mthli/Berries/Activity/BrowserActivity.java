@@ -7,12 +7,14 @@ import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
+import android.webkit.WebView;
 import android.widget.*;
 import io.github.mthli.Berries.Browser.BerryContainer;
 import io.github.mthli.Berries.Browser.Berry;
@@ -41,18 +43,24 @@ public class BrowserActivity extends Activity implements BrowserController {
     private FrameLayout browserFrame;
     private Berry currentBerry = null;
 
+    @Override
     public void updateProgress(int progress) {}
 
+    @Override
     public void updateNotification() {}
 
+    @Override
     public void showControlPanel() {}
 
+    @Override
     public void hideControlPanel() {}
 
+    @Override
     public boolean isControlPanelShowing() {
         return false;
     }
 
+    @Override
     public void onLongPress() {}
 
     @Override
@@ -107,7 +115,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         progressBar = (ProgressBar) findViewById(R.id.browser_progress_bar);
 
         browserFrame = (FrameLayout) findViewById(R.id.browser_frame);
-        newTab(RecordUnit.getHome(this), false, true);
+        newTab(RecordUnit.getHome(this), false, true, null);
 
         overflowButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,14 +135,14 @@ public class BrowserActivity extends Activity implements BrowserController {
             @Override
             public void onClick(View view) {
                 Record record = RecordUnit.getHome(BrowserActivity.this);
-                newTab(record, false, true);
+                newTab(record, false, true, null);
             }
         });
         addTabButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
                 Record record = RecordUnit.getHome(BrowserActivity.this);
-                newTab(record, true, true);
+                newTab(record, true, true, null);
                 Toast.makeText(BrowserActivity.this, R.string.browser_toast_incognito, Toast.LENGTH_SHORT).show();
                 return true;
             }
@@ -189,7 +197,36 @@ public class BrowserActivity extends Activity implements BrowserController {
         });
     }
 
-    private synchronized void newTab(Record record, boolean incognito, final boolean foreground) {
+    private void showOverflow() {
+        PopupMenu popupMenu = new PopupMenu(this, addTabButton);
+        popupMenu.getMenuInflater().inflate(R.menu.broswer_menu, popupMenu.getMenu());
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.browser_menu_bookmarks:
+                        break;
+                    case R.id.browser_menu_history:
+                        break;
+                    case R.id.browser_menu_search:
+                        break;
+                    case R.id.browser_menu_share:
+                        break;
+                    case R.id.browser_menu_setting:
+                        break;
+                    case R.id.browser_menu_quit:
+                        break;
+                    default:
+                        break;
+                }
+
+                return true;
+            }
+        });
+        popupMenu.show();
+    }
+
+    private synchronized void newTab(Record record, boolean incognito, final boolean foreground, final Message resultMsg) {
         final Berry berry = new Berry(this, record, incognito);
         berry.setController(this);
         BerryContainer.add(berry);
@@ -229,6 +266,12 @@ public class BrowserActivity extends Activity implements BrowserController {
                 } else {
                     inputBox.setText(record.getURL());
                 }
+
+                if (resultMsg != null) {
+                    WebView.WebViewTransport transport = (WebView.WebViewTransport) resultMsg.obj;
+                    transport.setWebView(currentBerry.getWebView());
+                    resultMsg.sendToTarget();
+                }
             }
 
             @Override
@@ -239,6 +282,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         tabView.startAnimation(animation);
     }
 
+    @Override
     public synchronized void showSelectedTab(final Berry berry) {
         if (berry == null || berry.equals(currentBerry)) {
             return;
@@ -263,6 +307,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
     }
 
+    @Override
     public synchronized void deleteSelectedTab() {
         if (currentBerry == null) {
             return;
@@ -326,36 +371,25 @@ public class BrowserActivity extends Activity implements BrowserController {
         tabView.startAnimation(animation);
     }
 
+    @Override
     public void updateInputBox(String query) {
         inputBox.setText(query);
     }
 
-    private void showOverflow() {
-        PopupMenu popupMenu = new PopupMenu(this, addTabButton);
-        popupMenu.getMenuInflater().inflate(R.menu.broswer_menu, popupMenu.getMenu());
-        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.browser_menu_bookmarks:
-                        break;
-                    case R.id.browser_menu_history:
-                        break;
-                    case R.id.browser_menu_search:
-                        break;
-                    case R.id.browser_menu_share:
-                        break;
-                    case R.id.browser_menu_setting:
-                        break;
-                    case R.id.browser_menu_quit:
-                        break;
-                    default:
-                        break;
-                }
+    @Override
+    public void onCreateView(WebView view, boolean incognito, final Message resultMsg) {
+        if (resultMsg == null) {
+            return;
+        }
 
-                return true;
-            }
-        });
-        popupMenu.show();
+        Record record = new Record();
+        if (view.getTitle() == null || view.getTitle().isEmpty()) {
+            record.setTitle(getString(R.string.browser_tab_untitled));
+        } else {
+            record.setTitle(view.getTitle());
+        }
+        record.setURL(view.getUrl());
+        record.setTime(System.currentTimeMillis());
+        newTab(record, incognito, true, resultMsg);
     }
 }

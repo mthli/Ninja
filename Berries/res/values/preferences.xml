@@ -18,6 +18,9 @@
     <string name="sp_location">
         SP_LOCATION
     </string>
+    <string name="sp_multiple_window">
+        SP_MULTIPLE_WINDOW
+    </string>
     <string name="sp_notification_priority">
         SP_NOTIFICATION_PRIORITY
     </string>

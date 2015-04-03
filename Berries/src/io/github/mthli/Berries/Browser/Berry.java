@@ -121,10 +121,10 @@ public class Berry {
         webSettings.setJavaScriptEnabled(sp.getBoolean(context.getString(R.string.sp_javascript), true));
         webSettings.setGeolocationEnabled(sp.getBoolean(context.getString(R.string.sp_location), true));
         webSettings.setSaveFormData(sp.getBoolean(context.getString(R.string.sp_passwords), true));
+        webSettings.setSupportMultipleWindows(sp.getBoolean(context.getString(R.string.sp_multiple_window), true));
 
         webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
         webSettings.setLoadWithOverviewMode(true);
-        webSettings.setSupportMultipleWindows(true);
         webSettings.setTextZoom(100);
         webSettings.setUseWideViewPort(true);
     }

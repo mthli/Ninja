@@ -1,5 +1,8 @@
 package io.github.mthli.Berries.Browser;
 
+import android.os.Message;
+import android.webkit.WebView;
+
 public interface BrowserController {
     void updateInputBox(String query);
 
@@ -16,6 +19,8 @@ public interface BrowserController {
     void showSelectedTab(Berry berry);
 
     void deleteSelectedTab();
+
+    void onCreateView(WebView view, boolean incognito, Message resultMsg);
 
     void onLongPress();
 }
