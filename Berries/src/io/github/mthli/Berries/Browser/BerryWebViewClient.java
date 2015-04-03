@@ -9,7 +9,6 @@ public class BerryWebViewClient extends WebViewClient {
     private Berry berry;
     private Context context;
     private Record record;
-    private BrowserController controller;
 
     private boolean finish = false;
     public boolean isFinish() {

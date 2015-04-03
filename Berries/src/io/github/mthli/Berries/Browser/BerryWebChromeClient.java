@@ -11,7 +11,6 @@ public class BerryWebChromeClient extends WebChromeClient {
     private Berry berry;
     private Context context;
     private Record record;
-    private BrowserController controller;
 
     public BerryWebChromeClient(Berry berry) {
         super();
