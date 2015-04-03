@@ -1,10 +1,10 @@
 package io.github.mthli.Berries.Browser;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class BerryContainer {
-    private static List<Berry> list = new ArrayList<Berry>();
+    private static List<Berry> list = new LinkedList<Berry>();
 
     public static Berry get(int index) {
         return list.get(index);
@@ -17,6 +17,10 @@ public class BerryContainer {
 
     public synchronized static void add(Berry view) {
         list.add(view);
+    }
+
+    public synchronized static void add(Berry view, int index) {
+        list.add(index, view);
     }
 
     public synchronized static void remove(int index) {

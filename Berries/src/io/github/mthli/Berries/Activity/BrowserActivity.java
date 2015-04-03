@@ -9,6 +9,7 @@ import android.os.Message;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
@@ -217,12 +218,19 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     private synchronized void newTab(Record record, boolean incognito, final boolean foreground, final Message resultMsg) {
         final Berry berry = new Berry(this, record, incognito);
-        berry.setController(this);
-        BerryContainer.add(berry);
-
         final View tabView = berry.getTabView();
+
+        berry.setController(this);
         tabView.setVisibility(View.INVISIBLE);
-        tabsContainer.addView(tabView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
+
+        if (currentBerry != null && resultMsg != null) {
+            int index = BerryContainer.indexOf(currentBerry) + 1;
+            BerryContainer.add(berry, index);
+            tabsContainer.addView(tabView, index, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        } else {
+            BerryContainer.add(berry);
+            tabsContainer.addView(tabView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        }
 
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.slide_in_up);
         animation.setAnimationListener(new Animation.AnimationListener() {
