@@ -1,16 +1,18 @@
 package io.github.mthli.Berries.Browser;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.os.Message;
-import android.view.View;
 import android.webkit.*;
-import io.github.mthli.Berries.Database.Record;
+import io.github.mthli.Berries.Unit.BrowserUnit;
 
 public class BerryWebChromeClient extends WebChromeClient {
     private Berry berry;
     private Context context;
-    private Record record;
+
+    private int progress = BrowserUnit.PROGRESS_MIN;
+    public boolean isLoadFinish() {
+        return progress >= BrowserUnit.PROGRESS_MAX;
+    }
 
     public BerryWebChromeClient(Berry berry) {
         super();
@@ -21,34 +23,25 @@ public class BerryWebChromeClient extends WebChromeClient {
     @Override
     public boolean onCreateWindow(WebView view, boolean isDialog, boolean isUserGesture, Message resultMsg) {
         System.out.println("onCreateWindow()");
-
+        // TODO
         return super.onCreateWindow(view, isDialog, isUserGesture, resultMsg);
     }
 
     @Override
     public void onCloseWindow(WebView view) {
-        System.out.println("onCloseWindow()");
-
         super.onCloseWindow(view);
     }
 
     @Override
     public void onProgressChanged(WebView view, int progress) {
-        System.out.println("onProgressChanged()");
-
+        this.progress = progress;
+        berry.update(progress);
         super.onProgressChanged(view, progress);
     }
 
     @Override
     public void onReceivedTitle(WebView view, String title) {
-        super.onReceivedTitle(view, title);
         berry.update(title, view.getUrl());
-    }
-
-    @Override
-    public void onRequestFocus(WebView view) {
-        System.out.println("onRequestFocus()");
-
-        super.onRequestFocus(view);
+        super.onReceivedTitle(view, title);
     }
 }

@@ -11,7 +11,7 @@ public interface BrowserController {
 
     void hideControlPanel();
 
-    boolean isPanelShowing();
+    boolean isControlPanelShowing();
 
     void showSelectedTab(Berry berry);
 

@@ -22,8 +22,8 @@ public class BrowserUnit {
     public static final String URL_SCHEME_FILE = "file";
     public static final String URL_SCHEME_FTP = "ftp";
 
-    public static final String TAB_HOME = "about:home";
-    public static final String TAB_UNTITLED = "about:untitled";
+    public static final String ABOUT_BLANK = "about:blank";
+    public static final String ABOUT_HOME = "about:home";
 
     public static boolean isNetworkAvailable(Context context) {
         if (context == null) {

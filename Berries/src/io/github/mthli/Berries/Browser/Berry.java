@@ -138,6 +138,10 @@ public class Berry {
         webView.invalidate();
     }
 
+    public synchronized void postInvalidate () {
+        webView.postInvalidate();
+    }
+
     public synchronized void onPause() {
         webView.onPause();
     }
@@ -192,11 +196,33 @@ public class Berry {
         this.record.setTitle(title);
         this.record.setURL(url);
         tab.update(title, url);
-        controller.updateInputBox(url);
+        if (foreground) {
+            controller.updateInputBox(url);
+        }
+
+        // TODO: History
     }
 
-    public boolean isShown() {
-        return webView.isShown();
+    public void update(int progress) {
+        if (isForeground()) {
+            controller.updateProgress(progress);
+        }
+    }
+
+    public void showControlPanel() {
+        if (foreground) {
+            controller.showControlPanel();
+        }
+    }
+
+    public void hideControlPanel() {
+        if (foreground) {
+            controller.hideControlPanel();
+        }
+    }
+
+    public boolean isControlPanelShowing() {
+        return controller.isControlPanelShowing();
     }
 
     public synchronized void stopLoading() {
@@ -207,13 +233,8 @@ public class Berry {
         webView.reload();
     }
 
-    public int getProgress() {
-        return webView.getProgress();
-    }
-
-    // TODO
-    public boolean isFinish() {
-        return webViewClient.isFinish();
+    public boolean isLoadFinish() {
+        return webChromeClient.isLoadFinish();
     }
 
     public synchronized void pageUp(boolean top) {

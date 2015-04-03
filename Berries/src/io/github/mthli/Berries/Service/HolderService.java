@@ -21,7 +21,7 @@ public class HolderService extends Service implements BrowserController {
 
     public void hideControlPanel() {}
 
-    public boolean isPanelShowing() {
+    public boolean isControlPanelShowing() {
         return false;
     }
 

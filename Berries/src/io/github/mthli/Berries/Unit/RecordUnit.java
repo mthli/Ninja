@@ -37,6 +37,6 @@ public class RecordUnit {
     }
 
     public static Record getHome(Context context) {
-        return new Record(context.getString(R.string.browser_tab_home), BrowserUnit.TAB_HOME, System.currentTimeMillis());
+        return new Record(context.getString(R.string.browser_tab_home), BrowserUnit.ABOUT_HOME, System.currentTimeMillis());
     }
 }

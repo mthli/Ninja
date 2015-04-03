@@ -22,7 +22,7 @@ public class NotificationUnit {
 
         int done = 0;
         for (Berry view : BerryContainer.list()) {
-            if (view.isFinish()) {
+            if (view.isLoadFinish()) {
                 done++;
             }
         }

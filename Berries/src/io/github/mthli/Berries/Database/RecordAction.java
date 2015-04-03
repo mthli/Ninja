@@ -39,6 +39,21 @@ public class RecordAction {
         database.insert(table, null, values);
     }
 
+    public void update(Record record, String table) {
+        ContentValues values = new ContentValues();
+
+        values.put(RecordUnit.TITLE, record.getTitle());
+        values.put(RecordUnit.URL, record.getURL());
+        values.put(RecordUnit.TIME, record.getTime());
+
+        // TODO
+    }
+
+    public boolean check(Record record, String table) {
+        // TODO
+        return false;
+    }
+
     public void delete(Record record, String table) {
         database.execSQL("DELETE FROM "+ table + " WHERE " + RecordUnit.TIME + " = " + record.getTime());
     }

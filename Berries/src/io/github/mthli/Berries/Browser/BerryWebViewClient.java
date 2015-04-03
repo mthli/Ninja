@@ -3,17 +3,11 @@ package io.github.mthli.Berries.Browser;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.webkit.*;
-import io.github.mthli.Berries.Database.Record;
+import io.github.mthli.Berries.R;
 
 public class BerryWebViewClient extends WebViewClient {
     private Berry berry;
     private Context context;
-    private Record record;
-
-    private boolean finish = false;
-    public boolean isFinish() {
-        return finish;
-    }
 
     public BerryWebViewClient(Berry berry) {
         super();
@@ -23,23 +17,31 @@ public class BerryWebViewClient extends WebViewClient {
 
     @Override
     public void onPageStarted(WebView view, String url, Bitmap favicon) {
-        System.out.println("onPageStarted()");
+        if (view.getTitle() == null || view.getTitle().isEmpty()) {
+            berry.update(context.getString(R.string.browser_tab_untitled), url);
+        } else {
+            berry.update(view.getTitle(), url);
+        }
+        berry.showControlPanel();
 
         super.onPageStarted(view, url, favicon);
     }
 
     @Override
     public void onPageFinished(WebView view, String url) {
-        System.out.println("onPageFinished()");
+        if (view.getTitle() == null || view.getTitle().isEmpty()) {
+            berry.update(context.getString(R.string.browser_tab_untitled), url);
+        } else {
+            berry.update(view.getTitle(), url);
+        }
+
+        if (berry.isForeground()) {
+            berry.invalidate();
+        } else {
+            berry.postInvalidate();
+        }
 
         super.onPageFinished(view, url);
-    }
-
-    @Override
-    public void onScaleChanged(WebView view, float oldScale, float newScale) {
-        System.out.println("onScaleChanged()");
-
-        super.onScaleChanged(view, oldScale, newScale);
     }
 
     @Override

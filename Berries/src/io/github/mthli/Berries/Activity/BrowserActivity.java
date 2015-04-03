@@ -49,7 +49,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     public void hideControlPanel() {}
 
-    public boolean isPanelShowing() {
+    public boolean isControlPanelShowing() {
         return false;
     }
 
@@ -224,7 +224,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 tabsScroll.smoothScrollTo(tabView.getLeft(), 0);
 
                 Record record = berry.getRecord();
-                if (record.getURL().equals(BrowserUnit.TAB_HOME)) {
+                if (record.getURL().equals(BrowserUnit.ABOUT_HOME)) {
                     inputBox.setText(null);
                 } else {
                     inputBox.setText(record.getURL());
@@ -256,7 +256,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         tabsScroll.smoothScrollTo(berry.getTabView().getLeft(), 0);
 
         Record record = berry.getRecord();
-        if (record.getURL().equals(BrowserUnit.TAB_HOME)) {
+        if (record.getURL().equals(BrowserUnit.ABOUT_HOME)) {
             inputBox.setText(null);
         } else {
             inputBox.setText(record.getURL());
@@ -309,7 +309,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                         tabsScroll.smoothScrollTo(currentBerry.getTabView().getLeft(), 0);
 
                         Record record = currentBerry.getRecord();
-                        if (record.getURL().equals(BrowserUnit.TAB_HOME)) {
+                        if (record.getURL().equals(BrowserUnit.ABOUT_HOME)) {
                             inputBox.setText(null);
                         } else {
                             inputBox.setText(record.getURL());
