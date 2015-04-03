@@ -14,15 +14,10 @@ import java.util.Set;
 
 public class AdBlock {
     private static final String FILE = "hosts.txt";
-
     private static final Set<String> domains = new HashSet<String>();
-
     private static final Locale locale = Locale.getDefault();
 
     private Context context;
-    public Context getContext() {
-        return context;
-    }
 
     public AdBlock(Context context) {
         this.context = context;

@@ -17,10 +17,14 @@ public class BrowserUnit {
     public static final int PROGRESS_MIN = 0;
 
     public static final String URL_ENCODING = "UTF-8";
-    public static final String URL_SCHEME_HTTP = "http";
-    public static final String URL_SCHEME_HTTPS = "https";
-    public static final String URL_SCHEME_FILE = "file";
-    public static final String URL_SCHEME_FTP = "ftp";
+    public static final String URL_TYPE_TEXT_PLAIN = "text/plain";
+    public static final String URL_SCHEME_ABOUT = "about:";
+    public static final String URL_SCHEME_FILE = "file://";
+    public static final String URL_SCHEME_FTP = "ftp://";
+    public static final String URL_SCHEME_HTTP = "http://";
+    public static final String URL_SCHEME_HTTPS = "https://";
+    public static final String URL_SCHEME_INTENT = "intent://";
+    public static final String URL_SCHEME_MAIL_TO = "mailto:";
 
     public static final String ABOUT_BLANK = "about:blank";
     public static final String ABOUT_HOME = "about:home";
@@ -57,8 +61,8 @@ public class BrowserUnit {
             return query;
         }
 
-        if (isURL(URL_SCHEME_HTTP + "://" + query)) {
-            return URL_SCHEME_HTTP + "://" + query;
+        if (isURL(URL_SCHEME_HTTP + query)) {
+            return URL_SCHEME_HTTP + query;
         }
 
         SharedPreferences sp = context.getSharedPreferences(
