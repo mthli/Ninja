@@ -1,9 +1,7 @@
 package io.github.mthli.Berries.Activity;
 
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.content.res.Configuration;
-import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -67,15 +65,6 @@ public class BrowserActivity extends Activity implements BrowserController {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.browser);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ActivityManager.TaskDescription description = new ActivityManager.TaskDescription(
-                    getString(R.string.app_name),
-                    BitmapFactory.decodeResource(getResources(), R.drawable.ic_task_description),
-                    getResources().getColor(R.color.blue_500)
-            );
-            setTaskDescription(description);
-        }
 
         initUI();
     }
@@ -269,7 +258,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
                 if (resultMsg != null) {
                     WebView.WebViewTransport transport = (WebView.WebViewTransport) resultMsg.obj;
-                    transport.setWebView(currentBerry.getWebView());
+                    transport.setWebView(berry.getWebView());
                     resultMsg.sendToTarget();
                 }
             }

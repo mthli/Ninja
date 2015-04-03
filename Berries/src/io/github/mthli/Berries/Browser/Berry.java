@@ -164,6 +164,12 @@ public class Berry {
         }
     }
 
+    public void clearFocus() {
+        if (webView.hasFocus()) {
+            webView.clearFocus();
+        }
+    }
+
     public void setVisibility(int visibility) {
         webView.setVisibility(visibility);
     }
@@ -188,6 +194,7 @@ public class Berry {
     public void deactivate() {
         onPause();
         setVisibility(View.INVISIBLE);
+        clearFocus();
         foreground = false;
         tab.deactivate();
     }

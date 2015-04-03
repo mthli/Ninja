@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.MailTo;
+import android.os.Build;
 import android.webkit.*;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.BrowserUnit;
@@ -98,12 +99,14 @@ public class BerryWebViewClient extends WebViewClient {
 
     @Override
     public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
-        if (adBlock.isAd(request.getUrl().toString())) {
-            return new WebResourceResponse(
-                    BrowserUnit.URL_TYPE_TEXT_PLAIN,
-                    BrowserUnit.URL_ENCODING,
-                    new ByteArrayInputStream("".getBytes())
-            );
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            if (adBlock.isAd(request.getUrl().toString())) {
+                return new WebResourceResponse(
+                        BrowserUnit.URL_TYPE_TEXT_PLAIN,
+                        BrowserUnit.URL_ENCODING,
+                        new ByteArrayInputStream("".getBytes())
+                );
+            }
         }
 
         return super.shouldInterceptRequest(view, request);
