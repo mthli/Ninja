@@ -6,23 +6,11 @@ import android.webkit.*;
 import io.github.mthli.Berries.Database.Record;
 
 public class BerryWebViewClient extends WebViewClient {
+    private Berry berry;
     private Context context;
-    public Context getContext() {
-        return context;
-    }
-
     private Record record;
-    public Record getRecord() {
-        return record;
-    }
-    public void setRecord(Record record) {
-        this.record = record;
-    }
 
     private BrowserController controller;
-    public BrowserController getController() {
-        return controller;
-    }
     public void setController(BrowserController controller) {
         this.controller = controller;
     }
@@ -32,39 +20,45 @@ public class BerryWebViewClient extends WebViewClient {
         return finish;
     }
 
-    public BerryWebViewClient(Context context) {
+    public BerryWebViewClient(Berry berry) {
         super();
-        this.context = context;
+        this.berry = berry;
+        this.context = berry.getContext();
+        this.controller = berry.getController();
     }
 
     @Override
     public void onPageStarted(WebView view, String url, Bitmap favicon) {
-        // TODO
-        finish = false;
+        System.out.println("onPageStarted()");
+
+        super.onPageStarted(view, url, favicon);
     }
 
     @Override
     public void onPageFinished(WebView view, String url) {
-        // TODO
-        finish = true;
-        controller.updateNotification();
+        System.out.println("onPageFinished()");
+
+        super.onPageFinished(view, url);
     }
 
     @Override
     public void onScaleChanged(WebView view, float oldScale, float newScale) {
-        // TODO
+        System.out.println("onScaleChanged()");
+
+        super.onScaleChanged(view, oldScale, newScale);
     }
 
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, String url) {
-        // TODO
-        finish = false;
-        return false;
+        System.out.println("shouldOverrideUrlLoading()");
+
+        return super.shouldOverrideUrlLoading(view, url);
     }
 
     @Override
     public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
-        // TODO
-        return null;
+        System.out.println("shouldInterceptRequest()");
+
+        return super.shouldInterceptRequest(view, request);
     }
 }

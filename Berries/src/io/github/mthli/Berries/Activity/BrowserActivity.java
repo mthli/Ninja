@@ -32,7 +32,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     private ImageButton addTabButton;
 
     private ImageButton bookmarkButton;
-    private AutoCompleteTextView urlInputBox;
+    private AutoCompleteTextView inputBox;
     private ImageButton refreshButton;
 
     private LinearLayout progressWrapper;
@@ -40,8 +40,6 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     private FrameLayout browserFrame;
     private Berry currentBerry = null;
-
-    public void updateRecord(Record record) {}
 
     public void updateProgress(int progress) {}
 
@@ -102,7 +100,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         addTabButton = (ImageButton) findViewById(R.id.browser_add_tab_button);
 
         bookmarkButton = (ImageButton) findViewById(R.id.browser_bookmark_button);
-        urlInputBox = (AutoCompleteTextView) findViewById(R.id.browser_url_input);
+        inputBox = (AutoCompleteTextView) findViewById(R.id.browser_input_box);
         refreshButton = (ImageButton) findViewById(R.id.browser_refresh_button);
 
         progressWrapper = (LinearLayout) findViewById(R.id.browser_progress_wrapper);
@@ -170,14 +168,15 @@ public class BrowserActivity extends Activity implements BrowserController {
             }
         });
 
-        urlInputBox.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        inputBox.setThreshold(3);
+        inputBox.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
                 if (!(actionId == EditorInfo.IME_ACTION_DONE)) {
                     return false;
                 }
 
-                String query = urlInputBox.getText().toString().trim();
+                String query = inputBox.getText().toString().trim();
                 if (query.isEmpty()) {
                     Toast.makeText(BrowserActivity.this, R.string.browser_toast_input_empty, Toast.LENGTH_SHORT).show();
                     return false;
@@ -188,7 +187,6 @@ public class BrowserActivity extends Activity implements BrowserController {
                 return false;
             }
         });
-
     }
 
     private synchronized void newTab(Record record, boolean incognito, final boolean foreground) {
@@ -215,6 +213,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 }
 
                 if (currentBerry != null) {
+                    currentBerry.getRecord().setURL(inputBox.getText().toString());
                     currentBerry.deactivate();
                     browserFrame.removeView(currentBerry.getWebView());
                 }
@@ -226,9 +225,9 @@ public class BrowserActivity extends Activity implements BrowserController {
 
                 Record record = berry.getRecord();
                 if (record.getURL().equals(BrowserUnit.TAB_HOME)) {
-                    urlInputBox.setText(null);
+                    inputBox.setText(null);
                 } else {
-                    urlInputBox.setText(record.getURL());
+                    inputBox.setText(record.getURL());
                 }
             }
 
@@ -246,6 +245,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
 
         if (currentBerry != null) {
+            currentBerry.getRecord().setURL(inputBox.getText().toString());
             currentBerry.deactivate();
             browserFrame.removeView(currentBerry.getWebView());
         }
@@ -257,9 +257,9 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         Record record = berry.getRecord();
         if (record.getURL().equals(BrowserUnit.TAB_HOME)) {
-            urlInputBox.setText(null);
+            inputBox.setText(null);
         } else {
-            urlInputBox.setText(record.getURL());
+            inputBox.setText(record.getURL());
         }
     }
 
@@ -307,6 +307,13 @@ public class BrowserActivity extends Activity implements BrowserController {
                     @Override
                     public void run() {
                         tabsScroll.smoothScrollTo(currentBerry.getTabView().getLeft(), 0);
+
+                        Record record = currentBerry.getRecord();
+                        if (record.getURL().equals(BrowserUnit.TAB_HOME)) {
+                            inputBox.setText(null);
+                        } else {
+                            inputBox.setText(record.getURL());
+                        }
                     }
                 });
             }
@@ -317,6 +324,10 @@ public class BrowserActivity extends Activity implements BrowserController {
             }
         });
         tabView.startAnimation(animation);
+    }
+
+    public void updateInputBox(String query) {
+        inputBox.setText(query);
     }
 
     private void showOverflow() {

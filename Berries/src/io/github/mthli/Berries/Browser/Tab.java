@@ -17,10 +17,6 @@ public class Tab {
     public Record getRecord() {
         return record;
     }
-    public void setRecord(Record record) {
-        this.record = record;
-        title.setText(record.getTitle());
-    }
 
     private boolean incognito;
 
@@ -31,7 +27,6 @@ public class Tab {
 
     private TextView title;
     private ImageButton closeButton;
-    private View incognitoLine;
 
     private BrowserController controller;
     public void setController(BrowserController controller) {
@@ -75,7 +70,7 @@ public class Tab {
             }
         });
 
-        incognitoLine = view.findViewById(R.id.tab_incognito_line);
+        View incognitoLine = view.findViewById(R.id.tab_incognito_line);
         if (incognito) {
             incognitoLine.setVisibility(View.VISIBLE);
         } else {
@@ -91,6 +86,12 @@ public class Tab {
     public void deactivate() {
         view.setBackgroundColor(context.getResources().getColor(R.color.gray_1000));
         closeButton.setVisibility(View.GONE);
+    }
+
+    public void update(String title, String url) {
+        this.record.setTitle(title);
+        this.record.setURL(url);
+        this.title.setText(title);
     }
 
     @Override

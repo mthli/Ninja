@@ -1,9 +1,7 @@
 package io.github.mthli.Berries.Browser;
 
-import io.github.mthli.Berries.Database.Record;
-
 public interface BrowserController {
-    void updateRecord(Record record);
+    void updateInputBox(String query);
 
     void updateProgress(int progress);
 

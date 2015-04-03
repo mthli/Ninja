@@ -57,20 +57,18 @@ public class BrowserUnit {
             return query;
         }
 
-        if (!query.contains(".") || query.contains(" ")) {
-            SharedPreferences sp = context.getSharedPreferences(
-                    context.getString(R.string.sp_name),
-                    Context.MODE_PRIVATE
-            );
-            String searchEngine = sp.getString(
-                    context.getString(R.string.sp_search_engine),
-                    context.getString(R.string.sp_search_engine_google)
-            );
-            query = searchEngine + query;
-        } else {
-            query = URL_SCHEME_HTTP + "://" + query;
+        if (isURL(URL_SCHEME_HTTP + "://" + query)) {
+            return URL_SCHEME_HTTP + "://" + query;
         }
 
-        return query;
+        SharedPreferences sp = context.getSharedPreferences(
+                context.getString(R.string.sp_name),
+                Context.MODE_PRIVATE
+        );
+        String searchEngine = sp.getString(
+                context.getString(R.string.sp_search_engine),
+                context.getString(R.string.sp_search_engine_google)
+        );
+        return searchEngine + query;
     }
 }

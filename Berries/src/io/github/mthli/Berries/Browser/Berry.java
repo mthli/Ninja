@@ -3,10 +3,8 @@ package io.github.mthli.Berries.Browser;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.view.View;
-import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.BrowserUnit;
@@ -43,6 +41,8 @@ public class Berry {
     }
 
     private WebSettings webSettings;
+    private BerryWebViewClient webViewClient;
+    private BerryWebChromeClient webChromeClient;
 
     private BrowserController controller;
     public BrowserController getController() {
@@ -62,6 +62,8 @@ public class Berry {
         this.tab = new Tab(this);
         this.webView = new WebView(this.context);
         this.webSettings = webView.getSettings();
+        this.webViewClient = new BerryWebViewClient(this);
+        this.webChromeClient = new BerryWebChromeClient(this);
 
         this.initWebView();
         this.initWebSettings();
@@ -88,8 +90,8 @@ public class Berry {
         webView.setWillNotCacheDrawing(false);
 
         // TODO
-        webView.setWebViewClient(new WebViewClient());
-        webView.setWebChromeClient(new WebChromeClient());
+        webView.setWebViewClient(webViewClient);
+        webView.setWebChromeClient(webChromeClient);
     }
 
     private synchronized void initWebSettings() {
@@ -187,6 +189,13 @@ public class Berry {
         tab.deactivate();
     }
 
+    public void update(String title, String url) {
+        this.record.setTitle(title);
+        this.record.setURL(url);
+        tab.update(title, url);
+        controller.updateInputBox(url);
+    }
+
     public boolean isShown() {
         return webView.isShown();
     }
@@ -203,9 +212,9 @@ public class Berry {
         return webView.getProgress();
     }
 
+    // TODO
     public boolean isFinish() {
-        // TODO
-        return false;
+        return webViewClient.isFinish();
     }
 
     public synchronized void pageUp(boolean top) {

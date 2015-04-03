@@ -8,67 +8,55 @@ import android.webkit.*;
 import io.github.mthli.Berries.Database.Record;
 
 public class BerryWebChromeClient extends WebChromeClient {
+    private Berry berry;
     private Context context;
-    public Context getContext() {
-        return context;
-    }
-
     private Record record;
-    public Record getRecord() {
-        return record;
-    }
-    public void setRecord(Record record) {
-        this.record = record;
-    }
 
     private BrowserController controller;
-    public BrowserController getController() {
-        return controller;
-    }
     public void setController(BrowserController controller) {
         this.controller = controller;
     }
 
-    public BerryWebChromeClient(Context context) {
+    public BerryWebChromeClient(Berry berry) {
         super();
-        this.context = context;
-    }
-
-    @Override
-    public Bitmap getDefaultVideoPoster() {
-        // TODO
-        return null;
-    }
-
-    @Override
-    public View getVideoLoadingProgressView() {
-        // TODO
-        return null;
+        this.berry = berry;
+        this.context = berry.getContext();
+        this.controller = berry.getController();
     }
 
     @Override
     public boolean onCreateWindow(WebView view, boolean isDialog, boolean isUserGesture, Message resultMsg) {
-        // TODO
-        return true;
+        System.out.println("onCreateWindow()");
+
+        return super.onCreateWindow(view, isDialog, isUserGesture, resultMsg);
     }
 
     @Override
     public void onCloseWindow(WebView view) {
-        // TODO
+        System.out.println("onCloseWindow()");
+
+        super.onCloseWindow(view);
     }
 
     @Override
     public void onProgressChanged(WebView view, int progress) {
-        // TODO
+        System.out.println("onProgressChanged()");
+
+        super.onProgressChanged(view, progress);
     }
 
     @Override
     public void onReceivedTitle(WebView view, String title) {
-        // TODO
+        System.out.println("onReceivedTitle()");
+
+        super.onReceivedTitle(view, title);
+        berry.update(title, view.getUrl());
     }
 
     @Override
     public void onRequestFocus(WebView view) {
-        // TODO
+        System.out.println("onRequestFocus()");
+
+        super.onRequestFocus(view);
     }
 }

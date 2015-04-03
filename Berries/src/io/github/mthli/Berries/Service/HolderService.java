@@ -13,7 +13,7 @@ import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.*;
 
 public class HolderService extends Service implements BrowserController {
-    public void updateRecord(Record record) {}
+    public void updateInputBox(String query) {}
 
     public void updateProgress(int progress) {}
 
