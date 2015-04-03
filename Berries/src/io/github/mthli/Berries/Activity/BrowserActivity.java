@@ -1,6 +1,7 @@
 package io.github.mthli.Berries.Activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -71,9 +72,34 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     @Override
+    public void onPause() {
+        inputBox.clearFocus();
+        super.onPause();
+    }
+
+    @Override
     public void onDestroy() {
         BerryContainer.clear();
         super.onDestroy();
+    }
+
+    @Override
+    public synchronized boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            showControlPanel();
+
+            if (currentBerry == null) {
+                finish();
+            } else {
+                if (currentBerry.canGoBack()) {
+                    currentBerry.goBack();
+                } else {
+                    deleteSelectedTab();
+                }
+            }
+        }
+
+        return true;
     }
 
     @Override
@@ -205,6 +231,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                     case R.id.browser_menu_setting:
                         break;
                     case R.id.browser_menu_quit:
+                        finish();
                         break;
                     default:
                         break;

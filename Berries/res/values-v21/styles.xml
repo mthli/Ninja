@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <style name="Browser" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/blue_500</item>
+        <item name="android:colorPrimaryDark">@color/blue_700</item>
+        <item name="android:colorAccent">@color/blue_500</item>
+        <item name="android:textColorHighlight">@color/blue_300</item>
+
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:textColor">@color/text</item>
+    </style>
+
+</resources>

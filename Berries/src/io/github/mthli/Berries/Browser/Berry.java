@@ -129,6 +129,38 @@ public class Berry {
         webSettings.setUseWideViewPort(true);
     }
 
+    protected synchronized void onPause() {
+        webView.onPause();
+    }
+
+    protected synchronized void pauseTimers() {
+        webView.pauseTimers();
+    }
+
+    protected synchronized void onResume() {
+        webView.onResume();
+    }
+
+    protected synchronized void resumeTimers() {
+        webView.resumeTimers();
+    }
+
+    protected void requestFocus() {
+        if (!webView.hasFocus()) {
+            webView.requestFocus();
+        }
+    }
+
+    protected void clearFocus() {
+        if (webView.hasFocus()) {
+            webView.clearFocus();
+        }
+    }
+
+    protected void setVisibility(int visibility) {
+        webView.setVisibility(visibility);
+    }
+
     public synchronized void load(Record record) {
         this.record = record;
         webView.loadUrl(record.getURL());
@@ -140,47 +172,6 @@ public class Berry {
 
     public synchronized void postInvalidate () {
         webView.postInvalidate();
-    }
-
-    public synchronized void onPause() {
-        webView.onPause();
-    }
-
-    public synchronized void pauseTimers() {
-        webView.pauseTimers();
-    }
-
-    public synchronized void onResume() {
-        webView.onResume();
-    }
-
-    public synchronized void resumeTimers() {
-        webView.resumeTimers();
-    }
-
-    public void requestFocus() {
-        if (!webView.hasFocus()) {
-            webView.requestFocus();
-        }
-    }
-
-    public void clearFocus() {
-        if (webView.hasFocus()) {
-            webView.clearFocus();
-        }
-    }
-
-    public void setVisibility(int visibility) {
-        webView.setVisibility(visibility);
-    }
-
-    public synchronized void destroy() {
-        webView.stopLoading();
-        webView.onPause();
-        webView.clearHistory();
-        webView.setVisibility(View.GONE);
-        webView.removeAllViews();
-        webView.destroyDrawingCache();
     }
 
     public void activate() {
@@ -214,6 +205,25 @@ public class Berry {
         if (isForeground()) {
             controller.updateProgress(progress);
         }
+    }
+
+    public void pause() {
+        onPause();
+        pauseTimers();
+    }
+
+    public void resume() {
+        onResume();
+        resumeTimers();
+    }
+
+    public synchronized void destroy() {
+        webView.stopLoading();
+        webView.onPause();
+        webView.clearHistory();
+        webView.setVisibility(View.GONE);
+        webView.removeAllViews();
+        webView.destroyDrawingCache();
     }
 
     public void showControlPanel() {
