@@ -10,15 +10,9 @@ public interface BrowserController {
 
     void updateNotification();
 
-    void showControlPanel();
+    void showTab(BerryView berryView);
 
-    void hideControlPanel();
-
-    boolean isControlPanelShowing();
-
-    void showSelectedTab(Berry berry);
-
-    void deleteSelectedTab();
+    void deleteTab();
 
     void onCreateView(WebView view, boolean incognito, Message resultMsg);
 

@@ -7,7 +7,7 @@ import android.webkit.*;
 import io.github.mthli.Berries.Unit.BrowserUnit;
 
 public class BerryWebChromeClient extends WebChromeClient {
-    private Berry berry;
+    private BerryView berryView;
     private Context context;
 
     private int progress = BrowserUnit.PROGRESS_MIN;
@@ -15,15 +15,15 @@ public class BerryWebChromeClient extends WebChromeClient {
         return progress >= BrowserUnit.PROGRESS_MAX;
     }
 
-    public BerryWebChromeClient(Berry berry) {
+    public BerryWebChromeClient(BerryView berryView) {
         super();
-        this.berry = berry;
-        this.context = berry.getContext();
+        this.berryView = berryView;
+        this.context = berryView.getContext();
     }
 
     @Override
     public boolean onCreateWindow(WebView view, boolean isDialog, boolean isUserGesture, Message resultMsg) {
-        berry.getController().onCreateView(view, berry.isIncognito(), resultMsg);
+        berryView.getController().onCreateView(view, berryView.isIncognito(), resultMsg);
         return isUserGesture;
     }
 
@@ -35,13 +35,13 @@ public class BerryWebChromeClient extends WebChromeClient {
     @Override
     public void onProgressChanged(WebView view, int progress) {
         this.progress = progress;
-        berry.update(progress);
+        berryView.update(progress);
         super.onProgressChanged(view, progress);
     }
 
     @Override
     public void onReceivedTitle(WebView view, String title) {
-        berry.update(title, view.getUrl());
+        berryView.update(title, view.getUrl());
         super.onReceivedTitle(view, title);
     }
 

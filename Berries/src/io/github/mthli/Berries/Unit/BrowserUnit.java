@@ -16,6 +16,10 @@ public class BrowserUnit {
     public static final int PROGRESS_MAX = 100;
     public static final int PROGRESS_MIN = 0;
 
+    public static final int CP_STATUS_ON_SCREEN = 0x100;
+    public static final int CP_STATUS_OFF_SCREEN = 0x101;
+    public static final int CP_STATUS_RETURNING = 0x102;
+
     public static final String URL_ENCODING = "UTF-8";
     public static final String URL_TYPE_TEXT_PLAIN = "text/plain";
     public static final String URL_SCHEME_ABOUT = "about:";

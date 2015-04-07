@@ -10,7 +10,7 @@ import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
 
 public class Tab {
-    private Berry berry;
+    private BerryView berryView;
     private Context context;
 
     private Record record;
@@ -28,11 +28,11 @@ public class Tab {
     private TextView title;
     private ImageButton closeButton;
 
-    public Tab(Berry berry) {
-        this.berry = berry;
-        this.context = berry.getContext();
-        this.record = berry.getRecord();
-        this.incognito = berry.isIncognito();
+    public Tab(BerryView berryView) {
+        this.berryView = berryView;
+        this.context = berryView.getContext();
+        this.record = berryView.getRecord();
+        this.incognito = berryView.isIncognito();
 
         initUI();
     }
@@ -42,7 +42,7 @@ public class Tab {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                berry.getController().showSelectedTab(berry);
+                berryView.getController().showTab(berryView);
             }
         });
         view.setOnLongClickListener(new View.OnLongClickListener() {
@@ -60,7 +60,7 @@ public class Tab {
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                berry.getController().deleteSelectedTab();
+                berryView.getController().deleteTab();
             }
         });
 

@@ -14,25 +14,24 @@ import java.io.ByteArrayInputStream;
 import java.net.URISyntaxException;
 
 public class BerryWebViewClient extends WebViewClient {
-    private Berry berry;
+    private BerryView berryView;
     private Context context;
     private AdBlock adBlock;
 
-    public BerryWebViewClient(Berry berry) {
+    public BerryWebViewClient(BerryView berryView) {
         super();
-        this.berry = berry;
-        this.context = berry.getContext();
-        this.adBlock = new AdBlock(berry.getContext());
+        this.berryView = berryView;
+        this.context = berryView.getContext();
+        this.adBlock = new AdBlock(berryView.getContext());
     }
 
     @Override
     public void onPageStarted(WebView view, String url, Bitmap favicon) {
         if (view.getTitle() == null || view.getTitle().isEmpty()) {
-            berry.update(context.getString(R.string.browser_tab_untitled), url);
+            berryView.update(context.getString(R.string.browser_tab_untitled), url);
         } else {
-            berry.update(view.getTitle(), url);
+            berryView.update(view.getTitle(), url);
         }
-        berry.showControlPanel();
 
         super.onPageStarted(view, url, favicon);
     }
@@ -40,15 +39,15 @@ public class BerryWebViewClient extends WebViewClient {
     @Override
     public void onPageFinished(WebView view, String url) {
         if (view.getTitle() == null || view.getTitle().isEmpty()) {
-            berry.update(context.getString(R.string.browser_tab_untitled), url);
+            berryView.update(context.getString(R.string.browser_tab_untitled), url);
         } else {
-            berry.update(view.getTitle(), url);
+            berryView.update(view.getTitle(), url);
         }
 
-        if (berry.isForeground()) {
-            berry.invalidate();
+        if (berryView.isForeground()) {
+            berryView.invalidate();
         } else {
-            berry.postInvalidate();
+            berryView.postInvalidate();
         }
 
         super.onPageFinished(view, url);
@@ -56,7 +55,7 @@ public class BerryWebViewClient extends WebViewClient {
 
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, String url) {
-        if (berry.isIncognito()) {
+        if (berryView.isIncognito()) {
             return super.shouldOverrideUrlLoading(view, url);
         }
 

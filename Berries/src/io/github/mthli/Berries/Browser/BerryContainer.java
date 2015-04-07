@@ -4,22 +4,22 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class BerryContainer {
-    private static List<Berry> list = new LinkedList<Berry>();
+    private static List<BerryView> list = new LinkedList<BerryView>();
 
-    public static Berry get(int index) {
+    public static BerryView get(int index) {
         return list.get(index);
     }
 
-    public synchronized static void set(Berry view, int index) {
+    public synchronized static void set(BerryView view, int index) {
         list.get(index).destroy();
         list.set(index, view);
     }
 
-    public synchronized static void add(Berry view) {
+    public synchronized static void add(BerryView view) {
         list.add(view);
     }
 
-    public synchronized static void add(Berry view, int index) {
+    public synchronized static void add(BerryView view, int index) {
         list.add(index, view);
     }
 
@@ -28,16 +28,16 @@ public class BerryContainer {
         list.remove(index);
     }
 
-    public synchronized static void remove(Berry berry) {
-        berry.destroy();
-        list.remove(berry);
+    public synchronized static void remove(BerryView berryView) {
+        berryView.destroy();
+        list.remove(berryView);
     }
 
-    public static int indexOf(Berry berry) {
-        return list.indexOf(berry);
+    public static int indexOf(BerryView berryView) {
+        return list.indexOf(berryView);
     }
 
-    public static List<Berry> list() {
+    public static List<BerryView> list() {
         return list;
     }
 
@@ -46,7 +46,7 @@ public class BerryContainer {
     }
 
     public synchronized static void clear() {
-        for (Berry view : list) {
+        for (BerryView view : list) {
             view.destroy();
         }
 

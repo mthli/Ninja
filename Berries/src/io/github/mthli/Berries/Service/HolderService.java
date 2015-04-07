@@ -8,7 +8,7 @@ import android.os.Message;
 import android.webkit.WebView;
 import android.widget.Toast;
 import io.github.mthli.Berries.Browser.BerryContainer;
-import io.github.mthli.Berries.Browser.Berry;
+import io.github.mthli.Berries.Browser.BerryView;
 import io.github.mthli.Berries.Browser.BrowserController;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
@@ -22,27 +22,16 @@ public class HolderService extends Service implements BrowserController {
     public void updateProgress(int progress) {}
 
     @Override
-    public void showControlPanel() {}
-
-    @Override
-    public void hideControlPanel() {}
-
-    @Override
-    public boolean isControlPanelShowing() {
-        return false;
-    }
-
-    @Override
     public void onCreateView(WebView view, boolean incognito, Message resultMsg) {}
 
     @Override
+    public void showTab(BerryView berryView) {}
+
+    @Override
+    public void deleteTab() {}
+
+    @Override
     public void onLongPress() {}
-
-    @Override
-    public void showSelectedTab(Berry berry) {}
-
-    @Override
-    public void deleteSelectedTab() {}
 
     @Override
     public void onCreate() {
@@ -66,7 +55,7 @@ public class HolderService extends Service implements BrowserController {
         if (BerryContainer.size() < BrowserUnit.LOAD_LIMIT) {
             Record record = RecordUnit.getHolder();
             // TODO: SP_INCOGNITO
-            Berry view = new Berry(this, record, false);
+            BerryView view = new BerryView(this, record, false);
             view.setController(this);
             BerryContainer.add(view);
             updateNotification();

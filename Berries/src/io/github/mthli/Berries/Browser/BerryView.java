@@ -2,6 +2,8 @@ package io.github.mthli.Berries.Browser;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.AttributeSet;
+import android.view.GestureDetector;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -9,40 +11,41 @@ import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.BrowserUnit;
 
-public class Berry {
+public class BerryView extends WebView {
     private Context context;
-    public Context getContext() {
-        return context;
-    }
 
     private Record record;
     public Record getRecord() {
         return record;
+    }
+    public void setRecord(Record record) {
+        this.record = record;
     }
 
     private boolean foreground;
     public boolean isForeground() {
         return foreground;
     }
+    public void setForeground(boolean foreground) {
+        this.foreground = foreground;
+    }
 
     private boolean incognito;
     public boolean isIncognito() {
         return incognito;
     }
+    public void setIncognito(boolean incognito) {
+        this.incognito = incognito;
+    }
 
     private Tab tab;
-    public View getTabView() {
+    public View getTab() {
         return tab.getView();
     }
 
-    private WebView webView;
-    public WebView getWebView() {
-        return webView;
-    }
-
-    private WebSettings webSettings;
     private BerryWebViewClient webViewClient;
     private BerryWebChromeClient webChromeClient;
+    private GestureDetector gestureDetector;
 
     private BrowserController controller;
     public BrowserController getController() {
@@ -52,15 +55,30 @@ public class Berry {
         this.controller = controller;
     }
 
-    public Berry(Context context, Record record, boolean incognito) {
+    public BerryView(Context context) {
+        super(new BerryContextWrapper(context));
+        this.context = new BerryContextWrapper(context);
+    }
+
+    public BerryView(Context context, AttributeSet attrs) {
+        super(new BerryContextWrapper(context), attrs);
+        this.context = new BerryContextWrapper(context);
+    }
+
+    public BerryView(Context context, AttributeSet attrs, int defStyle) {
+        super(new BerryContextWrapper(context), attrs, defStyle);
+        this.context = new BerryContextWrapper(context);
+    }
+
+    public BerryView(Context context, Record record, boolean incognito) {
+        super(new BerryContextWrapper(context));
+
         this.context = new BerryContextWrapper(context);
         this.record = record;
         this.foreground = false;
         this.incognito = incognito;
 
         this.tab = new Tab(this);
-        this.webView = new WebView(this.context);
-        this.webSettings = webView.getSettings();
         this.webViewClient = new BerryWebViewClient(this);
         this.webChromeClient = new BerryWebChromeClient(this);
 
@@ -70,30 +88,32 @@ public class Berry {
     }
 
     private synchronized void initWebView() {
-        webView.setAlwaysDrawnWithCacheEnabled(true);
-        webView.setAnimationCacheEnabled(true);
+        setAlwaysDrawnWithCacheEnabled(true);
+        setAnimationCacheEnabled(true);
 
-        webView.setBackground(null);
-        webView.getRootView().setBackground(null);
-        webView.setBackgroundColor(context.getResources().getColor(R.color.white));
+        setBackground(null);
+        getRootView().setBackground(null);
+        setBackgroundColor(context.getResources().getColor(R.color.white));
 
-        webView.setDrawingCacheBackgroundColor(0x00000000);
-        webView.setDrawingCacheEnabled(true);
+        setDrawingCacheBackgroundColor(0x00000000);
+        setDrawingCacheEnabled(true);
 
-        webView.setFocusable(true);
-        webView.setFocusableInTouchMode(true);
+        setFocusable(true);
+        setFocusableInTouchMode(true);
 
-        webView.setSaveEnabled(true);
-        webView.setScrollbarFadingEnabled(true);
+        setSaveEnabled(true);
+        setScrollbarFadingEnabled(true);
 
-        webView.setWillNotCacheDrawing(false);
+        setWillNotCacheDrawing(false);
 
         // TODO
-        webView.setWebViewClient(webViewClient);
-        webView.setWebChromeClient(webChromeClient);
+        setWebViewClient(webViewClient);
+        setWebChromeClient(webChromeClient);
     }
 
     private synchronized void initWebSettings() {
+        WebSettings webSettings = getSettings();
+
         webSettings.setAllowContentAccess(true);
         webSettings.setAllowFileAccess(true);
         webSettings.setAllowFileAccessFromFileURLs(true);
@@ -117,6 +137,8 @@ public class Berry {
 
     private synchronized void initPreferences() {
         SharedPreferences sp = context.getSharedPreferences(context.getString(R.string.sp_name), Context.MODE_PRIVATE);
+        WebSettings webSettings = getSettings();
+
         webSettings.setBlockNetworkImage(sp.getBoolean(context.getString(R.string.sp_images), false));
         webSettings.setJavaScriptEnabled(sp.getBoolean(context.getString(R.string.sp_javascript), true));
         webSettings.setGeolocationEnabled(sp.getBoolean(context.getString(R.string.sp_location), true));
@@ -129,52 +151,12 @@ public class Berry {
         webSettings.setUseWideViewPort(true);
     }
 
-    protected synchronized void onPause() {
-        webView.onPause();
-    }
-
-    protected synchronized void pauseTimers() {
-        webView.pauseTimers();
-    }
-
-    protected synchronized void onResume() {
-        webView.onResume();
-    }
-
-    protected synchronized void resumeTimers() {
-        webView.resumeTimers();
-    }
-
-    protected void requestFocus() {
-        if (!webView.hasFocus()) {
-            webView.requestFocus();
-        }
-    }
-
-    protected void clearFocus() {
-        if (webView.hasFocus()) {
-            webView.clearFocus();
-        }
-    }
-
-    protected void setVisibility(int visibility) {
-        webView.setVisibility(visibility);
-    }
-
     public synchronized void load(Record record) {
         this.record = record;
-        webView.loadUrl(record.getURL());
+        loadUrl(record.getURL());
     }
 
-    public synchronized void invalidate() {
-        webView.invalidate();
-    }
-
-    public synchronized void postInvalidate () {
-        webView.postInvalidate();
-    }
-
-    public void activate() {
+    public synchronized void activate() {
         onResume();
         setVisibility(View.VISIBLE);
         requestFocus();
@@ -182,7 +164,7 @@ public class Berry {
         tab.activate();
     }
 
-    public void deactivate() {
+    public synchronized void deactivate() {
         onPause();
         setVisibility(View.INVISIBLE);
         clearFocus();
@@ -190,7 +172,7 @@ public class Berry {
         tab.deactivate();
     }
 
-    public void update(String title, String url) {
+    public synchronized void update(String title, String url) {
         this.record.setTitle(title);
         this.record.setURL(url);
         tab.update(title, url);
@@ -201,101 +183,33 @@ public class Berry {
         // TODO: History
     }
 
-    public void update(int progress) {
+    public synchronized void update(int progress) {
         if (isForeground()) {
             controller.updateProgress(progress);
         }
     }
 
-    public void pause() {
+    public synchronized void pause() {
         onPause();
         pauseTimers();
     }
 
-    public void resume() {
+    public synchronized void resume() {
         onResume();
         resumeTimers();
     }
 
     public synchronized void destroy() {
-        webView.stopLoading();
-        webView.onPause();
-        webView.clearHistory();
-        webView.setVisibility(View.GONE);
-        webView.removeAllViews();
-        webView.destroyDrawingCache();
-    }
-
-    public void showControlPanel() {
-        if (foreground) {
-            controller.showControlPanel();
-        }
-    }
-
-    public void hideControlPanel() {
-        if (foreground) {
-            controller.hideControlPanel();
-        }
-    }
-
-    public boolean isControlPanelShowing() {
-        return controller.isControlPanelShowing();
-    }
-
-    public synchronized void stopLoading() {
-        webView.stopLoading();
-    }
-
-    public synchronized void reload() {
-        webView.reload();
+        stopLoading();
+        onPause();
+        clearHistory();
+        setVisibility(View.GONE);
+        removeAllViews();
+        destroyDrawingCache();
     }
 
     public boolean isLoadFinish() {
         return webChromeClient.isLoadFinish();
-    }
-
-    public synchronized void pageUp(boolean top) {
-        webView.pageUp(top);
-    }
-
-    public synchronized void pageDown(boolean bottom) {
-        webView.pageDown(bottom);
-    }
-
-    public synchronized void goBack() {
-        webView.goBack();
-    }
-
-    public synchronized void goForward() {
-        webView.goForward();
-    }
-
-    public boolean canGoBack() {
-        return webView.canGoBack();
-    }
-
-    public boolean canGoForward() {
-        return webView.canGoForward();
-    }
-
-    public synchronized void clearCache(boolean clear) {
-        webView.clearCache(clear);
-    }
-
-    public synchronized void clearFormData() {
-        webView.clearFormData();
-    }
-
-    public synchronized void clearHistory() {
-        webView.clearHistory();
-    }
-
-    public synchronized void clearMatches() {
-        webView.clearMatches();
-    }
-
-    public synchronized void clearSslPreferences() {
-        webView.clearSslPreferences();
     }
 
     @Override
@@ -304,15 +218,21 @@ public class Berry {
             return false;
         }
 
-        if (!(object instanceof Berry)) {
+        if (!(object instanceof BerryView)) {
             return false;
         }
 
-        return this.record.getTime() == ((Berry) object).getRecord().getTime();
+        return this.record.getTime() == ((BerryView) object).getRecord().getTime();
     }
 
     @Override
     public int hashCode() {
         return (int) (this.record.getTime() * 31);
+    }
+
+    @Override
+    protected void onScrollChanged(int l, int t, int oldl, int oldt) {
+        super.onScrollChanged(l, t, oldl, oldt);
+        // TODO
     }
 }

@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import io.github.mthli.Berries.Browser.BerryContainer;
-import io.github.mthli.Berries.Browser.Berry;
+import io.github.mthli.Berries.Browser.BerryView;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Service.HolderService;
 
@@ -21,7 +21,7 @@ public class NotificationUnit {
         boolean sound = sp.getBoolean(context.getString(R.string.sp_notification_sound), true);
 
         int done = 0;
-        for (Berry view : BerryContainer.list()) {
+        for (BerryView view : BerryContainer.list()) {
             if (view.isLoadFinish()) {
                 done++;
             }
