@@ -157,7 +157,6 @@ public class BerryView extends WebView {
     }
 
     public synchronized void activate() {
-        onResume();
         setVisibility(View.VISIBLE);
         requestFocus();
         foreground = true;
@@ -165,9 +164,8 @@ public class BerryView extends WebView {
     }
 
     public synchronized void deactivate() {
-        onPause();
-        setVisibility(View.INVISIBLE);
         clearFocus();
+        setVisibility(View.INVISIBLE);
         foreground = false;
         tab.deactivate();
     }
@@ -209,7 +207,7 @@ public class BerryView extends WebView {
     }
 
     public boolean isLoadFinish() {
-        return webChromeClient.isLoadFinish();
+        return getProgress() >= BrowserUnit.PROGRESS_MAX;
     }
 
     @Override
@@ -228,11 +226,5 @@ public class BerryView extends WebView {
     @Override
     public int hashCode() {
         return (int) (this.record.getTime() * 31);
-    }
-
-    @Override
-    protected void onScrollChanged(int l, int t, int oldl, int oldt) {
-        super.onScrollChanged(l, t, oldl, oldt);
-        // TODO
     }
 }

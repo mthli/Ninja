@@ -4,6 +4,10 @@
     <facet type="android" name="Android">
       <configuration>
         <option name="RUN_PROGUARD" value="true" />
+        <proGuardCfgFiles>
+          <file>file://%MODULE_SDK_HOME%/tools/proguard/proguard-android.txt</file>
+          <file>file://$MODULE_DIR$/proguard-project.txt</file>
+        </proGuardCfgFiles>
         <option name="UPDATE_PROPERTY_FILES" value="true" />
       </configuration>
     </facet>

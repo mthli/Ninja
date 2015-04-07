@@ -128,14 +128,14 @@
                       android:layout_height="2dp"
                       android:visibility="gone">
 
-            <!-- TODO: progressDrawable -->
             <ProgressBar android:id="@+id/browser_progress_bar"
                          android:layout_width="match_parent"
                          android:layout_height="2dp"
                          android:maxHeight="2dp"
                          android:minWidth="2dp"
                          android:indeterminate="false"
-                         android:indeterminateOnly="false">
+                         android:indeterminateOnly="false"
+                         android:progressDrawable="@drawable/browser_progress_bar_layer_list">
             </ProgressBar>
 
         </LinearLayout>

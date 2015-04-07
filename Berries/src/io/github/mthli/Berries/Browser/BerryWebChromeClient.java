@@ -4,16 +4,10 @@ import android.content.Context;
 import android.os.Message;
 import android.view.View;
 import android.webkit.*;
-import io.github.mthli.Berries.Unit.BrowserUnit;
 
 public class BerryWebChromeClient extends WebChromeClient {
     private BerryView berryView;
     private Context context;
-
-    private int progress = BrowserUnit.PROGRESS_MIN;
-    public boolean isLoadFinish() {
-        return progress >= BrowserUnit.PROGRESS_MAX;
-    }
 
     public BerryWebChromeClient(BerryView berryView) {
         super();
@@ -34,7 +28,6 @@ public class BerryWebChromeClient extends WebChromeClient {
 
     @Override
     public void onProgressChanged(WebView view, int progress) {
-        this.progress = progress;
         berryView.update(progress);
         super.onProgressChanged(view, progress);
     }

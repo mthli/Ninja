@@ -1,5 +1,6 @@
 package io.github.mthli.Berries.Activity;
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Build;
@@ -9,6 +10,7 @@ import android.os.Message;
 import android.view.*;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
 import android.view.inputmethod.EditorInfo;
 import android.webkit.WebView;
 import android.widget.*;
@@ -24,7 +26,6 @@ import io.github.mthli.Berries.Unit.ViewUnit;
 public class BrowserActivity extends Activity implements BrowserController {
     private LinearLayout controlPanel;
     private ImageButton overflowButton;
-    private int controlPanelHeight = 0;
 
     private HorizontalScrollView tabsScroll;
     private LinearLayout tabsContainer;
@@ -40,8 +41,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     private FrameLayout browserFrame;
     private BerryView currentBerryView = null;
 
-    @Override
-    public void updateProgress(int progress) {}
+    private int animTime;
 
     @Override
     public void updateNotification() {}
@@ -55,6 +55,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         setContentView(R.layout.browser);
 
         initUI();
+        animTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
     }
 
     @Override
@@ -103,12 +104,6 @@ public class BrowserActivity extends Activity implements BrowserController {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             controlPanel.setElevation(ViewUnit.dp2px(this, 2));
         }
-        controlPanel.post(new Runnable() {
-            @Override
-            public void run() {
-                controlPanelHeight = controlPanel.getMeasuredHeight();
-            }
-        });
         overflowButton = (ImageButton) findViewById(R.id.browser_overflow_button);
 
         tabsScroll = (HorizontalScrollView) findViewById(R.id.browser_tabs_scroll);
@@ -173,13 +168,21 @@ public class BrowserActivity extends Activity implements BrowserController {
         refreshButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO
+                if (currentBerryView.isLoadFinish()) {
+                    currentBerryView.reload();
+                } else {
+                    currentBerryView.stopLoading();
+                }
             }
         });
         refreshButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                // TODO
+                if (currentBerryView.isLoadFinish()) {
+                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_refresh, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_cancel_refresh, Toast.LENGTH_SHORT).show();
+                }
                 return true;
             }
         });
@@ -274,6 +277,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
                 browserFrame.addView(berryView);
                 berryView.activate();
+                updateProgress(berryView.getProgress());
                 tabsScroll.smoothScrollTo(tabView.getLeft(), 0);
 
                 Record record = berryView.getRecord();
@@ -313,6 +317,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         browserFrame.addView(berryView);
         berryView.activate();
+        updateProgress(berryView.getProgress());
         tabsScroll.smoothScrollTo(berryView.getTab().getLeft(), 0);
 
         Record record = berryView.getRecord();
@@ -353,6 +358,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 });
 
                 currentBerryView.deactivate();
+                updateProgress(BrowserUnit.PROGRESS_MAX);
                 browserFrame.removeView(currentBerryView);
 
                 int index = BerryContainer.indexOf(currentBerryView);
@@ -410,5 +416,41 @@ public class BrowserActivity extends Activity implements BrowserController {
         record.setURL(view.getUrl());
         record.setTime(System.currentTimeMillis());
         newTab(record, incognito, true, resultMsg);
+    }
+
+    @Override
+    public void updateProgress(int progress) {
+        if (progress > progressBar.getProgress()) {
+            ObjectAnimator animator = ObjectAnimator.ofInt(progressBar, "progress", progress);
+            animator.setDuration(animTime);
+            animator.setInterpolator(new DecelerateInterpolator());
+            animator.start();
+        } else if (progress < progressBar.getProgress()) {
+            ObjectAnimator animator = ObjectAnimator.ofInt(progressBar, "progress", 0, progress);
+            animator.setDuration(animTime);
+            animator.setInterpolator(new DecelerateInterpolator());
+            animator.start();
+        }
+
+        if (currentBerryView.isLoadFinish()) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    updateRefreshButtonStatus(false);
+                    progressWrapper.setVisibility(View.GONE);
+                }
+            }, animTime);
+        } else {
+            updateRefreshButtonStatus(true);
+            progressWrapper.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void updateRefreshButtonStatus(boolean running) {
+        if (running) {
+            refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_cl_button_selector));
+        } else {
+            refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_refresh_button_selector));
+        }
     }
 }
