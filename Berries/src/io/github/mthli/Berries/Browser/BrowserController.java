@@ -16,5 +16,5 @@ public interface BrowserController {
 
     void onCreateView(WebView view, boolean incognito, Message resultMsg);
 
-    void onLongPress();
+    void onLongPress(String url);
 }

@@ -4,20 +4,18 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 
 public class BerryGestureListener extends GestureDetector.SimpleOnGestureListener {
+    private BerryView berryView;
     private boolean longPress = true;
 
-    private BrowserController controller;
-    public BrowserController getController() {
-        return controller;
-    }
-    public void setController(BrowserController controller) {
-        this.controller = controller;
+    public BerryGestureListener(BerryView berryView) {
+        super();
+        this.berryView = berryView;
     }
 
     @Override
     public void onLongPress(MotionEvent e) {
         if (longPress) {
-            // TODO
+            berryView.onLongPress();
         }
     }
 

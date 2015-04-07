@@ -39,6 +39,7 @@ public class RecordAction {
         database.insert(table, null, values);
     }
 
+    // TODO
     public void update(Record record, String table) {
         ContentValues values = new ContentValues();
         values.put(RecordUnit.COLUMN_TITLE, record.getTitle());

@@ -31,7 +31,7 @@ public class HolderService extends Service implements BrowserController {
     public void deleteTab() {}
 
     @Override
-    public void onLongPress() {}
+    public void onLongPress(String url) {}
 
     @Override
     public void onCreate() {

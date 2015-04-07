@@ -2,6 +2,7 @@ package io.github.mthli.Berries.Browser;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Message;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.webkit.WebView;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.BrowserUnit;
+import io.github.mthli.Berries.Unit.RecordUnit;
 
 public class BerryView extends WebView {
     private Context context;
@@ -45,6 +47,7 @@ public class BerryView extends WebView {
 
     private BerryWebViewClient webViewClient;
     private BerryWebChromeClient webChromeClient;
+    private BerryClickHandler clickHandler;
     private GestureDetector gestureDetector;
 
     private BrowserController controller;
@@ -58,16 +61,61 @@ public class BerryView extends WebView {
     public BerryView(Context context) {
         super(new BerryContextWrapper(context));
         this.context = new BerryContextWrapper(context);
+
+        this.context = new BerryContextWrapper(context);
+        this.record = RecordUnit.getHome(context);
+        this.foreground = false;
+        this.incognito = false;
+
+        this.tab = new Tab(this);
+        this.webViewClient = new BerryWebViewClient(this);
+        this.webChromeClient = new BerryWebChromeClient(this);
+        this.clickHandler = new BerryClickHandler(this);
+        this.gestureDetector = new GestureDetector(context, new BerryGestureListener(this));
+
+        this.initWebView();
+        this.initWebSettings();
+        this.initPreferences();
     }
 
     public BerryView(Context context, AttributeSet attrs) {
         super(new BerryContextWrapper(context), attrs);
         this.context = new BerryContextWrapper(context);
+
+        this.context = new BerryContextWrapper(context);
+        this.record = RecordUnit.getHome(context);
+        this.foreground = false;
+        this.incognito = false;
+
+        this.tab = new Tab(this);
+        this.webViewClient = new BerryWebViewClient(this);
+        this.webChromeClient = new BerryWebChromeClient(this);
+        this.clickHandler = new BerryClickHandler(this);
+        this.gestureDetector = new GestureDetector(context, new BerryGestureListener(this));
+
+        this.initWebView();
+        this.initWebSettings();
+        this.initPreferences();
     }
 
     public BerryView(Context context, AttributeSet attrs, int defStyle) {
         super(new BerryContextWrapper(context), attrs, defStyle);
         this.context = new BerryContextWrapper(context);
+
+        this.context = new BerryContextWrapper(context);
+        this.record = RecordUnit.getHome(context);
+        this.foreground = false;
+        this.incognito = false;
+
+        this.tab = new Tab(this);
+        this.webViewClient = new BerryWebViewClient(this);
+        this.webChromeClient = new BerryWebChromeClient(this);
+        this.clickHandler = new BerryClickHandler(this);
+        this.gestureDetector = new GestureDetector(context, new BerryGestureListener(this));
+
+        this.initWebView();
+        this.initWebSettings();
+        this.initPreferences();
     }
 
     public BerryView(Context context, Record record, boolean incognito) {
@@ -81,6 +129,8 @@ public class BerryView extends WebView {
         this.tab = new Tab(this);
         this.webViewClient = new BerryWebViewClient(this);
         this.webChromeClient = new BerryWebChromeClient(this);
+        this.clickHandler = new BerryClickHandler(this);
+        this.gestureDetector = new GestureDetector(context, new BerryGestureListener(this));
 
         this.initWebView();
         this.initWebSettings();
@@ -178,7 +228,7 @@ public class BerryView extends WebView {
             controller.updateInputBox(url);
         }
 
-        // TODO: History
+        // TODO: History and Bookmarks
     }
 
     public synchronized void update(int progress) {
@@ -208,6 +258,14 @@ public class BerryView extends WebView {
 
     public boolean isLoadFinish() {
         return getProgress() >= BrowserUnit.PROGRESS_MAX;
+    }
+
+    public void onLongPress() {
+        Message click = clickHandler.obtainMessage();
+        if (click != null) {
+            click.setTarget(clickHandler);
+        }
+        requestFocusNodeHref(click);
     }
 
     @Override

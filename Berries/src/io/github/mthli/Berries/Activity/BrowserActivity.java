@@ -47,9 +47,6 @@ public class BrowserActivity extends Activity implements BrowserController {
     public void updateNotification() {}
 
     @Override
-    public void onLongPress() {}
-
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.browser);
@@ -402,23 +399,6 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     @Override
-    public void onCreateView(WebView view, boolean incognito, final Message resultMsg) {
-        if (resultMsg == null) {
-            return;
-        }
-
-        Record record = new Record();
-        if (view.getTitle() == null || view.getTitle().isEmpty()) {
-            record.setTitle(getString(R.string.browser_tab_untitled));
-        } else {
-            record.setTitle(view.getTitle());
-        }
-        record.setURL(view.getUrl());
-        record.setTime(System.currentTimeMillis());
-        newTab(record, incognito, true, resultMsg);
-    }
-
-    @Override
     public void updateProgress(int progress) {
         if (progress > progressBar.getProgress()) {
             ObjectAnimator animator = ObjectAnimator.ofInt(progressBar, "progress", progress);
@@ -436,21 +416,50 @@ public class BrowserActivity extends Activity implements BrowserController {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    updateRefreshButtonStatus(false);
+                    updateRefreshButton(false);
                     progressWrapper.setVisibility(View.GONE);
                 }
             }, animTime);
         } else {
-            updateRefreshButtonStatus(true);
+            updateRefreshButton(true);
             progressWrapper.setVisibility(View.VISIBLE);
         }
     }
 
-    private void updateRefreshButtonStatus(boolean running) {
+    private void updateRefreshButton(boolean running) {
         if (running) {
             refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_cl_button_selector));
         } else {
             refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_refresh_button_selector));
+        }
+    }
+
+    @Override
+    public void onCreateView(WebView view, boolean incognito, final Message resultMsg) {
+        if (resultMsg == null) {
+            return;
+        }
+
+        Record record = new Record();
+        if (view.getTitle() == null || view.getTitle().isEmpty()) {
+            record.setTitle(getString(R.string.browser_tab_untitled));
+        } else {
+            record.setTitle(view.getTitle());
+        }
+        record.setURL(view.getUrl());
+        record.setTime(System.currentTimeMillis());
+        newTab(record, incognito, true, resultMsg);
+    }
+
+    @Override
+    public void onLongPress(String url) {
+        WebView.HitTestResult result = null;
+        if (currentBerryView != null) {
+            result = currentBerryView.getHitTestResult();
+        }
+
+        if (url != null) {
+            // TODO
         }
     }
 }

@@ -1,17 +1,16 @@
 package io.github.mthli.Berries.Browser;
 
-import android.content.Context;
 import android.webkit.DownloadListener;
 
 public class BerryDownloadListener implements DownloadListener {
-    private Context context;
+    private BerryView berryView;
 
-    public BerryDownloadListener(Context context) {
+    public BerryDownloadListener(BerryView berryView) {
         super();
-        this.context = context;
+        this.berryView = berryView;
     }
 
-    public void onDownloadStart (String url, String userAgent, String contentDisposition, String mimeType, long contentLength) {
+    public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimeType, long contentLength) {
         // TODO
     }
 }
