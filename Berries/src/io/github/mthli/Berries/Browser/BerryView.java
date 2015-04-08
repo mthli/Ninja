@@ -9,7 +9,6 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import io.github.mthli.Berries.Database.Record;
-import io.github.mthli.Berries.Database.RecordAction;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.BrowserUnit;
 import io.github.mthli.Berries.Unit.RecordUnit;
@@ -202,18 +201,19 @@ public class BerryView extends WebView {
         webSettings.setUseWideViewPort(true);
     }
 
-    public synchronized void load(Record record) {
+    @Override
+    public synchronized void loadUrl(String url) {
+        super.loadUrl(url);
+        if (controller == null) {
+            return;
+        }
+
+        Record record = new Record(context.getString(R.string.browser_tab_untitled), url, System.currentTimeMillis());
         this.record = record;
-        loadUrl(record.getURL());
         if (foreground) {
             controller.updateBookmarkButton();
             controller.updateInputBox(record.getURL());
         }
-
-        RecordAction action = new RecordAction(context);
-        action.open(true);
-        action.addHistory(record);
-        action.close();
     }
 
     public synchronized void activate() {
@@ -233,17 +233,12 @@ public class BerryView extends WebView {
     public synchronized void update(String title, String url) {
         record.setTitle(title);
         record.setURL(url);
+        record.setTime(System.currentTimeMillis());
         tab.update(title, url);
         if (foreground) {
             controller.updateBookmarkButton();
             controller.updateInputBox(url);
         }
-
-        RecordAction action = new RecordAction(context);
-        action.open(true);
-        action.updateBookmarkByTime(record);
-        action.updateHistory(record);
-        action.close();
     }
 
     public synchronized void update(int progress) {

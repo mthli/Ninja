@@ -23,20 +23,14 @@
     <string name="browser_tab_untitled">
         Untitled
     </string>
-    <string name="browser_toast_add_bookmark">
-        Add this page to bookmark
-    </string>
     <string name="browser_toast_add_bookmark_successful">
         Add bookmark successful
     </string>
     <string name="browser_toast_bookmark_error">
         Can\'t add this page to bookmark
     </string>
-    <string name="browser_toast_cancel_refresh">
-        Cancel refresh
-    </string>
-    <string name="browser_toast_delete_bookmark">
-        Delete this bookmark
+    <string name="browser_toast_bookmark_wait">
+        Can\'t take action before load finish
     </string>
     <string name="browser_toast_delete_bookmark_successful">
         Delete bookmark successful
@@ -50,14 +44,8 @@
     <string name="browser_toast_load_limit">
         Load limit
     </string>
-    <string name="browser_toast_more">
-        More
-    </string>
     <string name="browser_toast_network_error">
         Network is not available
-    </string>
-    <string name="browser_toast_refresh">
-        Refresh
     </string>
     <string name="browser_toast_something_error">
         Something error

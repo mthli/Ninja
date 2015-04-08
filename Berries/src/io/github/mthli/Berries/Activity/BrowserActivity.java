@@ -124,13 +124,6 @@ public class BrowserActivity extends Activity implements BrowserController {
                 showOverflow();
             }
         });
-        overflowButton.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Toast.makeText(BrowserActivity.this, R.string.browser_toast_more, Toast.LENGTH_SHORT).show();
-                return true;
-            }
-        });
 
         addTabButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,6 +147,11 @@ public class BrowserActivity extends Activity implements BrowserController {
             public void onClick(View view) {
                 if (currentBerryView == null || currentBerryView.getRecord() == null) {
                     Toast.makeText(BrowserActivity.this, R.string.browser_toast_bookmark_error, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (!currentBerryView.isLoadFinish()) {
+                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_bookmark_wait, Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -182,27 +180,6 @@ public class BrowserActivity extends Activity implements BrowserController {
                 updateBookmarkButton();
             }
         });
-        bookmarkButton.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                if (currentBerryView == null || currentBerryView.getRecord() == null) {
-                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_something_error, Toast.LENGTH_SHORT).show();
-                    return true;
-                }
-
-                RecordAction action = new RecordAction(BrowserActivity.this);
-                action.open(false);
-                Record record = currentBerryView.getRecord();
-                if (action.checkBookmark(record)) {
-                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_delete_bookmark, Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_add_bookmark, Toast.LENGTH_SHORT).show();
-                }
-                action.close();
-
-                return true;
-            }
-        });
 
         refreshButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -212,17 +189,6 @@ public class BrowserActivity extends Activity implements BrowserController {
                 } else {
                     currentBerryView.stopLoading();
                 }
-            }
-        });
-        refreshButton.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                if (currentBerryView.isLoadFinish()) {
-                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_refresh, Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_cancel_refresh, Toast.LENGTH_SHORT).show();
-                }
-                return true;
             }
         });
 
@@ -239,8 +205,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                     Toast.makeText(BrowserActivity.this, R.string.browser_toast_input_empty, Toast.LENGTH_SHORT).show();
                     return false;
                 }
-                query = BrowserUnit.queryWrapper(BrowserActivity.this, query);
-                currentBerryView.load(new Record(getString(R.string.browser_tab_untitled), query, System.currentTimeMillis()));
+                currentBerryView.loadUrl(BrowserUnit.queryWrapper(BrowserActivity.this, query));
 
 
                 return false;
@@ -477,6 +442,11 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
 
         if (currentBerryView.isLoadFinish()) {
+            RecordAction action = new RecordAction(this);
+            action.open(true);
+            action.addHistory(currentBerryView.getRecord());
+            action.close();
+
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
