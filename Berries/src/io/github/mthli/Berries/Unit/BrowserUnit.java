@@ -64,16 +64,16 @@ public class BrowserUnit {
     }
 
     public static String queryWrapper(Context context, String query) {
-        try {
-            query = URLEncoder.encode(query, URL_ENCODING);
-        } catch (UnsupportedEncodingException u) {}
-
         if (isURL(query)) {
             if (!(query.split("\\:\\/\\/").length > 1)) {
                 query = URL_SCHEME_HTTP + query;
             }
             return query;
         }
+
+        try {
+            query = URLEncoder.encode(query, URL_ENCODING);
+        } catch (UnsupportedEncodingException u) {}
 
         SharedPreferences sp = context.getSharedPreferences(
                 context.getString(R.string.sp_name),

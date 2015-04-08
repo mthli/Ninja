@@ -2,6 +2,7 @@ package io.github.mthli.Berries.Activity;
 
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import android.widget.*;
 import io.github.mthli.Berries.Browser.BerryContainer;
@@ -23,6 +25,8 @@ import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.BrowserUnit;
 import io.github.mthli.Berries.Unit.RecordUnit;
 import io.github.mthli.Berries.Unit.ViewUnit;
+
+import java.util.*;
 
 public class BrowserActivity extends Activity implements BrowserController {
     private LinearLayout controlPanel;
@@ -71,7 +75,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     @Override
     public synchronized boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            // showControlPanel();
+            inputBox.clearFocus();
 
             if (currentBerryView == null) {
                 finish();
@@ -178,6 +182,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 }
                 action.close();
                 updateBookmarkButton();
+                updateInputBox();
             }
         });
 
@@ -192,7 +197,6 @@ public class BrowserActivity extends Activity implements BrowserController {
             }
         });
 
-        inputBox.setThreshold(3);
         inputBox.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
@@ -206,11 +210,12 @@ public class BrowserActivity extends Activity implements BrowserController {
                     return false;
                 }
                 currentBerryView.loadUrl(BrowserUnit.queryWrapper(BrowserActivity.this, query));
-
+                hideSoftInput();
 
                 return false;
             }
         });
+        updateInputBox();
     }
 
     private void showOverflow() {
@@ -419,12 +424,66 @@ public class BrowserActivity extends Activity implements BrowserController {
         action.close();
     }
 
+    private void updateInputBox() {
+        final List<Map<String, String>> list = new ArrayList<Map<String, String>>();
+
+        RecordAction action = new RecordAction(this);
+        action.open(false);
+        for (Record record : action.listBookmarks()) {
+            Map<String, String> map = new HashMap<String, String>();
+            map.put("title", record.getTitle());
+            map.put("url", record.getURL());
+            list.add(map);
+        }
+        for (Record record : action.listHistory()) {
+            Map<String, String> map = new HashMap<String, String>();
+            map.put("title", record.getTitle());
+            map.put("url", record.getURL());
+            list.add(map);
+        }
+        action.close();
+
+        Set<Map<String, String>> set = new HashSet<Map<String, String>>(list);
+        list.clear();
+        list.addAll(set);
+
+        SimpleAdapter adapter = new SimpleAdapter(
+                this,
+                list,
+                R.layout.complete_item,
+                new String[] {"title", "url"},
+                new int[] {R.id.complete_item_title, R.id.complete_item_url}
+        );
+        inputBox.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        inputBox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String url = ((TextView) view.findViewById(R.id.complete_item_url)).getText().toString();
+                inputBox.setText(url);
+                inputBox.setSelection(url.length());
+                if (currentBerryView != null) {
+                    System.out.println(BrowserUnit.queryWrapper(BrowserActivity.this, url));
+                    currentBerryView.loadUrl(BrowserUnit.queryWrapper(BrowserActivity.this, url));
+                }
+                hideSoftInput();
+            }
+        });
+    }
+
     @Override
     public void updateInputBox(String query) {
         inputBox.setText(query);
         if (query != null) {
             inputBox.setSelection(query.length());
         }
+    }
+
+    private void hideSoftInput() {
+        inputBox.clearFocus();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(inputBox.getWindowToken(), 0);
     }
 
     @Override
@@ -446,6 +505,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             action.open(true);
             action.addHistory(currentBerryView.getRecord());
             action.close();
+            updateInputBox();
 
             new Handler().postDelayed(new Runnable() {
                 @Override

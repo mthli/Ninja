@@ -5,4 +5,28 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <TextView android:id="@+id/complete_item_title"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="8dp"
+              android:layout_marginLeft="8dp"
+              android:layout_marginRight="8dp"
+              android:textColor="@color/text"
+              android:textSize="16sp"
+              android:singleLine="true"
+              android:ellipsize="end">
+    </TextView>
+
+    <TextView android:id="@+id/complete_item_url"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="8dp"
+              android:layout_marginRight="8dp"
+              android:layout_marginBottom="8dp"
+              android:textColor="@color/blue_500"
+              android:textSize="14sp"
+              android:singleLine="true"
+              android:ellipsize="end">
+    </TextView>
+
 </LinearLayout>

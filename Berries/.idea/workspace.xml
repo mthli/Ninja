@@ -18,6 +18,11 @@
           <theme>@android:style/Theme.DeviceDefault.Light.NoActionBar</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/res/layout/complete_item.xml">
+        <config>
+          <theme>@android:style/Theme.DeviceDefault.Light.NoActionBar</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/res/layout/tab.xml">
         <config>
           <theme>@android:style/Theme.DeviceDefault.Light.NoActionBar</theme>
@@ -121,20 +126,20 @@
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryGestureListener.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryClickHandler.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/DialogUnit.java" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BrowserController.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Service/HolderService.java" />
         <option value="$PROJECT_DIR$/res/layout/history.xml" />
         <option value="$PROJECT_DIR$/res/layout/list_item.xml" />
         <option value="$PROJECT_DIR$/res/layout/list.xml" />
-        <option value="$PROJECT_DIR$/res/layout/complete_item.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Database/RecordAction.java" />
-        <option value="$PROJECT_DIR$/res/layout/browser.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryWebViewClient.java" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryView.java" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/BrowserActivity.java" />
         <option value="$PROJECT_DIR$/res/values/preferences.xml" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BrowserController.java" />
+        <option value="$PROJECT_DIR$/res/layout/browser.xml" />
+        <option value="$PROJECT_DIR$/res/layout/complete_item.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/BrowserUnit.java" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/BrowserActivity.java" />
       </list>
     </option>
   </component>
@@ -152,8 +157,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1364" />
-    <option name="height" value="741" />
+    <option name="x" value="-2" />
+    <option name="y" value="-3" />
+    <option name="width" value="1370" />
+    <option name="height" value="748" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -216,24 +223,6 @@
               <option name="myItemId" value="Berries" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Berries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Berries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Berries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Unit" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -254,10 +243,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Berries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Service" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -632,15 +617,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1364" height="741" extended-state="4" />
+    <frame x="-2" y="-3" width="1370" height="748" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.32905295" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="417" y="222" width="868" height="437" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4188164" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32905295" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="293" y="218" width="868" height="437" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29373997" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2936508" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32182103" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
@@ -648,19 +634,18 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287879" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30317461" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.60032105" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="2" y="199" width="1362" height="343" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="2" y="199" width="1362" height="343" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.325" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.3846154" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="109" y="115" width="491" height="573" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287879" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.5949764" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" x="868" y="128" width="449" height="613" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.64205456" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.5949764" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" x="795" y="56" width="449" height="613" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.64126986" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32857144" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41893938" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
@@ -697,12 +682,6 @@
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/BrowserActivity.java</url>
-          <line>429</line>
-          <properties />
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
       </breakpoints>
       <option name="time" value="10" />
     </breakpoint-manager>
@@ -713,13 +692,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/drawable/browser_bookmark_full_button_selector.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29850745">
-          <caret line="12" column="73" selection-start-line="4" selection-start-column="4" selection-end-line="12" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/drawable/browser_cl_button_selector.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.29850745">
@@ -876,6 +848,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09950249">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -883,6 +856,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.42785236">
           <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -890,6 +864,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.27013424">
           <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
+          <folding>
+            <element signature="method#activate#0;class#Tab#0" expanded="false" />
+            <element signature="method#deactivate#0;class#Tab#0" expanded="false" />
+            <element signature="method#equals#0;class#Tab#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -911,6 +890,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39800996">
           <caret line="16" column="82" selection-start-line="16" selection-start-column="82" selection-end-line="16" selection-end-column="82" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -926,6 +906,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.37313432">
           <caret line="15" column="51" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1033,6 +1014,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.02640845">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
@@ -1043,23 +1025,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.02640845">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BrowserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17617449">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/complete_item.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.02640845">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
@@ -1081,24 +1047,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/browser.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.892857">
-          <caret line="88" column="68" selection-start-line="88" selection-start-column="68" selection-end-line="88" selection-end-column="68" />
-          <folding>
-            <element signature="n#RelativeLayout#0;n#LinearLayout#0;n#LinearLayout#0;n#!!top" expanded="false" />
-            <element signature="n#ImageButton#0;n#RelativeLayout#1;n#LinearLayout#0;n#LinearLayout#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryWebChromeClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22986577">
           <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1120,33 +1073,6 @@
             <element signature="method#get#0;class#RecordAction#0" expanded="false" />
             <element signature="method#listBookmarks#0;class#RecordAction#0" expanded="false" />
             <element signature="method#listHistory#0;class#RecordAction#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.87416106">
-          <caret line="217" column="0" selection-start-line="217" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#BerryView#0;class#BerryView#0" expanded="false" />
-            <element signature="method#BerryView#1;class#BerryView#0" expanded="false" />
-            <element signature="method#BerryView#2;class#BerryView#0" expanded="false" />
-            <element signature="method#BerryView#3;class#BerryView#0" expanded="false" />
-            <element signature="method#initWebView#0;class#BerryView#0" expanded="false" />
-            <element signature="method#initWebSettings#0;class#BerryView#0" expanded="false" />
-            <element signature="method#initPreferences#0;class#BerryView#0" expanded="false" />
-            <element signature="method#loadUrl#0;class#BerryView#0" expanded="false" />
-            <element signature="method#activate#0;class#BerryView#0" expanded="false" />
-            <element signature="method#deactivate#0;class#BerryView#0" expanded="false" />
-            <element signature="method#update#0;class#BerryView#0" expanded="false" />
-            <element signature="method#update#1;class#BerryView#0" expanded="false" />
-            <element signature="method#pause#0;class#BerryView#0" expanded="false" />
-            <element signature="method#resume#0;class#BerryView#0" expanded="false" />
-            <element signature="method#destroy#0;class#BerryView#0" expanded="false" />
-            <element signature="method#onLongPress#0;class#BerryView#0" expanded="false" />
-            <element signature="method#equals#0;class#BerryView#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1183,6 +1109,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4395797">
           <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1209,36 +1136,108 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/BrowserActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9832215">
-          <caret line="160" column="66" selection-start-line="160" selection-start-column="66" selection-end-line="160" selection-end-column="66" />
+        <state vertical-scroll-proportion="0.3325359">
+          <caret line="238" column="23" selection-start-line="238" selection-start-column="23" selection-end-line="238" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="method#onCreate#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onPause#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onKeyDown#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#showOverflow#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#newTab#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#10192:11837" expanded="false" />
-            <element signature="method#onAnimationEnd#0;class#10192:11837" expanded="false" />
-            <element signature="method#onAnimationRepeat#0;class#10192:11837" expanded="false" />
-            <element signature="method#onAnimationStart#0;class#13193:15162" expanded="false" />
-            <element signature="method#onAnimationRepeat#0;class#13193:15162" expanded="false" />
-            <element signature="method#updateInputBox#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateRefreshButton#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onCreateView#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onLongPress#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#BerryView#0;class#BerryView#0" expanded="false" />
+            <element signature="method#BerryView#1;class#BerryView#0" expanded="false" />
+            <element signature="method#BerryView#2;class#BerryView#0" expanded="false" />
+            <element signature="method#BerryView#3;class#BerryView#0" expanded="false" />
+            <element signature="method#initWebView#0;class#BerryView#0" expanded="false" />
+            <element signature="method#initWebSettings#0;class#BerryView#0" expanded="false" />
+            <element signature="method#initPreferences#0;class#BerryView#0" expanded="false" />
+            <element signature="method#activate#0;class#BerryView#0" expanded="false" />
+            <element signature="method#deactivate#0;class#BerryView#0" expanded="false" />
+            <element signature="method#update#1;class#BerryView#0" expanded="false" />
+            <element signature="method#pause#0;class#BerryView#0" expanded="false" />
+            <element signature="method#resume#0;class#BerryView#0" expanded="false" />
+            <element signature="method#destroy#0;class#BerryView#0" expanded="false" />
+            <element signature="method#onLongPress#0;class#BerryView#0" expanded="false" />
+            <element signature="method#equals#0;class#BerryView#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/complete_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65217394">
+          <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BrowserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14925373">
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/BrowserUnit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20134228">
-          <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.65174127">
+          <caret line="76" column="8" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/browser.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.026086956">
+          <caret line="115" column="62" selection-start-line="115" selection-start-column="62" selection-end-line="115" selection-end-column="62" />
+          <folding>
+            <element signature="n#RelativeLayout#0;n#LinearLayout#0;n#LinearLayout#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/BrowserActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.363184">
+          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#onPause#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onDestroy#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onConfigurationChanged#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#showOverflow#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="e#8486#9321#0" expanded="true" />
+            <element signature="e#9320#9321#0" expanded="true" />
+            <element signature="method#newTab#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#10355:12000" expanded="false" />
+            <element signature="method#onAnimationEnd#0;class#10355:12000" expanded="false" />
+            <element signature="method#onAnimationRepeat#0;class#10355:12000" expanded="false" />
+            <element signature="method#showTab#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#deleteTab#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#13356:15325" expanded="false" />
+            <element signature="method#onAnimationStart#0;class#13356:15325" expanded="false" />
+            <element signature="method#onAnimationEnd#0;class#13356:15325" expanded="false" />
+            <element signature="method#onAnimationRepeat#0;class#13356:15325" expanded="false" />
+            <element signature="method#updateBookmarkButton#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="e#17379#18045#0" expanded="true" />
+            <element signature="e#18044#18045#0" expanded="true" />
+            <element signature="method#updateRefreshButton#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onLongPress#0;class#BrowserActivity#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

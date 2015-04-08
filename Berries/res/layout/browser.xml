@@ -100,7 +100,6 @@
                              android:background="@color/transparent">
                 </ImageButton>
 
-                <!-- TODO: chooseModeColor -->
                 <AutoCompleteTextView android:id="@+id/browser_input_box"
                                       android:layout_width="match_parent"
                                       android:layout_height="wrap_content"
@@ -115,6 +114,7 @@
                                       android:singleLine="true"
                                       android:imeOptions="actionDone"
                                       android:inputType="text"
+                                      android:completionThreshold="1"
                                       android:background="@color/white">
                 </AutoCompleteTextView>
 
