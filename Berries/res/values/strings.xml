@@ -61,8 +61,8 @@
     <string name="browser_menu_quit">
         Quit
     </string>
-    <string name="browser_menu_search">
-        Search
+    <string name="browser_menu_search_in_page">
+        Search in page
     </string>
     <string name="browser_menu_setting">
         Setting

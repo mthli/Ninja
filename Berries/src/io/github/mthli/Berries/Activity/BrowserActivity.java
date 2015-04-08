@@ -229,7 +229,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                         break;
                     case R.id.browser_menu_history:
                         break;
-                    case R.id.browser_menu_search:
+                    case R.id.browser_menu_search_in_page:
                         break;
                     case R.id.browser_menu_share:
                         break;
@@ -464,7 +464,6 @@ public class BrowserActivity extends Activity implements BrowserController {
                 inputBox.setText(url);
                 inputBox.setSelection(url.length());
                 if (currentBerryView != null) {
-                    System.out.println(BrowserUnit.queryWrapper(BrowserActivity.this, url));
                     currentBerryView.loadUrl(BrowserUnit.queryWrapper(BrowserActivity.this, url));
                 }
                 hideSoftInput();
