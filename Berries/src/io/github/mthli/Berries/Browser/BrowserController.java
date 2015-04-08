@@ -4,6 +4,8 @@ import android.os.Message;
 import android.webkit.WebView;
 
 public interface BrowserController {
+    void updateBookmarkButton();
+
     void updateInputBox(String query);
 
     void updateProgress(int progress);

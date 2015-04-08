@@ -16,6 +16,9 @@ import io.github.mthli.Berries.Unit.*;
 
 public class HolderService extends Service implements BrowserController {
     @Override
+    public void updateBookmarkButton() {}
+
+    @Override
     public void updateInputBox(String query) {}
 
     @Override

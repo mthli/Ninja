@@ -24,10 +24,22 @@
         Untitled
     </string>
     <string name="browser_toast_add_bookmark">
-        Add bookmark
+        Add this page to bookmark
+    </string>
+    <string name="browser_toast_add_bookmark_successful">
+        Add bookmark successful
+    </string>
+    <string name="browser_toast_bookmark_error">
+        Can\'t add this page to bookmark
     </string>
     <string name="browser_toast_cancel_refresh">
         Cancel refresh
+    </string>
+    <string name="browser_toast_delete_bookmark">
+        Delete this bookmark
+    </string>
+    <string name="browser_toast_delete_bookmark_successful">
+        Delete bookmark successful
     </string>
     <string name="browser_toast_incognito">
         Incognito
@@ -47,8 +59,8 @@
     <string name="browser_toast_refresh">
         Refresh
     </string>
-    <string name="browser_toast_remove_bookmark">
-        Remove bookmark
+    <string name="browser_toast_something_error">
+        Something error
     </string>
     
     <!-- Menu -->

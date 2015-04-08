@@ -18,6 +18,7 @@ import io.github.mthli.Berries.Browser.BerryContainer;
 import io.github.mthli.Berries.Browser.BerryView;
 import io.github.mthli.Berries.Browser.BrowserController;
 import io.github.mthli.Berries.Database.Record;
+import io.github.mthli.Berries.Database.RecordAction;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.BrowserUnit;
 import io.github.mthli.Berries.Unit.RecordUnit;
@@ -151,13 +152,54 @@ public class BrowserActivity extends Activity implements BrowserController {
         bookmarkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO
+                if (currentBerryView == null || currentBerryView.getRecord() == null) {
+                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_bookmark_error, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                Record record = currentBerryView.getRecord();
+                if (record.getURL().startsWith(BrowserUnit.URL_SCHEME_ABOUT)
+                        || record.getURL().startsWith(BrowserUnit.URL_SCHEME_FILE)
+                        || record.getURL().startsWith(BrowserUnit.URL_SCHEME_INTENT)
+                        || record.getURL().startsWith(BrowserUnit.URL_SCHEME_MAIL_TO)
+                        || record.getURL() == null
+                        || record.getURL().isEmpty()
+                        ) {
+                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_bookmark_error, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                RecordAction action = new RecordAction(BrowserActivity.this);
+                action.open(false);
+                if (action.checkBookmark(record)) {
+                    action.deleteBookmark(record);
+                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_delete_bookmark_successful, Toast.LENGTH_SHORT).show();
+                } else {
+                    action.addBookmark(record);
+                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_add_bookmark_successful, Toast.LENGTH_SHORT).show();
+                }
+                action.close();
+                updateBookmarkButton();
             }
         });
         bookmarkButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                // TODO
+                if (currentBerryView == null || currentBerryView.getRecord() == null) {
+                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_something_error, Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+
+                RecordAction action = new RecordAction(BrowserActivity.this);
+                action.open(false);
+                Record record = currentBerryView.getRecord();
+                if (action.checkBookmark(record)) {
+                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_delete_bookmark, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_add_bookmark, Toast.LENGTH_SHORT).show();
+                }
+                action.close();
+
                 return true;
             }
         });
@@ -199,6 +241,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 }
                 query = BrowserUnit.queryWrapper(BrowserActivity.this, query);
                 currentBerryView.load(new Record(getString(R.string.browser_tab_untitled), query, System.currentTimeMillis()));
+
 
                 return false;
             }
@@ -274,8 +317,9 @@ public class BrowserActivity extends Activity implements BrowserController {
 
                 browserFrame.addView(berryView);
                 berryView.activate();
-                updateProgress(berryView.getProgress());
                 tabsScroll.smoothScrollTo(tabView.getLeft(), 0);
+                updateProgress(berryView.getProgress());
+                updateBookmarkButton();
 
                 Record record = berryView.getRecord();
                 if (record.getURL().equals(BrowserUnit.ABOUT_HOME)) {
@@ -314,8 +358,9 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         browserFrame.addView(berryView);
         berryView.activate();
-        updateProgress(berryView.getProgress());
         tabsScroll.smoothScrollTo(berryView.getTab().getLeft(), 0);
+        updateProgress(berryView.getProgress());
+        updateBookmarkButton();
 
         Record record = berryView.getRecord();
         if (record.getURL().equals(BrowserUnit.ABOUT_HOME)) {
@@ -371,6 +416,8 @@ public class BrowserActivity extends Activity implements BrowserController {
                     @Override
                     public void run() {
                         tabsScroll.smoothScrollTo(currentBerryView.getTab().getLeft(), 0);
+                        updateProgress(currentBerryView.getProgress());
+                        updateBookmarkButton();
 
                         Record record = currentBerryView.getRecord();
                         if (record.getURL().equals(BrowserUnit.ABOUT_HOME)) {
@@ -388,6 +435,23 @@ public class BrowserActivity extends Activity implements BrowserController {
             }
         });
         tabView.startAnimation(animation);
+    }
+
+    @Override
+    public void updateBookmarkButton() {
+        if (currentBerryView == null || currentBerryView.getRecord() == null) {
+            bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_bookmark_outline_button_selector));
+            return;
+        }
+
+        RecordAction action = new RecordAction(this);
+        action.open(false);
+        if (action.checkBookmark(currentBerryView.getRecord())) {
+            bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_bookmark_full_button_selector));
+        } else {
+            bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_bookmark_outline_button_selector));
+        }
+        action.close();
     }
 
     @Override
