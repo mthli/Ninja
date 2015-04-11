@@ -11,12 +11,6 @@
     <string name="browser_hint_url_input">
         Search or type URL
     </string>
-    <string name="browser_tab_bookmarks">
-        Bookmarks
-    </string>
-    <string name="browser_tab_history">
-        History
-    </string>
     <string name="browser_tab_home">
         Homepage
     </string>
@@ -26,11 +20,8 @@
     <string name="browser_toast_add_bookmark_successful">
         Add bookmark successful
     </string>
-    <string name="browser_toast_bookmark_error">
+    <string name="browser_toast_add_bookmark_failed">
         Can\'t add this page to bookmark
-    </string>
-    <string name="browser_toast_bookmark_wait">
-        Can\'t take action before load finish
     </string>
     <string name="browser_toast_delete_bookmark_successful">
         Delete bookmark successful
@@ -47,11 +38,8 @@
     <string name="browser_toast_network_error">
         Network is not available
     </string>
-    <string name="browser_toast_share_error">
+    <string name="browser_toast_share_failed">
         Can\'t share this page
-    </string>
-    <string name="browser_toast_share_wait">
-        Can\'t take action before load finish
     </string>
     
     <!-- Menu -->
@@ -62,13 +50,6 @@
         <item>Share</item>
         <item>Setting</item>
         <item>Quit</item>
-    </string-array>
-    <string-array name="context_menu">
-        <item>Open in new tab</item>
-        <item>Open in incognito tab</item>
-        <item>Copy link address</item>
-        <item>Copy link text</item>
-        <item>Save pictures</item>
     </string-array>
 
     <!-- Notification -->

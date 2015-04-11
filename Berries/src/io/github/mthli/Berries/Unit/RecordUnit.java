@@ -1,8 +1,6 @@
 package io.github.mthli.Berries.Unit;
 
-import android.content.Context;
 import io.github.mthli.Berries.Database.Record;
-import io.github.mthli.Berries.R;
 
 public class RecordUnit {
     public static final String TABLE_BOOKMARKS = "BOOKMARKS";
@@ -34,9 +32,5 @@ public class RecordUnit {
     }
     public synchronized static void setHolder(Record record) {
         holder = record;
-    }
-
-    public static Record getHome(Context context) {
-        return new Record(context.getString(R.string.browser_tab_home), BrowserUnit.ABOUT_HOME, System.currentTimeMillis());
     }
 }

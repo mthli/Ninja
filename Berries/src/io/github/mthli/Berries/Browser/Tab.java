@@ -6,17 +6,11 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
 
 public class Tab {
     private BerryView berryView;
     private Context context;
-
-    private Record record;
-    public Record getRecord() {
-        return record;
-    }
 
     private boolean incognito;
 
@@ -31,9 +25,7 @@ public class Tab {
     public Tab(BerryView berryView) {
         this.berryView = berryView;
         this.context = berryView.getContext();
-        this.record = berryView.getRecord();
         this.incognito = berryView.isIncognito();
-
         initUI();
     }
 
@@ -48,13 +40,13 @@ public class Tab {
         view.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                Toast.makeText(context, record.getTitle(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, berryView.getTitle(), Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
 
         title = (TextView) view.findViewById(R.id.tab_title);
-        title.setText(record.getTitle());
+        title.setText(berryView.getTitle());
 
         closeButton = (ImageButton) view.findViewById(R.id.tab_close_button);
         closeButton.setOnClickListener(new View.OnClickListener() {
@@ -82,27 +74,7 @@ public class Tab {
         closeButton.setVisibility(View.GONE);
     }
 
-    public void update(String title, String url) {
-        this.record.setTitle(title);
-        this.record.setURL(url);
+    public void setTitle(String title) {
         this.title.setText(title);
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        if (object == null) {
-            return false;
-        }
-
-        if (!(object instanceof Tab)) {
-            return false;
-        }
-
-        return this.record.getTime() == ((Tab) object).getRecord().getTime();
-    }
-
-    @Override
-    public int hashCode() {
-        return (int) (this.record.getTime() * 31);
     }
 }

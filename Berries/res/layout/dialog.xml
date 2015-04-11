@@ -9,6 +9,7 @@
     <ListView android:id="@+id/dialog_listview"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
+              android:background="@drawable/dialog_background_shape"
               android:drawSelectorOnTop="true"
               android:scrollbars="none">
     </ListView>

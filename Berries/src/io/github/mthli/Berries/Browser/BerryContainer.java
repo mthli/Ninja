@@ -49,7 +49,6 @@ public class BerryContainer {
         for (BerryView view : list) {
             view.destroy();
         }
-
         list.clear();
     }
 }

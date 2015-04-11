@@ -20,6 +20,7 @@ public class BerryWebViewClient extends WebViewClient {
 
     public BerryWebViewClient(BerryView berryView) {
         super();
+
         this.berryView = berryView;
         this.context = berryView.getContext();
         this.adBlock = new AdBlock(berryView.getContext());
@@ -27,17 +28,19 @@ public class BerryWebViewClient extends WebViewClient {
 
     @Override
     public void onPageStarted(WebView view, String url, Bitmap favicon) {
+        super.onPageStarted(view, url, favicon);
+
         if (view.getTitle() == null || view.getTitle().isEmpty()) {
             berryView.update(context.getString(R.string.browser_tab_untitled), url);
         } else {
             berryView.update(view.getTitle(), url);
         }
-
-        super.onPageStarted(view, url, favicon);
     }
 
     @Override
     public void onPageFinished(WebView view, String url) {
+        super.onPageFinished(view, url);
+
         if (view.getTitle() == null || view.getTitle().isEmpty()) {
             berryView.update(context.getString(R.string.browser_tab_untitled), url);
         } else {
@@ -49,8 +52,6 @@ public class BerryWebViewClient extends WebViewClient {
         } else {
             berryView.postInvalidate();
         }
-
-        super.onPageFinished(view, url);
     }
 
     @Override
@@ -59,20 +60,16 @@ public class BerryWebViewClient extends WebViewClient {
             return super.shouldOverrideUrlLoading(view, url);
         }
 
-        if (url.startsWith(BrowserUnit.URL_SCHEME_ABOUT)) {
-            return super.shouldOverrideUrlLoading(view, url);
-        } else if (url.startsWith(BrowserUnit.URL_SCHEME_MAIL_TO)) {
+        if (url.startsWith(BrowserUnit.URL_SCHEME_MAIL_TO)) {
             Intent intent = IntentUnit.getEmailIntent(MailTo.parse(url));
             context.startActivity(intent);
             view.reload();
-
             return true;
         } else if (url.startsWith(BrowserUnit.URL_SCHEME_INTENT)) {
             Intent intent;
             try {
                 intent = Intent.parseUri(url, Intent.URI_INTENT_SCHEME);
                 context.startActivity(intent);
-
                 return true;
             } catch (URISyntaxException u) {
                 return false;

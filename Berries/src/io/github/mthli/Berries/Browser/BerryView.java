@@ -1,7 +1,9 @@
 package io.github.mthli.Berries.Browser;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.MailTo;
 import android.os.Message;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
@@ -9,26 +11,14 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.BrowserUnit;
-import io.github.mthli.Berries.Unit.RecordUnit;
+import io.github.mthli.Berries.Unit.IntentUnit;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.net.URISyntaxException;
 
 public class BerryView extends WebView {
     private Context context;
-
-    private Record record;
-    public Record getRecord() {
-        return record;
-    }
-    public void setRecord(Record record) {
-        this.record = record;
-    }
 
     private boolean foreground;
     public boolean isForeground() {
@@ -47,8 +37,8 @@ public class BerryView extends WebView {
     }
 
     private Tab tab;
-    public View getTab() {
-        return tab.getView();
+    public Tab getTab() {
+        return tab;
     }
 
     private BerryWebViewClient webViewClient;
@@ -66,10 +56,8 @@ public class BerryView extends WebView {
 
     public BerryView(Context context) {
         super(new BerryContextWrapper(context));
-        this.context = new BerryContextWrapper(context);
 
         this.context = new BerryContextWrapper(context);
-        this.record = RecordUnit.getHome(context);
         this.foreground = false;
         this.incognito = false;
 
@@ -86,10 +74,8 @@ public class BerryView extends WebView {
 
     public BerryView(Context context, AttributeSet attrs) {
         super(new BerryContextWrapper(context), attrs);
-        this.context = new BerryContextWrapper(context);
 
         this.context = new BerryContextWrapper(context);
-        this.record = RecordUnit.getHome(context);
         this.foreground = false;
         this.incognito = false;
 
@@ -106,10 +92,8 @@ public class BerryView extends WebView {
 
     public BerryView(Context context, AttributeSet attrs, int defStyle) {
         super(new BerryContextWrapper(context), attrs, defStyle);
-        this.context = new BerryContextWrapper(context);
 
         this.context = new BerryContextWrapper(context);
-        this.record = RecordUnit.getHome(context);
         this.foreground = false;
         this.incognito = false;
 
@@ -124,11 +108,10 @@ public class BerryView extends WebView {
         this.initPreferences();
     }
 
-    public BerryView(Context context, Record record, boolean incognito) {
+    public BerryView(Context context, boolean incognito) {
         super(new BerryContextWrapper(context));
 
         this.context = new BerryContextWrapper(context);
-        this.record = record;
         this.foreground = false;
         this.incognito = incognito;
 
@@ -216,16 +199,27 @@ public class BerryView extends WebView {
 
     @Override
     public synchronized void loadUrl(String url) {
-        super.loadUrl(url);
-        if (controller == null) {
+        if (url == null || url.isEmpty()) {
             return;
         }
 
-        Record record = new Record(context.getString(R.string.browser_tab_untitled), url, System.currentTimeMillis());
-        this.record = record;
-        if (foreground) {
+        if (url.startsWith(BrowserUnit.URL_SCHEME_MAIL_TO)) {
+            Intent intent = IntentUnit.getEmailIntent(MailTo.parse(url));
+            context.startActivity(intent);
+            reload();
+            return;
+        } else if (url.startsWith(BrowserUnit.URL_SCHEME_INTENT)) {
+            Intent intent;
+            try {
+                intent = Intent.parseUri(url, Intent.URI_INTENT_SCHEME);
+                context.startActivity(intent);
+            } catch (URISyntaxException u) {}
+            return;
+        }
+
+        super.loadUrl(url);
+        if (controller != null && foreground) {
             controller.updateBookmarkButton();
-            controller.updateInputBox(record.getURL());
         }
     }
 
@@ -244,10 +238,7 @@ public class BerryView extends WebView {
     }
 
     public synchronized void update(String title, String url) {
-        record.setTitle(title);
-        record.setURL(url);
-        record.setTime(System.currentTimeMillis());
-        tab.update(title, url);
+        tab.setTitle(title);
         if (foreground) {
             controller.updateBookmarkButton();
             controller.updateInputBox(url);
@@ -289,23 +280,5 @@ public class BerryView extends WebView {
             click.setTarget(clickHandler);
         }
         requestFocusNodeHref(click);
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        if (object == null) {
-            return false;
-        }
-
-        if (!(object instanceof BerryView)) {
-            return false;
-        }
-
-        return this.record.getTime() == ((BerryView) object).getRecord().getTime();
-    }
-
-    @Override
-    public int hashCode() {
-        return (int) (this.record.getTime() * 31);
     }
 }

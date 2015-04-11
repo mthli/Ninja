@@ -25,7 +25,6 @@ import io.github.mthli.Berries.Database.RecordAction;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.BrowserUnit;
 import io.github.mthli.Berries.Unit.IntentUnit;
-import io.github.mthli.Berries.Unit.RecordUnit;
 import io.github.mthli.Berries.Unit.ViewUnit;
 import io.github.mthli.Berries.View.DialogAdapter;
 
@@ -45,7 +44,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     private ProgressBar progressBar;
 
     private FrameLayout browserFrame;
-    private BerryView currentBerryView = null;
+    private BerryView currentView = null;
 
     private int animTime;
 
@@ -78,11 +77,11 @@ public class BrowserActivity extends Activity implements BrowserController {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             inputBox.clearFocus();
 
-            if (currentBerryView == null) {
+            if (currentView == null) {
                 finish();
             } else {
-                if (currentBerryView.canGoBack()) {
-                    currentBerryView.goBack();
+                if (currentView.canGoBack()) {
+                    currentView.goBack();
                 } else {
                     deleteTab();
                 }
@@ -119,7 +118,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         progressBar = (ProgressBar) findViewById(R.id.browser_progress_bar);
 
         browserFrame = (FrameLayout) findViewById(R.id.browser_frame);
-        newTab(RecordUnit.getHome(this), false, true, null);
+        newTab(R.string.browser_tab_home, false, true, null);
 
         overflowButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,15 +130,13 @@ public class BrowserActivity extends Activity implements BrowserController {
         addTabButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Record record = RecordUnit.getHome(BrowserActivity.this);
-                newTab(record, false, true, null);
+                newTab(R.string.browser_tab_home, false, true, null);
             }
         });
         addTabButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                Record record = RecordUnit.getHome(BrowserActivity.this);
-                newTab(record, true, true, null);
+                newTab(R.string.browser_tab_home, true, true, null);
                 Toast.makeText(BrowserActivity.this, R.string.browser_toast_incognito, Toast.LENGTH_SHORT).show();
                 return true;
             }
@@ -148,33 +145,33 @@ public class BrowserActivity extends Activity implements BrowserController {
         bookmarkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!prepareRecord(R.string.browser_toast_bookmark_error, R.string.browser_toast_bookmark_wait)) {
+                if (!prepareRecord()) {
+                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_add_bookmark_failed, Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                Record record = currentBerryView.getRecord();
                 RecordAction action = new RecordAction(BrowserActivity.this);
                 action.open(false);
-                if (action.checkBookmark(record)) {
-                    action.deleteBookmark(record);
+                if (action.checkBookmark(currentView.getUrl())) {
+                    action.deleteBookmark(currentView.getUrl());
                     Toast.makeText(BrowserActivity.this, R.string.browser_toast_delete_bookmark_successful, Toast.LENGTH_SHORT).show();
                 } else {
-                    action.addBookmark(record);
+                    action.addBookmark(new Record(currentView.getTitle(), currentView.getUrl(), System.currentTimeMillis()));
                     Toast.makeText(BrowserActivity.this, R.string.browser_toast_add_bookmark_successful, Toast.LENGTH_SHORT).show();
                 }
                 action.close();
                 updateBookmarkButton();
-                updateInputBox();
+                updateAutoComplete();
             }
         });
 
         refreshButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (currentBerryView.isLoadFinish()) {
-                    currentBerryView.reload();
+                if (currentView.isLoadFinish()) {
+                    currentView.reload();
                 } else {
-                    currentBerryView.stopLoading();
+                    currentView.stopLoading();
                 }
             }
         });
@@ -191,24 +188,31 @@ public class BrowserActivity extends Activity implements BrowserController {
                     Toast.makeText(BrowserActivity.this, R.string.browser_toast_input_empty, Toast.LENGTH_SHORT).show();
                     return false;
                 }
-                currentBerryView.loadUrl(BrowserUnit.queryWrapper(BrowserActivity.this, query));
+                currentView.loadUrl(BrowserUnit.queryWrapper(BrowserActivity.this, query));
                 hideSoftInput();
 
                 return false;
             }
         });
-        updateInputBox();
+        updateAutoComplete();
     }
 
-    private synchronized void newTab(Record record, boolean incognito, final boolean foreground, final Message resultMsg) {
-        final BerryView berryView = new BerryView(this, record, incognito);
-        final View tabView = berryView.getTab();
+    private synchronized void newTab(int stringResId, boolean incognito, final boolean foreground, final Message resultMsg) {
+        newTab(getString(stringResId), incognito, foreground, resultMsg);
+    }
 
+    private synchronized void newTab(String title, boolean incognito, final boolean foreground, final Message resultMsg) {
+        hideSoftInput();
+
+        final BerryView berryView = new BerryView(this, incognito);
         berryView.setController(this);
+
+        final View tabView = berryView.getTab().getView();
+        berryView.getTab().setTitle(title);
         tabView.setVisibility(View.INVISIBLE);
 
-        if (currentBerryView != null && resultMsg != null) {
-            int index = BerryContainer.indexOf(currentBerryView) + 1;
+        if (currentView != null && resultMsg != null) {
+            int index = BerryContainer.indexOf(currentView) + 1;
             BerryContainer.add(berryView, index);
             tabsContainer.addView(tabView, index, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
         } else {
@@ -230,25 +234,16 @@ public class BrowserActivity extends Activity implements BrowserController {
                     return;
                 }
 
-                if (currentBerryView != null) {
-                    currentBerryView.getRecord().setURL(inputBox.getText().toString());
-                    currentBerryView.deactivate();
-                    browserFrame.removeView(currentBerryView);
+                if (currentView != null) {
+                    currentView.deactivate();
+                    browserFrame.removeView(currentView);
                 }
-                currentBerryView = berryView;
+                currentView = berryView;
 
-                browserFrame.addView(berryView);
-                berryView.activate();
+                browserFrame.addView(currentView);
+                currentView.activate();
                 tabsScroll.smoothScrollTo(tabView.getLeft(), 0);
-                updateProgress(berryView.getProgress());
-                updateBookmarkButton();
-
-                Record record = berryView.getRecord();
-                if (record.getURL().equals(BrowserUnit.ABOUT_HOME)) {
-                    updateInputBox(null);
-                } else {
-                    updateInputBox(record.getURL());
-                }
+                updateOnmiBox();
 
                 if (resultMsg != null) {
                     WebView.WebViewTransport transport = (WebView.WebViewTransport) resultMsg.obj;
@@ -267,34 +262,26 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     @Override
     public synchronized void showTab(final BerryView berryView) {
-        if (berryView == null || berryView.equals(currentBerryView)) {
+        if (berryView == null || berryView.equals(currentView)) {
             return;
         }
+        hideSoftInput();
 
-        if (currentBerryView != null) {
-            currentBerryView.getRecord().setURL(inputBox.getText().toString());
-            currentBerryView.deactivate();
-            browserFrame.removeView(currentBerryView);
+        if (currentView != null) {
+            currentView.deactivate();
+            browserFrame.removeView(currentView);
         }
-        currentBerryView = berryView;
+        currentView = berryView;
 
-        browserFrame.addView(berryView);
+        browserFrame.addView(currentView);
         berryView.activate();
-        tabsScroll.smoothScrollTo(berryView.getTab().getLeft(), 0);
-        updateProgress(berryView.getProgress());
-        updateBookmarkButton();
-
-        Record record = berryView.getRecord();
-        if (record.getURL().equals(BrowserUnit.ABOUT_HOME)) {
-            updateInputBox(null);
-        } else {
-            updateInputBox(record.getURL());
-        }
+        tabsScroll.smoothScrollTo(currentView.getTab().getView().getLeft(), 0);
+        updateOnmiBox();
     }
 
     @Override
     public synchronized void deleteTab() {
-        if (currentBerryView == null) {
+        if (currentView == null) {
             return;
         }
 
@@ -303,7 +290,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             return;
         }
 
-        final View tabView = currentBerryView.getTab();
+        final View tabView = currentView.getTab().getView();
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.slide_out_down);
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -321,32 +308,24 @@ public class BrowserActivity extends Activity implements BrowserController {
                     }
                 });
 
-                currentBerryView.deactivate();
+                currentView.deactivate();
+                browserFrame.removeView(currentView);
                 updateProgress(BrowserUnit.PROGRESS_MAX);
-                browserFrame.removeView(currentBerryView);
 
-                int index = BerryContainer.indexOf(currentBerryView);
-                BerryContainer.remove(currentBerryView);
+                int index = BerryContainer.indexOf(currentView);
+                BerryContainer.remove(currentView);
                 if (index >= BerryContainer.size()) {
                     index = BerryContainer.size() - 1;
                 }
 
-                currentBerryView = BerryContainer.get(index);
-                browserFrame.addView(currentBerryView);
-                currentBerryView.activate();
+                currentView = BerryContainer.get(index);
+                browserFrame.addView(currentView);
+                currentView.activate();
                 new Handler().post(new Runnable() {
                     @Override
                     public void run() {
-                        tabsScroll.smoothScrollTo(currentBerryView.getTab().getLeft(), 0);
-                        updateProgress(currentBerryView.getProgress());
-                        updateBookmarkButton();
-
-                        Record record = currentBerryView.getRecord();
-                        if (record.getURL().equals(BrowserUnit.ABOUT_HOME)) {
-                            updateInputBox(null);
-                        } else {
-                            updateInputBox(record.getURL());
-                        }
+                        tabsScroll.smoothScrollTo(currentView.getTab().getView().getLeft(), 0);
+                        updateOnmiBox();
                     }
                 });
             }
@@ -361,14 +340,14 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     @Override
     public void updateBookmarkButton() {
-        if (currentBerryView == null || currentBerryView.getRecord() == null) {
+        if (currentView == null) {
             bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_bookmark_outline_button_selector));
             return;
         }
 
         RecordAction action = new RecordAction(this);
         action.open(false);
-        if (action.checkBookmark(currentBerryView.getRecord())) {
+        if (action.checkBookmark(currentView.getUrl())) {
             bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_bookmark_full_button_selector));
         } else {
             bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_bookmark_outline_button_selector));
@@ -376,7 +355,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         action.close();
     }
 
-    private void updateInputBox() {
+    private void updateAutoComplete() {
         final List<Map<String, String>> list = new ArrayList<Map<String, String>>();
 
         RecordAction action = new RecordAction(this);
@@ -415,8 +394,8 @@ public class BrowserActivity extends Activity implements BrowserController {
                 String url = ((TextView) view.findViewById(R.id.complete_item_url)).getText().toString();
                 inputBox.setText(url);
                 inputBox.setSelection(url.length());
-                if (currentBerryView != null) {
-                    currentBerryView.loadUrl(BrowserUnit.queryWrapper(BrowserActivity.this, url));
+                if (currentView != null) {
+                    currentView.loadUrl(BrowserUnit.queryWrapper(BrowserActivity.this, url));
                 }
                 hideSoftInput();
             }
@@ -446,13 +425,13 @@ public class BrowserActivity extends Activity implements BrowserController {
             animator.start();
         }
 
-        if (currentBerryView.isLoadFinish()) {
-            // TODO: don't add homepage
+        if (currentView.isLoadFinish()) {
+            // TODO: don't add homepage, don't use record,
             RecordAction action = new RecordAction(this);
             action.open(true);
-            action.addHistory(currentBerryView.getRecord());
+            action.addHistory(new Record(currentView.getTitle(), currentView.getUrl(), System.currentTimeMillis()));
             action.close();
-            updateInputBox();
+            updateAutoComplete();
 
             new Handler().postDelayed(new Runnable() {
                 @Override
@@ -475,28 +454,33 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
     }
 
+    private void updateOnmiBox() {
+        if (currentView == null) {
+            return;
+        }
+
+        updateProgress(currentView.getProgress());
+        updateBookmarkButton();
+        if (currentView.getUrl() == null) {
+            updateInputBox(null);
+        } else {
+            updateInputBox(currentView.getUrl());
+        }
+    }
+
     @Override
     public void onCreateView(WebView view, boolean incognito, final Message resultMsg) {
         if (resultMsg == null) {
             return;
         }
-
-        Record record = new Record();
-        if (view.getTitle() == null || view.getTitle().isEmpty()) {
-            record.setTitle(getString(R.string.browser_tab_untitled));
-        } else {
-            record.setTitle(view.getTitle());
-        }
-        record.setURL(view.getUrl());
-        record.setTime(System.currentTimeMillis());
-        newTab(record, incognito, true, resultMsg);
+        newTab(R.string.browser_tab_untitled, incognito, true, resultMsg);
     }
 
     @Override
     public void onLongPress(String url) {
         WebView.HitTestResult result = null;
-        if (currentBerryView != null) {
-            result = currentBerryView.getHitTestResult();
+        if (currentView != null) {
+            result = currentView.getHitTestResult();
         }
 
         if (url != null) {
@@ -510,26 +494,20 @@ public class BrowserActivity extends Activity implements BrowserController {
         imm.hideSoftInputFromWindow(inputBox.getWindowToken(), 0);
     }
 
-    private boolean prepareRecord(int errorResId, int waitResId) {
-        if (currentBerryView == null || currentBerryView.getRecord() == null) {
-            Toast.makeText(BrowserActivity.this, errorResId, Toast.LENGTH_SHORT).show();
+    private boolean prepareRecord() {
+        if (currentView == null) {
             return false;
         }
 
-        if (!currentBerryView.isLoadFinish()) {
-            Toast.makeText(BrowserActivity.this, waitResId, Toast.LENGTH_SHORT).show();
-            return false;
-        }
-
-        Record record = currentBerryView.getRecord();
-        if (record.getURL() == null
-                || record.getURL().isEmpty()
-                || record.getURL().startsWith(BrowserUnit.URL_SCHEME_ABOUT)
-                || record.getURL().startsWith(BrowserUnit.URL_SCHEME_FILE)
-                || record.getURL().startsWith(BrowserUnit.URL_SCHEME_INTENT)
-                || record.getURL().startsWith(BrowserUnit.URL_SCHEME_MAIL_TO)
-                ) {
-            Toast.makeText(BrowserActivity.this, errorResId, Toast.LENGTH_SHORT).show();
+        String title = currentView.getTitle();
+        String url = currentView.getUrl();
+        if (title == null
+                || title.isEmpty()
+                || url == null
+                || url.isEmpty()
+                || url.startsWith(BrowserUnit.URL_SCHEME_ABOUT)
+                || url.startsWith(BrowserUnit.URL_SCHEME_MAIL_TO)
+                || url.startsWith(BrowserUnit.URL_SCHEME_INTENT)) {
             return false;
         }
 
@@ -569,8 +547,11 @@ public class BrowserActivity extends Activity implements BrowserController {
                         // TODO
                         break;
                     case 3:
-                        if (prepareRecord(R.string.browser_toast_share_error, R.string.browser_toast_share_wait)) {
-                            IntentUnit.share(BrowserActivity.this, currentBerryView.getRecord());
+                        // TODO
+                        if (prepareRecord()) {
+                            IntentUnit.share(BrowserActivity.this, currentView.getTitle(), currentView.getUrl());
+                        } else {
+                            Toast.makeText(BrowserActivity.this, R.string.browser_toast_share_failed, Toast.LENGTH_SHORT).show();
                         }
                         break;
                     case 4:

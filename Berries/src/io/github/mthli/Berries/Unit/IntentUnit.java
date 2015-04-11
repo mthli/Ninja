@@ -3,7 +3,6 @@ package io.github.mthli.Berries.Unit;
 import android.content.Context;
 import android.content.Intent;
 import android.net.MailTo;
-import io.github.mthli.Berries.Database.Record;
 
 public class IntentUnit {
     public static final String LIST = "LIST";
@@ -19,10 +18,10 @@ public class IntentUnit {
         return intent;
     }
 
-    public static void share(Context context, Record record) {
+    public static void share(Context context, String title, String url) {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT, record.getTitle() + "\n" + record.getURL());
+        intent.putExtra(Intent.EXTRA_TEXT, title + "\n" + url);
         context.startActivity(intent);
     }
 }

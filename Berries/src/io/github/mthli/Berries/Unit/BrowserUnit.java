@@ -17,21 +17,22 @@ public class BrowserUnit {
 
     public static final String URL_ENCODING = "UTF-8";
     public static final String URL_TYPE_TEXT_PLAIN = "text/plain";
+
     public static final String URL_SCHEME_ABOUT = "about:";
+    public static final String URL_SCHEME_MAIL_TO = "mailto:";
     public static final String URL_SCHEME_FILE = "file://";
     public static final String URL_SCHEME_FTP = "ftp://";
     public static final String URL_SCHEME_HTTP = "http://";
     public static final String URL_SCHEME_HTTPS = "https://";
     public static final String URL_SCHEME_INTENT = "intent://";
-    public static final String URL_SCHEME_MAIL_TO = "mailto:";
+
+    public static final String ABOUT_BLANK = "about:blank";
+    public static final String ABOUT_HOME = "about:home";
 
     public static final String SEARCH_ENGINE_GOOGLE = "https://www.google.com/search?q=";
     public static final String SEARCH_ENGINE_DUCKDUCKGO = "https://duckduckgo.com/?q=";
     public static final String SEARCH_ENGINE_BING = "http://www.bing.com/search?q=";
     public static final String SEARCH_ENGINE_BAIDU = "http://www.baidu.com/s?wd=";
-
-    public static final String ABOUT_BLANK = "about:blank";
-    public static final String ABOUT_HOME = "about:home";
 
     public static boolean isNetworkAvailable(Context context) {
         if (context == null) {
@@ -48,8 +49,14 @@ public class BrowserUnit {
             return false;
         }
 
+        if (url.startsWith(URL_SCHEME_ABOUT)
+                || url.startsWith(URL_SCHEME_MAIL_TO)
+                || url.startsWith(URL_SCHEME_FILE)) {
+            return true;
+        }
+
         url = url.toLowerCase();
-        String regex = "^((file|ftp|http|https|intent)?://)"                 // support scheme
+        String regex = "^((ftp|http|https|intent)?://)"                      // support scheme
                 + "?(([0-9a-z_!~*'().&=+$%-]+: )?[0-9a-z_!~*'().&=+$%-]+@)?" // ftp的user@
                 + "(([0-9]{1,3}\\.){3}[0-9]{1,3}"                            // IP形式的URL -> 199.194.52.184
                 + "|"                                                        // 允许IP和DOMAIN（域名）
@@ -65,7 +72,11 @@ public class BrowserUnit {
 
     public static String queryWrapper(Context context, String query) {
         if (isURL(query)) {
-            if (!(query.split("\\:\\/\\/").length > 1)) {
+            if (query.startsWith(URL_SCHEME_ABOUT) || query.startsWith(URL_SCHEME_MAIL_TO)) {
+                return query;
+            }
+
+            if (!query.contains("://")) {
                 query = URL_SCHEME_HTTP + query;
             }
             return query;
