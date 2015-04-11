@@ -9,6 +9,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.*;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -124,6 +126,12 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         searchPanel = (RelativeLayout) findViewById(R.id.browser_search_panel);
         searchSeparator = findViewById(R.id.browser_search_separator);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            searchPanel.setElevation(ViewUnit.dp2px(this, 2));
+            searchSeparator.setVisibility(View.GONE);
+        } else {
+            searchSeparator.setVisibility(View.GONE);
+        }
         searchBox = (EditText) findViewById(R.id.browser_search_box);
         searchUpButton = (ImageButton) findViewById(R.id.browser_search_up_button);
         searchDownButton = (ImageButton) findViewById(R.id.browser_search_down_button);
@@ -209,6 +217,40 @@ public class BrowserActivity extends Activity implements BrowserController {
             }
         });
 
+        searchBox.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                /* Do nothing */
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                /* Do nothing */
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (currentView != null) {
+                    currentView.findAllAsync(editable.toString());
+                }
+            }
+        });
+        searchBox.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+                if (!(actionId == EditorInfo.IME_ACTION_DONE)) {
+                    return false;
+                }
+
+                if (searchBox.getText().toString().isEmpty()) {
+                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_input_empty, Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+
+                return false;
+            }
+        });
+
         searchUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -218,7 +260,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                     return;
                 }
 
-                searchInPage(query, true);
+                currentView.findNext(false);
             }
         });
 
@@ -231,7 +273,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                     return;
                 }
 
-                searchInPage(query, false);
+                currentView.findNext(true);
             }
         });
 
@@ -635,9 +677,5 @@ public class BrowserActivity extends Activity implements BrowserController {
         hideSoftInput(searchBox);
         searchPanel.setVisibility(View.GONE);
         searchBox.setText("");
-    }
-
-    private void searchInPage(String query, boolean up) {
-        // TODO
     }
 }

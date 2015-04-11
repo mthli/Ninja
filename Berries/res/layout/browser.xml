@@ -153,7 +153,8 @@
               android:layout_width="match_parent"
               android:layout_height="0.5dp"
               android:layout_alignParentTop="true"
-              android:background="@color/gray_300">
+              android:background="@color/gray_300"
+              android:visibility="gone">
         </View>
 
         <LinearLayout android:id="@+id/browser_search_button_layout"
@@ -206,6 +207,7 @@
                   android:textColorHint="@color/hint"
                   android:textCursorDrawable="@null"
                   android:textSize="16sp"
+                  android:imeOptions="actionDone"
                   android:inputType="text"
                   android:singleLine="true"
                   android:background="@color/white">
