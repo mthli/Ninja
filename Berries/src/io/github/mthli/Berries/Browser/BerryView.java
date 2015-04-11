@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Message;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -12,6 +13,11 @@ import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.BrowserUnit;
 import io.github.mthli.Berries.Unit.RecordUnit;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class BerryView extends WebView {
     private Context context;
@@ -159,6 +165,13 @@ public class BerryView extends WebView {
         // TODO
         setWebViewClient(webViewClient);
         setWebChromeClient(webChromeClient);
+        setOnTouchListener(new OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                gestureDetector.onTouchEvent(motionEvent);
+                return false;
+            }
+        });
     }
 
     private synchronized void initWebSettings() {
