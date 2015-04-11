@@ -32,16 +32,21 @@ import java.util.*;
 
 public class BrowserActivity extends Activity implements BrowserController {
     private LinearLayout controlPanel;
-    private ImageButton overflowButton;
-
     private HorizontalScrollView tabsScroll;
     private LinearLayout tabsContainer;
     private ImageButton addTabButton;
     private ImageButton bookmarkButton;
     private AutoCompleteTextView inputBox;
     private ImageButton refreshButton;
+    private ImageButton overflowButton;
     private LinearLayout progressWrapper;
     private ProgressBar progressBar;
+
+    private RelativeLayout searchPanel;
+    private EditText searchBox;
+    private ImageButton searchUpButton;
+    private ImageButton searchDownButton;
+    private ImageButton searchCancelButton;
 
     private FrameLayout browserFrame;
     private BerryView currentView = null;
@@ -106,26 +111,27 @@ public class BrowserActivity extends Activity implements BrowserController {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             controlPanel.setElevation(ViewUnit.dp2px(this, 2));
         }
-        overflowButton = (ImageButton) findViewById(R.id.browser_overflow_button);
-
         tabsScroll = (HorizontalScrollView) findViewById(R.id.browser_tabs_scroll);
         tabsContainer = (LinearLayout) findViewById(R.id.browser_tabs_container);
         addTabButton = (ImageButton) findViewById(R.id.browser_add_tab_button);
         bookmarkButton = (ImageButton) findViewById(R.id.browser_bookmark_button);
         inputBox = (AutoCompleteTextView) findViewById(R.id.browser_input_box);
         refreshButton = (ImageButton) findViewById(R.id.browser_refresh_button);
+        overflowButton = (ImageButton) findViewById(R.id.browser_overflow_button);
         progressWrapper = (LinearLayout) findViewById(R.id.browser_progress_wrapper);
         progressBar = (ProgressBar) findViewById(R.id.browser_progress_bar);
 
+        searchPanel = (RelativeLayout) findViewById(R.id.browser_search_panel);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            controlPanel.setElevation(ViewUnit.dp2px(this, 2));
+        }
+        searchBox = (EditText) findViewById(R.id.browser_search_box);
+        searchUpButton = (ImageButton) findViewById(R.id.browser_search_up_button);
+        searchDownButton = (ImageButton) findViewById(R.id.browser_search_down_button);
+        searchCancelButton = (ImageButton) findViewById(R.id.browser_search_cancel_button);
+
         browserFrame = (FrameLayout) findViewById(R.id.browser_frame);
         newTab(R.string.browser_tab_home, false, true, null);
-
-        overflowButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showBrowserMenu();
-            }
-        });
 
         addTabButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -189,12 +195,53 @@ public class BrowserActivity extends Activity implements BrowserController {
                     return false;
                 }
                 currentView.loadUrl(BrowserUnit.queryWrapper(BrowserActivity.this, query));
-                hideSoftInput();
+                inputBox.clearFocus();
+                hideSearchPanel();
 
                 return false;
             }
         });
         updateAutoComplete();
+
+        overflowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showBrowserMenu();
+            }
+        });
+
+        searchUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String query = searchBox.getText().toString();
+                if (query.isEmpty()) {
+                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_input_empty, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                searchInPage(query, true);
+            }
+        });
+
+        searchDownButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String query = searchBox.getText().toString();
+                if (query.isEmpty()) {
+                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_input_empty, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                searchInPage(query, false);
+            }
+        });
+
+        searchCancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                hideSearchPanel();
+            }
+        });
     }
 
     private synchronized void newTab(int stringResId, boolean incognito, final boolean foreground, final Message resultMsg) {
@@ -202,7 +249,8 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     private synchronized void newTab(String title, boolean incognito, final boolean foreground, final Message resultMsg) {
-        hideSoftInput();
+        inputBox.clearFocus();
+        hideSearchPanel();
 
         final BerryView berryView = new BerryView(this, incognito);
         berryView.setController(this);
@@ -240,7 +288,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 }
                 currentView = berryView;
 
-                browserFrame.addView(currentView);
+                browserFrame.addView(currentView, 0);
                 currentView.activate();
                 tabsScroll.smoothScrollTo(tabView.getLeft(), 0);
                 updateOnmiBox();
@@ -265,7 +313,9 @@ public class BrowserActivity extends Activity implements BrowserController {
         if (berryView == null || berryView.equals(currentView)) {
             return;
         }
-        hideSoftInput();
+
+        inputBox.clearFocus();
+        hideSearchPanel();
 
         if (currentView != null) {
             currentView.deactivate();
@@ -273,7 +323,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
         currentView = berryView;
 
-        browserFrame.addView(currentView);
+        browserFrame.addView(currentView, 0);
         berryView.activate();
         tabsScroll.smoothScrollTo(currentView.getTab().getView().getLeft(), 0);
         updateOnmiBox();
@@ -289,6 +339,9 @@ public class BrowserActivity extends Activity implements BrowserController {
             finish();
             return;
         }
+
+        inputBox.clearFocus();
+        hideSearchPanel();
 
         final View tabView = currentView.getTab().getView();
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.slide_out_down);
@@ -319,7 +372,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 }
 
                 currentView = BerryContainer.get(index);
-                browserFrame.addView(currentView);
+                browserFrame.addView(currentView, 0);
                 currentView.activate();
                 new Handler().post(new Runnable() {
                     @Override
@@ -397,7 +450,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 if (currentView != null) {
                     currentView.loadUrl(BrowserUnit.queryWrapper(BrowserActivity.this, url));
                 }
-                hideSoftInput();
+                hideSoftInput(inputBox);
             }
         });
     }
@@ -405,9 +458,6 @@ public class BrowserActivity extends Activity implements BrowserController {
     @Override
     public void updateInputBox(String query) {
         inputBox.setText(query);
-        if (query != null) {
-            inputBox.setSelection(query.length());
-        }
         inputBox.clearFocus();
     }
 
@@ -448,7 +498,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     private void updateRefreshButton(boolean running) {
         if (running) {
-            refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_cl_button_selector));
+            refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.cl_button_selector));
         } else {
             refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_refresh_button_selector));
         }
@@ -486,12 +536,6 @@ public class BrowserActivity extends Activity implements BrowserController {
         if (url != null) {
             // TODO
         }
-    }
-
-    private void hideSoftInput() {
-        inputBox.clearFocus();
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(inputBox.getWindowToken(), 0);
     }
 
     private boolean prepareRecord() {
@@ -544,10 +588,11 @@ public class BrowserActivity extends Activity implements BrowserController {
                         // TODO
                         break;
                     case 2:
-                        // TODO
+                        if (searchPanel.getVisibility() == View.GONE) {
+                            showSearchPanel();
+                        }
                         break;
                     case 3:
-                        // TODO
                         if (prepareRecord()) {
                             IntentUnit.share(BrowserActivity.this, currentView.getTitle(), currentView.getUrl());
                         } else {
@@ -568,5 +613,32 @@ public class BrowserActivity extends Activity implements BrowserController {
                 dialog.dismiss();
             }
         });
+    }
+
+    private void showSoftInput(View view) {
+        view.requestFocus();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+    }
+
+    private void hideSoftInput(View view) {
+        view.clearFocus();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    private void showSearchPanel() {
+        searchPanel.setVisibility(View.VISIBLE);
+        showSoftInput(searchBox);
+    }
+
+    private void hideSearchPanel() {
+        hideSoftInput(searchBox);
+        searchPanel.setVisibility(View.GONE);
+        searchBox.setText("");
+    }
+
+    private void searchInPage(String query, boolean up) {
+        // TODO
     }
 }

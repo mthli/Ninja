@@ -53,7 +53,6 @@ public class NotificationUnit {
             }
         }
 
-        // TODO: SDK
         Intent toService = new Intent(context, HolderService.class);
         toService.putExtra(IntentUnit.QUIT, true);
         PendingIntent quit = PendingIntent.getService(context, 0, toService, 0);
