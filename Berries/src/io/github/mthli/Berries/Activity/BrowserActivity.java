@@ -43,6 +43,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     private ProgressBar progressBar;
 
     private RelativeLayout searchPanel;
+    private View searchSeparator;
     private EditText searchBox;
     private ImageButton searchUpButton;
     private ImageButton searchDownButton;
@@ -122,9 +123,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         progressBar = (ProgressBar) findViewById(R.id.browser_progress_bar);
 
         searchPanel = (RelativeLayout) findViewById(R.id.browser_search_panel);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            controlPanel.setElevation(ViewUnit.dp2px(this, 2));
-        }
+        searchSeparator = findViewById(R.id.browser_search_separator);
         searchBox = (EditText) findViewById(R.id.browser_search_box);
         searchUpButton = (ImageButton) findViewById(R.id.browser_search_up_button);
         searchDownButton = (ImageButton) findViewById(R.id.browser_search_down_button);

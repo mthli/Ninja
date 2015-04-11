@@ -149,6 +149,13 @@
                     android:background="@color/white"
                     android:visibility="gone">
 
+        <View android:id="@+id/browser_search_separator"
+              android:layout_width="match_parent"
+              android:layout_height="0.5dp"
+              android:layout_alignParentTop="true"
+              android:background="@color/gray_300">
+        </View>
+
         <LinearLayout android:id="@+id/browser_search_button_layout"
                       android:orientation="horizontal"
                       android:layout_width="wrap_content"
