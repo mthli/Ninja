@@ -3,6 +3,7 @@ package io.github.mthli.Berries.Activity;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.Database.RecordAction;
 import io.github.mthli.Berries.R;
@@ -60,7 +62,14 @@ public class HistoryActivity extends Activity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                // TODO
+                Record record = list.get(position);
+                Intent intent = new Intent();
+                intent.putExtra(IntentUnit.TITLE, record.getTitle());
+                intent.putExtra(IntentUnit.URL, record.getURL());
+                intent.putExtra(IntentUnit.INCOGNITO, false);
+                intent.putExtra(IntentUnit.RESTORE, false);
+                setResult(IntentUnit.RESULT_HISTORY, intent);
+                finish();
             }
         });
 
@@ -103,7 +112,7 @@ public class HistoryActivity extends Activity {
         return super.onOptionsItemSelected(menuItem);
     }
 
-    private void showListMenu(int position) {
+    private void showListMenu(final int location) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
 
@@ -127,20 +136,23 @@ public class HistoryActivity extends Activity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 RecordAction action = new RecordAction(HistoryActivity.this);
                 action.open(true);
-                Record record = HistoryActivity.this.list.get(position);
+                Record record = HistoryActivity.this.list.get(location);
 
                 switch (position) {
                     case 0:
+                        Toast.makeText(HistoryActivity.this, R.string.list_toast_open_in_new_tab_successful, Toast.LENGTH_SHORT).show();
                         break;
                     case 1:
+                        Toast.makeText(HistoryActivity.this, R.string.list_toast_open_in_incognito_tab_successful, Toast.LENGTH_SHORT).show();
                         break;
                     case 2:
                         IntentUnit.share(HistoryActivity.this, record.getTitle(), record.getURL());
                         break;
                     case 3:
                         action.deleteHistory(record);
-                        HistoryActivity.this.list.remove(position);
+                        HistoryActivity.this.list.remove(location);
                         HistoryActivity.this.adapter.notifyDataSetChanged();
+                        Toast.makeText(HistoryActivity.this, R.string.list_toast_delete_successful, Toast.LENGTH_SHORT).show();
                         break;
                     default:
                         break;

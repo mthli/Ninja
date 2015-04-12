@@ -80,7 +80,16 @@
 
     <!-- List -->
     <string name="list_empty">
-        Current list is empty.
+        Current list is empty
+    </string>
+    <string name="list_toast_open_in_new_tab_successful">
+        Open in new tab successful
+    </string>
+    <string name="list_toast_open_in_incognito_tab_successful">
+        Open in incognito tab successful
+    </string>
+    <string name="list_toast_delete_successful">
+        Delete successful
     </string>
     <string-array name="list_menu">
         <item>Open in new tab</item>

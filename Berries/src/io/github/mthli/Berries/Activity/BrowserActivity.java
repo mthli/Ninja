@@ -433,6 +433,10 @@ public class BrowserActivity extends Activity implements BrowserController {
         tabView.startAnimation(animation);
     }
 
+    private synchronized void restoreTab() {
+        // TODO
+    }
+
     @Override
     public void updateBookmarkButton() {
         if (currentView == null) {
@@ -654,7 +658,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                         break;
                     case 1:
                         Intent toHistory = new Intent(BrowserActivity.this, HistoryActivity.class);
-                        startActivityForResult(toHistory, IntentUnit.REUQEST_HISTORY);
+                        startActivityForResult(toHistory, IntentUnit.REQUEST_HISTORY);
                         break;
                     case 2:
                         if (searchPanel.getVisibility() == View.GONE) {

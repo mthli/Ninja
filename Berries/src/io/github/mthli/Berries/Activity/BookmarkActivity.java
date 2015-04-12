@@ -62,7 +62,14 @@ public class BookmarkActivity extends Activity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                // TODO
+                Record record = list.get(position);
+                Intent intent = new Intent();
+                intent.putExtra(IntentUnit.TITLE, record.getTitle());
+                intent.putExtra(IntentUnit.URL, record.getURL());
+                intent.putExtra(IntentUnit.INCOGNITO, false);
+                intent.putExtra(IntentUnit.RESTORE, false);
+                setResult(IntentUnit.RESULT_BOOKMARK, intent);
+                finish();
             }
         });
 
@@ -109,7 +116,12 @@ public class BookmarkActivity extends Activity {
         return super.onOptionsItemSelected(menuItem);
     }
 
-    private void showListMenu(int position) {
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // TODO
+    }
+
+    private void showListMenu(final int location) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
 
@@ -134,20 +146,23 @@ public class BookmarkActivity extends Activity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 RecordAction action = new RecordAction(BookmarkActivity.this);
                 action.open(true);
-                Record record = BookmarkActivity.this.list.get(position);
+                Record record = BookmarkActivity.this.list.get(location);
 
                 switch (position) {
                     case 0:
+                        Toast.makeText(BookmarkActivity.this, R.string.list_toast_open_in_new_tab_successful, Toast.LENGTH_SHORT).show();
                         break;
                     case 1:
+                        Toast.makeText(BookmarkActivity.this, R.string.list_toast_open_in_incognito_tab_successful, Toast.LENGTH_SHORT).show();
                         break;
                     case 2:
                         IntentUnit.share(BookmarkActivity.this, record.getTitle(), record.getURL());
                         break;
                     case 3:
                         action.deleteHistory(record);
-                        BookmarkActivity.this.list.remove(position);
+                        BookmarkActivity.this.list.remove(location);
                         BookmarkActivity.this.adapter.notifyDataSetChanged();
+                        Toast.makeText(BookmarkActivity.this, R.string.list_toast_delete_successful, Toast.LENGTH_SHORT).show();
                         break;
                     default:
                         break;
