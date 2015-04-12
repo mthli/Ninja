@@ -2,6 +2,8 @@ package io.github.mthli.Berries.Activity;
 
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.AlertDialog;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,13 +11,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.Database.RecordAction;
 import io.github.mthli.Berries.R;
+import io.github.mthli.Berries.Unit.IntentUnit;
 import io.github.mthli.Berries.Unit.ViewUnit;
+import io.github.mthli.Berries.View.DialogAdapter;
 import io.github.mthli.Berries.View.ListAdapter;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BookmarkActivity extends Activity {
@@ -61,7 +69,7 @@ public class BookmarkActivity extends Activity {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long id) {
-                // TODO
+                showListMenu(position);
                 return true;
             }
         });
@@ -99,5 +107,56 @@ public class BookmarkActivity extends Activity {
 
         action.close();
         return super.onOptionsItemSelected(menuItem);
+    }
+
+    private void showListMenu(int position) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+
+        LinearLayout linearLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog, null, false);
+        builder.setView(linearLayout);
+
+        String[] strings = getResources().getStringArray(R.array.list_menu);
+        List<String> list = new ArrayList<String>();
+        list.addAll(Arrays.asList(strings));
+
+        ListView listView = (ListView) linearLayout.findViewById(R.id.dialog_listview);
+        DialogAdapter adapter = new DialogAdapter(this, R.layout.dialog_item, list);
+        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                RecordAction action = new RecordAction(BookmarkActivity.this);
+                action.open(true);
+                Record record = BookmarkActivity.this.list.get(position);
+
+                switch (position) {
+                    case 0:
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        IntentUnit.share(BookmarkActivity.this, record.getTitle(), record.getURL());
+                        break;
+                    case 3:
+                        action.deleteHistory(record);
+                        BookmarkActivity.this.list.remove(position);
+                        BookmarkActivity.this.adapter.notifyDataSetChanged();
+                        break;
+                    default:
+                        break;
+                }
+
+                action.close();
+                dialog.hide();
+                dialog.dismiss();
+            }
+        });
     }
 }
