@@ -11,7 +11,7 @@ public class BerryContextWrapper extends ContextWrapper {
     public BerryContextWrapper(Context context) {
         super(context);
         this.context = context;
-        this.context.setTheme(R.style.Browser);
+        this.context.setTheme(R.style.BrowserActivityTheme);
     }
 
     @Override

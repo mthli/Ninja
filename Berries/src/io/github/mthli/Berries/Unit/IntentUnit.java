@@ -5,6 +5,11 @@ import android.content.Intent;
 import android.net.MailTo;
 
 public class IntentUnit {
+    public static final int REQUEST_BOOKMARK = 0x100;
+    public static final int RESULT_BOOKMARK = 0x101;
+    public static final int REUQEST_HISTORY = 0x102;
+    public static final int RESULT_HISTORY = 0x103;
+
     public static final String LIST = "LIST";
     public static final String QUIT = "QUIT";
 

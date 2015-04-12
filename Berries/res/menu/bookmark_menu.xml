@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/bookmark_menu_search"
+          android:title="@string/bookmark_menu_search"
+          android:icon="@drawable/ic_action_search"
+          android:showAsAction="ifRoom">
+    </item>
+
+    <item android:id="@+id/bookmark_menu_import"
+          android:title="@string/bookmark_menu_import"
+          android:showAsAction="collapseActionView">
+    </item>
+
+    <item android:id="@+id/bookmark_menu_backup"
+          android:title="@string/bookmark_menu_backup"
+          android:showAsAction="collapseActionView">
+    </item>
+
+    <item android:id="@+id/bookmark_menu_clear"
+          android:title="@string/bookmark_menu_clear"
+          android:showAsAction="collapseActionView">
+    </item>
+
+</menu>

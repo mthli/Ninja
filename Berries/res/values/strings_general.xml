@@ -7,6 +7,23 @@
         Just now
     </string>
 
+    <!-- Bookmark -->
+    <string name="bookmark_label">
+        Bookmarks
+    </string>
+    <string name="bookmark_menu_search">
+        Search
+    </string>
+    <string name="bookmark_menu_import">
+        Import
+    </string>
+    <string name="bookmark_menu_backup">
+        Buck up
+    </string>
+    <string name="bookmark_menu_clear">
+        Clear
+    </string>
+
     <!-- Browser -->
     <string name="browser_hint_url_input">
         Search or type URL
@@ -44,8 +61,6 @@
     <string name="browser_toast_share_failed">
         Can\'t share this page
     </string>
-    
-    <!-- Menu -->
     <string-array name="browser_menu">
         <item>Bookmarks</item>
         <item>History</item>
@@ -53,6 +68,25 @@
         <item>Share</item>
         <item>Setting</item>
         <item>Quit</item>
+    </string-array>
+
+    <!-- History -->
+    <string name="history_label">
+        History
+    </string>
+    <string name="history_menu_clear">
+        Clear
+    </string>
+
+    <!-- List -->
+    <string name="list_empty">
+        Current list is empty.
+    </string>
+    <string-array name="list_menu">
+        <item>Open in new tab</item>
+        <item>Open in incognito tab</item>
+        <item>Share</item>
+        <item>Delete</item>
     </string-array>
 
     <!-- Notification -->
@@ -67,6 +101,11 @@
     </string>
     <string name="notification_action_quit">
         Quit
+    </string>
+
+    <!-- Setting -->
+    <string name="setting_label">
+        Setting
     </string>
 
 </resources>

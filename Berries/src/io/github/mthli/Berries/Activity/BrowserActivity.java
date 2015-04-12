@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -130,7 +131,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             searchPanel.setElevation(ViewUnit.dp2px(this, 2));
             searchSeparator.setVisibility(View.GONE);
         } else {
-            searchSeparator.setVisibility(View.GONE);
+            searchSeparator.setVisibility(View.VISIBLE);
         }
         searchBox = (EditText) findViewById(R.id.browser_search_box);
         searchUpButton = (ImageButton) findViewById(R.id.browser_search_up_button);
@@ -552,10 +553,12 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         updateProgress(currentView.getProgress());
         updateBookmarkButton();
-        if (currentView.getUrl() == null) {
+        if (currentView.getUrl() == null && currentView.getOriginalUrl() == null) {
             updateInputBox(null);
-        } else {
+        } else if (currentView.getUrl() != null){
             updateInputBox(currentView.getUrl());
+        } else if (currentView.getOriginalUrl() != null) {
+            updateInputBox(currentView.getOriginalUrl());
         }
     }
 
@@ -577,6 +580,29 @@ public class BrowserActivity extends Activity implements BrowserController {
         if (url != null) {
             // TODO
         }
+    }
+
+    private void showSoftInput(View view) {
+        view.requestFocus();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+    }
+
+    private void hideSoftInput(View view) {
+        view.clearFocus();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    private void showSearchPanel() {
+        searchPanel.setVisibility(View.VISIBLE);
+        showSoftInput(searchBox);
+    }
+
+    private void hideSearchPanel() {
+        hideSoftInput(searchBox);
+        searchPanel.setVisibility(View.GONE);
+        searchBox.setText("");
     }
 
     private boolean prepareRecord() {
@@ -623,10 +649,12 @@ public class BrowserActivity extends Activity implements BrowserController {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 switch (position) {
                     case 0:
-                        // TODO
+                        Intent toBookmark = new Intent(BrowserActivity.this, BookmarkActivity.class);
+                        startActivityForResult(toBookmark, IntentUnit.REQUEST_BOOKMARK);
                         break;
                     case 1:
-                        // TODO
+                        Intent toHistory = new Intent(BrowserActivity.this, HistoryActivity.class);
+                        startActivityForResult(toHistory, IntentUnit.REUQEST_HISTORY);
                         break;
                     case 2:
                         if (searchPanel.getVisibility() == View.GONE) {
@@ -656,26 +684,8 @@ public class BrowserActivity extends Activity implements BrowserController {
         });
     }
 
-    private void showSoftInput(View view) {
-        view.requestFocus();
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
-    }
-
-    private void hideSoftInput(View view) {
-        view.clearFocus();
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-    }
-
-    private void showSearchPanel() {
-        searchPanel.setVisibility(View.VISIBLE);
-        showSoftInput(searchBox);
-    }
-
-    private void hideSearchPanel() {
-        hideSoftInput(searchBox);
-        searchPanel.setVisibility(View.GONE);
-        searchBox.setText("");
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // TODO
     }
 }
