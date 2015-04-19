@@ -84,7 +84,7 @@ public class BerryWebViewClient extends WebViewClient {
     public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
         if (adBlock.isAd(url)) {
             return new WebResourceResponse(
-                    BrowserUnit.URL_TYPE_TEXT_PLAIN,
+                    BrowserUnit.MIME_TYPE_TEXT_PLAIN,
                     BrowserUnit.URL_ENCODING,
                     new ByteArrayInputStream("".getBytes())
             );
@@ -98,7 +98,7 @@ public class BerryWebViewClient extends WebViewClient {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             if (adBlock.isAd(request.getUrl().toString())) {
                 return new WebResourceResponse(
-                        BrowserUnit.URL_TYPE_TEXT_PLAIN,
+                        BrowserUnit.MIME_TYPE_TEXT_PLAIN,
                         BrowserUnit.URL_ENCODING,
                         new ByteArrayInputStream("".getBytes())
                 );

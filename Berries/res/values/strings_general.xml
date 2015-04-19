@@ -129,5 +129,8 @@
     <string name="toast_share_failed">
         Can\'t share this page
     </string>
+    <string name="toast_start_download">
+        Start download&#8230;
+    </string>
 
 </resources>

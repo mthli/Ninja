@@ -1002,7 +1002,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 } else if (string.equals(getString(R.string.berry_menu_copy_url))) {
                     BrowserUnit.copy(BrowserActivity.this, target);
                 } else if (string.equals(getString(R.string.berry_menu_save_picture))) {
-                    // TODO
+                    BrowserUnit.download(BrowserActivity.this, target, target, BrowserUnit.MIME_TYPE_IMAGE);
                 }
                 dialog.hide();
                 dialog.dismiss();

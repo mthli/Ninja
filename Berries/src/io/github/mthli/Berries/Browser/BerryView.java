@@ -40,6 +40,7 @@ public class BerryView extends WebView implements TabController {
     private BerryTab berryTab;
     private BerryWebViewClient webViewClient;
     private BerryWebChromeClient webChromeClient;
+    private BerryDownloadListener downloadListener;
     private BerryClickHandler clickHandler;
     private GestureDetector gestureDetector;
 
@@ -61,6 +62,7 @@ public class BerryView extends WebView implements TabController {
         this.berryTab = new BerryTab(this);
         this.webViewClient = new BerryWebViewClient(this);
         this.webChromeClient = new BerryWebChromeClient(this);
+        this.downloadListener = new BerryDownloadListener(this.context);
         this.clickHandler = new BerryClickHandler(this);
         this.gestureDetector = new GestureDetector(context, new BerryGestureListener(this));
 
@@ -79,6 +81,7 @@ public class BerryView extends WebView implements TabController {
         this.berryTab = new BerryTab(this);
         this.webViewClient = new BerryWebViewClient(this);
         this.webChromeClient = new BerryWebChromeClient(this);
+        this.downloadListener = new BerryDownloadListener(this.context);
         this.clickHandler = new BerryClickHandler(this);
         this.gestureDetector = new GestureDetector(context, new BerryGestureListener(this));
 
@@ -97,6 +100,7 @@ public class BerryView extends WebView implements TabController {
         this.berryTab = new BerryTab(this);
         this.webViewClient = new BerryWebViewClient(this);
         this.webChromeClient = new BerryWebChromeClient(this);
+        this.downloadListener = new BerryDownloadListener(this.context);
         this.clickHandler = new BerryClickHandler(this);
         this.gestureDetector = new GestureDetector(context, new BerryGestureListener(this));
 
@@ -115,6 +119,7 @@ public class BerryView extends WebView implements TabController {
         this.berryTab = new BerryTab(this);
         this.webViewClient = new BerryWebViewClient(this);
         this.webChromeClient = new BerryWebChromeClient(this);
+        this.downloadListener = new BerryDownloadListener(this.context);
         this.clickHandler = new BerryClickHandler(this);
         this.gestureDetector = new GestureDetector(context, new BerryGestureListener(this));
 
@@ -144,6 +149,7 @@ public class BerryView extends WebView implements TabController {
 
         setWebViewClient(webViewClient);
         setWebChromeClient(webChromeClient);
+        setDownloadListener(downloadListener);
         setOnTouchListener(new OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {

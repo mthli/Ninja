@@ -1,11 +1,15 @@
 package io.github.mthli.Berries.Unit;
 
+import android.app.DownloadManager;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
+import android.os.Environment;
+import android.webkit.URLUtil;
 import android.widget.Toast;
 import io.github.mthli.Berries.R;
 
@@ -18,17 +22,6 @@ public class BrowserUnit {
     public static final int PROGRESS_MAX = 100;
     public static final int PROGRESS_MIN = 0;
 
-    public static final String URL_ENCODING = "UTF-8";
-    public static final String URL_TYPE_TEXT_PLAIN = "text/plain";
-
-    public static final String URL_SCHEME_ABOUT = "about:";
-    public static final String URL_SCHEME_MAIL_TO = "mailto:";
-    public static final String URL_SCHEME_FILE = "file://";
-    public static final String URL_SCHEME_FTP = "ftp://";
-    public static final String URL_SCHEME_HTTP = "http://";
-    public static final String URL_SCHEME_HTTPS = "https://";
-    public static final String URL_SCHEME_INTENT = "intent://";
-
     public static final String ABOUT_BLANK = "about:blank";
     public static final String ABOUT_HOME = "about:home";
 
@@ -36,10 +29,22 @@ public class BrowserUnit {
     public static final int FLAG_BOOKMARKS = 0x101;
     public static final int FLAG_HISTORY = 0x102;
 
+    public static final String MIME_TYPE_TEXT_PLAIN = "text/plain";
+    public static final String MIME_TYPE_IMAGE = "image/*";
+
     public static final String SEARCH_ENGINE_GOOGLE = "https://www.google.com/search?q=";
     public static final String SEARCH_ENGINE_DUCKDUCKGO = "https://duckduckgo.com/?q=";
     public static final String SEARCH_ENGINE_BING = "http://www.bing.com/search?q=";
     public static final String SEARCH_ENGINE_BAIDU = "http://www.baidu.com/s?wd=";
+
+    public static final String URL_ENCODING = "UTF-8";
+    public static final String URL_SCHEME_ABOUT = "about:";
+    public static final String URL_SCHEME_MAIL_TO = "mailto:";
+    public static final String URL_SCHEME_FILE = "file://";
+    public static final String URL_SCHEME_FTP = "ftp://";
+    public static final String URL_SCHEME_HTTP = "http://";
+    public static final String URL_SCHEME_HTTPS = "https://";
+    public static final String URL_SCHEME_INTENT = "intent://";
 
     public static boolean isNetworkAvailable(Context context) {
         if (context == null) {
@@ -109,5 +114,17 @@ public class BrowserUnit {
         ClipData data = ClipData.newPlainText(null, url);
         manager.setPrimaryClip(data);
         Toast.makeText(context, R.string.toast_copy_successful, Toast.LENGTH_SHORT).show();
+    }
+
+    public static void download(Context context, String url, String contentDisposition, String mimeType) {
+        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
+        request.allowScanningByMediaScanner();
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        request.setTitle(URLUtil.guessFileName(url, contentDisposition, mimeType));
+        request.setMimeType(mimeType);
+        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, context.getString(R.string.app_name));
+        DownloadManager manager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
+        manager.enqueue(request);
+        Toast.makeText(context, R.string.toast_start_download, Toast.LENGTH_SHORT).show();
     }
 }
