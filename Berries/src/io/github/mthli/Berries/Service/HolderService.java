@@ -67,7 +67,7 @@ public class HolderService extends Service implements BrowserController {
             BrowserContainer.add(view);
             updateNotification();
         } else {
-            Toast.makeText(this, R.string.browser_toast_load_limit, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.toast_load_limit, Toast.LENGTH_SHORT).show();
         }
 
         return START_STICKY;

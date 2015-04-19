@@ -82,13 +82,16 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     @Override
+    public boolean onKeyDown(int keyCode, KeyEvent keyEvent) {
+        // TODO
+        return false;
+    }
+
+    @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         if (newConfig.orientation== Configuration.ORIENTATION_LANDSCAPE) {
-            /* Do nothing */
-        } else {
-            /* Do nothing */
-        }
+        } else {}
     }
 
     private void initControlPanel() {
@@ -114,7 +117,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             @Override
             public boolean onLongClick(View v) {
                 newTab(R.string.browser_tab_home, null, true, true, null);
-                Toast.makeText(BrowserActivity.this, R.string.browser_toast_incognito, Toast.LENGTH_SHORT).show();
+                Toast.makeText(BrowserActivity.this, R.string.toast_incognito, Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
@@ -123,7 +126,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             @Override
             public void onClick(View v) {
                 if (!prepareRecord()) {
-                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_add_bookmark_failed, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BrowserActivity.this, R.string.toast_add_bookmark_failed, Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -133,10 +136,10 @@ public class BrowserActivity extends Activity implements BrowserController {
                 String url = ((BerryView) tabController).getUrl();
                 if (action.checkBookmark(url)) {
                     action.deleteBookmark(url);
-                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_delete_bookmark_successful, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BrowserActivity.this, R.string.toast_delete_bookmark_successful, Toast.LENGTH_SHORT).show();
                 } else {
                     action.addBookmark(new Record(title, url, System.currentTimeMillis()));
-                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_add_bookmark_successful, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BrowserActivity.this, R.string.toast_add_bookmark_successful, Toast.LENGTH_SHORT).show();
                 }
                 action.close();
                 updateBookmarks();
@@ -148,7 +151,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             @Override
             public void onClick(View v) {
                 if (tabController == null) {
-                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_refresh_failed, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BrowserActivity.this, R.string.toast_refresh_failed, Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -180,7 +183,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
                     updateProgress(BrowserUnit.PROGRESS_MAX);
                 } else {
-                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_refresh_failed, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BrowserActivity.this, R.string.toast_refresh_failed, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -194,7 +197,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
                 String query = inputBox.getText().toString().trim();
                 if (query.isEmpty()) {
-                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_input_empty, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BrowserActivity.this, R.string.toast_input_empty, Toast.LENGTH_SHORT).show();
                     return false;
                 }
 
@@ -257,7 +260,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 }
 
                 if (searchBox.getText().toString().isEmpty()) {
-                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_input_empty, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BrowserActivity.this, R.string.toast_input_empty, Toast.LENGTH_SHORT).show();
                     return true;
                 }
                 return false;
@@ -269,7 +272,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             public void onClick(View v) {
                 String query = searchBox.getText().toString();
                 if (query.isEmpty()) {
-                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_input_empty, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BrowserActivity.this, R.string.toast_input_empty, Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (tabController instanceof BerryView) {
@@ -283,7 +286,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             public void onClick(View v) {
                 String query = searchBox.getText().toString();
                 if (query.isEmpty()) {
-                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_input_empty, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BrowserActivity.this, R.string.toast_input_empty, Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (tabController instanceof BerryView) {
@@ -350,15 +353,17 @@ public class BrowserActivity extends Activity implements BrowserController {
                         break;
                     case 2:
                         if (tabController == null || !(tabController instanceof BerryView)) {
-                            Toast.makeText(BrowserActivity.this, R.string.browser_toast_search_failed, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(BrowserActivity.this, R.string.toast_search_failed, Toast.LENGTH_SHORT).show();
                         } else if (searchPanel.getVisibility() == View.GONE || (searchPanel.getVisibility() == View.VISIBLE && !searchPanel.hasFocus())) {
                             hideSoftInput(inputBox);
                             showSearchPanel();
                         }
                         break;
                     case 3:
+                        // TODO
                         break;
                     case 4:
+                        // TODO
                         break;
                     case 5:
                         finish();
@@ -413,6 +418,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 if (!foreground) {
                     berryView.loadUrl(url);
                     berryView.deactivate();
+                    tabScroll.smoothScrollTo(tabController.getTabView().getLeft(), 0);
                     return;
                 }
 
@@ -593,7 +599,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
             berryView.loadUrl(url);
         } else {
-            Toast.makeText(this, R.string.browser_toast_load_error, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.toast_load_error, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -683,17 +689,20 @@ public class BrowserActivity extends Activity implements BrowserController {
                 switch (position) {
                     case 0:
                         newTab(getString(R.string.browser_tab_untitled), record.getURL(), false, false, null);
-                        Toast.makeText(BrowserActivity.this, R.string.list_toast_open_in_new_tab_successful, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(BrowserActivity.this, R.string.toast_new_tab_successful, Toast.LENGTH_SHORT).show();
                         break;
                     case 1:
                         newTab(getString(R.string.browser_tab_untitled), record.getURL(), true, false, null);
-                        Toast.makeText(BrowserActivity.this, R.string.list_toast_open_in_incognito_tab_successful, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(BrowserActivity.this, R.string.toast_incognito_tab_successful, Toast.LENGTH_SHORT).show();
                         break;
                     case 2:
+                        // TODO
                         break;
                     case 3:
+                        // TODO
                         break;
                     case 4:
+                        // TODO
                         break;
                     default:
                         break;
@@ -906,5 +915,59 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     @Override
-    public void onLongPress(String url) {}
+    public void onLongPress(String url) {
+        WebView.HitTestResult result;
+        if (!(tabController instanceof BerryView)) {
+            return;
+        }
+        result = ((BerryView) tabController).getHitTestResult();
+
+        final List<String> list = new ArrayList<String>();
+        list.add(getString(R.string.berry_menu_new_tab));
+        list.add(getString(R.string.berry_menu_incognito_tab));
+        list.add(getString(R.string.berry_menu_copy_url));
+        if (result != null && (result.getType() == WebView.HitTestResult.IMAGE_TYPE || result.getType() == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE)) {
+            list.add(getString(R.string.berry_menu_save_picture));
+        }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+
+        LinearLayout linearLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog, null, false);
+        builder.setView(linearLayout);
+
+        ListView listView = (ListView) linearLayout.findViewById(R.id.dialog_listview);
+        DialogAdapter adapter = new DialogAdapter(this, R.layout.dialog_item, list);
+        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        final AlertDialog dialog = builder.create();
+        if (url != null || (result != null && result.getExtra() != null)) {
+            if (url == null) {
+                url = result.getExtra();
+            }
+            dialog.show();
+        }
+
+        final String target = url;
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String string = list.get(position);
+                if (string.equals(getString(R.string.berry_menu_new_tab))) {
+                    newTab(getString(R.string.browser_tab_untitled), target, false, false, null);
+                    Toast.makeText(BrowserActivity.this, R.string.toast_new_tab_successful, Toast.LENGTH_SHORT).show();
+                } else if (string.equals(getString(R.string.berry_menu_incognito_tab))) {
+                    newTab(getString(R.string.browser_tab_untitled), target, true, false, null);
+                    Toast.makeText(BrowserActivity.this, R.string.toast_incognito_tab_successful, Toast.LENGTH_SHORT).show();
+                } else if (string.equals(getString(R.string.berry_menu_copy_url))) {
+                    // TODO
+                } else if (string.equals(getString(R.string.berry_menu_save_picture))) {
+                    // TODO
+                }
+                dialog.hide();
+                dialog.dismiss();
+            }
+        });
+    }
 }

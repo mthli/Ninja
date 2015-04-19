@@ -142,7 +142,6 @@ public class BerryView extends WebView implements TabController {
 
         setWillNotCacheDrawing(false);
 
-        // TODO
         setWebViewClient(webViewClient);
         setWebChromeClient(webChromeClient);
         setOnTouchListener(new OnTouchListener() {

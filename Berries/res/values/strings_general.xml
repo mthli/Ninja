@@ -7,6 +7,20 @@
         Just now
     </string>
 
+    <!-- Berry -->
+    <string name="berry_menu_new_tab">
+        Open in new tab
+    </string>
+    <string name="berry_menu_incognito_tab">
+        Open in incognito tab
+    </string>
+    <string name="berry_menu_copy_url">
+        Copy URL
+    </string>
+    <string name="berry_menu_save_picture">
+        Save picture
+    </string>
+
     <!-- Browser -->
     <string name="browser_hint_url_input">
         Search or type URL
@@ -26,42 +40,6 @@
     <string name="browser_tab_untitled">
         Untitled
     </string>
-    <string name="browser_toast_add_bookmark_successful">
-        Add bookmark successful
-    </string>
-    <string name="browser_toast_add_bookmark_failed">
-        Can\'t add this page to bookmark
-    </string>
-    <string name="browser_toast_delete_bookmark_successful">
-        Delete bookmark successful
-    </string>
-    <string name="browser_toast_incognito">
-        Incognito
-    </string>
-    <string name="browser_toast_input_empty">
-        You haven\'t input anything
-    </string>
-    <string name="browser_toast_load_error">
-        Can\'t load this URL
-    </string>
-    <string name="browser_toast_load_limit">
-        Load limit
-    </string>
-    <string name="browser_toast_network_error">
-        Network is not available
-    </string>
-    <string name="browser_toast_refresh_failed">
-        Can\'t refresh this page
-    </string>
-    <string name="browser_toast_search_already">
-        Search box already show
-    </string>
-    <string name="browser_toast_search_failed">
-        Can\'t search at this page
-    </string>
-    <string name="browser_toast_share_failed">
-        Can\'t share this page
-    </string>
     <string-array name="browser_overflow">
         <item>Bookmarks</item>
         <item>History</item>
@@ -74,15 +52,6 @@
     <!-- List -->
     <string name="list_empty">
         Current list is empty
-    </string>
-    <string name="list_toast_open_in_new_tab_successful">
-        Open in new tab successful
-    </string>
-    <string name="list_toast_open_in_incognito_tab_successful">
-        Open in incognito tab successful
-    </string>
-    <string name="list_toast_delete_successful">
-        Delete successful
     </string>
     <string-array name="list_menu">
         <item>Open in new tab</item>
@@ -109,6 +78,53 @@
     <!-- Setting -->
     <string name="setting_label">
         Setting
+    </string>
+
+    <!-- Toast -->
+    <string name="toast_add_bookmark_successful">
+        Add bookmark successful
+    </string>
+    <string name="toast_add_bookmark_failed">
+        Can\'t add this page to bookmark
+    </string>
+    <string name="toast_delete_bookmark_successful">
+        Delete bookmark successful
+    </string>
+    <string name="toast_delete_successful">
+        Delete successful
+    </string>
+    <string name="toast_incognito">
+        Incognito
+    </string>
+    <string name="toast_input_empty">
+        You haven\'t input anything
+    </string>
+    <string name="toast_load_error">
+        Can\'t load this URL
+    </string>
+    <string name="toast_load_limit">
+        Load limit
+    </string>
+    <string name="toast_network_error">
+        Network is not available
+    </string>
+    <string name="toast_new_tab_successful">
+        Open in new tab successful
+    </string>
+    <string name="toast_incognito_tab_successful">
+        Open in incognito tab successful
+    </string>
+    <string name="toast_refresh_failed">
+        Can\'t refresh this page
+    </string>
+    <string name="toast_search_already">
+        Search box already show
+    </string>
+    <string name="toast_search_failed">
+        Can\'t search at this page
+    </string>
+    <string name="toast_share_failed">
+        Can\'t share this page
     </string>
 
 </resources>
