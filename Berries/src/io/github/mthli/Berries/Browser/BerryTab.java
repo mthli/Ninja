@@ -40,11 +40,7 @@ public class BerryTab {
         view.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                if (berryView.getTitle() == null || berryView.getTitle().isEmpty()) {
-                    Toast.makeText(context, R.string.browser_tab_home, Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(context, berryView.getTitle(), Toast.LENGTH_SHORT).show();
-                }
+                Toast.makeText(context, title.getText().toString(), Toast.LENGTH_SHORT).show();
                 return true;
             }
         });

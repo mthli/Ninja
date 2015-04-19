@@ -67,7 +67,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         initControlPanel();
         initSearchPanel();
         browserFrame = (FrameLayout) findViewById(R.id.browser_frame);
-        newTab(R.string.browser_tab_home, null, false, true, null);
+        newTab(R.string.browser_tab_home, BrowserUnit.ABOUT_HOME, false, true, null);
     }
 
     @Override
@@ -129,13 +129,13 @@ public class BrowserActivity extends Activity implements BrowserController {
         addTabButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                newTab(R.string.browser_tab_home, null, false, true, null);
+                newTab(R.string.browser_tab_home, BrowserUnit.ABOUT_HOME, false, true, null);
             }
         });
         addTabButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                newTab(R.string.browser_tab_home, null, true, true, null);
+                newTab(R.string.browser_tab_home, BrowserUnit.ABOUT_HOME, true, true, null);
                 Toast.makeText(BrowserActivity.this, R.string.toast_incognito, Toast.LENGTH_SHORT).show();
                 return true;
             }
@@ -456,7 +456,9 @@ public class BrowserActivity extends Activity implements BrowserController {
                 tabController = berryView;
                 updateOmniBox();
 
-                if (resultMsg != null) {
+                if (url != null) {
+                    berryView.loadUrl(url); // TODO: about:home
+                } else if (resultMsg != null) {
                     WebView.WebViewTransport transport = (WebView.WebViewTransport) resultMsg.obj;
                     transport.setWebView(berryView);
                     resultMsg.sendToTarget();
