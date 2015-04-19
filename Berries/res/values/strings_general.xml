@@ -7,29 +7,18 @@
         Just now
     </string>
 
-    <!-- Bookmark -->
-    <string name="bookmark_label">
-        Bookmarks
-    </string>
-    <string name="bookmark_menu_search">
-        Search
-    </string>
-    <string name="bookmark_menu_import">
-        Import
-    </string>
-    <string name="bookmark_menu_backup">
-        Buck up
-    </string>
-    <string name="bookmark_menu_clear">
-        Clear
-    </string>
-
     <!-- Browser -->
     <string name="browser_hint_url_input">
         Search or type URL
     </string>
     <string name="browser_hint_search">
         Search
+    </string>
+    <string name="browser_tab_bookmarks">
+        Bookmarks
+    </string>
+    <string name="browser_tab_history">
+        History
     </string>
     <string name="browser_tab_home">
         Homepage
@@ -52,16 +41,28 @@
     <string name="browser_toast_input_empty">
         You haven\'t input anything
     </string>
+    <string name="browser_toast_load_error">
+        Can\'t load this URL
+    </string>
     <string name="browser_toast_load_limit">
         Load limit
     </string>
     <string name="browser_toast_network_error">
         Network is not available
     </string>
+    <string name="browser_toast_refresh_failed">
+        Can\'t refresh this page
+    </string>
+    <string name="browser_toast_search_already">
+        Search box already show
+    </string>
+    <string name="browser_toast_search_failed">
+        Can\'t search at this page
+    </string>
     <string name="browser_toast_share_failed">
         Can\'t share this page
     </string>
-    <string-array name="browser_menu">
+    <string-array name="browser_overflow">
         <item>Bookmarks</item>
         <item>History</item>
         <item>Search in page</item>
@@ -69,14 +70,6 @@
         <item>Setting</item>
         <item>Quit</item>
     </string-array>
-
-    <!-- History -->
-    <string name="history_label">
-        History
-    </string>
-    <string name="history_menu_clear">
-        Clear
-    </string>
 
     <!-- List -->
     <string name="list_empty">
@@ -94,6 +87,7 @@
     <string-array name="list_menu">
         <item>Open in new tab</item>
         <item>Open in incognito tab</item>
+        <item>Copy URL</item>
         <item>Share</item>
         <item>Delete</item>
     </string-array>

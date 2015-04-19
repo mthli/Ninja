@@ -55,18 +55,6 @@
             </intent-filter>
         </activity>
 
-        <!-- BookmarkActivity -->
-        <activity android:name=".Activity.BookmarkActivity"
-                  android:label="@string/bookmark_label"
-                  android:theme="@style/ListActivityTheme">
-        </activity>
-
-        <!-- HistoryActivity -->
-        <activity android:name=".Activity.HistoryActivity"
-                  android:label="@string/history_label"
-                  android:theme="@style/ListActivityTheme">
-        </activity>
-
         <!-- SettingActivity -->
         <activity android:name=".Activity.SettingActivity"
                   android:label="@string/setting_label"

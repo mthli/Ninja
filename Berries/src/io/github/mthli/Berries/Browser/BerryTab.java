@@ -8,7 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import io.github.mthli.Berries.R;
 
-public class Tab {
+public class BerryTab {
     private BerryView berryView;
     private Context context;
 
@@ -22,7 +22,7 @@ public class Tab {
     private TextView title;
     private ImageButton closeButton;
 
-    public Tab(BerryView berryView) {
+    public BerryTab(BerryView berryView) {
         this.berryView = berryView;
         this.context = berryView.getContext();
         this.incognito = berryView.isIncognito();

@@ -17,8 +17,9 @@ import io.github.mthli.Berries.Unit.IntentUnit;
 
 import java.net.URISyntaxException;
 
-public class BerryView extends WebView {
+public class BerryView extends WebView implements TabController {
     private Context context;
+    private int flag = BrowserUnit.FLAG_BERRY;
 
     private boolean foreground;
     public boolean isForeground() {
@@ -36,11 +37,7 @@ public class BerryView extends WebView {
         this.incognito = incognito;
     }
 
-    private Tab tab;
-    public Tab getTab() {
-        return tab;
-    }
-
+    private BerryTab berryTab;
     private BerryWebViewClient webViewClient;
     private BerryWebChromeClient webChromeClient;
     private BerryClickHandler clickHandler;
@@ -61,7 +58,7 @@ public class BerryView extends WebView {
         this.foreground = false;
         this.incognito = false;
 
-        this.tab = new Tab(this);
+        this.berryTab = new BerryTab(this);
         this.webViewClient = new BerryWebViewClient(this);
         this.webChromeClient = new BerryWebChromeClient(this);
         this.clickHandler = new BerryClickHandler(this);
@@ -79,7 +76,7 @@ public class BerryView extends WebView {
         this.foreground = false;
         this.incognito = false;
 
-        this.tab = new Tab(this);
+        this.berryTab = new BerryTab(this);
         this.webViewClient = new BerryWebViewClient(this);
         this.webChromeClient = new BerryWebChromeClient(this);
         this.clickHandler = new BerryClickHandler(this);
@@ -97,7 +94,7 @@ public class BerryView extends WebView {
         this.foreground = false;
         this.incognito = false;
 
-        this.tab = new Tab(this);
+        this.berryTab = new BerryTab(this);
         this.webViewClient = new BerryWebViewClient(this);
         this.webChromeClient = new BerryWebChromeClient(this);
         this.clickHandler = new BerryClickHandler(this);
@@ -115,7 +112,7 @@ public class BerryView extends WebView {
         this.foreground = false;
         this.incognito = incognito;
 
-        this.tab = new Tab(this);
+        this.berryTab = new BerryTab(this);
         this.webViewClient = new BerryWebViewClient(this);
         this.webChromeClient = new BerryWebChromeClient(this);
         this.clickHandler = new BerryClickHandler(this);
@@ -202,6 +199,7 @@ public class BerryView extends WebView {
         if (url == null || url.isEmpty()) {
             return;
         }
+        url = BrowserUnit.queryWrapper(context, url);
 
         if (url.startsWith(BrowserUnit.URL_SCHEME_MAIL_TO)) {
             Intent intent = IntentUnit.getEmailIntent(MailTo.parse(url));
@@ -219,28 +217,50 @@ public class BerryView extends WebView {
 
         super.loadUrl(url);
         if (controller != null && foreground) {
-            controller.updateBookmarkButton();
+            controller.updateBookmarks();
         }
     }
 
+    @Override
     public synchronized void activate() {
         setVisibility(View.VISIBLE);
         requestFocus();
         foreground = true;
-        tab.activate();
+        berryTab.activate();
     }
 
+    @Override
     public synchronized void deactivate() {
         clearFocus();
         setVisibility(View.INVISIBLE);
         foreground = false;
-        tab.deactivate();
+        berryTab.deactivate();
+    }
+
+    @Override
+    public int getFlag() {
+        return flag;
+    }
+
+    @Override
+    public void setFlag(int flag) {
+        this.flag = flag;
+    }
+
+    @Override
+    public View getTabView() {
+        return berryTab.getView();
+    }
+
+    @Override
+    public void setTabTitle(String title) {
+        berryTab.setTitle(title);
     }
 
     public synchronized void update(String title, String url) {
-        tab.setTitle(title);
+        setTabTitle(title);
         if (foreground) {
-            controller.updateBookmarkButton();
+            controller.updateBookmarks();
             controller.updateInputBox(url);
         }
     }

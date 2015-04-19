@@ -7,8 +7,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
-import io.github.mthli.Berries.Browser.BerryContainer;
+import io.github.mthli.Berries.Browser.BrowserContainer;
 import io.github.mthli.Berries.Browser.BerryView;
+import io.github.mthli.Berries.Browser.TabController;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Service.HolderService;
 
@@ -21,12 +22,12 @@ public class NotificationUnit {
         boolean sound = sp.getBoolean(context.getString(R.string.sp_notification_sound), true);
 
         int done = 0;
-        for (BerryView view : BerryContainer.list()) {
-            if (view.isLoadFinish()) {
+        for (TabController controller : BrowserContainer.list()) {
+            if (controller instanceof BerryView && ((BerryView) controller).isLoadFinish()) {
                 done++;
             }
         }
-        int total = BerryContainer.size();
+        int total = BrowserContainer.size();
 
         Notification.Builder builder = new Notification.Builder(context);
         builder.setNumber(total);

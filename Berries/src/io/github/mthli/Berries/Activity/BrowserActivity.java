@@ -4,7 +4,6 @@ import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,23 +19,22 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import android.widget.*;
-import io.github.mthli.Berries.Browser.BerryContainer;
-import io.github.mthli.Berries.Browser.BerryView;
-import io.github.mthli.Berries.Browser.BrowserController;
+import io.github.mthli.Berries.Browser.*;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.Database.RecordAction;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.BrowserUnit;
-import io.github.mthli.Berries.Unit.IntentUnit;
 import io.github.mthli.Berries.Unit.ViewUnit;
 import io.github.mthli.Berries.View.DialogAdapter;
+import io.github.mthli.Berries.View.ListAdapter;
+import io.github.mthli.Berries.View.TabRelativeLayout;
 
 import java.util.*;
 
 public class BrowserActivity extends Activity implements BrowserController {
     private LinearLayout controlPanel;
-    private HorizontalScrollView tabsScroll;
-    private LinearLayout tabsContainer;
+    private HorizontalScrollView tabScroll;
+    private LinearLayout tabContainer;
     private ImageButton addTabButton;
     private ImageButton bookmarkButton;
     private AutoCompleteTextView inputBox;
@@ -53,8 +51,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     private ImageButton searchCancelButton;
 
     private FrameLayout browserFrame;
-    private BerryView currentView = null;
-
+    private TabController tabController;
     private int animTime;
 
     @Override
@@ -65,8 +62,11 @@ public class BrowserActivity extends Activity implements BrowserController {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.browser);
 
-        initUI();
         animTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
+        initControlPanel();
+        initSearchPanel();
+        browserFrame = (FrameLayout) findViewById(R.id.browser_frame);
+        newTab(R.string.browser_tab_home, null, false, true, null);
     }
 
     @Override
@@ -77,27 +77,8 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     @Override
     public void onDestroy() {
-        BerryContainer.clear();
+        BrowserContainer.clear();
         super.onDestroy();
-    }
-
-    @Override
-    public synchronized boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            inputBox.clearFocus();
-
-            if (currentView == null) {
-                finish();
-            } else {
-                if (currentView.canGoBack()) {
-                    currentView.goBack();
-                } else {
-                    deleteTab();
-                }
-            }
-        }
-
-        return true;
     }
 
     @Override
@@ -110,13 +91,11 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
     }
 
-    private void initUI() {
+    private void initControlPanel() {
         controlPanel = (LinearLayout) findViewById(R.id.browser_control_panel);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            controlPanel.setElevation(ViewUnit.dp2px(this, 2));
-        }
-        tabsScroll = (HorizontalScrollView) findViewById(R.id.browser_tabs_scroll);
-        tabsContainer = (LinearLayout) findViewById(R.id.browser_tabs_container);
+        ViewUnit.setElevation(this, controlPanel, 2);
+        tabScroll = (HorizontalScrollView) findViewById(R.id.browser_tabs_scroll);
+        tabContainer = (LinearLayout) findViewById(R.id.browser_tabs_container);
         addTabButton = (ImageButton) findViewById(R.id.browser_add_tab_button);
         bookmarkButton = (ImageButton) findViewById(R.id.browser_bookmark_button);
         inputBox = (AutoCompleteTextView) findViewById(R.id.browser_input_box);
@@ -125,6 +104,122 @@ public class BrowserActivity extends Activity implements BrowserController {
         progressWrapper = (LinearLayout) findViewById(R.id.browser_progress_wrapper);
         progressBar = (ProgressBar) findViewById(R.id.browser_progress_bar);
 
+        addTabButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                newTab(R.string.browser_tab_home, null, false, true, null);
+            }
+        });
+        addTabButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                newTab(R.string.browser_tab_home, null, true, true, null);
+                Toast.makeText(BrowserActivity.this, R.string.browser_toast_incognito, Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+
+        bookmarkButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!prepareRecord()) {
+                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_add_bookmark_failed, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                RecordAction action = new RecordAction(BrowserActivity.this);
+                action.open(true);
+                String title = ((BerryView) tabController).getTitle();
+                String url = ((BerryView) tabController).getUrl();
+                if (action.checkBookmark(url)) {
+                    action.deleteBookmark(url);
+                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_delete_bookmark_successful, Toast.LENGTH_SHORT).show();
+                } else {
+                    action.addBookmark(new Record(title, url, System.currentTimeMillis()));
+                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_add_bookmark_successful, Toast.LENGTH_SHORT).show();
+                }
+                action.close();
+                updateBookmarks();
+                updateAutoComplete();
+            }
+        });
+
+        refreshButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (tabController == null) {
+                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_refresh_failed, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (tabController instanceof BerryView) {
+                    BerryView berryView = (BerryView) tabController;
+                    if (berryView.isLoadFinish()) {
+                        berryView.reload();
+                    } else {
+                        berryView.stopLoading();
+                    }
+                } else if (tabController instanceof TabRelativeLayout) {
+                    updateProgress(BrowserUnit.PROGRESS_MIN);
+
+                    RecordAction action = new RecordAction(BrowserActivity.this);
+                    action.open(false);
+                    List<Record> list = new ArrayList<Record>();
+                    if (tabController.getFlag() == BrowserUnit.FLAG_BOOKMARKS) {
+                        list = action.listBookmarks();
+                    } else if (tabController.getFlag() == BrowserUnit.FLAG_HISTORY) {
+                        list = action.listHistory();
+                    }
+                    action.close();
+
+                    View view = (TabRelativeLayout) tabController;
+                    ListView listView = (ListView) view.findViewById(R.id.list);
+                    ListAdapter listAdapter = new ListAdapter(BrowserActivity.this, R.layout.list_item, list);
+                    listView.setAdapter(listAdapter);
+                    listAdapter.notifyDataSetChanged();
+
+                    updateProgress(BrowserUnit.PROGRESS_MAX);
+                } else {
+                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_refresh_failed, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        inputBox.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (tabController == null || !(actionId == EditorInfo.IME_ACTION_DONE)) {
+                    return false;
+                }
+
+                String query = inputBox.getText().toString().trim();
+                if (query.isEmpty()) {
+                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_input_empty, Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+
+                boolean incognito = false;
+                if (tabController instanceof BerryView) {
+                    incognito = ((BerryView) tabController).isIncognito();
+                }
+                updateTab(query, incognito);
+                hideSoftInput(inputBox);
+                hideSearchPanel();
+
+                return false;
+            }
+        });
+        updateAutoComplete();
+
+        overflowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showOverflow();
+            }
+        });
+    }
+
+    private void initSearchPanel() {
         searchPanel = (RelativeLayout) findViewById(R.id.browser_search_panel);
         searchSeparator = findViewById(R.id.browser_search_separator);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -138,107 +233,25 @@ public class BrowserActivity extends Activity implements BrowserController {
         searchDownButton = (ImageButton) findViewById(R.id.browser_search_down_button);
         searchCancelButton = (ImageButton) findViewById(R.id.browser_search_cancel_button);
 
-        browserFrame = (FrameLayout) findViewById(R.id.browser_frame);
-        newTab(R.string.browser_tab_home, false, true, null);
-
-        addTabButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                newTab(R.string.browser_tab_home, false, true, null);
-            }
-        });
-        addTabButton.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                newTab(R.string.browser_tab_home, true, true, null);
-                Toast.makeText(BrowserActivity.this, R.string.browser_toast_incognito, Toast.LENGTH_SHORT).show();
-                return true;
-            }
-        });
-
-        bookmarkButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!prepareRecord()) {
-                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_add_bookmark_failed, Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                RecordAction action = new RecordAction(BrowserActivity.this);
-                action.open(false);
-                if (action.checkBookmark(currentView.getUrl())) {
-                    action.deleteBookmark(currentView.getUrl());
-                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_delete_bookmark_successful, Toast.LENGTH_SHORT).show();
-                } else {
-                    action.addBookmark(new Record(currentView.getTitle(), currentView.getUrl(), System.currentTimeMillis()));
-                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_add_bookmark_successful, Toast.LENGTH_SHORT).show();
-                }
-                action.close();
-                updateBookmarkButton();
-                updateAutoComplete();
-            }
-        });
-
-        refreshButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (currentView.isLoadFinish()) {
-                    currentView.reload();
-                } else {
-                    currentView.stopLoading();
-                }
-            }
-        });
-
-        inputBox.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
-                if (!(actionId == EditorInfo.IME_ACTION_DONE)) {
-                    return false;
-                }
-
-                String query = inputBox.getText().toString().trim();
-                if (query.isEmpty()) {
-                    Toast.makeText(BrowserActivity.this, R.string.browser_toast_input_empty, Toast.LENGTH_SHORT).show();
-                    return false;
-                }
-                currentView.loadUrl(BrowserUnit.queryWrapper(BrowserActivity.this, query));
-                inputBox.clearFocus();
-                hideSearchPanel();
-
-                return false;
-            }
-        });
-        updateAutoComplete();
-
-        overflowButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showBrowserMenu();
-            }
-        });
-
         searchBox.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                /* Do nothing */
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
 
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                /* Do nothing */
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {
-                if (currentView != null) {
-                    currentView.findAllAsync(editable.toString());
+            public void afterTextChanged(Editable s) {
+                if (tabController != null && tabController instanceof BerryView) {
+                    ((BerryView) tabController).findAllAsync(s.toString());
                 }
             }
         });
         searchBox.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (!(actionId == EditorInfo.IME_ACTION_DONE)) {
                     return false;
                 }
@@ -247,71 +260,149 @@ public class BrowserActivity extends Activity implements BrowserController {
                     Toast.makeText(BrowserActivity.this, R.string.browser_toast_input_empty, Toast.LENGTH_SHORT).show();
                     return true;
                 }
-
                 return false;
             }
         });
 
         searchUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 String query = searchBox.getText().toString();
                 if (query.isEmpty()) {
                     Toast.makeText(BrowserActivity.this, R.string.browser_toast_input_empty, Toast.LENGTH_SHORT).show();
                     return;
                 }
-
-                currentView.findNext(false);
+                if (tabController instanceof BerryView) {
+                    ((BerryView) tabController).findNext(false);
+                }
             }
         });
 
         searchDownButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 String query = searchBox.getText().toString();
                 if (query.isEmpty()) {
                     Toast.makeText(BrowserActivity.this, R.string.browser_toast_input_empty, Toast.LENGTH_SHORT).show();
                     return;
                 }
-
-                currentView.findNext(true);
+                if (tabController instanceof BerryView) {
+                    ((BerryView) tabController).findNext(true);
+                }
             }
         });
 
         searchCancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 hideSearchPanel();
             }
         });
     }
 
-    private synchronized void newTab(int stringResId, boolean incognito, final boolean foreground, final Message resultMsg) {
-        newTab(getString(stringResId), incognito, foreground, resultMsg);
+    private boolean prepareRecord() {
+        if (tabController == null || !(tabController instanceof BerryView)) {
+            return false;
+        }
+
+        String title = ((BerryView) tabController).getTitle();
+        String url = ((BerryView) tabController).getUrl();
+        if (title == null
+                || title.isEmpty()
+                || url == null
+                || url.isEmpty()
+                || url.startsWith(BrowserUnit.URL_SCHEME_ABOUT)
+                || url.startsWith(BrowserUnit.URL_SCHEME_MAIL_TO)
+                || url.startsWith(BrowserUnit.URL_SCHEME_INTENT)) {
+            return false;
+        }
+        return true;
     }
 
-    private synchronized void newTab(String title, boolean incognito, final boolean foreground, final Message resultMsg) {
-        inputBox.clearFocus();
+    private void showOverflow() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+
+        LinearLayout linearLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog, null, false);
+        builder.setView(linearLayout);
+
+        String[] strings = getResources().getStringArray(R.array.browser_overflow);
+        List<String> list = new ArrayList<String>();
+        list.addAll(Arrays.asList(strings));
+
+        ListView listView = (ListView) linearLayout.findViewById(R.id.dialog_listview);
+        DialogAdapter adapter = new DialogAdapter(this, R.layout.dialog_item, list);
+        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        newTab(BrowserUnit.FLAG_BOOKMARKS);
+                        break;
+                    case 1:
+                        newTab(BrowserUnit.FLAG_HISTORY);
+                        break;
+                    case 2:
+                        if (tabController == null || !(tabController instanceof BerryView)) {
+                            Toast.makeText(BrowserActivity.this, R.string.browser_toast_search_failed, Toast.LENGTH_SHORT).show();
+                        } else if (searchPanel.getVisibility() == View.GONE || (searchPanel.getVisibility() == View.VISIBLE && !searchPanel.hasFocus())) {
+                            hideSoftInput(inputBox);
+                            showSearchPanel();
+                        }
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        finish();
+                        break;
+                    default:
+                        break;
+                }
+                dialog.hide();
+                dialog.dismiss();
+            }
+        });
+    }
+
+    private synchronized void newTab(int stringResId, String url, boolean incognito, boolean foreground, Message resultMsg) {
+        newTab(getString(stringResId), url, incognito, foreground, resultMsg);
+    }
+
+    private synchronized void newTab(String title, final String url, boolean incognito, final boolean foreground, final Message resultMsg) {
+        hideSoftInput(inputBox);
         hideSearchPanel();
 
         final BerryView berryView = new BerryView(this, incognito);
         berryView.setController(this);
+        berryView.setFlag(BrowserUnit.FLAG_BERRY);
 
-        final View tabView = berryView.getTab().getView();
-        berryView.getTab().setTitle(title);
+        berryView.setTabTitle(title);
+        final View tabView = berryView.getTabView();
         tabView.setVisibility(View.INVISIBLE);
 
-        if (currentView != null && resultMsg != null) {
-            int index = BerryContainer.indexOf(currentView) + 1;
-            BerryContainer.add(berryView, index);
-            tabsContainer.addView(tabView, index, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        if (tabController != null && (tabController instanceof BerryView) && resultMsg != null) {
+            int index = BrowserContainer.indexOf(tabController) + 1;
+            BrowserContainer.add(berryView, index);
+            tabContainer.addView(tabView, index, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
         } else {
-            BerryContainer.add(berryView);
-            tabsContainer.addView(tabView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
+            BrowserContainer.add(berryView);
+            tabContainer.addView(tabView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
         }
 
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.slide_in_up);
         animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+
             @Override
             public void onAnimationStart(Animation animation) {
                 tabView.setVisibility(View.VISIBLE);
@@ -320,20 +411,20 @@ public class BrowserActivity extends Activity implements BrowserController {
             @Override
             public void onAnimationEnd(Animation animation) {
                 if (!foreground) {
+                    berryView.loadUrl(url);
                     berryView.deactivate();
                     return;
                 }
 
-                if (currentView != null) {
-                    currentView.deactivate();
-                    browserFrame.removeView(currentView);
+                if (tabController != null) {
+                    tabController.deactivate();
                 }
-                currentView = berryView;
-
-                browserFrame.addView(currentView, 0);
-                currentView.activate();
-                tabsScroll.smoothScrollTo(tabView.getLeft(), 0);
-                updateOnmiBox();
+                browserFrame.removeAllViews();
+                browserFrame.addView(berryView);
+                berryView.activate();
+                tabScroll.smoothScrollTo(tabView.getLeft(), 0);
+                tabController = berryView;
+                updateOmniBox();
 
                 if (resultMsg != null) {
                     WebView.WebViewTransport transport = (WebView.WebViewTransport) resultMsg.obj;
@@ -341,56 +432,192 @@ public class BrowserActivity extends Activity implements BrowserController {
                     resultMsg.sendToTarget();
                 }
             }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-                /* Do nothing here */
-            }
         });
         tabView.startAnimation(animation);
     }
 
-    @Override
-    public synchronized void showTab(final BerryView berryView) {
-        if (berryView == null || berryView.equals(currentView)) {
-            return;
-        }
-
-        inputBox.clearFocus();
+    private synchronized void newTab(int tag) {
+        hideSoftInput(inputBox);
         hideSearchPanel();
 
-        if (currentView != null) {
-            currentView.deactivate();
-            browserFrame.removeView(currentView);
+        for (TabController controller : BrowserContainer.list()) {
+            if (controller.getFlag() == tag) {
+                showTab((TabRelativeLayout) controller);
+                return;
+            }
         }
-        currentView = berryView;
 
-        browserFrame.addView(currentView, 0);
-        berryView.activate();
-        tabsScroll.smoothScrollTo(currentView.getTab().getView().getLeft(), 0);
-        updateOnmiBox();
+        final TabRelativeLayout listLayout = (TabRelativeLayout) getLayoutInflater().inflate(R.layout.list, null, false);
+        listLayout.setController(this);
+        if (tag == BrowserUnit.FLAG_BOOKMARKS) {
+            listLayout.setFlag(BrowserUnit.FLAG_BOOKMARKS);
+        } else if (tag == BrowserUnit.FLAG_HISTORY) {
+            listLayout.setFlag(BrowserUnit.FLAG_HISTORY);
+        }
+
+        RecordAction action = new RecordAction(this);
+        action.open(false);
+        final List<Record> list;
+        if (tag == BrowserUnit.FLAG_BOOKMARKS) {
+            list = action.listBookmarks();
+        } else if (tag == BrowserUnit.FLAG_HISTORY) {
+            list = action.listHistory();
+        } else {
+            list = new ArrayList<Record>();
+        }
+        action.close();
+
+        ListView listView = (ListView) listLayout.findViewById(R.id.list);
+        final ListAdapter adapter = new ListAdapter(this, R.layout.list_item, list);
+        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        final View tabView = listLayout.getTabView();
+        if (tag == BrowserUnit.FLAG_BOOKMARKS) {
+            listLayout.setTabTitle(getString(R.string.browser_tab_bookmarks));
+        } else if (tag == BrowserUnit.FLAG_HISTORY) {
+            listLayout.setTabTitle(getString(R.string.browser_tab_history));
+        }
+        tabView.setVisibility(View.INVISIBLE);
+
+        browserFrame.removeAllViews();
+        BrowserContainer.add(listLayout);
+        tabContainer.addView(tabView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
+
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.slide_in_up);
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationRepeat(Animation animation) {}
+
+            @Override
+            public void onAnimationStart(Animation animation) {
+                tabView.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                if (tabController != null) {
+                    tabController.deactivate();
+                }
+                browserFrame.removeAllViews();
+                browserFrame.addView(listLayout);
+                listLayout.activate();
+                tabScroll.smoothScrollTo(tabView.getLeft(), 0);
+                tabController = listLayout;
+                updateOmniBox();
+            }
+        });
+        tabView.startAnimation(animation);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                updateTab(list.get(position).getURL(), false);
+            }
+        });
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                showListMenu(adapter, list, position);
+                return true;
+            }
+        });
     }
 
     @Override
-    public synchronized void deleteTab() {
-        if (currentView == null) {
+    public synchronized void showTab(BerryView berryView) {
+        if (berryView == null || berryView.equals(tabController)) {
             return;
         }
 
-        if (BerryContainer.size() <= 1) {
+        hideSoftInput(inputBox);
+        hideSearchPanel();
+
+        if (tabController != null) {
+            tabController.deactivate();
+        }
+        browserFrame.removeAllViews();
+        browserFrame.addView(berryView);
+        berryView.activate();
+        tabScroll.smoothScrollTo(berryView.getTabView().getLeft(), 0);
+        tabController = berryView;
+        updateOmniBox();
+    }
+
+    @Override
+    public synchronized void showTab(TabRelativeLayout tabRelativeLayout) {
+        if (tabRelativeLayout == null || tabRelativeLayout.equals(tabController)) {
+            return;
+        }
+
+        hideSoftInput(inputBox);
+        hideSearchPanel();
+
+        if (tabController != null) {
+            tabController.deactivate();
+        }
+        browserFrame.removeAllViews();
+        browserFrame.addView(tabRelativeLayout);
+        tabRelativeLayout.activate();
+        tabScroll.smoothScrollTo(tabRelativeLayout.getTabView().getLeft(), 0);
+        tabController = tabRelativeLayout;
+        updateOmniBox();
+    }
+
+    private synchronized void updateTab(String url, boolean incognito) {
+        if (tabController == null) {
+            return;
+        }
+
+        if (tabController instanceof BerryView) {
+            ((BerryView) tabController).loadUrl(url);
+        } else if (tabController instanceof TabRelativeLayout) {
+            BerryView berryView = new BerryView(this, incognito);
+            berryView.setController(this);
+            berryView.setFlag(BrowserUnit.FLAG_BERRY);
+            berryView.setTabTitle(getString(R.string.browser_tab_untitled));
+            berryView.getTabView().setVisibility(View.VISIBLE);
+
+            int index = tabContainer.indexOfChild(tabController.getTabView());
+            tabController.deactivate();
+            tabContainer.removeView(tabController.getTabView());
+            browserFrame.removeAllViews();
+
+            tabContainer.addView(berryView.getTabView(), index, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            browserFrame.addView(berryView);
+            berryView.activate();
+            BrowserContainer.set(berryView, index);
+            tabController = berryView;
+            updateOmniBox();
+
+            berryView.loadUrl(url);
+        } else {
+            Toast.makeText(this, R.string.browser_toast_load_error, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private synchronized void restoreTab() {}
+
+    @Override
+    public void deleteTab() {
+        if (tabController == null || BrowserContainer.size() <= 1) {
             finish();
             return;
         }
 
-        inputBox.clearFocus();
+        hideSoftInput(inputBox);
         hideSearchPanel();
 
-        final View tabView = currentView.getTab().getView();
+        final View tabView = tabController.getTabView();
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.slide_out_down);
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+
+            @Override
             public void onAnimationStart(Animation animation) {
-                /* Do nothing here */
             }
 
             @Override
@@ -399,59 +626,82 @@ public class BrowserActivity extends Activity implements BrowserController {
                 new Handler().post(new Runnable() {
                     @Override
                     public void run() {
-                        tabsContainer.removeView(tabView);
+                        tabContainer.removeView(tabView);
                     }
                 });
 
-                currentView.deactivate();
-                browserFrame.removeView(currentView);
+                if (tabController != null) {
+                    tabController.deactivate();
+                }
+                browserFrame.removeAllViews();
                 updateProgress(BrowserUnit.PROGRESS_MAX);
 
-                int index = BerryContainer.indexOf(currentView);
-                BerryContainer.remove(currentView);
-                if (index >= BerryContainer.size()) {
-                    index = BerryContainer.size() - 1;
+                int index = BrowserContainer.indexOf(tabController);
+                BrowserContainer.remove(tabController);
+                if (index >= BrowserContainer.size()) {
+                    index = BrowserContainer.size() - 1;
                 }
 
-                currentView = BerryContainer.get(index);
-                browserFrame.addView(currentView, 0);
-                currentView.activate();
+                browserFrame.addView((View) BrowserContainer.get(index));
+                tabController = BrowserContainer.get(index);
+                tabController.activate();
                 new Handler().post(new Runnable() {
                     @Override
                     public void run() {
-                        tabsScroll.smoothScrollTo(currentView.getTab().getView().getLeft(), 0);
-                        updateOnmiBox();
+                        tabScroll.smoothScrollTo(tabController.getTabView().getLeft(), 0);
+                        updateOmniBox();
                     }
                 });
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-                /* Do nothing here */
             }
         });
         tabView.startAnimation(animation);
     }
 
-    private synchronized void restoreTab() {
-        // TODO
-    }
+    private void showListMenu(final ListAdapter listAdapter, final List<Record> recordList, final int location) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
 
-    @Override
-    public void updateBookmarkButton() {
-        if (currentView == null) {
-            bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_bookmark_outline_button_selector));
-            return;
-        }
+        LinearLayout linearLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog, null, false);
+        builder.setView(linearLayout);
 
-        RecordAction action = new RecordAction(this);
-        action.open(false);
-        if (action.checkBookmark(currentView.getUrl())) {
-            bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_bookmark_full_button_selector));
-        } else {
-            bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_bookmark_outline_button_selector));
-        }
-        action.close();
+        String[] strings = getResources().getStringArray(R.array.list_menu);
+        List<String> list = new ArrayList<String>();
+        list.addAll(Arrays.asList(strings));
+
+        ListView listView = (ListView) linearLayout.findViewById(R.id.dialog_listview);
+        DialogAdapter adapter = new DialogAdapter(this, R.layout.dialog_item, list);
+        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+        final Record record = recordList.get(location);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        newTab(getString(R.string.browser_tab_untitled), record.getURL(), false, false, null);
+                        Toast.makeText(BrowserActivity.this, R.string.list_toast_open_in_new_tab_successful, Toast.LENGTH_SHORT).show();
+                        break;
+                    case 1:
+                        newTab(getString(R.string.browser_tab_untitled), record.getURL(), true, false, null);
+                        Toast.makeText(BrowserActivity.this, R.string.list_toast_open_in_incognito_tab_successful, Toast.LENGTH_SHORT).show();
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    default:
+                        break;
+                }
+                dialog.hide();
+                dialog.dismiss();
+            }
+        });
     }
 
     private void updateAutoComplete() {
@@ -493,12 +743,41 @@ public class BrowserActivity extends Activity implements BrowserController {
                 String url = ((TextView) view.findViewById(R.id.complete_item_url)).getText().toString();
                 inputBox.setText(url);
                 inputBox.setSelection(url.length());
-                if (currentView != null) {
-                    currentView.loadUrl(BrowserUnit.queryWrapper(BrowserActivity.this, url));
-                }
+                updateTab(url, false);
                 hideSoftInput(inputBox);
+                hideSearchPanel();
             }
         });
+    }
+
+    @Override
+    public void updateBookmarks() {
+        if (tabController == null || !(tabController instanceof BerryView)) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_bookmark_outline_button_selector, null));
+            } else {
+                bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_bookmark_outline_button_selector));
+            }
+            return;
+        }
+
+        RecordAction action = new RecordAction(this);
+        action.open(false);
+        String url = ((BerryView) tabController).getUrl();
+        if (action.checkBookmark(url)) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_bookmark_full_button_selector, null));
+            } else {
+                bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_bookmark_full_button_selector));
+            }
+        } else {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_bookmark_outline_button_selector, null));
+            } else {
+                bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_bookmark_outline_button_selector));
+            }
+        }
+        action.close();
     }
 
     @Override
@@ -521,68 +800,77 @@ public class BrowserActivity extends Activity implements BrowserController {
             animator.start();
         }
 
-        if (currentView.isLoadFinish()) {
-            // TODO: don't add homepage, don't use record,
-            RecordAction action = new RecordAction(this);
-            action.open(true);
-            action.addHistory(new Record(currentView.getTitle(), currentView.getUrl(), System.currentTimeMillis()));
-            action.close();
-            updateAutoComplete();
+        if (tabController instanceof TabRelativeLayout) {
+            if (progress < BrowserUnit.PROGRESS_MAX) {
+                updateRefreshButton(true);
+                progressWrapper.setVisibility(View.VISIBLE);
+            } else {
+                updateRefreshButton(false);
+                progressWrapper.setVisibility(View.GONE);
+                updateAutoComplete();
+            }
+        } else if (tabController instanceof BerryView) {
+            BerryView currentView = (BerryView) tabController;
+            if (currentView.isLoadFinish()) {
+                RecordAction action = new RecordAction(this);
+                action.open(true);
+                action.addHistory(new Record(currentView.getTitle(), currentView.getUrl(), System.currentTimeMillis()));
+                action.close();
+                updateAutoComplete();
 
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    updateRefreshButton(false);
-                    progressWrapper.setVisibility(View.GONE);
-                }
-            }, animTime);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        updateRefreshButton(false);
+                        progressWrapper.setVisibility(View.GONE);
+                    }
+                }, animTime);
+            } else {
+                updateRefreshButton(true);
+                progressWrapper.setVisibility(View.VISIBLE);
+            }
         } else {
-            updateRefreshButton(true);
-            progressWrapper.setVisibility(View.VISIBLE);
+            updateRefreshButton(false);
+            progressWrapper.setVisibility(View.GONE);
+        }
+    }
+
+    private void updateOmniBox() {
+        if (tabController == null) {
+            return;
+        }
+
+        if (tabController instanceof BerryView) {
+            BerryView berryView = (BerryView) tabController;
+            updateProgress(berryView.getProgress());
+            updateBookmarks();
+            if (berryView.getUrl() == null && berryView.getOriginalUrl() == null) {
+                updateInputBox(null);
+            } else if (berryView.getUrl() != null) {
+                updateInputBox(berryView.getUrl());
+            } else {
+                updateInputBox(berryView.getOriginalUrl());
+            }
+        } else if (tabController instanceof TabRelativeLayout) {
+            updateProgress(BrowserUnit.PROGRESS_MAX);
+            updateBookmarks();
+            updateInputBox(null);
         }
     }
 
     private void updateRefreshButton(boolean running) {
         if (running) {
-            refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.cl_button_selector));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.cl_button_selector, null));
+            } else {
+                refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.cl_button_selector));
+            }
         } else {
-            refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_refresh_button_selector));
-        }
-    }
-
-    private void updateOnmiBox() {
-        if (currentView == null) {
-            return;
-        }
-
-        updateProgress(currentView.getProgress());
-        updateBookmarkButton();
-        if (currentView.getUrl() == null && currentView.getOriginalUrl() == null) {
-            updateInputBox(null);
-        } else if (currentView.getUrl() != null){
-            updateInputBox(currentView.getUrl());
-        } else if (currentView.getOriginalUrl() != null) {
-            updateInputBox(currentView.getOriginalUrl());
-        }
-    }
-
-    @Override
-    public void onCreateView(WebView view, boolean incognito, final Message resultMsg) {
-        if (resultMsg == null) {
-            return;
-        }
-        newTab(R.string.browser_tab_untitled, incognito, true, resultMsg);
-    }
-
-    @Override
-    public void onLongPress(String url) {
-        WebView.HitTestResult result = null;
-        if (currentView != null) {
-            result = currentView.getHitTestResult();
-        }
-
-        if (url != null) {
-            // TODO
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_refresh_button_selector, null));
+            } else {
+                refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_refresh_button_selector));
+            }
         }
     }
 
@@ -609,87 +897,14 @@ public class BrowserActivity extends Activity implements BrowserController {
         searchBox.setText("");
     }
 
-    private boolean prepareRecord() {
-        if (currentView == null) {
-            return false;
+    @Override
+    public void onCreateView(WebView view, boolean incognito, final Message resultMsg) {
+        if (resultMsg == null) {
+            return;
         }
-
-        String title = currentView.getTitle();
-        String url = currentView.getUrl();
-        if (title == null
-                || title.isEmpty()
-                || url == null
-                || url.isEmpty()
-                || url.startsWith(BrowserUnit.URL_SCHEME_ABOUT)
-                || url.startsWith(BrowserUnit.URL_SCHEME_MAIL_TO)
-                || url.startsWith(BrowserUnit.URL_SCHEME_INTENT)) {
-            return false;
-        }
-
-        return true;
-    }
-
-    private void showBrowserMenu() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(true);
-
-        LinearLayout linearLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog, null, false);
-        builder.setView(linearLayout);
-
-        String[] strings = getResources().getStringArray(R.array.browser_menu);
-        List<String> list = new ArrayList<String>();
-        list.addAll(Arrays.asList(strings));
-
-        ListView listView = (ListView) linearLayout.findViewById(R.id.dialog_listview);
-        DialogAdapter adapter = new DialogAdapter(this, R.layout.dialog_item, list);
-        listView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-
-        final AlertDialog dialog = builder.create();
-        dialog.show();
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                switch (position) {
-                    case 0:
-                        Intent toBookmark = new Intent(BrowserActivity.this, BookmarkActivity.class);
-                        startActivityForResult(toBookmark, IntentUnit.REQUEST_BOOKMARK);
-                        break;
-                    case 1:
-                        Intent toHistory = new Intent(BrowserActivity.this, HistoryActivity.class);
-                        startActivityForResult(toHistory, IntentUnit.REQUEST_HISTORY);
-                        break;
-                    case 2:
-                        if (searchPanel.getVisibility() == View.GONE) {
-                            showSearchPanel();
-                        }
-                        break;
-                    case 3:
-                        if (prepareRecord()) {
-                            IntentUnit.share(BrowserActivity.this, currentView.getTitle(), currentView.getUrl());
-                        } else {
-                            Toast.makeText(BrowserActivity.this, R.string.browser_toast_share_failed, Toast.LENGTH_SHORT).show();
-                        }
-                        break;
-                    case 4:
-                        // TODO
-                        break;
-                    case 5:
-                        finish();
-                        break;
-                    default:
-                        break;
-                }
-
-                dialog.hide();
-                dialog.dismiss();
-            }
-        });
+        newTab(R.string.browser_tab_untitled, null, incognito, true, resultMsg);
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // TODO
-    }
+    public void onLongPress(String url) {}
 }

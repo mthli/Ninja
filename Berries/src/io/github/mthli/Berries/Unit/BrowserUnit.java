@@ -29,6 +29,10 @@ public class BrowserUnit {
     public static final String ABOUT_BLANK = "about:blank";
     public static final String ABOUT_HOME = "about:home";
 
+    public static final int FLAG_BERRY = 0x100;
+    public static final int FLAG_BOOKMARKS = 0x101;
+    public static final int FLAG_HISTORY = 0x102;
+
     public static final String SEARCH_ENGINE_GOOGLE = "https://www.google.com/search?q=";
     public static final String SEARCH_ENGINE_DUCKDUCKGO = "https://duckduckgo.com/?q=";
     public static final String SEARCH_ENGINE_BING = "http://www.bing.com/search?q=";

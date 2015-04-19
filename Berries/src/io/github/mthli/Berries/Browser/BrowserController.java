@@ -2,9 +2,10 @@ package io.github.mthli.Berries.Browser;
 
 import android.os.Message;
 import android.webkit.WebView;
+import io.github.mthli.Berries.View.TabRelativeLayout;
 
 public interface BrowserController {
-    void updateBookmarkButton();
+    void updateBookmarks();
 
     void updateInputBox(String query);
 
@@ -13,6 +14,8 @@ public interface BrowserController {
     void updateNotification();
 
     void showTab(BerryView berryView);
+
+    void showTab(TabRelativeLayout tabRelativeLayout);
 
     void deleteTab();
 

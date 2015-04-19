@@ -7,16 +7,17 @@ import android.os.IBinder;
 import android.os.Message;
 import android.webkit.WebView;
 import android.widget.Toast;
-import io.github.mthli.Berries.Browser.BerryContainer;
+import io.github.mthli.Berries.Browser.BrowserContainer;
 import io.github.mthli.Berries.Browser.BerryView;
 import io.github.mthli.Berries.Browser.BrowserController;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.*;
+import io.github.mthli.Berries.View.TabRelativeLayout;
 
 public class HolderService extends Service implements BrowserController {
     @Override
-    public void updateBookmarkButton() {}
+    public void updateBookmarks() {}
 
     @Override
     public void updateInputBox(String query) {}
@@ -31,6 +32,9 @@ public class HolderService extends Service implements BrowserController {
     public void showTab(BerryView berryView) {}
 
     @Override
+    public void showTab(TabRelativeLayout tabRelativeLayout) {}
+
+    @Override
     public void deleteTab() {}
 
     @Override
@@ -39,7 +43,7 @@ public class HolderService extends Service implements BrowserController {
     @Override
     public void onCreate() {
         super.onCreate();
-        BerryContainer.clear();
+        BrowserContainer.clear();
     }
 
     @Override
@@ -55,12 +59,12 @@ public class HolderService extends Service implements BrowserController {
         } catch (NullPointerException n) {}
 
         // TODO: Network available
-        if (BerryContainer.size() < BrowserUnit.LOAD_LIMIT) {
+        if (BrowserContainer.size() < BrowserUnit.LOAD_LIMIT) {
             Record record = RecordUnit.getHolder();
             // TODO: SP_INCOGNITO
             BerryView view = new BerryView(this, false);
             view.setController(this);
-            BerryContainer.add(view);
+            BrowserContainer.add(view);
             updateNotification();
         } else {
             Toast.makeText(this, R.string.browser_toast_load_limit, Toast.LENGTH_SHORT).show();
@@ -71,7 +75,7 @@ public class HolderService extends Service implements BrowserController {
 
     @Override
     public void onDestroy() {
-        BerryContainer.clear();
+        BrowserContainer.clear();
         stopForeground(true);
 
         super.onDestroy();
