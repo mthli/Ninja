@@ -1,9 +1,12 @@
 package io.github.mthli.Berries.Unit;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.widget.Toast;
 import io.github.mthli.Berries.R;
 
 import java.io.UnsupportedEncodingException;
@@ -99,5 +102,12 @@ public class BrowserUnit {
                 SEARCH_ENGINE_GOOGLE
         );
         return searchEngine + query;
+    }
+
+    public static void copy(Context context, String url) {
+        ClipboardManager manager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData data = ClipData.newPlainText(null, url);
+        manager.setPrimaryClip(data);
+        Toast.makeText(context, R.string.toast_copy_successful, Toast.LENGTH_SHORT).show();
     }
 }

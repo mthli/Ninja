@@ -24,6 +24,7 @@ import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.Database.RecordAction;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.BrowserUnit;
+import io.github.mthli.Berries.Unit.IntentUnit;
 import io.github.mthli.Berries.Unit.ViewUnit;
 import io.github.mthli.Berries.View.DialogAdapter;
 import io.github.mthli.Berries.View.ListAdapter;
@@ -83,8 +84,26 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent keyEvent) {
-        // TODO
-        return false;
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            hideSoftInput(inputBox);
+            if (tabController == null) {
+                finish();
+            } else {
+                if (tabController instanceof TabRelativeLayout) {
+                    deleteTab();
+                } else if (tabController instanceof BerryView) {
+                    BerryView berryView = (BerryView) tabController;
+                    if (berryView.canGoBack()) {
+                        berryView.goBack();
+                    } else {
+                        deleteTab();
+                    }
+                } else {
+                    finish();
+                }
+            }
+        }
+        return true;
     }
 
     @Override
@@ -360,7 +379,12 @@ public class BrowserActivity extends Activity implements BrowserController {
                         }
                         break;
                     case 3:
-                        // TODO
+                        if (!prepareRecord()) {
+                            Toast.makeText(BrowserActivity.this, R.string.toast_share_failed, Toast.LENGTH_SHORT).show();
+                        } else {
+                            BerryView berryView = (BerryView) tabController;
+                            IntentUnit.share(BrowserActivity.this, berryView.getTitle(), berryView.getUrl());
+                        }
                         break;
                     case 4:
                         // TODO
@@ -696,13 +720,26 @@ public class BrowserActivity extends Activity implements BrowserController {
                         Toast.makeText(BrowserActivity.this, R.string.toast_incognito_tab_successful, Toast.LENGTH_SHORT).show();
                         break;
                     case 2:
-                        // TODO
+                        BrowserUnit.copy(BrowserActivity.this, record.getURL());
                         break;
                     case 3:
-                        // TODO
+                        IntentUnit.share(BrowserActivity.this, record.getTitle(), record.getURL());
                         break;
                     case 4:
-                        // TODO
+                        if (tabController == null || !(tabController instanceof TabRelativeLayout)) {
+                            break;
+                        }
+                        RecordAction action = new RecordAction(BrowserActivity.this);
+                        action.open(true);
+                        if (tabController.getFlag() == BrowserUnit.FLAG_BOOKMARKS) {
+                            action.deleteBookmark(record);
+                        } else if (tabController.getFlag() == BrowserUnit.FLAG_HISTORY) {
+                            action.deleteHistory(record);
+                        }
+                        action.close();
+                        recordList.remove(location);
+                        listAdapter.notifyDataSetChanged();
+                        updateAutoComplete();
                         break;
                     default:
                         break;
@@ -961,7 +998,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                     newTab(getString(R.string.browser_tab_untitled), target, true, false, null);
                     Toast.makeText(BrowserActivity.this, R.string.toast_incognito_tab_successful, Toast.LENGTH_SHORT).show();
                 } else if (string.equals(getString(R.string.berry_menu_copy_url))) {
-                    // TODO
+                    BrowserUnit.copy(BrowserActivity.this, target);
                 } else if (string.equals(getString(R.string.berry_menu_save_picture))) {
                     // TODO
                 }
