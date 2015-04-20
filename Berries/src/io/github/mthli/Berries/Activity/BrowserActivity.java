@@ -405,7 +405,9 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     private synchronized void newTab(String title, final String url, boolean incognito, final boolean foreground, final Message resultMsg) {
         hideSoftInput(inputBox);
-        hideSearchPanel();
+        if (foreground) {
+            hideSearchPanel();
+        }
 
         final BerryView berryView = new BerryView(this, incognito);
         berryView.setController(this);
