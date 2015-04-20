@@ -8,6 +8,9 @@ public class IntentUnit {
     public static final String LIST = "LIST";
     public static final String QUIT = "QUIT";
 
+    public static final int REQUEST_SETTING = 0x100;
+    public static final int RESULT_SETTING = 0x101;
+
     public static Intent getEmailIntent(MailTo mailTo) {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.putExtra(Intent.EXTRA_EMAIL, new String[] { mailTo.getTo() });

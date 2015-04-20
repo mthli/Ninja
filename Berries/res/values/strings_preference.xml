@@ -5,12 +5,12 @@
     <string name="sp_name">
         Berries
     </string>
-    
+
+    <string name="sp_cookies">
+        SP_COOKIES
+    </string>
     <string name="sp_images">
         SP_IMAGES
-    </string>
-    <string name="sp_incognito">
-        SP_INCOGNITO
     </string>
     <string name="sp_javascript">
         SP_JAVASCRIPT
@@ -18,8 +18,8 @@
     <string name="sp_location">
         SP_LOCATION
     </string>
-    <string name="sp_multiple_window">
-        SP_MULTIPLE_WINDOW
+    <string name="sp_multiple_windows">
+        SP_MULTIPLE_WINDOWS
     </string>
     <string name="sp_notification_priority">
         SP_NOTIFICATION_PRIORITY

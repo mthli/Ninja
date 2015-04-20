@@ -33,7 +33,8 @@ public class BrowserUnit {
     public static final String MIME_TYPE_IMAGE = "image/*";
 
     public static final String SEARCH_ENGINE_GOOGLE = "https://www.google.com/search?q=";
-    public static final String SEARCH_ENGINE_DUCKDUCKGO = "https://duckduckgo.com/?q=";
+    public static final String SEARCH_ENGINE_DUCK_DUCK_GO = "https://duckduckgo.com/?q=";
+    public static final String SEARCH_ENGINE_START_PAGE = "https://startpage.com/do/search?query=";
     public static final String SEARCH_ENGINE_BING = "http://www.bing.com/search?q=";
     public static final String SEARCH_ENGINE_BAIDU = "http://www.baidu.com/s?wd=";
 
@@ -102,6 +103,7 @@ public class BrowserUnit {
                 context.getString(R.string.sp_name),
                 Context.MODE_PRIVATE
         );
+        // TODO: location and sp
         String searchEngine = sp.getString(
                 context.getString(R.string.sp_search_engine),
                 SEARCH_ENGINE_GOOGLE

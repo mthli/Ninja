@@ -79,6 +79,131 @@
     <string name="setting_label">
         Setting
     </string>
+    <!-- Browser setting -->
+    <string name="setting_title_browser">
+        Browser
+    </string>
+    <!-- Search engine -->
+    <string name="setting_title_search_engine">
+        Search engine
+    </string>
+    <string name="setting_summary_search_engine_google">
+        Google
+    </string>
+    <string name="setting_summary_search_engine_duckduckgo">
+        DuckDuckGo
+    </string>
+    <string name="setting_summary_search_engine_startpage">
+        StartPage
+    </string>
+    <string name="setting_summary_search_engine_bing">
+        Bing
+    </string>
+    <string name="setting_summary_search_engine_baidu">
+        Baidu
+    </string>
+    <string-array name="setting_values_search_engine">
+        <item>@string/setting_summary_search_engine_google</item>
+        <item>@string/setting_summary_search_engine_duckduckgo</item>
+        <item>@string/setting_summary_search_engine_startpage</item>
+        <item>@string/setting_summary_search_engine_bing</item>
+        <item>@string/setting_summary_search_engine_baidu</item>
+    </string-array>
+    <!-- Notification -->
+    <string name="setting_title_notification_priority">
+        Notification priority
+    </string>
+    <string name="setting_summary_notification_priority_default">
+        Default
+    </string>
+    <string-array name="setting_values_notification_priority">
+        <item>High</item>
+        <item>Default</item>
+        <item>Low</item>
+    </string-array>
+    <!-- Cookies -->
+    <string name="setting_title_cookies">
+        Cookies
+    </string>
+    <string name="setting_summary_cookies">
+        Enable cookies
+    </string>
+    <!-- Images -->
+    <string name="setting_title_images">
+        Images
+    </string>
+    <string name="setting_summary_images">
+        Enable network images
+    </string>
+    <!-- JavaScript -->
+    <string name="setting_title_javascript">
+        JavaScript
+    </string>
+    <string name="setting_summary_javascript">
+        Enable JavaScript
+    </string>
+    <!-- Location -->
+    <string name="setting_title_location">
+        Location
+    </string>
+    <string name="setting_summary_location">
+        Enable geolocation
+    </string>
+    <!-- Multiple windows -->
+    <string name="setting_title_multiple_windows">
+        Multiple windows
+    </string>
+    <string name="setting_summary_multiple_windows">
+        Enable multiple windows
+    </string>
+    <!-- Data setting -->
+    <string name="setting_title_data">
+        Data
+    </string>
+    <!-- Passwords -->
+    <string name="setting_title_passwords">
+        Passwords
+    </string>
+    <string name="setting_summary_passwords">
+        Save passwords
+    </string>
+    <string name="setting_title_clear_passwords">
+        Clear passwords
+    </string>
+    <!-- Bookmarks -->
+    <string name="setting_title_export_bookmarks">
+        Export bookmarks
+    </string>
+    <string name="setting_title_import_bookmarks">
+        Import bookmarks
+    </string>
+    <string name="setting_title_clear_bookmarks">
+        Clear bookmarks
+    </string>
+    <!-- Cookies -->
+    <string name="setting_title_clear_cookies">
+        Clear cookies
+    </string>
+    <!-- History -->
+    <string name="setting_title_clear_history">
+        Clear history
+    </string>
+    <!-- Others setting -->
+    <string name="setting_title_others">
+        Others
+    </string>
+    <!-- GitHub -->
+    <string name="setting_title_github">
+        GitHub
+    </string>
+    <!-- License -->
+    <string name="setting_title_license">
+        License
+    </string>
+    <!-- Usage -->
+    <string name="setting_title_usage">
+        Usage
+    </string>
 
     <!-- Toast -->
     <string name="toast_add_bookmark_successful">

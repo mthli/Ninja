@@ -3,19 +3,12 @@
 <resources>
 
     <style name="BrowserActivityTheme" parent="android:Theme.Holo.Light.NoActionBar">
-        <item name="android:windowBackground">@color/white</item>
         <item name="android:textColor">@color/text</item>
     </style>
 
-    <style name="ListActivityTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <item name="android:windowBackground">@color/white</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:homeAsUpIndicator">@drawable/ic_action_back</item>
-        <item name="android:actionOverflowButtonStyle">@style/ListActivityTheme.OverflowButtonStyle</item>
-    </style>
-
-    <style name="ListActivityTheme.OverflowButtonStyle" parent="ListActivityTheme">
-        <item name="android:src">@drawable/ic_action_overflow_default</item>
+    <style name="SettingActivityTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="android:textColor">@color/text</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
     </style>
 
 </resources>

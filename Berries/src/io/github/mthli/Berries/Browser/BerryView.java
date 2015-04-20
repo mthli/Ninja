@@ -9,8 +9,10 @@ import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.webkit.CookieManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.Toast;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.BrowserUnit;
 import io.github.mthli.Berries.Unit.IntentUnit;
@@ -29,6 +31,7 @@ public class BerryView extends WebView implements TabController {
         this.foreground = foreground;
     }
 
+    // TODO
     private boolean incognito;
     public boolean isIncognito() {
         return incognito;
@@ -183,15 +186,19 @@ public class BerryView extends WebView implements TabController {
         webSettings.setDisplayZoomControls(false);
     }
 
-    private synchronized void initPreferences() {
+    public synchronized void initPreferences() {
         SharedPreferences sp = context.getSharedPreferences(context.getString(R.string.sp_name), Context.MODE_PRIVATE);
         WebSettings webSettings = getSettings();
 
-        webSettings.setBlockNetworkImage(sp.getBoolean(context.getString(R.string.sp_images), false));
+        CookieManager manager = CookieManager.getInstance();
+        manager.setAcceptCookie(sp.getBoolean(context.getString(R.string.sp_cookies), true));
+
+        webSettings.setBlockNetworkImage(!sp.getBoolean(context.getString(R.string.sp_images), true));
         webSettings.setJavaScriptEnabled(sp.getBoolean(context.getString(R.string.sp_javascript), true));
+        webSettings.setJavaScriptCanOpenWindowsAutomatically(sp.getBoolean(context.getString(R.string.sp_javascript), true));
         webSettings.setGeolocationEnabled(sp.getBoolean(context.getString(R.string.sp_location), true));
+        webSettings.setSupportMultipleWindows(sp.getBoolean(context.getString(R.string.sp_multiple_windows), true));
         webSettings.setSaveFormData(sp.getBoolean(context.getString(R.string.sp_passwords), true));
-        webSettings.setSupportMultipleWindows(sp.getBoolean(context.getString(R.string.sp_multiple_window), true));
 
         webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
         webSettings.setLoadWithOverviewMode(true);
@@ -201,7 +208,12 @@ public class BerryView extends WebView implements TabController {
 
     @Override
     public synchronized void loadUrl(String url) {
+        if (!BrowserUnit.isNetworkAvailable(context)) {
+            Toast.makeText(context, R.string.toast_network_error, Toast.LENGTH_SHORT).show();
+            return;
+        }
         if (url == null || url.isEmpty()) {
+            Toast.makeText(context, R.string.toast_load_error, Toast.LENGTH_SHORT).show();
             return;
         }
         url = BrowserUnit.queryWrapper(context, url);

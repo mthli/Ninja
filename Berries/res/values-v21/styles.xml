@@ -8,17 +8,12 @@
         <item name="android:colorAccent">@color/blue_500</item>
         <item name="android:textColor">@color/text</item>
         <item name="android:textColorHighlight">@color/blue_300</item>
-        <item name="android:windowBackground">@color/white</item>
     </style>
 
-    <style name="ListActivityTheme" parent="android:Theme.Material.Light.DarkActionBar">
+    <style name="SettingActivityTheme" parent="android:Theme.Material.Light.DarkActionBar">
+        <item name="android:colorAccent">@color/blue_500</item>
         <item name="android:textColor">@color/text</item>
-        <item name="android:windowBackground">@color/white</item>
-        <item name="android:actionBarPopupTheme">@style/ListActivityTheme.ActionBarPopupTheme</item>
-    </style>
-
-    <style name="ListActivityTheme.ActionBarPopupTheme" parent="ListActivityTheme">
-        <item name="android:colorBackground">@color/white</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
     </style>
 
 </resources>

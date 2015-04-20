@@ -58,7 +58,7 @@
         <!-- SettingActivity -->
         <activity android:name=".Activity.SettingActivity"
                   android:label="@string/setting_label"
-                  android:theme="@style/ListActivityTheme">
+                  android:theme="@style/SettingActivityTheme">
         </activity>
 
     </application>

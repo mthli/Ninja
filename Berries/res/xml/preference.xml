@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/setting_title_browser">
+
+        <ListPreference android:key="@string/sp_search_engine"
+                        android:defaultValue="@string/setting_summary_search_engine_google"
+                        android:title="@string/setting_title_search_engine"
+                        android:summary="@string/setting_summary_search_engine_google"
+                        android:entries="@array/setting_values_search_engine"
+                        android:entryValues="@array/setting_values_search_engine">
+        </ListPreference>
+
+        <ListPreference android:key="@string/sp_notification_priority"
+                        android:defaultValue="@string/setting_summary_notification_priority_default"
+                        android:title="@string/setting_title_notification_priority"
+                        android:summary="@string/setting_summary_notification_priority_default"
+                        android:entries="@array/setting_values_notification_priority"
+                        android:entryValues="@array/setting_values_notification_priority">
+        </ListPreference>
+
+        <CheckBoxPreference android:key="@string/sp_images"
+                            android:defaultValue="true"
+                            android:title="@string/setting_title_images"
+                            android:summary="@string/setting_summary_images">
+        </CheckBoxPreference>
+
+        <CheckBoxPreference android:key="@string/sp_cookies"
+                            android:defaultValue="true"
+                            android:title="@string/setting_title_cookies"
+                            android:summary="@string/setting_summary_cookies">
+        </CheckBoxPreference>
+
+        <CheckBoxPreference android:key="@string/sp_javascript"
+                            android:defaultValue="true"
+                            android:title="@string/setting_title_javascript"
+                            android:summary="@string/setting_summary_javascript">
+        </CheckBoxPreference>
+
+        <CheckBoxPreference android:key="@string/sp_location"
+                            android:defaultValue="true"
+                            android:title="@string/setting_title_location"
+                            android:summary="@string/setting_summary_location">
+        </CheckBoxPreference>
+
+        <CheckBoxPreference android:key="@string/sp_multiple_windows"
+                            android:defaultValue="true"
+                            android:title="@string/setting_title_multiple_windows"
+                            android:summary="@string/setting_summary_multiple_windows">
+        </CheckBoxPreference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/setting_title_data">
+
+        <CheckBoxPreference android:key="@string/sp_passwords"
+                            android:defaultValue="true"
+                            android:title="@string/setting_title_passwords"
+                            android:summary="@string/setting_summary_passwords">
+        </CheckBoxPreference>
+
+        <Preference android:title="@string/setting_title_export_bookmarks" />
+
+        <Preference android:title="@string/setting_title_import_bookmarks" />
+
+        <Preference android:title="@string/setting_title_clear_bookmarks" />
+
+        <Preference android:title="@string/setting_title_clear_cookies" />
+
+        <Preference android:title="@string/setting_title_clear_history" />
+
+        <Preference android:title="@string/setting_title_clear_passwords" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/setting_title_others">
+
+        <Preference android:title="@string/setting_title_usage" />
+
+        <Preference android:title="@string/setting_title_github" />
+
+        <Preference android:title="@string/setting_title_license" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

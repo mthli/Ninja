@@ -10,10 +10,10 @@
               android:layout_height="wrap_content"
               android:layout_marginTop="12dp"
               android:layout_marginBottom="12dp"
-              android:layout_marginLeft="16dp"
-              android:layout_marginRight="16dp"
+              android:layout_marginLeft="20dp"
+              android:layout_marginRight="20dp"
               android:textColor="@color/text"
-              android:textSize="16sp"
+              android:textSize="18sp"
               android:singleLine="true"
               android:ellipsize="none">
     </TextView>

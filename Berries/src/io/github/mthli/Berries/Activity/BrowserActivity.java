@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -387,7 +388,8 @@ public class BrowserActivity extends Activity implements BrowserController {
                         }
                         break;
                     case 4:
-                        // TODO
+                        Intent intent = new Intent(BrowserActivity.this, SettingActivity.class);
+                        startActivityForResult(intent, IntentUnit.REQUEST_SETTING);
                         break;
                     case 5:
                         finish();
@@ -752,7 +754,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         });
     }
 
-    private void updateAutoComplete() {
+    private synchronized void updateAutoComplete() {
         final List<Map<String, String>> list = new ArrayList<Map<String, String>>();
 
         RecordAction action = new RecordAction(this);
@@ -799,7 +801,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     @Override
-    public void updateBookmarks() {
+    public synchronized void updateBookmarks() {
         if (tabController == null || !(tabController instanceof BerryView)) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_bookmark_outline_button_selector, null));
@@ -1009,4 +1011,8 @@ public class BrowserActivity extends Activity implements BrowserController {
             }
         });
     }
+
+    // TODO
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {}
 }
