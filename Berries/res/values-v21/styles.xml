@@ -2,7 +2,7 @@
 
 <resources>
 
-    <style name="BrowserActivityTheme" parent="android:Theme.Material.Light.NoActionBar">
+    <style name="BrowserActivityTheme" parent="android:Theme.Material.Light.NoActionBar.Fullscreen">
         <item name="android:colorPrimary">@color/blue_500</item>
         <item name="android:colorPrimaryDark">@color/blue_700</item>
         <item name="android:colorAccent">@color/blue_500</item>

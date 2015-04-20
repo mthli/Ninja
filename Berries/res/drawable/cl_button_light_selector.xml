@@ -10,6 +10,6 @@
           android:drawable="@drawable/ic_action_cl_active">
     </item>
 
-    <item android:drawable="@drawable/ic_action_cl_default" />
+    <item android:drawable="@drawable/ic_action_cl_light" />
 
 </selector>

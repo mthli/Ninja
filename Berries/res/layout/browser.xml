@@ -76,7 +76,7 @@
                             android:layout_marginLeft="8dp"
                             android:focusable="true"
                             android:focusableInTouchMode="true"
-                            android:background="@drawable/browser_omnibox_layout_shape">
+                            android:background="@drawable/round_corner_layout_shape">
 
                 <ImageButton android:id="@+id/browser_bookmark_button"
                              android:contentDescription="@null"
@@ -142,84 +142,10 @@
 
     </LinearLayout>
 
-    <RelativeLayout android:id="@+id/browser_search_panel"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_alignParentBottom="true"
-                    android:background="@color/white"
-                    android:visibility="gone">
-
-        <View android:id="@+id/browser_search_separator"
-              android:layout_width="match_parent"
-              android:layout_height="0.5dp"
-              android:layout_alignParentTop="true"
-              android:background="@color/gray_300"
-              android:visibility="gone">
-        </View>
-
-        <LinearLayout android:id="@+id/browser_search_button_layout"
-                      android:orientation="horizontal"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:layout_centerInParent="true"
-                      android:layout_alignParentRight="true"
-                      android:layout_marginLeft="8dp"
-                      android:layout_marginRight="8dp">
-
-            <ImageButton android:id="@+id/browser_search_up_button"
-                         android:contentDescription="@null"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_margin="4dp"
-                         android:src="@drawable/search_up_button_selector"
-                         android:background="@color/transparent">
-            </ImageButton>
-
-            <ImageButton android:id="@+id/browser_search_down_button"
-                         android:contentDescription="@null"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_margin="4dp"
-                         android:src="@drawable/search_down_button_selector"
-                         android:background="@color/transparent">
-            </ImageButton>
-
-            <ImageButton android:id="@+id/browser_search_cancel_button"
-                         android:contentDescription="@null"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_margin="4dp"
-                         android:src="@drawable/cl_button_selector"
-                         android:background="@color/transparent">
-            </ImageButton>
-
-        </LinearLayout>
-
-        <EditText android:id="@+id/browser_search_box"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_centerInParent="true"
-                  android:layout_alignParentLeft="true"
-                  android:layout_toLeftOf="@id/browser_search_button_layout"
-                  android:layout_marginLeft="16dp"
-                  android:hint="@string/browser_hint_search"
-                  android:textColor="@color/text"
-                  android:textColorHint="@color/hint"
-                  android:textCursorDrawable="@null"
-                  android:textSize="16sp"
-                  android:imeOptions="actionDone"
-                  android:inputType="text"
-                  android:singleLine="true"
-                  android:background="@color/white">
-        </EditText>
-
-    </RelativeLayout>
-
     <FrameLayout android:id="@+id/browser_frame"
                  android:layout_width="match_parent"
                  android:layout_height="match_parent"
-                 android:layout_below="@id/browser_control_panel"
-                 android:layout_above="@id/browser_search_panel">
+                 android:layout_below="@id/browser_control_panel">
     </FrameLayout>
 
 </RelativeLayout>

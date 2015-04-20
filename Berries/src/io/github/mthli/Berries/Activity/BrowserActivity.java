@@ -37,6 +37,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     private LinearLayout controlPanel;
     private HorizontalScrollView tabScroll;
     private LinearLayout tabContainer;
+    private RelativeLayout omniboxLayout;
     private ImageButton addTabButton;
     private ImageButton bookmarkButton;
     private AutoCompleteTextView inputBox;
@@ -46,7 +47,6 @@ public class BrowserActivity extends Activity implements BrowserController {
     private ProgressBar progressBar;
 
     private RelativeLayout searchPanel;
-    private View searchSeparator;
     private EditText searchBox;
     private ImageButton searchUpButton;
     private ImageButton searchDownButton;
@@ -119,6 +119,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         ViewUnit.setElevation(this, controlPanel, 2);
         tabScroll = (HorizontalScrollView) findViewById(R.id.browser_tabs_scroll);
         tabContainer = (LinearLayout) findViewById(R.id.browser_tabs_container);
+        omniboxLayout = (RelativeLayout) findViewById(R.id.browser_omnibox_layout);
         addTabButton = (ImageButton) findViewById(R.id.browser_add_tab_button);
         bookmarkButton = (ImageButton) findViewById(R.id.browser_bookmark_button);
         inputBox = (AutoCompleteTextView) findViewById(R.id.browser_input_box);
@@ -243,27 +244,18 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     private void initSearchPanel() {
-        searchPanel = (RelativeLayout) findViewById(R.id.browser_search_panel);
-        searchSeparator = findViewById(R.id.browser_search_separator);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            searchPanel.setElevation(ViewUnit.dp2px(this, 2));
-            searchSeparator.setVisibility(View.GONE);
-        } else {
-            searchSeparator.setVisibility(View.VISIBLE);
-        }
-        searchBox = (EditText) findViewById(R.id.browser_search_box);
-        searchUpButton = (ImageButton) findViewById(R.id.browser_search_up_button);
-        searchDownButton = (ImageButton) findViewById(R.id.browser_search_down_button);
-        searchCancelButton = (ImageButton) findViewById(R.id.browser_search_cancel_button);
+        searchPanel = (RelativeLayout) getLayoutInflater().inflate(R.layout.search_panel, null, false);
+        searchBox = (EditText) searchPanel.findViewById(R.id.search_box);
+        searchUpButton = (ImageButton) searchPanel.findViewById(R.id.search_panel_up_button);
+        searchDownButton = (ImageButton) searchPanel.findViewById(R.id.search_panel_down_button);
+        searchCancelButton = (ImageButton) searchPanel.findViewById(R.id.search_panel_cancel_button);
 
         searchBox.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -295,6 +287,8 @@ public class BrowserActivity extends Activity implements BrowserController {
                     Toast.makeText(BrowserActivity.this, R.string.toast_input_empty, Toast.LENGTH_SHORT).show();
                     return;
                 }
+
+                hideSoftInput(searchBox);
                 if (tabController instanceof BerryView) {
                     ((BerryView) tabController).findNext(false);
                 }
@@ -309,6 +303,8 @@ public class BrowserActivity extends Activity implements BrowserController {
                     Toast.makeText(BrowserActivity.this, R.string.toast_input_empty, Toast.LENGTH_SHORT).show();
                     return;
                 }
+
+                hideSoftInput(searchBox);
                 if (tabController instanceof BerryView) {
                     ((BerryView) tabController).findNext(true);
                 }
@@ -374,7 +370,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                     case 2:
                         if (tabController == null || !(tabController instanceof BerryView)) {
                             Toast.makeText(BrowserActivity.this, R.string.toast_search_failed, Toast.LENGTH_SHORT).show();
-                        } else if (searchPanel.getVisibility() == View.GONE || (searchPanel.getVisibility() == View.VISIBLE && !searchPanel.hasFocus())) {
+                        } else {
                             hideSoftInput(inputBox);
                             showSearchPanel();
                         }
@@ -911,9 +907,9 @@ public class BrowserActivity extends Activity implements BrowserController {
     private void updateRefreshButton(boolean running) {
         if (running) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.cl_button_selector, null));
+                refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.cl_button_dark_selector, null));
             } else {
-                refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.cl_button_selector));
+                refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.cl_button_dark_selector));
             }
         } else {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -937,14 +933,27 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     private void showSearchPanel() {
-        searchPanel.setVisibility(View.VISIBLE);
+        int index = controlPanel.indexOfChild(omniboxLayout);
+        if (index < 0) {
+            return;
+        }
+
+        controlPanel.removeView(omniboxLayout);
+        controlPanel.addView(searchPanel, index, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
         showSoftInput(searchBox);
     }
 
     private void hideSearchPanel() {
+        int index = controlPanel.indexOfChild(searchPanel);
+        if (index < 0) {
+            return;
+        }
+
         hideSoftInput(searchBox);
-        searchPanel.setVisibility(View.GONE);
         searchBox.setText("");
+
+        controlPanel.removeView(searchPanel);
+        controlPanel.addView(omniboxLayout, index, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
     }
 
     @Override

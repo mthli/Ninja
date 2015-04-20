@@ -30,7 +30,7 @@
                      android:layout_marginRight="8dp"
                      android:layout_gravity="center_vertical|right"
                      android:paddingLeft="8dp"
-                     android:src="@drawable/cl_button_selector"
+                     android:src="@drawable/cl_button_dark_selector"
                      android:background="@color/gray_900"
                      android:visibility="gone">
         </ImageButton>
