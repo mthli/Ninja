@@ -7,9 +7,10 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
-import android.webkit.ValueCallback;
 import io.github.mthli.Berries.R;
+import io.github.mthli.Berries.Unit.BrowserUnit;
+
+import java.io.File;
 
 public class SettingFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
     private ListPreference searchEngine;
@@ -39,22 +40,31 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         switch (preference.getTitleRes()) {
             case R.string.setting_title_export_bookmarks:
+                // TODO
                 break;
             case R.string.setting_title_import_bookmarks:
+                // TODO
                 break;
             case R.string.setting_title_clear_bookmarks:
+                BrowserUnit.clearBookmarks(getActivity());
                 break;
             case R.string.setting_title_clear_cookies:
+                BrowserUnit.clearCookies(getActivity());
                 break;
             case R.string.setting_title_clear_history:
+                BrowserUnit.clearHistory(getActivity());
                 break;
             case R.string.setting_title_clear_passwords:
+                BrowserUnit.clearPasswords(getActivity());
                 break;
             case R.string.setting_title_usage:
+                // TODO
                 break;
             case R.string.setting_title_github:
+                // TODO
                 break;
             case R.string.setting_title_license:
+                // TODO
                 break;
             default:
                 break;

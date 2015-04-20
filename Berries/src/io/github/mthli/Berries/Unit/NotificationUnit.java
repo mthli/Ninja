@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import io.github.mthli.Berries.Browser.BrowserContainer;
 import io.github.mthli.Berries.Browser.BerryView;
 import io.github.mthli.Berries.Browser.TabController;
@@ -17,7 +18,7 @@ public class NotificationUnit {
     public static final int ID = 0x65536;
 
     public static Notification.Builder getBuilder(Context context) {
-        SharedPreferences sp = context.getSharedPreferences(context.getString(R.string.sp_name), Context.MODE_PRIVATE);
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         int priority = sp.getInt(context.getString(R.string.sp_notification_priority), Notification.PRIORITY_DEFAULT);
         boolean sound = sp.getBoolean(context.getString(R.string.sp_notification_sound), true);
 

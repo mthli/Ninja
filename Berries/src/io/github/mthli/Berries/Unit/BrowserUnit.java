@@ -5,14 +5,22 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
-import android.webkit.URLUtil;
+import android.preference.PreferenceManager;
+import android.provider.Browser;
+import android.util.Log;
+import android.webkit.*;
 import android.widget.Toast;
+import io.github.mthli.Berries.Database.RecordAction;
 import io.github.mthli.Berries.R;
 
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.regex.Pattern;
@@ -33,8 +41,8 @@ public class BrowserUnit {
     public static final String MIME_TYPE_IMAGE = "image/*";
 
     public static final String SEARCH_ENGINE_GOOGLE = "https://www.google.com/search?q=";
-    public static final String SEARCH_ENGINE_DUCK_DUCK_GO = "https://duckduckgo.com/?q=";
-    public static final String SEARCH_ENGINE_START_PAGE = "https://startpage.com/do/search?query=";
+    public static final String SEARCH_ENGINE_DUCKDUCKGO = "https://duckduckgo.com/?q=";
+    public static final String SEARCH_ENGINE_STARTPAGE = "https://startpage.com/do/search?query=";
     public static final String SEARCH_ENGINE_BING = "http://www.bing.com/search?q=";
     public static final String SEARCH_ENGINE_BAIDU = "http://www.baidu.com/s?wd=";
 
@@ -99,15 +107,25 @@ public class BrowserUnit {
             query = URLEncoder.encode(query, URL_ENCODING);
         } catch (UnsupportedEncodingException u) {}
 
-        SharedPreferences sp = context.getSharedPreferences(
-                context.getString(R.string.sp_name),
-                Context.MODE_PRIVATE
-        );
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         // TODO: location and sp
         String searchEngine = sp.getString(
                 context.getString(R.string.sp_search_engine),
-                SEARCH_ENGINE_GOOGLE
+                context.getString(R.string.setting_summary_search_engine_google)
         );
+        if (searchEngine.equals(context.getString(R.string.setting_summary_search_engine_google))) {
+            searchEngine = SEARCH_ENGINE_GOOGLE;
+        } else if (searchEngine.equals(context.getString(R.string.setting_summary_search_engine_duckduckgo))) {
+            searchEngine = SEARCH_ENGINE_DUCKDUCKGO;
+        } else if (searchEngine.equals(context.getString(R.string.setting_summary_search_engine_startpage))) {
+            searchEngine = SEARCH_ENGINE_STARTPAGE;
+        } else if (searchEngine.equals(context.getString(R.string.setting_summary_search_engine_bing))) {
+            searchEngine = SEARCH_ENGINE_BING;
+        } else if (searchEngine.equals(context.getString(R.string.setting_summary_search_engine_baidu))) {
+            searchEngine = SEARCH_ENGINE_BAIDU;
+        } else {
+            searchEngine = SEARCH_ENGINE_GOOGLE;
+        }
         return searchEngine + query;
     }
 
@@ -128,5 +146,70 @@ public class BrowserUnit {
         DownloadManager manager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
         manager.enqueue(request);
         Toast.makeText(context, R.string.toast_start_download, Toast.LENGTH_SHORT).show();
+    }
+
+    public static void clearBookmarks(Context context) {
+        RecordAction action = new RecordAction(context);
+        action.open(true);
+        action.clearBookmarks();
+        action.close();
+        Toast.makeText(context, R.string.toast_clear_bookmarks_successful, Toast.LENGTH_SHORT).show();
+    }
+
+    public static void clearCookies(Context context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            CookieManager cookieManager = CookieManager.getInstance();
+            cookieManager.flush();
+            cookieManager.removeAllCookies(new ValueCallback<Boolean>() {
+                @Override
+                public void onReceiveValue(Boolean value) {}
+            });
+        } else {
+            CookieManager cookieManager = CookieManager.getInstance();
+            CookieSyncManager cookieSyncManager = CookieSyncManager.createInstance(context);
+            cookieManager.removeAllCookie();
+        }
+        Toast.makeText(context, R.string.toast_clear_history_successful, Toast.LENGTH_SHORT).show();
+    }
+
+    public static void clearHistory(Context context) {
+        RecordAction action = new RecordAction(context);
+        action.open(true);
+        action.clearHistory();
+        action.close();
+
+        WebViewDatabase.getInstance(context).clearFormData();
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            WebIconDatabase.getInstance().removeAllIcons();
+        }
+        try {
+            File dir = context.getCacheDir();
+            if (dir != null && dir.isDirectory()) {
+                deleteDir(dir);
+            }
+        } catch (Exception exception) {}
+
+        Toast.makeText(context, R.string.toast_clear_history_successful, Toast.LENGTH_SHORT).show();
+    }
+
+    private static boolean deleteDir(File dir) {
+        if (dir != null && dir.isDirectory()) {
+            String[] children = dir.list();
+            for (String aChildren : children) {
+                boolean success = deleteDir(new File(dir, aChildren));
+                if (!success) {
+                    return false;
+                }
+            }
+        }
+        return dir != null && dir.delete();
+    }
+
+    public static void clearPasswords(Context context) {
+        WebViewDatabase.getInstance(context).clearHttpAuthUsernamePassword();
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            WebViewDatabase.getInstance(context).clearUsernamePassword();
+        }
+        Toast.makeText(context, R.string.toast_clear_passwords_successful, Toast.LENGTH_SHORT).show();
     }
 }

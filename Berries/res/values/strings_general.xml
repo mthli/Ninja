@@ -218,6 +218,18 @@
     <string name="toast_add_bookmark_failed">
         Can\'t add this page to bookmark
     </string>
+    <string name="toast_clear_bookmarks_successful">
+        Clear bookmarks successful
+    </string>
+    <string name="taost_clear_cookies_successful">
+        Clear cookies successful
+    </string>
+    <string name="toast_clear_history_successful">
+        Clear history successful
+    </string>
+    <string name="toast_clear_passwords_successful">
+        Clear passwords successful
+    </string>
     <string name="toast_copy_successful">
         Copy successful
     </string>

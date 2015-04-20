@@ -43,6 +43,9 @@
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: io.github.mthli.Berries" />
   </component>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/BrowserUnit.java" line="44" mnemonic="0" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="cc93abc1-2103-48b2-be43-1ecdaaf60a10" name="Default" comment="" />
     <ignored path="Berries.iws" />
@@ -64,6 +67,160 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="BrowserUnit.java" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/BrowserUnit.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="0.6708464">
+                    <caret line="207" column="55" selection-start-line="207" selection-start-column="55" selection-end-line="207" selection-end-column="55" />
+                    <folding>
+                      <element signature="imports" expanded="false" />
+                      <element signature="method#queryWrapper#0;class#BrowserUnit#0" expanded="false" />
+                      <element signature="e#4779#4823#0" expanded="true" />
+                      <element signature="e#4841#4905#0" expanded="true" />
+                      <element signature="e#4949#5013#0" expanded="true" />
+                      <element signature="e#5106#5174#0" expanded="true" />
+                      <element signature="e#5271#5338#0" expanded="true" />
+                      <element signature="e#5434#5496#0" expanded="true" />
+                      <element signature="e#5587#5650#0" expanded="true" />
+                      <element signature="method#copy#0;class#BrowserUnit#0" expanded="false" />
+                      <element signature="e#6117#6147#0" expanded="true" />
+                      <element signature="e#6735#6771#0" expanded="true" />
+                      <element signature="e#6944#6973#0" expanded="true" />
+                      <element signature="e#7240#7281#0" expanded="true" />
+                      <element signature="class#7595:7722" expanded="false" />
+                      <element signature="e#7993#8032#0" expanded="true" />
+                      <element signature="e#8702#8741#0" expanded="true" />
+                      <element signature="method#deleteDir#0;class#BrowserUnit#0" expanded="false" />
+                      <element signature="e#9522#9563#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="BrowserActivity.java" pinned="false" current-in-tab="false">
+              <entry file="file://$USER_HOME$/GitHub/Lightning-Browser/src/acr/browser/lightning/BrowserActivity.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="-9.392858">
+                    <caret line="1204" column="8" selection-start-line="1204" selection-start-column="8" selection-end-line="1204" selection-end-column="8" />
+                    <folding>
+                      <element signature="method#onCreate#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="e#10659#10717#0" expanded="false" />
+                      <element signature="e#12515#12581#0" expanded="false" />
+                      <element signature="class#12664:13819" expanded="false" />
+                      <element signature="method#onDrawerClosed#0;class#12664:13819" expanded="false" />
+                      <element signature="method#onDrawerOpened#0;class#12664:13819" expanded="false" />
+                      <element signature="method#checkForTor#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#initializeTor#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#setNavigationDrawerWidth#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#restoreOrNewTab#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#onKeyDown#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#onOptionsItemSelected#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="e#21158#21223#0" expanded="false" />
+                      <element signature="docComment;method#notifyBookmarkDataSetChanged#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="docComment;method#findInPage#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#findInPage#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="docComment;class#DrawerItemClickListener#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="class#DrawerItemClickListener#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#onItemClick#0;class#DrawerItemClickListener#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="docComment;class#DrawerItemLongClickListener#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="class#DrawerItemLongClickListener#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#onItemLongClick#0;class#DrawerItemLongClickListener#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="class#BookmarkItemClickListener#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#onItemClick#0;class#BookmarkItemClickListener#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="e#27254#27321#0" expanded="false" />
+                      <element signature="class#BookmarkItemLongClickListener#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#onItemLongClick#0;class#BookmarkItemLongClickListener#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="docComment;method#editBookmark#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#editBookmark#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="docComment;method#showTab#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#showTab#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="e#31650#31704#0" expanded="false" />
+                      <element signature="docComment;method#onNewIntent#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#handleNewIntent#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#closeEmptyTab#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#closeCurrentTab#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#selectItem#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="docComment;method#onPostCreate#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#onPostCreate#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#onConfigurationChanged#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#newTab#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#onBackPressed#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#onPause#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#saveOpenTabs#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#onDestroy#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#onResume#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="docComment;method#searchTheWeb#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#searchTheWeb#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#pixelsToDp#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="docComment;method#writeOnDrawable#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#writeOnDrawable#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="e#42890#42895#0" expanded="false" />
+                      <element signature="class#LightningViewAdapter#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#LightningViewAdapter#0;class#LightningViewAdapter#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#getView#0;class#LightningViewAdapter#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="class#LightningViewHolder#0;class#LightningViewAdapter#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="class#BookmarkViewAdapter#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#BookmarkViewAdapter#0;class#BookmarkViewAdapter#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#getView#0;class#BookmarkViewAdapter#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="class#BookmarkViewHolder#0;class#BookmarkViewAdapter#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#getImage#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="class#DownloadImageTask#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#DownloadImageTask#0;class#DownloadImageTask#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#doInBackground#0;class#DownloadImageTask#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#onPostExecute#0;class#DownloadImageTask#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#getDomainName#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#updateUrl#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#updateProgress#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#addItemToHistory#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="docComment;method#initializeSearchSuggestions#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#initializeSearchSuggestions#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="docComment;method#openHistory#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#openHistory#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="docComment;method#openBookmarks#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#openBookmarks#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#openBookmarkPage#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#openFileChooser#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#onActivityResult#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#onShowCustomView#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#onHideCustomView#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="class#VideoCompletionListener#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="docComment;method#setFullscreen#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#setFullscreen#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="docComment;class#FullscreenHolder#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="class#FullscreenHolder#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#FullscreenHolder#0;class#FullscreenHolder#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="e#59999#60042#0" expanded="false" />
+                      <element signature="method#getDefaultVideoPoster#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="e#60470#60500#0" expanded="false" />
+                      <element signature="method#getVideoLoadingProgressView#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#onCreateWindow#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="docComment;method#hideActionBar#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#hideActionBar#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#showActionBar#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="docComment;method#setIsLoading#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#setIsLoading#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="docComment;method#setIsFinishedLoading#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#setIsFinishedLoading#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="docComment;method#refreshOrStop#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#refreshOrStop#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#isActionBarShowing#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="class#SortIgnoreCase#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="method#compare#0;class#SortIgnoreCase#0;class#BrowserActivity#0" expanded="false" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="Berries">
@@ -76,10 +233,40 @@
       <favorite_root url="file://$PROJECT_DIR$/../Lightning-Browser/src/acr/browser/lightning/Constants.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
       <favorite_root url="file://$USER_HOME$/GitHub/Lightning-Browser/src/acr/browser/lightning/BrowserActivity.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
       <favorite_root url="file://$USER_HOME$/GitHub/Thunder-Browser/src/acr/browser/thunder/DownloadHandler.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      <favorite_root url="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/BrowserUnit.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="SettingFragment.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Fragment/SettingFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8993289">
+              <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+              <folding>
+                <element signature="e#1033#1069#0" expanded="true" />
+                <element signature="e#1135#1179#0" expanded="true" />
+                <element signature="e#1542#1581#0" expanded="true" />
+                <element signature="e#1647#1686#0" expanded="true" />
+                <element signature="e#1752#1790#0" expanded="true" />
+                <element signature="e#1891#1927#0" expanded="true" />
+                <element signature="e#2026#2062#0" expanded="true" />
+                <element signature="e#2161#2199#0" expanded="true" />
+                <element signature="e#2300#2328#0" expanded="true" />
+                <element signature="e#2394#2423#0" expanded="true" />
+                <element signature="e#2489#2519#0" expanded="true" />
+                <element signature="e#2833#2869#0" expanded="true" />
+                <element signature="e#2936#2992#0" expanded="true" />
+                <element signature="e#3071#3115#0" expanded="true" />
+                <element signature="e#3182#3247#0" expanded="true" />
+                <element signature="e#3334#3364#0" expanded="true" />
+                <element signature="e#3499#3529#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -120,13 +307,10 @@
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/TabController.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/View/TabRelativeLayout.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BrowserContainer.java" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/NotificationUnit.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryTab.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryDownloadHandler.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryDownloadListener.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/IntentUnit.java" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/BrowserUnit.java" />
-        <option value="$PROJECT_DIR$/res/values/strings_preference.xml" />
         <option value="$PROJECT_DIR$/res/menu/setting_menu.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/SettingActivity.java" />
         <option value="$PROJECT_DIR$/res/xml/preference.xml" />
@@ -148,9 +332,12 @@
         <option value="$PROJECT_DIR$/res/layout/browser.xml" />
         <option value="$PROJECT_DIR$/res/layout/search_panel.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/BrowserActivity.java" />
-        <option value="$PROJECT_DIR$/res/values/strings_general.xml" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/NotificationUnit.java" />
+        <option value="$PROJECT_DIR$/res/values/strings_preference.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryView.java" />
+        <option value="$PROJECT_DIR$/res/values/strings_general.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Fragment/SettingFragment.java" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/BrowserUnit.java" />
       </list>
     </option>
   </component>
@@ -168,10 +355,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2" />
-    <option name="y" value="-3" />
-    <option name="width" value="1370" />
-    <option name="height" value="748" />
+    <option name="width" value="683" />
+    <option name="height" value="741" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -198,7 +383,6 @@
     <panes>
       <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -232,6 +416,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Berries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Berries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Berries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Berries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unit" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -328,6 +534,24 @@
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xml" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Berries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Berries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -349,6 +573,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -363,7 +588,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$USER_HOME$/GitHub/Thunder-Browser/src/acr/browser/thunder/BrowserActivity.java" />
+    <property name="last_opened_file_path" value="$USER_HOME$/GitHub/Thunder-Browser/src/acr/browser/thunder/Utils.java" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -588,35 +813,35 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="-3" width="1370" height="748" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="0" width="683" height="741" extended-state="4" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46903324" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32905295" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="141" y="192" width="868" height="437" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2809524" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28089887" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3194864" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31942338" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32857144" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32779455" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2888889" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28731942" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5714286" sideWeight="0.43560606" order="3" side_tool="false" content_ui="tabs" x="2" y="199" width="1362" height="343" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3164557" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.3846154" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="784" y="109" width="506" height="539" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854986" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.5949764" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" x="870" y="27" width="444" height="697" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.61587304" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.61476725" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5955056" sideWeight="0.56439394" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46903324" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
@@ -626,23 +851,23 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32857144" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32779455" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3164557" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.5949764" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" x="870" y="27" width="444" height="697" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.61587304" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.61476725" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5955056" sideWeight="0.56439394" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46903324" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.32905295" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="141" y="192" width="868" height="437" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46903324" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2809524" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32905295" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="141" y="192" width="868" height="437" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28089887" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3194864" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31942338" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2888889" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5714286" sideWeight="0.43560606" order="3" side_tool="false" content_ui="tabs" x="2" y="199" width="1362" height="343" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.3846154" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="784" y="109" width="506" height="539" />
@@ -684,7 +909,7 @@
           <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="30" />
+      <option name="time" value="31" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -693,147 +918,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/GitHub/Lightning-Browser/src/acr/browser/lightning/BrowserActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2154" column="120" selection-start-line="2154" selection-start-column="120" selection-end-line="2154" selection-end-column="120" />
-          <folding>
-            <element signature="e#0#70109#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="method#onCreate#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#initialize#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="e#10659#10717#0" expanded="false" />
-            <element signature="e#12515#12581#0" expanded="false" />
-            <element signature="class#12664:13819" expanded="false" />
-            <element signature="method#onDrawerClosed#0;class#12664:13819" expanded="false" />
-            <element signature="method#onDrawerOpened#0;class#12664:13819" expanded="false" />
-            <element signature="method#checkForTor#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#initializeTor#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#setNavigationDrawerWidth#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#restoreOrNewTab#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#initializePreferences#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onKeyDown#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="e#21158#21223#0" expanded="false" />
-            <element signature="docComment;method#notifyBookmarkDataSetChanged#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#notifyBookmarkDataSetChanged#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="docComment;method#findInPage#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#findInPage#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#showSearchInterfaceBar#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="docComment;class#DrawerItemClickListener#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#DrawerItemClickListener#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onItemClick#0;class#DrawerItemClickListener#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="docComment;class#DrawerItemLongClickListener#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#DrawerItemLongClickListener#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onItemLongClick#0;class#DrawerItemLongClickListener#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#BookmarkItemClickListener#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onItemClick#0;class#BookmarkItemClickListener#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="e#27254#27321#0" expanded="false" />
-            <element signature="class#BookmarkItemLongClickListener#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onItemLongClick#0;class#BookmarkItemLongClickListener#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="docComment;method#editBookmark#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#editBookmark#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="docComment;method#showTab#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#showTab#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="e#31650#31704#0" expanded="false" />
-            <element signature="docComment;method#onNewIntent#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#handleNewIntent#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#closeEmptyTab#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#closeCurrentTab#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#selectItem#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="docComment;method#onPostCreate#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onPostCreate#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onConfigurationChanged#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#newTab#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#deleteTab#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onKeyLongPress#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#clearHistory#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#clearCookies#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onBackPressed#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onPause#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#saveOpenTabs#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onResume#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="docComment;method#searchTheWeb#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#searchTheWeb#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#pixelsToDp#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="docComment;method#writeOnDrawable#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#writeOnDrawable#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="e#42890#42895#0" expanded="false" />
-            <element signature="class#LightningViewAdapter#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#LightningViewAdapter#0;class#LightningViewAdapter#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#getView#0;class#LightningViewAdapter#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#LightningViewHolder#0;class#LightningViewAdapter#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#BookmarkViewAdapter#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#BookmarkViewAdapter#0;class#BookmarkViewAdapter#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#getView#0;class#BookmarkViewAdapter#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#BookmarkViewHolder#0;class#BookmarkViewAdapter#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#getImage#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#DownloadImageTask#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#DownloadImageTask#0;class#DownloadImageTask#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#doInBackground#0;class#DownloadImageTask#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onPostExecute#0;class#DownloadImageTask#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#getDomainName#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateUrl#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateProgress#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#addItemToHistory#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#getSystemBrowser#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="docComment;method#initializeSearchSuggestions#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#initializeSearchSuggestions#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="docComment;method#openHistory#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#openHistory#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="docComment;method#openBookmarks#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#openBookmarks#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#openBookmarkPage#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#openFileChooser#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onActivityResult#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onShowCustomView#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onHideCustomView#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#VideoCompletionListener#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="docComment;method#setFullscreen#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#setFullscreen#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="docComment;class#FullscreenHolder#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#FullscreenHolder#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#FullscreenHolder#0;class#FullscreenHolder#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="e#59999#60042#0" expanded="false" />
-            <element signature="method#getDefaultVideoPoster#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="e#60470#60500#0" expanded="false" />
-            <element signature="method#getVideoLoadingProgressView#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onCreateWindow#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="docComment;method#hideActionBar#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#hideActionBar#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#showActionBar#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="docComment;method#setIsLoading#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#setIsLoading#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="docComment;method#setIsFinishedLoading#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#setIsFinishedLoading#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="docComment;method#refreshOrStop#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#refreshOrStop#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#isActionBarShowing#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#SortIgnoreCase#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#compare#0;class#SortIgnoreCase#0;class#BrowserActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/GitHub/Lightning-Browser/src/acr/browser/lightning/DownloadHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57894737">
-          <caret line="163" column="41" selection-start-line="163" selection-start-column="31" selection-end-line="163" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Lightning-Browser/src/acr/browser/lightning/LightningDownloadListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/GitHub/Thunder-Browser/src/acr/browser/thunder/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.37313432">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -872,13 +960,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/IntentUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27363184">
-          <caret line="11" column="51" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/GitHub/Thunder-Browser/src/acr/browser/thunder/LightningView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.40775195">
@@ -900,18 +981,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/BrowserUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5735786">
-          <caret line="105" column="32" selection-start-line="105" selection-start-column="32" selection-end-line="105" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/menu/setting_menu.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.050167225">
           <caret line="2" column="67" selection-start-line="2" selection-start-column="67" selection-end-line="2" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -919,14 +992,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1357" column="28" selection-start-line="1357" selection-start-column="0" selection-end-line="1358" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings_preference.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2238806">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -942,13 +1007,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/xml/preference.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39800996">
-          <caret line="16" column="83" selection-start-line="16" selection-start-column="83" selection-end-line="16" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/title.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -956,7 +1014,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -967,7 +1024,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.38260868">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -978,7 +1034,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13043478">
           <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -989,7 +1044,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.892857">
           <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1000,7 +1054,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13043478">
           <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1008,7 +1061,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09950249">
           <caret line="4" column="100" selection-start-line="4" selection-start-column="100" selection-end-line="4" selection-end-column="100" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1016,7 +1068,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09950249">
           <caret line="4" column="96" selection-start-line="4" selection-start-column="96" selection-end-line="4" selection-end-column="96" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1024,9 +1075,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.42114094">
           <caret line="49" column="79" selection-start-line="49" selection-start-column="79" selection-end-line="49" selection-end-column="79" />
-          <folding>
-            <element signature="e#1766#1784#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1037,7 +1085,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1062,7 +1109,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34210527">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1080,7 +1126,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="67" selection-start-line="4" selection-start-column="4" selection-end-line="12" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1103,7 +1148,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="59" column="15" selection-start-line="59" selection-start-column="15" selection-end-line="59" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1111,7 +1155,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.27272728">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1119,7 +1162,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1127,7 +1169,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.27272728">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1135,7 +1176,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.27272728">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1146,21 +1186,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39130434">
           <caret line="50" column="44" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="44" />
-          <folding>
-            <element signature="n#RelativeLayout#0;n#LinearLayout#0;n#RelativeLayout#0;n#!!top" expanded="false" />
-            <element signature="n#ImageButton#0;n#RelativeLayout#0;n#LinearLayout#0;n#RelativeLayout#0;n#!!top" expanded="false" />
-            <element signature="n#HorizontalScrollView#0;n#RelativeLayout#0;n#LinearLayout#0;n#RelativeLayout#0;n#!!top" expanded="false" />
-            <element signature="n#LinearLayout#0;n#HorizontalScrollView#0;n#RelativeLayout#0;n#LinearLayout#0;n#RelativeLayout#0;n#!!top" expanded="false" />
-            <element signature="n#RelativeLayout#1;n#LinearLayout#0;n#RelativeLayout#0;n#!!top" expanded="false" />
-            <element signature="n#ImageButton#0;n#RelativeLayout#1;n#LinearLayout#0;n#RelativeLayout#0;n#!!top" expanded="false" />
-            <element signature="n#RelativeLayout#0;n#RelativeLayout#1;n#LinearLayout#0;n#RelativeLayout#0;n#!!top" expanded="false" />
-            <element signature="n#ImageButton#0;n#RelativeLayout#0;n#RelativeLayout#1;n#LinearLayout#0;n#RelativeLayout#0;n#!!top" expanded="false" />
-            <element signature="n#ImageButton#1;n#RelativeLayout#0;n#RelativeLayout#1;n#LinearLayout#0;n#RelativeLayout#0;n#!!top" expanded="false" />
-            <element signature="n#AutoCompleteTextView#0;n#RelativeLayout#0;n#RelativeLayout#1;n#LinearLayout#0;n#RelativeLayout#0;n#!!top" expanded="false" />
-            <element signature="n#LinearLayout#0;n#LinearLayout#0;n#RelativeLayout#0;n#!!top" expanded="false" />
-            <element signature="n#ProgressBar#0;n#LinearLayout#0;n#LinearLayout#0;n#RelativeLayout#0;n#!!top" expanded="false" />
-            <element signature="n#FrameLayout#0;n#RelativeLayout#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1171,15 +1196,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.2782608">
           <caret line="49" column="41" selection-start-line="49" selection-start-column="41" selection-end-line="49" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/SettingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6766169">
-          <caret line="31" column="97" selection-start-line="31" selection-start-column="97" selection-end-line="31" selection-end-column="97" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1232,146 +1248,242 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings_general.xml">
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/SettingActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="126" column="74" selection-start-line="126" selection-start-column="74" selection-end-line="126" selection-end-column="74" />
+        <state vertical-scroll-proportion="0.5234114">
+          <caret line="31" column="97" selection-start-line="31" selection-start-column="97" selection-end-line="31" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/xml/preference.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.81947744">
+          <caret line="23" column="55" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
+          <folding>
+            <element signature="e#907#952#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/NotificationUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23489933">
+          <caret line="20" column="86" selection-start-line="20" selection-start-column="86" selection-end-line="20" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings_preference.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07550336">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/GitHub/Thunder-Browser/src/acr/browser/thunder/BrowserActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9496644">
+          <caret line="711" column="21" selection-start-line="711" selection-start-column="16" selection-end-line="711" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/GitHub/Thunder-Browser/src/acr/browser/thunder/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7986577">
+          <caret line="112" column="5" selection-start-line="100" selection-start-column="4" selection-end-line="112" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="197" column="99" selection-start-line="197" selection-start-column="99" selection-end-line="197" selection-end-column="99" />
+        <state vertical-scroll-proportion="0.53355706">
+          <caret line="173" column="70" selection-start-line="173" selection-start-column="70" selection-end-line="173" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings_general.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6979866">
+          <caret line="230" column="34" selection-start-line="230" selection-start-column="34" selection-end-line="230" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/GitHub/Lightning-Browser/src/acr/browser/lightning/BrowserActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.392858">
+          <caret line="1204" column="8" selection-start-line="1204" selection-start-column="8" selection-end-line="1204" selection-end-column="8" />
           <folding>
-            <element signature="e#7261#7301#0" expanded="true" />
+            <element signature="method#onCreate#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="e#10659#10717#0" expanded="false" />
+            <element signature="e#12515#12581#0" expanded="false" />
+            <element signature="class#12664:13819" expanded="false" />
+            <element signature="method#onDrawerClosed#0;class#12664:13819" expanded="false" />
+            <element signature="method#onDrawerOpened#0;class#12664:13819" expanded="false" />
+            <element signature="method#checkForTor#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#initializeTor#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#setNavigationDrawerWidth#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#restoreOrNewTab#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onKeyDown#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="e#21158#21223#0" expanded="false" />
+            <element signature="docComment;method#notifyBookmarkDataSetChanged#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="docComment;method#findInPage#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#findInPage#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="docComment;class#DrawerItemClickListener#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#DrawerItemClickListener#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onItemClick#0;class#DrawerItemClickListener#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="docComment;class#DrawerItemLongClickListener#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#DrawerItemLongClickListener#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onItemLongClick#0;class#DrawerItemLongClickListener#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#BookmarkItemClickListener#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onItemClick#0;class#BookmarkItemClickListener#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="e#27254#27321#0" expanded="false" />
+            <element signature="class#BookmarkItemLongClickListener#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onItemLongClick#0;class#BookmarkItemLongClickListener#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="docComment;method#editBookmark#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#editBookmark#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="docComment;method#showTab#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#showTab#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="e#31650#31704#0" expanded="false" />
+            <element signature="docComment;method#onNewIntent#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#handleNewIntent#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#closeEmptyTab#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#closeCurrentTab#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#selectItem#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="docComment;method#onPostCreate#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onPostCreate#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onConfigurationChanged#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#newTab#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onBackPressed#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onPause#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#saveOpenTabs#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onDestroy#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onResume#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="docComment;method#searchTheWeb#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#searchTheWeb#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#pixelsToDp#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="docComment;method#writeOnDrawable#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#writeOnDrawable#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="e#42890#42895#0" expanded="false" />
+            <element signature="class#LightningViewAdapter#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#LightningViewAdapter#0;class#LightningViewAdapter#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#getView#0;class#LightningViewAdapter#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#LightningViewHolder#0;class#LightningViewAdapter#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#BookmarkViewAdapter#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#BookmarkViewAdapter#0;class#BookmarkViewAdapter#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#getView#0;class#BookmarkViewAdapter#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#BookmarkViewHolder#0;class#BookmarkViewAdapter#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#getImage#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#DownloadImageTask#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#DownloadImageTask#0;class#DownloadImageTask#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#doInBackground#0;class#DownloadImageTask#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onPostExecute#0;class#DownloadImageTask#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#getDomainName#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateUrl#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateProgress#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#addItemToHistory#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="docComment;method#initializeSearchSuggestions#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#initializeSearchSuggestions#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="docComment;method#openHistory#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#openHistory#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="docComment;method#openBookmarks#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#openBookmarks#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#openBookmarkPage#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#openFileChooser#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onActivityResult#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onShowCustomView#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onHideCustomView#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#VideoCompletionListener#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="docComment;method#setFullscreen#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#setFullscreen#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="docComment;class#FullscreenHolder#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#FullscreenHolder#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#FullscreenHolder#0;class#FullscreenHolder#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="e#59999#60042#0" expanded="false" />
+            <element signature="method#getDefaultVideoPoster#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="e#60470#60500#0" expanded="false" />
+            <element signature="method#getVideoLoadingProgressView#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onCreateWindow#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="docComment;method#hideActionBar#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#hideActionBar#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#showActionBar#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="docComment;method#setIsLoading#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#setIsLoading#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="docComment;method#setIsFinishedLoading#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#setIsFinishedLoading#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="docComment;method#refreshOrStop#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#refreshOrStop#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#isActionBarShowing#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#SortIgnoreCase#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#compare#0;class#SortIgnoreCase#0;class#BrowserActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/GitHub/Thunder-Browser/src/acr/browser/thunder/BrowserActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/IntentUnit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.8214285">
-          <caret line="711" column="21" selection-start-line="711" selection-start-column="16" selection-end-line="711" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.27684563">
+          <caret line="11" column="51" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/BrowserUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6708464">
+          <caret line="207" column="55" selection-start-line="207" selection-start-column="55" selection-end-line="207" selection-end-column="55" />
           <folding>
-            <element signature="e#3345#3355#0" expanded="false" />
-            <element signature="e#5556#5557#0" expanded="false" />
-            <element signature="e#5601#5602#0" expanded="false" />
-            <element signature="e#6413#6556#0" expanded="false" />
-            <element signature="e#6555#6556#0" expanded="false" />
-            <element signature="e#6822#7647#0" expanded="false" />
-            <element signature="e#7646#7647#0" expanded="false" />
-            <element signature="e#7773#7774#0" expanded="false" />
-            <element signature="e#7788#7789#0" expanded="false" />
-            <element signature="e#10856#10857#0" expanded="false" />
-            <element signature="e#10877#10878#0" expanded="false" />
-            <element signature="e#10935#10936#0" expanded="false" />
-            <element signature="e#10962#10963#0" expanded="false" />
-            <element signature="e#11855#11856#0" expanded="false" />
-            <element signature="e#11878#11879#0" expanded="false" />
-            <element signature="e#12903#13075#0" expanded="false" />
-            <element signature="e#13074#13075#0" expanded="false" />
-            <element signature="e#13160#13454#0" expanded="false" />
-            <element signature="e#13453#13454#0" expanded="false" />
-            <element signature="e#13536#13711#0" expanded="false" />
-            <element signature="e#13710#13711#0" expanded="false" />
-            <element signature="e#14012#14607#0" expanded="false" />
-            <element signature="e#14606#14607#0" expanded="false" />
-            <element signature="e#15213#15863#0" expanded="false" />
-            <element signature="e#15862#15863#0" expanded="false" />
-            <element signature="e#16439#17069#0" expanded="false" />
-            <element signature="e#17068#17069#0" expanded="false" />
-            <element signature="e#17857#18461#0" expanded="false" />
-            <element signature="e#18460#18461#0" expanded="false" />
-            <element signature="e#19070#19729#0" expanded="false" />
-            <element signature="e#19728#19729#0" expanded="false" />
-            <element signature="e#21326#21701#0" expanded="false" />
-            <element signature="e#21700#21701#0" expanded="false" />
-            <element signature="e#24843#24844#0" expanded="false" />
-            <element signature="e#24875#24876#0" expanded="false" />
-            <element signature="e#27800#27801#0" expanded="false" />
-            <element signature="e#27828#27829#0" expanded="false" />
-            <element signature="e#30330#32462#0" expanded="false" />
-            <element signature="e#32461#32462#0" expanded="false" />
-            <element signature="e#32749#32847#0" expanded="false" />
-            <element signature="e#32846#32847#0" expanded="false" />
-            <element signature="e#32878#33079#0" expanded="false" />
-            <element signature="e#33078#33079#0" expanded="false" />
-            <element signature="e#33113#33269#0" expanded="false" />
-            <element signature="e#33268#33269#0" expanded="false" />
-            <element signature="e#33302#33406#0" expanded="false" />
-            <element signature="e#33405#33406#0" expanded="false" />
-            <element signature="e#33443#33831#0" expanded="false" />
-            <element signature="e#33830#33831#0" expanded="false" />
-            <element signature="e#33870#34264#0" expanded="false" />
-            <element signature="e#34263#34264#0" expanded="false" />
-            <element signature="e#34295#34819#0" expanded="false" />
-            <element signature="e#34818#34819#0" expanded="false" />
-            <element signature="e#34852#35335#0" expanded="false" />
-            <element signature="e#35334#35335#0" expanded="false" />
-            <element signature="e#35375#36214#0" expanded="false" />
-            <element signature="e#36213#36214#0" expanded="false" />
-            <element signature="e#36729#36730#0" expanded="false" />
-            <element signature="e#36775#36776#0" expanded="false" />
-            <element signature="e#36917#36918#0" expanded="false" />
-            <element signature="e#36965#36966#0" expanded="false" />
-            <element signature="e#37640#37641#0" expanded="false" />
-            <element signature="e#37665#37666#0" expanded="false" />
-            <element signature="e#38204#38688#0" expanded="false" />
-            <element signature="e#38687#38688#0" expanded="false" />
-            <element signature="e#39932#40750#0" expanded="false" />
-            <element signature="e#40749#40750#0" expanded="false" />
-            <element signature="e#41836#41837#0" expanded="false" />
-            <element signature="e#41892#41893#0" expanded="false" />
-            <element signature="e#48121#48122#0" expanded="false" />
-            <element signature="e#48140#48141#0" expanded="false" />
-            <element signature="e#48993#48994#0" expanded="false" />
-            <element signature="e#49015#49016#0" expanded="false" />
-            <element signature="e#49217#49308#0" expanded="false" />
-            <element signature="e#49307#49308#0" expanded="false" />
-            <element signature="e#49609#49939#0" expanded="false" />
-            <element signature="e#49793#49924#0" expanded="false" />
-            <element signature="e#49923#49924#0" expanded="false" />
-            <element signature="e#49938#49939#0" expanded="false" />
-            <element signature="e#50181#50182#0" expanded="false" />
-            <element signature="e#50215#50216#0" expanded="false" />
-            <element signature="e#50822#50972#0" expanded="false" />
-            <element signature="e#50971#50972#0" expanded="false" />
-            <element signature="e#51175#51176#0" expanded="false" />
-            <element signature="e#51233#51234#0" expanded="false" />
-            <element signature="e#51683#51937#0" expanded="false" />
-            <element signature="e#51936#51937#0" expanded="false" />
-            <element signature="e#52067#52219#0" expanded="false" />
-            <element signature="e#52218#52219#0" expanded="false" />
-            <element signature="e#53798#53799#0" expanded="false" />
-            <element signature="e#53818#53819#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="method#queryWrapper#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="e#4779#4823#0" expanded="true" />
+            <element signature="e#4841#4905#0" expanded="true" />
+            <element signature="e#4949#5013#0" expanded="true" />
+            <element signature="e#5106#5174#0" expanded="true" />
+            <element signature="e#5271#5338#0" expanded="true" />
+            <element signature="e#5434#5496#0" expanded="true" />
+            <element signature="e#5587#5650#0" expanded="true" />
+            <element signature="method#copy#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="e#6117#6147#0" expanded="true" />
+            <element signature="e#6735#6771#0" expanded="true" />
+            <element signature="e#6944#6973#0" expanded="true" />
+            <element signature="e#7240#7281#0" expanded="true" />
+            <element signature="class#7595:7722" expanded="false" />
+            <element signature="e#7993#8032#0" expanded="true" />
+            <element signature="e#8702#8741#0" expanded="true" />
+            <element signature="method#deleteDir#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="e#9522#9563#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Fragment/SettingFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05472637">
-          <caret line="46" column="54" selection-start-line="46" selection-start-column="54" selection-end-line="46" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.8993289">
+          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
           <folding>
-            <element signature="e#1040#1076#0" expanded="true" />
-            <element signature="e#1142#1186#0" expanded="true" />
-            <element signature="e#1549#1588#0" expanded="true" />
-            <element signature="e#1630#1669#0" expanded="true" />
-            <element signature="e#1711#1749#0" expanded="true" />
-            <element signature="e#1791#1827#0" expanded="true" />
-            <element signature="e#1869#1905#0" expanded="true" />
-            <element signature="e#1947#1985#0" expanded="true" />
-            <element signature="e#2027#2055#0" expanded="true" />
-            <element signature="e#2097#2126#0" expanded="true" />
-            <element signature="e#2168#2198#0" expanded="true" />
-            <element signature="e#2488#2524#0" expanded="true" />
-            <element signature="e#2591#2647#0" expanded="true" />
-            <element signature="e#2726#2770#0" expanded="true" />
-            <element signature="e#2837#2902#0" expanded="true" />
-            <element signature="e#2989#3019#0" expanded="true" />
-            <element signature="e#3154#3184#0" expanded="true" />
+            <element signature="e#1033#1069#0" expanded="true" />
+            <element signature="e#1135#1179#0" expanded="true" />
+            <element signature="e#1542#1581#0" expanded="true" />
+            <element signature="e#1647#1686#0" expanded="true" />
+            <element signature="e#1752#1790#0" expanded="true" />
+            <element signature="e#1891#1927#0" expanded="true" />
+            <element signature="e#2026#2062#0" expanded="true" />
+            <element signature="e#2161#2199#0" expanded="true" />
+            <element signature="e#2300#2328#0" expanded="true" />
+            <element signature="e#2394#2423#0" expanded="true" />
+            <element signature="e#2489#2519#0" expanded="true" />
+            <element signature="e#2833#2869#0" expanded="true" />
+            <element signature="e#2936#2992#0" expanded="true" />
+            <element signature="e#3071#3115#0" expanded="true" />
+            <element signature="e#3182#3247#0" expanded="true" />
+            <element signature="e#3334#3364#0" expanded="true" />
+            <element signature="e#3499#3529#0" expanded="true" />
           </folding>
         </state>
       </provider>
