@@ -190,9 +190,6 @@ public class BerryView extends WebView implements TabController {
         SharedPreferences sp = context.getSharedPreferences(context.getString(R.string.sp_name), Context.MODE_PRIVATE);
         WebSettings webSettings = getSettings();
 
-        CookieManager manager = CookieManager.getInstance();
-        manager.setAcceptCookie(sp.getBoolean(context.getString(R.string.sp_cookies), true));
-
         webSettings.setBlockNetworkImage(!sp.getBoolean(context.getString(R.string.sp_images), true));
         webSettings.setJavaScriptEnabled(sp.getBoolean(context.getString(R.string.sp_javascript), true));
         webSettings.setJavaScriptCanOpenWindowsAutomatically(sp.getBoolean(context.getString(R.string.sp_javascript), true));

@@ -94,7 +94,7 @@
         DuckDuckGo
     </string>
     <string name="setting_summary_search_engine_startpage">
-        StartPage
+        Startpage
     </string>
     <string name="setting_summary_search_engine_bing">
         Bing
@@ -116,10 +116,16 @@
     <string name="setting_summary_notification_priority_default">
         Default
     </string>
+    <string name="setting_summary_notification_priority_high">
+        High
+    </string>
+    <string name="setting_summary_notification_priority_low">
+        Low
+    </string>
     <string-array name="setting_values_notification_priority">
-        <item>High</item>
-        <item>Default</item>
-        <item>Low</item>
+        <item>@string/setting_summary_notification_priority_high</item>
+        <item>@string/setting_summary_notification_priority_default</item>
+        <item>@string/setting_summary_notification_priority_low</item>
     </string-array>
     <!-- Cookies -->
     <string name="setting_title_cookies">
