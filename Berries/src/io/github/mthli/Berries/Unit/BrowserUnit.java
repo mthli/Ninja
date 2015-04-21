@@ -13,12 +13,14 @@ import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.webkit.*;
 import android.widget.Toast;
+import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.Database.RecordAction;
 import io.github.mthli.Berries.R;
+import org.json.JSONObject;
 
-import java.io.File;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.net.URLEncoder;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class BrowserUnit {
@@ -206,5 +208,67 @@ public class BrowserUnit {
             WebViewDatabase.getInstance(context).clearUsernamePassword();
         }
         Toast.makeText(context, R.string.toast_clear_passwords_successful, Toast.LENGTH_SHORT).show();
+    }
+
+    public static void exportBookmarks(Context context) {
+        RecordAction action = new RecordAction(context);
+        action.open(false);
+        List<Record> list = action.listBookmarks();
+        action.close();
+
+        String filename = context.getString(R.string.bookmarks_filename);
+        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename + ".txt");
+        int count = 0;
+        while (file.exists()) {
+            count++;
+            file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename + "-" + count + ".txt");
+        }
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
+            for (Record record : list) {
+                JSONObject object = new JSONObject();
+                object.put(RecordUnit.COLUMN_TITLE, record.getTitle());
+                object.put(RecordUnit.COLUMN_URL, record.getURL());
+                object.put(RecordUnit.COLUMN_TIME, record.getTime());
+                writer.write(object.toString());
+                writer.newLine();
+            }
+            writer.close();
+            Toast.makeText(context, context.getString(R.string.toast_export_bookmarks_successful) + file.getAbsolutePath(), Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(context, R.string.toast_export_bookmarks_failed, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public static boolean importBookmarks(Context context, File file) {
+        if (file == null) {
+            return false;
+        }
+
+        try {
+            RecordAction action = new RecordAction(context);
+            action.open(true);
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String line;
+            int count = 0;
+            while ((line = reader.readLine()) != null) {
+                JSONObject object = new JSONObject(line);
+                Record record = new Record();
+                record.setTitle(object.getString(RecordUnit.COLUMN_TITLE));
+                record.setURL(object.getString(RecordUnit.COLUMN_URL));
+                record.setTime(object.getLong(RecordUnit.COLUMN_TIME));
+                if (!action.checkBookmark(record)) {
+                    action.addBookmark(record);
+                    count++;
+                }
+            }
+            reader.close();
+            action.close();
+            Toast.makeText(context, context.getString(R.string.toast_import_bookmarks_successful) + " " + count, Toast.LENGTH_SHORT).show();
+            return true;
+        } catch (Exception e) {
+            Toast.makeText(context, R.string.toast_import_bookmarks_failed, Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 }

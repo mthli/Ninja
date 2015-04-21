@@ -55,10 +55,13 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         switch (preference.getTitleRes()) {
             case R.string.setting_title_export_bookmarks:
-                // TODO
+                BrowserUnit.exportBookmarks(getActivity());
                 break;
             case R.string.setting_title_import_bookmarks:
-                // TODO
+                Intent importBookmarks = new Intent(Intent.ACTION_GET_CONTENT);
+                importBookmarks.setType(IntentUnit.INTENT_TYPE_TEXT_PLAIN);
+                importBookmarks.addCategory(Intent.CATEGORY_OPENABLE);
+                getActivity().startActivityForResult(importBookmarks, IntentUnit.REQUEST_FILE);
                 break;
             case R.string.setting_title_clear_bookmarks:
                 BrowserUnit.clearBookmarks(getActivity());

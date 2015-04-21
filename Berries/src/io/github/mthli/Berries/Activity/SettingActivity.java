@@ -9,9 +9,13 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 import io.github.mthli.Berries.Fragment.SettingFragment;
 import io.github.mthli.Berries.R;
+import io.github.mthli.Berries.Unit.BrowserUnit;
 import io.github.mthli.Berries.Unit.IntentUnit;
+
+import java.io.File;
 
 public class SettingActivity extends Activity {
     private SettingFragment fragment;
@@ -70,7 +74,20 @@ public class SettingActivity extends Activity {
         return true;
     }
 
-    // TODO
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {}
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode != IntentUnit.REQUEST_FILE && resultCode != Activity.RESULT_OK || data == null || data.getData() == null) {
+            Toast.makeText(this, R.string.toast_import_bookmarks_failed, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        try {
+            File file = new File(data.getData().getPath());
+            if (!BrowserUnit.importBookmarks(this, file)) {
+                Toast.makeText(this, R.string.toast_import_bookmarks_failed, Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            Toast.makeText(this, R.string.toast_import_bookmarks_failed, Toast.LENGTH_SHORT).show();
+        }
+    }
 }

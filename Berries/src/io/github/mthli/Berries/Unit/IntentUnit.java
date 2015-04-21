@@ -8,11 +8,15 @@ public class IntentUnit {
     public static final String LIST = "LIST";
     public static final String QUIT = "QUIT";
     public static final String DATABASE_CHANGE = "DATABASE_CHANGE";
-    public static final String SHAREDPREFERENCE_CHANGE = "CHANGE";
+    public static final String SHAREDPREFERENCE_CHANGE = "SHAREDPREFERENCE_CHANGE";
     public static final String GITHUB = "GITHUB";
 
     public static final int REQUEST_SETTING = 0x100;
     public static final int RESULT_SETTING = 0x101;
+    public static final int REQUEST_FILE = 0x102;
+    public static final int RESULT_FILE = 0x103;
+
+    public static final String INTENT_TYPE_TEXT_PLAIN = "text/plain";
 
     public static Intent getEmailIntent(MailTo mailTo) {
         Intent intent = new Intent(Intent.ACTION_SEND);

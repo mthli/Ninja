@@ -183,6 +183,9 @@
     <string name="setting_title_import_bookmarks">
         Import bookmarks
     </string>
+    <string name="bookmarks_filename">
+        BerriesBookmarks
+    </string>
     <string name="setting_title_clear_bookmarks">
         Clear bookmarks
     </string>
@@ -238,6 +241,18 @@
     </string>
     <string name="toast_delete_successful">
         Delete successful
+    </string>
+    <string name="toast_export_bookmarks_successful">
+        Export bookmarks file at:\n
+    </string>
+    <string name="toast_export_bookmarks_failed">
+        Export bookmarks failed
+    </string>
+    <string name="toast_import_bookmarks_successful">
+        Import bookmarks count:
+    </string>
+    <string name="toast_import_bookmarks_failed">
+        Import bookmarks failed
     </string>
     <string name="toast_incognito">
         Incognito

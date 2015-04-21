@@ -44,7 +44,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: io.github.mthli.Berries" />
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/BrowserUnit.java" line="40" mnemonic="0" />
+    <bookmark url="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/BrowserUnit.java" line="42" mnemonic="0" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc93abc1-2103-48b2-be43-1ecdaaf60a10" name="Default" comment="" />
@@ -67,6 +67,51 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="BookmarkManager.java" pinned="false" current-in-tab="true">
+              <entry file="file://$USER_HOME$/GitHub/Thunder-Browser/src/acr/browser/thunder/BookmarkManager.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="0.78840125">
+                    <caret line="391" column="32" selection-start-line="391" selection-start-column="32" selection-end-line="391" selection-end-column="32" />
+                    <folding>
+                      <element signature="imports" expanded="false" />
+                      <element signature="method#BookmarkManager#0;class#BookmarkManager#0" expanded="false" />
+                      <element signature="docComment;method#addBookmark#0;class#BookmarkManager#0" expanded="false" />
+                      <element signature="method#addBookmark#0;class#BookmarkManager#0" expanded="false" />
+                      <element signature="docComment;method#addBookmarkList#0;class#BookmarkManager#0" expanded="false" />
+                      <element signature="method#addBookmarkList#0;class#BookmarkManager#0" expanded="false" />
+                      <element signature="docComment;method#deleteBookmark#0;class#BookmarkManager#0" expanded="false" />
+                      <element signature="method#deleteBookmark#0;class#BookmarkManager#0" expanded="false" />
+                      <element signature="docComment;method#exportBookmarks#0;class#BookmarkManager#0" expanded="false" />
+                      <element signature="method#exportBookmarks#0;class#BookmarkManager#0" expanded="false" />
+                      <element signature="docComment;method#getBookmarks#0;class#BookmarkManager#0" expanded="false" />
+                      <element signature="method#getBookmarks#0;class#BookmarkManager#0" expanded="false" />
+                      <element signature="docComment;method#getBookmarksFromFolder#0;class#BookmarkManager#0" expanded="false" />
+                      <element signature="method#getBookmarksFromFolder#0;class#BookmarkManager#0" expanded="false" />
+                      <element signature="docComment;method#getBookmarkUrls#0;class#BookmarkManager#0" expanded="false" />
+                      <element signature="method#getBookmarkUrls#0;class#BookmarkManager#0" expanded="false" />
+                      <element signature="docComment;method#getFolders#0;class#BookmarkManager#0" expanded="false" />
+                      <element signature="method#getFolders#0;class#BookmarkManager#0" expanded="false" />
+                      <element signature="docComment;method#importBookmarksFromBrowser#0;class#BookmarkManager#0" expanded="false" />
+                      <element signature="method#importBookmarksFromBrowser#0;class#BookmarkManager#0" expanded="false" />
+                      <element signature="docComment;method#importBookmarksFromFile#0;class#BookmarkManager#0" expanded="false" />
+                      <element signature="method#overwriteBookmarks#0;class#BookmarkManager#0" expanded="false" />
+                      <element signature="class#SortIgnoreCase#0;class#BookmarkManager#0" expanded="false" />
+                      <element signature="method#compare#0;class#SortIgnoreCase#0;class#BookmarkManager#0" expanded="false" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="Berries">
@@ -83,43 +128,7 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="SettingFragment.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Fragment/SettingFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.54697984">
-              <caret line="83" column="85" selection-start-line="83" selection-start-column="85" selection-end-line="83" selection-end-column="85" />
-              <folding>
-                <element signature="e#973#974#0" expanded="true" />
-                <element signature="e#1010#1011#0" expanded="true" />
-                <element signature="e#1070#1071#0" expanded="true" />
-                <element signature="e#1122#1123#0" expanded="true" />
-                <element signature="e#1523#1559#0" expanded="true" />
-                <element signature="e#1625#1669#0" expanded="true" />
-                <element signature="e#2032#2071#0" expanded="true" />
-                <element signature="e#2137#2176#0" expanded="true" />
-                <element signature="e#2242#2280#0" expanded="true" />
-                <element signature="e#2420#2456#0" expanded="true" />
-                <element signature="e#2555#2591#0" expanded="true" />
-                <element signature="e#2729#2767#0" expanded="true" />
-                <element signature="e#2868#2898#0" expanded="true" />
-                <element signature="e#2946#2966#0" expanded="true" />
-                <element signature="e#3036#3065#0" expanded="true" />
-                <element signature="e#3342#3372#0" expanded="true" />
-                <element signature="e#3533#3566#0" expanded="true" />
-                <element signature="e#3677#3706#0" expanded="true" />
-                <element signature="e#4077#4113#0" expanded="true" />
-                <element signature="e#4180#4236#0" expanded="true" />
-                <element signature="e#4315#4359#0" expanded="true" />
-                <element signature="e#4426#4491#0" expanded="true" />
-                <element signature="e#4578#4608#0" expanded="true" />
-                <element signature="e#4743#4773#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -140,7 +149,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/HistoryActivity.java" />
         <option value="$PROJECT_DIR$/res/layout/history.xml" />
         <option value="$PROJECT_DIR$/res/layout/bookmarks.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/HistoryView.java" />
@@ -182,15 +190,16 @@
         <option value="$PROJECT_DIR$/res/values/strings_preference.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryView.java" />
         <option value="$PROJECT_DIR$/res/values-v21/styles.xml" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/BrowserUnit.java" />
         <option value="$PROJECT_DIR$/res/values/strings_app.xml" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/res/xml/preference.xml" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/BrowserActivity.java" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/RecordUnit.java" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/BrowserUnit.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/IntentUnit.java" />
-        <option value="$PROJECT_DIR$/res/values/strings_general.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Fragment/SettingFragment.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/SettingActivity.java" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/BrowserActivity.java" />
+        <option value="$PROJECT_DIR$/res/values/strings_general.xml" />
       </list>
     </option>
   </component>
@@ -208,8 +217,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1364" />
-    <option name="height" value="741" />
+    <option name="x" value="-2" />
+    <option name="y" value="-3" />
+    <option name="width" value="1370" />
+    <option name="height" value="748" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -311,6 +322,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Fragment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Berries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Berries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Berries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Database" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -459,7 +492,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$USER_HOME$/GitHub/Thunder-Browser/src/acr/browser/thunder/Utils.java" />
+    <property name="last_opened_file_path" value="$USER_HOME$/GitHub/Thunder-Browser/src/acr/browser/thunder/BookmarkManager.java" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -684,8 +717,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1364" height="741" extended-state="4" />
-    <editor active="true" />
+    <frame x="-2" y="-3" width="1370" height="748" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -706,7 +739,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854986" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.5949764" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" x="870" y="27" width="444" height="697" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6131621" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.61269844" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5955056" sideWeight="0.56439394" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
@@ -759,34 +792,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/GitHub/Thunder-Browser/src/acr/browser/thunder/DownloadHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.233831">
-          <caret line="130" column="40" selection-start-line="130" selection-start-column="40" selection-end-line="130" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Browser/BerryDownloadListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.024875622">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Database/RecordHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17355372">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Database/RecordAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.231405">
-          <caret line="94" column="45" selection-start-line="94" selection-start-column="45" selection-end-line="94" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/GitHub/Thunder-Browser/src/acr/browser/thunder/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -805,13 +810,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.8656716">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/GitHub/Thunder-Browser/src/acr/browser/thunder/SettingsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6666667">
-          <caret line="608" column="85" selection-start-line="608" selection-start-column="85" selection-end-line="608" selection-end-column="85" />
         </state>
       </provider>
     </entry>
@@ -1172,14 +1170,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings_preference.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07462686">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/values-v21/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.42288557">
@@ -1193,19 +1183,6 @@
         <state vertical-scroll-proportion="3.9303482">
           <caret line="173" column="70" selection-start-line="173" selection-start-column="70" selection-end-line="173" selection-end-column="70" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/BrowserUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.3084576">
-          <caret line="177" column="73" selection-start-line="177" selection-start-column="73" selection-end-line="177" selection-end-column="73" />
-          <folding>
-            <element signature="method#queryWrapper#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#copy#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="class#7457:7584" expanded="false" />
-            <element signature="method#deleteDir#0;class#BrowserUnit#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1236,30 +1213,6 @@
             <element signature="e#3863#3884#0" expanded="false" />
             <element signature="e#4012#4046#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings_general.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4714765">
-          <caret line="248" column="27" selection-start-line="248" selection-start-column="27" selection-end-line="248" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/IntentUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22651006">
-          <caret line="9" column="67" selection-start-line="9" selection-start-column="67" selection-end-line="9" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/SettingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57214767">
-          <caret line="65" column="62" selection-start-line="65" selection-start-column="62" selection-end-line="65" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1316,36 +1269,141 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/RecordUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7986577">
+          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+          <folding>
+            <element signature="e#1086#1087#0" expanded="false" />
+            <element signature="e#1117#1118#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/GitHub/Thunder-Browser/src/acr/browser/thunder/SettingsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.75">
+          <caret line="89" column="23" selection-start-line="89" selection-start-column="14" selection-end-line="89" selection-end-column="23" />
+          <folding>
+            <element signature="e#18898#19127#0" expanded="false" />
+            <element signature="e#19126#19127#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/GitHub/Thunder-Browser/src/acr/browser/thunder/BookmarkActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Database/RecordHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22651006">
+          <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/GitHub/Thunder-Browser/src/acr/browser/thunder/BookmarkManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.78840125">
+          <caret line="391" column="32" selection-start-line="391" selection-start-column="32" selection-end-line="391" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#BookmarkManager#0;class#BookmarkManager#0" expanded="false" />
+            <element signature="docComment;method#addBookmark#0;class#BookmarkManager#0" expanded="false" />
+            <element signature="method#addBookmark#0;class#BookmarkManager#0" expanded="false" />
+            <element signature="docComment;method#addBookmarkList#0;class#BookmarkManager#0" expanded="false" />
+            <element signature="method#addBookmarkList#0;class#BookmarkManager#0" expanded="false" />
+            <element signature="docComment;method#deleteBookmark#0;class#BookmarkManager#0" expanded="false" />
+            <element signature="method#deleteBookmark#0;class#BookmarkManager#0" expanded="false" />
+            <element signature="docComment;method#exportBookmarks#0;class#BookmarkManager#0" expanded="false" />
+            <element signature="method#exportBookmarks#0;class#BookmarkManager#0" expanded="false" />
+            <element signature="docComment;method#getBookmarks#0;class#BookmarkManager#0" expanded="false" />
+            <element signature="method#getBookmarks#0;class#BookmarkManager#0" expanded="false" />
+            <element signature="docComment;method#getBookmarksFromFolder#0;class#BookmarkManager#0" expanded="false" />
+            <element signature="method#getBookmarksFromFolder#0;class#BookmarkManager#0" expanded="false" />
+            <element signature="docComment;method#getBookmarkUrls#0;class#BookmarkManager#0" expanded="false" />
+            <element signature="method#getBookmarkUrls#0;class#BookmarkManager#0" expanded="false" />
+            <element signature="docComment;method#getFolders#0;class#BookmarkManager#0" expanded="false" />
+            <element signature="method#getFolders#0;class#BookmarkManager#0" expanded="false" />
+            <element signature="docComment;method#importBookmarksFromBrowser#0;class#BookmarkManager#0" expanded="false" />
+            <element signature="method#importBookmarksFromBrowser#0;class#BookmarkManager#0" expanded="false" />
+            <element signature="docComment;method#importBookmarksFromFile#0;class#BookmarkManager#0" expanded="false" />
+            <element signature="method#overwriteBookmarks#0;class#BookmarkManager#0" expanded="false" />
+            <element signature="class#SortIgnoreCase#0;class#BookmarkManager#0" expanded="false" />
+            <element signature="method#compare#0;class#SortIgnoreCase#0;class#BookmarkManager#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings_preference.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07462686">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/BrowserUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49751243">
+          <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+          <folding>
+            <element signature="method#isNetworkAvailable#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="method#isURL#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="method#queryWrapper#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="method#copy#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="method#download#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="method#clearBookmarks#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="method#clearCookies#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="class#7508:7635" expanded="false" />
+            <element signature="method#clearHistory#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="method#deleteDir#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="method#clearPasswords#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="method#exportBookmarks#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="e#12005#12066#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Activity/SettingActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.0895522">
+          <caret line="84" column="59" selection-start-line="84" selection-start-column="59" selection-end-line="84" selection-end-column="59" />
+          <folding>
+            <element signature="e#939#967#0" expanded="true" />
+            <element signature="e#3031#3069#0" expanded="true" />
+            <element signature="e#3301#3339#0" expanded="true" />
+            <element signature="e#3448#3486#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings_general.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="6.0945272">
+          <caret line="245" column="25" selection-start-line="245" selection-start-column="25" selection-end-line="245" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Unit/IntentUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4477612">
+          <caret line="18" column="69" selection-start-line="18" selection-start-column="69" selection-end-line="18" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Berries/Fragment/SettingFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54697984">
-          <caret line="83" column="85" selection-start-line="83" selection-start-column="85" selection-end-line="83" selection-end-column="85" />
-          <folding>
-            <element signature="e#973#974#0" expanded="true" />
-            <element signature="e#1010#1011#0" expanded="true" />
-            <element signature="e#1070#1071#0" expanded="true" />
-            <element signature="e#1122#1123#0" expanded="true" />
-            <element signature="e#1523#1559#0" expanded="true" />
-            <element signature="e#1625#1669#0" expanded="true" />
-            <element signature="e#2032#2071#0" expanded="true" />
-            <element signature="e#2137#2176#0" expanded="true" />
-            <element signature="e#2242#2280#0" expanded="true" />
-            <element signature="e#2420#2456#0" expanded="true" />
-            <element signature="e#2555#2591#0" expanded="true" />
-            <element signature="e#2729#2767#0" expanded="true" />
-            <element signature="e#2868#2898#0" expanded="true" />
-            <element signature="e#2946#2966#0" expanded="true" />
-            <element signature="e#3036#3065#0" expanded="true" />
-            <element signature="e#3342#3372#0" expanded="true" />
-            <element signature="e#3533#3566#0" expanded="true" />
-            <element signature="e#3677#3706#0" expanded="true" />
-            <element signature="e#4077#4113#0" expanded="true" />
-            <element signature="e#4180#4236#0" expanded="true" />
-            <element signature="e#4315#4359#0" expanded="true" />
-            <element signature="e#4426#4491#0" expanded="true" />
-            <element signature="e#4578#4608#0" expanded="true" />
-            <element signature="e#4743#4773#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="1.3681592">
+          <caret line="61" column="75" selection-start-line="61" selection-start-column="75" selection-end-line="61" selection-end-column="75" />
+          <folding />
         </state>
       </provider>
     </entry>
