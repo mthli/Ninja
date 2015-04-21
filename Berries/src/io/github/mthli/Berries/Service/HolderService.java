@@ -77,7 +77,6 @@ public class HolderService extends Service implements BrowserController {
     public void onDestroy() {
         BrowserContainer.clear();
         stopForeground(true);
-
         super.onDestroy();
     }
 

@@ -39,7 +39,18 @@ public class BerryWebChromeClient extends WebChromeClient {
     }
 
     /**
-     * TODO: support this method
+     * TODO: ?support this method
+     * @link http://developer.android.com/reference/android/webkit/WebChromeClient.html#onGeolocationPermissionsShowPrompt%28java.lang.String,%20android.webkit.GeolocationPermissions.Callback%29
+     * @param origin
+     * @param callback
+     */
+    @Override
+    public void onGeolocationPermissionsShowPrompt (String origin, GeolocationPermissions.Callback callback) {
+        super.onGeolocationPermissionsShowPrompt(origin, callback);
+    }
+
+    /**
+     * TODO: ?support this method
      * @link http://developer.android.com/reference/android/webkit/WebChromeClient.html#onShowCustomView(android.view.View,%20int,%20android.webkit.WebChromeClient.CustomViewCallback)
      */
     @Deprecated
@@ -49,7 +60,7 @@ public class BerryWebChromeClient extends WebChromeClient {
     }
 
     /**
-     * TODO: support this method
+     * TODO: ?support this method
      * @link http://developer.android.com/reference/android/webkit/WebChromeClient.html#onShowCustomView(android.view.View,%20android.webkit.WebChromeClient.CustomViewCallback)
      */
     @Override
@@ -58,7 +69,7 @@ public class BerryWebChromeClient extends WebChromeClient {
     }
 
     /**
-     * TODO: support this method
+     * TODO: ?support this method
      * @link http://developer.android.com/reference/android/webkit/WebChromeClient.html#onHideCustomView()
      */
     @Override

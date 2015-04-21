@@ -240,17 +240,17 @@ public class BrowserUnit {
         }
     }
 
-    public static boolean importBookmarks(Context context, File file) {
+    public static void importBookmarks(Context context, File file) {
         if (file == null) {
-            return false;
+            return;
         }
 
+        int count = 0;
         try {
             RecordAction action = new RecordAction(context);
             action.open(true);
             BufferedReader reader = new BufferedReader(new FileReader(file));
             String line;
-            int count = 0;
             while ((line = reader.readLine()) != null) {
                 JSONObject object = new JSONObject(line);
                 Record record = new Record();
@@ -265,10 +265,12 @@ public class BrowserUnit {
             reader.close();
             action.close();
             Toast.makeText(context, context.getString(R.string.toast_import_bookmarks_successful) + " " + count, Toast.LENGTH_SHORT).show();
-            return true;
         } catch (Exception e) {
-            Toast.makeText(context, R.string.toast_import_bookmarks_failed, Toast.LENGTH_SHORT).show();
-            return false;
+            if (count <= 0) {
+                Toast.makeText(context, R.string.toast_import_bookmarks_failed, Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, context.getString(R.string.toast_import_bookmarks_successful) + " " + count, Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

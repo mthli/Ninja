@@ -81,13 +81,8 @@ public class SettingActivity extends Activity {
             return;
         }
 
-        try {
-            File file = new File(data.getData().getPath());
-            if (!BrowserUnit.importBookmarks(this, file)) {
-                Toast.makeText(this, R.string.toast_import_bookmarks_failed, Toast.LENGTH_SHORT).show();
-            }
-        } catch (Exception e) {
-            Toast.makeText(this, R.string.toast_import_bookmarks_failed, Toast.LENGTH_SHORT).show();
-        }
+        File file = new File(data.getData().getPath());
+        BrowserUnit.importBookmarks(this, file);
+        fragment.setDatabaseChange(true);
     }
 }

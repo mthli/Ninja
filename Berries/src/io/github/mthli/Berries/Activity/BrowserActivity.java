@@ -84,6 +84,37 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode != IntentUnit.REQUEST_SETTING && resultCode != IntentUnit.RESULT_SETTING || data == null) {
+            return;
+        }
+
+        if (data.getBooleanExtra(IntentUnit.DATABASE_CHANGE, false)) {
+            updateBookmarks();
+            updateAutoComplete();
+        }
+
+        if (data.getBooleanExtra(IntentUnit.SHAREDPREFERENCE_CHANGE, false)) {
+            for (TabController controller : BrowserContainer.list()) {
+                if (controller instanceof BerryView) {
+                    ((BerryView) controller).initPreferences();
+                }
+            }
+        }
+
+        if (data.getStringExtra(IntentUnit.GITHUB) != null) {
+            newTab(getString(R.string.browser_tab_untitled), data.getStringExtra(IntentUnit.GITHUB), false, true, null);
+        }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (newConfig.orientation== Configuration.ORIENTATION_LANDSCAPE) {
+        } else {}
+    }
+
+    @Override
     public boolean onKeyDown(int keyCode, KeyEvent keyEvent) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             hideSoftInput(inputBox);
@@ -105,13 +136,6 @@ public class BrowserActivity extends Activity implements BrowserController {
             }
         }
         return true;
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        if (newConfig.orientation== Configuration.ORIENTATION_LANDSCAPE) {
-        } else {}
     }
 
     private void initControlPanel() {
@@ -1025,29 +1049,5 @@ public class BrowserActivity extends Activity implements BrowserController {
                 dialog.dismiss();
             }
         });
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode != IntentUnit.REQUEST_SETTING && resultCode != IntentUnit.RESULT_SETTING || data == null) {
-            return;
-        }
-
-        if (data.getBooleanExtra(IntentUnit.DATABASE_CHANGE, false)) {
-            updateBookmarks();
-            updateAutoComplete();
-        }
-
-        if (data.getBooleanExtra(IntentUnit.SHAREDPREFERENCE_CHANGE, false)) {
-            for (TabController controller : BrowserContainer.list()) {
-                if (controller instanceof BerryView) {
-                    ((BerryView) controller).initPreferences();
-                }
-            }
-        }
-
-        if (data.getStringExtra(IntentUnit.GITHUB) != null) {
-            newTab(getString(R.string.browser_tab_untitled), data.getStringExtra(IntentUnit.GITHUB), false, true, null);
-        }
     }
 }

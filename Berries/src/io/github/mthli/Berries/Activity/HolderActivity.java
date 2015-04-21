@@ -52,14 +52,12 @@ public class HolderActivity extends Activity {
         second.setTime(System.currentTimeMillis());
 
         if (first.getURL().equals(second.getURL())) {
-            Intent toBrowser = new Intent();
             // TODO
         } else {
             Intent toService = new Intent(HolderActivity.this, HolderService.class);
             RecordUnit.setHolder(second);
             startService(toService);
         }
-
         timer.cancel();
         finish();
     }
