@@ -202,13 +202,9 @@
     <string name="setting_title_github">
         GitHub
     </string>
-    <!-- License -->
-    <string name="setting_title_license">
-        License
-    </string>
-    <!-- Usage -->
-    <string name="setting_title_usage">
-        Usage
+    <!-- Internship -->
+    <string name="setting_title_internship">
+        I need an internship!
     </string>
 
     <!-- Toast -->
@@ -221,7 +217,7 @@
     <string name="toast_clear_bookmarks_successful">
         Clear bookmarks successful
     </string>
-    <string name="taost_clear_cookies_successful">
+    <string name="toast_clear_cookies_successful">
         Clear cookies successful
     </string>
     <string name="toast_clear_history_successful">

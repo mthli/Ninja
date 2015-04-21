@@ -5,16 +5,12 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.preference.PreferenceManager;
-import android.provider.Browser;
-import android.util.Log;
 import android.webkit.*;
 import android.widget.Toast;
 import io.github.mthli.Berries.Database.RecordAction;
@@ -169,7 +165,7 @@ public class BrowserUnit {
             CookieSyncManager cookieSyncManager = CookieSyncManager.createInstance(context);
             cookieManager.removeAllCookie();
         }
-        Toast.makeText(context, R.string.toast_clear_history_successful, Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, R.string.toast_clear_cookies_successful, Toast.LENGTH_SHORT).show();
     }
 
     public static void clearHistory(Context context) {
@@ -188,7 +184,6 @@ public class BrowserUnit {
                 deleteDir(dir);
             }
         } catch (Exception exception) {}
-
         Toast.makeText(context, R.string.toast_clear_history_successful, Toast.LENGTH_SHORT).show();
     }
 

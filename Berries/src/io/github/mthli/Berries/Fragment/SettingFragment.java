@@ -1,6 +1,8 @@
 package io.github.mthli.Berries.Fragment;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -9,12 +11,16 @@ import android.preference.PreferenceScreen;
 import android.webkit.CookieManager;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.BrowserUnit;
-
-import java.io.File;
+import io.github.mthli.Berries.Unit.IntentUnit;
 
 public class SettingFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
     private ListPreference searchEngine;
     private ListPreference notificationPriority;
+
+    private boolean change = false;
+    public boolean isChange() {
+        return change;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,14 +63,17 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
             case R.string.setting_title_clear_passwords:
                 BrowserUnit.clearPasswords(getActivity());
                 break;
-            case R.string.setting_title_usage:
-                // TODO
-                break;
             case R.string.setting_title_github:
-                // TODO
+                Intent toGitHub = new Intent();
+                toGitHub.putExtra(IntentUnit.CHANGE, change);
+                toGitHub.putExtra(IntentUnit.GITHUB, getString(R.string.app_github));
+                getActivity().setResult(IntentUnit.RESULT_SETTING, toGitHub);
+                getActivity().finish();
                 break;
-            case R.string.setting_title_license:
-                // TODO
+            case R.string.setting_title_internship:
+                Intent toGmail = new Intent(Intent.ACTION_SENDTO);
+                toGmail.setData(Uri.parse(getString(R.string.app_gmail)));
+                startActivity(toGmail);
                 break;
             default:
                 break;
@@ -74,6 +83,7 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        change = true;
         if (key.equals(getString(R.string.sp_search_engine))) {
             String summary = sharedPreferences.getString(key, getString(R.string.setting_summary_search_engine_google));
             searchEngine.setSummary(summary);

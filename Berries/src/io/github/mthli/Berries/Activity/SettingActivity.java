@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import io.github.mthli.Berries.Fragment.SettingFragment;
 import io.github.mthli.Berries.R;
+import io.github.mthli.Berries.Unit.IntentUnit;
 
 public class SettingActivity extends Activity {
     private SettingFragment fragment;
@@ -42,10 +44,24 @@ public class SettingActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case android.R.id.home:
+                Intent intent = new Intent();
+                intent.putExtra(IntentUnit.CHANGE, fragment.isChange());
+                setResult(IntentUnit.RESULT_SETTING, intent);
                 finish();
                 break;
             default:
                 break;
+        }
+        return true;
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent keyEvent) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Intent intent = new Intent();
+            intent.putExtra(IntentUnit.CHANGE, fragment.isChange());
+            setResult(IntentUnit.RESULT_SETTING, intent);
+            finish();
         }
         return true;
     }

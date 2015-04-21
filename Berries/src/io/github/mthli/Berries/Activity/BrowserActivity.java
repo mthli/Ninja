@@ -1025,5 +1025,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     // TODO
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {}
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+    }
 }

@@ -76,11 +76,9 @@
 
     <PreferenceCategory android:title="@string/setting_title_others">
 
-        <Preference android:title="@string/setting_title_usage" />
-
         <Preference android:title="@string/setting_title_github" />
 
-        <Preference android:title="@string/setting_title_license" />
+        <Preference android:title="@string/setting_title_internship" />
 
     </PreferenceCategory>
 
