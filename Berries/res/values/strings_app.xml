@@ -6,6 +6,9 @@
     <string name="app_name">
         Berries
     </string>
+    <string name="app_version">
+        1.0.0
+    </string>
     <string name="app_github">
         https://github.com/mthli/Berries
     </string>

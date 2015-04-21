@@ -233,6 +233,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 return false;
             }
         });
+        updateBookmarks();
         updateAutoComplete();
 
         overflowButton.setOnClickListener(new View.OnClickListener() {
@@ -741,6 +742,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                         action.close();
                         recordList.remove(location);
                         listAdapter.notifyDataSetChanged();
+                        updateBookmarks();
                         updateAutoComplete();
                         break;
                     default:
@@ -855,6 +857,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             } else {
                 updateRefreshButton(false);
                 progressWrapper.setVisibility(View.GONE);
+                updateBookmarks();
                 updateAutoComplete();
             }
         } else if (tabController instanceof BerryView) {
@@ -864,6 +867,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 action.open(true);
                 action.addHistory(new Record(currentView.getTitle(), currentView.getUrl(), System.currentTimeMillis()));
                 action.close();
+                updateBookmarks();
                 updateAutoComplete();
 
                 new Handler().postDelayed(new Runnable() {
@@ -1023,9 +1027,27 @@ public class BrowserActivity extends Activity implements BrowserController {
         });
     }
 
-    // TODO
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode != IntentUnit.REQUEST_SETTING && resultCode != IntentUnit.RESULT_SETTING || data == null) {
+            return;
+        }
 
+        if (data.getBooleanExtra(IntentUnit.DATABASE_CHANGE, false)) {
+            updateBookmarks();
+            updateAutoComplete();
+        }
+
+        if (data.getBooleanExtra(IntentUnit.SHAREDPREFERENCE_CHANGE, false)) {
+            for (TabController controller : BrowserContainer.list()) {
+                if (controller instanceof BerryView) {
+                    ((BerryView) controller).initPreferences();
+                }
+            }
+        }
+
+        if (data.getStringExtra(IntentUnit.GITHUB) != null) {
+            newTab(getString(R.string.browser_tab_untitled), data.getStringExtra(IntentUnit.GITHUB), false, true, null);
+        }
     }
 }

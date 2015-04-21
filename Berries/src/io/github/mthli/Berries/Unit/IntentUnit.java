@@ -7,7 +7,8 @@ import android.net.MailTo;
 public class IntentUnit {
     public static final String LIST = "LIST";
     public static final String QUIT = "QUIT";
-    public static final String CHANGE = "CHANGE";
+    public static final String DATABASE_CHANGE = "DATABASE_CHANGE";
+    public static final String SHAREDPREFERENCE_CHANGE = "CHANGE";
     public static final String GITHUB = "GITHUB";
 
     public static final int REQUEST_SETTING = 0x100;

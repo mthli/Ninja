@@ -198,6 +198,10 @@
     <string name="setting_title_others">
         Others
     </string>
+    <!-- Version -->
+    <string name="setting_title_version">
+        Version
+    </string>
     <!-- GitHub -->
     <string name="setting_title_github">
         GitHub
@@ -240,6 +244,9 @@
     </string>
     <string name="toast_input_empty">
         You haven\'t input anything
+    </string>
+    <string name="toast_judge">
+        Give our 5 stars :)
     </string>
     <string name="toast_load_error">
         Can\'t load this URL

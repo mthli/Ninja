@@ -9,6 +9,7 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.webkit.CookieManager;
+import android.widget.Toast;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.BrowserUnit;
 import io.github.mthli.Berries.Unit.IntentUnit;
@@ -17,9 +18,17 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
     private ListPreference searchEngine;
     private ListPreference notificationPriority;
 
-    private boolean change = false;
-    public boolean isChange() {
-        return change;
+    private boolean sharedPreferenceChange = false;
+    public boolean isSharedPreferenceChange() {
+        return sharedPreferenceChange;
+    }
+
+    private boolean databaseChange = false;
+    public boolean isDatabaseChange() {
+        return databaseChange;
+    }
+    public void setDatabaseChange(boolean databaseChange) {
+        this.databaseChange = databaseChange;
     }
 
     @Override
@@ -53,19 +62,25 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
                 break;
             case R.string.setting_title_clear_bookmarks:
                 BrowserUnit.clearBookmarks(getActivity());
+                databaseChange = true;
                 break;
             case R.string.setting_title_clear_cookies:
                 BrowserUnit.clearCookies(getActivity());
                 break;
             case R.string.setting_title_clear_history:
                 BrowserUnit.clearHistory(getActivity());
+                databaseChange = true;
                 break;
             case R.string.setting_title_clear_passwords:
                 BrowserUnit.clearPasswords(getActivity());
                 break;
+            case R.string.setting_title_version:
+                Toast.makeText(getActivity(), R.string.toast_judge, Toast.LENGTH_SHORT).show();
+                break;
             case R.string.setting_title_github:
                 Intent toGitHub = new Intent();
-                toGitHub.putExtra(IntentUnit.CHANGE, change);
+                toGitHub.putExtra(IntentUnit.DATABASE_CHANGE, databaseChange);
+                toGitHub.putExtra(IntentUnit.SHAREDPREFERENCE_CHANGE, sharedPreferenceChange);
                 toGitHub.putExtra(IntentUnit.GITHUB, getString(R.string.app_github));
                 getActivity().setResult(IntentUnit.RESULT_SETTING, toGitHub);
                 getActivity().finish();
@@ -83,7 +98,7 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        change = true;
+        sharedPreferenceChange = true;
         if (key.equals(getString(R.string.sp_search_engine))) {
             String summary = sharedPreferences.getString(key, getString(R.string.setting_summary_search_engine_google));
             searchEngine.setSummary(summary);

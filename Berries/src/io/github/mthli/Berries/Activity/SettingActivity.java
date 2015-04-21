@@ -45,7 +45,9 @@ public class SettingActivity extends Activity {
         switch (menuItem.getItemId()) {
             case android.R.id.home:
                 Intent intent = new Intent();
-                intent.putExtra(IntentUnit.CHANGE, fragment.isChange());
+                intent.putExtra(IntentUnit.DATABASE_CHANGE, fragment.isDatabaseChange());
+                intent.putExtra(IntentUnit.SHAREDPREFERENCE_CHANGE, fragment.isSharedPreferenceChange());
+                intent.putExtra(IntentUnit.GITHUB, (String) null);
                 setResult(IntentUnit.RESULT_SETTING, intent);
                 finish();
                 break;
@@ -59,7 +61,9 @@ public class SettingActivity extends Activity {
     public boolean onKeyDown(int keyCode, KeyEvent keyEvent) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             Intent intent = new Intent();
-            intent.putExtra(IntentUnit.CHANGE, fragment.isChange());
+            intent.putExtra(IntentUnit.DATABASE_CHANGE, fragment.isDatabaseChange());
+            intent.putExtra(IntentUnit.SHAREDPREFERENCE_CHANGE, fragment.isSharedPreferenceChange());
+            intent.putExtra(IntentUnit.GITHUB, (String) null);
             setResult(IntentUnit.RESULT_SETTING, intent);
             finish();
         }
