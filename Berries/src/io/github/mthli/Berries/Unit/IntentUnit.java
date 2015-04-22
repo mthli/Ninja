@@ -8,6 +8,7 @@ public class IntentUnit {
     public static final String DATABASE_CHANGE = "DATABASE_CHANGE";
     public static final String SHARED_PREFERENCE_CHANGE = "SHARED_PREFERENCE_CHANGE";
     public static final String GITHUB = "GITHUB";
+    public static final String QUIT = "QUIT";
 
     public static final int REQUEST_SETTING = 0x100;
     public static final int RESULT_SETTING = 0x101;
@@ -31,5 +32,13 @@ public class IntentUnit {
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT, title + "\n" + url);
         context.startActivity(intent);
+    }
+
+    private static boolean clear = false;
+    public static boolean isClear() {
+        return clear;
+    }
+    public synchronized static void setClear(boolean b) {
+        clear = b;
     }
 }

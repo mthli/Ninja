@@ -76,6 +76,10 @@
     <string name="notification_content_done_all">
         All pages loaded.
     </string>
+    <string name="notification_action_quit">
+        Quit
+    </string>
+
 
     <!-- Setting -->
     <string name="setting_label">

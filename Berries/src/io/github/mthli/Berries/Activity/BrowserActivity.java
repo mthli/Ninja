@@ -522,6 +522,9 @@ public class BrowserActivity extends Activity implements BrowserController {
         action.close();
 
         ListView listView = (ListView) listLayout.findViewById(R.id.list);
+        TextView textView = (TextView) listLayout.findViewById(R.id.list_empty);
+        listView.setEmptyView(textView);
+
         final ListAdapter adapter = new ListAdapter(this, R.layout.list_item, list);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();

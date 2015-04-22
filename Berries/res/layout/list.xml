@@ -11,4 +11,17 @@
               android:drawSelectorOnTop="true">
     </ListView>
 
+    <TextView android:id="@+id/list_empty"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_centerInParent="true"
+              android:gravity="center"
+              android:text="@string/list_empty"
+              android:textColor="@color/hint"
+              android:textSize="14sp"
+              android:singleLine="true"
+              android:ellipsize="none"
+              android:visibility="gone">
+    </TextView>
+
 </io.github.mthli.Berries.View.TabRelativeLayout>

@@ -12,11 +12,14 @@ import io.github.mthli.Berries.Browser.BerryView;
 import io.github.mthli.Berries.Browser.BrowserController;
 import io.github.mthli.Berries.R;
 import io.github.mthli.Berries.Unit.BrowserUnit;
+import io.github.mthli.Berries.Unit.IntentUnit;
 import io.github.mthli.Berries.Unit.NotificationUnit;
 import io.github.mthli.Berries.Unit.RecordUnit;
 import io.github.mthli.Berries.View.TabRelativeLayout;
 
 public class HolderService extends Service implements BrowserController {
+    private boolean clear;
+
     @Override
     public void updateBookmarks() {}
 
@@ -46,6 +49,12 @@ public class HolderService extends Service implements BrowserController {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        try {
+            if (intent != null && intent.getExtras().getBoolean(IntentUnit.QUIT, false)) {
+                this.stopSelf();
+            }
+        } catch (Exception e) {}
+
         if (!BrowserUnit.isNetworkAvailable(this)) {
             Toast.makeText(this, R.string.toast_network_error, Toast.LENGTH_SHORT).show();
             this.stopSelf();
@@ -66,7 +75,9 @@ public class HolderService extends Service implements BrowserController {
 
     @Override
     public void onDestroy() {
-        BrowserContainer.clear();
+        if (IntentUnit.isClear()) {
+            BrowserContainer.clear();
+        }
         stopForeground(true);
         super.onDestroy();
     }

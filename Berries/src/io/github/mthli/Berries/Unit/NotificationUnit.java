@@ -2,7 +2,9 @@ package io.github.mthli.Berries.Unit;
 
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.preference.PreferenceManager;
@@ -10,6 +12,7 @@ import io.github.mthli.Berries.Browser.BerryView;
 import io.github.mthli.Berries.Browser.BrowserContainer;
 import io.github.mthli.Berries.Browser.TabController;
 import io.github.mthli.Berries.R;
+import io.github.mthli.Berries.Service.HolderService;
 
 public class NotificationUnit {
     public static final int ID = 0x65536;
@@ -29,6 +32,7 @@ public class NotificationUnit {
             builder.setPriority(Notification.PRIORITY_DEFAULT);
         }
 
+        // TODO
         int done = 0;
         int total = 0;
         for (TabController controller : BrowserContainer.list()) {
@@ -41,14 +45,25 @@ public class NotificationUnit {
         }
         builder.setContentTitle(context.getString(R.string.app_name));
         builder.setNumber(total);
-        builder.setContentText(context.getString(R.string.notification_content_loading) + done);
         if (done < total) {
             builder.setSmallIcon(R.drawable.ic_notification_berries);
+            builder.setContentText(context.getString(R.string.notification_content_loading) + done);
         } else {
             builder.setSmallIcon(R.drawable.ic_notification_done_all);
+            builder.setContentText(context.getString(R.string.notification_content_done_all));
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             builder.setColor(context.getResources().getColor(R.color.blue_500));
+        }
+
+        Intent toService = new Intent(context, HolderService.class);
+        toService.putExtra(IntentUnit.QUIT, true);
+        IntentUnit.setClear(true);
+        PendingIntent quit = PendingIntent.getService(context, 0, toService, 0);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            builder.addAction(R.drawable.ic_action_quit_dark, context.getString(R.string.notification_action_quit), quit);
+        } else {
+            builder.addAction(R.drawable.ic_action_quit_light, context.getString(R.string.notification_action_quit), quit);
         }
 
         // TODO: PendingIntent
