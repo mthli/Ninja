@@ -49,6 +49,14 @@
         <item>Quit</item>
     </string-array>
 
+    <!-- Holder -->
+    <string-array name="holder_menu">
+        <item>Open in incognito tab</item>
+        <item>Open with browser</item>
+        <item>Copy URL</item>
+        <item>Share</item>
+    </string-array>
+
     <!-- List -->
     <string name="list_empty">
         Current list is empty
@@ -63,16 +71,10 @@
 
     <!-- Notification -->
     <string name="notification_content_loading">
-        Current completed&#160;
+        Current completed:&#160;
     </string>
     <string name="notification_content_done_all">
         All pages loaded.
-    </string>
-    <string name="notification_action_list">
-        List
-    </string>
-    <string name="notification_action_quit">
-        Quit
     </string>
 
     <!-- Setting -->
@@ -266,8 +268,11 @@
     <string name="toast_load_error">
         Can\'t load this URL
     </string>
-    <string name="toast_load_limit">
-        Load limit
+    <string name="toast_load_in_background">
+        Load in background
+    </string>
+    <string name="toast_load_in_background_incognito">
+        Load in background with incognito
     </string>
     <string name="toast_network_error">
         Network is not available
@@ -291,7 +296,7 @@
         Can\'t share this page
     </string>
     <string name="toast_start_download">
-        Start download&#8230;
+        Start download
     </string>
 
 </resources>

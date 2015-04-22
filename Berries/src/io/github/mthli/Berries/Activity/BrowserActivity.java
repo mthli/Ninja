@@ -57,9 +57,6 @@ public class BrowserActivity extends Activity implements BrowserController {
     private int animTime;
 
     @Override
-    public void updateNotification() {}
-
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.browser);
@@ -94,7 +91,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             updateAutoComplete();
         }
 
-        if (data.getBooleanExtra(IntentUnit.SHAREDPREFERENCE_CHANGE, false)) {
+        if (data.getBooleanExtra(IntentUnit.SHARED_PREFERENCE_CHANGE, false)) {
             for (TabController controller : BrowserContainer.list()) {
                 if (controller instanceof BerryView) {
                     ((BerryView) controller).initPreferences();

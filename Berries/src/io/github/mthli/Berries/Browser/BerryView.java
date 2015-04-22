@@ -14,8 +14,10 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Toast;
 import io.github.mthli.Berries.R;
+import io.github.mthli.Berries.Service.HolderService;
 import io.github.mthli.Berries.Unit.BrowserUnit;
 import io.github.mthli.Berries.Unit.IntentUnit;
+import io.github.mthli.Berries.View.BerryContextWrapper;
 
 import java.net.URISyntaxException;
 
@@ -27,17 +29,11 @@ public class BerryView extends WebView implements TabController {
     public boolean isForeground() {
         return foreground;
     }
-    public void setForeground(boolean foreground) {
-        this.foreground = foreground;
-    }
 
     // TODO
     private boolean incognito;
     public boolean isIncognito() {
         return incognito;
-    }
-    public void setIncognito(boolean incognito) {
-        this.incognito = incognito;
     }
 
     private BerryTab berryTab;
@@ -47,7 +43,7 @@ public class BerryView extends WebView implements TabController {
     private BerryClickHandler clickHandler;
     private GestureDetector gestureDetector;
 
-    private BrowserController controller;
+    private BrowserController controller  = null;
     public BrowserController getController() {
         return controller;
     }
@@ -283,7 +279,7 @@ public class BerryView extends WebView implements TabController {
     }
 
     public synchronized void update(int progress) {
-        if (foreground) {
+        if (foreground || controller instanceof HolderService) {
             controller.updateProgress(progress);
         }
     }

@@ -10,9 +10,10 @@ import android.widget.Toast;
 import io.github.mthli.Berries.Browser.BrowserContainer;
 import io.github.mthli.Berries.Browser.BerryView;
 import io.github.mthli.Berries.Browser.BrowserController;
-import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.R;
-import io.github.mthli.Berries.Unit.*;
+import io.github.mthli.Berries.Unit.BrowserUnit;
+import io.github.mthli.Berries.Unit.NotificationUnit;
+import io.github.mthli.Berries.Unit.RecordUnit;
 import io.github.mthli.Berries.View.TabRelativeLayout;
 
 public class HolderService extends Service implements BrowserController {
@@ -21,9 +22,6 @@ public class HolderService extends Service implements BrowserController {
 
     @Override
     public void updateInputBox(String query) {}
-
-    @Override
-    public void updateProgress(int progress) {}
 
     @Override
     public void onCreateView(WebView view, boolean incognito, Message resultMsg) {}
@@ -48,27 +46,20 @@ public class HolderService extends Service implements BrowserController {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        // TODO: when BrowserActivity disappear.
-
-        try {
-            if (intent.getExtras().getBoolean(IntentUnit.LIST)) {
-                // TODO
-            } else if (intent.getExtras().getBoolean(IntentUnit.QUIT)) {
-                this.stopSelf();
-            }
-        } catch (NullPointerException n) {}
-
-        // TODO: Network available
-        if (BrowserContainer.size() < BrowserUnit.LOAD_LIMIT) {
-            Record record = RecordUnit.getHolder();
-            // TODO: SP_INCOGNITO
-            BerryView view = new BerryView(this, false);
-            view.setController(this);
-            BrowserContainer.add(view);
-            updateNotification();
-        } else {
-            Toast.makeText(this, R.string.toast_load_limit, Toast.LENGTH_SHORT).show();
+        if (!BrowserUnit.isNetworkAvailable(this)) {
+            Toast.makeText(this, R.string.toast_network_error, Toast.LENGTH_SHORT).show();
+            this.stopSelf();
         }
+
+        BerryView berryView = new BerryView(this, RecordUnit.isIncognito());
+        berryView.setController(this);
+        berryView.setFlag(BrowserUnit.FLAG_BERRY);
+        berryView.setTabTitle(getString(R.string.browser_tab_untitled));
+        berryView.loadUrl(RecordUnit.getHolder().getURL());
+        berryView.deactivate();
+
+        BrowserContainer.add(berryView);
+        updateNotification();
 
         return START_STICKY;
     }
@@ -86,9 +77,15 @@ public class HolderService extends Service implements BrowserController {
     }
 
     @Override
-    public void updateNotification() {
-        Notification.Builder builder = NotificationUnit.getBuilder(this);
-        Notification notification = builder.build();
+    public void updateProgress(int progress) {
+        if (progress < BrowserUnit.PROGRESS_MAX) {
+            return;
+        }
+        updateNotification();
+    }
+
+    private void updateNotification() {
+        Notification notification = NotificationUnit.getBuilder(this).build();
         notification.flags = Notification.FLAG_FOREGROUND_SERVICE;
         startForeground(NotificationUnit.ID, notification);
     }

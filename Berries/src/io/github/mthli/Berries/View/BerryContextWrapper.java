@@ -1,4 +1,4 @@
-package io.github.mthli.Berries.Browser;
+package io.github.mthli.Berries.View;
 
 import android.content.Context;
 import android.content.ContextWrapper;

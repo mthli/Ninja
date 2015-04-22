@@ -50,7 +50,7 @@ public class SettingActivity extends Activity {
             case android.R.id.home:
                 Intent intent = new Intent();
                 intent.putExtra(IntentUnit.DATABASE_CHANGE, fragment.isDatabaseChange());
-                intent.putExtra(IntentUnit.SHAREDPREFERENCE_CHANGE, fragment.isSharedPreferenceChange());
+                intent.putExtra(IntentUnit.SHARED_PREFERENCE_CHANGE, fragment.isSharedPreferenceChange());
                 intent.putExtra(IntentUnit.GITHUB, (String) null);
                 setResult(IntentUnit.RESULT_SETTING, intent);
                 finish();
@@ -66,7 +66,7 @@ public class SettingActivity extends Activity {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             Intent intent = new Intent();
             intent.putExtra(IntentUnit.DATABASE_CHANGE, fragment.isDatabaseChange());
-            intent.putExtra(IntentUnit.SHAREDPREFERENCE_CHANGE, fragment.isSharedPreferenceChange());
+            intent.putExtra(IntentUnit.SHARED_PREFERENCE_CHANGE, fragment.isSharedPreferenceChange());
             intent.putExtra(IntentUnit.GITHUB, (String) null);
             setResult(IntentUnit.RESULT_SETTING, intent);
             finish();

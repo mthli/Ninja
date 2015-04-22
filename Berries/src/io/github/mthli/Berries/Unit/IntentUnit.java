@@ -5,10 +5,8 @@ import android.content.Intent;
 import android.net.MailTo;
 
 public class IntentUnit {
-    public static final String LIST = "LIST";
-    public static final String QUIT = "QUIT";
     public static final String DATABASE_CHANGE = "DATABASE_CHANGE";
-    public static final String SHAREDPREFERENCE_CHANGE = "SHAREDPREFERENCE_CHANGE";
+    public static final String SHARED_PREFERENCE_CHANGE = "SHARED_PREFERENCE_CHANGE";
     public static final String GITHUB = "GITHUB";
 
     public static final int REQUEST_SETTING = 0x100;

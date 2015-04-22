@@ -2,83 +2,58 @@ package io.github.mthli.Berries.Unit;
 
 import android.app.Notification;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.preference.PreferenceManager;
-import io.github.mthli.Berries.Browser.BrowserContainer;
 import io.github.mthli.Berries.Browser.BerryView;
+import io.github.mthli.Berries.Browser.BrowserContainer;
 import io.github.mthli.Berries.Browser.TabController;
 import io.github.mthli.Berries.R;
-import io.github.mthli.Berries.Service.HolderService;
 
 public class NotificationUnit {
     public static final int ID = 0x65536;
 
     public static Notification.Builder getBuilder(Context context) {
+        Notification.Builder builder = new Notification.Builder(context);
+
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-        int priority = sp.getInt(context.getString(R.string.sp_notification_priority), Notification.PRIORITY_DEFAULT);
-        boolean sound = sp.getBoolean(context.getString(R.string.sp_notification_sound), true);
+        String priority = sp.getString(context.getString(R.string.sp_notification_priority), context.getString(R.string.setting_summary_notification_priority_default));
+        if (priority.equals(context.getString(R.string.setting_summary_notification_priority_default))) {
+            builder.setPriority(Notification.PRIORITY_DEFAULT);
+        } else if (priority.equals(context.getString(R.string.setting_summary_notification_priority_high))) {
+            builder.setPriority(Notification.PRIORITY_HIGH);
+        } else if (priority.equals(context.getString(R.string.setting_summary_notification_priority_low))) {
+            builder.setPriority(Notification.PRIORITY_LOW);
+        } else {
+            builder.setPriority(Notification.PRIORITY_DEFAULT);
+        }
 
         int done = 0;
+        int total = 0;
         for (TabController controller : BrowserContainer.list()) {
-            if (controller instanceof BerryView && ((BerryView) controller).isLoadFinish()) {
-                done++;
+            if (controller instanceof BerryView) {
+                if (((BerryView) controller).isLoadFinish()) {
+                    done++;
+                }
+                total++;
             }
         }
-        int total = BrowserContainer.size();
-
-        Notification.Builder builder = new Notification.Builder(context);
-        builder.setNumber(total);
-        builder.setPriority(priority);
-
         builder.setContentTitle(context.getString(R.string.app_name));
+        builder.setNumber(total);
+        builder.setContentText(context.getString(R.string.notification_content_loading) + done);
         if (done < total) {
             builder.setSmallIcon(R.drawable.ic_notification_berries);
-            builder.setContentText(context.getString(R.string.notification_content_loading) + done);
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                builder.setCategory(Notification.CATEGORY_STATUS);
-            }
         } else {
             builder.setSmallIcon(R.drawable.ic_notification_done_all);
-            builder.setContentText(context.getString(R.string.notification_content_done_all));
-
-            if (sound) {
-                builder.setDefaults(Notification.DEFAULT_SOUND);
-            }
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                builder.setCategory(Notification.CATEGORY_MESSAGE);
-            }
         }
-
-        Intent toService = new Intent(context, HolderService.class);
-        toService.putExtra(IntentUnit.QUIT, true);
-        PendingIntent quit = PendingIntent.getService(context, 0, toService, 0);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            builder.addAction(R.drawable.ic_action_quit_dark, context.getString(R.string.notification_action_quit), quit);
-        } else {
-            builder.addAction(R.drawable.ic_action_quit_light, context.getString(R.string.notification_action_quit), quit);
+            builder.setColor(context.getResources().getColor(R.color.blue_500));
         }
 
-        // TODO: SDK
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            builder.addAction(R.drawable.ic_action_list_dark, context.getString(R.string.notification_action_list), null);
-        } else {
-            builder.addAction(R.drawable.ic_action_list_light, context.getString(R.string.notification_action_list), null);
-        }
+        // TODO: PendingIntent
 
         return builder;
-    }
-
-    public static void show(Context context, Notification.Builder builder, int flags) {
-        NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        Notification notification = builder.build();
-        notification.flags = flags;
-        manager.notify(ID, notification);
     }
 
     public static void cancel(Context context) {
