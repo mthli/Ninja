@@ -94,6 +94,9 @@ public class BrowserActivity extends Activity implements BrowserController {
     @Override
     public void onDestroy() {
         BrowserContainer.clear();
+        Intent toService = new Intent(this, HolderService.class);
+        IntentUnit.setClear(true);
+        stopService(toService);
         super.onDestroy();
     }
 

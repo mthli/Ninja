@@ -40,13 +40,10 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
     @Override
     public void onResume() {
         super.onResume();
-        
         SharedPreferences sp = getPreferenceScreen().getSharedPreferences();
         sp.registerOnSharedPreferenceChangeListener(this);
-
         searchEngine = (ListPreference) findPreference(getString(R.string.sp_search_engine));
         searchEngine.setSummary(sp.getString(getString(R.string.sp_search_engine), getString(R.string.setting_summary_search_engine_google)));
-
         notificationPriority = (ListPreference) findPreference(getString(R.string.sp_notification_priority));
         notificationPriority.setSummary(sp.getString(getString(R.string.sp_notification_priority), getString(R.string.setting_summary_notification_priority_default)));
     }
