@@ -66,22 +66,35 @@ public class BrowserActivity extends Activity implements BrowserController {
         initControlPanel();
         initSearchPanel();
         browserFrame = (FrameLayout) findViewById(R.id.browser_frame);
+        when(getIntent(), true);
+    }
 
-        // TODO: noNewIntent()
-        Intent intent = getIntent();
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        when(getIntent(), false);
+    }
+
+    private void when(Intent intent, boolean n) {
+        Intent toService = new Intent(this, HolderService.class);
+        IntentUnit.setClear(false);
+        stopService(toService);
+
         if (intent != null && intent.hasExtra(IntentUnit.PIN)) {
-            Intent toService = new Intent(this, HolderService.class);
-            IntentUnit.setClear(false);
-            stopService(toService);
             pinTabs();
         } else if (intent != null && intent.hasExtra(IntentUnit.OPEN)) {
-            Intent toService = new Intent(this, HolderService.class);
-            IntentUnit.setClear(false);
-            stopService(toService);
             pinTabs();
             newTab(R.string.browser_tab_untitled, intent.getStringExtra(IntentUnit.OPEN), false, true, null);
-        } else {
+        } else if (n) {
             newTab(R.string.browser_tab_home, BrowserUnit.ABOUT_HOME, false, true, null);
+        } else {
+            pinTabs();
         }
     }
 
@@ -631,7 +644,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             browserFrame.addView((TabRelativeLayout) tabController);
         }
         tabController.activate();
-        tabScroll.smoothScrollTo(tabController.getTabView().getLeft(), 0); // TODO
+        tabScroll.smoothScrollTo(tabController.getTabView().getLeft(), 0); // TODO: how to pin right way?
         updateOmniBox();
     }
 
@@ -1100,12 +1113,5 @@ public class BrowserActivity extends Activity implements BrowserController {
                 dialog.dismiss();
             }
         });
-    }
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        setIntent(intent);
-        // TODO
     }
 }

@@ -40,12 +40,6 @@ public class HolderService extends Service implements BrowserController {
     public void onLongPress(String url) {}
 
     @Override
-    public void onCreate() {
-        super.onCreate();
-        BrowserContainer.clear();
-    }
-
-    @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (!BrowserUnit.isNetworkAvailable(this)) {
             Toast.makeText(this, R.string.toast_network_error, Toast.LENGTH_SHORT).show();
