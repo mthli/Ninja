@@ -66,7 +66,11 @@
 
         <Preference android:title="@string/setting_title_clear_bookmarks" />
 
+        <Preference android:title="@string/setting_title_clear_cache" />
+
         <Preference android:title="@string/setting_title_clear_cookies" />
+
+        <Preference android:title="@string/setting_title_clear_form_data" />
 
         <Preference android:title="@string/setting_title_clear_history" />
 
@@ -82,7 +86,7 @@
 
         <Preference android:title="@string/setting_title_github" />
 
-        <Preference android:title="@string/setting_title_internship" />
+        <Preference android:title="@string/setting_title_contact_us" />
 
     </PreferenceCategory>
 

@@ -139,7 +139,9 @@ public class HolderActivity extends Activity {
                         Toast.makeText(HolderActivity.this, R.string.toast_load_in_background_incognito, Toast.LENGTH_SHORT).show();
                         break;
                     case 1:
-                        // TODO
+                        Intent toActivity = new Intent(HolderActivity.this, BrowserActivity.class);
+                        toActivity.putExtra(IntentUnit.OPEN, first.getURL());
+                        startActivity(toActivity);
                         break;
                     case 2:
                         BrowserUnit.copy(HolderActivity.this, first.getURL());

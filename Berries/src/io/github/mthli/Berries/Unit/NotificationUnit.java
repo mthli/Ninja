@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.preference.PreferenceManager;
+import io.github.mthli.Berries.Activity.BrowserActivity;
 import io.github.mthli.Berries.Browser.BerryView;
 import io.github.mthli.Berries.Browser.BrowserContainer;
 import io.github.mthli.Berries.Browser.TabController;
@@ -56,17 +57,10 @@ public class NotificationUnit {
             builder.setColor(context.getResources().getColor(R.color.blue_500));
         }
 
-        Intent toService = new Intent(context, HolderService.class);
-        toService.putExtra(IntentUnit.QUIT, true);
-        IntentUnit.setClear(true);
-        PendingIntent quit = PendingIntent.getService(context, 0, toService, 0);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            builder.addAction(R.drawable.ic_action_quit_dark, context.getString(R.string.notification_action_quit), quit);
-        } else {
-            builder.addAction(R.drawable.ic_action_quit_light, context.getString(R.string.notification_action_quit), quit);
-        }
-
-        // TODO: PendingIntent
+        Intent toActivity = new Intent(context, BrowserActivity.class);
+        toActivity.putExtra(IntentUnit.PIN, true);
+        PendingIntent pin = PendingIntent.getActivity(context, 0, toActivity, 0);
+        builder.setContentIntent(pin);
 
         return builder;
     }

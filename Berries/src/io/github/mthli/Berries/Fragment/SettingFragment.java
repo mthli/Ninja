@@ -40,9 +40,15 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
     @Override
     public void onResume() {
         super.onResume();
-        getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
+        
+        SharedPreferences sp = getPreferenceScreen().getSharedPreferences();
+        sp.registerOnSharedPreferenceChangeListener(this);
+
         searchEngine = (ListPreference) findPreference(getString(R.string.sp_search_engine));
+        searchEngine.setSummary(sp.getString(getString(R.string.sp_search_engine), getString(R.string.setting_summary_search_engine_google)));
+
         notificationPriority = (ListPreference) findPreference(getString(R.string.sp_notification_priority));
+        notificationPriority.setSummary(sp.getString(getString(R.string.sp_notification_priority), getString(R.string.setting_summary_notification_priority_default)));
     }
 
     @Override
@@ -67,8 +73,14 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
                 BrowserUnit.clearBookmarks(getActivity());
                 databaseChange = true;
                 break;
+            case R.string.setting_title_clear_cache:
+                BrowserUnit.clearCache(getActivity());
+                break;
             case R.string.setting_title_clear_cookies:
                 BrowserUnit.clearCookies(getActivity());
+                break;
+            case R.string.setting_title_clear_form_data:
+                BrowserUnit.clearFromData(getActivity());
                 break;
             case R.string.setting_title_clear_history:
                 BrowserUnit.clearHistory(getActivity());
@@ -88,7 +100,7 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
                 getActivity().setResult(IntentUnit.RESULT_SETTING, toGitHub);
                 getActivity().finish();
                 break;
-            case R.string.setting_title_internship:
+            case R.string.setting_title_contact_us:
                 Intent toGmail = new Intent(Intent.ACTION_SENDTO);
                 toGmail.setData(Uri.parse(getString(R.string.app_gmail)));
                 startActivity(toGmail);

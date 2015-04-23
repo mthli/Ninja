@@ -8,12 +8,13 @@ public class IntentUnit {
     public static final String DATABASE_CHANGE = "DATABASE_CHANGE";
     public static final String SHARED_PREFERENCE_CHANGE = "SHARED_PREFERENCE_CHANGE";
     public static final String GITHUB = "GITHUB";
-    public static final String QUIT = "QUIT";
+
+    public static final String PIN = "PIN";
+    public static final String OPEN = "OPEN";
 
     public static final int REQUEST_SETTING = 0x100;
     public static final int RESULT_SETTING = 0x101;
     public static final int REQUEST_FILE = 0x102;
-    public static final int RESULT_FILE = 0x103;
 
     public static final String INTENT_TYPE_TEXT_PLAIN = "text/plain";
 

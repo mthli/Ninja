@@ -24,6 +24,7 @@ import io.github.mthli.Berries.Browser.*;
 import io.github.mthli.Berries.Database.Record;
 import io.github.mthli.Berries.Database.RecordAction;
 import io.github.mthli.Berries.R;
+import io.github.mthli.Berries.Service.HolderService;
 import io.github.mthli.Berries.Unit.BrowserUnit;
 import io.github.mthli.Berries.Unit.IntentUnit;
 import io.github.mthli.Berries.Unit.ViewUnit;
@@ -65,7 +66,23 @@ public class BrowserActivity extends Activity implements BrowserController {
         initControlPanel();
         initSearchPanel();
         browserFrame = (FrameLayout) findViewById(R.id.browser_frame);
-        newTab(R.string.browser_tab_home, BrowserUnit.ABOUT_HOME, false, true, null);
+
+        // TODO: noNewIntent()
+        Intent intent = getIntent();
+        if (intent != null && intent.hasExtra(IntentUnit.PIN)) {
+            Intent toService = new Intent(this, HolderService.class);
+            IntentUnit.setClear(false);
+            stopService(toService);
+            pinTabs();
+        } else if (intent != null && intent.hasExtra(IntentUnit.OPEN)) {
+            Intent toService = new Intent(this, HolderService.class);
+            IntentUnit.setClear(false);
+            stopService(toService);
+            pinTabs();
+            newTab(R.string.browser_tab_untitled, intent.getStringExtra(IntentUnit.OPEN), false, true, null);
+        } else {
+            newTab(R.string.browser_tab_home, BrowserUnit.ABOUT_HOME, false, true, null);
+        }
     }
 
     @Override
@@ -274,10 +291,12 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         searchBox.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -582,6 +601,37 @@ public class BrowserActivity extends Activity implements BrowserController {
         });
     }
 
+    private synchronized void pinTabs() {
+        hideSoftInput(inputBox);
+        hideSearchPanel();
+        tabContainer.removeAllViews();
+        browserFrame.removeAllViews();
+
+        for (TabController controller : BrowserContainer.list()) {
+            if (controller instanceof BerryView) {
+                ((BerryView) controller).setController(this);
+            } else if (controller instanceof TabRelativeLayout) {
+                ((TabRelativeLayout) controller).setController(this);
+            }
+            tabContainer.addView(controller.getTabView(), LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
+            controller.deactivate();
+            controller.getTabView().setVisibility(View.VISIBLE);
+        }
+
+        if (tabContainer.getChildCount() < 1) {
+            return;
+        }
+        tabController = BrowserContainer.get(tabContainer.getChildCount() - 1);
+        if (tabController instanceof BerryView) {
+            browserFrame.addView((BerryView) tabController);
+        } else if (tabController instanceof TabRelativeLayout) {
+            browserFrame.addView((TabRelativeLayout) tabController);
+        }
+        tabController.activate();
+        tabScroll.smoothScrollTo(tabController.getTabView().getLeft(), 0); // TODO
+        updateOmniBox();
+    }
+
     @Override
     public synchronized void showTab(BerryView berryView) {
         if (berryView == null || berryView.equals(tabController)) {
@@ -653,8 +703,6 @@ public class BrowserActivity extends Activity implements BrowserController {
             Toast.makeText(this, R.string.toast_load_error, Toast.LENGTH_SHORT).show();
         }
     }
-
-    private synchronized void restoreTab() {}
 
     @Override
     public void deleteTab() {
@@ -1049,5 +1097,12 @@ public class BrowserActivity extends Activity implements BrowserController {
                 dialog.dismiss();
             }
         });
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        // TODO
     }
 }
