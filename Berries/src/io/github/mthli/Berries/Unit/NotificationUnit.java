@@ -33,7 +33,6 @@ public class NotificationUnit {
             builder.setPriority(Notification.PRIORITY_DEFAULT);
         }
 
-        // TODO
         int done = 0;
         int total = 0;
         for (TabController controller : BrowserContainer.list()) {

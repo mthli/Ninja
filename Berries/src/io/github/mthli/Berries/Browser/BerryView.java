@@ -30,7 +30,7 @@ public class BerryView extends WebView implements TabController {
         return foreground;
     }
 
-    // TODO
+    // TODO: incognito
     private boolean incognito;
     public boolean isIncognito() {
         return incognito;

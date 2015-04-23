@@ -55,6 +55,8 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     private FrameLayout browserFrame;
     private TabController tabController;
+
+    private boolean create = true;
     private int animTime;
 
     @Override
@@ -62,6 +64,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.browser);
 
+        create = true;
         animTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
         initControlPanel();
         initSearchPanel();
@@ -78,7 +81,9 @@ public class BrowserActivity extends Activity implements BrowserController {
     @Override
     public void onResume() {
         super.onResume();
-        when(getIntent(), false);
+        if (!create) {
+            when(getIntent(), false);
+        }
     }
 
     private void when(Intent intent, boolean n) {
@@ -100,6 +105,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     @Override
     public void onPause() {
+        create = false;
         inputBox.clearFocus();
         super.onPause();
     }

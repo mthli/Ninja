@@ -105,7 +105,6 @@ public class BrowserUnit {
         } catch (UnsupportedEncodingException u) {}
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-        // TODO: location and sp
         String searchEngine = sp.getString(
                 context.getString(R.string.sp_search_engine),
                 context.getString(R.string.setting_summary_search_engine_google)
