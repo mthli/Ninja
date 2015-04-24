@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- AndroidAgo -->
+    <string name="android_ago_just_now">
+        刚刚
+    </string>
+
+    <!-- Berry -->
+    <string name="berry_menu_new_tab">
+        新建标签
+    </string>
+    <string name="berry_menu_copy_url">
+        拷贝链接
+    </string>
+    <string name="berry_menu_save">
+        保存
+    </string>
+
+    <!-- Browser -->
+    <string name="browser_hint_url_input">
+        搜索或输入地址
+    </string>
+    <string name="browser_hint_search">
+        搜索
+    </string>
+    <string name="browser_tab_bookmarks">
+        书签
+    </string>
+    <string name="browser_tab_history">
+        历史
+    </string>
+    <string name="browser_tab_home">
+        主页
+    </string>
+    <string name="browser_tab_untitled">
+        无标题
+    </string>
+    <string-array name="browser_overflow">
+        <item>书签</item>
+        <item>历史</item>
+        <item>页内搜索</item>
+        <item>分享</item>
+        <item>设置</item>
+        <item>退出</item>
+    </string-array>
+
+    <!-- Holder -->
+    <string-array name="holder_menu">
+        <item>前台打开</item>
+        <item>复制链接</item>
+        <item>分享</item>
+    </string-array>
+
+    <!-- List -->
+    <string name="list_empty">
+        当前列表为空
+    </string>
+    <string-array name="list_menu">
+        <item>新建标签</item>
+        <item>复制链接</item>
+        <item>分享</item>
+        <item>删除</item>
+    </string-array>
+
+    <!-- Notification -->
+    <string name="notification_content_loading">
+        当前已加载完成：
+    </string>
+    <string name="notification_content_done_all">
+        全部加载完成。
+    </string>
+
+    <!-- Setting -->
+    <string name="setting_label">
+        设置
+    </string>
+    <!-- Browser setting -->
+    <string name="setting_title_browser">
+        浏览器
+    </string>
+    <!-- Search engine -->
+    <string name="setting_title_search_engine">
+        搜索引擎
+    </string>
+    <string name="setting_summary_search_engine_google">
+        谷歌
+    </string>
+    <string name="setting_summary_search_engine_duckduckgo">
+        DuckDuckGo
+    </string>
+    <string name="setting_summary_search_engine_startpage">
+        Startpage
+    </string>
+    <string name="setting_summary_search_engine_bing">
+        必应
+    </string>
+    <string name="setting_summary_search_engine_baidu">
+        百度
+    </string>
+    <string-array name="setting_values_search_engine">
+        <item>@string/setting_summary_search_engine_google</item>
+        <item>@string/setting_summary_search_engine_duckduckgo</item>
+        <item>@string/setting_summary_search_engine_startpage</item>
+        <item>@string/setting_summary_search_engine_bing</item>
+        <item>@string/setting_summary_search_engine_baidu</item>
+    </string-array>
+    <!-- Notification -->
+    <string name="setting_title_notification_priority">
+        通知栏优先级
+    </string>
+    <string name="setting_summary_notification_priority_default">
+        默认
+    </string>
+    <string name="setting_summary_notification_priority_high">
+        高
+    </string>
+    <string name="setting_summary_notification_priority_low">
+        低
+    </string>
+    <string-array name="setting_values_notification_priority">
+        <item>@string/setting_summary_notification_priority_high</item>
+        <item>@string/setting_summary_notification_priority_default</item>
+        <item>@string/setting_summary_notification_priority_low</item>
+    </string-array>
+    <!-- Cookies -->
+    <string name="setting_title_cookies">
+        Cookies
+    </string>
+    <string name="setting_summary_cookies">
+        允许接收cookies
+    </string>
+    <!-- Images -->
+    <string name="setting_title_images">
+        图片
+    </string>
+    <string name="setting_summary_images">
+        允许加载图片
+    </string>
+    <!-- JavaScript -->
+    <string name="setting_title_javascript">
+        JavaScript
+    </string>
+    <string name="setting_summary_javascript">
+        允许运行JavaScript
+    </string>
+    <!-- Location -->
+    <string name="setting_title_location">
+        地理位置
+    </string>
+    <string name="setting_summary_location">
+        允许获取地理位置
+    </string>
+    <!-- Multiple windows -->
+    <string name="setting_title_multiple_windows">
+        多窗口
+    </string>
+    <string name="setting_summary_multiple_windows">
+        允许多窗口
+    </string>
+    <!-- Data setting -->
+    <string name="setting_title_data">
+        数据
+    </string>
+    <!-- Passwords -->
+    <string name="setting_title_passwords">
+        密码
+    </string>
+    <string name="setting_summary_passwords">
+        保存密码
+    </string>
+    <string name="setting_title_clear_passwords">
+        清空密码
+    </string>
+    <!-- Bookmarks -->
+    <string name="setting_title_export_bookmarks">
+        导出书签
+    </string>
+    <string name="setting_title_import_bookmarks">
+        导入书签
+    </string>
+    <string name="bookmarks_filename">
+        Berries书签
+    </string>
+    <string name="setting_title_clear_bookmarks">
+        清空书签
+    </string>
+    <!-- Cache -->
+    <string name="setting_title_clear_cache">
+        清空缓存
+    </string>
+    <!-- Cookies -->
+    <string name="setting_title_clear_cookies">
+        清空cookies
+    </string>
+    <!-- Form data -->
+    <string name="setting_title_clear_form_data">
+        清空表单数据
+    </string>
+    <!-- History -->
+    <string name="setting_title_clear_history">
+        清空历史记录
+    </string>
+    <!-- Others setting -->
+    <string name="setting_title_others">
+        其他
+    </string>
+    <!-- Version -->
+    <string name="setting_title_version">
+        版本
+    </string>
+    <!-- GitHub -->
+    <string name="setting_title_github">
+        GitHub
+    </string>
+    <!-- Internship -->
+    <string name="setting_title_contact_us">
+        联系我们
+    </string>
+
+    <!-- Toast -->
+    <string name="toast_add_bookmark_successful">
+        添加书签成功
+    </string>
+    <string name="toast_add_bookmark_failed">
+        无法将此页面添加为书签
+    </string>
+    <string name="toast_clear_bookmarks_successful">
+        清空书签成功
+    </string>
+    <string name="toast_clear_cache_successful">
+        清空缓存成功
+    </string>
+    <string name="toast_clear_cache_failed">
+        清空缓存失败
+    </string>
+    <string name="toast_clear_cookies_successful">
+        清空cookies成功
+    </string>
+    <string name="toast_clear_form_data_successful">
+        清空表单数据成功
+    </string>
+    <string name="toast_clear_history_successful">
+        清空历史记录成功
+    </string>
+    <string name="toast_clear_passwords_successful">
+        清空密码成功
+    </string>
+    <string name="toast_copy_successful">
+        拷贝成功
+    </string>
+    <string name="toast_delete_bookmark_successful">
+        删除书签成功
+    </string>
+    <string name="toast_delete_successful">
+        删除成功
+    </string>
+    <string name="toast_export_bookmarks_successful">
+        导出的书签位于：\n
+    </string>
+    <string name="toast_export_bookmarks_failed">
+        导出书签失败
+    </string>
+    <string name="toast_import_bookmarks_successful">
+        导入书签数量：
+    </string>
+    <string name="toast_import_bookmarks_failed">
+        导入书签失败
+    </string>
+    <string name="toast_input_empty">
+        你还没有输入任何东西
+    </string>
+    <string name="toast_judge">
+        给我们5星好评 :)
+    </string>
+    <string name="toast_load_error">
+        无法加载此链接
+    </string>
+    <string name="toast_load_in_background">
+        后台加载
+    </string>
+    <string name="toast_network_error">
+        网络不可用
+    </string>
+    <string name="toast_new_tab_successful">
+        新建标签成功
+    </string>
+    <string name="toast_refresh_failed">
+        无法刷新此页面
+    </string>
+    <string name="toast_search_failed">
+        无法在此页面中搜索
+    </string>
+    <string name="toast_share_failed">
+        无法分享此页面
+    </string>
+    <string name="toast_start_download">
+        开始下载
+    </string>
+
+</resources>
