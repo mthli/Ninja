@@ -56,10 +56,6 @@ public class BerryWebViewClient extends WebViewClient {
 
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, String url) {
-        if (berryView.isIncognito()) {
-            return super.shouldOverrideUrlLoading(view, url);
-        }
-
         if (url.startsWith(BrowserUnit.URL_SCHEME_MAIL_TO)) {
             Intent intent = IntentUnit.getEmailIntent(MailTo.parse(url));
             context.startActivity(intent);

@@ -46,7 +46,6 @@ public class HolderActivity extends Activity {
                 if (first != null && second == null) {
                     Intent toService = new Intent(HolderActivity.this, HolderService.class);
                     RecordUnit.setHolder(first);
-                    RecordUnit.setIncognito(false);
                     startService(toService);
                     background = true;
                 }
@@ -78,7 +77,6 @@ public class HolderActivity extends Activity {
         } else {
             Intent toService = new Intent(HolderActivity.this, HolderService.class);
             RecordUnit.setHolder(second);
-            RecordUnit.setIncognito(false);
             startService(toService);
             background = true;
             finish();
@@ -132,21 +130,14 @@ public class HolderActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
-                        Intent toService = new Intent(HolderActivity.this, HolderService.class);
-                        RecordUnit.setHolder(first);
-                        RecordUnit.setIncognito(true);
-                        startService(toService);
-                        Toast.makeText(HolderActivity.this, R.string.toast_load_in_background_incognito, Toast.LENGTH_SHORT).show();
-                        break;
-                    case 1:
                         Intent toActivity = new Intent(HolderActivity.this, BrowserActivity.class);
                         toActivity.putExtra(IntentUnit.OPEN, first.getURL());
                         startActivity(toActivity);
                         break;
-                    case 2:
+                    case 1:
                         BrowserUnit.copy(HolderActivity.this, first.getURL());
                         break;
-                    case 3:
+                    case 2:
                         IntentUnit.share(HolderActivity.this, first.getTitle(), first.getURL());
                         break;
                     default:

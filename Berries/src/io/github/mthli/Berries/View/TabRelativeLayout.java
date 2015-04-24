@@ -75,9 +75,6 @@ public class TabRelativeLayout extends RelativeLayout implements TabController {
                 controller.deleteTab();
             }
         });
-
-        View incognitoLine = tabView.findViewById(R.id.tab_incognito_line);
-        incognitoLine.setVisibility(GONE);
     }
 
     @Override

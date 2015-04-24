@@ -25,7 +25,7 @@ public class HolderService extends Service implements BrowserController {
     public void updateInputBox(String query) {}
 
     @Override
-    public void onCreateView(WebView view, boolean incognito, Message resultMsg) {}
+    public void onCreateView(WebView view, Message resultMsg) {}
 
     @Override
     public void showTab(BerryView berryView) {}
@@ -46,7 +46,7 @@ public class HolderService extends Service implements BrowserController {
             this.stopSelf();
         }
 
-        BerryView berryView = new BerryView(this, RecordUnit.isIncognito());
+        BerryView berryView = new BerryView(this);
         berryView.setController(this);
         berryView.setFlag(BrowserUnit.FLAG_BERRY);
         berryView.setTabTitle(getString(R.string.browser_tab_untitled));

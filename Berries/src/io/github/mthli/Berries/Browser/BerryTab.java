@@ -12,8 +12,6 @@ public class BerryTab {
     private BerryView berryView;
     private Context context;
 
-    private boolean incognito;
-
     private View view;
     public View getView() {
         return view;
@@ -25,7 +23,6 @@ public class BerryTab {
     public BerryTab(BerryView berryView) {
         this.berryView = berryView;
         this.context = berryView.getContext();
-        this.incognito = berryView.isIncognito();
         initUI();
     }
 
@@ -55,13 +52,6 @@ public class BerryTab {
                 berryView.getController().deleteTab();
             }
         });
-
-        View incognitoLine = view.findViewById(R.id.tab_incognito_line);
-        if (incognito) {
-            incognitoLine.setVisibility(View.VISIBLE);
-        } else {
-            incognitoLine.setVisibility(View.GONE);
-        }
     }
 
     public void activate() {

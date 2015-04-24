@@ -17,7 +17,7 @@ public interface BrowserController {
 
     void deleteTab();
 
-    void onCreateView(WebView view, boolean incognito, Message resultMsg);
+    void onCreateView(WebView view, Message resultMsg);
 
     void onLongPress(String url);
 }

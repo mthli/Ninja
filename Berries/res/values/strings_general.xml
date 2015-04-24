@@ -9,16 +9,13 @@
 
     <!-- Berry -->
     <string name="berry_menu_new_tab">
-        Open in new tab
-    </string>
-    <string name="berry_menu_incognito_tab">
-        Open in incognito tab
+        New tab
     </string>
     <string name="berry_menu_copy_url">
         Copy URL
     </string>
-    <string name="berry_menu_save_picture">
-        Save picture
+    <string name="berry_menu_save">
+        Save
     </string>
 
     <!-- Browser -->
@@ -51,8 +48,7 @@
 
     <!-- Holder -->
     <string-array name="holder_menu">
-        <item>Open in incognito tab</item>
-        <item>Open with browser</item>
+        <item>Foreground</item>
         <item>Copy URL</item>
         <item>Share</item>
     </string-array>
@@ -62,8 +58,7 @@
         Current list is empty
     </string>
     <string-array name="list_menu">
-        <item>Open in new tab</item>
-        <item>Open in incognito tab</item>
+        <item>New tab</item>
         <item>Copy URL</item>
         <item>Share</item>
         <item>Delete</item>
@@ -76,10 +71,6 @@
     <string name="notification_content_done_all">
         All pages loaded.
     </string>
-    <string name="notification_action_quit">
-        Quit
-    </string>
-
 
     <!-- Setting -->
     <string name="setting_label">
@@ -277,9 +268,6 @@
     <string name="toast_import_bookmarks_failed">
         Import bookmarks failed
     </string>
-    <string name="toast_incognito">
-        Incognito
-    </string>
     <string name="toast_input_empty">
         You haven\'t input anything
     </string>
@@ -292,23 +280,14 @@
     <string name="toast_load_in_background">
         Load in background
     </string>
-    <string name="toast_load_in_background_incognito">
-        Load in background with incognito
-    </string>
     <string name="toast_network_error">
         Network is not available
     </string>
     <string name="toast_new_tab_successful">
         Open in new tab successful
     </string>
-    <string name="toast_incognito_tab_successful">
-        Open in incognito tab successful
-    </string>
     <string name="toast_refresh_failed">
         Can\'t refresh this page
-    </string>
-    <string name="toast_search_already">
-        Search box already show
     </string>
     <string name="toast_search_failed">
         Can\'t search at this page

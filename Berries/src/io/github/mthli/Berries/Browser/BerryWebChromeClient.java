@@ -17,7 +17,7 @@ public class BerryWebChromeClient extends WebChromeClient {
 
     @Override
     public boolean onCreateWindow(WebView view, boolean isDialog, boolean isUserGesture, Message resultMsg) {
-        berryView.getController().onCreateView(view, berryView.isIncognito(), resultMsg);
+        berryView.getController().onCreateView(view, resultMsg);
         return isUserGesture;
     }
 

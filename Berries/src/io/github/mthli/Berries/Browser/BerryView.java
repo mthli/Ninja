@@ -30,12 +30,6 @@ public class BerryView extends WebView implements TabController {
         return foreground;
     }
 
-    // TODO: incognito
-    private boolean incognito;
-    public boolean isIncognito() {
-        return incognito;
-    }
-
     private BerryTab berryTab;
     private BerryWebViewClient webViewClient;
     private BerryWebChromeClient webChromeClient;
@@ -56,7 +50,6 @@ public class BerryView extends WebView implements TabController {
 
         this.context = new BerryContextWrapper(context);
         this.foreground = false;
-        this.incognito = false;
 
         this.berryTab = new BerryTab(this);
         this.webViewClient = new BerryWebViewClient(this);
@@ -75,7 +68,6 @@ public class BerryView extends WebView implements TabController {
 
         this.context = new BerryContextWrapper(context);
         this.foreground = false;
-        this.incognito = false;
 
         this.berryTab = new BerryTab(this);
         this.webViewClient = new BerryWebViewClient(this);
@@ -94,26 +86,6 @@ public class BerryView extends WebView implements TabController {
 
         this.context = new BerryContextWrapper(context);
         this.foreground = false;
-        this.incognito = false;
-
-        this.berryTab = new BerryTab(this);
-        this.webViewClient = new BerryWebViewClient(this);
-        this.webChromeClient = new BerryWebChromeClient(this);
-        this.downloadListener = new BerryDownloadListener(this.context);
-        this.clickHandler = new BerryClickHandler(this);
-        this.gestureDetector = new GestureDetector(context, new BerryGestureListener(this));
-
-        this.initWebView();
-        this.initWebSettings();
-        this.initPreferences();
-    }
-
-    public BerryView(Context context, boolean incognito) {
-        super(new BerryContextWrapper(context));
-
-        this.context = new BerryContextWrapper(context);
-        this.foreground = false;
-        this.incognito = incognito;
 
         this.berryTab = new BerryTab(this);
         this.webViewClient = new BerryWebViewClient(this);

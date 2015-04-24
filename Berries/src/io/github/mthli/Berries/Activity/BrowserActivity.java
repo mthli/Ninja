@@ -100,7 +100,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 pinTabs(BrowserContainer.size() - 1, intent);
             }
         } else if (n) { // From this.onCreate()
-            newTab(R.string.browser_tab_home, BrowserUnit.ABOUT_HOME, false, true, null);
+            newTab(R.string.browser_tab_home, BrowserUnit.ABOUT_HOME, true, null);
         } else { // From onResume()
             if (tabController != null) {
                 pinTabs(BrowserContainer.indexOf(tabController), null);
@@ -151,7 +151,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
 
         if (data.getStringExtra(IntentUnit.GITHUB) != null) {
-            newTab(getString(R.string.browser_tab_untitled), data.getStringExtra(IntentUnit.GITHUB), false, true, null);
+            newTab(getString(R.string.browser_tab_untitled), data.getStringExtra(IntentUnit.GITHUB), true, null);
         }
     }
 
@@ -203,15 +203,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         addTabButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                newTab(R.string.browser_tab_home, BrowserUnit.ABOUT_HOME, false, true, null);
-            }
-        });
-        addTabButton.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                newTab(R.string.browser_tab_home, BrowserUnit.ABOUT_HOME, true, true, null);
-                Toast.makeText(BrowserActivity.this, R.string.toast_incognito, Toast.LENGTH_SHORT).show();
-                return true;
+                newTab(R.string.browser_tab_home, BrowserUnit.ABOUT_HOME, true, null);
             }
         });
 
@@ -294,14 +286,9 @@ public class BrowserActivity extends Activity implements BrowserController {
                     return false;
                 }
 
-                boolean incognito = false;
-                if (tabController instanceof BerryView) {
-                    incognito = ((BerryView) tabController).isIncognito();
-                }
-                updateTab(query, incognito);
+                updateTab(query);
                 hideSoftInput(inputBox);
                 hideSearchPanel();
-
                 return false;
             }
         });
@@ -474,17 +461,17 @@ public class BrowserActivity extends Activity implements BrowserController {
         });
     }
 
-    private synchronized void newTab(int stringResId, String url, boolean incognito, boolean foreground, Message resultMsg) {
-        newTab(getString(stringResId), url, incognito, foreground, resultMsg);
+    private synchronized void newTab(int stringResId, String url, boolean foreground, Message resultMsg) {
+        newTab(getString(stringResId), url, foreground, resultMsg);
     }
 
-    private synchronized void newTab(String title, final String url, boolean incognito, final boolean foreground, final Message resultMsg) {
+    private synchronized void newTab(String title, final String url, final boolean foreground, final Message resultMsg) {
         hideSoftInput(inputBox);
         if (foreground) {
             hideSearchPanel();
         }
 
-        final BerryView berryView = new BerryView(this, incognito);
+        final BerryView berryView = new BerryView(this);
         berryView.setController(this);
         berryView.setFlag(BrowserUnit.FLAG_BERRY);
 
@@ -622,7 +609,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                updateTab(list.get(position).getURL(), false);
+                updateTab(list.get(position).getURL());
             }
         });
 
@@ -668,7 +655,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 tabScroll.scrollTo(tabController.getTabView().getLeft(), 0);
                 updateOmniBox();
                 if (intent != null &&  intent.hasExtra(IntentUnit.OPEN)) {
-                    newTab(R.string.browser_tab_untitled, intent.getStringExtra(IntentUnit.OPEN), false, true, null);
+                    newTab(R.string.browser_tab_untitled, intent.getStringExtra(IntentUnit.OPEN), true, null);
                 }
             }
         });
@@ -714,7 +701,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         updateOmniBox();
     }
 
-    private synchronized void updateTab(String url, boolean incognito) {
+    private synchronized void updateTab(String url) {
         if (tabController == null) {
             return;
         }
@@ -722,7 +709,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         if (tabController instanceof BerryView) {
             ((BerryView) tabController).loadUrl(url);
         } else if (tabController instanceof TabRelativeLayout) {
-            BerryView berryView = new BerryView(this, incognito);
+            BerryView berryView = new BerryView(this);
             berryView.setController(this);
             berryView.setFlag(BrowserUnit.FLAG_BERRY);
             berryView.setTabTitle(getString(R.string.browser_tab_untitled));
@@ -829,20 +816,16 @@ public class BrowserActivity extends Activity implements BrowserController {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 switch (position) {
                     case 0:
-                        newTab(getString(R.string.browser_tab_untitled), record.getURL(), false, false, null);
+                        newTab(getString(R.string.browser_tab_untitled), record.getURL(), false, null);
                         Toast.makeText(BrowserActivity.this, R.string.toast_new_tab_successful, Toast.LENGTH_SHORT).show();
                         break;
                     case 1:
-                        newTab(getString(R.string.browser_tab_untitled), record.getURL(), true, false, null);
-                        Toast.makeText(BrowserActivity.this, R.string.toast_incognito_tab_successful, Toast.LENGTH_SHORT).show();
-                        break;
-                    case 2:
                         BrowserUnit.copy(BrowserActivity.this, record.getURL());
                         break;
-                    case 3:
+                    case 2:
                         IntentUnit.share(BrowserActivity.this, record.getTitle(), record.getURL());
                         break;
-                    case 4:
+                    case 3:
                         if (tabController == null || !(tabController instanceof TabRelativeLayout)) {
                             break;
                         }
@@ -907,7 +890,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 String url = ((TextView) view.findViewById(R.id.complete_item_url)).getText().toString();
                 inputBox.setText(url);
                 inputBox.setSelection(url.length());
-                updateTab(url, false);
+                updateTab(url);
                 hideSoftInput(inputBox);
                 hideSearchPanel();
             }
@@ -1077,11 +1060,11 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     @Override
-    public void onCreateView(WebView view, boolean incognito, final Message resultMsg) {
+    public void onCreateView(WebView view, final Message resultMsg) {
         if (resultMsg == null) {
             return;
         }
-        newTab(R.string.browser_tab_untitled, null, incognito, true, resultMsg);
+        newTab(R.string.browser_tab_untitled, null, true, resultMsg);
     }
 
     @Override
@@ -1094,10 +1077,9 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         final List<String> list = new ArrayList<String>();
         list.add(getString(R.string.berry_menu_new_tab));
-        list.add(getString(R.string.berry_menu_incognito_tab));
         list.add(getString(R.string.berry_menu_copy_url));
         if (result != null && (result.getType() == WebView.HitTestResult.IMAGE_TYPE || result.getType() == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE)) {
-            list.add(getString(R.string.berry_menu_save_picture));
+            list.add(getString(R.string.berry_menu_save));
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -1125,14 +1107,11 @@ public class BrowserActivity extends Activity implements BrowserController {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String string = list.get(position);
                 if (string.equals(getString(R.string.berry_menu_new_tab))) {
-                    newTab(getString(R.string.browser_tab_untitled), target, false, false, null);
+                    newTab(getString(R.string.browser_tab_untitled), target, false, null);
                     Toast.makeText(BrowserActivity.this, R.string.toast_new_tab_successful, Toast.LENGTH_SHORT).show();
-                } else if (string.equals(getString(R.string.berry_menu_incognito_tab))) {
-                    newTab(getString(R.string.browser_tab_untitled), target, true, false, null);
-                    Toast.makeText(BrowserActivity.this, R.string.toast_incognito_tab_successful, Toast.LENGTH_SHORT).show();
                 } else if (string.equals(getString(R.string.berry_menu_copy_url))) {
                     BrowserUnit.copy(BrowserActivity.this, target);
-                } else if (string.equals(getString(R.string.berry_menu_save_picture))) {
+                } else if (string.equals(getString(R.string.berry_menu_save))) {
                     BrowserUnit.download(BrowserActivity.this, target, target, BrowserUnit.MIME_TYPE_IMAGE);
                 }
                 dialog.hide();

@@ -33,12 +33,4 @@ public class RecordUnit {
     public synchronized static void setHolder(Record record) {
         holder = record;
     }
-
-    private static boolean incognito;
-    public static boolean isIncognito() {
-        return incognito;
-    }
-    public synchronized static void setIncognito(boolean b) {
-        incognito = b;
-    }
 }
