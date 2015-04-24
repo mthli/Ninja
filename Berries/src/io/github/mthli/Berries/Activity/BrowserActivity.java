@@ -54,7 +54,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     private ImageButton searchCancelButton;
 
     private FrameLayout browserFrame;
-    private TabController tabController;
+    private TabController tabController = null;
 
     private boolean create = true;
     private int animTime;
@@ -91,15 +91,22 @@ public class BrowserActivity extends Activity implements BrowserController {
         IntentUnit.setClear(false);
         stopService(toService);
 
-        if (intent != null && intent.hasExtra(IntentUnit.PIN)) {
-            pinTabs();
-        } else if (intent != null && intent.hasExtra(IntentUnit.OPEN)) {
-            pinTabs();
-            newTab(R.string.browser_tab_untitled, intent.getStringExtra(IntentUnit.OPEN), false, true, null);
-        } else if (n) {
+        if (intent != null && intent.hasExtra(IntentUnit.PIN)) { // From Notification
+            pinTabs(BrowserContainer.size() - 1, null);
+        } else if (intent != null && intent.hasExtra(IntentUnit.OPEN)) { // From HolderActivity's menu
+            if (tabController != null) {
+                pinTabs(BrowserContainer.indexOf(tabController), intent);
+            } else {
+                pinTabs(BrowserContainer.size() - 1, intent);
+            }
+        } else if (n) { // From this.onCreate()
             newTab(R.string.browser_tab_home, BrowserUnit.ABOUT_HOME, false, true, null);
-        } else {
-            pinTabs();
+        } else { // From onResume()
+            if (tabController != null) {
+                pinTabs(BrowserContainer.indexOf(tabController), null);
+            } else {
+                pinTabs(BrowserContainer.size() - 1, null);
+            }
         }
     }
 
@@ -623,7 +630,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         });
     }
 
-    private synchronized void pinTabs() {
+    private synchronized void pinTabs(int index, final Intent intent) {
         hideSoftInput(inputBox);
         hideSearchPanel();
         tabContainer.removeAllViews();
@@ -643,15 +650,23 @@ public class BrowserActivity extends Activity implements BrowserController {
         if (tabContainer.getChildCount() < 1) {
             return;
         }
-        tabController = BrowserContainer.get(tabContainer.getChildCount() - 1);
+        tabController = BrowserContainer.get(index);
         if (tabController instanceof BerryView) {
             browserFrame.addView((BerryView) tabController);
         } else if (tabController instanceof TabRelativeLayout) {
             browserFrame.addView((TabRelativeLayout) tabController);
         }
         tabController.activate();
-        tabScroll.smoothScrollTo(tabController.getTabView().getLeft(), 0); // TODO: how to pin right way?
-        updateOmniBox();
+        tabScroll.post(new Runnable() {
+            @Override
+            public void run() {
+                tabScroll.scrollTo(tabController.getTabView().getLeft(), 0);
+                updateOmniBox();
+                if (intent != null &&  intent.hasExtra(IntentUnit.OPEN)) {
+                    newTab(R.string.browser_tab_untitled, intent.getStringExtra(IntentUnit.OPEN), false, true, null);
+                }
+            }
+        });
     }
 
     @Override
