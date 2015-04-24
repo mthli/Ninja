@@ -28,7 +28,7 @@ public class BerryWebChromeClient extends WebChromeClient {
 
     @Override
     public void onProgressChanged(WebView view, int progress) {
-        berryView.update(progress);
+        berryView.update(progress); // TODO
         super.onProgressChanged(view, progress);
     }
 

@@ -112,6 +112,10 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     @Override
     public void onPause() {
+        Intent toService = new Intent(this, HolderService.class);
+        IntentUnit.setClear(true);
+        stopService(toService);
+
         create = false;
         inputBox.clearFocus();
         super.onPause();
@@ -119,10 +123,11 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     @Override
     public void onDestroy() {
-        BrowserContainer.clear();
         Intent toService = new Intent(this, HolderService.class);
         IntentUnit.setClear(true);
         stopService(toService);
+
+        BrowserContainer.clear();
         super.onDestroy();
     }
 

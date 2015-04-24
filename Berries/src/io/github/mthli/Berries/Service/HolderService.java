@@ -75,9 +75,6 @@ public class HolderService extends Service implements BrowserController {
 
     @Override
     public void updateProgress(int progress) {
-        if (progress < BrowserUnit.PROGRESS_MAX) {
-            return;
-        }
         updateNotification();
     }
 
