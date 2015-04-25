@@ -68,6 +68,7 @@ public class BrowserUnit {
         }
 
         if (url.equals(ABOUT_HOME) // TODO: about:home
+                | url.startsWith(ABOUT_BLANK)
                 || url.startsWith(URL_SCHEME_MAIL_TO)
                 || url.startsWith(URL_SCHEME_FILE)) {
             return true;
