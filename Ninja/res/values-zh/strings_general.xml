@@ -49,7 +49,7 @@
     <!-- Holder -->
     <string-array name="holder_menu">
         <item>前台打开</item>
-        <item>复制链接</item>
+        <item>拷贝链接</item>
         <item>分享</item>
     </string-array>
 
@@ -59,7 +59,7 @@
     </string>
     <string-array name="list_menu">
         <item>新建标签</item>
-        <item>复制链接</item>
+        <item>拷贝链接</item>
         <item>分享</item>
         <item>删除</item>
     </string-array>
@@ -124,12 +124,12 @@
         <item>@string/setting_summary_notification_priority_default</item>
         <item>@string/setting_summary_notification_priority_low</item>
     </string-array>
-    <!-- Cookies -->
-    <string name="setting_title_cookies">
-        Cookies
+    <!-- Cookie -->
+    <string name="setting_title_cookie">
+        Cookie
     </string>
-    <string name="setting_summary_cookies">
-        允许接收cookies
+    <string name="setting_summary_cookie">
+        允许接收cookie
     </string>
     <!-- Images -->
     <string name="setting_title_images">
@@ -190,17 +190,17 @@
     <string name="setting_title_clear_cache">
         清空缓存
     </string>
-    <!-- Cookies -->
-    <string name="setting_title_clear_cookies">
-        清空cookies
+    <!-- Cookie -->
+    <string name="setting_title_clear_cookie">
+        清空cookie
     </string>
     <!-- Form data -->
     <string name="setting_title_clear_form_data">
-        清空表单数据
+        清空表单
     </string>
     <!-- History -->
     <string name="setting_title_clear_history">
-        清空历史记录
+        清空历史
     </string>
     <!-- Others setting -->
     <string name="setting_title_others">
@@ -235,14 +235,14 @@
     <string name="toast_clear_cache_failed">
         清空缓存失败
     </string>
-    <string name="toast_clear_cookies_successful">
-        清空cookies成功
+    <string name="toast_clear_cookie_successful">
+        清空cookie成功
     </string>
     <string name="toast_clear_form_data_successful">
-        清空表单数据成功
+        清空表单成功
     </string>
     <string name="toast_clear_history_successful">
-        清空历史记录成功
+        清空历史成功
     </string>
     <string name="toast_clear_passwords_successful">
         清空密码成功

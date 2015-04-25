@@ -242,7 +242,7 @@ public class BrowserUnit {
             CookieSyncManager cookieSyncManager = CookieSyncManager.createInstance(context);
             cookieManager.removeAllCookie();
         }
-        Toast.makeText(context, R.string.toast_clear_cookies_successful, Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, R.string.toast_clear_cookie_successful, Toast.LENGTH_SHORT).show();
     }
 
     public static void clearFromData(Context context) {

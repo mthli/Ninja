@@ -73,7 +73,7 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
             case R.string.setting_title_clear_cache:
                 BrowserUnit.clearCache(getActivity());
                 break;
-            case R.string.setting_title_clear_cookies:
+            case R.string.setting_title_clear_cookie:
                 BrowserUnit.clearCookies(getActivity());
                 break;
             case R.string.setting_title_clear_form_data:

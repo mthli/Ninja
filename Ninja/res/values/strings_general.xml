@@ -124,12 +124,12 @@
         <item>@string/setting_summary_notification_priority_default</item>
         <item>@string/setting_summary_notification_priority_low</item>
     </string-array>
-    <!-- Cookies -->
-    <string name="setting_title_cookies">
-        Cookies
+    <!-- Cookie -->
+    <string name="setting_title_cookie">
+        Cookie
     </string>
-    <string name="setting_summary_cookies">
-        Enable cookies
+    <string name="setting_summary_cookie">
+        Enable cookie
     </string>
     <!-- Images -->
     <string name="setting_title_images">
@@ -190,9 +190,9 @@
     <string name="setting_title_clear_cache">
         Clear cache
     </string>
-    <!-- Cookies -->
-    <string name="setting_title_clear_cookies">
-        Clear cookies
+    <!-- Cookie -->
+    <string name="setting_title_clear_cookie">
+        Clear cookie
     </string>
     <!-- Form data -->
     <string name="setting_title_clear_form_data">
@@ -235,8 +235,8 @@
     <string name="toast_clear_cache_failed">
         Clear cache failed
     </string>
-    <string name="toast_clear_cookies_successful">
-        Clear cookies successful
+    <string name="toast_clear_cookie_successful">
+        Clear cookie successful
     </string>
     <string name="toast_clear_form_data_successful">
         Clear form data successful
