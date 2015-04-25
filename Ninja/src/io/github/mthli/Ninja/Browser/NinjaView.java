@@ -173,10 +173,6 @@ public class NinjaView extends WebView implements TabController {
 
     @Override
     public synchronized void loadUrl(String url) {
-        if (!BrowserUnit.isNetworkAvailable(context)) {
-            Toast.makeText(context, R.string.toast_network_error, Toast.LENGTH_SHORT).show();
-            return;
-        }
         if (url == null || url.isEmpty()) {
             Toast.makeText(context, R.string.toast_load_error, Toast.LENGTH_SHORT).show();
             return;

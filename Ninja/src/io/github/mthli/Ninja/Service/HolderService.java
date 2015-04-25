@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.os.Message;
 import android.webkit.WebView;
-import android.widget.Toast;
 import io.github.mthli.Ninja.Browser.BrowserContainer;
 import io.github.mthli.Ninja.Browser.NinjaView;
 import io.github.mthli.Ninja.Browser.BrowserController;
@@ -41,11 +40,6 @@ public class HolderService extends Service implements BrowserController {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (!BrowserUnit.isNetworkAvailable(this)) {
-            Toast.makeText(this, R.string.toast_network_error, Toast.LENGTH_SHORT).show();
-            this.stopSelf();
-        }
-
         NinjaView ninjaView = new NinjaView(this);
         ninjaView.setController(this);
         ninjaView.setFlag(BrowserUnit.FLAG_BERRY);
@@ -80,7 +74,6 @@ public class HolderService extends Service implements BrowserController {
 
     private void updateNotification() {
         Notification notification = NotificationUnit.getBuilder(this).build();
-        notification.flags = Notification.FLAG_FOREGROUND_SERVICE;
         startForeground(NotificationUnit.ID, notification);
     }
 }

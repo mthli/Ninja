@@ -280,9 +280,6 @@
     <string name="toast_load_in_background">
         Load in background
     </string>
-    <string name="toast_network_error">
-        Network is not available
-    </string>
     <string name="toast_new_tab_successful">
         Open in new tab successful
     </string>

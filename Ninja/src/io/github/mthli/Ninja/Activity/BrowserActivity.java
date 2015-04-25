@@ -27,6 +27,7 @@ import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Service.HolderService;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.Unit.IntentUnit;
+import io.github.mthli.Ninja.Unit.NotificationUnit;
 import io.github.mthli.Ninja.Unit.ViewUnit;
 import io.github.mthli.Ninja.View.DialogAdapter;
 import io.github.mthli.Ninja.View.ListAdapter;
