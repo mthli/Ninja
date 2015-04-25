@@ -51,7 +51,7 @@ public class SettingActivity extends Activity {
                 Intent intent = new Intent();
                 intent.putExtra(IntentUnit.DATABASE_CHANGE, fragment.isDatabaseChange());
                 intent.putExtra(IntentUnit.SHARED_PREFERENCE_CHANGE, fragment.isSharedPreferenceChange());
-                intent.putExtra(IntentUnit.GITHUB, (String) null);
+                intent.putExtra(IntentUnit.GITHUB, false);
                 setResult(IntentUnit.RESULT_SETTING, intent);
                 finish();
                 break;
@@ -67,7 +67,7 @@ public class SettingActivity extends Activity {
             Intent intent = new Intent();
             intent.putExtra(IntentUnit.DATABASE_CHANGE, fragment.isDatabaseChange());
             intent.putExtra(IntentUnit.SHARED_PREFERENCE_CHANGE, fragment.isSharedPreferenceChange());
-            intent.putExtra(IntentUnit.GITHUB, (String) null);
+            intent.putExtra(IntentUnit.GITHUB, false);
             setResult(IntentUnit.RESULT_SETTING, intent);
             finish();
         }

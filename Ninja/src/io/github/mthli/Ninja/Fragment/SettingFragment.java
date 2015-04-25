@@ -93,7 +93,7 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
                 Intent toGitHub = new Intent();
                 toGitHub.putExtra(IntentUnit.DATABASE_CHANGE, databaseChange);
                 toGitHub.putExtra(IntentUnit.SHARED_PREFERENCE_CHANGE, sharedPreferenceChange);
-                toGitHub.putExtra(IntentUnit.GITHUB, getString(R.string.app_github));
+                toGitHub.putExtra(IntentUnit.GITHUB, true);
                 getActivity().setResult(IntentUnit.RESULT_SETTING, toGitHub);
                 getActivity().finish();
                 break;

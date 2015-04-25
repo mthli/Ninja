@@ -57,6 +57,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     private TabController tabController = null;
 
     private boolean create = true;
+    private boolean github = false;
     private int animTime;
 
     @Override
@@ -83,6 +84,9 @@ public class BrowserActivity extends Activity implements BrowserController {
         super.onResume();
         if (!create) {
             when(getIntent(), false);
+            if (github) {
+                newTab(R.string.browser_tab_untitled, getString(R.string.app_github), true, null);
+            }
         }
     }
 
@@ -122,6 +126,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         stopService(toService);
 
         create = false;
+        github = false;
         inputBox.clearFocus();
         super.onPause();
     }
@@ -155,9 +160,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             }
         }
 
-        if (data.getStringExtra(IntentUnit.GITHUB) != null) {
-            newTab(getString(R.string.browser_tab_untitled), data.getStringExtra(IntentUnit.GITHUB), true, null);
-        }
+        github = data.getBooleanExtra(IntentUnit.GITHUB, false);
     }
 
     @Override
@@ -253,6 +256,9 @@ public class BrowserActivity extends Activity implements BrowserController {
                         ninjaView.stopLoading();
                     }
                 } else if (tabController instanceof TabRelativeLayout) {
+                    if (tabController.getFlag() == BrowserUnit.FLAG_HOME) {
+                        return;
+                    }
                     updateProgress(BrowserUnit.PROGRESS_MIN);
 
                     RecordAction action = new RecordAction(BrowserActivity.this);
