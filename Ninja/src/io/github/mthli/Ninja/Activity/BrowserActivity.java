@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.*;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -94,10 +95,12 @@ public class BrowserActivity extends Activity implements BrowserController {
         if (intent != null && intent.hasExtra(IntentUnit.PIN)) { // From Notification
             pinTabs(BrowserContainer.size() - 1, null);
         } else if (intent != null && intent.hasExtra(IntentUnit.OPEN)) { // From HolderActivity's menu
+            String url = intent.getStringExtra(IntentUnit.OPEN);
+            Log.d("WHEN: ", url);
             if (tabController != null) {
-                pinTabs(BrowserContainer.indexOf(tabController), intent);
+                pinTabs(BrowserContainer.indexOf(tabController), url);
             } else {
-                pinTabs(BrowserContainer.size() - 1, intent);
+                pinTabs(BrowserContainer.size() - 1, url);
             }
         } else if (n) { // From this.onCreate()
             newTab(R.string.browser_tab_home, BrowserUnit.ABOUT_HOME, true, null);
@@ -622,7 +625,10 @@ public class BrowserActivity extends Activity implements BrowserController {
         });
     }
 
-    private synchronized void pinTabs(int index, final Intent intent) {
+    private synchronized void pinTabs(int index, final String url) {
+        if (index >= BrowserContainer.size()) {
+            return;
+        }
         hideSoftInput(inputBox);
         hideSearchPanel();
         tabContainer.removeAllViews();
@@ -639,26 +645,42 @@ public class BrowserActivity extends Activity implements BrowserController {
             controller.getTabView().setVisibility(View.VISIBLE);
         }
 
-        if (tabContainer.getChildCount() < 1) {
+        if (tabContainer.getChildCount() < 1 && url == null) {
             return;
-        }
-        tabController = BrowserContainer.get(index);
-        if (tabController instanceof NinjaView) {
-            browserFrame.addView((NinjaView) tabController);
-        } else if (tabController instanceof TabRelativeLayout) {
-            browserFrame.addView((TabRelativeLayout) tabController);
-        }
-        tabController.activate();
-        tabScroll.post(new Runnable() {
-            @Override
-            public void run() {
-                tabScroll.scrollTo(tabController.getTabView().getLeft(), 0);
-                updateOmniBox();
-                if (intent != null &&  intent.hasExtra(IntentUnit.OPEN)) {
-                    newTab(R.string.browser_tab_untitled, intent.getStringExtra(IntentUnit.OPEN), true, null);
-                }
+        } else if (tabContainer.getChildCount() < 1 && url != null) {
+            newTab(R.string.browser_tab_untitled, url, true, null);
+        } else if (tabContainer.getChildCount() >= 1 && url == null) {
+            tabController = BrowserContainer.get(index);
+            if (tabController instanceof NinjaView) {
+                browserFrame.addView((NinjaView) tabController);
+            } else if (tabController instanceof TabRelativeLayout) {
+                browserFrame.addView((TabRelativeLayout) tabController);
             }
-        });
+            tabController.activate();
+            tabScroll.post(new Runnable() {
+                @Override
+                public void run() {
+                    tabScroll.scrollTo(tabController.getTabView().getLeft(), 0);
+                    updateOmniBox();
+                }
+            });
+        } else {
+            tabController = BrowserContainer.get(index);
+            if (tabController instanceof NinjaView) {
+                browserFrame.addView((NinjaView) tabController);
+            } else if (tabController instanceof TabRelativeLayout) {
+                browserFrame.addView((TabRelativeLayout) tabController);
+            }
+            tabController.activate();
+            tabScroll.post(new Runnable() {
+                @Override
+                public void run() {
+                    tabScroll.scrollTo(tabController.getTabView().getLeft(), 0);
+                    updateOmniBox();
+                    newTab(R.string.browser_tab_untitled, url, true, null);
+                }
+            });
+        }
     }
 
     @Override
