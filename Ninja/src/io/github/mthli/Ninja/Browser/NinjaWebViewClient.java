@@ -13,17 +13,17 @@ import io.github.mthli.Ninja.Unit.IntentUnit;
 import java.io.ByteArrayInputStream;
 import java.net.URISyntaxException;
 
-public class BerryWebViewClient extends WebViewClient {
-    private BerryView berryView;
+public class NinjaWebViewClient extends WebViewClient {
+    private NinjaView ninjaView;
     private Context context;
     private AdBlock adBlock;
 
-    public BerryWebViewClient(BerryView berryView) {
+    public NinjaWebViewClient(NinjaView ninjaView) {
         super();
 
-        this.berryView = berryView;
-        this.context = berryView.getContext();
-        this.adBlock = new AdBlock(berryView.getContext());
+        this.ninjaView = ninjaView;
+        this.context = ninjaView.getContext();
+        this.adBlock = new AdBlock(ninjaView.getContext());
     }
 
     @Override
@@ -31,9 +31,9 @@ public class BerryWebViewClient extends WebViewClient {
         super.onPageStarted(view, url, favicon);
 
         if (view.getTitle() == null || view.getTitle().isEmpty()) {
-            berryView.update(context.getString(R.string.browser_tab_untitled), url);
+            ninjaView.update(context.getString(R.string.browser_tab_untitled), url);
         } else {
-            berryView.update(view.getTitle(), url);
+            ninjaView.update(view.getTitle(), url);
         }
     }
 
@@ -42,15 +42,15 @@ public class BerryWebViewClient extends WebViewClient {
         super.onPageFinished(view, url);
 
         if (view.getTitle() == null || view.getTitle().isEmpty()) {
-            berryView.update(context.getString(R.string.browser_tab_untitled), url);
+            ninjaView.update(context.getString(R.string.browser_tab_untitled), url);
         } else {
-            berryView.update(view.getTitle(), url);
+            ninjaView.update(view.getTitle(), url);
         }
 
-        if (berryView.isForeground()) {
-            berryView.invalidate();
+        if (ninjaView.isForeground()) {
+            ninjaView.invalidate();
         } else {
-            berryView.postInvalidate();
+            ninjaView.postInvalidate();
         }
     }
 

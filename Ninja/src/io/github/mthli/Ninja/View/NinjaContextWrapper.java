@@ -5,10 +5,10 @@ import android.content.ContextWrapper;
 import android.content.res.Resources;
 import io.github.mthli.Ninja.R;
 
-public class BerryContextWrapper extends ContextWrapper {
+public class NinjaContextWrapper extends ContextWrapper {
     private Context context;
 
-    public BerryContextWrapper(Context context) {
+    public NinjaContextWrapper(Context context) {
         super(context);
         this.context = context;
         this.context.setTheme(R.style.BrowserActivityTheme);

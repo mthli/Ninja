@@ -5,19 +5,19 @@ import android.os.Message;
 import android.view.View;
 import android.webkit.*;
 
-public class BerryWebChromeClient extends WebChromeClient {
-    private BerryView berryView;
+public class NinjaWebChromeClient extends WebChromeClient {
+    private NinjaView ninjaView;
     private Context context;
 
-    public BerryWebChromeClient(BerryView berryView) {
+    public NinjaWebChromeClient(NinjaView ninjaView) {
         super();
-        this.berryView = berryView;
-        this.context = berryView.getContext();
+        this.ninjaView = ninjaView;
+        this.context = ninjaView.getContext();
     }
 
     @Override
     public boolean onCreateWindow(WebView view, boolean isDialog, boolean isUserGesture, Message resultMsg) {
-        berryView.getController().onCreateView(view, resultMsg);
+        ninjaView.getController().onCreateView(view, resultMsg);
         return isUserGesture;
     }
 
@@ -28,13 +28,13 @@ public class BerryWebChromeClient extends WebChromeClient {
 
     @Override
     public void onProgressChanged(WebView view, int progress) {
-        berryView.update(progress);
+        ninjaView.update(progress);
         super.onProgressChanged(view, progress);
     }
 
     @Override
     public void onReceivedTitle(WebView view, String title) {
-        berryView.update(title, view.getUrl());
+        ninjaView.update(title, view.getUrl());
         super.onReceivedTitle(view, title);
     }
 

@@ -144,8 +144,8 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         if (data.getBooleanExtra(IntentUnit.SHARED_PREFERENCE_CHANGE, false)) {
             for (TabController controller : BrowserContainer.list()) {
-                if (controller instanceof BerryView) {
-                    ((BerryView) controller).initPreferences();
+                if (controller instanceof NinjaView) {
+                    ((NinjaView) controller).initPreferences();
                 }
             }
         }
@@ -171,10 +171,10 @@ public class BrowserActivity extends Activity implements BrowserController {
             } else {
                 if (tabController instanceof TabRelativeLayout) {
                     deleteTab();
-                } else if (tabController instanceof BerryView) {
-                    BerryView berryView = (BerryView) tabController;
-                    if (berryView.canGoBack()) {
-                        berryView.goBack();
+                } else if (tabController instanceof NinjaView) {
+                    NinjaView ninjaView = (NinjaView) tabController;
+                    if (ninjaView.canGoBack()) {
+                        ninjaView.goBack();
                     } else {
                         deleteTab();
                     }
@@ -217,8 +217,8 @@ public class BrowserActivity extends Activity implements BrowserController {
 
                 RecordAction action = new RecordAction(BrowserActivity.this);
                 action.open(true);
-                String title = ((BerryView) tabController).getTitle();
-                String url = ((BerryView) tabController).getUrl();
+                String title = ((NinjaView) tabController).getTitle();
+                String url = ((NinjaView) tabController).getUrl();
                 if (action.checkBookmark(url)) {
                     action.deleteBookmark(url);
                     Toast.makeText(BrowserActivity.this, R.string.toast_delete_bookmark_successful, Toast.LENGTH_SHORT).show();
@@ -240,12 +240,12 @@ public class BrowserActivity extends Activity implements BrowserController {
                     return;
                 }
 
-                if (tabController instanceof BerryView) {
-                    BerryView berryView = (BerryView) tabController;
-                    if (berryView.isLoadFinish()) {
-                        berryView.reload();
+                if (tabController instanceof NinjaView) {
+                    NinjaView ninjaView = (NinjaView) tabController;
+                    if (ninjaView.isLoadFinish()) {
+                        ninjaView.reload();
                     } else {
-                        berryView.stopLoading();
+                        ninjaView.stopLoading();
                     }
                 } else if (tabController instanceof TabRelativeLayout) {
                     updateProgress(BrowserUnit.PROGRESS_MIN);
@@ -321,8 +321,8 @@ public class BrowserActivity extends Activity implements BrowserController {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (tabController != null && tabController instanceof BerryView) {
-                    ((BerryView) tabController).findAllAsync(s.toString());
+                if (tabController != null && tabController instanceof NinjaView) {
+                    ((NinjaView) tabController).findAllAsync(s.toString());
                 }
             }
         });
@@ -351,8 +351,8 @@ public class BrowserActivity extends Activity implements BrowserController {
                 }
 
                 hideSoftInput(searchBox);
-                if (tabController instanceof BerryView) {
-                    ((BerryView) tabController).findNext(false);
+                if (tabController instanceof NinjaView) {
+                    ((NinjaView) tabController).findNext(false);
                 }
             }
         });
@@ -367,8 +367,8 @@ public class BrowserActivity extends Activity implements BrowserController {
                 }
 
                 hideSoftInput(searchBox);
-                if (tabController instanceof BerryView) {
-                    ((BerryView) tabController).findNext(true);
+                if (tabController instanceof NinjaView) {
+                    ((NinjaView) tabController).findNext(true);
                 }
             }
         });
@@ -382,12 +382,12 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     private boolean prepareRecord() {
-        if (tabController == null || !(tabController instanceof BerryView)) {
+        if (tabController == null || !(tabController instanceof NinjaView)) {
             return false;
         }
 
-        String title = ((BerryView) tabController).getTitle();
-        String url = ((BerryView) tabController).getUrl();
+        String title = ((NinjaView) tabController).getTitle();
+        String url = ((NinjaView) tabController).getUrl();
         if (title == null
                 || title.isEmpty()
                 || url == null
@@ -430,7 +430,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                         newTab(BrowserUnit.FLAG_HISTORY);
                         break;
                     case 2:
-                        if (tabController == null || !(tabController instanceof BerryView)) {
+                        if (tabController == null || !(tabController instanceof NinjaView)) {
                             Toast.makeText(BrowserActivity.this, R.string.toast_search_failed, Toast.LENGTH_SHORT).show();
                         } else {
                             hideSoftInput(inputBox);
@@ -441,8 +441,8 @@ public class BrowserActivity extends Activity implements BrowserController {
                         if (!prepareRecord()) {
                             Toast.makeText(BrowserActivity.this, R.string.toast_share_failed, Toast.LENGTH_SHORT).show();
                         } else {
-                            BerryView berryView = (BerryView) tabController;
-                            IntentUnit.share(BrowserActivity.this, berryView.getTitle(), berryView.getUrl());
+                            NinjaView ninjaView = (NinjaView) tabController;
+                            IntentUnit.share(BrowserActivity.this, ninjaView.getTitle(), ninjaView.getUrl());
                         }
                         break;
                     case 4:
@@ -471,20 +471,20 @@ public class BrowserActivity extends Activity implements BrowserController {
             hideSearchPanel();
         }
 
-        final BerryView berryView = new BerryView(this);
-        berryView.setController(this);
-        berryView.setFlag(BrowserUnit.FLAG_BERRY);
+        final NinjaView ninjaView = new NinjaView(this);
+        ninjaView.setController(this);
+        ninjaView.setFlag(BrowserUnit.FLAG_BERRY);
 
-        berryView.setTabTitle(title);
-        final View tabView = berryView.getTabView();
+        ninjaView.setTabTitle(title);
+        final View tabView = ninjaView.getTabView();
         tabView.setVisibility(View.INVISIBLE);
 
-        if (tabController != null && (tabController instanceof BerryView) && resultMsg != null) {
+        if (tabController != null && (tabController instanceof NinjaView) && resultMsg != null) {
             int index = BrowserContainer.indexOf(tabController) + 1;
-            BrowserContainer.add(berryView, index);
+            BrowserContainer.add(ninjaView, index);
             tabContainer.addView(tabView, index, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
         } else {
-            BrowserContainer.add(berryView);
+            BrowserContainer.add(ninjaView);
             tabContainer.addView(tabView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
         }
 
@@ -502,8 +502,8 @@ public class BrowserActivity extends Activity implements BrowserController {
             @Override
             public void onAnimationEnd(Animation animation) {
                 if (!foreground) {
-                    berryView.loadUrl(url);
-                    berryView.deactivate();
+                    ninjaView.loadUrl(url);
+                    ninjaView.deactivate();
                     tabScroll.smoothScrollTo(tabController.getTabView().getLeft(), 0);
                     return;
                 }
@@ -512,17 +512,17 @@ public class BrowserActivity extends Activity implements BrowserController {
                     tabController.deactivate();
                 }
                 browserFrame.removeAllViews();
-                browserFrame.addView(berryView);
-                berryView.activate();
+                browserFrame.addView(ninjaView);
+                ninjaView.activate();
                 tabScroll.smoothScrollTo(tabView.getLeft(), 0);
-                tabController = berryView;
+                tabController = ninjaView;
                 updateOmniBox();
 
                 if (url != null) {
-                    berryView.loadUrl(url); // TODO: about:home
+                    ninjaView.loadUrl(url); // TODO: about:home
                 } else if (resultMsg != null) {
                     WebView.WebViewTransport transport = (WebView.WebViewTransport) resultMsg.obj;
-                    transport.setWebView(berryView);
+                    transport.setWebView(ninjaView);
                     resultMsg.sendToTarget();
                 }
             }
@@ -629,8 +629,8 @@ public class BrowserActivity extends Activity implements BrowserController {
         browserFrame.removeAllViews();
 
         for (TabController controller : BrowserContainer.list()) {
-            if (controller instanceof BerryView) {
-                ((BerryView) controller).setController(this);
+            if (controller instanceof NinjaView) {
+                ((NinjaView) controller).setController(this);
             } else if (controller instanceof TabRelativeLayout) {
                 ((TabRelativeLayout) controller).setController(this);
             }
@@ -643,8 +643,8 @@ public class BrowserActivity extends Activity implements BrowserController {
             return;
         }
         tabController = BrowserContainer.get(index);
-        if (tabController instanceof BerryView) {
-            browserFrame.addView((BerryView) tabController);
+        if (tabController instanceof NinjaView) {
+            browserFrame.addView((NinjaView) tabController);
         } else if (tabController instanceof TabRelativeLayout) {
             browserFrame.addView((TabRelativeLayout) tabController);
         }
@@ -662,8 +662,8 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     @Override
-    public synchronized void showTab(BerryView berryView) {
-        if (berryView == null || berryView.equals(tabController)) {
+    public synchronized void showTab(NinjaView ninjaView) {
+        if (ninjaView == null || ninjaView.equals(tabController)) {
             return;
         }
 
@@ -674,10 +674,10 @@ public class BrowserActivity extends Activity implements BrowserController {
             tabController.deactivate();
         }
         browserFrame.removeAllViews();
-        browserFrame.addView(berryView);
-        berryView.activate();
-        tabScroll.smoothScrollTo(berryView.getTabView().getLeft(), 0);
-        tabController = berryView;
+        browserFrame.addView(ninjaView);
+        ninjaView.activate();
+        tabScroll.smoothScrollTo(ninjaView.getTabView().getLeft(), 0);
+        tabController = ninjaView;
         updateOmniBox();
     }
 
@@ -706,28 +706,28 @@ public class BrowserActivity extends Activity implements BrowserController {
             return;
         }
 
-        if (tabController instanceof BerryView) {
-            ((BerryView) tabController).loadUrl(url);
+        if (tabController instanceof NinjaView) {
+            ((NinjaView) tabController).loadUrl(url);
         } else if (tabController instanceof TabRelativeLayout) {
-            BerryView berryView = new BerryView(this);
-            berryView.setController(this);
-            berryView.setFlag(BrowserUnit.FLAG_BERRY);
-            berryView.setTabTitle(getString(R.string.browser_tab_untitled));
-            berryView.getTabView().setVisibility(View.VISIBLE);
+            NinjaView ninjaView = new NinjaView(this);
+            ninjaView.setController(this);
+            ninjaView.setFlag(BrowserUnit.FLAG_BERRY);
+            ninjaView.setTabTitle(getString(R.string.browser_tab_untitled));
+            ninjaView.getTabView().setVisibility(View.VISIBLE);
 
             int index = tabContainer.indexOfChild(tabController.getTabView());
             tabController.deactivate();
             tabContainer.removeView(tabController.getTabView());
             browserFrame.removeAllViews();
 
-            tabContainer.addView(berryView.getTabView(), index, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
-            browserFrame.addView(berryView);
-            berryView.activate();
-            BrowserContainer.set(berryView, index);
-            tabController = berryView;
+            tabContainer.addView(ninjaView.getTabView(), index, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            browserFrame.addView(ninjaView);
+            ninjaView.activate();
+            BrowserContainer.set(ninjaView, index);
+            tabController = ninjaView;
             updateOmniBox();
 
-            berryView.loadUrl(url);
+            ninjaView.loadUrl(url);
         } else {
             Toast.makeText(this, R.string.toast_load_error, Toast.LENGTH_SHORT).show();
         }
@@ -899,7 +899,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     @Override
     public synchronized void updateBookmarks() {
-        if (tabController == null || !(tabController instanceof BerryView)) {
+        if (tabController == null || !(tabController instanceof NinjaView)) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_bookmark_outline_button_selector, null));
             } else {
@@ -910,7 +910,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         RecordAction action = new RecordAction(this);
         action.open(false);
-        String url = ((BerryView) tabController).getUrl();
+        String url = ((NinjaView) tabController).getUrl();
         if (action.checkBookmark(url)) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.browser_bookmark_full_button_selector, null));
@@ -957,8 +957,8 @@ public class BrowserActivity extends Activity implements BrowserController {
                 updateBookmarks();
                 updateAutoComplete();
             }
-        } else if (tabController instanceof BerryView) {
-            BerryView currentView = (BerryView) tabController;
+        } else if (tabController instanceof NinjaView) {
+            NinjaView currentView = (NinjaView) tabController;
             if (currentView.isLoadFinish()) {
                 RecordAction action = new RecordAction(this);
                 action.open(true);
@@ -989,16 +989,16 @@ public class BrowserActivity extends Activity implements BrowserController {
             return;
         }
 
-        if (tabController instanceof BerryView) {
-            BerryView berryView = (BerryView) tabController;
-            updateProgress(berryView.getProgress());
+        if (tabController instanceof NinjaView) {
+            NinjaView ninjaView = (NinjaView) tabController;
+            updateProgress(ninjaView.getProgress());
             updateBookmarks();
-            if (berryView.getUrl() == null && berryView.getOriginalUrl() == null) {
+            if (ninjaView.getUrl() == null && ninjaView.getOriginalUrl() == null) {
                 updateInputBox(null);
-            } else if (berryView.getUrl() != null) {
-                updateInputBox(berryView.getUrl());
+            } else if (ninjaView.getUrl() != null) {
+                updateInputBox(ninjaView.getUrl());
             } else {
-                updateInputBox(berryView.getOriginalUrl());
+                updateInputBox(ninjaView.getOriginalUrl());
             }
         } else if (tabController instanceof TabRelativeLayout) {
             updateProgress(BrowserUnit.PROGRESS_MAX);
@@ -1070,10 +1070,10 @@ public class BrowserActivity extends Activity implements BrowserController {
     @Override
     public void onLongPress(String url) {
         WebView.HitTestResult result;
-        if (!(tabController instanceof BerryView)) {
+        if (!(tabController instanceof NinjaView)) {
             return;
         }
-        result = ((BerryView) tabController).getHitTestResult();
+        result = ((NinjaView) tabController).getHitTestResult();
 
         final List<String> list = new ArrayList<String>();
         list.add(getString(R.string.berry_menu_new_tab));

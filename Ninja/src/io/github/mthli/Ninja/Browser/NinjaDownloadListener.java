@@ -4,10 +4,10 @@ import android.content.Context;
 import android.webkit.DownloadListener;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
 
-public class BerryDownloadListener implements DownloadListener {
+public class NinjaDownloadListener implements DownloadListener {
     private Context context;
 
-    public BerryDownloadListener(Context context) {
+    public NinjaDownloadListener(Context context) {
         super();
         this.context = context;
     }

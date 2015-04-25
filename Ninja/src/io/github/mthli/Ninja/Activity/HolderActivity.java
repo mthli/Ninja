@@ -10,7 +10,7 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
-import io.github.mthli.Ninja.View.BerryContextWrapper;
+import io.github.mthli.Ninja.View.NinjaContextWrapper;
 import io.github.mthli.Ninja.Database.Record;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Service.HolderService;
@@ -101,7 +101,7 @@ public class HolderActivity extends Activity {
     }
 
     private void showHolderDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(new BerryContextWrapper(this));
+        AlertDialog.Builder builder = new AlertDialog.Builder(new NinjaContextWrapper(this));
         builder.setCancelable(true);
 
         LinearLayout linearLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog, null, false);

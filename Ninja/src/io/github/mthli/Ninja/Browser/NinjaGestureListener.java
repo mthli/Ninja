@@ -3,19 +3,19 @@ package io.github.mthli.Ninja.Browser;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 
-public class BerryGestureListener extends GestureDetector.SimpleOnGestureListener {
-    private BerryView berryView;
+public class NinjaGestureListener extends GestureDetector.SimpleOnGestureListener {
+    private NinjaView ninjaView;
     private boolean longPress = true;
 
-    public BerryGestureListener(BerryView berryView) {
+    public NinjaGestureListener(NinjaView ninjaView) {
         super();
-        this.berryView = berryView;
+        this.ninjaView = ninjaView;
     }
 
     @Override
     public void onLongPress(MotionEvent e) {
         if (longPress) {
-            berryView.onLongPress();
+            ninjaView.onLongPress();
         }
     }
 

@@ -9,11 +9,10 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import io.github.mthli.Ninja.Activity.BrowserActivity;
-import io.github.mthli.Ninja.Browser.BerryView;
+import io.github.mthli.Ninja.Browser.NinjaView;
 import io.github.mthli.Ninja.Browser.BrowserContainer;
 import io.github.mthli.Ninja.Browser.TabController;
 import io.github.mthli.Ninja.R;
-import io.github.mthli.Ninja.Service.HolderService;
 
 public class NotificationUnit {
     public static final int ID = 0x65536;
@@ -36,8 +35,8 @@ public class NotificationUnit {
         int done = 0;
         int total = 0;
         for (TabController controller : BrowserContainer.list()) {
-            if (controller instanceof BerryView) {
-                if (((BerryView) controller).isLoadFinish()) {
+            if (controller instanceof NinjaView) {
+                if (((NinjaView) controller).isLoadFinish()) {
                     done++;
                 }
                 total++;

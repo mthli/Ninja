@@ -8,7 +8,7 @@ import android.os.Message;
 import android.webkit.WebView;
 import android.widget.Toast;
 import io.github.mthli.Ninja.Browser.BrowserContainer;
-import io.github.mthli.Ninja.Browser.BerryView;
+import io.github.mthli.Ninja.Browser.NinjaView;
 import io.github.mthli.Ninja.Browser.BrowserController;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
@@ -28,7 +28,7 @@ public class HolderService extends Service implements BrowserController {
     public void onCreateView(WebView view, Message resultMsg) {}
 
     @Override
-    public void showTab(BerryView berryView) {}
+    public void showTab(NinjaView ninjaView) {}
 
     @Override
     public void showTab(TabRelativeLayout tabRelativeLayout) {}
@@ -46,14 +46,14 @@ public class HolderService extends Service implements BrowserController {
             this.stopSelf();
         }
 
-        BerryView berryView = new BerryView(this);
-        berryView.setController(this);
-        berryView.setFlag(BrowserUnit.FLAG_BERRY);
-        berryView.setTabTitle(getString(R.string.browser_tab_untitled));
-        berryView.loadUrl(RecordUnit.getHolder().getURL());
-        berryView.deactivate();
+        NinjaView ninjaView = new NinjaView(this);
+        ninjaView.setController(this);
+        ninjaView.setFlag(BrowserUnit.FLAG_BERRY);
+        ninjaView.setTabTitle(getString(R.string.browser_tab_untitled));
+        ninjaView.loadUrl(RecordUnit.getHolder().getURL());
+        ninjaView.deactivate();
 
-        BrowserContainer.add(berryView);
+        BrowserContainer.add(ninjaView);
         updateNotification();
 
         return START_STICKY;

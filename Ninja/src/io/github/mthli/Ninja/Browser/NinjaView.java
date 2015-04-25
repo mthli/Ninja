@@ -17,11 +17,11 @@ import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Service.HolderService;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.Unit.IntentUnit;
-import io.github.mthli.Ninja.View.BerryContextWrapper;
+import io.github.mthli.Ninja.View.NinjaContextWrapper;
 
 import java.net.URISyntaxException;
 
-public class BerryView extends WebView implements TabController {
+public class NinjaView extends WebView implements TabController {
     private Context context;
     private int flag = BrowserUnit.FLAG_BERRY;
 
@@ -30,11 +30,11 @@ public class BerryView extends WebView implements TabController {
         return foreground;
     }
 
-    private BerryTab berryTab;
-    private BerryWebViewClient webViewClient;
-    private BerryWebChromeClient webChromeClient;
-    private BerryDownloadListener downloadListener;
-    private BerryClickHandler clickHandler;
+    private NinjaTab ninjaTab;
+    private NinjaWebViewClient webViewClient;
+    private NinjaWebChromeClient webChromeClient;
+    private NinjaDownloadListener downloadListener;
+    private NinjaClickHandler clickHandler;
     private GestureDetector gestureDetector;
 
     private BrowserController controller  = null;
@@ -45,54 +45,54 @@ public class BerryView extends WebView implements TabController {
         this.controller = controller;
     }
 
-    public BerryView(Context context) {
-        super(new BerryContextWrapper(context));
+    public NinjaView(Context context) {
+        super(new NinjaContextWrapper(context));
 
-        this.context = new BerryContextWrapper(context);
+        this.context = new NinjaContextWrapper(context);
         this.foreground = false;
 
-        this.berryTab = new BerryTab(this);
-        this.webViewClient = new BerryWebViewClient(this);
-        this.webChromeClient = new BerryWebChromeClient(this);
-        this.downloadListener = new BerryDownloadListener(this.context);
-        this.clickHandler = new BerryClickHandler(this);
-        this.gestureDetector = new GestureDetector(context, new BerryGestureListener(this));
+        this.ninjaTab = new NinjaTab(this);
+        this.webViewClient = new NinjaWebViewClient(this);
+        this.webChromeClient = new NinjaWebChromeClient(this);
+        this.downloadListener = new NinjaDownloadListener(this.context);
+        this.clickHandler = new NinjaClickHandler(this);
+        this.gestureDetector = new GestureDetector(context, new NinjaGestureListener(this));
 
         this.initWebView();
         this.initWebSettings();
         this.initPreferences();
     }
 
-    public BerryView(Context context, AttributeSet attrs) {
-        super(new BerryContextWrapper(context), attrs);
+    public NinjaView(Context context, AttributeSet attrs) {
+        super(new NinjaContextWrapper(context), attrs);
 
-        this.context = new BerryContextWrapper(context);
+        this.context = new NinjaContextWrapper(context);
         this.foreground = false;
 
-        this.berryTab = new BerryTab(this);
-        this.webViewClient = new BerryWebViewClient(this);
-        this.webChromeClient = new BerryWebChromeClient(this);
-        this.downloadListener = new BerryDownloadListener(this.context);
-        this.clickHandler = new BerryClickHandler(this);
-        this.gestureDetector = new GestureDetector(context, new BerryGestureListener(this));
+        this.ninjaTab = new NinjaTab(this);
+        this.webViewClient = new NinjaWebViewClient(this);
+        this.webChromeClient = new NinjaWebChromeClient(this);
+        this.downloadListener = new NinjaDownloadListener(this.context);
+        this.clickHandler = new NinjaClickHandler(this);
+        this.gestureDetector = new GestureDetector(context, new NinjaGestureListener(this));
 
         this.initWebView();
         this.initWebSettings();
         this.initPreferences();
     }
 
-    public BerryView(Context context, AttributeSet attrs, int defStyle) {
-        super(new BerryContextWrapper(context), attrs, defStyle);
+    public NinjaView(Context context, AttributeSet attrs, int defStyle) {
+        super(new NinjaContextWrapper(context), attrs, defStyle);
 
-        this.context = new BerryContextWrapper(context);
+        this.context = new NinjaContextWrapper(context);
         this.foreground = false;
 
-        this.berryTab = new BerryTab(this);
-        this.webViewClient = new BerryWebViewClient(this);
-        this.webChromeClient = new BerryWebChromeClient(this);
-        this.downloadListener = new BerryDownloadListener(this.context);
-        this.clickHandler = new BerryClickHandler(this);
-        this.gestureDetector = new GestureDetector(context, new BerryGestureListener(this));
+        this.ninjaTab = new NinjaTab(this);
+        this.webViewClient = new NinjaWebViewClient(this);
+        this.webChromeClient = new NinjaWebChromeClient(this);
+        this.downloadListener = new NinjaDownloadListener(this.context);
+        this.clickHandler = new NinjaClickHandler(this);
+        this.gestureDetector = new GestureDetector(context, new NinjaGestureListener(this));
 
         this.initWebView();
         this.initWebSettings();
@@ -211,7 +211,7 @@ public class BerryView extends WebView implements TabController {
         setVisibility(View.VISIBLE);
         requestFocus();
         foreground = true;
-        berryTab.activate();
+        ninjaTab.activate();
     }
 
     @Override
@@ -219,7 +219,7 @@ public class BerryView extends WebView implements TabController {
         clearFocus();
         setVisibility(View.INVISIBLE);
         foreground = false;
-        berryTab.deactivate();
+        ninjaTab.deactivate();
     }
 
     @Override
@@ -234,12 +234,12 @@ public class BerryView extends WebView implements TabController {
 
     @Override
     public View getTabView() {
-        return berryTab.getView();
+        return ninjaTab.getView();
     }
 
     @Override
     public void setTabTitle(String title) {
-        berryTab.setTitle(title);
+        ninjaTab.setTitle(title);
     }
 
     public synchronized void update(String title, String url) {

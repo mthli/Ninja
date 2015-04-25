@@ -11,8 +11,8 @@ public class BrowserContainer {
     }
 
     public synchronized static void set(TabController controller, int index) {
-        if (list.get(index) instanceof BerryView) {
-            ((BerryView) list.get(index)).destroy();
+        if (list.get(index) instanceof NinjaView) {
+            ((NinjaView) list.get(index)).destroy();
         }
         list.set(index, controller);
     }
@@ -26,15 +26,15 @@ public class BrowserContainer {
     }
 
     public synchronized static void remove(int index) {
-        if (list.get(index) instanceof BerryView) {
-            ((BerryView) list.get(index)).destroy();
+        if (list.get(index) instanceof NinjaView) {
+            ((NinjaView) list.get(index)).destroy();
         }
         list.remove(index);
     }
 
     public synchronized static void remove(TabController controller) {
-        if (controller instanceof BerryView) {
-            ((BerryView) controller).destroy();
+        if (controller instanceof NinjaView) {
+            ((NinjaView) controller).destroy();
         }
         list.remove(controller);
     }
@@ -53,8 +53,8 @@ public class BrowserContainer {
 
     public synchronized static void clear() {
         for (TabController controller : list) {
-            if (controller instanceof BerryView) {
-                ((BerryView) controller).destroy();
+            if (controller instanceof NinjaView) {
+                ((NinjaView) controller).destroy();
             }
         }
         list.clear();

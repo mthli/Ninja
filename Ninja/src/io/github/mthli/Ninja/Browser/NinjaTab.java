@@ -8,8 +8,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import io.github.mthli.Ninja.R;
 
-public class BerryTab {
-    private BerryView berryView;
+public class NinjaTab {
+    private NinjaView ninjaView;
     private Context context;
 
     private View view;
@@ -20,9 +20,9 @@ public class BerryTab {
     private TextView title;
     private ImageButton closeButton;
 
-    public BerryTab(BerryView berryView) {
-        this.berryView = berryView;
-        this.context = berryView.getContext();
+    public NinjaTab(NinjaView ninjaView) {
+        this.ninjaView = ninjaView;
+        this.context = ninjaView.getContext();
         initUI();
     }
 
@@ -31,7 +31,7 @@ public class BerryTab {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                berryView.getController().showTab(berryView);
+                ninjaView.getController().showTab(ninjaView);
             }
         });
         view.setOnLongClickListener(new View.OnLongClickListener() {
@@ -43,13 +43,13 @@ public class BerryTab {
         });
 
         title = (TextView) view.findViewById(R.id.tab_title);
-        title.setText(berryView.getTitle());
+        title.setText(ninjaView.getTitle());
 
         closeButton = (ImageButton) view.findViewById(R.id.tab_close_button);
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                berryView.getController().deleteTab();
+                ninjaView.getController().deleteTab();
             }
         });
     }

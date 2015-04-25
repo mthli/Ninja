@@ -11,7 +11,7 @@ public interface BrowserController {
 
     void updateProgress(int progress);
 
-    void showTab(BerryView berryView);
+    void showTab(NinjaView ninjaView);
 
     void showTab(TabRelativeLayout tabRelativeLayout);
 
