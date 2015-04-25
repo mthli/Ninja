@@ -45,7 +45,7 @@ public class NotificationUnit {
         builder.setContentTitle(context.getString(R.string.app_name));
         builder.setNumber(total);
         if (done < total) {
-            builder.setSmallIcon(R.drawable.ic_notification_berries);
+            builder.setSmallIcon(R.drawable.ic_notification_ninja);
             builder.setContentText(context.getString(R.string.notification_content_loading) + done);
         } else {
             builder.setSmallIcon(R.drawable.ic_notification_done_all);

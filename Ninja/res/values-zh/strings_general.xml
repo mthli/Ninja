@@ -278,7 +278,7 @@
         无法加载此链接
     </string>
     <string name="toast_load_in_background">
-        后台加载
+        正在后台加载
     </string>
     <string name="toast_network_error">
         网络不可用

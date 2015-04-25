@@ -12,7 +12,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.*;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -96,14 +95,17 @@ public class BrowserActivity extends Activity implements BrowserController {
             pinTabs(BrowserContainer.size() - 1, null);
         } else if (intent != null && intent.hasExtra(IntentUnit.OPEN)) { // From HolderActivity's menu
             String url = intent.getStringExtra(IntentUnit.OPEN);
-            Log.d("WHEN: ", url);
             if (tabController != null) {
                 pinTabs(BrowserContainer.indexOf(tabController), url);
             } else {
                 pinTabs(BrowserContainer.size() - 1, url);
             }
         } else if (n) { // From this.onCreate()
-            newTab(R.string.browser_tab_home, BrowserUnit.ABOUT_HOME, true, null);
+            if (BrowserContainer.size() <= 0) {
+                newTab(R.string.browser_tab_home, BrowserUnit.ABOUT_HOME, true, null);
+            } else {
+                pinTabs(BrowserContainer.size() - 1, null);
+            }
         } else { // From onResume()
             if (tabController != null) {
                 pinTabs(BrowserContainer.indexOf(tabController), null);
@@ -626,9 +628,6 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     private synchronized void pinTabs(int index, final String url) {
-        if (index >= BrowserContainer.size()) {
-            return;
-        }
         hideSoftInput(inputBox);
         hideSearchPanel();
         tabContainer.removeAllViews();
@@ -645,11 +644,11 @@ public class BrowserActivity extends Activity implements BrowserController {
             controller.getTabView().setVisibility(View.VISIBLE);
         }
 
-        if (tabContainer.getChildCount() < 1 && url == null) {
+        if (BrowserContainer.size() < 1 && url == null) {
             return;
-        } else if (tabContainer.getChildCount() < 1 && url != null) {
+        } else if (BrowserContainer.size() < 1 && url != null) {
             newTab(R.string.browser_tab_untitled, url, true, null);
-        } else if (tabContainer.getChildCount() >= 1 && url == null) {
+        } else if (BrowserContainer.size() >= 1 && url == null) {
             tabController = BrowserContainer.get(index);
             if (tabController instanceof NinjaView) {
                 browserFrame.addView((NinjaView) tabController);
