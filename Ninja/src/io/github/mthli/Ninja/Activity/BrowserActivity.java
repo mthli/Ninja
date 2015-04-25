@@ -413,9 +413,13 @@ public class BrowserActivity extends Activity implements BrowserController {
         LinearLayout linearLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog, null, false);
         builder.setView(linearLayout);
 
-        String[] strings = getResources().getStringArray(R.array.browser_overflow);
-        List<String> list = new ArrayList<String>();
+        final String[] strings = getResources().getStringArray(R.array.browser_overflow);
+        final List<String> list = new ArrayList<String>();
         list.addAll(Arrays.asList(strings));
+        if (tabController != null && tabController instanceof TabRelativeLayout) {
+            list.remove(strings[2]);
+            list.remove(strings[3]);
+        }
 
         ListView listView = (ListView) linearLayout.findViewById(R.id.dialog_listview);
         DialogAdapter adapter = new DialogAdapter(this, R.layout.dialog_item, list);
@@ -428,38 +432,30 @@ public class BrowserActivity extends Activity implements BrowserController {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                switch (position) {
-                    case 0:
-                        newTab(BrowserUnit.FLAG_BOOKMARKS);
-                        break;
-                    case 1:
-                        newTab(BrowserUnit.FLAG_HISTORY);
-                        break;
-                    case 2:
-                        if (tabController == null || !(tabController instanceof NinjaView)) {
-                            Toast.makeText(BrowserActivity.this, R.string.toast_search_failed, Toast.LENGTH_SHORT).show();
-                        } else {
-                            hideSoftInput(inputBox);
-                            showSearchPanel();
-                        }
-                        break;
-                    case 3:
-                        if (!prepareRecord()) {
-                            Toast.makeText(BrowserActivity.this, R.string.toast_share_failed, Toast.LENGTH_SHORT).show();
-                        } else {
-                            NinjaView ninjaView = (NinjaView) tabController;
-                            IntentUnit.share(BrowserActivity.this, ninjaView.getTitle(), ninjaView.getUrl());
-                        }
-                        break;
-                    case 4:
-                        Intent intent = new Intent(BrowserActivity.this, SettingActivity.class);
-                        startActivityForResult(intent, IntentUnit.REQUEST_SETTING);
-                        break;
-                    case 5:
-                        finish();
-                        break;
-                    default:
-                        break;
+                String s = list.get(position);
+                if (s.equals(strings[0])) {
+                    newTab(BrowserUnit.FLAG_BOOKMARKS);
+                } else if (s.equals(strings[1])) {
+                    newTab(BrowserUnit.FLAG_HISTORY);
+                } else if (s.equals(strings[2])) {
+                    if (tabController == null || !(tabController instanceof NinjaView)) {
+                        Toast.makeText(BrowserActivity.this, R.string.toast_search_failed, Toast.LENGTH_SHORT).show();
+                    } else {
+                        hideSoftInput(inputBox);
+                        showSearchPanel();
+                    }
+                } else if (s.equals(strings[3])) {
+                    if (!prepareRecord()) {
+                        Toast.makeText(BrowserActivity.this, R.string.toast_share_failed, Toast.LENGTH_SHORT).show();
+                    } else {
+                        NinjaView ninjaView = (NinjaView) tabController;
+                        IntentUnit.share(BrowserActivity.this, ninjaView.getTitle(), ninjaView.getUrl());
+                    }
+                } else if (s.equals(strings[4])) {
+                    Intent intent = new Intent(BrowserActivity.this, SettingActivity.class);
+                    startActivityForResult(intent, IntentUnit.REQUEST_SETTING);
+                } else if (s.equals(strings[5])) {
+                    finish();
                 }
                 dialog.hide();
                 dialog.dismiss();
