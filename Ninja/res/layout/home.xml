@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<io.github.mthli.Ninja.View.TabRelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout android:orientation="vertical"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_centerInParent="true">
+
+        <LinearLayout android:id="@+id/home_panel"
+                      android:orientation="vertical"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginBottom="80dp"
+                      android:background="@drawable/round_corner_layout_shape">
+
+            <ImageView android:id="@+id/home_picture"
+                       android:contentDescription="@null"
+                       android:layout_width="240dp"
+                       android:layout_height="wrap_content"
+                       android:src="@drawable/home_picture"
+                       android:scaleType="centerCrop"
+                       android:adjustViewBounds="true">
+            </ImageView>
+
+            <TextView android:id="@+id/home_picture_title"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="4dp"
+                      android:layout_marginLeft="8dp"
+                      android:layout_marginRight="8dp"
+                      android:layout_gravity="center_horizontal|right"
+                      android:gravity="center_horizontal|right"
+                      android:text="@string/home_picture_title"
+                      android:textSize="14sp"
+                      android:textColor="@color/text"
+                      android:textStyle="italic"
+                      android:singleLine="true"
+                      android:ellipsize="none"
+                      android:background="@color/transparent">
+            </TextView>
+
+            <TextView android:id="@+id/home_picture_author"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginBottom="4dp"
+                      android:layout_marginLeft="8dp"
+                      android:layout_marginRight="8dp"
+                      android:layout_gravity="center_horizontal|right"
+                      android:gravity="center_horizontal|right"
+                      android:text="@string/home_picture_author"
+                      android:textSize="12sp"
+                      android:textColor="@color/text_secondary"
+                      android:singleLine="true"
+                      android:ellipsize="none"
+                      android:background="@color/transparent">
+            </TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</io.github.mthli.Ninja.View.TabRelativeLayout>

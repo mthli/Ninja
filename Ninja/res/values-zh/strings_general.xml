@@ -53,6 +53,14 @@
         <item>分享</item>
     </string-array>
 
+    <!-- Home -->
+    <string name="home_picture_title">
+        星夜
+    </string>
+    <string name="home_picture_author">
+        文森特·梵高
+    </string>
+
     <!-- List -->
     <string name="list_empty">
         当前列表为空

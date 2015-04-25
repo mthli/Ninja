@@ -179,10 +179,7 @@ public class NinjaView extends WebView implements TabController {
         }
         url = BrowserUnit.queryWrapper(context, url);
 
-        if (url.equals(BrowserUnit.ABOUT_HOME)) {
-            // TODO: about:home
-            return;
-        } else if (url.startsWith(BrowserUnit.URL_SCHEME_MAIL_TO)) {
+        if (url.startsWith(BrowserUnit.URL_SCHEME_MAIL_TO)) {
             Intent intent = IntentUnit.getEmailIntent(MailTo.parse(url));
             context.startActivity(intent);
             reload();

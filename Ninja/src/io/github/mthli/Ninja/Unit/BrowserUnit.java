@@ -28,11 +28,11 @@ public class BrowserUnit {
     public static final int PROGRESS_MIN = 0;
 
     public static final String ABOUT_BLANK = "about:blank";
-    public static final String ABOUT_HOME = "about:home";
 
     public static final int FLAG_BERRY = 0x100;
-    public static final int FLAG_BOOKMARKS = 0x101;
-    public static final int FLAG_HISTORY = 0x102;
+    public static final int FLAG_HOME = 0x101;
+    public static final int FLAG_BOOKMARKS = 0x102;
+    public static final int FLAG_HISTORY = 0x103;
 
     public static final String MIME_TYPE_TEXT_PLAIN = "text/plain";
     public static final String MIME_TYPE_IMAGE = "image/*";
@@ -67,8 +67,7 @@ public class BrowserUnit {
             return false;
         }
 
-        if (url.equals(ABOUT_HOME) // TODO: about:home
-                | url.startsWith(ABOUT_BLANK)
+        if (url.startsWith(ABOUT_BLANK)
                 || url.startsWith(URL_SCHEME_MAIL_TO)
                 || url.startsWith(URL_SCHEME_FILE)) {
             return true;

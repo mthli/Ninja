@@ -27,7 +27,6 @@ import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Service.HolderService;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.Unit.IntentUnit;
-import io.github.mthli.Ninja.Unit.NotificationUnit;
 import io.github.mthli.Ninja.Unit.ViewUnit;
 import io.github.mthli.Ninja.View.DialogAdapter;
 import io.github.mthli.Ninja.View.ListAdapter;
@@ -103,7 +102,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             }
         } else if (n) { // From this.onCreate()
             if (BrowserContainer.size() <= 0) {
-                newTab(R.string.browser_tab_home, BrowserUnit.ABOUT_HOME, true, null);
+                newTab(BrowserUnit.FLAG_HOME);
             } else {
                 pinTabs(BrowserContainer.size() - 1, null);
             }
@@ -209,7 +208,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         addTabButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                newTab(R.string.browser_tab_home, BrowserUnit.ABOUT_HOME, true, null);
+                newTab(BrowserUnit.FLAG_HOME);
             }
         });
 
@@ -521,7 +520,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 updateOmniBox();
 
                 if (url != null) {
-                    ninjaView.loadUrl(url); // TODO: about:home
+                    ninjaView.loadUrl(url);
                 } else if (resultMsg != null) {
                     WebView.WebViewTransport transport = (WebView.WebViewTransport) resultMsg.obj;
                     transport.setWebView(ninjaView);
@@ -535,52 +534,87 @@ public class BrowserActivity extends Activity implements BrowserController {
     private synchronized void newTab(int tag) {
         hideSoftInput(inputBox);
         hideSearchPanel();
+        final TabController newController;
 
-        for (TabController controller : BrowserContainer.list()) {
-            if (controller.getFlag() == tag) {
-                showTab((TabRelativeLayout) controller);
-                return;
-            }
-        }
+        if (tag == BrowserUnit.FLAG_HOME) {
+            TabRelativeLayout homeLayout = (TabRelativeLayout) getLayoutInflater().inflate(R.layout.home, null, false);
+            homeLayout.setController(this);
+            newController = homeLayout;
+            homeLayout.setFlag(BrowserUnit.FLAG_HOME);
 
-        final TabRelativeLayout listLayout = (TabRelativeLayout) getLayoutInflater().inflate(R.layout.list, null, false);
-        listLayout.setController(this);
-        if (tag == BrowserUnit.FLAG_BOOKMARKS) {
-            listLayout.setFlag(BrowserUnit.FLAG_BOOKMARKS);
-        } else if (tag == BrowserUnit.FLAG_HISTORY) {
-            listLayout.setFlag(BrowserUnit.FLAG_HISTORY);
-        }
-
-        RecordAction action = new RecordAction(this);
-        action.open(false);
-        final List<Record> list;
-        if (tag == BrowserUnit.FLAG_BOOKMARKS) {
-            list = action.listBookmarks();
-        } else if (tag == BrowserUnit.FLAG_HISTORY) {
-            list = action.listHistory();
+            LinearLayout homePanel = (LinearLayout) homeLayout.findViewById(R.id.home_panel);
+            ViewUnit.setElevation(this, homePanel, 1);
+            homePanel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    updateTab(getString(R.string.home_picture_url));
+                }
+            });
         } else {
-            list = new ArrayList<Record>();
+            for (TabController controller : BrowserContainer.list()) {
+                if (controller.getFlag() == tag) {
+                    showTab((TabRelativeLayout) controller);
+                    return;
+                }
+            }
+
+            final TabRelativeLayout listLayout = (TabRelativeLayout) getLayoutInflater().inflate(R.layout.list, null, false);
+            listLayout.setController(this);
+            newController = listLayout;
+            if (tag == BrowserUnit.FLAG_BOOKMARKS) {
+                listLayout.setFlag(BrowserUnit.FLAG_BOOKMARKS);
+            } else if (tag == BrowserUnit.FLAG_HISTORY) {
+                listLayout.setFlag(BrowserUnit.FLAG_HISTORY);
+            }
+
+            RecordAction action = new RecordAction(this);
+            action.open(false);
+            final List<Record> list;
+            if (tag == BrowserUnit.FLAG_BOOKMARKS) {
+                list = action.listBookmarks();
+            } else if (tag == BrowserUnit.FLAG_HISTORY) {
+                list = action.listHistory();
+            } else {
+                list = new ArrayList<Record>();
+            }
+            action.close();
+
+            ListView listView = (ListView) listLayout.findViewById(R.id.list);
+            TextView textView = (TextView) listLayout.findViewById(R.id.list_empty);
+            listView.setEmptyView(textView);
+
+            final ListAdapter adapter = new ListAdapter(this, R.layout.list_item, list);
+            listView.setAdapter(adapter);
+            adapter.notifyDataSetChanged();
+
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    updateTab(list.get(position).getURL());
+                }
+            });
+
+            listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                @Override
+                public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                    showListMenu(adapter, list, position);
+                    return true;
+                }
+            });
         }
-        action.close();
 
-        ListView listView = (ListView) listLayout.findViewById(R.id.list);
-        TextView textView = (TextView) listLayout.findViewById(R.id.list_empty);
-        listView.setEmptyView(textView);
-
-        final ListAdapter adapter = new ListAdapter(this, R.layout.list_item, list);
-        listView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-
-        final View tabView = listLayout.getTabView();
-        if (tag == BrowserUnit.FLAG_BOOKMARKS) {
-            listLayout.setTabTitle(getString(R.string.browser_tab_bookmarks));
+        final View tabView = newController.getTabView();
+        if (tag == BrowserUnit.FLAG_HOME) {
+            newController.setTabTitle(getString(R.string.browser_tab_home));
+        } else if (tag == BrowserUnit.FLAG_BOOKMARKS) {
+            newController.setTabTitle(getString(R.string.browser_tab_bookmarks));
         } else if (tag == BrowserUnit.FLAG_HISTORY) {
-            listLayout.setTabTitle(getString(R.string.browser_tab_history));
+            newController.setTabTitle(getString(R.string.browser_tab_history));
         }
         tabView.setVisibility(View.INVISIBLE);
 
         browserFrame.removeAllViews();
-        BrowserContainer.add(listLayout);
+        BrowserContainer.add(newController);
         tabContainer.addView(tabView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
 
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.slide_in_up);
@@ -599,29 +633,14 @@ public class BrowserActivity extends Activity implements BrowserController {
                     tabController.deactivate();
                 }
                 browserFrame.removeAllViews();
-                browserFrame.addView(listLayout);
-                listLayout.activate();
+                browserFrame.addView((View) newController);
+                newController.activate();
                 tabScroll.smoothScrollTo(tabView.getLeft(), 0);
-                tabController = listLayout;
+                tabController = newController;
                 updateOmniBox();
             }
         });
         tabView.startAnimation(animation);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                updateTab(list.get(position).getURL());
-            }
-        });
-
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                showListMenu(adapter, list, position);
-                return true;
-            }
-        });
     }
 
     private synchronized void pinTabs(int index, final String url) {
