@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Info -->
+    <string name="app_name">
+        Ninja
+    </string>
+    <string name="app_version">
+        1.0.0
+    </string>
+    <string name="app_github">
+        https://github.com/mthli/Berries
+    </string>
+    <string name="app_gmail">
+        mailto:matthewlee0725@gmail.com
+    </string>
+
+    <!-- Scheme -->
+    <string name="app_scheme_http">
+        http
+    </string>
+    <string name="app_scheme_https">
+        https
+    </string>
+
+</resources>
