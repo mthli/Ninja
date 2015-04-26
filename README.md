@@ -29,13 +29,13 @@ Ninja is still under development, we need to add some features and fix some bugs
 
 ### Why no incognito mode?
 
-Incognito mode is a necessary feature for a web browser, but since `WebView(Context context, AttributeSet attrs, int defStyleAttr, boolean privateBrowsing)` was deprecated in API level 17 and no longer supported, the incognito mode is conflict with our UI design, so we stop it(but maybe restart to develop it someday). If you want to add incognito mode you can fork our sourse code and do it by yourself :)
+Incognito mode is a necessary feature for a web browser, but since `WebView(Context context, AttributeSet attrs, int defStyleAttr, boolean privateBrowsing)` was __deprecated__ in API level 17 and no longer supported, the incognito mode is __conflict__ with our UI design, so we stop it(but maybe restart to develop it someday). If you want to add incognito mode you can fork our sourse code and do it by yourself :)
 
 ### What can I do for Ninja?
 
  - New design launcher icon(must be 512px * 512px).
 
- - Translation `strings_general.xml` at [this link](https://github.com/mthli/Ninja/blob/master/Ninja/res/values/strings_general.xml "strings_general.xml").
+ - Translate `strings_general.xml` at [this link](https://github.com/mthli/Ninja/blob/master/Ninja/res/values/strings_general.xml "strings_general.xml").
 
  - Fork and pull request is welcome all time :)
 
