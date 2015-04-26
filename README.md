@@ -5,7 +5,7 @@ A web browser that open links in background without ever living your favorite ap
 
 Open source copy of [Link Bubble](https://play.google.com/store/apps/details?id=com.linkbubble.playstore "Link Bubble") and [Flynx](https://play.google.com/store/apps/details?id=com.flynx "Flynx").
 
-[Download latest Ninja.apk]( "")
+[Download latest Ninja.apk](https://github.com/mthli/Ninja/releases/download/v1.0.0/Ninja.1.0.0.apk "Ninja.1.0.0.apk")
 
 __LONG TERM MAINTENANCE.__
 
