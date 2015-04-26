@@ -53,17 +53,6 @@
         <item>Share</item>
     </string-array>
 
-    <!-- Home -->
-    <string name="home_picture_title">
-        The Starry Night
-    </string>
-    <string name="home_picture_author">
-        Vincent van Gogh
-    </string>
-    <string name="home_picture_url">
-        http://en.wikipedia.org/wiki/The_Starry_Night
-    </string>
-
     <!-- List -->
     <string name="list_empty">
         Current list is empty

@@ -537,15 +537,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             homeLayout.setController(this);
             newController = homeLayout;
             homeLayout.setFlag(BrowserUnit.FLAG_HOME);
-
-            LinearLayout homePanel = (LinearLayout) homeLayout.findViewById(R.id.home_panel);
-            ViewUnit.setElevation(this, homePanel, 1);
-            homePanel.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    updateTab(getString(R.string.home_picture_url));
-                }
-            });
+            // TODO: add something at home.
         } else {
             for (TabController controller : BrowserContainer.list()) {
                 if (controller.getFlag() == tag) {
