@@ -17,7 +17,7 @@ Basically Ninja is a simple web browser like any others, but you can open links 
 
  1. Set Ninja as your __default browser__ when click links.
 
- 2. __Single tap__ will open links in background.
+ 2. __Single tap__ will open links in background, and show a clickable notification in statusbar.
 
  3. __Double taps__ will show a dialog that allows you to open links in foreground, etc.
 
