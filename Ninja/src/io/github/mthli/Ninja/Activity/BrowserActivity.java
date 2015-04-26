@@ -57,7 +57,6 @@ public class BrowserActivity extends Activity implements BrowserController {
     private TabController tabController = null;
 
     private boolean create = true;
-    private boolean github = false;
     private int animTime;
 
     @Override
@@ -84,8 +83,22 @@ public class BrowserActivity extends Activity implements BrowserController {
         super.onResume();
         if (!create) {
             when(getIntent(), false);
-            if (github) {
+            if (IntentUnit.isDatabaseChange()) {
+                updateBookmarks();
+                updateAutoComplete();
+                IntentUnit.setDatabaseChange(false);
+            }
+            if (IntentUnit.isSharedPreferenceChange()) {
+                for (TabController controller : BrowserContainer.list()) {
+                    if (controller instanceof NinjaView) {
+                        ((NinjaView) controller).initPreferences();
+                    }
+                }
+                IntentUnit.setSharedPreferenceChange(false);
+            }
+            if (IntentUnit.isGithub()) {
                 newTab(R.string.browser_tab_untitled, getString(R.string.app_github), true, null);
+                IntentUnit.setGithub(false);
             }
         }
     }
@@ -126,7 +139,6 @@ public class BrowserActivity extends Activity implements BrowserController {
         stopService(toService);
 
         create = false;
-        github = false;
         inputBox.clearFocus();
         super.onPause();
     }
@@ -139,28 +151,6 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         BrowserContainer.clear();
         super.onDestroy();
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode != IntentUnit.REQUEST_SETTING && resultCode != IntentUnit.RESULT_SETTING || data == null) {
-            return;
-        }
-
-        if (data.getBooleanExtra(IntentUnit.DATABASE_CHANGE, false)) {
-            updateBookmarks();
-            updateAutoComplete();
-        }
-
-        if (data.getBooleanExtra(IntentUnit.SHARED_PREFERENCE_CHANGE, false)) {
-            for (TabController controller : BrowserContainer.list()) {
-                if (controller instanceof NinjaView) {
-                    ((NinjaView) controller).initPreferences();
-                }
-            }
-        }
-
-        github = data.getBooleanExtra(IntentUnit.GITHUB, false);
     }
 
     @Override
@@ -458,7 +448,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                     }
                 } else if (s.equals(strings[4])) {
                     Intent intent = new Intent(BrowserActivity.this, SettingActivity.class);
-                    startActivityForResult(intent, IntentUnit.REQUEST_SETTING);
+                    startActivity(intent);
                 } else if (s.equals(strings[5])) {
                     finish();
                 }
@@ -884,6 +874,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                         listAdapter.notifyDataSetChanged();
                         updateBookmarks();
                         updateAutoComplete();
+                        Toast.makeText(BrowserActivity.this, R.string.toast_delete_successful, Toast.LENGTH_SHORT).show();
                         break;
                     default:
                         break;

@@ -90,11 +90,9 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
                 Toast.makeText(getActivity(), R.string.toast_judge, Toast.LENGTH_SHORT).show();
                 break;
             case R.string.setting_title_github:
-                Intent toGitHub = new Intent();
-                toGitHub.putExtra(IntentUnit.DATABASE_CHANGE, databaseChange);
-                toGitHub.putExtra(IntentUnit.SHARED_PREFERENCE_CHANGE, sharedPreferenceChange);
-                toGitHub.putExtra(IntentUnit.GITHUB, true);
-                getActivity().setResult(IntentUnit.RESULT_SETTING, toGitHub);
+                IntentUnit.setDatabaseChange(databaseChange);
+                IntentUnit.setSharedPreferenceChange(sharedPreferenceChange);
+                IntentUnit.setGithub(true);
                 getActivity().finish();
                 break;
             case R.string.setting_title_contact_us:

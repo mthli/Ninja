@@ -5,18 +5,12 @@ import android.content.Intent;
 import android.net.MailTo;
 
 public class IntentUnit {
-    public static final String DATABASE_CHANGE = "DATABASE_CHANGE";
-    public static final String SHARED_PREFERENCE_CHANGE = "SHARED_PREFERENCE_CHANGE";
-    public static final String GITHUB = "GITHUB";
-
     public static final String PIN = "PIN";
     public static final String OPEN = "OPEN";
 
-    public static final int REQUEST_SETTING = 0x100;
-    public static final int RESULT_SETTING = 0x101;
     public static final int REQUEST_FILE = 0x102;
-
     public static final String INTENT_TYPE_TEXT_PLAIN = "text/plain";
+    public static final String INTENT_TYPE_MESSAGE_RFC822 = "message/rfc822";
 
     public static Intent getEmailIntent(MailTo mailTo) {
         Intent intent = new Intent(Intent.ACTION_SEND);
@@ -24,13 +18,13 @@ public class IntentUnit {
         intent.putExtra(Intent.EXTRA_TEXT, mailTo.getBody());
         intent.putExtra(Intent.EXTRA_SUBJECT, mailTo.getSubject());
         intent.putExtra(Intent.EXTRA_CC, mailTo.getCc());
-        intent.setType("message/rfc822");
+        intent.setType(INTENT_TYPE_MESSAGE_RFC822);
         return intent;
     }
 
     public static void share(Context context, String title, String url) {
         Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
+        intent.setType(INTENT_TYPE_TEXT_PLAIN);
         intent.putExtra(Intent.EXTRA_TEXT, title + "\n" + url);
         context.startActivity(intent);
     }
@@ -41,5 +35,29 @@ public class IntentUnit {
     }
     public synchronized static void setClear(boolean b) {
         clear = b;
+    }
+
+    private static boolean github = false;
+    public static boolean isGithub() {
+        return github;
+    }
+    public static void setGithub(boolean b) {
+        github = b;
+    }
+
+    private static boolean databaseChange = false;
+    public static boolean isDatabaseChange() {
+        return databaseChange;
+    }
+    public static void setDatabaseChange(boolean b) {
+        databaseChange = b;
+    }
+
+    private static boolean sharedPreferenceChange = false;
+    public static boolean isSharedPreferenceChange() {
+        return sharedPreferenceChange;
+    }
+    public static void setSharedPreferenceChange(boolean b) {
+        sharedPreferenceChange = b;
     }
 }

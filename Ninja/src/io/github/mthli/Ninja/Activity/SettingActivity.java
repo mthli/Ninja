@@ -48,11 +48,9 @@ public class SettingActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case android.R.id.home:
-                Intent intent = new Intent();
-                intent.putExtra(IntentUnit.DATABASE_CHANGE, fragment.isDatabaseChange());
-                intent.putExtra(IntentUnit.SHARED_PREFERENCE_CHANGE, fragment.isSharedPreferenceChange());
-                intent.putExtra(IntentUnit.GITHUB, false);
-                setResult(IntentUnit.RESULT_SETTING, intent);
+                IntentUnit.setDatabaseChange(fragment.isDatabaseChange());
+                IntentUnit.setSharedPreferenceChange(fragment.isSharedPreferenceChange());
+                IntentUnit.setGithub(false);
                 finish();
                 break;
             default:
@@ -64,11 +62,9 @@ public class SettingActivity extends Activity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent keyEvent) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            Intent intent = new Intent();
-            intent.putExtra(IntentUnit.DATABASE_CHANGE, fragment.isDatabaseChange());
-            intent.putExtra(IntentUnit.SHARED_PREFERENCE_CHANGE, fragment.isSharedPreferenceChange());
-            intent.putExtra(IntentUnit.GITHUB, false);
-            setResult(IntentUnit.RESULT_SETTING, intent);
+            IntentUnit.setDatabaseChange(fragment.isDatabaseChange());
+            IntentUnit.setSharedPreferenceChange(fragment.isSharedPreferenceChange());
+            IntentUnit.setGithub(false);
             finish();
         }
         return true;

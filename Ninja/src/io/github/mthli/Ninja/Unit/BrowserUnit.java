@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.webkit.*;
 import android.widget.Toast;
 import io.github.mthli.Ninja.Database.Record;
