@@ -30,7 +30,7 @@ public class RecordAction {
     }
 
     public boolean addBookmark(Record record) {
-        if (record == null || record.getTitle() == null || record.getURL() == null) {
+        if (record == null || record.getTitle() == null || record.getTitle().isEmpty() || record.getURL() == null || record.getURL().isEmpty()) {
             return false;
         }
 
@@ -43,7 +43,7 @@ public class RecordAction {
     }
 
     public boolean addHistory(Record record) {
-        if (record == null || record.getTitle() == null || record.getURL() == null) {
+        if (record == null || record.getTitle() == null || record.getTitle().isEmpty() || record.getURL() == null || record.getURL().isEmpty()) {
             return false;
         }
 
@@ -56,7 +56,7 @@ public class RecordAction {
     }
 
     public boolean checkBookmark(Record record) {
-        if (record == null || record.getTitle() == null || record.getURL() == null) {
+        if (record == null || record.getTitle() == null || record.getTitle().isEmpty() || record.getURL() == null || record.getURL().isEmpty()) {
             return false;
         }
 
@@ -84,7 +84,7 @@ public class RecordAction {
     }
 
     public boolean deleteBookmark(Record record) {
-        if (record == null || record.getURL() == null) {
+        if (record == null || record.getURL() == null || record.getURL().isEmpty()) {
             return false;
         }
 
