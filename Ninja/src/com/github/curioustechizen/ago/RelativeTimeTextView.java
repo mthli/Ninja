@@ -1,4 +1,3 @@
-
 package com.github.curioustechizen.ago;
 
 import android.content.Context;

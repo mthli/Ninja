@@ -2,11 +2,7 @@
 
 <resources>
 
-    <style name="BrowserActivityTheme" parent="android:Theme.Holo.Light.NoActionBar.Fullscreen">
-        <item name="android:textColor">@color/text</item>
-    </style>
-
-    <style name="SettingActivityTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+    <style name="BrowserActivityTheme" parent="android:Theme.DeviceDefault.Light.NoActionBar">
         <item name="android:textColor">@color/text</item>
         <item name="android:textColorSecondary">@color/text_secondary</item>
     </style>

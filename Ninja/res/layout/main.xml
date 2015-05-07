@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<io.github.mthli.Ninja.View.SwitcherPanel
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/switcher_panel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout android:id="@+id/switcher_view"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:background="@color/background_dark">
+
+        <FrameLayout android:layout_width="match_parent"
+                     android:layout_height="@dimen/layout_height_48dp"
+                     android:minHeight="@dimen/layout_height_48dp">
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="@dimen/layout_margin_16dp"
+                      android:layout_gravity="center|left"
+                      android:gravity="center"
+                      android:text="@string/app_name"
+                      android:textColor="@color/white"
+                      android:textSize="@dimen/text_size_16sp"
+                      android:singleLine="true"
+                      android:ellipsize="none">
+            </TextView>
+
+            <ImageButton android:id="@+id/switcher_view_add"
+                         android:contentDescription="@null"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_margin="@dimen/layout_margin_8dp"
+                         android:layout_gravity="center|right"
+                         android:src="@drawable/add_selector"
+                         android:background="@color/transparent">
+            </ImageButton>
+
+        </FrameLayout>
+
+        <HorizontalScrollView android:id="@+id/switcher_view_scoller"
+                              android:layout_width="match_parent"
+                              android:layout_height="match_parent">
+
+            <LinearLayout android:id="@+id/switcher_view_container"
+                          android:orientation="horizontal"
+                          android:layout_width="wrap_content"
+                          android:layout_height="match_parent">
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/main_view"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:background="@color/background_light">
+
+        <RelativeLayout android:id="@+id/main_view_omnibox"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/layout_height_48dp"
+                        android:minHeight="@dimen/layout_height_48dp"
+                        android:background="@color/background_dark">
+
+            <LinearLayout android:id="@+id/main_view_omnibox_buttons"
+                          android:orientation="horizontal"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_centerInParent="true"
+                          android:layout_alignParentRight="true">
+
+                <!-- TODO -->
+                <ImageButton android:id="@+id/main_view_omnibox_switcher"
+                             android:contentDescription="@null"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginLeft="@dimen/layout_margin_8dp"
+                             android:layout_marginRight="@dimen/layout_margin_8dp">
+                </ImageButton>
+
+                <ImageButton android:id="@+id/main_view_omnibox_overflow"
+                             android:contentDescription="@null"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginLeft="@dimen/layout_margin_8dp"
+                             android:layout_marginRight="@dimen/layout_margin_8dp"
+                             android:src="@drawable/overflow_selector"
+                             android:background="@color/transparent">
+                </ImageButton>
+
+            </LinearLayout>
+
+            <RelativeLayout android:id="@+id/main_view_omnibox_url"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/layout_height_36dp"
+                            android:minHeight="@dimen/layout_height_36dp"
+                            android:layout_centerInParent="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_toLeftOf="@id/main_view_omnibox_buttons"
+                            android:layout_marginLeft="@dimen/layout_margin_8dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:background="@drawable/round_corner_shape">
+
+                <ImageButton android:id="@+id/main_view_omnibox_bookmark"
+                             android:contentDescription="@null"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_centerInParent="true"
+                             android:layout_alignParentLeft="true"
+                             android:layout_margin="@dimen/layout_margin_4dp"
+                             android:src="@drawable/bookmark_outline_selector"
+                             android:background="@color/transparent">
+                </ImageButton>
+
+                <ImageButton android:id="@+id/main_view_omnibox_refresh"
+                             android:contentDescription="@null"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_centerInParent="true"
+                             android:layout_alignParentRight="true"
+                             android:layout_margin="@dimen/layout_margin_4dp"
+                             android:src="@drawable/refresh_selector"
+                             android:background="@color/transparent">
+                </ImageButton>
+
+                <AutoCompleteTextView android:id="@+id/main_view_omnibox_input"
+                                      android:layout_width="match_parent"
+                                      android:layout_height="wrap_content"
+                                      android:layout_centerInParent="true"
+                                      android:layout_toLeftOf="@id/main_view_omnibox_refresh"
+                                      android:layout_toRightOf="@id/main_view_omnibox_bookmark"
+                                      android:hint="@string/main_view_omnibox_input_hint"
+                                      android:textColor="@color/text"
+                                      android:textColorHint="@color/hint"
+                                      android:textCursorDrawable="@null"
+                                      android:textSize="@dimen/text_size_16sp"
+                                      android:singleLine="true"
+                                      android:imeOptions="actionDone"
+                                      android:inputType="text"
+                                      android:completionThreshold="1"
+                                      android:background="@color/white">
+                </AutoCompleteTextView>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout android:id="@+id/main_view_progress_wrapper"
+                      android:orientation="vertical"
+                      android:layout_width="match_parent"
+                      android:layout_height="@dimen/layout_height_2dp"
+                      android:visibility="gone">
+
+            <ProgressBar android:id="@+id/main_view_progress_bar"
+                         android:layout_width="match_parent"
+                         android:layout_height="@dimen/layout_height_2dp"
+                         android:maxHeight="@dimen/layout_height_2dp"
+                         android:indeterminate="false"
+                         android:indeterminateOnly="false"
+                         android:progressDrawable="@drawable/progress_bar_layer_list">
+            </ProgressBar>
+
+        </LinearLayout>
+
+        <FrameLayout android:id="@+id/main_view_content"
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent">
+        </FrameLayout>
+
+    </LinearLayout>
+
+</io.github.mthli.Ninja.View.SwitcherPanel>
+

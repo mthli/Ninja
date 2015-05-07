@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- AndroidAgo -->
+    <string name="android_ago_just_now">
+        Just now
+    </string>
+
+    <!-- SwitcherView -->
+    <string name="switcher_view_title">
+        Tabs
+    </string>
+
+    <!-- MainView -->
+    <string name="main_view_omnibox_input_hint">
+        Search or type URL
+    </string>
+
+</resources>
