@@ -42,7 +42,8 @@
 
         <HorizontalScrollView android:id="@+id/switcher_view_scoller"
                               android:layout_width="match_parent"
-                              android:layout_height="match_parent">
+                              android:layout_height="match_parent"
+                              android:scrollbars="none">
 
             <LinearLayout android:id="@+id/switcher_view_container"
                           android:orientation="horizontal"
@@ -73,21 +74,26 @@
                           android:layout_centerInParent="true"
                           android:layout_alignParentRight="true">
 
-                <!-- TODO -->
-                <ImageButton android:id="@+id/main_view_omnibox_switcher"
-                             android:contentDescription="@null"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:layout_marginLeft="@dimen/layout_margin_8dp"
-                             android:layout_marginRight="@dimen/layout_margin_8dp">
-                </ImageButton>
+                <Button android:id="@+id/main_view_omnibox_square"
+                        android:contentDescription="@null"
+                        android:layout_width="@dimen/layout_weight_36dp"
+                        android:layout_height="@dimen/layout_weight_36dp"
+                        android:layout_marginLeft="@dimen/layout_margin_8dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_12sp"
+                        android:singleLine="true"
+                        android:ellipsize="none"
+                        android:background="@drawable/square_selector">
+                </Button>
 
                 <ImageButton android:id="@+id/main_view_omnibox_overflow"
                              android:contentDescription="@null"
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content"
-                             android:layout_marginLeft="@dimen/layout_margin_8dp"
                              android:layout_marginRight="@dimen/layout_margin_8dp"
+                             android:layout_gravity="center"
                              android:src="@drawable/overflow_selector"
                              android:background="@color/transparent">
                 </ImageButton>

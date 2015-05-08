@@ -196,9 +196,9 @@ public class SwitcherPanel extends ViewGroup {
         super(context, attrs, defStyleAttr);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            shadowDrawable = getResources().getDrawable(R.drawable.shadow_below, null);
+            shadowDrawable = getResources().getDrawable(R.drawable.shadow, null);
         } else {
-            shadowDrawable = getResources().getDrawable(R.drawable.shadow_below);
+            shadowDrawable = getResources().getDrawable(R.drawable.shadow);
         }
         this.dragHelper = ViewDragHelper.create(this, 0.5f, new DragHelperCallback());
         setFlingVelocity(FLING_VELOCITY_DEFAULT);

@@ -20,7 +20,7 @@ public class BrowserActivity extends Activity {
     private AutoCompleteTextView inputBox;
     private ImageButton bookmarkButton;
     private ImageButton refreshButton;
-    private ImageButton switcherButton;
+    private Button squareButton;
     private ImageButton overflowButton;
 
     @Override
@@ -71,10 +71,11 @@ public class BrowserActivity extends Activity {
         inputBox = (AutoCompleteTextView) findViewById(R.id.main_view_omnibox_input);
         bookmarkButton = (ImageButton) findViewById(R.id.main_view_omnibox_bookmark);
         refreshButton = (ImageButton) findViewById(R.id.main_view_omnibox_refresh);
-        switcherButton = (ImageButton) findViewById(R.id.main_view_omnibox_switcher);
+        squareButton = (Button) findViewById(R.id.main_view_omnibox_square);
         overflowButton = (ImageButton) findViewById(R.id.main_view_omnibox_overflow);
 
-        switcherButton.setOnClickListener(new View.OnClickListener() {
+        squareButton.setText(String.valueOf(1));
+        squareButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switcherPanel.collapsed();
