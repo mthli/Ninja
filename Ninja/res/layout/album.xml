@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+             android:layout_width="@dimen/layout_weight_144dp"
+             android:layout_height="@dimen/layout_height_144dp"
+             android:background="@color/background_dark">
+
+    <ImageView android:id="@+id/album_cover"
+               android:contentDescription="@null"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_margin="@dimen/layout_margin_1dp"
+               android:layout_gravity="center"
+               android:scaleType="centerCrop"
+               android:background="@color/background_light">
+    </ImageView>
+
+    <TextView android:id="@+id/album_title"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center|bottom"
+              android:padding="@dimen/padding_8dp"
+              android:gravity="center_vertical"
+              android:textColor="@color/white"
+              android:textSize="@dimen/text_size_12sp"
+              android:maxLines="2"
+              android:ellipsize="end"
+              android:background="@color/background_dark">
+    </TextView>
 
 </FrameLayout>

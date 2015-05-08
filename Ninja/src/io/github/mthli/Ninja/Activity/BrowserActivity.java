@@ -3,6 +3,7 @@ package io.github.mthli.Ninja.Activity;
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Message;
 import android.view.KeyEvent;
 import android.widget.*;
 import io.github.mthli.Ninja.R;
@@ -70,5 +71,9 @@ public class BrowserActivity extends Activity {
         bookmarkButton = (ImageButton) findViewById(R.id.main_view_omnibox_bookmark);
         refreshButton = (ImageButton) findViewById(R.id.main_view_omnibox_refresh);
         overflowButton = (ImageButton) findViewById(R.id.main_view_omnibox_overflow);
+    }
+
+    private synchronized void newAlbum(String title, String url, boolean foreground, Message resultMsg) {
+
     }
 }

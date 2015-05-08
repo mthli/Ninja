@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string name="sp_cookies">
+        SP_COOKIES
+    </string>
+    <string name="sp_images">
+        SP_IMAGES
+    </string>
+    <string name="sp_javascript">
+        SP_JAVASCRIPT
+    </string>
+    <string name="sp_location">
+        SP_LOCATION
+    </string>
+    <string name="sp_multiple_windows">
+        SP_MULTIPLE_WINDOWS
+    </string>
+    <string name="sp_notification_priority">
+        SP_NOTIFICATION_PRIORITY
+    </string>
+    <string name="sp_passwords">
+        SP_PASSWORDS
+    </string>
+    <string name="sp_search_engine">
+        SP_SEARCH_ENGINE
+    </string>
+
+</resources>
