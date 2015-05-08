@@ -26,6 +26,8 @@ public class SwitcherPanel extends ViewGroup {
 
     private int slideRange = 0;
     private float slideOffset = 1f;
+    private float interceptX = 0f;
+    private float interceptY = 0f;
 
     public static final int COVER_HEIGHT_PORTRAIT_DEFAULT = 360; // TODO
     public static final int COVER_HEIGHT_LANDSCAPE_DEFAULT = 192; // TODO
@@ -349,14 +351,42 @@ public class SwitcherPanel extends ViewGroup {
             return super.onInterceptTouchEvent(motionEvent);
         }
 
-        if (shouldShowContentView(motionEvent)) {
+        if (action == MotionEvent.ACTION_DOWN) {
+            interceptX = motionEvent.getRawX();
+            interceptY = motionEvent.getRawY();
+        } else if (action == MotionEvent.ACTION_MOVE) {
+            if (shouldCollapsed()) {
+                float deltaY = motionEvent.getRawY() - interceptY;
+                if (deltaY >= ViewUnit.getDensity(getContext()) * 64) {
+                    collapsed();
+                    return true;
+                }
+            }
+        }
+
+        if (shouldExpanded(motionEvent)) {
             expanded();
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
-    private boolean shouldShowContentView(@NonNull MotionEvent motionEvent) {
+    private boolean shouldCollapsed() {
+        int[] location = new int[2];
+        omnibox.getLocationOnScreen(location);
+
+        int left = location[0];
+        int right = left + omnibox.getWidth();
+        int top = location[1];
+        int bottom = top + omnibox.getHeight();
+        return status == Status.EXPANDED
+                && left <= interceptX
+                && interceptX <= right
+                && top <= interceptY
+                && interceptY <= bottom;
+    }
+
+    private boolean shouldExpanded(@NonNull MotionEvent motionEvent) {
         int[] location = new int[2];
         mainView.getLocationOnScreen(location);
 

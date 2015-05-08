@@ -67,38 +67,18 @@
                         android:minHeight="@dimen/layout_height_48dp"
                         android:background="@color/background_dark">
 
-            <LinearLayout android:id="@+id/main_view_omnibox_buttons"
-                          android:orientation="horizontal"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_centerInParent="true"
-                          android:layout_alignParentRight="true">
-
-                <Button android:id="@+id/main_view_omnibox_square"
-                        android:contentDescription="@null"
-                        android:layout_width="@dimen/layout_weight_36dp"
-                        android:layout_height="@dimen/layout_weight_36dp"
-                        android:layout_marginLeft="@dimen/layout_margin_8dp"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_size_12sp"
-                        android:singleLine="true"
-                        android:ellipsize="none"
-                        android:background="@drawable/square_selector">
-                </Button>
-
-                <ImageButton android:id="@+id/main_view_omnibox_overflow"
-                             android:contentDescription="@null"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:layout_marginRight="@dimen/layout_margin_8dp"
-                             android:layout_gravity="center"
-                             android:src="@drawable/overflow_selector"
-                             android:background="@color/transparent">
-                </ImageButton>
-
-            </LinearLayout>
+            <ImageButton android:id="@+id/main_view_omnibox_overflow"
+                         android:contentDescription="@null"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_centerInParent="true"
+                         android:layout_alignParentRight="true"
+                         android:layout_marginLeft="@dimen/layout_margin_8dp"
+                         android:layout_marginRight="@dimen/layout_margin_8dp"
+                         android:layout_gravity="center"
+                         android:src="@drawable/overflow_selector"
+                         android:background="@color/transparent">
+            </ImageButton>
 
             <RelativeLayout android:id="@+id/main_view_omnibox_url"
                             android:layout_width="match_parent"
@@ -106,7 +86,7 @@
                             android:minHeight="@dimen/layout_height_36dp"
                             android:layout_centerInParent="true"
                             android:layout_alignParentLeft="true"
-                            android:layout_toLeftOf="@id/main_view_omnibox_buttons"
+                            android:layout_toLeftOf="@id/main_view_omnibox_overflow"
                             android:layout_marginLeft="@dimen/layout_margin_8dp"
                             android:focusable="true"
                             android:focusableInTouchMode="true"

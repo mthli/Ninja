@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.View;
 import android.widget.*;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.View.SwitcherPanel;
@@ -20,7 +19,6 @@ public class BrowserActivity extends Activity {
     private AutoCompleteTextView inputBox;
     private ImageButton bookmarkButton;
     private ImageButton refreshButton;
-    private Button squareButton;
     private ImageButton overflowButton;
 
     @Override
@@ -28,6 +26,7 @@ public class BrowserActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        switcherPanel = (SwitcherPanel) findViewById(R.id.switcher_panel);
         initSwitcherView();
         initMainView();
     }
@@ -66,20 +65,10 @@ public class BrowserActivity extends Activity {
     }
 
     private void initMainView() {
-        switcherPanel = (SwitcherPanel) findViewById(R.id.switcher_panel);
         ominibox = (RelativeLayout) findViewById(R.id.main_view_omnibox);
         inputBox = (AutoCompleteTextView) findViewById(R.id.main_view_omnibox_input);
         bookmarkButton = (ImageButton) findViewById(R.id.main_view_omnibox_bookmark);
         refreshButton = (ImageButton) findViewById(R.id.main_view_omnibox_refresh);
-        squareButton = (Button) findViewById(R.id.main_view_omnibox_square);
         overflowButton = (ImageButton) findViewById(R.id.main_view_omnibox_overflow);
-
-        squareButton.setText(String.valueOf(1));
-        squareButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switcherPanel.collapsed();
-            }
-        });
     }
 }
