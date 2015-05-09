@@ -2,20 +2,18 @@ package io.github.mthli.Ninja.View;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import io.github.mthli.Ninja.Browser.AlbumController;
 import io.github.mthli.Ninja.Browser.BrowserController;
 import io.github.mthli.Ninja.R;
 
 public class Album {
-    private static final int ALPHA_255 = 255;
-    private static final int ALPHA_153 = 153;
-
     private Context context;
+    private AlbumController albumController;
 
     private View albumView;
     public View getAlbumView() {
@@ -37,8 +35,9 @@ public class Album {
         this.browserController = browserController;
     }
 
-    public Album(Context context, BrowserController browserController) {
+    public Album(Context context, AlbumController albumController, BrowserController browserController) {
         this.context = context;
+        this.albumController = albumController;
         this.browserController = browserController;
         initUI();
     }
@@ -48,7 +47,7 @@ public class Album {
         albumView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO
+                browserController.showAlbum(albumController, true);
             }
         });
         albumView.setOnLongClickListener(new View.OnLongClickListener() {
@@ -60,7 +59,6 @@ public class Album {
         });
 
         albumCover = (ImageView) albumView.findViewById(R.id.album_cover);
-        albumCover.setImageAlpha(ALPHA_255);
 
         albumTitle = (TextView) albumView.findViewById(R.id.album_title);
         albumTitle.setText(context.getString(R.string.album_untitled));

@@ -31,7 +31,7 @@ public class NinjaRelativeLayout extends RelativeLayout implements AlbumControll
     public NinjaRelativeLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.context = context;
-        this.album = new Album(context, this.browserController);
+        this.album = new Album(context, this, this.browserController);
         initUI();
     }
 

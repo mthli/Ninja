@@ -107,11 +107,6 @@ public class SwitcherPanel extends ViewGroup {
         }
 
         @Override
-        public void onViewCaptured(View capturedChild, int activePointerId) {
-            setAllChildrenVisible();
-        }
-
-        @Override
         public int clampViewPositionVertical(View child, int top, int dy) {
             int hideTop = computeTopPosition(0f);
             int showTop = computeTopPosition(1f);
@@ -137,6 +132,7 @@ public class SwitcherPanel extends ViewGroup {
 
                 if (slideOffset == 1f && status != Status.EXPANDED) {
                     status = Status.EXPANDED;
+                    switcherView.setVisibility(INVISIBLE);
                     dispatchOnExpanded();
                 } else if (slideOffset == 0f && status != Status.COLLAPSED) {
                     status = Status.COLLAPSED;
@@ -425,6 +421,7 @@ public class SwitcherPanel extends ViewGroup {
     }
 
     public void collapsed() {
+        switcherView.setVisibility(VISIBLE);
         smoothSlideTo(0f);
         status = Status.COLLAPSED;
     }
@@ -472,20 +469,10 @@ public class SwitcherPanel extends ViewGroup {
 
         int top = computeTopPosition(slideOffset);
         if (dragHelper.smoothSlideViewTo(mainView, mainView.getLeft(), top)) {
-            setAllChildrenVisible();
             ViewCompat.postInvalidateOnAnimation(this);
             return true;
         }
         return false;
-    }
-
-    private void setAllChildrenVisible() {
-        for (int i = 0, childCount = getChildCount(); i < childCount; i++) {
-            final View child = getChildAt(i);
-            if (child.getVisibility() == INVISIBLE) {
-                child.setVisibility(VISIBLE);
-            }
-        }
     }
 
     private void applyParallaxForCurrentSlideOffset() {

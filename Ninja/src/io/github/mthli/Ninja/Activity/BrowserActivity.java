@@ -18,6 +18,7 @@ import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.Unit.ViewUnit;
 import io.github.mthli.Ninja.View.NinjaRelativeLayout;
 import io.github.mthli.Ninja.View.NinjaWebView;
+import io.github.mthli.Ninja.View.SwipeToDismissListener;
 import io.github.mthli.Ninja.View.SwitcherPanel;
 
 public class BrowserActivity extends Activity implements BrowserController {
@@ -46,7 +47,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     private ImageButton searchDown;
     private ImageButton searchCancel;
 
-    private AlbumController albumController = null;
+    private AlbumController currentAlbumController = null;
 
     private boolean create = true;
     private int animTime = 0;
@@ -59,9 +60,6 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     @Override
     public void updateProgress(int progress) {}
-
-    @Override
-    public void showAlbum(View view) {}
 
     @Override
     public void onCreateView(WebView view, Message resultMsg) {}
@@ -81,6 +79,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         initSwitcherView();
         initMainView();
         initSearchPanel();
+        addAlbum(); // TODO
     }
 
     @Override
@@ -122,7 +121,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                newAlbum();
+                addAlbum();
             }
         });
     }
@@ -146,7 +145,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         searchCancel = (ImageButton) searchPanel.findViewById(R.id.search_cancel);
     }
 
-    private synchronized void newAlbum() {
+    private synchronized void addAlbum() {
         final NinjaRelativeLayout homeLayout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.home, null, false);
         homeLayout.setBrowserController(this);
         homeLayout.setFlag(BrowserUnit.FLAG_HOME);
@@ -155,6 +154,21 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         final View albumView = homeLayout.getAlbumView();
         albumView.setVisibility(View.INVISIBLE);
+        albumView.setOnTouchListener(new SwipeToDismissListener(
+                albumView,
+                null,
+                new SwipeToDismissListener.DismissCallback() {
+                    @Override
+                    public boolean canDismiss(Object token) {
+                        return true;
+                    }
+
+                    @Override
+                    public void onDismiss(View view, Object token) {
+                        // TODO: removeAlbum()
+                    }
+                }
+        ));
 
         BrowserContainer.add(homeLayout);
         switcherContainer.addView(albumView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT); // TODO
@@ -171,21 +185,13 @@ public class BrowserActivity extends Activity implements BrowserController {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                if (albumController != null) {
-                    albumController.deactivate();
-                }
-                contentFrame.removeAllViews();
-                contentFrame.addView(homeLayout);
-                albumController = homeLayout;
-                albumController.activate();
-                swictherScroller.smoothScrollTo(albumView.getLeft(), 0);
-                switcherPanel.expanded();
+                showAlbum(homeLayout, true);
             }
         });
         albumView.startAnimation(animation);
     }
 
-    private synchronized void newAlbum(String title, final String url, final boolean foreground, final Message resultMsg) {
+    private synchronized void addAlbum(String title, final String url, final boolean foreground, final Message resultMsg) {
         final NinjaWebView ninjaWebView = new NinjaWebView(this);
         ninjaWebView.setBrowserController(this);
         ninjaWebView.setFlag(BrowserUnit.FLAG_NINJA);
@@ -213,21 +219,13 @@ public class BrowserActivity extends Activity implements BrowserController {
                 if (!foreground) {
                     ninjaWebView.loadUrl(url);
                     ninjaWebView.deactivate();
-                    if (albumController != null) {
-                        swictherScroller.smoothScrollTo(albumController.getAlbumView().getLeft(), 0);
+                    if (currentAlbumController != null) {
+                        swictherScroller.smoothScrollTo(currentAlbumController.getAlbumView().getLeft(), 0);
                     }
                     return;
                 }
 
-                if (albumController != null) {
-                    albumController.deactivate();
-                }
-                contentFrame.removeAllViews();
-                contentFrame.addView(ninjaWebView);
-                albumController = ninjaWebView;
-                albumController.activate();
-                swictherScroller.smoothScrollTo(albumView.getLeft(), 0);
-                switcherPanel.expanded();
+                showAlbum(ninjaWebView, true);
 
                 if (url != null && !url.isEmpty()) {
                     ninjaWebView.loadUrl(url);
@@ -239,5 +237,24 @@ public class BrowserActivity extends Activity implements BrowserController {
             }
         });
         albumView.startAnimation(animation);
+    }
+
+    @Override
+    public synchronized void showAlbum(AlbumController albumController, boolean scroll) {
+        if (albumController == null || !(albumController instanceof View) || albumController.equals(currentAlbumController)) {
+            return;
+        }
+
+        if (currentAlbumController != null) {
+            currentAlbumController.deactivate();
+        }
+        contentFrame.removeAllViews();
+        contentFrame.addView((View) albumController);
+        currentAlbumController = albumController;
+        currentAlbumController.activate();
+        if (scroll) {
+            swictherScroller.smoothScrollTo(currentAlbumController.getAlbumView().getLeft(), 0); // TODO
+        }
+        switcherPanel.expanded();
     }
 }

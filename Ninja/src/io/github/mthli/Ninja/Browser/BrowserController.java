@@ -1,7 +1,6 @@
 package io.github.mthli.Ninja.Browser;
 
 import android.os.Message;
-import android.view.View;
 import android.webkit.WebView;
 
 public interface BrowserController {
@@ -11,7 +10,7 @@ public interface BrowserController {
 
     void updateProgress(int progress);
 
-    void showAlbum(View view);
+    void showAlbum(AlbumController albumController, boolean scroll);
 
     void onCreateView(WebView view, Message resultMsg);
 
