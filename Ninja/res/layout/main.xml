@@ -117,7 +117,8 @@
 
                 <AutoCompleteTextView android:id="@+id/main_omnibox_input"
                                       android:layout_width="match_parent"
-                                      android:layout_height="wrap_content"
+                                      android:layout_height="@dimen/layout_height_36dp"
+                                      android:minHeight="@dimen/layout_height_36dp"
                                       android:layout_centerInParent="true"
                                       android:layout_toLeftOf="@id/main_omnibox_refresh"
                                       android:layout_toRightOf="@id/main_omnibox_bookmark"

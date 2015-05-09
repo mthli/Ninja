@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -62,9 +63,6 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     private boolean create = true;
     private int animTime = 0;
-
-    @Override
-    public void updateBookmarks() {}
 
     @Override
     public void onCreateView(WebView view, Message resultMsg) {}
@@ -280,6 +278,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         currentAlbumController = albumController;
         currentAlbumController.activate();
         swictherScroller.smoothScrollTo(currentAlbumController.getAlbumView().getLeft(), 0);
+        updateOmnibox();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -363,7 +362,29 @@ public class BrowserActivity extends Activity implements BrowserController {
         inputBox.clearFocus();
     }
 
-    // TODO
+    private void updateOmnibox() {
+        if (currentAlbumController == null) {
+            return;
+        }
+
+        if (currentAlbumController instanceof NinjaRelativeLayout) {
+            updateProgress(BrowserUnit.PROGRESS_MAX);
+            updateBookmarks();
+            updateInputBox(null);
+        } else if (currentAlbumController instanceof NinjaWebView) {
+            NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
+            updateProgress(ninjaWebView.getProgress());
+            updateBookmarks();
+            if (ninjaWebView.getUrl() == null && ninjaWebView.getOriginalUrl() == null) {
+                updateInputBox(null);
+            } else if (ninjaWebView.getUrl() != null) {
+                updateInputBox(ninjaWebView.getUrl());
+            } else {
+                updateInputBox(ninjaWebView.getOriginalUrl());
+            }
+        }
+    }
+
     @Override
     public void updateProgress(int progress) {
         if (progress > progressBar.getProgress()) {
@@ -379,7 +400,15 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
 
         if (currentAlbumController instanceof NinjaRelativeLayout) {
-            progressWrapper.setVisibility(View.GONE);
+            if (progress < BrowserUnit.PROGRESS_MAX) {
+                updateRefresh(true);
+                progressWrapper.setVisibility(View.VISIBLE);
+            } else {
+                updateRefresh(false);
+                progressWrapper.setVisibility(View.GONE);
+                updateBookmarks();
+                updateAutoComplete();
+            }
         } else if (currentAlbumController instanceof NinjaWebView) {
             final NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
             if (ninjaWebView.isLoadFinish()) {
@@ -387,19 +416,45 @@ public class BrowserActivity extends Activity implements BrowserController {
                 action.open(true);
                 action.addHistory(new Record(ninjaWebView.getTitle(), ninjaWebView.getUrl(), System.currentTimeMillis()));
                 action.close();
+                updateBookmarks();
+                updateAutoComplete();
 
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        updateRefresh(false);
                         progressWrapper.setVisibility(View.GONE);
                         ninjaWebView.setAlbumCover(ViewUnit.capture(ninjaWebView, dimen144dp, dimen108dp));
                     }
                 }, animTime);
             } else {
+                updateRefresh(true);
                 progressWrapper.setVisibility(View.VISIBLE);
             }
         } else {
+            updateRefresh(false);
             progressWrapper.setVisibility(View.GONE);
         }
     }
+
+    private void updateRefresh(boolean running) {
+        if (running) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.cl_selector, null));
+            } else {
+                refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.cl_selector));
+            }
+        } else {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.refresh_selector, null));
+            } else {
+                refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.refresh_selector));
+            }
+        }
+    }
+
+    private void updateAutoComplete() {}
+
+    @Override
+    public void updateBookmarks() {}
 }
