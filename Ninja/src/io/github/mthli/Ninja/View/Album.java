@@ -13,7 +13,6 @@ import io.github.mthli.Ninja.R;
 
 public class Album {
     private Context context;
-    private AlbumController albumController;
 
     private View albumView;
     public View getAlbumView() {
@@ -28,6 +27,11 @@ public class Album {
     private TextView albumTitle;
     public void setAlbumTitle(String title) {
         albumTitle.setText(title);
+    }
+
+    private AlbumController albumController;
+    public void setAlbumController(AlbumController albumController) {
+        this.albumController = albumController;
     }
 
     private BrowserController browserController;
@@ -62,7 +66,7 @@ public class Album {
         albumView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                browserController.showAlbum(albumController, true);
+                browserController.showAlbum(albumController);
             }
         });
         albumView.setOnLongClickListener(new View.OnLongClickListener() {

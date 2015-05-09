@@ -368,7 +368,7 @@ public class SwitcherPanel extends ViewGroup {
         } else if (action == MotionEvent.ACTION_MOVE) {
             if (shouldCollapsed()) {
                 float deltaY = motionEvent.getRawY() - interceptY;
-                if (deltaY >= ViewUnit.dp2px(getContext(), 64)) {
+                if (deltaY >= ViewUnit.dp2px(getContext(), 32)) {
                     collapsed();
                     return true;
                 }

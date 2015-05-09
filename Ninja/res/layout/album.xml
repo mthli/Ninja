@@ -16,7 +16,7 @@
     </ImageView>
 
     <TextView android:id="@+id/album_title"
-              android:layout_width="match_parent"
+              android:layout_width="@dimen/layout_width_144dp"
               android:layout_height="wrap_content"
               android:layout_gravity="center|bottom"
               android:layout_marginBottom="@dimen/layout_margin_4dp"

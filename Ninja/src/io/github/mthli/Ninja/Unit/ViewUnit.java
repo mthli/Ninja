@@ -7,6 +7,9 @@ import android.graphics.*;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import io.github.mthli.Ninja.R;
 
 public class ViewUnit {
     public static Bitmap capture(View view, float width, float height) {
@@ -40,6 +43,18 @@ public class ViewUnit {
     public static float dp2px(Context context, float dp) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, displayMetrics);
+    }
+
+    public static void fadeIn(View view) {
+        Context context = view.getContext();
+        Animation animation = AnimationUtils.loadAnimation(context, R.anim.fade_in);
+        view.startAnimation(animation);
+    }
+
+    public static void fadeOut(View view) {
+        Context context = view.getContext();
+        Animation animation = AnimationUtils.loadAnimation(context, R.anim.fade_out);
+        view.startAnimation(animation);
     }
 
     public static float getDensity(Context context) {

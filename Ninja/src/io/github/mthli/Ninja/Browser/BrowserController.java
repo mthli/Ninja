@@ -10,7 +10,7 @@ public interface BrowserController {
 
     void updateProgress(int progress);
 
-    void showAlbum(AlbumController albumController, boolean scroll);
+    void showAlbum(AlbumController albumController);
 
     void removeAlbum(AlbumController albumController);
 

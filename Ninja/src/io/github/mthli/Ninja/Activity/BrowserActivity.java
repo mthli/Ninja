@@ -1,18 +1,27 @@
 package io.github.mthli.Ninja.Activity;
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Message;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import android.widget.*;
 import io.github.mthli.Ninja.Browser.AlbumController;
 import io.github.mthli.Ninja.Browser.BrowserContainer;
 import io.github.mthli.Ninja.Browser.BrowserController;
+import io.github.mthli.Ninja.Database.Record;
+import io.github.mthli.Ninja.Database.RecordAction;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.Unit.ViewUnit;
@@ -48,18 +57,14 @@ public class BrowserActivity extends Activity implements BrowserController {
     private ImageButton searchCancel;
 
     private AlbumController currentAlbumController = null;
+    private AlbumController showAlbumController = null;
+    private boolean show = false;
 
     private boolean create = true;
     private int animTime = 0;
 
     @Override
     public void updateBookmarks() {}
-
-    @Override
-    public void updateInputBox(String query) {}
-
-    @Override
-    public void updateProgress(int progress) {}
 
     @Override
     public void onCreateView(WebView view, Message resultMsg) {}
@@ -75,6 +80,18 @@ public class BrowserActivity extends Activity implements BrowserController {
         create = true;
         animTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
         switcherPanel = (SwitcherPanel) findViewById(R.id.switcher_panel);
+        switcherPanel.setStatusListener(new SwitcherPanel.StatusListener() {
+            @Override
+            public void onFling() {}
+
+            @Override
+            public void onExpanded() {}
+
+            @Override
+            public void onCollapsed() {
+                hideSoftInput(inputBox);
+            }
+        });
 
         initSwitcherView();
         initMainView();
@@ -139,6 +156,25 @@ public class BrowserActivity extends Activity implements BrowserController {
         progressWrapper = (LinearLayout) findViewById(R.id.main_progress_wrapper);
         progressBar = (ProgressBar) findViewById(R.id.main_progress_bar);
         contentFrame = (FrameLayout) findViewById(R.id.main_content);
+
+        inputBox.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (currentAlbumController == null || !(actionId == EditorInfo.IME_ACTION_DONE)) {
+                    return false;
+                }
+
+                String query = inputBox.getText().toString().trim();
+                if (query.isEmpty()) {
+                    Toast.makeText(BrowserActivity.this, R.string.toast_input_empty, Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+
+                updateAlbum(query);
+                hideSoftInput(inputBox);
+                return false;
+            }
+        });
     }
 
     private void initSearchPanel() {
@@ -174,7 +210,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                showAlbum(homeLayout, true);
+                showAlbum(homeLayout);
             }
         });
         albumView.startAnimation(animation);
@@ -184,7 +220,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         final NinjaWebView ninjaWebView = new NinjaWebView(this);
         ninjaWebView.setBrowserController(this);
         ninjaWebView.setFlag(BrowserUnit.FLAG_NINJA);
-        ninjaWebView.setAlbumCover(null);
+        ninjaWebView.setAlbumCover(ViewUnit.capture(ninjaWebView, dimen144dp, dimen108dp));
         ninjaWebView.setAlbumTitle(title);
 
         final View albumView = ninjaWebView.getAlbumView();
@@ -196,7 +232,8 @@ public class BrowserActivity extends Activity implements BrowserController {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.slide_in_up);
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
-            public void onAnimationRepeat(Animation animation) {}
+            public void onAnimationRepeat(Animation animation) {
+            }
 
             @Override
             public void onAnimationStart(Animation animation) {
@@ -214,7 +251,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                     return;
                 }
 
-                showAlbum(ninjaWebView, true);
+                showAlbum(ninjaWebView);
 
                 if (url != null && !url.isEmpty()) {
                     ninjaWebView.loadUrl(url);
@@ -229,7 +266,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     @Override
-    public synchronized void showAlbum(AlbumController albumController, boolean scroll) {
+    public synchronized void showAlbum(AlbumController albumController) {
         if (albumController == null || albumController == currentAlbumController) {
             switcherPanel.expanded();
             return;
@@ -242,10 +279,44 @@ public class BrowserActivity extends Activity implements BrowserController {
         contentFrame.addView((View) albumController);
         currentAlbumController = albumController;
         currentAlbumController.activate();
-        if (scroll) {
-            swictherScroller.smoothScrollTo(currentAlbumController.getAlbumView().getLeft(), 0); // TODO
+        swictherScroller.smoothScrollTo(currentAlbumController.getAlbumView().getLeft(), 0);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                switcherPanel.expanded();
+            }
+        }, animTime);
+    }
+
+    private synchronized void updateAlbum(String url) {
+        if (currentAlbumController == null) {
+            return;
         }
-        switcherPanel.expanded();
+
+        if (currentAlbumController instanceof NinjaWebView) {
+            ((NinjaWebView) currentAlbumController).loadUrl(url);
+        } else if (currentAlbumController instanceof NinjaRelativeLayout) {
+            NinjaWebView ninjaWebView = new NinjaWebView(this);
+            ninjaWebView.setBrowserController(this);
+            ninjaWebView.setFlag(BrowserUnit.FLAG_NINJA);
+            ninjaWebView.setAlbumCover(ViewUnit.capture(ninjaWebView, dimen144dp, dimen108dp));
+            ninjaWebView.setAlbumTitle(getString(R.string.album_untitled));
+
+            int index = switcherContainer.indexOfChild(currentAlbumController.getAlbumView());
+            currentAlbumController.deactivate();
+            switcherContainer.removeView(currentAlbumController.getAlbumView());
+            contentFrame.removeAllViews();
+
+            switcherContainer.addView(ninjaWebView.getAlbumView(), index, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+            contentFrame.addView(ninjaWebView);
+            BrowserContainer.set(ninjaWebView, index);
+            currentAlbumController = ninjaWebView;
+            ninjaWebView.activate();
+
+            ninjaWebView.loadUrl(url);
+        } else {
+            Toast.makeText(this, R.string.toast_load_error, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -270,7 +341,65 @@ public class BrowserActivity extends Activity implements BrowserController {
             if (index >= BrowserContainer.size()) {
                 index = BrowserContainer.size() - 1;
             }
-            showAlbum(BrowserContainer.get(index), true);
+            showAlbum(BrowserContainer.get(index));
+        }
+    }
+
+    private void showSoftInput(View view) {
+        view.requestFocus();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+    }
+
+    private void hideSoftInput(View view) {
+        view.clearFocus();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    @Override
+    public void updateInputBox(String query) {
+        inputBox.setText(query);
+        inputBox.clearFocus();
+    }
+
+    // TODO
+    @Override
+    public void updateProgress(int progress) {
+        if (progress > progressBar.getProgress()) {
+            ObjectAnimator animator = ObjectAnimator.ofInt(progressBar, "progress", progress);
+            animator.setDuration(animTime);
+            animator.setInterpolator(new DecelerateInterpolator());
+            animator.start();
+        } else if (progress < progressBar.getProgress()) {
+            ObjectAnimator animator = ObjectAnimator.ofInt(progressBar, "progress", 0, progress);
+            animator.setDuration(animTime);
+            animator.setInterpolator(new DecelerateInterpolator());
+            animator.start();
+        }
+
+        if (currentAlbumController instanceof NinjaRelativeLayout) {
+            progressWrapper.setVisibility(View.GONE);
+        } else if (currentAlbumController instanceof NinjaWebView) {
+            final NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
+            if (ninjaWebView.isLoadFinish()) {
+                RecordAction action = new RecordAction(this);
+                action.open(true);
+                action.addHistory(new Record(ninjaWebView.getTitle(), ninjaWebView.getUrl(), System.currentTimeMillis()));
+                action.close();
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        progressWrapper.setVisibility(View.GONE);
+                        ninjaWebView.setAlbumCover(ViewUnit.capture(ninjaWebView, dimen144dp, dimen108dp));
+                    }
+                }, animTime);
+            } else {
+                progressWrapper.setVisibility(View.VISIBLE);
+            }
+        } else {
+            progressWrapper.setVisibility(View.GONE);
         }
     }
 }
