@@ -26,8 +26,8 @@
               android:gravity="center_vertical"
               android:textColor="@color/white"
               android:textSize="@dimen/text_size_12sp"
-              android:maxLines="2"
-              android:ellipsize="end"
+              android:singleLine="true"
+              android:ellipsize="none"
               android:background="@color/shadow_80">
     </TextView>
 

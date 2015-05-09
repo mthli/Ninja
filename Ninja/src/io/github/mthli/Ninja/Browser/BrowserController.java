@@ -12,6 +12,8 @@ public interface BrowserController {
 
     void showAlbum(AlbumController albumController, boolean scroll);
 
+    void removeAlbum(AlbumController albumController);
+
     void onCreateView(WebView view, Message resultMsg);
 
     void onLongPress(String url);

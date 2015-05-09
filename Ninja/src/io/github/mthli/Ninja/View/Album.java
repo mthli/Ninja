@@ -44,6 +44,21 @@ public class Album {
 
     private void initUI() {
         albumView = LayoutInflater.from(context).inflate(R.layout.album, null, false);
+        albumView.setOnTouchListener(new SwipeToDismissListener(
+                albumView,
+                null,
+                new SwipeToDismissListener.DismissCallback() {
+                    @Override
+                    public boolean canDismiss(Object token) {
+                        return true;
+                    }
+
+                    @Override
+                    public void onDismiss(View view, Object token) {
+                        browserController.removeAlbum(albumController);
+                    }
+                }
+        ));
         albumView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

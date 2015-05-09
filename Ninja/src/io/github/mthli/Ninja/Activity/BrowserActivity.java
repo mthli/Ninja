@@ -83,6 +83,12 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     @Override
+    public void onDestroy() {
+        BrowserContainer.clear();
+        super.onDestroy();
+    }
+
+    @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
 
@@ -152,21 +158,6 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         final View albumView = homeLayout.getAlbumView();
         albumView.setVisibility(View.INVISIBLE);
-        albumView.setOnTouchListener(new SwipeToDismissListener(
-                albumView,
-                null,
-                new SwipeToDismissListener.DismissCallback() {
-                    @Override
-                    public boolean canDismiss(Object token) {
-                        return true;
-                    }
-
-                    @Override
-                    public void onDismiss(View view, Object token) {
-                        // TODO: removeAlbum()
-                    }
-                }
-        ));
 
         BrowserContainer.add(homeLayout);
         switcherContainer.addView(albumView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -239,7 +230,8 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     @Override
     public synchronized void showAlbum(AlbumController albumController, boolean scroll) {
-        if (albumController == null || !(albumController instanceof View) || albumController.equals(currentAlbumController)) {
+        if (albumController == null || albumController == currentAlbumController) {
+            switcherPanel.expanded();
             return;
         }
 
@@ -254,5 +246,31 @@ public class BrowserActivity extends Activity implements BrowserController {
             swictherScroller.smoothScrollTo(currentAlbumController.getAlbumView().getLeft(), 0); // TODO
         }
         switcherPanel.expanded();
+    }
+
+    @Override
+    public synchronized void removeAlbum(AlbumController albumController) {
+        if (currentAlbumController == null || BrowserContainer.size() <= 1) {
+            switcherContainer.removeView(albumController.getAlbumView());
+            BrowserContainer.remove(albumController);
+            addAlbum();
+            return;
+        }
+
+        if (albumController != currentAlbumController) {
+            switcherContainer.removeView(albumController.getAlbumView());
+            BrowserContainer.remove(albumController);
+            if (BrowserContainer.size() <= 1) {
+                switcherPanel.expanded();
+            }
+        } else {
+            switcherContainer.removeView(albumController.getAlbumView());
+            int index = BrowserContainer.indexOf(albumController);
+            BrowserContainer.remove(albumController);
+            if (index >= BrowserContainer.size()) {
+                index = BrowserContainer.size() - 1;
+            }
+            showAlbum(BrowserContainer.get(index), true);
+        }
     }
 }
