@@ -12,10 +12,10 @@ import android.os.Build;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.webkit.*;
-import android.widget.Toast;
 import io.github.mthli.Ninja.Database.Record;
 import io.github.mthli.Ninja.Database.RecordAction;
 import io.github.mthli.Ninja.R;
+import io.github.mthli.Ninja.View.NinjaToast;
 import org.json.JSONObject;
 
 import java.io.*;
@@ -129,7 +129,7 @@ public class BrowserUnit {
         ClipboardManager manager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData data = ClipData.newPlainText(null, url);
         manager.setPrimaryClip(data);
-        Toast.makeText(context, R.string.toast_copy_successful, Toast.LENGTH_SHORT).show();
+        NinjaToast.show(context, R.string.toast_copy_successful);
     }
 
     public static void download(Context context, String url, String contentDisposition, String mimeType) {
@@ -141,7 +141,7 @@ public class BrowserUnit {
         request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, context.getString(R.string.app_name));
         DownloadManager manager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
         manager.enqueue(request);
-        Toast.makeText(context, R.string.toast_start_download, Toast.LENGTH_SHORT).show();
+        NinjaToast.show(context, R.string.toast_start_download);
     }
 
     public static void exportBookmarks(Context context) {
@@ -168,9 +168,9 @@ public class BrowserUnit {
                 writer.newLine();
             }
             writer.close();
-            Toast.makeText(context, context.getString(R.string.toast_export_bookmarks_successful) + file.getAbsolutePath(), Toast.LENGTH_SHORT).show();
+            NinjaToast.show(context, context.getString(R.string.toast_export_bookmarks_successful) + file.getAbsolutePath());
         } catch (Exception e) {
-            Toast.makeText(context, R.string.toast_export_bookmarks_failed, Toast.LENGTH_SHORT).show();
+            NinjaToast.show(context, R.string.toast_export_bookmarks_failed);
         }
     }
 
@@ -198,12 +198,12 @@ public class BrowserUnit {
             }
             reader.close();
             action.close();
-            Toast.makeText(context, context.getString(R.string.toast_import_bookmarks_successful) + " " + count, Toast.LENGTH_SHORT).show();
+            NinjaToast.show(context, context.getString(R.string.toast_import_bookmarks_successful) + " " + count);
         } catch (Exception e) {
             if (count <= 0) {
-                Toast.makeText(context, R.string.toast_import_bookmarks_failed, Toast.LENGTH_SHORT).show();
+                NinjaToast.show(context, R.string.toast_import_bookmarks_failed);
             } else {
-                Toast.makeText(context, context.getString(R.string.toast_import_bookmarks_successful) + " " + count, Toast.LENGTH_SHORT).show();
+                NinjaToast.show(context, context.getString(R.string.toast_import_bookmarks_successful) + " " + count);
             }
         }
     }
@@ -213,7 +213,7 @@ public class BrowserUnit {
         action.open(true);
         action.clearBookmarks();
         action.close();
-        Toast.makeText(context, R.string.toast_clear_bookmarks_successful, Toast.LENGTH_SHORT).show();
+        NinjaToast.show(context, R.string.toast_clear_bookmarks_successful);
     }
 
     public static void clearCache(Context context) {
@@ -222,9 +222,9 @@ public class BrowserUnit {
             if (dir != null && dir.isDirectory()) {
                 deleteDir(dir);
             }
-            Toast.makeText(context, R.string.toast_clear_cache_successful, Toast.LENGTH_SHORT).show();
+            NinjaToast.show(context, R.string.toast_clear_cache_successful);
         } catch (Exception exception) {
-            Toast.makeText(context, R.string.toast_clear_cache_failed, Toast.LENGTH_SHORT).show();
+            NinjaToast.show(context, R.string.toast_clear_cache_failed);
         }
     }
 
@@ -241,12 +241,12 @@ public class BrowserUnit {
             CookieSyncManager cookieSyncManager = CookieSyncManager.createInstance(context);
             cookieManager.removeAllCookie();
         }
-        Toast.makeText(context, R.string.toast_clear_cookie_successful, Toast.LENGTH_SHORT).show();
+        NinjaToast.show(context, R.string.toast_clear_cookie_successful);
     }
 
     public static void clearFromData(Context context) {
         WebViewDatabase.getInstance(context).clearFormData();
-        Toast.makeText(context, R.string.toast_clear_form_data_successful, Toast.LENGTH_SHORT).show();
+        NinjaToast.show(context, R.string.toast_clear_form_data_successful);
     }
 
     public static void clearHistory(Context context) {
@@ -258,7 +258,7 @@ public class BrowserUnit {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2) {
             WebIconDatabase.getInstance().removeAllIcons();
         }
-        Toast.makeText(context, R.string.toast_clear_history_successful, Toast.LENGTH_SHORT).show();
+        NinjaToast.show(context, R.string.toast_clear_history_successful);
     }
 
     public static void clearPasswords(Context context) {
@@ -266,7 +266,7 @@ public class BrowserUnit {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2) {
             WebViewDatabase.getInstance(context).clearUsernamePassword();
         }
-        Toast.makeText(context, R.string.toast_clear_passwords_successful, Toast.LENGTH_SHORT).show();
+        NinjaToast.show(context, R.string.toast_clear_passwords_successful);
     }
 
     private static boolean deleteDir(File dir) {

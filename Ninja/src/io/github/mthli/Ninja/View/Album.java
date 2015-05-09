@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import io.github.mthli.Ninja.Browser.AlbumController;
 import io.github.mthli.Ninja.Browser.BrowserController;
 import io.github.mthli.Ninja.R;
@@ -72,7 +71,7 @@ public class Album {
         albumView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Toast.makeText(context, albumTitle.getText().toString(), Toast.LENGTH_SHORT).show();
+                NinjaToast.show(context, albumTitle.getText().toString());
                 return true;
             }
         });

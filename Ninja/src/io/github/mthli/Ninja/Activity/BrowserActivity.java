@@ -25,10 +25,7 @@ import io.github.mthli.Ninja.Database.RecordAction;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.Unit.ViewUnit;
-import io.github.mthli.Ninja.View.NinjaListAdapter;
-import io.github.mthli.Ninja.View.NinjaRelativeLayout;
-import io.github.mthli.Ninja.View.NinjaWebView;
-import io.github.mthli.Ninja.View.SwitcherPanel;
+import io.github.mthli.Ninja.View.*;
 
 import java.util.List;
 
@@ -154,7 +151,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                         updateAlbum(BrowserUnit.FLAG_HOME);
                         break;
                     case BrowserUnit.FLAG_HOME:
-                        Toast.makeText(this, R.string.toast_last_page, Toast.LENGTH_SHORT).show();
+                        NinjaToast.show(this, R.string.toast_last_page);
                         break;
                     default:
                         finish();
@@ -203,7 +200,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
                 String query = inputBox.getText().toString().trim();
                 if (query.isEmpty()) {
-                    Toast.makeText(BrowserActivity.this, R.string.toast_input_empty, Toast.LENGTH_SHORT).show();
+                    NinjaToast.show(BrowserActivity.this, R.string.toast_input_empty);
                     return false;
                 }
 
@@ -458,7 +455,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             ninjaWebView.loadUrl(url);
             updateOmnibox();
         } else {
-            Toast.makeText(this, R.string.toast_load_error, Toast.LENGTH_SHORT).show();
+            NinjaToast.show(this, R.string.toast_load_error);
         }
     }
 

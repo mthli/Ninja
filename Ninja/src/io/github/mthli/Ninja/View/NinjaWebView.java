@@ -13,7 +13,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.widget.Toast;
 import io.github.mthli.Ninja.Browser.*;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
@@ -154,7 +153,7 @@ public class NinjaWebView extends WebView implements AlbumController {
     @Override
     public synchronized void loadUrl(String url) {
         if (url == null || url.isEmpty()) {
-            Toast.makeText(context, R.string.toast_load_error, Toast.LENGTH_SHORT).show();
+            NinjaToast.show(context, R.string.toast_load_error);
             return;
         }
         url = BrowserUnit.queryWrapper(context, url);
