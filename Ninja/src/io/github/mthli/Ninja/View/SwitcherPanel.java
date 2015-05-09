@@ -197,7 +197,6 @@ public class SwitcherPanel extends ViewGroup {
         this(context, attrs, 0);
     }
 
-    @SuppressWarnings("getResource().getDrawable(int) is deprecated.")
     public SwitcherPanel(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 

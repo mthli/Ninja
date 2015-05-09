@@ -276,6 +276,9 @@
     <string name="toast_judge">
         Give our 5 stars :)
     </string>
+    <string name="toast_last_page">
+        Last page now
+    </string>
     <string name="toast_load_error">
         Can\'t load this URL
     </string>
