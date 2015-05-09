@@ -1,27 +1,15 @@
 package io.github.mthli.Ninja.Unit;
 
+import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
+import android.content.res.Resources;
+import android.graphics.*;
+import android.util.DisplayMetrics;
 import android.view.View;
 
 public class ViewUnit {
-    public static float getDensity(Context context) {
-        return context.getResources().getDisplayMetrics().density;
-    }
-
-    public static float dp2px(Context context, int dp) {
-        return context.getResources().getDisplayMetrics().density * dp;
-    }
-
-    public static float dp2px(Context context, float dp) {
-        return context.getResources().getDisplayMetrics().density * dp;
-    }
-
-    public static Bitmap capture(View view, int width, int height) {
-        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+    public static Bitmap capture(View view, float width, float height) {
+        Bitmap bitmap = Bitmap.createBitmap((int) width, (int) height, Bitmap.Config.ARGB_8888);
         bitmap.eraseColor(Color.WHITE);
 
         Canvas canvas = new Canvas(bitmap);
@@ -30,7 +18,7 @@ public class ViewUnit {
         int status = canvas.save();
         canvas.translate(-left, -top);
 
-        float scale = width / (float) view.getWidth();
+        float scale = width / view.getWidth();
         canvas.scale(scale, scale, left, top);
 
         view.draw(canvas);
@@ -39,12 +27,54 @@ public class ViewUnit {
         Paint alphaPaint = new Paint();
         alphaPaint.setColor(Color.TRANSPARENT);
 
-        canvas.drawRect(0, 0, 1, height, alphaPaint);
-        canvas.drawRect(width - 1, 0, width, height, alphaPaint);
-        canvas.drawRect(0, 0, width, 1, alphaPaint);
-        canvas.drawRect(0, height - 1, width, height, alphaPaint);
+        canvas.drawRect(0f, 0f, 1f, height, alphaPaint);
+        canvas.drawRect(width - 1f, 0f, width, height, alphaPaint);
+        canvas.drawRect(0f, 0f, width, 1f, alphaPaint);
+        canvas.drawRect(0f, height - 1f, width, height, alphaPaint);
         canvas.setBitmap(null);
 
         return bitmap;
+    }
+
+    public static float dp2px(Context context, int dp) {
+        return getDensity(context) * dp;
+    }
+
+    public static float dp2px(Context context, float dp) {
+        return getDensity(context) * dp;
+    }
+
+    public static float getDensity(Context context) {
+        return context.getResources().getDisplayMetrics().density;
+    }
+
+    public static int getNavigationBarHeight(Context context) {
+        Resources resources = context.getResources();
+        int resourceId = resources.getIdentifier("navigation_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            return resources.getDimensionPixelSize(resourceId);
+        }
+        return 0;
+    }
+
+    public static int getStatusBarHeight(Context context) {
+        Resources resources = context.getResources();
+        int resourceId = resources.getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            return resources.getDimensionPixelSize(resourceId);
+        }
+        return 0;
+    }
+
+    public static int getWindowHeight(Activity activity) {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        return displayMetrics.heightPixels;
+    }
+
+    public static int getWindowWidth(Activity activity) {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        return displayMetrics.widthPixels;
     }
 }

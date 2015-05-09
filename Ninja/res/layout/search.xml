@@ -24,7 +24,7 @@
                      android:background="@color/transparent">
         </ImageButton>
 
-        <ImageButton android:id="@+id/search_panel_down_button"
+        <ImageButton android:id="@+id/search_down"
                      android:contentDescription="@null"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
 
     </LinearLayout>
 
-    <ImageButton android:id="@+id/search_panel_cancel_button"
+    <ImageButton android:id="@+id/search_cancel"
                  android:contentDescription="@null"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
               android:layout_width="match_parent"
               android:layout_height="@dimen/layout_height_36dp"
               android:layout_centerInParent="true"
-              android:layout_toLeftOf="@id/search_panel_cancel_button"
+              android:layout_toLeftOf="@id/search_cancel"
               android:layout_toRightOf="@id/search_left"
               android:paddingLeft="@dimen/padding_8dp"
               android:paddingRight="@dimen/padding_8dp"
@@ -63,7 +63,7 @@
               android:imeOptions="actionDone"
               android:inputType="text"
               android:singleLine="true"
-              android:background="@drawable/round_corner_shape">
+              android:background="@drawable/round_corner_shape_white">
     </EditText>
 
 </RelativeLayout>

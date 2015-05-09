@@ -2,21 +2,21 @@ package io.github.mthli.Ninja.Browser;
 
 import android.view.GestureDetector;
 import android.view.MotionEvent;
-import io.github.mthli.Ninja.View.NinjaView;
+import io.github.mthli.Ninja.View.NinjaWebView;
 
 public class NinjaGestureListener extends GestureDetector.SimpleOnGestureListener {
-    private NinjaView ninjaView;
+    private NinjaWebView ninjaWebView;
     private boolean longPress = true;
 
-    public NinjaGestureListener(NinjaView ninjaView) {
+    public NinjaGestureListener(NinjaWebView ninjaWebView) {
         super();
-        this.ninjaView = ninjaView;
+        this.ninjaWebView = ninjaWebView;
     }
 
     @Override
     public void onLongPress(MotionEvent e) {
         if (longPress) {
-            ninjaView.onLongPress();
+            ninjaWebView.onLongPress();
         }
     }
 

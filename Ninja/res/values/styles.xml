@@ -5,6 +5,7 @@
     <style name="BrowserActivityTheme" parent="android:Theme.DeviceDefault.Light.NoActionBar">
         <item name="android:textColor">@color/text</item>
         <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:windowBackground">@color/background_light</item>
     </style>
 
 </resources>

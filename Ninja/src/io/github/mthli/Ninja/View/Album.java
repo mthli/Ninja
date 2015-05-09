@@ -2,6 +2,7 @@ package io.github.mthli.Ninja.View;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -36,14 +37,6 @@ public class Album {
         this.browserController = browserController;
     }
 
-    private View holder;
-    public View getHolder() {
-        return holder;
-    }
-    public void setHolder(View holder) {
-        this.holder = holder;
-    }
-
     public Album(Context context, BrowserController browserController) {
         this.context = context;
         this.browserController = browserController;
@@ -55,7 +48,7 @@ public class Album {
         albumView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                browserController.showAlbum(holder);
+                // TODO
             }
         });
         albumView.setOnLongClickListener(new View.OnLongClickListener() {
@@ -70,15 +63,14 @@ public class Album {
         albumCover.setImageAlpha(ALPHA_255);
 
         albumTitle = (TextView) albumView.findViewById(R.id.album_title);
-        albumTitle.getBackground().setAlpha(ALPHA_153);
         albumTitle.setText(context.getString(R.string.album_untitled));
     }
 
     public void activate() {
-        albumCover.setImageAlpha(ALPHA_255);
+        albumView.setBackgroundResource(R.drawable.round_corner_shape_blue);
     }
 
     public void deactivate() {
-        albumCover.setImageAlpha(ALPHA_153);
+        albumView.setBackgroundResource(R.drawable.round_corner_shape_dark);
     }
 }

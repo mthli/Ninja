@@ -3,6 +3,7 @@ package io.github.mthli.Ninja.View;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.net.MailTo;
 import android.os.Message;
 import android.preference.PreferenceManager;
@@ -20,50 +21,40 @@ import io.github.mthli.Ninja.Unit.IntentUnit;
 
 import java.net.URISyntaxException;
 
-public class NinjaView extends WebView {
+public class NinjaWebView extends WebView implements AlbumController {
     private Context context;
+    private int flag = BrowserUnit.FLAG_NINJA;
 
+    private Album album;
     private NinjaWebViewClient webViewClient;
     private NinjaWebChromeClient webChromeClient;
     private NinjaDownloadListener downloadListener;
     private NinjaClickHandler clickHandler;
     private GestureDetector gestureDetector;
 
-    private int flag = BrowserUnit.FLAG_NINJA;
-    public int getFlag() {
-        return flag;
-    }
-    public void setFlag(int flag) {
-        this.flag = flag;
-    }
-
     private boolean foreground;
     public boolean isForeground() {
         return foreground;
-    }
-
-    private Album album;
-    public Album getAlbum() {
-        return album;
     }
 
     private BrowserController browserController = null;
     public BrowserController getBrowserController() {
         return browserController;
     }
-    public void setBrowserController(BrowserController controller) {
-        this.browserController = controller;
+    public void setBrowserController(BrowserController browserController) {
+        this.browserController = browserController;
+        this.album.setBrowserController(browserController);
     }
 
-    public NinjaView(Context context) {
+    public NinjaWebView(Context context) {
         this(context, null);
     }
 
-    public NinjaView(Context context, AttributeSet attrs) {
+    public NinjaWebView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public NinjaView(Context context, AttributeSet attrs, int defStyle) {
+    public NinjaWebView(Context context, AttributeSet attrs, int defStyle) {
         super(new NinjaContextWrapper(context), attrs, defStyle);
 
         this.context = new NinjaContextWrapper(context);
@@ -79,6 +70,7 @@ public class NinjaView extends WebView {
         initWebView();
         initWebSettings();
         initPreferences();
+        initAlbum();
     }
 
     private synchronized void initWebView() {
@@ -153,6 +145,12 @@ public class NinjaView extends WebView {
         webSettings.setUseWideViewPort(true);
     }
 
+    private synchronized void initAlbum() {
+        album.setAlbumCover(null);
+        album.setAlbumTitle(context.getString(R.string.album_untitled));
+        album.setBrowserController(browserController);
+    }
+
     @Override
     public synchronized void loadUrl(String url) {
         if (url == null || url.isEmpty()) {
@@ -181,12 +179,39 @@ public class NinjaView extends WebView {
         }
     }
 
+    @Override
+    public int getFlag() {
+        return flag;
+    }
+
+    @Override
+    public void setFlag(int flag) {
+        this.flag = flag;
+    }
+
+    @Override
+    public View getAlbumView() {
+        return album.getAlbumView();
+    }
+
+    @Override
+    public void setAlbumCover(Bitmap bitmap) {
+        album.setAlbumCover(bitmap);
+    }
+
+    @Override
+    public void setAlbumTitle(String title) {
+        album.setAlbumTitle(title);
+    }
+
+    @Override
     public synchronized void activate() {
         requestFocus();
         foreground = true;
         album.activate();
     }
 
+    @Override
     public synchronized void deactivate() {
         clearFocus();
         foreground = false;
@@ -197,6 +222,8 @@ public class NinjaView extends WebView {
         if (foreground) { // TODO: || browserController instanceof HolderService
             browserController.updateProgress(progress);
         }
+
+        // TODO: update albumCover
     }
 
     public synchronized void update(String title, String url) {

@@ -2,19 +2,19 @@ package io.github.mthli.Ninja.Browser;
 
 import android.os.Handler;
 import android.os.Message;
-import io.github.mthli.Ninja.View.NinjaView;
+import io.github.mthli.Ninja.View.NinjaWebView;
 
 public class NinjaClickHandler extends Handler {
-    private NinjaView ninjaView;
+    private NinjaWebView ninjaWebView;
 
-    public NinjaClickHandler(NinjaView ninjaView) {
+    public NinjaClickHandler(NinjaWebView ninjaWebView) {
         super();
-        this.ninjaView = ninjaView;
+        this.ninjaWebView = ninjaWebView;
     }
 
     @Override
     public void handleMessage(Message message) {
         super.handleMessage(message);
-        ninjaView.getBrowserController().onLongPress(message.getData().getString("url"));
+        ninjaWebView.getBrowserController().onLongPress(message.getData().getString("url"));
     }
 }

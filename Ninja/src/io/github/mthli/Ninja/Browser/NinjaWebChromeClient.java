@@ -4,21 +4,21 @@ import android.content.Context;
 import android.os.Message;
 import android.view.View;
 import android.webkit.*;
-import io.github.mthli.Ninja.View.NinjaView;
+import io.github.mthli.Ninja.View.NinjaWebView;
 
 public class NinjaWebChromeClient extends WebChromeClient {
-    private NinjaView ninjaView;
+    private NinjaWebView ninjaWebView;
     private Context context;
 
-    public NinjaWebChromeClient(NinjaView ninjaView) {
+    public NinjaWebChromeClient(NinjaWebView ninjaWebView) {
         super();
-        this.ninjaView = ninjaView;
-        this.context = ninjaView.getContext();
+        this.ninjaWebView = ninjaWebView;
+        this.context = ninjaWebView.getContext();
     }
 
     @Override
     public boolean onCreateWindow(WebView view, boolean isDialog, boolean isUserGesture, Message resultMsg) {
-        ninjaView.getBrowserController().onCreateView(view, resultMsg);
+        ninjaWebView.getBrowserController().onCreateView(view, resultMsg);
         return isUserGesture;
     }
 
@@ -30,13 +30,13 @@ public class NinjaWebChromeClient extends WebChromeClient {
     @Override
     public void onProgressChanged(WebView view, int progress) {
         super.onProgressChanged(view, progress);
-        ninjaView.update(progress);
+        ninjaWebView.update(progress);
     }
 
     @Override
     public void onReceivedTitle(WebView view, String title) {
         super.onReceivedTitle(view, title);
-        ninjaView.update(title, view.getUrl());
+        ninjaWebView.update(title, view.getUrl());
     }
 
     /**

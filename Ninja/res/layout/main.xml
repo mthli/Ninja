@@ -12,7 +12,8 @@
                   android:layout_height="match_parent"
                   android:background="@color/background_dark">
 
-        <FrameLayout android:layout_width="match_parent"
+        <FrameLayout android:id="@+id/switcher_header"
+                     android:layout_width="match_parent"
                      android:layout_height="@dimen/layout_height_48dp"
                      android:minHeight="@dimen/layout_height_48dp">
 
@@ -28,7 +29,7 @@
                       android:ellipsize="none">
             </TextView>
 
-            <ImageButton android:id="@+id/switcher_view_add"
+            <ImageButton android:id="@+id/switcher_add"
                          android:contentDescription="@null"
                          android:layout_width="wrap_content"
                          android:layout_height="wrap_content"
@@ -40,12 +41,12 @@
 
         </FrameLayout>
 
-        <HorizontalScrollView android:id="@+id/switcher_view_scoller"
+        <HorizontalScrollView android:id="@+id/switcher_scoller"
                               android:layout_width="match_parent"
                               android:layout_height="match_parent"
                               android:scrollbars="none">
 
-            <LinearLayout android:id="@+id/switcher_view_container"
+            <LinearLayout android:id="@+id/switcher_container"
                           android:orientation="horizontal"
                           android:layout_width="wrap_content"
                           android:layout_height="match_parent">
@@ -61,13 +62,13 @@
                   android:layout_height="match_parent"
                   android:background="@color/background_light">
 
-        <RelativeLayout android:id="@+id/main_view_omnibox"
+        <RelativeLayout android:id="@+id/main_omnibox"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/layout_height_48dp"
                         android:minHeight="@dimen/layout_height_48dp"
                         android:background="@color/background_dark">
 
-            <ImageButton android:id="@+id/main_view_omnibox_overflow"
+            <ImageButton android:id="@+id/main_omnibox_overflow"
                          android:contentDescription="@null"
                          android:layout_width="wrap_content"
                          android:layout_height="wrap_content"
@@ -80,19 +81,19 @@
                          android:background="@color/transparent">
             </ImageButton>
 
-            <RelativeLayout android:id="@+id/main_view_omnibox_url"
+            <RelativeLayout android:id="@+id/main_omnibox_url"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/layout_height_36dp"
                             android:minHeight="@dimen/layout_height_36dp"
                             android:layout_centerInParent="true"
                             android:layout_alignParentLeft="true"
-                            android:layout_toLeftOf="@id/main_view_omnibox_overflow"
+                            android:layout_toLeftOf="@id/main_omnibox_overflow"
                             android:layout_marginLeft="@dimen/layout_margin_8dp"
                             android:focusable="true"
                             android:focusableInTouchMode="true"
-                            android:background="@drawable/round_corner_shape">
+                            android:background="@drawable/round_corner_shape_white">
 
-                <ImageButton android:id="@+id/main_view_omnibox_bookmark"
+                <ImageButton android:id="@+id/main_omnibox_bookmark"
                              android:contentDescription="@null"
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content"
@@ -103,7 +104,7 @@
                              android:background="@color/transparent">
                 </ImageButton>
 
-                <ImageButton android:id="@+id/main_view_omnibox_refresh"
+                <ImageButton android:id="@+id/main_omnibox_refresh"
                              android:contentDescription="@null"
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content"
@@ -114,12 +115,12 @@
                              android:background="@color/transparent">
                 </ImageButton>
 
-                <AutoCompleteTextView android:id="@+id/main_view_omnibox_input"
+                <AutoCompleteTextView android:id="@+id/main_omnibox_input"
                                       android:layout_width="match_parent"
                                       android:layout_height="wrap_content"
                                       android:layout_centerInParent="true"
-                                      android:layout_toLeftOf="@id/main_view_omnibox_refresh"
-                                      android:layout_toRightOf="@id/main_view_omnibox_bookmark"
+                                      android:layout_toLeftOf="@id/main_omnibox_refresh"
+                                      android:layout_toRightOf="@id/main_omnibox_bookmark"
                                       android:hint="@string/main_view_omnibox_input_hint"
                                       android:textColor="@color/text"
                                       android:textColorHint="@color/hint"
@@ -136,13 +137,13 @@
 
         </RelativeLayout>
 
-        <LinearLayout android:id="@+id/main_view_progress_wrapper"
+        <LinearLayout android:id="@+id/main_progress_wrapper"
                       android:orientation="vertical"
                       android:layout_width="match_parent"
                       android:layout_height="@dimen/layout_height_2dp"
                       android:visibility="gone">
 
-            <ProgressBar android:id="@+id/main_view_progress_bar"
+            <ProgressBar android:id="@+id/main_progress_bar"
                          android:layout_width="match_parent"
                          android:layout_height="@dimen/layout_height_2dp"
                          android:maxHeight="@dimen/layout_height_2dp"
@@ -153,7 +154,7 @@
 
         </LinearLayout>
 
-        <FrameLayout android:id="@+id/main_view_content"
+        <FrameLayout android:id="@+id/main_content"
                      android:layout_width="match_parent"
                      android:layout_height="match_parent">
         </FrameLayout>

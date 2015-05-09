@@ -9,22 +9,22 @@ import android.webkit.*;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.Unit.IntentUnit;
-import io.github.mthli.Ninja.View.NinjaView;
+import io.github.mthli.Ninja.View.NinjaWebView;
 
 import java.io.ByteArrayInputStream;
 import java.net.URISyntaxException;
 
 public class NinjaWebViewClient extends WebViewClient {
-    private NinjaView ninjaView;
+    private NinjaWebView ninjaWebView;
     private Context context;
     private AdBlock adBlock;
 
-    public NinjaWebViewClient(NinjaView ninjaView) {
+    public NinjaWebViewClient(NinjaWebView ninjaWebView) {
         super();
 
-        this.ninjaView = ninjaView;
-        this.context = ninjaView.getContext();
-        this.adBlock = new AdBlock(ninjaView.getContext());
+        this.ninjaWebView = ninjaWebView;
+        this.context = ninjaWebView.getContext();
+        this.adBlock = new AdBlock(ninjaWebView.getContext());
     }
 
     @Override
@@ -32,9 +32,9 @@ public class NinjaWebViewClient extends WebViewClient {
         super.onPageStarted(view, url, favicon);
 
         if (view.getTitle() == null || view.getTitle().isEmpty()) {
-            ninjaView.update(context.getString(R.string.album_untitled), url);
+            ninjaWebView.update(context.getString(R.string.album_untitled), url);
         } else {
-            ninjaView.update(view.getTitle(), url);
+            ninjaWebView.update(view.getTitle(), url);
         }
     }
 
@@ -43,15 +43,15 @@ public class NinjaWebViewClient extends WebViewClient {
         super.onPageFinished(view, url);
 
         if (view.getTitle() == null || view.getTitle().isEmpty()) {
-            ninjaView.update(context.getString(R.string.album_untitled), url);
+            ninjaWebView.update(context.getString(R.string.album_untitled), url);
         } else {
-            ninjaView.update(view.getTitle(), url);
+            ninjaWebView.update(view.getTitle(), url);
         }
 
-        if (ninjaView.isForeground()) {
-            ninjaView.invalidate();
+        if (ninjaWebView.isForeground()) {
+            ninjaWebView.invalidate();
         } else {
-            ninjaView.postInvalidate();
+            ninjaWebView.postInvalidate();
         }
     }
 
