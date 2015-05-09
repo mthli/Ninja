@@ -28,8 +28,8 @@ public class BrowserActivity extends Activity implements BrowserController {
     private HorizontalScrollView swictherScroller;
     private LinearLayout switcherContainer;
     private ImageButton addButton;
-    private float dimen72dp;
-    private float dimen54dp;
+    private float dimen144dp;
+    private float dimen108dp;
     private float dimen48dp;
 
     private RelativeLayout ominibox;
@@ -91,8 +91,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
         int windowHeight = ViewUnit.getWindowHeight(this);
         int statusBarHeight = ViewUnit.getStatusBarHeight(this);
-        int navigationBarHeight = ViewUnit.getNavigationBarHeight(this);
-        float coverHeight = windowHeight + navigationBarHeight - statusBarHeight - dimen54dp - dimen48dp;
+        float coverHeight = windowHeight - statusBarHeight - dimen108dp - dimen48dp;
         switcherPanel.setCoverHeight(coverHeight);
     }
 
@@ -113,10 +112,9 @@ public class BrowserActivity extends Activity implements BrowserController {
         swictherScroller = (HorizontalScrollView) findViewById(R.id.switcher_scoller);
         switcherContainer = (LinearLayout) findViewById(R.id.switcher_container);
         addButton = (ImageButton) findViewById(R.id.switcher_add);
-
-        dimen72dp = ViewUnit.dp2px(this, getResources().getDimension(R.dimen.layout_width_72dp));
-        dimen54dp = ViewUnit.dp2px(this, getResources().getDimension(R.dimen.layout_height_54dp));
-        dimen48dp = ViewUnit.dp2px(this, getResources().getDimension(R.dimen.layout_height_48dp));
+        dimen144dp = getResources().getDimensionPixelSize(R.dimen.layout_width_144dp);
+        dimen108dp = getResources().getDimensionPixelSize(R.dimen.layout_height_108dp);
+        dimen48dp = getResources().getDimensionPixelOffset(R.dimen.layout_height_48dp);
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -149,7 +147,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         final NinjaRelativeLayout homeLayout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.home, null, false);
         homeLayout.setBrowserController(this);
         homeLayout.setFlag(BrowserUnit.FLAG_HOME);
-        homeLayout.setAlbumCover(ViewUnit.capture(homeLayout, dimen72dp, dimen54dp));
+        homeLayout.setAlbumCover(ViewUnit.capture(homeLayout, dimen144dp, dimen108dp));
         homeLayout.setAlbumTitle(getString(R.string.album_title_home));
 
         final View albumView = homeLayout.getAlbumView();
@@ -171,7 +169,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         ));
 
         BrowserContainer.add(homeLayout);
-        switcherContainer.addView(albumView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT); // TODO
+        switcherContainer.addView(albumView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.slide_in_up);
         animation.setAnimationListener(new Animation.AnimationListener() {

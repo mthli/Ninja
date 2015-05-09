@@ -2,14 +2,14 @@
 
 <resources>
 
-    <dimen name="layout_height_72dp">72dp</dimen>
-    <dimen name="layout_height_54dp">54dp</dimen>
+    <dimen name="layout_height_144dp">144dp</dimen>
+    <dimen name="layout_height_108dp">108dp</dimen>
     <dimen name="layout_height_48dp">48dp</dimen>
     <dimen name="layout_height_36dp">36dp</dimen>
     <dimen name="layout_height_2dp">2dp</dimen>
 
-    <dimen name="layout_width_72dp">72dp</dimen>
-    <dimen name="layout_width_54dp">54dp</dimen>
+    <dimen name="layout_width_144dp">144dp</dimen>
+    <dimen name="layout_width_108dp">108dp</dimen>
     <dimen name="layout_width_48dp">48dp</dimen>
     <dimen name="layout_width_36dp">36dp</dimen>
     <dimen name="layout_width_2dp">2dp</dimen>

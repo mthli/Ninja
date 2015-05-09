@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.*;
 import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.View;
 
 public class ViewUnit {
@@ -36,12 +37,9 @@ public class ViewUnit {
         return bitmap;
     }
 
-    public static float dp2px(Context context, int dp) {
-        return getDensity(context) * dp;
-    }
-
     public static float dp2px(Context context, float dp) {
-        return getDensity(context) * dp;
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, displayMetrics);
     }
 
     public static float getDensity(Context context) {

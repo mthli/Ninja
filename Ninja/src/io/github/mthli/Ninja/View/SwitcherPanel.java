@@ -26,8 +26,7 @@ public class SwitcherPanel extends ViewGroup {
     private LinearLayout progressWrapper;
     private Drawable shadowDrawable;
 
-    private float dimen72dp = 0f;
-    private float dimen54dp = 0f;
+    private float dimen108dp = 0f;
     private float dimen48dp = 0f;
 
     /* slideRange: px */
@@ -74,7 +73,7 @@ public class SwitcherPanel extends ViewGroup {
     public void setFlingVelocity(int flingVelocity) {
         this.flingVelocity = flingVelocity;
         if (dragHelper != null) {
-            dragHelper.setMinVelocity(flingVelocity * ViewUnit.getDensity(getContext()));
+            dragHelper.setMinVelocity(ViewUnit.dp2px(getContext(), flingVelocity));
         }
     }
 
@@ -211,14 +210,12 @@ public class SwitcherPanel extends ViewGroup {
         setFlingVelocity(FLING_VELOCITY_DEFAULT);
         setWillNotDraw(false);
 
-        dimen72dp = ViewUnit.dp2px(context, getResources().getDimension(R.dimen.layout_width_72dp));
-        dimen54dp = ViewUnit.dp2px(context, getResources().getDimension(R.dimen.layout_height_54dp));
-        dimen48dp = ViewUnit.dp2px(context, getResources().getDimension(R.dimen.layout_height_48dp));
+        dimen108dp = getResources().getDimensionPixelSize(R.dimen.layout_height_108dp);
+        dimen48dp = getResources().getDimensionPixelOffset(R.dimen.layout_height_48dp);
         if (context instanceof Activity) {
             int windowHeight = ViewUnit.getWindowHeight((Activity) context);
             int statusBarHeight = ViewUnit.getStatusBarHeight(context);
-            int navigationBarHeight = ViewUnit.getNavigationBarHeight(context);
-            coverHeight = windowHeight + navigationBarHeight - statusBarHeight - dimen54dp - dimen48dp;
+            coverHeight = windowHeight - statusBarHeight - dimen108dp - dimen48dp;
         }
     }
 
@@ -333,7 +330,7 @@ public class SwitcherPanel extends ViewGroup {
             top = top + progressWrapper.getHeight();
         }
         int right = mainView.getRight();
-        int bottom = top + ((int) (shadowHeight * ViewUnit.getDensity(getContext())));
+        int bottom = top + ((int) (ViewUnit.dp2px(getContext(), shadowHeight)));
         shadowDrawable.setBounds(left, top, right, bottom);
         shadowDrawable.draw(canvas);
     }
@@ -371,7 +368,7 @@ public class SwitcherPanel extends ViewGroup {
         } else if (action == MotionEvent.ACTION_MOVE) {
             if (shouldCollapsed()) {
                 float deltaY = motionEvent.getRawY() - interceptY;
-                if (deltaY >= ViewUnit.getDensity(getContext()) * 64) {
+                if (deltaY >= ViewUnit.dp2px(getContext(), 64)) {
                     collapsed();
                     return true;
                 }
@@ -477,7 +474,7 @@ public class SwitcherPanel extends ViewGroup {
 
     private void applyParallaxForCurrentSlideOffset() {
         if (parallaxOffset > 0) {
-            float offset = parallaxOffset * ViewUnit.getDensity(getContext());
+            float offset = ViewUnit.dp2px(getContext(), parallaxOffset);
             switcherView.setTranslationY(-(offset * Math.max(slideOffset, 0)));
         }
     }

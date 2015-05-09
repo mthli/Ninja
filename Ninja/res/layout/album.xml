@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="@dimen/layout_width_72dp"
-             android:layout_height="@dimen/layout_height_54dp"
+             android:layout_width="@dimen/layout_width_144dp"
+             android:layout_height="@dimen/layout_height_108dp"
              android:background="@drawable/round_corner_shape_dark">
 
     <ImageView android:id="@+id/album_cover"
@@ -28,7 +28,7 @@
               android:textSize="@dimen/text_size_12sp"
               android:maxLines="2"
               android:ellipsize="end"
-              android:background="@color/shadow">
+              android:background="@color/shadow_80">
     </TextView>
 
 </FrameLayout>
