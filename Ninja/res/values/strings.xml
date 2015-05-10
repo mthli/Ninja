@@ -21,6 +21,11 @@
         Untitled
     </string>
 
+    <!-- Dialog -->
+    <string name="dialog_header_title">
+        Brightness
+    </string>
+
     <!-- Holder -->
     <string-array name="holder_menu">
         <item>Foreground</item>
@@ -49,13 +54,11 @@
     <string name="main_menu_save">
         Save
     </string>
-    <string name="main_view_omnibox_input_hint">
+    <string name="main_omnibox_input_hint">
         Search or type URL
     </string>
-    <string-array name="main_view_overflow">
-        <item>Bookmarks</item>
-        <item>History</item>
-        <item>Search in page</item>
+    <string-array name="main_overflow">
+        <item>Find in page</item>
         <item>Share</item>
         <item>Setting</item>
         <item>Quit</item>

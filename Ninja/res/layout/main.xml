@@ -65,7 +65,7 @@
 
         </FrameLayout>
 
-        <HorizontalScrollView android:id="@+id/switcher_scoller"
+        <HorizontalScrollView android:id="@+id/switcher_scroller"
                               android:layout_width="match_parent"
                               android:layout_height="match_parent"
                               android:scrollbars="none">
@@ -146,11 +146,12 @@
                                       android:layout_centerInParent="true"
                                       android:layout_toLeftOf="@id/main_omnibox_refresh"
                                       android:layout_toRightOf="@id/main_omnibox_bookmark"
-                                      android:hint="@string/main_view_omnibox_input_hint"
+                                      android:hint="@string/main_omnibox_input_hint"
                                       android:textColor="@color/text"
                                       android:textColorHint="@color/hint"
                                       android:textCursorDrawable="@null"
                                       android:textSize="@dimen/text_size_16sp"
+                                      android:selectAllOnFocus="true"
                                       android:singleLine="true"
                                       android:imeOptions="actionDone"
                                       android:inputType="text"

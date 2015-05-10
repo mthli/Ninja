@@ -2,6 +2,9 @@
 
 <resources>
 
+    <string name="sp_brightness">
+        SP_BRIGHTNESS
+    </string>
     <string name="sp_cookies">
         SP_COOKIES
     </string>

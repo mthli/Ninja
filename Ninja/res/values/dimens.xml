@@ -2,29 +2,31 @@
 
 <resources>
 
-    <dimen name="layout_height_144dp">144dp</dimen>
-    <dimen name="layout_height_108dp">108dp</dimen>
-    <dimen name="layout_height_48dp">48dp</dimen>
-    <dimen name="layout_height_36dp">36dp</dimen>
-    <dimen name="layout_height_2dp">2dp</dimen>
-
     <dimen name="layout_width_144dp">144dp</dimen>
     <dimen name="layout_width_108dp">108dp</dimen>
     <dimen name="layout_width_48dp">48dp</dimen>
     <dimen name="layout_width_36dp">36dp</dimen>
+    <dimen name="layout_width_8dp">8dp</dimen>
     <dimen name="layout_width_2dp">2dp</dimen>
 
+    <dimen name="layout_height_144dp">144dp</dimen>
+    <dimen name="layout_height_108dp">108dp</dimen>
+    <dimen name="layout_height_48dp">48dp</dimen>
+    <dimen name="layout_height_36dp">36dp</dimen>
+    <dimen name="layout_height_8dp">8dp</dimen>
+    <dimen name="layout_height_2dp">2dp</dimen>
+
+    <dimen name="layout_margin_20dp">20dp</dimen>
     <dimen name="layout_margin_16dp">16dp</dimen>
+    <dimen name="layout_margin_12dp">12dp</dimen>
     <dimen name="layout_margin_8dp">8dp</dimen>
     <dimen name="layout_margin_4dp">4dp</dimen>
     <dimen name="layout_margin_2dp">2dp</dimen>
-    <dimen name="layout_margin_1dp">1dp</dimen>
 
     <dimen name="padding_16dp">16dp</dimen>
     <dimen name="padding_8dp">8dp</dimen>
     <dimen name="padding_4dp">4dp</dimen>
     <dimen name="padding_2dp">2dp</dimen>
-    <dimen name="padding_1dp">1dp</dimen>
 
     <dimen name="text_size_20sp">20sp</dimen>
     <dimen name="text_size_18sp">16sp</dimen>

@@ -4,11 +4,13 @@ import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -27,13 +29,11 @@ import io.github.mthli.Ninja.Database.Record;
 import io.github.mthli.Ninja.Database.RecordAction;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
+import io.github.mthli.Ninja.Unit.IntentUnit;
 import io.github.mthli.Ninja.Unit.ViewUnit;
 import io.github.mthli.Ninja.View.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 public class BrowserActivity extends Activity implements BrowserController {
     private SwitcherPanel switcherPanel;
@@ -178,7 +178,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     private void initSwitcherView() {
         switcherHeader = (FrameLayout) findViewById(R.id.switcher_header);
-        swictherScroller = (HorizontalScrollView) findViewById(R.id.switcher_scoller);
+        swictherScroller = (HorizontalScrollView) findViewById(R.id.switcher_scroller);
         switcherContainer = (LinearLayout) findViewById(R.id.switcher_container);
         swictherBookmarks = (ImageButton) findViewById(R.id.switcher_bookmarks);
         swictherHistory = (ImageButton) findViewById(R.id.switcher_history);
@@ -320,7 +320,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         omniboxOverflow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO
+                showOverflow();
             }
         });
     }
@@ -524,7 +524,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         switcherContainer.addView(albumView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
         if (!foreground) {
-            /* Very important for webview's layout correct */
+            /* Very important for displaying webview's layout correctly */
             int specWidth = View.MeasureSpec.makeMeasureSpec(windowWidth, View.MeasureSpec.EXACTLY);
             int specHeight = View.MeasureSpec.makeMeasureSpec((int) (windowHeight - statusBarHeight - dimen48dp), View.MeasureSpec.EXACTLY);
             ninjaWebView.measure(specWidth, specHeight);
@@ -903,4 +903,71 @@ public class BrowserActivity extends Activity implements BrowserController {
     // TODO
     @Override
     public void updateAutoComplete() {}
+
+    // TODO
+    private void showOverflow() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+
+        LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog, null, false);
+        builder.setView(layout);
+
+        final String[] strings = getResources().getStringArray(R.array.main_overflow);
+        final List<String> list = new ArrayList<>();
+        list.addAll(Arrays.asList(strings));
+        if (currentAlbumController != null && currentAlbumController instanceof NinjaRelativeLayout) {
+            list.remove(strings[0]);
+            list.remove(strings[1]);
+        }
+
+        RelativeLayout dialogHeader = (RelativeLayout) getLayoutInflater().inflate(R.layout.dialog_header, null, false);
+        SeekBar seekBar = (SeekBar) dialogHeader.findViewById(R.id.dialog_header_seek_bar);
+
+        ListView listView = (ListView) layout.findViewById(R.id.dialog_list);
+        listView.addHeaderView(dialogHeader);
+
+        DialogAdapter adapter = new DialogAdapter(this, R.layout.dialog_item, list);
+        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String string = list.get(position - 1);
+                if (string.equals(strings[0])) {
+                    // TODO: show searchPanel
+                } else if (string.equals(strings[1])) {
+                    if (!prepareRecord()) {
+                        NinjaToast.show(BrowserActivity.this, R.string.toast_share_failed);
+                    } else {
+                        NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
+                        IntentUnit.share(BrowserActivity.this, ninjaWebView.getTitle(), ninjaWebView.getUrl());
+                    }
+                } else if (string.equals(strings[2])) {
+                    // TODO: intent to SettingActivity
+                } else if (string.equals(strings[3])) {
+                    finish();
+                }
+                dialog.hide();
+                dialog.dismiss();
+            }
+        });
+
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(BrowserActivity.this);
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {}
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                // TODO
+            }
+        });
+    }
 }

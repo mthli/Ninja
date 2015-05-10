@@ -2,8 +2,31 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@color/white">
 
-    <!-- TODO -->
+    <TextView android:id="@+id/dialog_header_title"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/layout_margin_12dp"
+              android:layout_marginLeft="@dimen/layout_margin_20dp"
+              android:layout_marginRight="@dimen/layout_margin_20dp"
+              android:text="@string/dialog_header_title"
+              android:textColor="@color/text"
+              android:textSize="@dimen/text_size_14sp"
+              android:singleLine="true"
+              android:ellipsize="none">
+    </TextView>
+
+    <SeekBar android:id="@+id/dialog_header_seek_bar"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_below="@id/dialog_header_title"
+             android:layout_marginTop="@dimen/layout_margin_2dp"
+             android:layout_marginLeft="@dimen/layout_margin_8dp"
+             android:layout_marginRight="@dimen/layout_margin_8dp"
+             android:paddingBottom="@dimen/padding_4dp"
+             android:max="100">
+    </SeekBar>
 
 </RelativeLayout>
