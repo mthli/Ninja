@@ -2,6 +2,7 @@ package io.github.mthli.Ninja.Activity;
 
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Build;
@@ -10,8 +11,10 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
@@ -35,15 +38,19 @@ import java.util.List;
 public class BrowserActivity extends Activity implements BrowserController {
     private SwitcherPanel switcherPanel;
 
+    private int windowWidth;
+    private int windowHeight;
+    private int statusBarHeight;
+    private float dimen144dp;
+    private float dimen108dp;
+    private float dimen48dp;
+
     private FrameLayout switcherHeader;
     private HorizontalScrollView swictherScroller;
     private LinearLayout switcherContainer;
     private ImageButton swictherBookmarks;
     private ImageButton swictherHistory;
     private ImageButton switcherAdd;
-    private float dimen144dp;
-    private float dimen108dp;
-    private float dimen48dp;
 
     private RelativeLayout omnibox;
     private AutoCompleteTextView inputBox;
@@ -85,6 +92,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             }
         });
 
+        initData();
         initSwitcherView();
         initMainView();
         initSearchPanel();
@@ -117,8 +125,6 @@ public class BrowserActivity extends Activity implements BrowserController {
         if (switcherPanel.getStatus() != SwitcherPanel.Status.EXPANDED) {
             switcherPanel.expanded();
         }
-        int windowHeight = ViewUnit.getWindowHeight(this);
-        int statusBarHeight = ViewUnit.getStatusBarHeight(this);
         float coverHeight = windowHeight - statusBarHeight - dimen108dp - dimen48dp;
         switcherPanel.setCoverHeight(coverHeight);
     }
@@ -160,6 +166,15 @@ public class BrowserActivity extends Activity implements BrowserController {
         return true;
     }
 
+    private void initData() {
+        windowWidth = ViewUnit.getWindowWidth(this);
+        windowHeight = ViewUnit.getWindowHeight(this);
+        statusBarHeight = ViewUnit.getStatusBarHeight(this);
+        dimen144dp = getResources().getDimensionPixelSize(R.dimen.layout_width_144dp);
+        dimen108dp = getResources().getDimensionPixelSize(R.dimen.layout_height_108dp);
+        dimen48dp = getResources().getDimensionPixelOffset(R.dimen.layout_height_48dp);
+    }
+
     private void initSwitcherView() {
         switcherHeader = (FrameLayout) findViewById(R.id.switcher_header);
         swictherScroller = (HorizontalScrollView) findViewById(R.id.switcher_scoller);
@@ -167,9 +182,6 @@ public class BrowserActivity extends Activity implements BrowserController {
         swictherBookmarks = (ImageButton) findViewById(R.id.switcher_bookmarks);
         swictherHistory = (ImageButton) findViewById(R.id.switcher_history);
         switcherAdd = (ImageButton) findViewById(R.id.switcher_add);
-        dimen144dp = getResources().getDimensionPixelSize(R.dimen.layout_width_144dp);
-        dimen108dp = getResources().getDimensionPixelSize(R.dimen.layout_height_108dp);
-        dimen48dp = getResources().getDimensionPixelOffset(R.dimen.layout_height_48dp);
 
         swictherBookmarks.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -505,12 +517,22 @@ public class BrowserActivity extends Activity implements BrowserController {
         ninjaWebView.setAlbumCover(ViewUnit.capture(ninjaWebView, dimen144dp, dimen108dp));
         ninjaWebView.setAlbumTitle(title);
 
-        final View albumView = ninjaWebView.getAlbumView();
-        albumView.setVisibility(View.INVISIBLE);
-
         BrowserContainer.add(ninjaWebView);
+        final View albumView = ninjaWebView.getAlbumView();
         switcherContainer.addView(albumView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
+        if (!foreground) {
+            albumView.setVisibility(View.VISIBLE);
+            ninjaWebView.measure(windowWidth, (int) (windowHeight - statusBarHeight - dimen48dp));
+            ninjaWebView.loadUrl(url);
+            ninjaWebView.deactivate();
+            if (currentAlbumController != null) {
+                swictherScroller.smoothScrollTo(currentAlbumController.getAlbumView().getLeft(), 0);
+            }
+            return;
+        }
+
+        albumView.setVisibility(View.INVISIBLE);
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.slide_in_up);
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -524,15 +546,6 @@ public class BrowserActivity extends Activity implements BrowserController {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                if (!foreground) {
-                    ninjaWebView.loadUrl(url);
-                    ninjaWebView.deactivate();
-                    if (currentAlbumController != null) {
-                        swictherScroller.smoothScrollTo(currentAlbumController.getAlbumView().getLeft(), 0);
-                    }
-                    return;
-                }
-
                 showAlbum(ninjaWebView, false);
 
                 if (url != null && !url.isEmpty()) {
@@ -770,6 +783,60 @@ public class BrowserActivity extends Activity implements BrowserController {
         }, animTime);
     }
 
+    @Override
+    public void onLongPress(String url) {
+        WebView.HitTestResult result;
+        if (!(currentAlbumController instanceof NinjaWebView)) {
+            return;
+        }
+        result = ((NinjaWebView) currentAlbumController).getHitTestResult();
+
+        final List<String> list = new ArrayList<>();
+        list.add(getString(R.string.main_menu_new_tab));
+        list.add(getString(R.string.main_menu_copy));
+        if (result != null && (result.getType() == WebView.HitTestResult.IMAGE_TYPE || result.getType() == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE)) {
+            list.add(getString(R.string.main_menu_save));
+        }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+
+        LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog, null, false);
+        builder.setView(layout);
+
+        ListView listView = (ListView) layout.findViewById(R.id.dialog_list);
+        DialogAdapter adapter = new DialogAdapter(this, R.layout.dialog_item, list);
+        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        final AlertDialog dialog = builder.create();
+        if (url != null || (result != null && result.getExtra() != null)) {
+            if (url == null) {
+                url = result.getExtra();
+            }
+            dialog.show();
+        }
+
+        final String target = url;
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String string = list.get(position);
+                if (string.equals(getString(R.string.main_menu_new_tab))) {
+                    // TODO: addAlbum effect?
+                    addAlbum(getString(R.string.album_untitled), target, false, null);
+                    NinjaToast.show(BrowserActivity.this, R.string.toast_new_tab_successful);
+                } else if (string.equals(getString(R.string.main_menu_copy))) {
+                    BrowserUnit.copy(BrowserActivity.this, target);
+                } else if (string.equals(getString(R.string.main_menu_save))) {
+                    BrowserUnit.download(BrowserActivity.this, target, target, BrowserUnit.MIME_TYPE_IMAGE);
+                }
+                dialog.hide();
+                dialog.dismiss();
+            }
+        });
+    }
+
     private void hideSoftInput(View view) {
         view.clearFocus();
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -807,10 +874,6 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
         return true;
     }
-
-    // TODO
-    @Override
-    public void onLongPress(String url) {}
 
     // TODO
     @Override
