@@ -35,16 +35,18 @@ public class BrowserActivity extends Activity implements BrowserController {
     private FrameLayout switcherHeader;
     private HorizontalScrollView swictherScroller;
     private LinearLayout switcherContainer;
-    private ImageButton addButton;
+    private ImageButton swictherBookmarks;
+    private ImageButton swictherHistory;
+    private ImageButton switcherAdd;
     private float dimen144dp;
     private float dimen108dp;
     private float dimen48dp;
 
-    private RelativeLayout ominibox;
+    private RelativeLayout omnibox;
     private AutoCompleteTextView inputBox;
-    private ImageButton bookmarkButton;
-    private ImageButton refreshButton;
-    private ImageButton overflowButton;
+    private ImageButton omniboxBookmark;
+    private ImageButton omniboxRefresh;
+    private ImageButton omniboxOverflow;
     private LinearLayout progressWrapper;
     private ProgressBar progressBar;
     private FrameLayout contentFrame;
@@ -168,12 +170,28 @@ public class BrowserActivity extends Activity implements BrowserController {
         switcherHeader = (FrameLayout) findViewById(R.id.switcher_header);
         swictherScroller = (HorizontalScrollView) findViewById(R.id.switcher_scoller);
         switcherContainer = (LinearLayout) findViewById(R.id.switcher_container);
-        addButton = (ImageButton) findViewById(R.id.switcher_add);
+        swictherBookmarks = (ImageButton) findViewById(R.id.switcher_bookmarks);
+        swictherHistory = (ImageButton) findViewById(R.id.switcher_history);
+        switcherAdd = (ImageButton) findViewById(R.id.switcher_add);
         dimen144dp = getResources().getDimensionPixelSize(R.dimen.layout_width_144dp);
         dimen108dp = getResources().getDimensionPixelSize(R.dimen.layout_height_108dp);
         dimen48dp = getResources().getDimensionPixelOffset(R.dimen.layout_height_48dp);
 
-        addButton.setOnClickListener(new View.OnClickListener() {
+        swictherBookmarks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO
+            }
+        });
+
+        swictherHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO
+            }
+        });
+
+        switcherAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addAlbum();
@@ -182,11 +200,11 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     private void initMainView() {
-        ominibox = (RelativeLayout) findViewById(R.id.main_omnibox);
+        omnibox = (RelativeLayout) findViewById(R.id.main_omnibox);
         inputBox = (AutoCompleteTextView) findViewById(R.id.main_omnibox_input);
-        bookmarkButton = (ImageButton) findViewById(R.id.main_omnibox_bookmark);
-        refreshButton = (ImageButton) findViewById(R.id.main_omnibox_refresh);
-        overflowButton = (ImageButton) findViewById(R.id.main_omnibox_overflow);
+        omniboxBookmark = (ImageButton) findViewById(R.id.main_omnibox_bookmark);
+        omniboxRefresh = (ImageButton) findViewById(R.id.main_omnibox_refresh);
+        omniboxOverflow = (ImageButton) findViewById(R.id.main_omnibox_overflow);
         progressWrapper = (LinearLayout) findViewById(R.id.main_progress_wrapper);
         progressBar = (ProgressBar) findViewById(R.id.main_progress_bar);
         contentFrame = (FrameLayout) findViewById(R.id.main_content);
@@ -501,9 +519,9 @@ public class BrowserActivity extends Activity implements BrowserController {
     public void updateBookmarks() {
         if (currentAlbumController == null || !(currentAlbumController instanceof NinjaWebView)) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.bookmark_outline_selector, null));
+                omniboxBookmark.setImageDrawable(getResources().getDrawable(R.drawable.bookmark_selector_dark, null));
             } else {
-                bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.bookmark_outline_selector));
+                omniboxBookmark.setImageDrawable(getResources().getDrawable(R.drawable.bookmark_selector_dark));
             }
             return;
         }
@@ -513,15 +531,15 @@ public class BrowserActivity extends Activity implements BrowserController {
         String url = ((NinjaWebView) currentAlbumController).getUrl();
         if (action.checkBookmark(url)) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.bookmark_full_selector, null));
+                omniboxBookmark.setImageDrawable(getResources().getDrawable(R.drawable.bookmark_selector_blue, null));
             } else {
-                bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.bookmark_full_selector));
+                omniboxBookmark.setImageDrawable(getResources().getDrawable(R.drawable.bookmark_selector_blue));
             }
         } else {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.bookmark_outline_selector, null));
+                omniboxBookmark.setImageDrawable(getResources().getDrawable(R.drawable.bookmark_selector_dark, null));
             } else {
-                bookmarkButton.setImageDrawable(getResources().getDrawable(R.drawable.bookmark_outline_selector));
+                omniboxBookmark.setImageDrawable(getResources().getDrawable(R.drawable.bookmark_selector_dark));
             }
         }
         action.close();
@@ -611,15 +629,15 @@ public class BrowserActivity extends Activity implements BrowserController {
     private void updateRefresh(boolean running) {
         if (running) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.cl_selector, null));
+                omniboxRefresh.setImageDrawable(getResources().getDrawable(R.drawable.cl_selector, null));
             } else {
-                refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.cl_selector));
+                omniboxRefresh.setImageDrawable(getResources().getDrawable(R.drawable.cl_selector));
             }
         } else {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.refresh_selector, null));
+                omniboxRefresh.setImageDrawable(getResources().getDrawable(R.drawable.refresh_selector, null));
             } else {
-                refreshButton.setImageDrawable(getResources().getDrawable(R.drawable.refresh_selector));
+                omniboxRefresh.setImageDrawable(getResources().getDrawable(R.drawable.refresh_selector));
             }
         }
     }

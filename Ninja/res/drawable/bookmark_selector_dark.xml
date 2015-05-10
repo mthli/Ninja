@@ -3,13 +3,13 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:state_focused="true"
-          android:drawable="@drawable/ic_action_bookmark_outline_active">
+          android:drawable="@drawable/ic_action_bookmark_active_blue">
     </item>
 
     <item android:state_pressed="true"
-          android:drawable="@drawable/ic_action_bookmark_outline_active">
+          android:drawable="@drawable/ic_action_bookmark_active_blue">
     </item>
 
-    <item android:drawable="@drawable/ic_action_bookmark_outline_default" />
+    <item android:drawable="@drawable/ic_action_bookmark_default_dark" />
 
 </selector>

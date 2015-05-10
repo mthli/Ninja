@@ -29,15 +29,39 @@
                       android:ellipsize="none">
             </TextView>
 
-            <ImageButton android:id="@+id/switcher_add"
-                         android:contentDescription="@null"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_margin="@dimen/layout_margin_8dp"
-                         android:layout_gravity="center|right"
-                         android:src="@drawable/add_selector"
-                         android:background="@color/transparent">
-            </ImageButton>
+            <LinearLayout android:orientation="horizontal"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center|right">
+
+                <ImageButton android:id="@+id/switcher_bookmarks"
+                             android:contentDescription="@null"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_margin="@dimen/layout_margin_8dp"
+                             android:src="@drawable/bookmark_selector_light"
+                             android:background="@color/transparent">
+                </ImageButton>
+
+                <ImageButton android:id="@+id/switcher_history"
+                             android:contentDescription="@null"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_margin="@dimen/layout_margin_8dp"
+                             android:src="@drawable/history_selector"
+                             android:background="@color/transparent">
+                </ImageButton>
+
+                <ImageButton android:id="@+id/switcher_add"
+                             android:contentDescription="@null"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_margin="@dimen/layout_margin_8dp"
+                             android:src="@drawable/add_selector"
+                             android:background="@color/transparent">
+                </ImageButton>
+
+            </LinearLayout>
 
         </FrameLayout>
 
@@ -100,7 +124,7 @@
                              android:layout_centerInParent="true"
                              android:layout_alignParentLeft="true"
                              android:layout_margin="@dimen/layout_margin_4dp"
-                             android:src="@drawable/bookmark_outline_selector"
+                             android:src="@drawable/bookmark_selector_dark"
                              android:background="@color/transparent">
                 </ImageButton>
 

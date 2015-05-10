@@ -28,7 +28,7 @@
               android:textSize="@dimen/text_size_12sp"
               android:singleLine="true"
               android:ellipsize="none"
-              android:background="@color/shadow_80">
+              android:background="@color/shadow_dark">
     </TextView>
 
 </FrameLayout>
