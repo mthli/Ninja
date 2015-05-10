@@ -57,12 +57,9 @@ public class BrowserActivity extends Activity implements BrowserController {
     private ImageButton searchDown;
     private ImageButton searchCancel;
 
-    private AlbumController currentAlbumController = null;
-    private AlbumController showAlbumController = null;
-    private boolean show = false;
-
     private boolean create = true;
     private int animTime = 0;
+    private AlbumController currentAlbumController = null;
 
     @Override
     public void onCreateView(WebView view, Message resultMsg) {}
@@ -341,7 +338,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                showAlbum(holder);
+                showAlbum(holder, true);
             }
         });
         albumView.startAnimation(animation);
@@ -382,7 +379,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                     return;
                 }
 
-                showAlbum(ninjaWebView);
+                showAlbum(ninjaWebView, false);
 
                 if (url != null && !url.isEmpty()) {
                     ninjaWebView.loadUrl(url);
@@ -397,7 +394,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     @Override
-    public synchronized void showAlbum(AlbumController albumController) {
+    public synchronized void showAlbum(AlbumController albumController, final boolean capture) {
         if (albumController == null || albumController == currentAlbumController) {
             switcherPanel.expanded();
             return;
@@ -408,6 +405,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
         contentFrame.removeAllViews();
         contentFrame.addView((View) albumController);
+
         currentAlbumController = albumController;
         currentAlbumController.activate();
         swictherScroller.smoothScrollTo(currentAlbumController.getAlbumView().getLeft(), 0);
@@ -415,6 +413,9 @@ public class BrowserActivity extends Activity implements BrowserController {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                if (capture) {
+                    currentAlbumController.setAlbumCover(ViewUnit.capture(((View) currentAlbumController), dimen144dp, dimen108dp));
+                }
                 switcherPanel.expanded();
             }
         }, animTime);
@@ -498,7 +499,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             if (index >= BrowserContainer.size()) {
                 index = BrowserContainer.size() - 1;
             }
-            showAlbum(BrowserContainer.get(index));
+            showAlbum(BrowserContainer.get(index), false);
         }
     }
 
@@ -561,7 +562,10 @@ public class BrowserActivity extends Activity implements BrowserController {
             updateInputBox(null);
         } else if (currentAlbumController instanceof NinjaWebView) {
             NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
-            updateProgress(ninjaWebView.getProgress());
+            /*
+             * Add this line will make history record repeated:
+             * updateProgress(ninjaWebView.getProgress());
+             */
             updateBookmarks();
             if (ninjaWebView.getUrl() == null && ninjaWebView.getOriginalUrl() == null) {
                 updateInputBox(null);
@@ -610,9 +614,9 @@ public class BrowserActivity extends Activity implements BrowserController {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        ninjaWebView.setAlbumCover(ViewUnit.capture(ninjaWebView, dimen144dp, dimen108dp));
                         updateRefresh(false);
                         progressWrapper.setVisibility(View.GONE);
-                        ninjaWebView.setAlbumCover(ViewUnit.capture(ninjaWebView, dimen144dp, dimen108dp));
                     }
                 }, animTime);
             } else {
