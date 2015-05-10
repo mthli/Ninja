@@ -26,7 +26,7 @@
              android:layout_marginLeft="@dimen/layout_margin_8dp"
              android:layout_marginRight="@dimen/layout_margin_8dp"
              android:paddingBottom="@dimen/padding_4dp"
-             android:max="100">
+             android:max="@integer/seek_bar_max">
     </SeekBar>
 
 </RelativeLayout>

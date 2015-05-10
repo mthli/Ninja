@@ -231,6 +231,9 @@
     <string name="toast_add_bookmark_failed">
         Can\'t add this page to bookmark
     </string>
+    <string name="toast_change_brightness_failed">
+        Change brightness failed
+    </string>
     <string name="toast_clear_bookmarks_successful">
         Clear bookmarks successful
     </string>

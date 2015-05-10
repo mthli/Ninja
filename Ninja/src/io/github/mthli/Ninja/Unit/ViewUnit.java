@@ -1,14 +1,16 @@
 package io.github.mthli.Ninja.Unit;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.*;
+import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
+import android.view.WindowManager;
 import io.github.mthli.Ninja.R;
+import io.github.mthli.Ninja.View.NinjaToast;
 
 public class ViewUnit {
     public static Bitmap capture(View view, float width, float height) {
@@ -44,31 +46,6 @@ public class ViewUnit {
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, displayMetrics);
     }
 
-    public static void fadeIn(View view) {
-        Context context = view.getContext();
-        Animation animation = AnimationUtils.loadAnimation(context, R.anim.fade_in);
-        view.startAnimation(animation);
-    }
-
-    public static void fadeOut(View view) {
-        Context context = view.getContext();
-        Animation animation = AnimationUtils.loadAnimation(context, R.anim.fade_out);
-        view.startAnimation(animation);
-    }
-
-    public static float getDensity(Context context) {
-        return context.getResources().getDisplayMetrics().density;
-    }
-
-    public static int getNavigationBarHeight(Context context) {
-        Resources resources = context.getResources();
-        int resourceId = resources.getIdentifier("navigation_bar_height", "dimen", "android");
-        if (resourceId > 0) {
-            return resources.getDimensionPixelSize(resourceId);
-        }
-        return 0;
-    }
-
     public static int getStatusBarHeight(Context context) {
         Resources resources = context.getResources();
         int resourceId = resources.getIdentifier("status_bar_height", "dimen", "android");
@@ -86,5 +63,30 @@ public class ViewUnit {
     public static int getWindowWidth(Context context) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         return displayMetrics.widthPixels;
+    }
+
+    public static int getBrightness(Context context) {
+        return Settings.System.getInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, -1);
+    }
+
+    public static void setBrightness(Activity activity, int value) {
+        if (value < 0) {
+            autoBrightness(activity);
+            return;
+        }
+
+        try {
+            Settings.System.putInt(activity.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, value);
+            WindowManager.LayoutParams layoutParams = activity.getWindow().getAttributes();
+            layoutParams.screenBrightness = value / 255f;
+            activity.getWindow().setAttributes(layoutParams);
+        } catch (Exception e) {
+            e.printStackTrace();
+            NinjaToast.show(activity, R.string.toast_change_brightness_failed);
+        }
+    }
+
+    public static void autoBrightness(Context context) {
+        Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC);
     }
 }

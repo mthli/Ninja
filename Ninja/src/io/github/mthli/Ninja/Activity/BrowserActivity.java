@@ -67,6 +67,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     private ImageButton searchDown;
     private ImageButton searchCancel;
 
+    private static final int BRIGHTNESS_BEGIN_DEFAULT = 130;
     private static boolean quit = false;
     private boolean create = true;
     private int animTime = 0;
@@ -76,6 +77,14 @@ public class BrowserActivity extends Activity implements BrowserController {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        int brightness = sp.getInt(getString(R.string.sp_brightness), -1);
+        if (brightness < 0) {
+            brightness = ViewUnit.getBrightness(this);  // 130
+            sp.edit().putInt(getString(R.string.sp_brightness), brightness).commit();
+        }
+        ViewUnit.setBrightness(this, brightness);
 
         create = true;
         animTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
@@ -933,6 +942,26 @@ public class BrowserActivity extends Activity implements BrowserController {
         final AlertDialog dialog = builder.create();
         dialog.show();
 
+        final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        int brightness = sp.getInt(getString(R.string.sp_brightness), BRIGHTNESS_BEGIN_DEFAULT);
+        seekBar.setProgress(brightness);
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                int progress = seekBar.getProgress();
+                ViewUnit.setBrightness(BrowserActivity.this, progress);
+                sp.edit().putInt(getString(R.string.sp_brightness), progress).commit();
+            }
+        });
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -953,20 +982,6 @@ public class BrowserActivity extends Activity implements BrowserController {
                 }
                 dialog.hide();
                 dialog.dismiss();
-            }
-        });
-
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(BrowserActivity.this);
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
-
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                // TODO
             }
         });
     }
