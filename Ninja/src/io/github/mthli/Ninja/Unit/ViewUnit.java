@@ -1,6 +1,5 @@
 package io.github.mthli.Ninja.Unit;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.*;

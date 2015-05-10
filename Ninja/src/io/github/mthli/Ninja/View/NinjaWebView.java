@@ -1,6 +1,5 @@
 package io.github.mthli.Ninja.View;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,8 +8,6 @@ import android.net.MailTo;
 import android.os.Message;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -235,14 +232,8 @@ public class NinjaWebView extends WebView implements AlbumController {
             action.close();
             browserController.updateAutoComplete();
 
-            // TODO
-            int windowWidth = ViewUnit.getWindowWidth(getContext());
-            int windowHeight = ViewUnit.getWindowHeight(getContext());
-            int statusBarHeight = ViewUnit.getStatusBarHeight(getContext());
             int dimen144dp = getResources().getDimensionPixelSize(R.dimen.layout_width_144dp);
             int dimen108dp = getResources().getDimensionPixelSize(R.dimen.layout_height_108dp);
-            int dimen48 = getResources().getDimensionPixelSize(R.dimen.layout_height_48dp);
-            measure(windowWidth, windowHeight - statusBarHeight - dimen48);
             setAlbumCover(ViewUnit.capture(this, dimen144dp, dimen108dp));
         }
     }

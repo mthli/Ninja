@@ -11,10 +11,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
@@ -305,6 +303,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                     listView.setAdapter(adapter);
                     adapter.notifyDataSetChanged();
 
+                    /* Wait for adapter.notifyDataSetChanged() */
                     listView.postDelayed(new Runnable() {
                         @Override
                         public void run() {
@@ -525,12 +524,15 @@ public class BrowserActivity extends Activity implements BrowserController {
         switcherContainer.addView(albumView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
         if (!foreground) {
-            // TODO
-            albumView.setVisibility(View.VISIBLE);
-            ninjaWebView.setLayoutParams(new FrameLayout.LayoutParams(windowWidth, (int) (windowHeight - statusBarHeight - dimen48dp)));
+            /* Very important for webview's layout correct */
+            int specWidth = View.MeasureSpec.makeMeasureSpec(windowWidth, View.MeasureSpec.EXACTLY);
+            int specHeight = View.MeasureSpec.makeMeasureSpec((int) (windowHeight - statusBarHeight - dimen48dp), View.MeasureSpec.EXACTLY);
+            ninjaWebView.measure(specWidth, specHeight);
+            ninjaWebView.layout(0, 0, ninjaWebView.getMeasuredWidth(), ninjaWebView.getMeasuredHeight());
             ninjaWebView.loadUrl(url);
             ninjaWebView.deactivate();
 
+            albumView.setVisibility(View.VISIBLE);
             if (currentAlbumController != null) {
                 swictherScroller.smoothScrollTo(currentAlbumController.getAlbumView().getLeft(), 0);
             }
