@@ -10,7 +10,7 @@
                   android:orientation="vertical"
                   android:layout_width="match_parent"
                   android:layout_height="match_parent"
-                  android:background="@color/background_dark">
+                  android:background="@color/background">
 
         <FrameLayout android:id="@+id/switcher_header"
                      android:layout_width="match_parent"
@@ -84,13 +84,13 @@
                   android:orientation="vertical"
                   android:layout_width="match_parent"
                   android:layout_height="match_parent"
-                  android:background="@color/background_light">
+                  android:background="@color/white">
 
         <RelativeLayout android:id="@+id/main_omnibox"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/layout_height_48dp"
                         android:minHeight="@dimen/layout_height_48dp"
-                        android:background="@color/background_dark">
+                        android:background="@color/background">
 
             <ImageButton android:id="@+id/main_omnibox_overflow"
                          android:contentDescription="@null"

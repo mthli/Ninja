@@ -47,6 +47,7 @@ public class Album {
 
     private void initUI() {
         albumView = LayoutInflater.from(context).inflate(R.layout.album, null, false);
+
         albumView.setOnTouchListener(new SwipeToDismissListener(
                 albumView,
                 null,
@@ -62,12 +63,14 @@ public class Album {
                     }
                 }
         ));
+
         albumView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 browserController.showAlbum(albumController);
             }
         });
+
         albumView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
