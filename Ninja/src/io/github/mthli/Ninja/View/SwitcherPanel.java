@@ -211,7 +211,7 @@ public class SwitcherPanel extends ViewGroup {
         dimen108dp = getResources().getDimensionPixelSize(R.dimen.layout_height_108dp);
         dimen48dp = getResources().getDimensionPixelOffset(R.dimen.layout_height_48dp);
         if (context instanceof Activity) {
-            int windowHeight = ViewUnit.getWindowHeight((Activity) context);
+            int windowHeight = ViewUnit.getWindowHeight(context);
             int statusBarHeight = ViewUnit.getStatusBarHeight(context);
             coverHeight = windowHeight - statusBarHeight - dimen108dp - dimen48dp;
         }

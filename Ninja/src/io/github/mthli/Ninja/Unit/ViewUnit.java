@@ -79,15 +79,13 @@ public class ViewUnit {
         return 0;
     }
 
-    public static int getWindowHeight(Activity activity) {
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+    public static int getWindowHeight(Context context) {
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         return displayMetrics.heightPixels;
     }
 
-    public static int getWindowWidth(Activity activity) {
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+    public static int getWindowWidth(Context context) {
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         return displayMetrics.widthPixels;
     }
 }

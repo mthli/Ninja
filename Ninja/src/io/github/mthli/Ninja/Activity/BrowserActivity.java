@@ -34,6 +34,8 @@ import io.github.mthli.Ninja.View.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class BrowserActivity extends Activity implements BrowserController {
     private SwitcherPanel switcherPanel;
@@ -67,6 +69,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     private ImageButton searchDown;
     private ImageButton searchCancel;
 
+    private static boolean quit = false;
     private boolean create = true;
     private int animTime = 0;
     private AlbumController currentAlbumController = null;
@@ -153,7 +156,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                         updateAlbum();
                         break;
                     case BrowserUnit.FLAG_HOME:
-                        NinjaToast.show(this, R.string.toast_last_page);
+                        doubleTapsQuit();
                         break;
                     default:
                         finish();
@@ -522,10 +525,12 @@ public class BrowserActivity extends Activity implements BrowserController {
         switcherContainer.addView(albumView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
         if (!foreground) {
+            // TODO
             albumView.setVisibility(View.VISIBLE);
-            ninjaWebView.measure(windowWidth, (int) (windowHeight - statusBarHeight - dimen48dp));
+            ninjaWebView.setLayoutParams(new FrameLayout.LayoutParams(windowWidth, (int) (windowHeight - statusBarHeight - dimen48dp)));
             ninjaWebView.loadUrl(url);
             ninjaWebView.deactivate();
+
             if (currentAlbumController != null) {
                 swictherScroller.smoothScrollTo(currentAlbumController.getAlbumView().getLeft(), 0);
             }
@@ -571,7 +576,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             currentAlbumController.deactivate();
         }
         contentFrame.removeAllViews();
-        contentFrame.addView((View) albumController);
+        contentFrame.addView((View) albumController, 0);
 
         currentAlbumController = albumController;
         currentAlbumController.activate();
@@ -605,7 +610,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         contentFrame.removeAllViews();
 
         switcherContainer.addView(homeLayout.getAlbumView(), index, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-        contentFrame.addView(homeLayout);
+        contentFrame.addView(homeLayout, 0);
         BrowserContainer.set(homeLayout, index);
         currentAlbumController = homeLayout;
         updateOmnibox();
@@ -632,7 +637,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             contentFrame.removeAllViews();
 
             switcherContainer.addView(ninjaWebView.getAlbumView(), index, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            contentFrame.addView(ninjaWebView);
+            contentFrame.addView(ninjaWebView, 0);
             BrowserContainer.set(ninjaWebView, index);
             currentAlbumController = ninjaWebView;
             ninjaWebView.activate();
@@ -835,6 +840,24 @@ public class BrowserActivity extends Activity implements BrowserController {
                 dialog.dismiss();
             }
         });
+    }
+
+    private void doubleTapsQuit() {
+        final Timer timer = new Timer();
+        if (!quit) {
+            quit = true;
+            NinjaToast.show(this, R.string.toast_double_taps_quit);
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    quit = false;
+                    timer.cancel();
+                }
+            }, 512);
+        } else {
+            timer.cancel();
+            finish();
+        }
     }
 
     private void hideSoftInput(View view) {
