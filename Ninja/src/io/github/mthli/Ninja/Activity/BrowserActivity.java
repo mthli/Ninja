@@ -8,6 +8,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -27,6 +29,7 @@ import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.Unit.ViewUnit;
 import io.github.mthli.Ninja.View.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BrowserActivity extends Activity implements BrowserController {
@@ -220,6 +223,92 @@ public class BrowserActivity extends Activity implements BrowserController {
         });
         updateBookmarks();
         updateAutoComplete();
+
+        omniboxBookmark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!prepareRecord()) {
+                    NinjaToast.show(BrowserActivity.this, R.string.toast_add_bookmark_failed);
+                    return;
+                }
+
+                NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
+                RecordAction action = new RecordAction(BrowserActivity.this);
+                action.open(true);
+                String title = ninjaWebView.getTitle();
+                String url = ninjaWebView.getUrl();
+                if (action.checkBookmark(url)) {
+                    action.deleteBookmark(url);
+                    NinjaToast.show(BrowserActivity.this, R.string.toast_delete_bookmark_successful);
+                } else {
+                    action.addBookmark(new Record(title, url, System.currentTimeMillis()));
+                    NinjaToast.show(BrowserActivity.this, R.string.toast_add_bookmark_successful);
+                }
+                action.close();
+                updateBookmarks();
+                updateAutoComplete();
+            }
+        });
+
+        omniboxRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (currentAlbumController == null) {
+                    NinjaToast.show(BrowserActivity.this, R.string.toast_refresh_failed);
+                    return;
+                }
+
+                if (currentAlbumController instanceof NinjaWebView) {
+                    NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
+                    if (ninjaWebView.isLoadFinish()) {
+                        ninjaWebView.reload();
+                    } else {
+                        ninjaWebView.stopLoading();
+                    }
+                } else if (currentAlbumController instanceof NinjaRelativeLayout) {
+                    final NinjaRelativeLayout layout = (NinjaRelativeLayout) currentAlbumController;
+                    if (layout.getFlag() == BrowserUnit.FLAG_HOME) {
+                        return;
+                    }
+                    updateProgress(BrowserUnit.PROGRESS_MIN);
+
+                    RecordAction action = new RecordAction(BrowserActivity.this);
+                    action.open(false);
+                    List<Record> list = new ArrayList<Record>();
+                    if (layout.getFlag() == BrowserUnit.FLAG_BOOKMARKS) {
+                        list = action.listBookmarks();
+                    } else if (layout.getFlag() == BrowserUnit.FLAG_HISTORY) {
+                        list = action.listHistory();
+                    }
+                    action.close();
+
+                    ListView listView = (ListView) layout.findViewById(R.id.list);
+                    TextView textView = (TextView) layout.findViewById(R.id.list_empty);
+                    listView.setEmptyView(textView);
+
+                    NinjaListAdapter adapter = new NinjaListAdapter(BrowserActivity.this, R.layout.list_item, list);
+                    listView.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
+
+                    listView.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp));
+                        }
+                    }, animTime);
+                    updateProgress(BrowserUnit.PROGRESS_MAX);
+                } else {
+                    NinjaToast.show(BrowserActivity.this, R.string.toast_refresh_failed);
+                }
+            }
+        });
+
+        omniboxOverflow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO
+            }
+        });
     }
 
     private void initSearchPanel() {
@@ -228,6 +317,77 @@ public class BrowserActivity extends Activity implements BrowserController {
         searchUp = (ImageButton) searchPanel.findViewById(R.id.search_up);
         searchDown = (ImageButton) searchPanel.findViewById(R.id.search_down);
         searchCancel = (ImageButton) searchPanel.findViewById(R.id.search_cancel);
+
+        searchBox.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (currentAlbumController != null && currentAlbumController instanceof NinjaWebView) {
+                    ((NinjaWebView) currentAlbumController).findAllAsync(s.toString());
+                }
+            }
+        });
+
+        searchBox.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId != EditorInfo.IME_ACTION_DONE) {
+                    return false;
+                }
+
+                if (searchBox.getText().toString().isEmpty()) {
+                    NinjaToast.show(BrowserActivity.this, R.string.toast_input_empty);
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        searchUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String query = searchBox.getText().toString();
+                if (query.isEmpty()) {
+                    NinjaToast.show(BrowserActivity.this, R.string.toast_input_empty);
+                    return;
+                }
+
+                hideSoftInput(searchBox);
+                if (currentAlbumController instanceof NinjaWebView) {
+                    ((NinjaWebView) currentAlbumController).findNext(false);
+                }
+            }
+        });
+
+        searchDown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String query = searchBox.getText().toString();
+                if (query.isEmpty()) {
+                    NinjaToast.show(BrowserActivity.this, R.string.toast_input_empty);
+                    return;
+                }
+
+                hideSoftInput(searchBox);
+                if (currentAlbumController instanceof NinjaWebView) {
+                    ((NinjaWebView) currentAlbumController).findNext(true);
+                }
+            }
+        });
+
+        searchCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hideSearchPanel();
+            }
+        });
     }
 
     private synchronized void addAlbum(int flag) {
@@ -539,12 +699,12 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
 
         if (currentAlbumController instanceof NinjaRelativeLayout) {
-            updateProgress(BrowserUnit.PROGRESS_MAX, true);
+            updateProgress(BrowserUnit.PROGRESS_MAX);
             updateBookmarks();
             updateInputBox(null);
         } else if (currentAlbumController instanceof NinjaWebView) {
             NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
-            updateProgress(ninjaWebView.getProgress(), true);
+            updateProgress(ninjaWebView.getProgress());
             updateBookmarks();
             if (ninjaWebView.getUrl() == null && ninjaWebView.getOriginalUrl() == null) {
                 updateInputBox(null);
@@ -557,7 +717,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     @Override
-    public void updateProgress(int progress, boolean fromShow) {
+    public synchronized void updateProgress(int progress) {
         if (progress > progressBar.getProgress()) {
             ObjectAnimator animator = ObjectAnimator.ofInt(progressBar, "progress", progress);
             animator.setDuration(animTime);
@@ -570,40 +730,10 @@ public class BrowserActivity extends Activity implements BrowserController {
             animator.start();
         }
 
-        if (currentAlbumController instanceof NinjaRelativeLayout) {
-            if (progress < BrowserUnit.PROGRESS_MAX) {
-                updateRefresh(true);
-                progressWrapper.setVisibility(View.VISIBLE);
-            } else {
-                updateRefresh(false);
-                progressWrapper.setVisibility(View.GONE);
-                updateBookmarks();
-                updateAutoComplete();
-            }
-        } else if (currentAlbumController instanceof NinjaWebView) {
-            final NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
-            if (ninjaWebView.isLoadFinish()) {
-                if (!fromShow) {
-                    RecordAction action = new RecordAction(this);
-                    action.open(true);
-                    action.addHistory(new Record(ninjaWebView.getTitle(), ninjaWebView.getUrl(), System.currentTimeMillis()));
-                    action.close();
-                    updateAutoComplete();
-                }
-                updateBookmarks();
-
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        ninjaWebView.setAlbumCover(ViewUnit.capture(ninjaWebView, dimen144dp, dimen108dp));
-                        updateRefresh(false);
-                        progressWrapper.setVisibility(View.GONE);
-                    }
-                }, animTime);
-            } else {
-                updateRefresh(true);
-                progressWrapper.setVisibility(View.VISIBLE);
-            }
+        updateBookmarks();
+        if (progress < BrowserUnit.PROGRESS_MAX) {
+            updateRefresh(true);
+            progressWrapper.setVisibility(View.VISIBLE);
         } else {
             updateRefresh(false);
             progressWrapper.setVisibility(View.GONE);
@@ -652,9 +782,37 @@ public class BrowserActivity extends Activity implements BrowserController {
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
     }
 
+    // TODO
+    private void hideSearchPanel() {}
+
+    // TODO
+    private void showSearchPanel() {}
+
+    private boolean prepareRecord() {
+        if (currentAlbumController == null || !(currentAlbumController instanceof NinjaWebView)) {
+            return false;
+        }
+
+        NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
+        String title = ninjaWebView.getTitle();
+        String url = ninjaWebView.getUrl();
+        if (title == null
+                || title.isEmpty()
+                || url == null
+                || url.isEmpty()
+                || url.startsWith(BrowserUnit.URL_SCHEME_ABOUT)
+                || url.startsWith(BrowserUnit.URL_SCHEME_MAIL_TO)
+                || url.startsWith(BrowserUnit.URL_SCHEME_INTENT)) {
+            return false;
+        }
+        return true;
+    }
+
+    // TODO
     @Override
     public void onLongPress(String url) {}
 
     // TODO
-    private void updateAutoComplete() {}
+    @Override
+    public void updateAutoComplete() {}
 }

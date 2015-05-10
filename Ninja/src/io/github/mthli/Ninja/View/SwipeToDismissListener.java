@@ -19,7 +19,7 @@ public class SwipeToDismissListener implements View.OnTouchListener {
     private int slop;
     private int minFlingVelocity;
     private int maxFlingVelocity;
-    private long animationTime;
+    private long animTime;
 
     private float downY;
     private float translationY;
@@ -36,7 +36,7 @@ public class SwipeToDismissListener implements View.OnTouchListener {
         this.slop = configuration.getScaledTouchSlop();
         this.minFlingVelocity = configuration.getScaledMinimumFlingVelocity();
         this.maxFlingVelocity = configuration.getScaledMaximumFlingVelocity();
-        this.animationTime = view.getContext().getResources().getInteger(android.R.integer.config_shortAnimTime);
+        this.animTime = view.getContext().getResources().getInteger(android.R.integer.config_shortAnimTime);
     }
 
     @Override
@@ -79,7 +79,7 @@ public class SwipeToDismissListener implements View.OnTouchListener {
                     this.view.animate()
                             .translationY(dismissDown ? viewHeight : -viewHeight)
                             .alpha(0)
-                            .setDuration(animationTime)
+                            .setDuration(animTime)
                             .setListener(new AnimatorListenerAdapter() {
                                 @Override
                                 public void onAnimationEnd(Animator animation) {
@@ -90,7 +90,7 @@ public class SwipeToDismissListener implements View.OnTouchListener {
                     this.view.animate()
                             .translationY(0f)
                             .alpha(1f)
-                            .setDuration(animationTime)
+                            .setDuration(animTime)
                             .setListener(null);
                 }
                 downY = 0;
@@ -107,7 +107,7 @@ public class SwipeToDismissListener implements View.OnTouchListener {
                 this.view.animate()
                         .translationY(0f)
                         .alpha(1f)
-                        .setDuration(animationTime)
+                        .setDuration(animTime)
                         .setListener(null);
                 downY = 0;
                 translationY = 0;
@@ -150,7 +150,7 @@ public class SwipeToDismissListener implements View.OnTouchListener {
         final ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         final int originalWidth = view.getWidth();
 
-        ValueAnimator animator = ValueAnimator.ofInt(originalWidth, 1).setDuration(animationTime);
+        ValueAnimator animator = ValueAnimator.ofInt(originalWidth, 1).setDuration(animTime);
         animator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {

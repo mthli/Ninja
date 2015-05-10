@@ -4,11 +4,13 @@ import android.os.Message;
 import android.webkit.WebView;
 
 public interface BrowserController {
+    void updateAutoComplete();
+
     void updateBookmarks();
 
     void updateInputBox(String query);
 
-    void updateProgress(int progress, boolean fromShow);
+    void updateProgress(int progress);
 
     void showAlbum(AlbumController albumController, boolean capture);
 

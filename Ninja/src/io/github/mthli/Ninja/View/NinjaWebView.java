@@ -14,9 +14,12 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import io.github.mthli.Ninja.Browser.*;
+import io.github.mthli.Ninja.Database.Record;
+import io.github.mthli.Ninja.Database.RecordAction;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.Unit.IntentUnit;
+import io.github.mthli.Ninja.Unit.ViewUnit;
 
 import java.net.URISyntaxException;
 
@@ -219,7 +222,19 @@ public class NinjaWebView extends WebView implements AlbumController {
 
     public synchronized void update(int progress) {
         if (foreground) { // TODO: || browserController instanceof HolderService
-            browserController.updateProgress(progress, false);
+            browserController.updateProgress(progress);
+        }
+
+        if (isLoadFinish() && prepareRecord()) {
+            RecordAction action = new RecordAction(context);
+            action.open(true);
+            action.addHistory(new Record(getTitle(), getUrl(), System.currentTimeMillis()));
+            action.close();
+            browserController.updateAutoComplete();
+
+            int dimen144dp = getResources().getDimensionPixelSize(R.dimen.layout_width_144dp);
+            int dimen108dp = getResources().getDimensionPixelSize(R.dimen.layout_height_108dp);
+            setAlbumCover(ViewUnit.capture(this, dimen144dp, dimen108dp));
         }
     }
 
@@ -260,5 +275,21 @@ public class NinjaWebView extends WebView implements AlbumController {
             click.setTarget(clickHandler);
         }
         requestFocusNodeHref(click);
+    }
+
+    private boolean prepareRecord() {
+        String title = getTitle();
+        String url = getUrl();
+
+        if (title == null
+                || title.isEmpty()
+                || url == null
+                || url.isEmpty()
+                || url.startsWith(BrowserUnit.URL_SCHEME_ABOUT)
+                || url.startsWith(BrowserUnit.URL_SCHEME_MAIL_TO)
+                || url.startsWith(BrowserUnit.URL_SCHEME_INTENT)) {
+            return false;
+        }
+        return true;
     }
 }
