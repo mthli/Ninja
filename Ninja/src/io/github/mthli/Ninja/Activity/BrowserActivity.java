@@ -62,12 +62,6 @@ public class BrowserActivity extends Activity implements BrowserController {
     private AlbumController currentAlbumController = null;
 
     @Override
-    public void onCreateView(WebView view, Message resultMsg) {}
-
-    @Override
-    public void onLongPress(String url) {}
-
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
@@ -503,18 +497,6 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
     }
 
-    private void showSoftInput(View view) {
-        view.requestFocus();
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
-    }
-
-    private void hideSoftInput(View view) {
-        view.clearFocus();
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-    }
-
     @Override
     public void updateBookmarks() {
         if (currentAlbumController == null || !(currentAlbumController instanceof NinjaWebView)) {
@@ -557,15 +539,12 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
 
         if (currentAlbumController instanceof NinjaRelativeLayout) {
-            updateProgress(BrowserUnit.PROGRESS_MAX);
+            updateProgress(BrowserUnit.PROGRESS_MAX, true);
             updateBookmarks();
             updateInputBox(null);
         } else if (currentAlbumController instanceof NinjaWebView) {
             NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
-            /*
-             * Add this line will make history record repeated:
-             * updateProgress(ninjaWebView.getProgress());
-             */
+            updateProgress(ninjaWebView.getProgress(), true);
             updateBookmarks();
             if (ninjaWebView.getUrl() == null && ninjaWebView.getOriginalUrl() == null) {
                 updateInputBox(null);
@@ -578,7 +557,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     @Override
-    public void updateProgress(int progress) {
+    public void updateProgress(int progress, boolean fromShow) {
         if (progress > progressBar.getProgress()) {
             ObjectAnimator animator = ObjectAnimator.ofInt(progressBar, "progress", progress);
             animator.setDuration(animTime);
@@ -604,12 +583,14 @@ public class BrowserActivity extends Activity implements BrowserController {
         } else if (currentAlbumController instanceof NinjaWebView) {
             final NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
             if (ninjaWebView.isLoadFinish()) {
-                RecordAction action = new RecordAction(this);
-                action.open(true);
-                action.addHistory(new Record(ninjaWebView.getTitle(), ninjaWebView.getUrl(), System.currentTimeMillis()));
-                action.close();
+                if (!fromShow) {
+                    RecordAction action = new RecordAction(this);
+                    action.open(true);
+                    action.addHistory(new Record(ninjaWebView.getTitle(), ninjaWebView.getUrl(), System.currentTimeMillis()));
+                    action.close();
+                    updateAutoComplete();
+                }
                 updateBookmarks();
-                updateAutoComplete();
 
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -645,7 +626,35 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
     }
 
+    @Override
+    public void onCreateView(WebView view, final Message resultMsg) {
+        if (resultMsg == null) {
+            return;
+        }
+        switcherPanel.collapsed();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                addAlbum(getString(R.string.album_untitled), null, true, resultMsg);
+            }
+        }, animTime);
+    }
+
+    private void hideSoftInput(View view) {
+        view.clearFocus();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    private void showSoftInput(View view) {
+        view.requestFocus();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+    }
+
+    @Override
+    public void onLongPress(String url) {}
+
     // TODO
     private void updateAutoComplete() {}
-
 }

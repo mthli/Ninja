@@ -219,7 +219,7 @@ public class NinjaWebView extends WebView implements AlbumController {
 
     public synchronized void update(int progress) {
         if (foreground) { // TODO: || browserController instanceof HolderService
-            browserController.updateProgress(progress);
+            browserController.updateProgress(progress, false);
         }
     }
 

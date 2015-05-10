@@ -8,7 +8,7 @@ public interface BrowserController {
 
     void updateInputBox(String query);
 
-    void updateProgress(int progress);
+    void updateProgress(int progress, boolean fromShow);
 
     void showAlbum(AlbumController albumController, boolean capture);
 
