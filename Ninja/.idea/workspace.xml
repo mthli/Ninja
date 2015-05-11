@@ -39,69 +39,7 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="BrowserActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/BrowserActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="6.4864864">
-              <caret line="980" column="91" selection-start-line="980" selection-start-column="91" selection-end-line="980" selection-end-column="91" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="method#onCreate#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="class#3520:3802" expanded="false" />
-                <element signature="method#onDestroy#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#onConfigurationChanged#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#onKeyDown#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#initData#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#initSwitcherView#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#initMainView#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#initSearchPanel#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="class#13624:14207" expanded="false" />
-                <element signature="method#beforeTextChanged#0;class#13624:14207" expanded="false" />
-                <element signature="method#onTextChanged#0;class#13624:14207" expanded="false" />
-                <element signature="method#afterTextChanged#0;class#13624:14207" expanded="false" />
-                <element signature="method#addAlbum#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="class#20631:21069" expanded="false" />
-                <element signature="method#onAnimationRepeat#0;class#20631:21069" expanded="false" />
-                <element signature="method#addAlbum#1;class#BrowserActivity#0" expanded="false" />
-                <element signature="class#22818:23631" expanded="false" />
-                <element signature="method#onAnimationRepeat#0;class#22818:23631" expanded="false" />
-                <element signature="method#onAnimationEnd#0;class#22818:23631" expanded="false" />
-                <element signature="method#showAlbum#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#updateAlbum#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#updateAlbum#1;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#removeAlbum#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#updateBookmarks#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#updateInputBox#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#updateOmnibox#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#updateProgress#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#updateRefresh#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#onCreateView#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#onLongPress#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#doubleTapsQuit#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#hideSoftInput#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#showSoftInput#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#prepareRecord#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="class#38998:39587" expanded="false" />
-                <element signature="method#onStartTrackingTouch#0;class#38998:39587" expanded="false" />
-                <element signature="method#onProgressChanged#0;class#38998:39587" expanded="false" />
-                <element signature="method#onStopTrackingTouch#0;class#38998:39587" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="integers.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/values/integers.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -159,11 +97,9 @@
         <option value="$PROJECT_DIR$/res/layout/dialog.xml" />
         <option value="$PROJECT_DIR$/res/layout/dialog_item.xml" />
         <option value="$PROJECT_DIR$/res/values/dimens.xml" />
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/res/layout/dialog_header.xml" />
         <option value="$PROJECT_DIR$/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/NinjaWebViewClient.java" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/NinjaWebView.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/ViewUnit.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/Album.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/NinjaToast.java" />
@@ -173,6 +109,8 @@
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Task/ScreenshotTask.java" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/res/values/integers.xml" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/NinjaWebView.java" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -709,7 +647,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="-3" width="1370" height="748" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -725,13 +663,13 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31269842" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.32857144" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" x="0" y="18" width="1318" height="721" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32857144" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" x="0" y="18" width="1318" height="721" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3258427" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33156297" sideWeight="0.49438202" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.5949764" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" x="767" y="88" width="435" height="613" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42857143" sideWeight="0.49697885" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.5949764" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" x="767" y="88" width="435" height="613" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42857143" sideWeight="0.49697885" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1100,14 +1038,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24496645">
-          <caret line="17" column="72" selection-start-line="17" selection-start-column="72" selection-end-line="17" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/dialog_header.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -1205,20 +1135,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/View/NinjaWebView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="245" column="118" selection-start-line="245" selection-start-column="118" selection-end-line="245" selection-end-column="118" />
-          <folding>
-            <element signature="method#pause#0;class#NinjaWebView#0" expanded="false" />
-            <element signature="method#resume#0;class#NinjaWebView#0" expanded="false" />
-            <element signature="method#destroy#0;class#NinjaWebView#0" expanded="false" />
-            <element signature="method#onLongPress#0;class#NinjaWebView#0" expanded="false" />
-            <element signature="method#prepareRecord#0;class#NinjaWebView#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/ViewUnit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22885571">
@@ -1301,17 +1217,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/integers.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/BrowserActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="6.4864864">
+        <state vertical-scroll-proportion="3.5820897">
           <caret line="980" column="91" selection-start-line="980" selection-start-column="91" selection-end-line="980" selection-end-column="91" />
           <folding>
             <element signature="imports" expanded="false" />
@@ -1355,6 +1263,36 @@
             <element signature="method#onProgressChanged#0;class#38998:39587" expanded="false" />
             <element signature="method#onStopTrackingTouch#0;class#38998:39587" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/integers.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09950249">
+          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/View/NinjaWebView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5945946">
+          <caret line="133" column="50" selection-start-line="133" selection-start-column="50" selection-end-line="133" selection-end-column="50" />
+          <folding>
+            <element signature="method#pause#0;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#resume#0;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#destroy#0;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#onLongPress#0;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#prepareRecord#0;class#NinjaWebView#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6268657">
+          <caret line="32" column="60" selection-start-line="32" selection-start-column="60" selection-end-line="32" selection-end-column="60" />
+          <folding />
         </state>
       </provider>
     </entry>

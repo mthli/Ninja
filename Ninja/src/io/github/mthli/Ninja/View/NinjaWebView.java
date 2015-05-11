@@ -87,19 +87,17 @@ public class NinjaWebView extends WebView implements AlbumController {
     private synchronized void initWebView() {
         setAlwaysDrawnWithCacheEnabled(true);
         setAnimationCacheEnabled(true);
+        setDrawingCacheBackgroundColor(0x00000000);
+        setDrawingCacheEnabled(true);
+        setWillNotCacheDrawing(false);
+        setSaveEnabled(true);
 
         setBackground(null);
         getRootView().setBackground(null);
         setBackgroundColor(context.getResources().getColor(R.color.white));
 
-        setDrawingCacheBackgroundColor(0x00000000);
-        setDrawingCacheEnabled(true);
-        setWillNotCacheDrawing(false);
-
         setFocusable(true);
         setFocusableInTouchMode(true);
-
-        setSaveEnabled(true);
         setScrollbarFadingEnabled(true);
 
         setWebViewClient(webViewClient);
@@ -125,10 +123,9 @@ public class NinjaWebView extends WebView implements AlbumController {
         webSettings.setAppCacheEnabled(true);
         webSettings.setAppCachePath(context.getCacheDir().toString());
         webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
-        webSettings.setGeolocationDatabasePath(context.getFilesDir().toString());
-
         webSettings.setDatabaseEnabled(true);
         webSettings.setDomStorageEnabled(true);
+        webSettings.setGeolocationDatabasePath(context.getFilesDir().toString());
 
         webSettings.setDefaultTextEncodingName(BrowserUnit.URL_ENCODING);
 
