@@ -28,6 +28,14 @@ public class SwitcherPanel extends ViewGroup {
     private float dimen108dp = 0f;
     private float dimen48dp = 0f;
 
+    private boolean search = false;
+    public boolean isSearch() {
+        return search;
+    }
+    public void setSearch(boolean search) {
+        this.search = search;
+    }
+
     /* slideRange: px */
     private float slideRange = 0f;
     private float slideOffset = 1f;
@@ -323,7 +331,7 @@ public class SwitcherPanel extends ViewGroup {
         super.draw(canvas);
 
         int left = mainView.getLeft();
-        int top = mainView.getTop() + omnibox.getHeight();
+        int top = (int) (mainView.getTop() + dimen48dp);
         if (progressWrapper.getVisibility() == VISIBLE) {
             top = top + progressWrapper.getHeight();
         }
@@ -364,7 +372,7 @@ public class SwitcherPanel extends ViewGroup {
             interceptX = motionEvent.getRawX();
             interceptY = motionEvent.getRawY();
         } else if (action == MotionEvent.ACTION_MOVE) {
-            if (shouldCollapsed()) {
+            if (!search && shouldCollapsed()) {
                 float deltaY = motionEvent.getRawY() - interceptY;
                 if (deltaY >= ViewUnit.dp2px(getContext(), 32)) {
                     collapsed();

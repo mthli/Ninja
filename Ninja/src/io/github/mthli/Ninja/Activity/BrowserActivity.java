@@ -16,6 +16,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
@@ -55,6 +56,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     private ImageButton swictherHistory;
     private ImageButton switcherAdd;
 
+    private LinearLayout mainView;
     private RelativeLayout omnibox;
     private AutoCompleteTextView inputBox;
     private ImageButton omniboxBookmark;
@@ -218,6 +220,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     private void initMainView() {
+        mainView = (LinearLayout) findViewById(R.id.main_view);
         omnibox = (RelativeLayout) findViewById(R.id.main_omnibox);
         inputBox = (AutoCompleteTextView) findViewById(R.id.main_omnibox_input);
         omniboxBookmark = (ImageButton) findViewById(R.id.main_omnibox_bookmark);
@@ -885,13 +888,31 @@ public class BrowserActivity extends Activity implements BrowserController {
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
     }
 
-    // TODO
-    private void hideSearchPanel() {}
+    private void hideSearchPanel() {
+        int index = mainView.indexOfChild(searchPanel);
+        if (index < 0) {
+            return;
+        }
 
-    // TODO
-    private void showSearchPanel() {}
+        hideSoftInput(searchBox);
+        searchBox.setText("");
+        switcherPanel.setSearch(false);
+        mainView.removeView(searchPanel);
+        mainView.addView(omnibox, index, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+    }
 
-    // TODO
+    private void showSearchPanel() {
+        int index = mainView.indexOfChild(omnibox);
+        if (index < 0) {
+            return;
+        }
+
+        switcherPanel.setSearch(true);
+        mainView.removeView(omnibox);
+        mainView.addView(searchPanel, index, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        showSoftInput(searchBox);
+    }
+
     private void showOverflow() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
@@ -946,7 +967,8 @@ public class BrowserActivity extends Activity implements BrowserController {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String string = list.get(position - 1);
                 if (string.equals(strings[0])) {
-                    // TODO: show searchPanel
+                    hideSoftInput(inputBox);
+                    showSearchPanel();
                 } else if (string.equals(strings[1])) {
                     final NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
                     new ScreenshotTask(BrowserActivity.this, ninjaWebView).execute();
