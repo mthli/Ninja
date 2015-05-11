@@ -320,7 +320,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                     listView.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, Bitmap.Config.RGB_565));
+                            layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
                         }
                     }, animTime);
                     updateProgress(BrowserUnit.PROGRESS_MAX);
@@ -423,7 +423,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             NinjaRelativeLayout bookmarksLayout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.list, null, false);
             bookmarksLayout.setBrowserController(this);
             bookmarksLayout.setFlag(BrowserUnit.FLAG_BOOKMARKS);
-            bookmarksLayout.setAlbumCover(ViewUnit.capture(bookmarksLayout, dimen144dp, dimen108dp, Bitmap.Config.RGB_565));
+            bookmarksLayout.setAlbumCover(ViewUnit.capture(bookmarksLayout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
             bookmarksLayout.setAlbumTitle(getString(R.string.album_title_bookmarks));
             holder = bookmarksLayout;
 
@@ -458,7 +458,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             NinjaRelativeLayout historyLayout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.list, null, false);
             historyLayout.setBrowserController(this);
             historyLayout.setFlag(BrowserUnit.FLAG_HISTORY);
-            historyLayout.setAlbumCover(ViewUnit.capture(historyLayout, dimen144dp, dimen108dp, Bitmap.Config.RGB_565));
+            historyLayout.setAlbumCover(ViewUnit.capture(historyLayout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
             historyLayout.setAlbumTitle(getString(R.string.album_title_history));
             holder = historyLayout;
 
@@ -493,7 +493,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             NinjaRelativeLayout homeLayout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.home, null, false);
             homeLayout.setBrowserController(this);
             homeLayout.setFlag(BrowserUnit.FLAG_HOME);
-            homeLayout.setAlbumCover(ViewUnit.capture(homeLayout, dimen144dp, dimen108dp, Bitmap.Config.RGB_565));
+            homeLayout.setAlbumCover(ViewUnit.capture(homeLayout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
             homeLayout.setAlbumTitle(getString(R.string.album_title_home));
             holder = homeLayout;
         } else {
@@ -529,7 +529,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         final NinjaWebView ninjaWebView = new NinjaWebView(this);
         ninjaWebView.setBrowserController(this);
         ninjaWebView.setFlag(BrowserUnit.FLAG_NINJA);
-        ninjaWebView.setAlbumCover(ViewUnit.capture(ninjaWebView, dimen144dp, dimen108dp, Bitmap.Config.RGB_565));
+        ninjaWebView.setAlbumCover(ViewUnit.capture(ninjaWebView, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
         ninjaWebView.setAlbumTitle(title);
 
         BrowserContainer.add(ninjaWebView);
@@ -595,15 +595,16 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         currentAlbumController = albumController;
         currentAlbumController.activate();
-        swictherScroller.smoothScrollTo(currentAlbumController.getAlbumView().getLeft(), 0);
+
         updateOmnibox();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (capture) {
-                    currentAlbumController.setAlbumCover(ViewUnit.capture(((View) currentAlbumController), dimen144dp, dimen108dp, Bitmap.Config.RGB_565));
-                }
+                swictherScroller.smoothScrollTo(currentAlbumController.getAlbumView().getLeft(), 0);
                 switcherPanel.expanded();
+                if (capture) {
+                    currentAlbumController.setAlbumCover(ViewUnit.capture(((View) currentAlbumController), dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
+                }
             }
         }, animTime);
     }
@@ -616,7 +617,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         NinjaRelativeLayout homeLayout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.home, null, false);
         homeLayout.setBrowserController(this);
         homeLayout.setFlag(BrowserUnit.FLAG_HOME);
-        homeLayout.setAlbumCover(ViewUnit.capture(homeLayout, dimen144dp, dimen108dp, Bitmap.Config.RGB_565));
+        homeLayout.setAlbumCover(ViewUnit.capture(homeLayout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
         homeLayout.setAlbumTitle(getString(R.string.album_title_home));
 
         int index = switcherContainer.indexOfChild(currentAlbumController.getAlbumView());
@@ -643,7 +644,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             NinjaWebView ninjaWebView = new NinjaWebView(this);
             ninjaWebView.setBrowserController(this);
             ninjaWebView.setFlag(BrowserUnit.FLAG_NINJA);
-            ninjaWebView.setAlbumCover(ViewUnit.capture(ninjaWebView, dimen144dp, dimen108dp, Bitmap.Config.RGB_565));
+            ninjaWebView.setAlbumCover(ViewUnit.capture(ninjaWebView, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
             ninjaWebView.setAlbumTitle(getString(R.string.album_untitled));
 
             int index = switcherContainer.indexOfChild(currentAlbumController.getAlbumView());

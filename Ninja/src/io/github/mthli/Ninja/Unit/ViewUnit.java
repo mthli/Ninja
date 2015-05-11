@@ -13,7 +13,7 @@ import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.View.NinjaToast;
 
 public class ViewUnit {
-    public static Bitmap capture(View view, float width, float height, Bitmap.Config config) {
+    public static Bitmap capture(View view, float width, float height, boolean scroll, Bitmap.Config config) {
         if (!view.isDrawingCacheEnabled()) {
             view.setDrawingCacheEnabled(true);
         }
@@ -22,8 +22,12 @@ public class ViewUnit {
         bitmap.eraseColor(Color.WHITE);
 
         Canvas canvas = new Canvas(bitmap);
-        int left = view.getScrollX();
-        int top = view.getScrollY();
+        int left = view.getLeft();
+        int top = view.getTop();
+        if (scroll) {
+            left = view.getScrollX();
+            top = view.getScrollY();
+        }
         int status = canvas.save();
         canvas.translate(-left, -top);
 

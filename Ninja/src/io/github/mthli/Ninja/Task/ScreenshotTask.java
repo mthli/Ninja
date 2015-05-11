@@ -28,7 +28,7 @@ public class ScreenshotTask extends AsyncTask<Void, Void, Boolean> {
     protected Boolean doInBackground(Void... params) {
         int windowWidth = ViewUnit.getWindowWidth(context);
         float contentHeight = ninjaWebView.getContentHeight() * ViewUnit.getDensity(context);
-        Bitmap bitmap = ViewUnit.capture(ninjaWebView, windowWidth, contentHeight, Bitmap.Config.ARGB_8888);
+        Bitmap bitmap = ViewUnit.capture(ninjaWebView, windowWidth, contentHeight, false, Bitmap.Config.ARGB_8888);
         path = BrowserUnit.screenshot(context, bitmap, ninjaWebView.getTitle());
         return path != null && !path.isEmpty();
     }
