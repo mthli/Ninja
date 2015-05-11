@@ -59,6 +59,7 @@
     </string>
     <string-array name="main_overflow">
         <item>Find in page</item>
+        <item>Screenshot</item>
         <item>Share</item>
         <item>Setting</item>
         <item>Quit</item>
@@ -268,7 +269,7 @@
         Double taps quit
     </string>
     <string name="toast_export_bookmarks_successful">
-        Export bookmarks file at:\n
+        Export bookmarks file at:
     </string>
     <string name="toast_export_bookmarks_failed">
         Export bookmarks failed
@@ -299,6 +300,15 @@
     </string>
     <string name="toast_refresh_failed">
         Can\'t refresh this page
+    </string>
+    <string name="toast_start_screenshot">
+        Start screenshot
+    </string>
+    <string name="toast_screenshot_successful">
+        Save screenshot at:
+    </string>
+    <string name="toast_screenshot_failed">
+        Screenshot failed
     </string>
     <string name="toast_search_failed">
         Can\'t search at this page

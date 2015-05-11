@@ -13,8 +13,12 @@ import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.View.NinjaToast;
 
 public class ViewUnit {
-    public static Bitmap capture(View view, float width, float height) {
-        Bitmap bitmap = Bitmap.createBitmap((int) width, (int) height, Bitmap.Config.RGB_565);
+    public static Bitmap capture(View view, float width, float height, Bitmap.Config config) {
+        if (!view.isDrawingCacheEnabled()) {
+            view.setDrawingCacheEnabled(true);
+        }
+
+        Bitmap bitmap = Bitmap.createBitmap((int) width, (int) height, config);
         bitmap.eraseColor(Color.WHITE);
 
         Canvas canvas = new Canvas(bitmap);
@@ -44,6 +48,10 @@ public class ViewUnit {
     public static float dp2px(Context context, float dp) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, displayMetrics);
+    }
+
+    public static float getDensity(Context context) {
+        return context.getResources().getDisplayMetrics().density;
     }
 
     public static int getStatusBarHeight(Context context) {

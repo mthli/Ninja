@@ -1,10 +1,8 @@
 package io.github.mthli.Ninja.Unit;
 
 import android.app.DownloadManager;
-import android.content.ClipData;
-import android.content.ClipboardManager;
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.content.*;
+import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -26,8 +24,8 @@ import java.util.regex.Pattern;
 public class BrowserUnit {
     public static final int PROGRESS_MAX = 100;
     public static final int PROGRESS_MIN = 0;
-
-    public static final String ABOUT_BLANK = "about:blank";
+    public static final String SUFFIX_PNG = ".png";
+    public static final String SUFFIX_TXT = ".txt";
 
     public static final int FLAG_BOOKMARKS = 0x100;
     public static final int FLAG_HISTORY = 0x101;
@@ -44,6 +42,7 @@ public class BrowserUnit {
     public static final String SEARCH_ENGINE_BAIDU = "http://www.baidu.com/s?wd=";
 
     public static final String URL_ENCODING = "UTF-8";
+    public static final String URL_ABOUT_BLANK = "about:blank";
     public static final String URL_SCHEME_ABOUT = "about:";
     public static final String URL_SCHEME_MAIL_TO = "mailto:";
     public static final String URL_SCHEME_FILE = "file://";
@@ -67,7 +66,7 @@ public class BrowserUnit {
             return false;
         }
 
-        if (url.startsWith(ABOUT_BLANK)
+        if (url.startsWith(URL_ABOUT_BLANK)
                 || url.startsWith(URL_SCHEME_MAIL_TO)
                 || url.startsWith(URL_SCHEME_FILE)) {
             return true;
@@ -125,7 +124,7 @@ public class BrowserUnit {
         return searchEngine + query;
     }
 
-    public static void copy(Context context, String url) {
+    public static void copyURL(Context context, String url) {
         ClipboardManager manager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData data = ClipData.newPlainText(null, url);
         manager.setPrimaryClip(data);
@@ -144,6 +143,36 @@ public class BrowserUnit {
         NinjaToast.show(context, R.string.toast_start_download);
     }
 
+    public static String screenshot(Context context, Bitmap bitmap, String name) {
+        if (bitmap == null) {
+            return null;
+        }
+
+        File dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        if (name == null || name.isEmpty()) {
+            name = String.valueOf(System.currentTimeMillis());
+        }
+
+        int count = 0;
+        File file = new File(dir, name + SUFFIX_PNG);
+        while (file.exists()) {
+            count++;
+            file = new File(dir, name + "." + count + SUFFIX_PNG);
+        }
+
+        try {
+            FileOutputStream stream = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            stream.flush();
+            stream.close();
+            context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(file)));
+            return file.getAbsolutePath();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    // TODO: used by AsyncTask
     public static void exportBookmarks(Context context) {
         RecordAction action = new RecordAction(context);
         action.open(false);
@@ -151,12 +180,13 @@ public class BrowserUnit {
         action.close();
 
         String filename = context.getString(R.string.bookmarks_filename);
-        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename + ".txt");
+        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename + SUFFIX_TXT);
         int count = 0;
         while (file.exists()) {
             count++;
-            file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename + "-" + count + ".txt");
+            file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename + "." + count + SUFFIX_TXT);
         }
+
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
             for (Record record : list) {
@@ -168,12 +198,13 @@ public class BrowserUnit {
                 writer.newLine();
             }
             writer.close();
-            NinjaToast.show(context, context.getString(R.string.toast_export_bookmarks_successful) + file.getAbsolutePath());
+            NinjaToast.show(context, context.getString(R.string.toast_export_bookmarks_successful) + " " + file.getAbsolutePath());
         } catch (Exception e) {
             NinjaToast.show(context, R.string.toast_export_bookmarks_failed);
         }
     }
 
+    // TODO: used by AsyncTask
     public static void importBookmarks(Context context, File file) {
         if (file == null) {
             return;

@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -25,6 +26,7 @@ import android.widget.*;
 import io.github.mthli.Ninja.Browser.AlbumController;
 import io.github.mthli.Ninja.Browser.BrowserContainer;
 import io.github.mthli.Ninja.Browser.BrowserController;
+import io.github.mthli.Ninja.Task.ScreenshotTask;
 import io.github.mthli.Ninja.Database.Record;
 import io.github.mthli.Ninja.Database.RecordAction;
 import io.github.mthli.Ninja.R;
@@ -318,7 +320,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                     listView.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp));
+                            layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, Bitmap.Config.RGB_565));
                         }
                     }, animTime);
                     updateProgress(BrowserUnit.PROGRESS_MAX);
@@ -421,7 +423,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             NinjaRelativeLayout bookmarksLayout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.list, null, false);
             bookmarksLayout.setBrowserController(this);
             bookmarksLayout.setFlag(BrowserUnit.FLAG_BOOKMARKS);
-            bookmarksLayout.setAlbumCover(ViewUnit.capture(bookmarksLayout, dimen144dp, dimen108dp));
+            bookmarksLayout.setAlbumCover(ViewUnit.capture(bookmarksLayout, dimen144dp, dimen108dp, Bitmap.Config.RGB_565));
             bookmarksLayout.setAlbumTitle(getString(R.string.album_title_bookmarks));
             holder = bookmarksLayout;
 
@@ -456,7 +458,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             NinjaRelativeLayout historyLayout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.list, null, false);
             historyLayout.setBrowserController(this);
             historyLayout.setFlag(BrowserUnit.FLAG_HISTORY);
-            historyLayout.setAlbumCover(ViewUnit.capture(historyLayout, dimen144dp, dimen108dp));
+            historyLayout.setAlbumCover(ViewUnit.capture(historyLayout, dimen144dp, dimen108dp, Bitmap.Config.RGB_565));
             historyLayout.setAlbumTitle(getString(R.string.album_title_history));
             holder = historyLayout;
 
@@ -491,7 +493,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             NinjaRelativeLayout homeLayout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.home, null, false);
             homeLayout.setBrowserController(this);
             homeLayout.setFlag(BrowserUnit.FLAG_HOME);
-            homeLayout.setAlbumCover(ViewUnit.capture(homeLayout, dimen144dp, dimen108dp));
+            homeLayout.setAlbumCover(ViewUnit.capture(homeLayout, dimen144dp, dimen108dp, Bitmap.Config.RGB_565));
             homeLayout.setAlbumTitle(getString(R.string.album_title_home));
             holder = homeLayout;
         } else {
@@ -527,7 +529,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         final NinjaWebView ninjaWebView = new NinjaWebView(this);
         ninjaWebView.setBrowserController(this);
         ninjaWebView.setFlag(BrowserUnit.FLAG_NINJA);
-        ninjaWebView.setAlbumCover(ViewUnit.capture(ninjaWebView, dimen144dp, dimen108dp));
+        ninjaWebView.setAlbumCover(ViewUnit.capture(ninjaWebView, dimen144dp, dimen108dp, Bitmap.Config.RGB_565));
         ninjaWebView.setAlbumTitle(title);
 
         BrowserContainer.add(ninjaWebView);
@@ -599,7 +601,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             @Override
             public void run() {
                 if (capture) {
-                    currentAlbumController.setAlbumCover(ViewUnit.capture(((View) currentAlbumController), dimen144dp, dimen108dp));
+                    currentAlbumController.setAlbumCover(ViewUnit.capture(((View) currentAlbumController), dimen144dp, dimen108dp, Bitmap.Config.RGB_565));
                 }
                 switcherPanel.expanded();
             }
@@ -614,7 +616,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         NinjaRelativeLayout homeLayout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.home, null, false);
         homeLayout.setBrowserController(this);
         homeLayout.setFlag(BrowserUnit.FLAG_HOME);
-        homeLayout.setAlbumCover(ViewUnit.capture(homeLayout, dimen144dp, dimen108dp));
+        homeLayout.setAlbumCover(ViewUnit.capture(homeLayout, dimen144dp, dimen108dp, Bitmap.Config.RGB_565));
         homeLayout.setAlbumTitle(getString(R.string.album_title_home));
 
         int index = switcherContainer.indexOfChild(currentAlbumController.getAlbumView());
@@ -641,7 +643,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             NinjaWebView ninjaWebView = new NinjaWebView(this);
             ninjaWebView.setBrowserController(this);
             ninjaWebView.setFlag(BrowserUnit.FLAG_NINJA);
-            ninjaWebView.setAlbumCover(ViewUnit.capture(ninjaWebView, dimen144dp, dimen108dp));
+            ninjaWebView.setAlbumCover(ViewUnit.capture(ninjaWebView, dimen144dp, dimen108dp, Bitmap.Config.RGB_565));
             ninjaWebView.setAlbumTitle(getString(R.string.album_untitled));
 
             int index = switcherContainer.indexOfChild(currentAlbumController.getAlbumView());
@@ -845,7 +847,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                     addAlbum(getString(R.string.album_untitled), target, false, null);
                     NinjaToast.show(BrowserActivity.this, R.string.toast_new_tab_successful);
                 } else if (string.equals(getString(R.string.main_menu_copy))) {
-                    BrowserUnit.copy(BrowserActivity.this, target);
+                    BrowserUnit.copyURL(BrowserActivity.this, target);
                 } else if (string.equals(getString(R.string.main_menu_save))) {
                     BrowserUnit.download(BrowserActivity.this, target, target, BrowserUnit.MIME_TYPE_IMAGE);
                 }
@@ -929,6 +931,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         if (currentAlbumController != null && currentAlbumController instanceof NinjaRelativeLayout) {
             list.remove(strings[0]);
             list.remove(strings[1]);
+            list.remove(strings[2]);
         }
 
         RelativeLayout dialogHeader = (RelativeLayout) getLayoutInflater().inflate(R.layout.dialog_header, null, false);
@@ -971,15 +974,18 @@ public class BrowserActivity extends Activity implements BrowserController {
                 if (string.equals(strings[0])) {
                     // TODO: show searchPanel
                 } else if (string.equals(strings[1])) {
+                    final NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
+                    new ScreenshotTask(BrowserActivity.this, ninjaWebView).execute();
+                } else if (string.equals(strings[2])) {
                     if (!prepareRecord()) {
                         NinjaToast.show(BrowserActivity.this, R.string.toast_share_failed);
                     } else {
                         NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
                         IntentUnit.share(BrowserActivity.this, ninjaWebView.getTitle(), ninjaWebView.getUrl());
                     }
-                } else if (string.equals(strings[2])) {
-                    // TODO: intent to SettingActivity
                 } else if (string.equals(strings[3])) {
+                    // TODO: intent to SettingActivity
+                } else if (string.equals(strings[4])) {
                     finish();
                 }
                 dialog.hide();

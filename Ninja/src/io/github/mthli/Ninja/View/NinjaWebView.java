@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -237,12 +238,12 @@ public class NinjaWebView extends WebView implements AlbumController {
             browserController.updateProgress(progress);
         }
 
-        setAlbumCover(ViewUnit.capture(this, dimen144dp, dimen108dp));
+        setAlbumCover(ViewUnit.capture(this, dimen144dp, dimen108dp, Bitmap.Config.RGB_565));
         if (isLoadFinish()) {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    setAlbumCover(ViewUnit.capture(NinjaWebView.this, dimen144dp, dimen108dp));
+                    setAlbumCover(ViewUnit.capture(NinjaWebView.this, dimen144dp, dimen108dp, Bitmap.Config.RGB_565));
                 }
             }, animTime);
 
