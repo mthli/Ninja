@@ -49,7 +49,6 @@ public class BrowserActivity extends Activity implements BrowserController {
     private float dimen108dp;
     private float dimen48dp;
 
-    private FrameLayout switcherHeader;
     private HorizontalScrollView swictherScroller;
     private LinearLayout switcherContainer;
     private ImageButton swictherBookmarks;
@@ -190,7 +189,6 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     private void initSwitcherView() {
-        switcherHeader = (FrameLayout) findViewById(R.id.switcher_header);
         swictherScroller = (HorizontalScrollView) findViewById(R.id.switcher_scroller);
         switcherContainer = (LinearLayout) findViewById(R.id.switcher_container);
         swictherBookmarks = (ImageButton) findViewById(R.id.switcher_bookmarks);
@@ -595,7 +593,6 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         currentAlbumController = albumController;
         currentAlbumController.activate();
-
         updateOmnibox();
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -894,30 +891,6 @@ public class BrowserActivity extends Activity implements BrowserController {
     // TODO
     private void showSearchPanel() {}
 
-    private boolean prepareRecord() {
-        if (currentAlbumController == null || !(currentAlbumController instanceof NinjaWebView)) {
-            return false;
-        }
-
-        NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
-        String title = ninjaWebView.getTitle();
-        String url = ninjaWebView.getUrl();
-        if (title == null
-                || title.isEmpty()
-                || url == null
-                || url.isEmpty()
-                || url.startsWith(BrowserUnit.URL_SCHEME_ABOUT)
-                || url.startsWith(BrowserUnit.URL_SCHEME_MAIL_TO)
-                || url.startsWith(BrowserUnit.URL_SCHEME_INTENT)) {
-            return false;
-        }
-        return true;
-    }
-
-    // TODO
-    @Override
-    public void updateAutoComplete() {}
-
     // TODO
     private void showOverflow() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -994,4 +967,28 @@ public class BrowserActivity extends Activity implements BrowserController {
             }
         });
     }
+
+    private boolean prepareRecord() {
+        if (currentAlbumController == null || !(currentAlbumController instanceof NinjaWebView)) {
+            return false;
+        }
+
+        NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
+        String title = ninjaWebView.getTitle();
+        String url = ninjaWebView.getUrl();
+        if (title == null
+                || title.isEmpty()
+                || url == null
+                || url.isEmpty()
+                || url.startsWith(BrowserUnit.URL_SCHEME_ABOUT)
+                || url.startsWith(BrowserUnit.URL_SCHEME_MAIL_TO)
+                || url.startsWith(BrowserUnit.URL_SCHEME_INTENT)) {
+            return false;
+        }
+        return true;
+    }
+
+    // TODO
+    @Override
+    public void updateAutoComplete() {}
 }
