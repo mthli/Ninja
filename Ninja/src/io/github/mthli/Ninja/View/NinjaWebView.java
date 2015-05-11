@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.MailTo;
+import android.os.Build;
+import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
@@ -26,6 +28,9 @@ import java.net.URISyntaxException;
 public class NinjaWebView extends WebView implements AlbumController {
     private Context context;
     private int flag = BrowserUnit.FLAG_NINJA;
+    private int dimen144dp;
+    private int dimen108dp;
+    private int animTime;
 
     private Album album;
     private NinjaWebViewClient webViewClient;
@@ -60,6 +65,9 @@ public class NinjaWebView extends WebView implements AlbumController {
         super(new NinjaContextWrapper(context), attrs, defStyle);
 
         this.context = new NinjaContextWrapper(context);
+        this.dimen144dp = getResources().getDimensionPixelSize(R.dimen.layout_width_144dp);
+        this.dimen108dp = getResources().getDimensionPixelSize(R.dimen.layout_height_108dp);
+        this.animTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
         this.foreground = false;
 
         this.album = new Album(this.context, this, this.browserController);
@@ -85,14 +93,13 @@ public class NinjaWebView extends WebView implements AlbumController {
 
         setDrawingCacheBackgroundColor(0x00000000);
         setDrawingCacheEnabled(true);
+        setWillNotCacheDrawing(false);
 
         setFocusable(true);
         setFocusableInTouchMode(true);
 
         setSaveEnabled(true);
         setScrollbarFadingEnabled(true);
-
-        setWillNotCacheDrawing(false);
 
         setWebViewClient(webViewClient);
         setWebChromeClient(webChromeClient);
@@ -117,17 +124,22 @@ public class NinjaWebView extends WebView implements AlbumController {
         webSettings.setAppCacheEnabled(true);
         webSettings.setAppCachePath(context.getCacheDir().toString());
         webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
+        webSettings.setGeolocationDatabasePath(context.getFilesDir().toString());
 
         webSettings.setDatabaseEnabled(true);
         webSettings.setDomStorageEnabled(true);
 
         webSettings.setDefaultTextEncodingName(BrowserUnit.URL_ENCODING);
 
-        webSettings.setGeolocationDatabasePath(context.getFilesDir().toString());
-
         webSettings.setSupportZoom(true);
         webSettings.setBuiltInZoomControls(true);
         webSettings.setDisplayZoomControls(false);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            webSettings.setLoadsImagesAutomatically(true);
+        } else {
+            webSettings.setLoadsImagesAutomatically(false);
+        }
     }
 
     private synchronized void initPreferences() {
@@ -225,16 +237,22 @@ public class NinjaWebView extends WebView implements AlbumController {
             browserController.updateProgress(progress);
         }
 
-        if (isLoadFinish() && prepareRecord()) {
-            RecordAction action = new RecordAction(context);
-            action.open(true);
-            action.addHistory(new Record(getTitle(), getUrl(), System.currentTimeMillis()));
-            action.close();
-            browserController.updateAutoComplete();
+        setAlbumCover(ViewUnit.capture(this, dimen144dp, dimen108dp));
+        if (isLoadFinish()) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    setAlbumCover(ViewUnit.capture(NinjaWebView.this, dimen144dp, dimen108dp));
+                }
+            }, animTime);
 
-            int dimen144dp = getResources().getDimensionPixelSize(R.dimen.layout_width_144dp);
-            int dimen108dp = getResources().getDimensionPixelSize(R.dimen.layout_height_108dp);
-            setAlbumCover(ViewUnit.capture(this, dimen144dp, dimen108dp));
+            if (prepareRecord()) {
+                RecordAction action = new RecordAction(context);
+                action.open(true);
+                action.addHistory(new Record(getTitle(), getUrl(), System.currentTimeMillis()));
+                action.close();
+                browserController.updateAutoComplete();
+            }
         }
     }
 

@@ -36,6 +36,8 @@ import io.github.mthli.Ninja.View.*;
 import java.util.*;
 
 public class BrowserActivity extends Activity implements BrowserController {
+    private static final int DOUBLE_TAPS_QUIT_DEFAULT = 512;
+
     private SwitcherPanel switcherPanel;
 
     private int windowWidth;
@@ -864,7 +866,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                     quit = false;
                     timer.cancel();
                 }
-            }, 512);
+            }, DOUBLE_TAPS_QUIT_DEFAULT);
         } else {
             timer.cancel();
             finish();

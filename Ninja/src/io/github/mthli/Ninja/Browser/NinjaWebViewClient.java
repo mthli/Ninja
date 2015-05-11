@@ -42,6 +42,10 @@ public class NinjaWebViewClient extends WebViewClient {
     public void onPageFinished(WebView view, String url) {
         super.onPageFinished(view, url);
 
+        if (!ninjaWebView.getSettings().getLoadsImagesAutomatically()) {
+            ninjaWebView.getSettings().setLoadsImagesAutomatically(true);
+        }
+
         if (view.getTitle() == null || view.getTitle().isEmpty()) {
             ninjaWebView.update(context.getString(R.string.album_untitled), url);
         } else {

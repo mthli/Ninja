@@ -14,7 +14,7 @@ import io.github.mthli.Ninja.View.NinjaToast;
 
 public class ViewUnit {
     public static Bitmap capture(View view, float width, float height) {
-        Bitmap bitmap = Bitmap.createBitmap((int) width, (int) height, Bitmap.Config.ARGB_8888);
+        Bitmap bitmap = Bitmap.createBitmap((int) width, (int) height, Bitmap.Config.RGB_565);
         bitmap.eraseColor(Color.WHITE);
 
         Canvas canvas = new Canvas(bitmap);

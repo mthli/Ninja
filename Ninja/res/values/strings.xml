@@ -29,7 +29,7 @@
     <!-- Holder -->
     <string-array name="holder_menu">
         <item>Foreground</item>
-        <item>Copy URL</item>
+        <item>Copy link</item>
         <item>Share</item>
     </string-array>
 
@@ -39,7 +39,7 @@
     </string>
     <string-array name="list_menu">
         <item>New tab</item>
-        <item>Copy URL</item>
+        <item>Copy link</item>
         <item>Share</item>
         <item>Delete</item>
     </string-array>
@@ -49,7 +49,7 @@
         New tab
     </string>
     <string name="main_menu_copy">
-        Copy
+        Copy link
     </string>
     <string name="main_menu_save">
         Save

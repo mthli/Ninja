@@ -26,7 +26,7 @@
     <color name="background">@color/gray_900</color>
     <color name="white">#FFFFFF</color>
     <color name="shadow_dark">#CC212121</color>
-    <color name="shadow_light">#66212121</color>
+    <color name="shadow_light">#44212121</color>
     <color name="transparent">@android:color/transparent</color>
 
     <color name="text">#212121</color>
