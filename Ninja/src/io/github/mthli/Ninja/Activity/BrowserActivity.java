@@ -74,7 +74,8 @@ public class BrowserActivity extends Activity implements BrowserController {
     private static final int BRIGHTNESS_BEGIN_DEFAULT = 130;
     private static boolean quit = false;
     private boolean create = true;
-    private int animTime = 0;
+    private int shortAnimTime = 0;
+    private int longAnimTime = 0;
     private AlbumController currentAlbumController = null;
 
     @Override
@@ -91,7 +92,8 @@ public class BrowserActivity extends Activity implements BrowserController {
         ViewUnit.setBrightness(this, brightness);
 
         create = true;
-        animTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
+        shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
+        longAnimTime = getResources().getInteger(android.R.integer.config_longAnimTime);
         switcherPanel = (SwitcherPanel) findViewById(R.id.switcher_panel);
         switcherPanel.setStatusListener(new SwitcherPanel.StatusListener() {
             @Override
@@ -243,7 +245,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 String query = inputBox.getText().toString().trim();
                 if (query.isEmpty()) {
                     NinjaToast.show(BrowserActivity.this, R.string.toast_input_empty);
-                    return false;
+                    return true;
                 }
 
                 updateAlbum(query);
@@ -326,7 +328,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                         public void run() {
                             layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
                         }
-                    }, animTime);
+                    }, shortAnimTime);
                     updateProgress(BrowserUnit.PROGRESS_MAX);
                 } else {
                     NinjaToast.show(BrowserActivity.this, R.string.toast_refresh_failed);
@@ -609,7 +611,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                     currentAlbumController.setAlbumCover(ViewUnit.capture(((View) currentAlbumController), dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
                 }
             }
-        }, animTime);
+        }, shortAnimTime);
     }
 
     private synchronized void updateAlbum() {
@@ -784,12 +786,12 @@ public class BrowserActivity extends Activity implements BrowserController {
     public synchronized void updateProgress(int progress) {
         if (progress > progressBar.getProgress()) {
             ObjectAnimator animator = ObjectAnimator.ofInt(progressBar, "progress", progress);
-            animator.setDuration(animTime);
+            animator.setDuration(shortAnimTime);
             animator.setInterpolator(new DecelerateInterpolator());
             animator.start();
         } else if (progress < progressBar.getProgress()) {
             ObjectAnimator animator = ObjectAnimator.ofInt(progressBar, "progress", 0, progress);
-            animator.setDuration(animTime);
+            animator.setDuration(shortAnimTime);
             animator.setInterpolator(new DecelerateInterpolator());
             animator.start();
         }
@@ -831,7 +833,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             public void run() {
                 addAlbum(getString(R.string.album_untitled), null, true, resultMsg);
             }
-        }, animTime);
+        }, shortAnimTime);
     }
 
     @Override
@@ -873,12 +875,12 @@ public class BrowserActivity extends Activity implements BrowserController {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String s = list.get(position);
-                if (s.equals(getString(R.string.main_menu_new_tab))) {
+                if (s.equals(getString(R.string.main_menu_new_tab))) { // New tab
                     addAlbum(getString(R.string.album_untitled), target, false, null);
                     NinjaToast.show(BrowserActivity.this, R.string.toast_new_tab_successful);
-                } else if (s.equals(getString(R.string.main_menu_copy))) {
+                } else if (s.equals(getString(R.string.main_menu_copy))) { // Copy link
                     BrowserUnit.copyURL(BrowserActivity.this, target);
-                } else if (s.equals(getString(R.string.main_menu_save))) {
+                } else if (s.equals(getString(R.string.main_menu_save))) { // Save
                     BrowserUnit.download(BrowserActivity.this, target, target, BrowserUnit.MIME_TYPE_IMAGE);
                 }
                 dialog.hide();
@@ -993,26 +995,75 @@ public class BrowserActivity extends Activity implements BrowserController {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String s = list.get(position - 1);
-                if (s.equals(array[0])) {
+                if (s.equals(array[0])) { // Find in page
                     hideSoftInput(inputBox);
                     showSearchPanel();
-                } else if (s.equals(array[1])) {
+                } else if (s.equals(array[1])) { // Screenshot
                     final NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
                     new ScreenshotTask(BrowserActivity.this, ninjaWebView).execute();
-                } else if (s.equals(array[2])) {
+                } else if (s.equals(array[2])) { // Share
                     if (!prepareRecord()) {
                         NinjaToast.show(BrowserActivity.this, R.string.toast_share_failed);
                     } else {
                         NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
                         IntentUnit.share(BrowserActivity.this, ninjaWebView.getTitle(), ninjaWebView.getUrl());
                     }
-                } else if (s.equals(array[3])) {
+                } else if (s.equals(array[3])) { // Setting
                     // TODO: intent to SettingActivity
-                } else if (s.equals(array[4])) {
+                } else if (s.equals(array[4])) { // Quit
                     finish();
                 }
                 dialog.hide();
                 dialog.dismiss();
+            }
+        });
+    }
+
+    private void showEditDialog(final NinjaListAdapter listAdapter, List<Record> recordList, int location) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+
+        LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog_edit, null, false);
+        builder.setView(layout);
+
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+        final Record record = recordList.get(location);
+        final EditText editText = (EditText) layout.findViewById(R.id.dialog_edit);
+        editText.setText(record.getTitle());
+        editText.setSelection(record.getTitle().length());
+        hideSoftInput(inputBox);
+        showSoftInput(editText);
+        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId != EditorInfo.IME_ACTION_DONE) {
+                    return false;
+                }
+
+                String text = editText.getText().toString().trim();
+                if (text.isEmpty()) {
+                    NinjaToast.show(BrowserActivity.this, R.string.toast_input_empty);
+                    return true;
+                }
+
+                RecordAction action = new RecordAction(BrowserActivity.this);
+                action.open(true);
+                record.setTitle(text);
+                action.updateBookmark(record);
+                action.close();
+
+                listAdapter.notifyDataSetChanged();
+                hideSoftInput(editText);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        dialog.hide();
+                        dialog.dismiss();
+                    }
+                }, longAnimTime);
+                return false;
             }
         });
     }
@@ -1037,7 +1088,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         return true;
     }
 
-    private void showListMenu(NinjaListAdapter listAdapter, List<Record> recordList, int location) {
+    private void showListMenu(final NinjaListAdapter listAdapter, final List<Record> recordList, final int location) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
 
@@ -1072,7 +1123,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 } else if (s.equals(array[2])) { // Share
                     IntentUnit.share(BrowserActivity.this, record.getTitle(), record.getURL());
                 } else if (s.equals(array[3])) { // Edit
-                    // TODO
+                    showEditDialog(listAdapter, recordList, location);
                 } else if (s.equals(array[4])) { // Delete
                     // TODO
                 }

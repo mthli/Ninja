@@ -55,6 +55,18 @@ public class RecordAction {
         return true;
     }
 
+    public void updateBookmark(Record record) {
+        if (record == null || record.getTitle() == null || record.getTitle().isEmpty() || record.getURL() == null || record.getURL().isEmpty()) {
+            return;
+        }
+
+        ContentValues values = new ContentValues();
+        values.put(RecordUnit.COLUMN_TITLE, record.getTitle());
+        values.put(RecordUnit.COLUMN_URL, record.getURL());
+        values.put(RecordUnit.COLUMN_TIME, record.getTime());
+        database.update(RecordUnit.TABLE_BOOKMARKS, values, RecordUnit.COLUMN_TIME + "=?", new String[] {String.valueOf(record.getTime())});
+    }
+
     public boolean checkBookmark(Record record) {
         if (record == null || record.getTitle() == null || record.getTitle().isEmpty() ||record.getURL() == null || record.getURL().isEmpty()) {
             return false;
