@@ -17,7 +17,6 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
@@ -95,7 +94,6 @@ public class BrowserActivity extends Activity implements BrowserController {
         create = true;
         animTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
         switcherPanel = (SwitcherPanel) findViewById(R.id.switcher_panel);
-        /*
         switcherPanel.setStatusListener(new SwitcherPanel.StatusListener() {
             @Override
             public void onFling() {}
@@ -104,9 +102,10 @@ public class BrowserActivity extends Activity implements BrowserController {
             public void onExpanded() {}
 
             @Override
-            public void onCollapsed() {}
+            public void onCollapsed() {
+                inputBox.clearFocus();
+            }
         });
-        */
 
         initData();
         initSwitcherView();
@@ -121,15 +120,19 @@ public class BrowserActivity extends Activity implements BrowserController {
         super.onResume();
     }
 
-    // TODO
     @Override
     public void onPause() {
+        // TODO
+
+        create = false;
+        inputBox.clearFocus();
         super.onPause();
     }
 
-    // TODO
     @Override
     public void onDestroy() {
+        // TODO
+
         BrowserContainer.clear();
         super.onDestroy();
     }
@@ -147,8 +150,6 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent keyEvent) {
-        Log.e("onKeyDown", String.valueOf(keyCode));
-
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             hideSoftInput(inputBox);
             if (switcherPanel.getStatus() != SwitcherPanel.Status.EXPANDED) {
@@ -899,7 +900,6 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         hideSoftInput(searchBox);
         searchBox.setText("");
-        switcherPanel.setSearch(false);
         mainView.removeView(searchPanel);
         mainView.addView(omnibox, index, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
     }
@@ -910,7 +910,6 @@ public class BrowserActivity extends Activity implements BrowserController {
             return;
         }
 
-        switcherPanel.setSearch(true);
         mainView.removeView(omnibox);
         mainView.addView(searchPanel, index, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
         showSoftInput(searchBox);

@@ -27,14 +27,7 @@ public class SwitcherPanel extends ViewGroup {
 
     private float dimen108dp = 0f;
     private float dimen48dp = 0f;
-
-    private boolean search = false;
-    public boolean isSearch() {
-        return search;
-    }
-    public void setSearch(boolean search) {
-        this.search = search;
-    }
+    private boolean keyBoardShowing = false;
 
     /* slideRange: px */
     private float slideRange = 0f;
@@ -302,6 +295,7 @@ public class SwitcherPanel extends ViewGroup {
         }
 
         setMeasuredDimension(widthSize, heightSize);
+        keyBoardShowing = heightSize < getHeight() || omnibox == null;
     }
 
     @Override
@@ -372,7 +366,7 @@ public class SwitcherPanel extends ViewGroup {
             interceptX = motionEvent.getRawX();
             interceptY = motionEvent.getRawY();
         } else if (action == MotionEvent.ACTION_MOVE) {
-            if (!search && shouldCollapsed()) {
+            if (!keyBoardShowing && shouldCollapsed()) {
                 float deltaY = motionEvent.getRawY() - interceptY;
                 if (deltaY >= ViewUnit.dp2px(getContext(), 32)) {
                     collapsed();

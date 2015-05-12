@@ -40,28 +40,28 @@
             <file leaf-file-name="BrowserActivity.java" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/BrowserActivity.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.36520377">
-                    <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
+                  <state vertical-scroll-proportion="2.1990595">
+                    <caret line="901" column="30" selection-start-line="901" selection-start-column="30" selection-end-line="901" selection-end-column="30" />
                     <folding>
                       <element signature="imports" expanded="false" />
-                      <element signature="method#onCreate#0;class#BrowserActivity#0" expanded="false" />
-                      <element signature="method#onDestroy#0;class#BrowserActivity#0" expanded="false" />
+                      <element signature="e#3756#3757#0" expanded="true" />
+                      <element signature="e#3809#3810#0" expanded="true" />
                       <element signature="method#onConfigurationChanged#0;class#BrowserActivity#0" expanded="false" />
                       <element signature="method#initData#0;class#BrowserActivity#0" expanded="false" />
                       <element signature="method#initSwitcherView#0;class#BrowserActivity#0" expanded="false" />
                       <element signature="method#initMainView#0;class#BrowserActivity#0" expanded="false" />
                       <element signature="method#initSearchPanel#0;class#BrowserActivity#0" expanded="false" />
-                      <element signature="class#13693:14276" expanded="false" />
-                      <element signature="method#beforeTextChanged#0;class#13693:14276" expanded="false" />
-                      <element signature="method#onTextChanged#0;class#13693:14276" expanded="false" />
-                      <element signature="method#afterTextChanged#0;class#13693:14276" expanded="false" />
+                      <element signature="class#13703:14286" expanded="false" />
+                      <element signature="method#beforeTextChanged#0;class#13703:14286" expanded="false" />
+                      <element signature="method#onTextChanged#0;class#13703:14286" expanded="false" />
+                      <element signature="method#afterTextChanged#0;class#13703:14286" expanded="false" />
                       <element signature="method#addAlbum#0;class#BrowserActivity#0" expanded="false" />
-                      <element signature="class#20721:21159" expanded="false" />
-                      <element signature="method#onAnimationRepeat#0;class#20721:21159" expanded="false" />
+                      <element signature="class#20731:21169" expanded="false" />
+                      <element signature="method#onAnimationRepeat#0;class#20731:21169" expanded="false" />
                       <element signature="method#addAlbum#1;class#BrowserActivity#0" expanded="false" />
-                      <element signature="class#22915:23728" expanded="false" />
-                      <element signature="method#onAnimationRepeat#0;class#22915:23728" expanded="false" />
-                      <element signature="method#onAnimationEnd#0;class#22915:23728" expanded="false" />
+                      <element signature="class#22925:23738" expanded="false" />
+                      <element signature="method#onAnimationRepeat#0;class#22925:23738" expanded="false" />
+                      <element signature="method#onAnimationEnd#0;class#22925:23738" expanded="false" />
                       <element signature="method#showAlbum#0;class#BrowserActivity#0" expanded="false" />
                       <element signature="method#updateAlbum#0;class#BrowserActivity#0" expanded="false" />
                       <element signature="method#updateAlbum#1;class#BrowserActivity#0" expanded="false" />
@@ -76,13 +76,11 @@
                       <element signature="method#doubleTapsQuit#0;class#BrowserActivity#0" expanded="false" />
                       <element signature="method#hideSoftInput#0;class#BrowserActivity#0" expanded="false" />
                       <element signature="method#showSoftInput#0;class#BrowserActivity#0" expanded="false" />
-                      <element signature="method#hideSearchPanel#0;class#BrowserActivity#0" expanded="false" />
-                      <element signature="method#showSearchPanel#0;class#BrowserActivity#0" expanded="false" />
                       <element signature="method#showOverflow#0;class#BrowserActivity#0" expanded="false" />
-                      <element signature="class#39091:39680" expanded="false" />
-                      <element signature="method#onStartTrackingTouch#0;class#39091:39680" expanded="false" />
-                      <element signature="method#onProgressChanged#0;class#39091:39680" expanded="false" />
-                      <element signature="method#onStopTrackingTouch#0;class#39091:39680" expanded="false" />
+                      <element signature="class#39022:39611" expanded="false" />
+                      <element signature="method#onStartTrackingTouch#0;class#39022:39611" expanded="false" />
+                      <element signature="method#onProgressChanged#0;class#39022:39611" expanded="false" />
+                      <element signature="method#onStopTrackingTouch#0;class#39022:39611" expanded="false" />
                       <element signature="method#prepareRecord#0;class#BrowserActivity#0" expanded="false" />
                       <element signature="method#updateAutoComplete#0;class#BrowserActivity#0" expanded="false" />
                     </folding>
@@ -103,19 +101,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BrowserActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BrowserActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Public/Ninja/Ninja/src/io/github/mthli/Ninja/Activity/BrowserActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.2620232">
-              <caret line="879" column="51" selection-start-line="879" selection-start-column="51" selection-end-line="879" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="146" column="28" selection-start-line="146" selection-start-column="28" selection-end-line="146" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="false" />
                 <element signature="method#onCreate#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#onNewIntent#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#onResume#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#when#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#onPause#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#onDestroy#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#onConfigurationChanged#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#onKeyDown#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#initControlPanel#0;class#BrowserActivity#0" expanded="false" />
@@ -163,6 +159,47 @@
                 <element signature="method#hideSearchPanel#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#onCreateView#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#onLongPress#0;class#BrowserActivity#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SwitcherPanel.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/View/SwitcherPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.17412935">
+              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+              <folding>
+                <element signature="method#setFlingVelocity#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="class#Status#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="class#StatusListener#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="class#DragHelperCallback#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#clampViewPositionVertical#0;class#DragHelperCallback#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#onViewPositionChanged#0;class#DragHelperCallback#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#onViewDragStateChanged#0;class#DragHelperCallback#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#onViewReleased#0;class#DragHelperCallback#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="class#LayoutParams#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#LayoutParams#5;class#LayoutParams#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#SwitcherPanel#2;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#generateLayoutParams#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#generateLayoutParams#1;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#checkLayoutParams#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#onMeasure#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#onLayout#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#draw#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#computeTopPosition#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#computeScroll#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#onInterceptTouchEvent#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#shouldCollapsed#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#shouldExpanded#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#expanded#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#collapsed#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#fling#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#dispatchOnExpanded#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#dispatchOnCollapsed#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#dispatchOnFling#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#smoothSlideTo#0;class#SwitcherPanel#0" expanded="false" />
+                <element signature="method#applyParallaxForCurrentSlideOffset#0;class#SwitcherPanel#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -230,7 +267,6 @@
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/ViewUnit.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Task/ScreenshotTask.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/NinjaWebView.java" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/SwitcherPanel.java" />
         <option value="$PROJECT_DIR$/res/layout/search.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/CompleteFilter.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Database/RecordAction.java" />
@@ -240,6 +276,7 @@
         <option value="$PROJECT_DIR$/res/layout/list.xml" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/BrowserActivity.java" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/SwitcherPanel.java" />
       </list>
     </option>
   </component>
@@ -808,9 +845,9 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.423716" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32905295" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" x="323" y="135" width="872" height="464" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.32905295" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" x="323" y="135" width="872" height="464" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31460676" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31428573" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3308157" sideWeight="0.505618" order="4" side_tool="true" content_ui="tabs" />
@@ -823,7 +860,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33156297" sideWeight="0.49438202" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.5949764" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" x="767" y="88" width="435" height="613" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.5949764" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" x="767" y="88" width="435" height="613" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42380953" sideWeight="0.49697885" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1198,46 +1235,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/View/SwitcherPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42785236">
-          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#setFlingVelocity#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="class#Status#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="class#StatusListener#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="class#DragHelperCallback#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#clampViewPositionVertical#0;class#DragHelperCallback#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#onViewPositionChanged#0;class#DragHelperCallback#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#onViewDragStateChanged#0;class#DragHelperCallback#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#onViewReleased#0;class#DragHelperCallback#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="class#LayoutParams#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#LayoutParams#5;class#LayoutParams#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#SwitcherPanel#2;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#generateLayoutParams#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#generateLayoutParams#1;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#checkLayoutParams#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#onMeasure#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#onLayout#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#draw#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#computeTopPosition#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#computeScroll#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#onInterceptTouchEvent#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#shouldCollapsed#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#shouldExpanded#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#expanded#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#collapsed#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#fling#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#dispatchOnExpanded#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#dispatchOnCollapsed#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#dispatchOnFling#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#smoothSlideTo#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#applyParallaxForCurrentSlideOffset#0;class#SwitcherPanel#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/search.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -1423,75 +1420,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5771144">
-          <caret line="31" column="61" selection-start-line="31" selection-start-column="61" selection-end-line="31" selection-end-column="61" />
+        <state vertical-scroll-proportion="0.60199004">
+          <caret line="32" column="59" selection-start-line="32" selection-start-column="59" selection-end-line="32" selection-end-column="59" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/BrowserActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36520377">
-          <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#onCreate#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onConfigurationChanged#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#initData#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#initSwitcherView#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#initMainView#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#initSearchPanel#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#13693:14276" expanded="false" />
-            <element signature="method#beforeTextChanged#0;class#13693:14276" expanded="false" />
-            <element signature="method#onTextChanged#0;class#13693:14276" expanded="false" />
-            <element signature="method#afterTextChanged#0;class#13693:14276" expanded="false" />
-            <element signature="method#addAlbum#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#20721:21159" expanded="false" />
-            <element signature="method#onAnimationRepeat#0;class#20721:21159" expanded="false" />
-            <element signature="method#addAlbum#1;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#22915:23728" expanded="false" />
-            <element signature="method#onAnimationRepeat#0;class#22915:23728" expanded="false" />
-            <element signature="method#onAnimationEnd#0;class#22915:23728" expanded="false" />
-            <element signature="method#showAlbum#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateAlbum#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateAlbum#1;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#removeAlbum#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateBookmarks#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateInputBox#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateOmnibox#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateProgress#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateRefresh#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onCreateView#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onLongPress#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#doubleTapsQuit#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#hideSoftInput#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#showSoftInput#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#hideSearchPanel#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#showSearchPanel#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#showOverflow#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#39091:39680" expanded="false" />
-            <element signature="method#onStartTrackingTouch#0;class#39091:39680" expanded="false" />
-            <element signature="method#onProgressChanged#0;class#39091:39680" expanded="false" />
-            <element signature="method#onStopTrackingTouch#0;class#39091:39680" expanded="false" />
-            <element signature="method#prepareRecord#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateAutoComplete#0;class#BrowserActivity#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Public/Ninja/Ninja/src/io/github/mthli/Ninja/Activity/BrowserActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2620232">
-          <caret line="879" column="51" selection-start-line="879" selection-start-column="51" selection-end-line="879" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="146" column="28" selection-start-line="146" selection-start-column="28" selection-end-line="146" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="false" />
             <element signature="method#onCreate#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#onNewIntent#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#onResume#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#when#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onPause#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#onConfigurationChanged#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#onKeyDown#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#initControlPanel#0;class#BrowserActivity#0" expanded="false" />
@@ -1539,6 +1483,94 @@
             <element signature="method#hideSearchPanel#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#onCreateView#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#onLongPress#0;class#BrowserActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/BrowserActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.1990595">
+          <caret line="901" column="30" selection-start-line="901" selection-start-column="30" selection-end-line="901" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#3756#3757#0" expanded="true" />
+            <element signature="e#3809#3810#0" expanded="true" />
+            <element signature="method#onConfigurationChanged#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#initData#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#initSwitcherView#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#initMainView#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#initSearchPanel#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#13703:14286" expanded="false" />
+            <element signature="method#beforeTextChanged#0;class#13703:14286" expanded="false" />
+            <element signature="method#onTextChanged#0;class#13703:14286" expanded="false" />
+            <element signature="method#afterTextChanged#0;class#13703:14286" expanded="false" />
+            <element signature="method#addAlbum#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#20731:21169" expanded="false" />
+            <element signature="method#onAnimationRepeat#0;class#20731:21169" expanded="false" />
+            <element signature="method#addAlbum#1;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#22925:23738" expanded="false" />
+            <element signature="method#onAnimationRepeat#0;class#22925:23738" expanded="false" />
+            <element signature="method#onAnimationEnd#0;class#22925:23738" expanded="false" />
+            <element signature="method#showAlbum#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateAlbum#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateAlbum#1;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#removeAlbum#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateBookmarks#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateInputBox#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateOmnibox#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateProgress#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateRefresh#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onLongPress#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#doubleTapsQuit#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#hideSoftInput#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#showSoftInput#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#showOverflow#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#39022:39611" expanded="false" />
+            <element signature="method#onStartTrackingTouch#0;class#39022:39611" expanded="false" />
+            <element signature="method#onProgressChanged#0;class#39022:39611" expanded="false" />
+            <element signature="method#onStopTrackingTouch#0;class#39022:39611" expanded="false" />
+            <element signature="method#prepareRecord#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateAutoComplete#0;class#BrowserActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/View/SwitcherPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.17412935">
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+          <folding>
+            <element signature="method#setFlingVelocity#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="class#Status#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="class#StatusListener#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="class#DragHelperCallback#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#clampViewPositionVertical#0;class#DragHelperCallback#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#onViewPositionChanged#0;class#DragHelperCallback#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#onViewDragStateChanged#0;class#DragHelperCallback#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#onViewReleased#0;class#DragHelperCallback#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="class#LayoutParams#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#LayoutParams#5;class#LayoutParams#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#SwitcherPanel#2;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#generateLayoutParams#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#generateLayoutParams#1;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#checkLayoutParams#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#onMeasure#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#onLayout#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#draw#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#computeTopPosition#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#computeScroll#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#onInterceptTouchEvent#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#shouldCollapsed#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#shouldExpanded#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#expanded#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#collapsed#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#fling#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#dispatchOnExpanded#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#dispatchOnCollapsed#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#dispatchOnFling#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#smoothSlideTo#0;class#SwitcherPanel#0" expanded="false" />
+            <element signature="method#applyParallaxForCurrentSlideOffset#0;class#SwitcherPanel#0" expanded="false" />
           </folding>
         </state>
       </provider>
