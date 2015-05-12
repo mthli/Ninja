@@ -293,8 +293,9 @@ public class SwitcherPanel extends ViewGroup {
                 slideRange = mainView.getMeasuredHeight() - coverHeight;
             }
         }
-
         setMeasuredDimension(widthSize, heightSize);
+
+        // TODO: keyBoardListener behavior when onMeasure() repeat
         keyBoardShowing = heightSize < getHeight() || omnibox == null;
     }
 
