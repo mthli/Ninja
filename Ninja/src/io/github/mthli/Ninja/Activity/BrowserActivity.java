@@ -437,6 +437,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             action.open(false);
             final List<Record> list = action.listBookmarks();
             action.close();
+            // TODO: Sort by title
 
             ListView listView = (ListView) layout.findViewById(R.id.list);
             TextView textView = (TextView) layout.findViewById(R.id.list_empty);
@@ -1019,6 +1020,63 @@ public class BrowserActivity extends Activity implements BrowserController {
         });
     }
 
+    private void showListMenu(final NinjaListAdapter listAdapter, final List<Record> recordList, final int location) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+
+        LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog, null, false);
+        builder.setView(layout);
+
+        final String[] array = getResources().getStringArray(R.array.list_menu);
+        final List<String> stringList = new ArrayList<>();
+        stringList.addAll(Arrays.asList(array));
+        if (currentAlbumController.getFlag() != BrowserUnit.FLAG_BOOKMARKS) {
+            stringList.remove(array[3]);
+        }
+
+        ListView listView = (ListView) layout.findViewById(R.id.dialog_list);
+        DialogAdapter dialogAdapter = new DialogAdapter(this, R.layout.dialog_item, stringList);
+        listView.setAdapter(dialogAdapter);
+        dialogAdapter.notifyDataSetChanged();
+
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+        final Record record = recordList.get(location);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String s = stringList.get(position);
+                if (s.equals(array[0])) { // New tab
+                    addAlbum(getString(R.string.album_untitled), record.getURL(), false, null);
+                    NinjaToast.show(BrowserActivity.this, R.string.toast_new_tab_successful);
+                } else if (s.equals(array[1])) { // Copy link
+                    BrowserUnit.copyURL(BrowserActivity.this, record.getURL());
+                } else if (s.equals(array[2])) { // Share
+                    IntentUnit.share(BrowserActivity.this, record.getTitle(), record.getURL());
+                } else if (s.equals(array[3])) { // Edit
+                    showEditDialog(listAdapter, recordList, location);
+                } else if (s.equals(array[4])) { // Delete
+                    RecordAction action = new RecordAction(BrowserActivity.this);
+                    action.open(true);
+                    if (currentAlbumController.getFlag() == BrowserUnit.FLAG_BOOKMARKS) {
+                        action.deleteBookmark(record);
+                    } else if (currentAlbumController.getFlag() == BrowserUnit.FLAG_HISTORY) {
+                        action.deleteHistory(record);
+                    }
+                    action.close();
+                    recordList.remove(location);
+                    listAdapter.notifyDataSetChanged();
+                    updateBookmarks();
+                    updateAutoComplete();
+                    NinjaToast.show(BrowserActivity.this, R.string.toast_delete_successful);
+                }
+                dialog.hide();
+                dialog.dismiss();
+            }
+        });
+    }
+
     private void showEditDialog(final NinjaListAdapter listAdapter, List<Record> recordList, int location) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
@@ -1086,50 +1144,5 @@ public class BrowserActivity extends Activity implements BrowserController {
             return false;
         }
         return true;
-    }
-
-    private void showListMenu(final NinjaListAdapter listAdapter, final List<Record> recordList, final int location) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(true);
-
-        LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog, null, false);
-        builder.setView(layout);
-
-        final String[] array = getResources().getStringArray(R.array.list_menu);
-        final List<String> stringList = new ArrayList<>();
-        stringList.addAll(Arrays.asList(array));
-        if (currentAlbumController.getFlag() != BrowserUnit.FLAG_BOOKMARKS) {
-            stringList.remove(array[3]);
-        }
-
-        ListView listView = (ListView) layout.findViewById(R.id.dialog_list);
-        DialogAdapter dialogAdapter = new DialogAdapter(this, R.layout.dialog_item, stringList);
-        listView.setAdapter(dialogAdapter);
-        dialogAdapter.notifyDataSetChanged();
-
-        final AlertDialog dialog = builder.create();
-        dialog.show();
-
-        final Record record = recordList.get(location);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String s = stringList.get(position);
-                if (s.equals(array[0])) { // New tab
-                    addAlbum(getString(R.string.album_untitled), record.getURL(), false, null);
-                    NinjaToast.show(BrowserActivity.this, R.string.toast_new_tab_successful);
-                } else if (s.equals(array[1])) { // Copy link
-                    BrowserUnit.copyURL(BrowserActivity.this, record.getURL());
-                } else if (s.equals(array[2])) { // Share
-                    IntentUnit.share(BrowserActivity.this, record.getTitle(), record.getURL());
-                } else if (s.equals(array[3])) { // Edit
-                    showEditDialog(listAdapter, recordList, location);
-                } else if (s.equals(array[4])) { // Delete
-                    // TODO
-                }
-                dialog.hide();
-                dialog.dismiss();
-            }
-        });
     }
 }
