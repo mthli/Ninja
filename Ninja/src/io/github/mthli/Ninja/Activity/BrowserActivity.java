@@ -135,46 +135,6 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
     }
 
-    private void pinAlbums(String url) {
-        hideSoftInput(inputBox);
-        hideSearchPanel();
-        switcherContainer.removeAllViews();
-        contentFrame.removeAllViews();
-
-        for (AlbumController controller : BrowserContainer.list()) {
-            if (controller instanceof NinjaWebView) {
-                ((NinjaWebView) controller).setBrowserController(this);
-            } else if (controller instanceof NinjaRelativeLayout) {
-                ((NinjaRelativeLayout) controller).setBrowserController(this);
-            }
-            switcherContainer.addView(controller.getAlbumView(), LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
-            controller.deactivate();
-            controller.getAlbumView().setVisibility(View.VISIBLE);
-        }
-
-        if (BrowserContainer.size() < 1 && url == null) {
-            addAlbum(BrowserUnit.FLAG_HOME);
-        } else if (BrowserContainer.size() >= 1 && url == null) {
-            if (currentAlbumController != null) {
-                currentAlbumController.deactivate();
-            }
-            currentAlbumController = BrowserContainer.get(BrowserContainer.size() - 1);
-            contentFrame.addView((View) currentAlbumController);
-            currentAlbumController.activate();
-
-            updateOmnibox();
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    switcherScroller.smoothScrollTo(currentAlbumController.getAlbumView().getLeft(), 0);
-                    currentAlbumController.setAlbumCover(ViewUnit.capture(((View) currentAlbumController), dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
-                }
-            }, shortAnimTime);
-        } else {
-            // TODO: when url != null
-        }
-    }
-
     @Override
     public void onResume() {
         super.onResume();
@@ -679,6 +639,72 @@ public class BrowserActivity extends Activity implements BrowserController {
             }
         });
         albumView.startAnimation(animation);
+    }
+
+    private void pinAlbums(String url) {
+        hideSoftInput(inputBox);
+        hideSearchPanel();
+        switcherContainer.removeAllViews();
+        contentFrame.removeAllViews();
+
+        for (AlbumController controller : BrowserContainer.list()) {
+            if (controller instanceof NinjaWebView) {
+                ((NinjaWebView) controller).setBrowserController(this);
+            } else if (controller instanceof NinjaRelativeLayout) {
+                ((NinjaRelativeLayout) controller).setBrowserController(this);
+            }
+            switcherContainer.addView(controller.getAlbumView(), LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
+            controller.getAlbumView().setVisibility(View.VISIBLE);
+            controller.deactivate();
+        }
+
+        if (BrowserContainer.size() < 1 && url == null) {
+            addAlbum(BrowserUnit.FLAG_HOME);
+        } else if (BrowserContainer.size() >= 1 && url == null) {
+            if (currentAlbumController != null) {
+                currentAlbumController.deactivate();
+            }
+            currentAlbumController = BrowserContainer.get(BrowserContainer.size() - 1);
+            contentFrame.addView((View) currentAlbumController);
+            currentAlbumController.activate();
+
+            updateOmnibox();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    switcherScroller.smoothScrollTo(currentAlbumController.getAlbumView().getLeft(), 0);
+                    currentAlbumController.setAlbumCover(ViewUnit.capture(((View) currentAlbumController), dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
+                }
+            }, shortAnimTime);
+        } else { // When url != null
+            NinjaWebView webView = new NinjaWebView(this);
+            webView.setBrowserController(this);
+            webView.setFlag(BrowserUnit.FLAG_NINJA);
+            webView.setAlbumCover(ViewUnit.capture(webView, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
+            webView.setAlbumTitle(getString(R.string.album_untitled));
+            webView.loadUrl(url);
+
+            BrowserContainer.add(webView);
+            final View albumView = webView.getAlbumView();
+            albumView.setVisibility(View.VISIBLE);
+            switcherContainer.addView(albumView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            contentFrame.addView(webView);
+
+            if (currentAlbumController != null) {
+                currentAlbumController.deactivate();
+            }
+            currentAlbumController = webView;
+            currentAlbumController.activate();
+
+            updateOmnibox();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    switcherScroller.smoothScrollTo(currentAlbumController.getAlbumView().getLeft(), 0);
+                    currentAlbumController.setAlbumCover(ViewUnit.capture(((View) currentAlbumController), dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
+                }
+            }, shortAnimTime);
+        }
     }
 
     @Override
