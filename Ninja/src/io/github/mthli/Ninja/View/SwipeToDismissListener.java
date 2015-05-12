@@ -40,28 +40,28 @@ public class SwipeToDismissListener implements View.OnTouchListener {
     }
 
     @Override
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        motionEvent.offsetLocation(0, translationY);
+    public boolean onTouch(View view, MotionEvent event) {
+        event.offsetLocation(0, translationY);
         if (viewHeight < 2) {
             viewHeight = this.view.getHeight();
         }
 
-        switch (motionEvent.getActionMasked()) {
+        switch (event.getActionMasked()) {
             case MotionEvent.ACTION_DOWN: {
-                downY = motionEvent.getRawY();
+                downY = event.getRawY();
                 if (callback.canDismiss(token)) {
                     velocityTracker = VelocityTracker.obtain();
-                    velocityTracker.addMovement(motionEvent);
+                    velocityTracker.addMovement(event);
                 }
                 return false;
             } case MotionEvent.ACTION_UP: {
                 if (velocityTracker == null) {
                     break;
                 }
-                velocityTracker.addMovement(motionEvent);
+                velocityTracker.addMovement(event);
                 velocityTracker.computeCurrentVelocity(1000);
 
-                float deltaY = motionEvent.getRawY() - downY;
+                float deltaY = event.getRawY() - downY;
                 float velocityY = velocityTracker.getYVelocity();
                 float absVelocityY = Math.abs(velocityTracker.getYVelocity());
                 boolean dismiss = false;
@@ -119,16 +119,16 @@ public class SwipeToDismissListener implements View.OnTouchListener {
                 if (velocityTracker == null) {
                     break;
                 }
-                velocityTracker.addMovement(motionEvent);
+                velocityTracker.addMovement(event);
 
-                float deltaY = motionEvent.getRawY() - downY;
+                float deltaY = event.getRawY() - downY;
                 if (Math.abs(deltaY) > slop) {
                     swiping = true;
                     swipingSlop = (deltaY > 0 ? slop : -slop);
                     this.view.getParent().requestDisallowInterceptTouchEvent(true);
 
-                    MotionEvent cancelEvent = MotionEvent.obtainNoHistory(motionEvent);
-                    cancelEvent.setAction(MotionEvent.ACTION_CANCEL | (motionEvent.getActionIndex() << MotionEvent.ACTION_POINTER_INDEX_SHIFT));
+                    MotionEvent cancelEvent = MotionEvent.obtainNoHistory(event);
+                    cancelEvent.setAction(MotionEvent.ACTION_CANCEL | (event.getActionIndex() << MotionEvent.ACTION_POINTER_INDEX_SHIFT));
                     this.view.onTouchEvent(cancelEvent);
                     cancelEvent.recycle();
                 }

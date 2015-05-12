@@ -14,10 +14,10 @@ public class NinjaRelativeLayout extends RelativeLayout implements AlbumControll
     private Album album;
     private int flag = 0;
 
-    private BrowserController browserController;
-    public void setBrowserController(BrowserController browserController) {
-        this.browserController = browserController;
-        this.album.setBrowserController(browserController);
+    private BrowserController controller;
+    public void setController(BrowserController controller) {
+        this.controller = controller;
+        this.album.setBrowserController(controller);
     }
 
     public NinjaRelativeLayout(Context context) {
@@ -31,14 +31,14 @@ public class NinjaRelativeLayout extends RelativeLayout implements AlbumControll
     public NinjaRelativeLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.context = context;
-        this.album = new Album(context, this, this.browserController);
+        this.album = new Album(context, this, this.controller);
         initUI();
     }
 
     private void initUI() {
         album.setAlbumCover(null);
         album.setAlbumTitle(context.getString(R.string.album_untitled));
-        album.setBrowserController(browserController);
+        album.setBrowserController(controller);
     }
 
     @Override

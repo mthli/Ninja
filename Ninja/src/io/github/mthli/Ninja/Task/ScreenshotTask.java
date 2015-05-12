@@ -11,12 +11,12 @@ import io.github.mthli.Ninja.View.NinjaWebView;
 
 public class ScreenshotTask extends AsyncTask<Void, Void, Boolean> {
     private Context context;
-    private NinjaWebView ninjaWebView;
+    private NinjaWebView webView;
     private String path = null;
 
-    public ScreenshotTask(Context context, NinjaWebView ninjaWebView) {
+    public ScreenshotTask(Context context, NinjaWebView webView) {
         this.context = context;
-        this.ninjaWebView = ninjaWebView;
+        this.webView = webView;
     }
 
     @Override
@@ -27,9 +27,9 @@ public class ScreenshotTask extends AsyncTask<Void, Void, Boolean> {
     @Override
     protected Boolean doInBackground(Void... params) {
         int windowWidth = ViewUnit.getWindowWidth(context);
-        float contentHeight = ninjaWebView.getContentHeight() * ViewUnit.getDensity(context);
-        Bitmap bitmap = ViewUnit.capture(ninjaWebView, windowWidth, contentHeight, false, Bitmap.Config.ARGB_8888);
-        path = BrowserUnit.screenshot(context, bitmap, ninjaWebView.getTitle());
+        float contentHeight = webView.getContentHeight() * ViewUnit.getDensity(context);
+        Bitmap bitmap = ViewUnit.capture(webView, windowWidth, contentHeight, false, Bitmap.Config.ARGB_8888);
+        path = BrowserUnit.screenshot(context, bitmap, webView.getTitle());
         return path != null && !path.isEmpty();
     }
 

@@ -12,19 +12,19 @@ public class BrowserContainer {
         return list.get(index);
     }
 
-    public synchronized static void set(AlbumController albumController, int index) {
+    public synchronized static void set(AlbumController controller, int index) {
         if (list.get(index) instanceof NinjaWebView) {
             ((NinjaWebView) list.get(index)).destroy();
         }
-        list.set(index, albumController);
+        list.set(index, controller);
     }
 
-    public synchronized static void add(AlbumController albumController) {
-        list.add(albumController);
+    public synchronized static void add(AlbumController controller) {
+        list.add(controller);
     }
 
-    public synchronized static void add(AlbumController albumController, int index) {
-        list.add(index, albumController);
+    public synchronized static void add(AlbumController controller, int index) {
+        list.add(index, controller);
     }
 
     public synchronized static void remove(int index) {
@@ -34,15 +34,15 @@ public class BrowserContainer {
         list.remove(index);
     }
 
-    public synchronized static void remove(AlbumController albumController) {
-        if (albumController instanceof NinjaWebView) {
-            ((NinjaWebView) albumController).destroy();
+    public synchronized static void remove(AlbumController controller) {
+        if (controller instanceof NinjaWebView) {
+            ((NinjaWebView) controller).destroy();
         }
-        list.remove(albumController);
+        list.remove(controller);
     }
 
-    public static int indexOf(AlbumController albumController) {
-        return list.indexOf(albumController);
+    public static int indexOf(AlbumController controller) {
+        return list.indexOf(controller);
     }
 
     public static List<AlbumController> list() {

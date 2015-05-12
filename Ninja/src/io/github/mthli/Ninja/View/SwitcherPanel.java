@@ -357,18 +357,18 @@ public class SwitcherPanel extends ViewGroup {
     }
 
     @Override
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        int action = motionEvent.getActionMasked();
+    public boolean onInterceptTouchEvent(MotionEvent event) {
+        int action = event.getActionMasked();
         if (!isEnabled() || action == MotionEvent.ACTION_CANCEL) {
-            return super.onInterceptTouchEvent(motionEvent);
+            return super.onInterceptTouchEvent(event);
         }
 
         if (action == MotionEvent.ACTION_DOWN) {
-            interceptX = motionEvent.getRawX();
-            interceptY = motionEvent.getRawY();
+            interceptX = event.getRawX();
+            interceptY = event.getRawY();
         } else if (action == MotionEvent.ACTION_MOVE) {
             if (!keyBoardShowing && shouldCollapsed()) {
-                float deltaY = motionEvent.getRawY() - interceptY;
+                float deltaY = event.getRawY() - interceptY;
                 if (deltaY >= ViewUnit.dp2px(getContext(), 32)) {
                     collapsed();
                     return true;
@@ -376,11 +376,11 @@ public class SwitcherPanel extends ViewGroup {
             }
         }
 
-        if (shouldExpanded(motionEvent)) {
+        if (shouldExpanded(event)) {
             expanded();
             return true;
         }
-        return super.onInterceptTouchEvent(motionEvent);
+        return super.onInterceptTouchEvent(event);
     }
 
     private boolean shouldCollapsed() {
@@ -398,7 +398,7 @@ public class SwitcherPanel extends ViewGroup {
                 && interceptY <= bottom;
     }
 
-    private boolean shouldExpanded(@NonNull MotionEvent motionEvent) {
+    private boolean shouldExpanded(@NonNull MotionEvent event) {
         int[] location = new int[2];
         mainView.getLocationOnScreen(location);
 
@@ -407,10 +407,10 @@ public class SwitcherPanel extends ViewGroup {
         int top = location[1];
         int bottom = top + mainView.getHeight();
         return status == Status.COLLAPSED
-                && left <= motionEvent.getRawX()
-                && motionEvent.getRawX() <= right
-                && top <= motionEvent.getRawY()
-                && motionEvent.getRawY() <= bottom;
+                && left <= event.getRawX()
+                && event.getRawX() <= right
+                && top <= event.getRawY()
+                && event.getRawY() <= bottom;
     }
 
     public void expanded() {

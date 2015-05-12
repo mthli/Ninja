@@ -5,18 +5,18 @@ import android.view.MotionEvent;
 import io.github.mthli.Ninja.View.NinjaWebView;
 
 public class NinjaGestureListener extends GestureDetector.SimpleOnGestureListener {
-    private NinjaWebView ninjaWebView;
+    private NinjaWebView webView;
     private boolean longPress = true;
 
-    public NinjaGestureListener(NinjaWebView ninjaWebView) {
+    public NinjaGestureListener(NinjaWebView webView) {
         super();
-        this.ninjaWebView = ninjaWebView;
+        this.webView = webView;
     }
 
     @Override
     public void onLongPress(MotionEvent e) {
         if (longPress) {
-            ninjaWebView.onLongPress();
+            webView.onLongPress();
         }
     }
 

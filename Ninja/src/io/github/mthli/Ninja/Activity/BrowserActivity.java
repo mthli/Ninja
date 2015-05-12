@@ -49,7 +49,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     private float dimen108dp;
     private float dimen48dp;
 
-    private HorizontalScrollView swictherScroller;
+    private HorizontalScrollView switcherScroller;
     private LinearLayout switcherContainer;
     private ImageButton switcherBookmarks;
     private ImageButton switcherHistory;
@@ -148,7 +148,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent keyEvent) {
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             hideSoftInput(inputBox);
             if (switcherPanel.getStatus() != SwitcherPanel.Status.EXPANDED) {
@@ -194,7 +194,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     private void initSwitcherView() {
-        swictherScroller = (HorizontalScrollView) findViewById(R.id.switcher_scroller);
+        switcherScroller = (HorizontalScrollView) findViewById(R.id.switcher_scroller);
         switcherContainer = (LinearLayout) findViewById(R.id.switcher_container);
         switcherBookmarks = (ImageButton) findViewById(R.id.switcher_bookmarks);
         switcherHistory = (ImageButton) findViewById(R.id.switcher_history);
@@ -424,20 +424,20 @@ public class BrowserActivity extends Activity implements BrowserController {
     private synchronized void addAlbum(int flag) {
         final AlbumController holder;
         if (flag == BrowserUnit.FLAG_BOOKMARKS) {
-            NinjaRelativeLayout bookmarksLayout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.list, null, false);
-            bookmarksLayout.setBrowserController(this);
-            bookmarksLayout.setFlag(BrowserUnit.FLAG_BOOKMARKS);
-            bookmarksLayout.setAlbumCover(ViewUnit.capture(bookmarksLayout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
-            bookmarksLayout.setAlbumTitle(getString(R.string.album_title_bookmarks));
-            holder = bookmarksLayout;
+            NinjaRelativeLayout layout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.list, null, false);
+            layout.setController(this);
+            layout.setFlag(BrowserUnit.FLAG_BOOKMARKS);
+            layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
+            layout.setAlbumTitle(getString(R.string.album_title_bookmarks));
+            holder = layout;
 
             RecordAction action = new RecordAction(this);
             action.open(false);
             final List<Record> list = action.listBookmarks();
             action.close();
 
-            ListView listView = (ListView) bookmarksLayout.findViewById(R.id.list);
-            TextView textView = (TextView) bookmarksLayout.findViewById(R.id.list_empty);
+            ListView listView = (ListView) layout.findViewById(R.id.list);
+            TextView textView = (TextView) layout.findViewById(R.id.list_empty);
             listView.setEmptyView(textView);
 
             final NinjaListAdapter adapter = new NinjaListAdapter(this, R.layout.list_item, list);
@@ -459,20 +459,20 @@ public class BrowserActivity extends Activity implements BrowserController {
                 }
             });
         } else if (flag == BrowserUnit.FLAG_HISTORY) {
-            NinjaRelativeLayout historyLayout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.list, null, false);
-            historyLayout.setBrowserController(this);
-            historyLayout.setFlag(BrowserUnit.FLAG_HISTORY);
-            historyLayout.setAlbumCover(ViewUnit.capture(historyLayout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
-            historyLayout.setAlbumTitle(getString(R.string.album_title_history));
-            holder = historyLayout;
+            NinjaRelativeLayout layout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.list, null, false);
+            layout.setController(this);
+            layout.setFlag(BrowserUnit.FLAG_HISTORY);
+            layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
+            layout.setAlbumTitle(getString(R.string.album_title_history));
+            holder = layout;
 
             RecordAction action = new RecordAction(this);
             action.open(false);
             final List<Record> list = action.listHistory();
             action.close();
 
-            ListView listView = (ListView) historyLayout.findViewById(R.id.list);
-            TextView textView = (TextView) historyLayout.findViewById(R.id.list_empty);
+            ListView listView = (ListView) layout.findViewById(R.id.list);
+            TextView textView = (TextView) layout.findViewById(R.id.list_empty);
             listView.setEmptyView(textView);
 
             final NinjaListAdapter adapter = new NinjaListAdapter(this, R.layout.list_item, list);
@@ -494,12 +494,12 @@ public class BrowserActivity extends Activity implements BrowserController {
                 }
             });
         } else if (flag == BrowserUnit.FLAG_HOME) {
-            NinjaRelativeLayout homeLayout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.home, null, false);
-            homeLayout.setBrowserController(this);
-            homeLayout.setFlag(BrowserUnit.FLAG_HOME);
-            homeLayout.setAlbumCover(ViewUnit.capture(homeLayout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
-            homeLayout.setAlbumTitle(getString(R.string.album_title_home));
-            holder = homeLayout;
+            NinjaRelativeLayout layout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.home, null, false);
+            layout.setController(this);
+            layout.setFlag(BrowserUnit.FLAG_HOME);
+            layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
+            layout.setAlbumTitle(getString(R.string.album_title_home));
+            holder = layout;
         } else {
             return;
         }
@@ -530,28 +530,28 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     private synchronized void addAlbum(String title, final String url, final boolean foreground, final Message resultMsg) {
-        final NinjaWebView ninjaWebView = new NinjaWebView(this);
-        ninjaWebView.setBrowserController(this);
-        ninjaWebView.setFlag(BrowserUnit.FLAG_NINJA);
-        ninjaWebView.setAlbumCover(ViewUnit.capture(ninjaWebView, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
-        ninjaWebView.setAlbumTitle(title);
+        final NinjaWebView webView = new NinjaWebView(this);
+        webView.setBrowserController(this);
+        webView.setFlag(BrowserUnit.FLAG_NINJA);
+        webView.setAlbumCover(ViewUnit.capture(webView, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
+        webView.setAlbumTitle(title);
 
-        BrowserContainer.add(ninjaWebView);
-        final View albumView = ninjaWebView.getAlbumView();
+        BrowserContainer.add(webView);
+        final View albumView = webView.getAlbumView();
         switcherContainer.addView(albumView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
         if (!foreground) {
             /* Very important for displaying webview's layout correctly */
             int specWidth = View.MeasureSpec.makeMeasureSpec(windowWidth, View.MeasureSpec.EXACTLY);
             int specHeight = View.MeasureSpec.makeMeasureSpec((int) (windowHeight - statusBarHeight - dimen48dp), View.MeasureSpec.EXACTLY);
-            ninjaWebView.measure(specWidth, specHeight);
-            ninjaWebView.layout(0, 0, ninjaWebView.getMeasuredWidth(), ninjaWebView.getMeasuredHeight());
-            ninjaWebView.loadUrl(url);
-            ninjaWebView.deactivate();
+            webView.measure(specWidth, specHeight);
+            webView.layout(0, 0, webView.getMeasuredWidth(), webView.getMeasuredHeight());
+            webView.loadUrl(url);
+            webView.deactivate();
 
             albumView.setVisibility(View.VISIBLE);
             if (currentAlbumController != null) {
-                swictherScroller.smoothScrollTo(currentAlbumController.getAlbumView().getLeft(), 0);
+                switcherScroller.smoothScrollTo(currentAlbumController.getAlbumView().getLeft(), 0);
             }
             return;
         }
@@ -570,13 +570,13 @@ public class BrowserActivity extends Activity implements BrowserController {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                showAlbum(ninjaWebView, false);
+                showAlbum(webView, false);
 
                 if (url != null && !url.isEmpty()) {
-                    ninjaWebView.loadUrl(url);
+                    webView.loadUrl(url);
                 } else if (resultMsg != null) {
                     WebView.WebViewTransport transport = (WebView.WebViewTransport) resultMsg.obj;
-                    transport.setWebView(ninjaWebView);
+                    transport.setWebView(webView);
                     resultMsg.sendToTarget();
                 }
             }
@@ -585,8 +585,8 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     @Override
-    public synchronized void showAlbum(AlbumController albumController, final boolean capture) {
-        if (albumController == null || albumController == currentAlbumController) {
+    public synchronized void showAlbum(AlbumController controller, final boolean capture) {
+        if (controller == null || controller == currentAlbumController) {
             switcherPanel.expanded();
             return;
         }
@@ -595,15 +595,15 @@ public class BrowserActivity extends Activity implements BrowserController {
             currentAlbumController.deactivate();
         }
         contentFrame.removeAllViews();
-        contentFrame.addView((View) albumController, 0);
+        contentFrame.addView((View) controller, 0);
 
-        currentAlbumController = albumController;
+        currentAlbumController = controller;
         currentAlbumController.activate();
         updateOmnibox();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                swictherScroller.smoothScrollTo(currentAlbumController.getAlbumView().getLeft(), 0);
+                switcherScroller.smoothScrollTo(currentAlbumController.getAlbumView().getLeft(), 0);
                 switcherPanel.expanded();
                 if (capture) {
                     currentAlbumController.setAlbumCover(ViewUnit.capture(((View) currentAlbumController), dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
@@ -617,21 +617,21 @@ public class BrowserActivity extends Activity implements BrowserController {
             return;
         }
 
-        NinjaRelativeLayout homeLayout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.home, null, false);
-        homeLayout.setBrowserController(this);
-        homeLayout.setFlag(BrowserUnit.FLAG_HOME);
-        homeLayout.setAlbumCover(ViewUnit.capture(homeLayout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
-        homeLayout.setAlbumTitle(getString(R.string.album_title_home));
+        NinjaRelativeLayout layout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.home, null, false);
+        layout.setController(this);
+        layout.setFlag(BrowserUnit.FLAG_HOME);
+        layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
+        layout.setAlbumTitle(getString(R.string.album_title_home));
 
         int index = switcherContainer.indexOfChild(currentAlbumController.getAlbumView());
         currentAlbumController.deactivate();
         switcherContainer.removeView(currentAlbumController.getAlbumView());
         contentFrame.removeAllViews();
 
-        switcherContainer.addView(homeLayout.getAlbumView(), index, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-        contentFrame.addView(homeLayout, 0);
-        BrowserContainer.set(homeLayout, index);
-        currentAlbumController = homeLayout;
+        switcherContainer.addView(layout.getAlbumView(), index, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        contentFrame.addView(layout, 0);
+        BrowserContainer.set(layout, index);
+        currentAlbumController = layout;
         updateOmnibox();
     }
 
@@ -644,24 +644,24 @@ public class BrowserActivity extends Activity implements BrowserController {
             ((NinjaWebView) currentAlbumController).loadUrl(url);
             updateOmnibox();
         } else if (currentAlbumController instanceof NinjaRelativeLayout) {
-            NinjaWebView ninjaWebView = new NinjaWebView(this);
-            ninjaWebView.setBrowserController(this);
-            ninjaWebView.setFlag(BrowserUnit.FLAG_NINJA);
-            ninjaWebView.setAlbumCover(ViewUnit.capture(ninjaWebView, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
-            ninjaWebView.setAlbumTitle(getString(R.string.album_untitled));
+            NinjaWebView webView = new NinjaWebView(this);
+            webView.setBrowserController(this);
+            webView.setFlag(BrowserUnit.FLAG_NINJA);
+            webView.setAlbumCover(ViewUnit.capture(webView, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
+            webView.setAlbumTitle(getString(R.string.album_untitled));
 
             int index = switcherContainer.indexOfChild(currentAlbumController.getAlbumView());
             currentAlbumController.deactivate();
             switcherContainer.removeView(currentAlbumController.getAlbumView());
             contentFrame.removeAllViews();
 
-            switcherContainer.addView(ninjaWebView.getAlbumView(), index, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            contentFrame.addView(ninjaWebView, 0);
-            BrowserContainer.set(ninjaWebView, index);
-            currentAlbumController = ninjaWebView;
-            ninjaWebView.activate();
+            switcherContainer.addView(webView.getAlbumView(), index, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+            contentFrame.addView(webView, 0);
+            BrowserContainer.set(webView, index);
+            currentAlbumController = webView;
+            webView.activate();
 
-            ninjaWebView.loadUrl(url);
+            webView.loadUrl(url);
             updateOmnibox();
         } else {
             NinjaToast.show(this, R.string.toast_load_error);
@@ -669,24 +669,24 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     @Override
-    public synchronized void removeAlbum(AlbumController albumController) {
+    public synchronized void removeAlbum(AlbumController controller) {
         if (currentAlbumController == null || BrowserContainer.size() <= 1) {
-            switcherContainer.removeView(albumController.getAlbumView());
-            BrowserContainer.remove(albumController);
+            switcherContainer.removeView(controller.getAlbumView());
+            BrowserContainer.remove(controller);
             addAlbum(BrowserUnit.FLAG_HOME);
             return;
         }
 
-        if (albumController != currentAlbumController) {
-            switcherContainer.removeView(albumController.getAlbumView());
-            BrowserContainer.remove(albumController);
+        if (controller != currentAlbumController) {
+            switcherContainer.removeView(controller.getAlbumView());
+            BrowserContainer.remove(controller);
             if (BrowserContainer.size() <= 1) {
                 switcherPanel.expanded();
             }
         } else {
-            switcherContainer.removeView(albumController.getAlbumView());
-            int index = BrowserContainer.indexOf(albumController);
-            BrowserContainer.remove(albumController);
+            switcherContainer.removeView(controller.getAlbumView());
+            int index = BrowserContainer.indexOf(controller);
+            BrowserContainer.remove(controller);
             if (index >= BrowserContainer.size()) {
                 index = BrowserContainer.size() - 1;
             }
@@ -1022,9 +1022,9 @@ public class BrowserActivity extends Activity implements BrowserController {
             return false;
         }
 
-        NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
-        String title = ninjaWebView.getTitle();
-        String url = ninjaWebView.getUrl();
+        NinjaWebView webView = (NinjaWebView) currentAlbumController;
+        String title = webView.getTitle();
+        String url = webView.getUrl();
         if (title == null
                 || title.isEmpty()
                 || url == null
