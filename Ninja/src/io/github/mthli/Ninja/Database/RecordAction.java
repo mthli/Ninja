@@ -156,7 +156,7 @@ public class RecordAction {
     }
 
     public List<Record> listBookmarks() {
-        List<Record> list = new ArrayList<Record>();
+        List<Record> list = new ArrayList<>();
 
         Cursor cursor = database.query(
                 RecordUnit.TABLE_BOOKMARKS,
@@ -187,7 +187,7 @@ public class RecordAction {
     }
 
     public List<Record> listHistory() {
-        List<Record> list = new ArrayList<Record>();
+        List<Record> list = new ArrayList<>();
 
         Cursor cursor = database.query(
                 RecordUnit.TABLE_HISTORY,

@@ -14,6 +14,7 @@ import android.os.Message;
 import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -94,6 +95,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         create = true;
         animTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
         switcherPanel = (SwitcherPanel) findViewById(R.id.switcher_panel);
+        /*
         switcherPanel.setStatusListener(new SwitcherPanel.StatusListener() {
             @Override
             public void onFling() {}
@@ -102,10 +104,9 @@ public class BrowserActivity extends Activity implements BrowserController {
             public void onExpanded() {}
 
             @Override
-            public void onCollapsed() {
-                hideSoftInput(inputBox);
-            }
+            public void onCollapsed() {}
         });
+        */
 
         initData();
         initSwitcherView();
@@ -146,6 +147,8 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent keyEvent) {
+        Log.e("onKeyDown", String.valueOf(keyCode));
+
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             hideSoftInput(inputBox);
             if (switcherPanel.getStatus() != SwitcherPanel.Status.EXPANDED) {
@@ -1012,5 +1015,25 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     // TODO
     @Override
-    public void updateAutoComplete() {}
+    public void updateAutoComplete() {
+        RecordAction action = new RecordAction(this);
+        action.open(false);
+        List<Record> list = action.listBookmarks();
+        list.addAll(action.listHistory());
+        action.close();
+
+        CompleteAdapter adapter = new CompleteAdapter(this, R.layout.complete_item, list);
+        inputBox.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        // TODO: DropDown
+        inputBox.setDropDownWidth(windowWidth);
+        inputBox.setDropDownVerticalOffset(12);
+        inputBox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // TODO
+            }
+        });
+    }
 }
