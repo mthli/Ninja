@@ -24,9 +24,27 @@ public class CompleteAdapter extends BaseAdapter implements Filterable {
             resultList.clear();
             for (CompleteItem item : originalList) {
                 if (item.getTitle().contains(prefix) || item.getURL().contains(prefix)) {
+                    if (item.getTitle().contains(prefix)) {
+                        item.setIndex(item.getTitle().indexOf(prefix.toString()));
+                    } else if (item.getURL().contains(prefix)) {
+                        item.setIndex(item.getURL().indexOf(prefix.toString()));
+                    }
                     resultList.add(item);
                 }
             }
+
+            Collections.sort(resultList, new Comparator<CompleteItem>() {
+                @Override
+                public int compare(CompleteItem first, CompleteItem second) {
+                    if (first.getIndex() < second.getIndex()) {
+                        return -1;
+                    } else if (first.getIndex() > second.getIndex()) {
+                        return 1;
+                    } else {
+                        return 0;
+                    }
+                }
+            });
             FilterResults results = new FilterResults();
             results.values = resultList;
             results.count = resultList.size();
@@ -44,19 +62,19 @@ public class CompleteAdapter extends BaseAdapter implements Filterable {
         protected String getTitle() {
             return title;
         }
-        protected void setTitle(String title) {
-            this.title = title;
-        }
 
         private String url;
         protected String getURL() {
             return url;
         }
-        public void setURL(String url) {
-            this.url = url;
-        }
 
-        protected CompleteItem() {}
+        private int index = Integer.MAX_VALUE;
+        protected int getIndex() {
+            return index;
+        }
+        protected void setIndex(int index) {
+            this.index = index;
+        }
 
         protected CompleteItem(String title, String url) {
             this.title = title;

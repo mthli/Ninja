@@ -309,6 +309,12 @@ public class BrowserActivity extends Activity implements BrowserController {
                     List<Record> list = new ArrayList<Record>();
                     if (layout.getFlag() == BrowserUnit.FLAG_BOOKMARKS) {
                         list = action.listBookmarks();
+                        Collections.sort(list, new Comparator<Record>() {
+                            @Override
+                            public int compare(Record first, Record second) {
+                                return first.getTitle().compareTo(second.getTitle());
+                            }
+                        });
                     } else if (layout.getFlag() == BrowserUnit.FLAG_HISTORY) {
                         list = action.listHistory();
                     }
@@ -437,7 +443,12 @@ public class BrowserActivity extends Activity implements BrowserController {
             action.open(false);
             final List<Record> list = action.listBookmarks();
             action.close();
-            // TODO: Sort by title
+            Collections.sort(list, new Comparator<Record>() {
+                @Override
+                public int compare(Record first, Record second) {
+                    return first.getTitle().compareTo(second.getTitle());
+                }
+            });
 
             ListView listView = (ListView) layout.findViewById(R.id.list);
             TextView textView = (TextView) layout.findViewById(R.id.list_empty);
