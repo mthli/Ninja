@@ -14,7 +14,6 @@ import android.os.Message;
 import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -696,6 +695,33 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     @Override
+    public void updateAutoComplete() {
+        RecordAction action = new RecordAction(this);
+        action.open(false);
+        List<Record> list = action.listBookmarks();
+        list.addAll(action.listHistory());
+        action.close();
+
+        CompleteAdapter adapter = new CompleteAdapter(this, R.layout.complete_item, list);
+        inputBox.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        // TODO: DropDownBackgroundDrawable/Resource
+        inputBox.setDropDownWidth(windowWidth);
+        inputBox.setDropDownVerticalOffset(12);
+        inputBox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String url = ((TextView) view.findViewById(R.id.complete_item_url)).getText().toString();
+                inputBox.setText(url);
+                inputBox.setSelection(url.length());
+                updateAlbum(url);
+                hideSoftInput(inputBox);
+            }
+        });
+    }
+
+    @Override
     public void updateBookmarks() {
         if (currentAlbumController == null || !(currentAlbumController instanceof NinjaWebView)) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -1010,29 +1036,5 @@ public class BrowserActivity extends Activity implements BrowserController {
             return false;
         }
         return true;
-    }
-
-    // TODO
-    @Override
-    public void updateAutoComplete() {
-        RecordAction action = new RecordAction(this);
-        action.open(false);
-        List<Record> list = action.listBookmarks();
-        list.addAll(action.listHistory());
-        action.close();
-
-        CompleteAdapter adapter = new CompleteAdapter(this, R.layout.complete_item, list);
-        inputBox.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-
-        // TODO: DropDown
-        inputBox.setDropDownWidth(windowWidth);
-        inputBox.setDropDownVerticalOffset(12);
-        inputBox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // TODO
-            }
-        });
     }
 }
