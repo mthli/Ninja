@@ -51,8 +51,8 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     private HorizontalScrollView swictherScroller;
     private LinearLayout switcherContainer;
-    private ImageButton swictherBookmarks;
-    private ImageButton swictherHistory;
+    private ImageButton switcherBookmarks;
+    private ImageButton switcherHistory;
     private ImageButton switcherAdd;
 
     private LinearLayout mainView;
@@ -196,18 +196,18 @@ public class BrowserActivity extends Activity implements BrowserController {
     private void initSwitcherView() {
         swictherScroller = (HorizontalScrollView) findViewById(R.id.switcher_scroller);
         switcherContainer = (LinearLayout) findViewById(R.id.switcher_container);
-        swictherBookmarks = (ImageButton) findViewById(R.id.switcher_bookmarks);
-        swictherHistory = (ImageButton) findViewById(R.id.switcher_history);
+        switcherBookmarks = (ImageButton) findViewById(R.id.switcher_bookmarks);
+        switcherHistory = (ImageButton) findViewById(R.id.switcher_history);
         switcherAdd = (ImageButton) findViewById(R.id.switcher_add);
 
-        swictherBookmarks.setOnClickListener(new View.OnClickListener() {
+        switcherBookmarks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addAlbum(BrowserUnit.FLAG_BOOKMARKS);
             }
         });
 
-        swictherHistory.setOnClickListener(new View.OnClickListener() {
+        switcherHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addAlbum(BrowserUnit.FLAG_HISTORY);
@@ -433,7 +433,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
             RecordAction action = new RecordAction(this);
             action.open(false);
-            List<Record> list = action.listBookmarks();
+            final List<Record> list = action.listBookmarks();
             action.close();
 
             ListView listView = (ListView) bookmarksLayout.findViewById(R.id.list);
@@ -447,7 +447,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    // TODO
+                    updateAlbum(list.get(position).getURL());
                 }
             });
 
@@ -468,7 +468,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
             RecordAction action = new RecordAction(this);
             action.open(false);
-            List<Record> list = action.listHistory();
+            final List<Record> list = action.listHistory();
             action.close();
 
             ListView listView = (ListView) historyLayout.findViewById(R.id.list);
@@ -482,7 +482,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    // TODO
+                    updateAlbum(list.get(position).getURL());
                 }
             });
 

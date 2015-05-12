@@ -152,10 +152,10 @@
                                       android:textCursorDrawable="@null"
                                       android:textSize="@dimen/text_size_16sp"
                                       android:selectAllOnFocus="true"
+                                      android:completionThreshold="1"
                                       android:singleLine="true"
                                       android:imeOptions="actionDone"
                                       android:inputType="text"
-                                      android:completionThreshold="1"
                                       android:background="@color/white">
                 </AutoCompleteTextView>
 

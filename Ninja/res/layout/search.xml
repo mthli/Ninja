@@ -61,6 +61,7 @@
               android:textColorHint="@color/hint"
               android:textCursorDrawable="@null"
               android:textSize="@dimen/text_size_16sp"
+              android:selectAllOnFocus="true"
               android:imeOptions="actionDone"
               android:inputType="text"
               android:singleLine="true"
