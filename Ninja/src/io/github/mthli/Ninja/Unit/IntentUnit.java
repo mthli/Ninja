@@ -37,14 +37,6 @@ public class IntentUnit {
         clear = b;
     }
 
-    private static boolean github = false;
-    public static boolean isGithub() {
-        return github;
-    }
-    public static void setGithub(boolean b) {
-        github = b;
-    }
-
     private static boolean dbChange = false;
     public static boolean isDBChange() {
         return dbChange;

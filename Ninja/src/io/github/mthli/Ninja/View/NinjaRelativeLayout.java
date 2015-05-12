@@ -15,7 +15,7 @@ public class NinjaRelativeLayout extends RelativeLayout implements AlbumControll
     private int flag = 0;
 
     private BrowserController controller;
-    public void setController(BrowserController controller) {
+    public void setBrowserController(BrowserController controller) {
         this.controller = controller;
         this.album.setBrowserController(controller);
     }

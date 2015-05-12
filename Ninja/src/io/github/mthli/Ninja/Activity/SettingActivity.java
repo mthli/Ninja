@@ -50,7 +50,6 @@ public class SettingActivity extends Activity {
             case android.R.id.home:
                 IntentUnit.setDBChange(fragment.isDBChange());
                 IntentUnit.setSPChange(fragment.isSPChange());
-                IntentUnit.setGithub(false);
                 finish();
                 break;
             default:
@@ -64,7 +63,6 @@ public class SettingActivity extends Activity {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             IntentUnit.setDBChange(fragment.isDBChange());
             IntentUnit.setSPChange(fragment.isSPChange());
-            IntentUnit.setGithub(false);
             finish();
         }
         return true;

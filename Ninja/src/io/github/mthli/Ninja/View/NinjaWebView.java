@@ -139,7 +139,7 @@ public class NinjaWebView extends WebView implements AlbumController {
         }
     }
 
-    private synchronized void initPreferences() {
+    public synchronized void initPreferences() {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         WebSettings webSettings = getSettings();
 

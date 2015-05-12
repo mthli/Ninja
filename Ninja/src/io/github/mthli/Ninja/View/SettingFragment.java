@@ -1,17 +1,14 @@
 package io.github.mthli.Ninja.View;
 
 import android.app.ProgressDialog;
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.webkit.CookieManager;
-import android.widget.Toast;
 import io.github.mthli.Ninja.Browser.*;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
@@ -100,22 +97,13 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
                 new ClearPasswordsTask(getActivity()).execute();
                 break;
             case R.string.setting_title_version:
-                Toast.makeText(getActivity(), R.string.toast_judge, Toast.LENGTH_SHORT).show();
+                NinjaToast.show(getActivity(), R.string.toast_judge);
                 break;
             case R.string.setting_title_github:
-                IntentUnit.setDBChange(dbChange);
-                IntentUnit.setSPChange(spChange);
-                IntentUnit.setGithub(true);
-                getActivity().finish();
+                NinjaToast.show(getActivity(), R.string.app_github);
                 break;
             case R.string.setting_title_contact_us:
-                try {
-                    Intent toGmail = new Intent(Intent.ACTION_SENDTO);
-                    toGmail.setData(Uri.parse(getString(R.string.app_gmail)));
-                    startActivity(toGmail);
-                } catch (ActivityNotFoundException a) {
-                    NinjaToast.show(getActivity(), R.string.app_gmail);
-                }
+                NinjaToast.show(getActivity(), R.string.app_gmail);
                 break;
             default:
                 break;

@@ -31,6 +31,7 @@ import io.github.mthli.Ninja.Browser.ScreenshotTask;
 import io.github.mthli.Ninja.Database.Record;
 import io.github.mthli.Ninja.Database.RecordAction;
 import io.github.mthli.Ninja.R;
+import io.github.mthli.Ninja.Service.HolderService;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.Unit.IntentUnit;
 import io.github.mthli.Ninja.Unit.ViewUnit;
@@ -113,18 +114,97 @@ public class BrowserActivity extends Activity implements BrowserController {
         initSwitcherView();
         initMainView();
         initSearchPanel();
-        addAlbum(BrowserUnit.FLAG_HOME); // TODO
+        dispatchIntent(getIntent());
     }
 
-    // TODO
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+    }
+
+    private void dispatchIntent(Intent intent) {
+        Intent toService = new Intent(this, HolderService.class);
+        IntentUnit.setClear(false);
+        stopService(toService);
+
+        if (intent != null && intent.hasExtra(IntentUnit.OPEN)) { // From HolderActivity's menu
+            pinAlbums(intent.getStringExtra(IntentUnit.OPEN));
+        } else {
+            pinAlbums(null);
+        }
+    }
+
+    private void pinAlbums(String url) {
+        hideSoftInput(inputBox);
+        hideSearchPanel();
+        switcherContainer.removeAllViews();
+        contentFrame.removeAllViews();
+
+        for (AlbumController controller : BrowserContainer.list()) {
+            if (controller instanceof NinjaWebView) {
+                ((NinjaWebView) controller).setBrowserController(this);
+            } else if (controller instanceof NinjaRelativeLayout) {
+                ((NinjaRelativeLayout) controller).setBrowserController(this);
+            }
+            switcherContainer.addView(controller.getAlbumView(), LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
+            controller.deactivate();
+            controller.getAlbumView().setVisibility(View.VISIBLE);
+        }
+
+        if (BrowserContainer.size() < 1 && url == null) {
+            addAlbum(BrowserUnit.FLAG_HOME);
+        } else if (BrowserContainer.size() >= 1 && url == null) {
+            if (currentAlbumController != null) {
+                currentAlbumController.deactivate();
+            }
+            currentAlbumController = BrowserContainer.get(BrowserContainer.size() - 1);
+            contentFrame.addView((View) currentAlbumController);
+            currentAlbumController.activate();
+
+            updateOmnibox();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    switcherScroller.smoothScrollTo(currentAlbumController.getAlbumView().getLeft(), 0);
+                    currentAlbumController.setAlbumCover(ViewUnit.capture(((View) currentAlbumController), dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
+                }
+            }, shortAnimTime);
+        } else {
+            // TODO: when url != null
+        }
+    }
+
     @Override
     public void onResume() {
         super.onResume();
+
+        if (create) {
+            return;
+        }
+        dispatchIntent(getIntent());
+
+        if (IntentUnit.isDBChange()) {
+            updateBookmarks();
+            updateAutoComplete();
+            IntentUnit.setDBChange(false);
+        }
+
+        if (IntentUnit.isSPChange()) {
+            for (AlbumController controller : BrowserContainer.list()) {
+                if (controller instanceof NinjaWebView) {
+                    ((NinjaWebView) controller).initPreferences();
+                }
+            }
+            IntentUnit.setSPChange(false);
+        }
     }
 
     @Override
     public void onPause() {
-        // TODO
+        Intent toService = new Intent(this, HolderService.class);
+        IntentUnit.setClear(true);
+        stopService(toService);
 
         create = false;
         inputBox.clearFocus();
@@ -133,7 +213,9 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     @Override
     public void onDestroy() {
-        // TODO
+        Intent toService = new Intent(this, HolderService.class);
+        IntentUnit.setClear(true);
+        stopService(toService);
 
         BrowserContainer.clear();
         super.onDestroy();
@@ -434,7 +516,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         final AlbumController holder;
         if (flag == BrowserUnit.FLAG_BOOKMARKS) {
             NinjaRelativeLayout layout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.list, null, false);
-            layout.setController(this);
+            layout.setBrowserController(this);
             layout.setFlag(BrowserUnit.FLAG_BOOKMARKS);
             layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
             layout.setAlbumTitle(getString(R.string.album_title_bookmarks));
@@ -475,7 +557,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             });
         } else if (flag == BrowserUnit.FLAG_HISTORY) {
             NinjaRelativeLayout layout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.list, null, false);
-            layout.setController(this);
+            layout.setBrowserController(this);
             layout.setFlag(BrowserUnit.FLAG_HISTORY);
             layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
             layout.setAlbumTitle(getString(R.string.album_title_history));
@@ -510,7 +592,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             });
         } else if (flag == BrowserUnit.FLAG_HOME) {
             NinjaRelativeLayout layout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.home, null, false);
-            layout.setController(this);
+            layout.setBrowserController(this);
             layout.setFlag(BrowserUnit.FLAG_HOME);
             layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
             layout.setAlbumTitle(getString(R.string.album_title_home));
@@ -610,7 +692,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             currentAlbumController.deactivate();
         }
         contentFrame.removeAllViews();
-        contentFrame.addView((View) controller, 0);
+        contentFrame.addView((View) controller);
 
         currentAlbumController = controller;
         currentAlbumController.activate();
@@ -633,7 +715,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
 
         NinjaRelativeLayout layout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.home, null, false);
-        layout.setController(this);
+        layout.setBrowserController(this);
         layout.setFlag(BrowserUnit.FLAG_HOME);
         layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
         layout.setAlbumTitle(getString(R.string.album_title_home));
@@ -644,7 +726,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         contentFrame.removeAllViews();
 
         switcherContainer.addView(layout.getAlbumView(), index, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-        contentFrame.addView(layout, 0);
+        contentFrame.addView(layout);
         BrowserContainer.set(layout, index);
         currentAlbumController = layout;
         updateOmnibox();
@@ -671,7 +753,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             contentFrame.removeAllViews();
 
             switcherContainer.addView(webView.getAlbumView(), index, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            contentFrame.addView(webView, 0);
+            contentFrame.addView(webView);
             BrowserContainer.set(webView, index);
             currentAlbumController = webView;
             webView.activate();

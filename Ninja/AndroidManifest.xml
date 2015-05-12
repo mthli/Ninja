@@ -24,6 +24,26 @@
                  android:enabled="true"
                  android:largeHeap="true">
 
+        <!-- HolderActivity -->
+        <activity android:name=".Activity.HolderActivity"
+                  android:label="@string/app_name"
+                  android:launchMode="singleTask"
+                  android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="@string/app_scheme_http" />
+                <data android:scheme="@string/app_scheme_https" />
+            </intent-filter>
+        </activity>
+
+        <!-- HolderService -->
+        <service android:name=".Service.HolderService"
+                 android:label="@string/app_name"
+                 android:icon="@drawable/ic_launcher">
+        </service>
+
         <!-- BrowserActivity -->
         <activity android:name=".Activity.BrowserActivity"
                   android:label="@string/app_name"
