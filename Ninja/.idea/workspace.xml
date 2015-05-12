@@ -40,7 +40,7 @@
             <file leaf-file-name="BrowserActivity.java" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/BrowserActivity.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="-2.5971787">
+                  <state vertical-scroll-proportion="-1.6097178">
                     <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
                     <folding>
                       <element signature="imports" expanded="false" />
@@ -109,78 +109,7 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="BrowserActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Public/Ninja/Ninja/src/io/github/mthli/Ninja/Activity/BrowserActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="633" column="38" selection-start-line="633" selection-start-column="30" selection-end-line="633" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="method#onConfigurationChanged#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#onKeyDown#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#initControlPanel#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#initSearchPanel#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="class#12394:12944" expanded="false" />
-                <element signature="method#beforeTextChanged#0;class#12394:12944" expanded="false" />
-                <element signature="method#onTextChanged#0;class#12394:12944" expanded="false" />
-                <element signature="method#afterTextChanged#0;class#12394:12944" expanded="false" />
-                <element signature="method#prepareRecord#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#showOverflow#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#newTab#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#newTab#1;class#BrowserActivity#0" expanded="false" />
-                <element signature="class#19683:21064" expanded="false" />
-                <element signature="method#onAnimationRepeat#0;class#19683:21064" expanded="false" />
-                <element signature="method#onAnimationEnd#0;class#19683:21064" expanded="false" />
-                <element signature="method#newTab#2;class#BrowserActivity#0" expanded="false" />
-                <element signature="class#24673:25459" expanded="false" />
-                <element signature="method#onAnimationEnd#0;class#24673:25459" expanded="false" />
-                <element signature="method#showTab#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#showTab#1;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#updateTab#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#deleteTab#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="class#30905:32467" expanded="false" />
-                <element signature="method#onAnimationRepeat#0;class#30905:32467" expanded="false" />
-                <element signature="method#onAnimationStart#0;class#30905:32467" expanded="false" />
-                <element signature="method#onAnimationEnd#0;class#30905:32467" expanded="false" />
-                <element signature="method#showListMenu#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="class#33496:35476" expanded="false" />
-                <element signature="method#updateAutoComplete#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#updateBookmarks#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#updateInputBox#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#updateProgress#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#updateOmniBox#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#updateRefreshButton#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#showSoftInput#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#hideSoftInput#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#showSearchPanel#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#hideSearchPanel#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#onCreateView#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#onLongPress#0;class#BrowserActivity#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NotificationUnit.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/NotificationUnit.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0945274">
-              <caret line="44" column="86" selection-start-line="44" selection-start-column="86" selection-end-line="44" selection-end-column="86" />
-              <folding>
-                <element signature="e#909#961#0" expanded="true" />
-                <element signature="e#963#1036#0" expanded="true" />
-                <element signature="e#1067#1140#0" expanded="true" />
-                <element signature="e#1244#1314#0" expanded="true" />
-                <element signature="e#1415#1484#0" expanded="true" />
-                <element signature="e#1967#2003#0" expanded="true" />
-                <element signature="e#2037#2090#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -226,7 +155,6 @@
         <option value="$PROJECT_DIR$/res/layout/dialog_edit.xml" />
         <option value="$PROJECT_DIR$/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Database/RecordAction.java" />
-        <option value="$PROJECT_DIR$/res/xml/preference.xml" />
         <option value="$PROJECT_DIR$/res/menu/setting_menu.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Fragment/SettingFragment.java" />
         <option value="$PROJECT_DIR$/res/values/strings_app.xml" />
@@ -245,13 +173,14 @@
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/HolderActivity.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/NinjaRelativeLayout.java" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/SettingFragment.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/SettingActivity.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/IntentUnit.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/BrowserActivity.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Service/HolderService.java" />
-        <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/NotificationUnit.java" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/SettingFragment.java" />
+        <option value="$PROJECT_DIR$/res/xml/preference.xml" />
+        <option value="$PROJECT_DIR$/res/values/strings.xml" />
       </list>
     </option>
   </component>
@@ -401,6 +330,10 @@
               <option name="myItemId" value="Ninja" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -477,6 +410,24 @@
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xml" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -515,7 +466,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Public/Ninja/Ninja/src/io/github/mthli/Ninja/Activity/BrowserActivity.java" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Public/Ninja/Ninja/src/io/github/mthli/Ninja/Browser/NinjaView.java" />
   </component>
   <component name="RunManager" selected="Android Application.Ninja">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -720,7 +671,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="-3" width="1370" height="748" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -737,11 +688,11 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30634922" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32857144" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" x="0" y="18" width="1318" height="721" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3258427" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42380953" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2439577" sideWeight="0.4888889" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.260574" sideWeight="0.4888889" order="0" side_tool="false" content_ui="combo" x="502" y="88" width="435" height="613" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.260574" sideWeight="0.4888889" order="0" side_tool="false" content_ui="combo" x="502" y="88" width="435" height="613" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41904762" sideWeight="0.49697885" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -812,14 +763,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/View/NinjaToast.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14925373">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/View/SwipeToDismissListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6467662">
@@ -989,56 +932,6 @@
         <state vertical-scroll-proportion="0.39800996">
           <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/xml/preference.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09950249">
-          <caret line="4" column="70" selection-start-line="4" selection-start-column="70" selection-end-line="4" selection-end-column="70" />
-          <folding>
-            <element signature="e#157#188#0" expanded="false" />
-            <element signature="e#227#253#0" expanded="false" />
-            <element signature="e#299#345#0" expanded="false" />
-            <element signature="e#384#421#0" expanded="false" />
-            <element signature="e#462#508#0" expanded="false" />
-            <element signature="e#733#767#0" expanded="false" />
-            <element signature="e#813#868#0" expanded="false" />
-            <element signature="e#907#952#0" expanded="false" />
-            <element signature="e#993#1048#0" expanded="false" />
-            <element signature="e#1293#1312#0" expanded="false" />
-            <element signature="e#1411#1441#0" expanded="false" />
-            <element signature="e#1486#1518#0" expanded="false" />
-            <element signature="e#1591#1611#0" expanded="false" />
-            <element signature="e#1710#1740#0" expanded="false" />
-            <element signature="e#1785#1817#0" expanded="false" />
-            <element signature="e#1890#1913#0" expanded="false" />
-            <element signature="e#2012#2046#0" expanded="false" />
-            <element signature="e#2091#2127#0" expanded="false" />
-            <element signature="e#2200#2221#0" expanded="false" />
-            <element signature="e#2320#2352#0" expanded="false" />
-            <element signature="e#2397#2431#0" expanded="false" />
-            <element signature="e#2504#2533#0" expanded="false" />
-            <element signature="e#2632#2672#0" expanded="false" />
-            <element signature="e#2717#2759#0" expanded="false" />
-            <element signature="e#2857#2885#0" expanded="false" />
-            <element signature="e#2928#2950#0" expanded="false" />
-            <element signature="e#3049#3082#0" expanded="false" />
-            <element signature="e#3127#3162#0" expanded="false" />
-            <element signature="e#3229#3269#0" expanded="false" />
-            <element signature="e#3308#3348#0" expanded="false" />
-            <element signature="e#3387#3426#0" expanded="false" />
-            <element signature="e#3465#3500#0" expanded="false" />
-            <element signature="e#3539#3575#0" expanded="false" />
-            <element signature="e#3614#3653#0" expanded="false" />
-            <element signature="e#3692#3729#0" expanded="false" />
-            <element signature="e#3768#3807#0" expanded="false" />
-            <element signature="e#3877#3907#0" expanded="false" />
-            <element signature="e#3944#3975#0" expanded="false" />
-            <element signature="e#4012#4033#0" expanded="false" />
-            <element signature="e#4092#4122#0" expanded="false" />
-            <element signature="e#4161#4195#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1213,21 +1106,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/View/NinjaWebView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="141" column="10" selection-start-line="141" selection-start-column="10" selection-end-line="141" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#pause#0;class#NinjaWebView#0" expanded="false" />
-            <element signature="method#resume#0;class#NinjaWebView#0" expanded="false" />
-            <element signature="method#destroy#0;class#NinjaWebView#0" expanded="false" />
-            <element signature="method#onLongPress#0;class#NinjaWebView#0" expanded="false" />
-            <element signature="method#prepareRecord#0;class#NinjaWebView#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Public/Ninja/Ninja/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1335,18 +1213,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/View/SettingFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.049751244">
-          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
-          <folding>
-            <element signature="e#4184#4204#0" expanded="true" />
-            <element signature="e#4325#4344#0" expanded="true" />
-            <element signature="e#4469#4487#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/SettingActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.2686567">
@@ -1355,9 +1221,86 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Service/HolderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.3383086">
+          <caret line="94" column="59" selection-start-line="94" selection-start-column="59" selection-end-line="94" selection-end-column="59" />
+          <folding>
+            <element signature="e#2795#2796#0" expanded="true" />
+            <element signature="e#2822#2823#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/NotificationUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40298507">
+          <caret line="44" column="86" selection-start-line="44" selection-start-column="86" selection-end-line="44" selection-end-column="86" />
+          <folding>
+            <element signature="e#909#961#0" expanded="true" />
+            <element signature="e#963#1036#0" expanded="true" />
+            <element signature="e#1067#1140#0" expanded="true" />
+            <element signature="e#1244#1314#0" expanded="true" />
+            <element signature="e#1415#1484#0" expanded="true" />
+            <element signature="e#1967#2003#0" expanded="true" />
+            <element signature="e#2037#2090#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Public/Ninja/Ninja/src/io/github/mthli/Ninja/Activity/BrowserActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28524047">
+          <caret line="76" column="34" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#onConfigurationChanged#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onKeyDown#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#initControlPanel#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#initSearchPanel#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#12394:12944" expanded="false" />
+            <element signature="method#beforeTextChanged#0;class#12394:12944" expanded="false" />
+            <element signature="method#onTextChanged#0;class#12394:12944" expanded="false" />
+            <element signature="method#afterTextChanged#0;class#12394:12944" expanded="false" />
+            <element signature="method#prepareRecord#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#showOverflow#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#newTab#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#newTab#1;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#19683:21064" expanded="false" />
+            <element signature="method#onAnimationRepeat#0;class#19683:21064" expanded="false" />
+            <element signature="method#onAnimationEnd#0;class#19683:21064" expanded="false" />
+            <element signature="method#newTab#2;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#24673:25459" expanded="false" />
+            <element signature="method#onAnimationEnd#0;class#24673:25459" expanded="false" />
+            <element signature="method#showTab#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#showTab#1;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateTab#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#deleteTab#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#30905:32467" expanded="false" />
+            <element signature="method#onAnimationRepeat#0;class#30905:32467" expanded="false" />
+            <element signature="method#onAnimationStart#0;class#30905:32467" expanded="false" />
+            <element signature="method#onAnimationEnd#0;class#30905:32467" expanded="false" />
+            <element signature="method#showListMenu#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#33496:35476" expanded="false" />
+            <element signature="method#updateAutoComplete#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateBookmarks#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateInputBox#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateProgress#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateOmniBox#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateRefreshButton#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#showSoftInput#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#hideSoftInput#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#showSearchPanel#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#hideSearchPanel#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onLongPress#0;class#BrowserActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/BrowserActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5971787">
+        <state vertical-scroll-proportion="-1.6097178">
           <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="false" />
@@ -1413,87 +1356,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Service/HolderService.java">
+    <entry file="file://$USER_HOME$/Public/Ninja/Ninja/src/io/github/mthli/Ninja/Browser/NinjaView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.3383086">
-          <caret line="94" column="59" selection-start-line="94" selection-start-column="59" selection-end-line="94" selection-end-column="59" />
+        <state vertical-scroll-proportion="-5.447761">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/View/NinjaWebView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22885571">
+          <caret line="232" column="29" selection-start-line="232" selection-start-column="29" selection-end-line="232" selection-end-column="29" />
           <folding>
-            <element signature="e#2795#2796#0" expanded="true" />
-            <element signature="e#2822#2823#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="method#pause#0;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#resume#0;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#destroy#0;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#onLongPress#0;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#prepareRecord#0;class#NinjaWebView#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/View/SettingFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4079602">
+          <caret line="100" column="22" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="7.136678">
-          <caret line="314" column="31" selection-start-line="314" selection-start-column="31" selection-end-line="314" selection-end-column="31" />
+        <state vertical-scroll-proportion="5.916955">
+          <caret line="228" column="18" selection-start-line="228" selection-start-column="18" selection-end-line="228" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Public/Ninja/Ninja/src/io/github/mthli/Ninja/Activity/BrowserActivity.java">
+    <entry file="file://$PROJECT_DIR$/res/xml/preference.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="633" column="38" selection-start-line="633" selection-start-column="30" selection-end-line="633" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.65174127">
+          <caret line="84" column="21" selection-start-line="84" selection-start-column="21" selection-end-line="84" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#onConfigurationChanged#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onKeyDown#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#initControlPanel#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#initSearchPanel#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#12394:12944" expanded="false" />
-            <element signature="method#beforeTextChanged#0;class#12394:12944" expanded="false" />
-            <element signature="method#onTextChanged#0;class#12394:12944" expanded="false" />
-            <element signature="method#afterTextChanged#0;class#12394:12944" expanded="false" />
-            <element signature="method#prepareRecord#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#showOverflow#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#newTab#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#newTab#1;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#19683:21064" expanded="false" />
-            <element signature="method#onAnimationRepeat#0;class#19683:21064" expanded="false" />
-            <element signature="method#onAnimationEnd#0;class#19683:21064" expanded="false" />
-            <element signature="method#newTab#2;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#24673:25459" expanded="false" />
-            <element signature="method#onAnimationEnd#0;class#24673:25459" expanded="false" />
-            <element signature="method#showTab#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#showTab#1;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateTab#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#deleteTab#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#30905:32467" expanded="false" />
-            <element signature="method#onAnimationRepeat#0;class#30905:32467" expanded="false" />
-            <element signature="method#onAnimationStart#0;class#30905:32467" expanded="false" />
-            <element signature="method#onAnimationEnd#0;class#30905:32467" expanded="false" />
-            <element signature="method#showListMenu#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#33496:35476" expanded="false" />
-            <element signature="method#updateAutoComplete#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateBookmarks#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateInputBox#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateProgress#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateOmniBox#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateRefreshButton#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#showSoftInput#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#hideSoftInput#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#showSearchPanel#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#hideSearchPanel#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onCreateView#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onLongPress#0;class#BrowserActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/NotificationUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0945274">
-          <caret line="44" column="86" selection-start-line="44" selection-start-column="86" selection-end-line="44" selection-end-column="86" />
-          <folding>
-            <element signature="e#909#961#0" expanded="true" />
-            <element signature="e#963#1036#0" expanded="true" />
-            <element signature="e#1067#1140#0" expanded="true" />
-            <element signature="e#1244#1314#0" expanded="true" />
-            <element signature="e#1415#1484#0" expanded="true" />
-            <element signature="e#1967#2003#0" expanded="true" />
-            <element signature="e#2037#2090#0" expanded="true" />
+            <element signature="e#157#188#0" expanded="true" />
+            <element signature="e#4092#4122#0" expanded="true" />
           </folding>
         </state>
       </provider>

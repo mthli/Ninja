@@ -308,9 +308,6 @@
     <string name="toast_screenshot_failed">
         Screenshot failed.
     </string>
-    <string name="toast_search_failed">
-        Can\'t search at this page.
-    </string>
     <string name="toast_share_failed">
         Can\'t share this page.
     </string>
