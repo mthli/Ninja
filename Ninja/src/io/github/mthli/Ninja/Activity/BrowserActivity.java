@@ -440,7 +440,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             TextView textView = (TextView) bookmarksLayout.findViewById(R.id.list_empty);
             listView.setEmptyView(textView);
 
-            NinjaListAdapter adapter = new NinjaListAdapter(this, R.layout.list_item, list);
+            final NinjaListAdapter adapter = new NinjaListAdapter(this, R.layout.list_item, list);
             listView.setAdapter(adapter);
             adapter.notifyDataSetChanged();
 
@@ -454,7 +454,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                 @Override
                 public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                    // TODO
+                    showListMenu(adapter, list, position);
                     return true;
                 }
             });
@@ -475,7 +475,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             TextView textView = (TextView) historyLayout.findViewById(R.id.list_empty);
             listView.setEmptyView(textView);
 
-            NinjaListAdapter adapter = new NinjaListAdapter(this, R.layout.list_item, list);
+            final NinjaListAdapter adapter = new NinjaListAdapter(this, R.layout.list_item, list);
             listView.setAdapter(adapter);
             adapter.notifyDataSetChanged();
 
@@ -489,7 +489,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                 @Override
                 public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                    // TODO
+                    showListMenu(adapter, list, position);
                     return true;
                 }
             });
@@ -872,14 +872,13 @@ public class BrowserActivity extends Activity implements BrowserController {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String string = list.get(position);
-                if (string.equals(getString(R.string.main_menu_new_tab))) {
-                    // TODO: addAlbum effect?
+                String s = list.get(position);
+                if (s.equals(getString(R.string.main_menu_new_tab))) {
                     addAlbum(getString(R.string.album_untitled), target, false, null);
                     NinjaToast.show(BrowserActivity.this, R.string.toast_new_tab_successful);
-                } else if (string.equals(getString(R.string.main_menu_copy))) {
+                } else if (s.equals(getString(R.string.main_menu_copy))) {
                     BrowserUnit.copyURL(BrowserActivity.this, target);
-                } else if (string.equals(getString(R.string.main_menu_save))) {
+                } else if (s.equals(getString(R.string.main_menu_save))) {
                     BrowserUnit.download(BrowserActivity.this, target, target, BrowserUnit.MIME_TYPE_IMAGE);
                 }
                 dialog.hide();
@@ -948,13 +947,13 @@ public class BrowserActivity extends Activity implements BrowserController {
         LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog, null, false);
         builder.setView(layout);
 
-        final String[] strings = getResources().getStringArray(R.array.main_overflow);
+        final String[] array = getResources().getStringArray(R.array.main_overflow);
         final List<String> list = new ArrayList<>();
-        list.addAll(Arrays.asList(strings));
+        list.addAll(Arrays.asList(array));
         if (currentAlbumController != null && currentAlbumController instanceof NinjaRelativeLayout) {
-            list.remove(strings[0]);
-            list.remove(strings[1]);
-            list.remove(strings[2]);
+            list.remove(array[0]);
+            list.remove(array[1]);
+            list.remove(array[2]);
         }
 
         RelativeLayout dialogHeader = (RelativeLayout) getLayoutInflater().inflate(R.layout.dialog_header, null, false);
@@ -993,23 +992,23 @@ public class BrowserActivity extends Activity implements BrowserController {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String string = list.get(position - 1);
-                if (string.equals(strings[0])) {
+                String s = list.get(position - 1);
+                if (s.equals(array[0])) {
                     hideSoftInput(inputBox);
                     showSearchPanel();
-                } else if (string.equals(strings[1])) {
+                } else if (s.equals(array[1])) {
                     final NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
                     new ScreenshotTask(BrowserActivity.this, ninjaWebView).execute();
-                } else if (string.equals(strings[2])) {
+                } else if (s.equals(array[2])) {
                     if (!prepareRecord()) {
                         NinjaToast.show(BrowserActivity.this, R.string.toast_share_failed);
                     } else {
                         NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
                         IntentUnit.share(BrowserActivity.this, ninjaWebView.getTitle(), ninjaWebView.getUrl());
                     }
-                } else if (string.equals(strings[3])) {
+                } else if (s.equals(array[3])) {
                     // TODO: intent to SettingActivity
-                } else if (string.equals(strings[4])) {
+                } else if (s.equals(array[4])) {
                     finish();
                 }
                 dialog.hide();
@@ -1036,5 +1035,50 @@ public class BrowserActivity extends Activity implements BrowserController {
             return false;
         }
         return true;
+    }
+
+    private void showListMenu(NinjaListAdapter listAdapter, List<Record> recordList, int location) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+
+        LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog, null, false);
+        builder.setView(layout);
+
+        final String[] array = getResources().getStringArray(R.array.list_menu);
+        final List<String> stringList = new ArrayList<>();
+        stringList.addAll(Arrays.asList(array));
+        if (currentAlbumController.getFlag() != BrowserUnit.FLAG_BOOKMARKS) {
+            stringList.remove(array[3]);
+        }
+
+        ListView listView = (ListView) layout.findViewById(R.id.dialog_list);
+        DialogAdapter dialogAdapter = new DialogAdapter(this, R.layout.dialog_item, stringList);
+        listView.setAdapter(dialogAdapter);
+        dialogAdapter.notifyDataSetChanged();
+
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+        final Record record = recordList.get(location);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String s = stringList.get(position);
+                if (s.equals(array[0])) { // New tab
+                    addAlbum(getString(R.string.album_untitled), record.getURL(), false, null);
+                    NinjaToast.show(BrowserActivity.this, R.string.toast_new_tab_successful);
+                } else if (s.equals(array[1])) { // Copy link
+                    BrowserUnit.copyURL(BrowserActivity.this, record.getURL());
+                } else if (s.equals(array[2])) { // Share
+                    IntentUnit.share(BrowserActivity.this, record.getTitle(), record.getURL());
+                } else if (s.equals(array[3])) { // Edit
+                    // TODO
+                } else if (s.equals(array[4])) { // Delete
+                    // TODO
+                }
+                dialog.hide();
+                dialog.dismiss();
+            }
+        });
     }
 }
