@@ -172,8 +172,7 @@ public class BrowserUnit {
         }
     }
 
-    // TODO: used by AsyncTask
-    public static void exportBookmarks(Context context) {
+    public static String exportBookmarks(Context context) {
         RecordAction action = new RecordAction(context);
         action.open(false);
         List<Record> list = action.listBookmarks();
@@ -198,16 +197,15 @@ public class BrowserUnit {
                 writer.newLine();
             }
             writer.close();
-            NinjaToast.show(context, context.getString(R.string.toast_export_bookmarks_successful) + " " + file.getAbsolutePath());
+            return file.getAbsolutePath();
         } catch (Exception e) {
-            NinjaToast.show(context, R.string.toast_export_bookmarks_failed);
+            return null;
         }
     }
 
-    // TODO: used by AsyncTask
-    public static void importBookmarks(Context context, File file) {
+    public static int importBookmarks(Context context, File file) {
         if (file == null) {
-            return;
+            return -1;
         }
 
         int count = 0;
@@ -229,14 +227,9 @@ public class BrowserUnit {
             }
             reader.close();
             action.close();
-            NinjaToast.show(context, context.getString(R.string.toast_import_bookmarks_successful) + " " + count);
-        } catch (Exception e) {
-            if (count <= 0) {
-                NinjaToast.show(context, R.string.toast_import_bookmarks_failed);
-            } else {
-                NinjaToast.show(context, context.getString(R.string.toast_import_bookmarks_successful) + " " + count);
-            }
-        }
+        } catch (Exception e) {}
+
+        return count;
     }
 
     public static void clearBookmarks(Context context) {
@@ -247,18 +240,19 @@ public class BrowserUnit {
         NinjaToast.show(context, R.string.toast_clear_bookmarks_successful);
     }
 
-    public static void clearCache(Context context) {
+    public static boolean clearCache(Context context) {
         try {
             File dir = context.getCacheDir();
             if (dir != null && dir.isDirectory()) {
                 deleteDir(dir);
             }
-            NinjaToast.show(context, R.string.toast_clear_cache_successful);
+            return true;
         } catch (Exception exception) {
-            NinjaToast.show(context, R.string.toast_clear_cache_failed);
+            return false;
         }
     }
 
+    /* CookieManager.removeAllCookies() must be called on a thread with a running Looper */
     public static void clearCookies(Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             CookieManager cookieManager = CookieManager.getInstance();
@@ -272,12 +266,10 @@ public class BrowserUnit {
             CookieSyncManager cookieSyncManager = CookieSyncManager.createInstance(context);
             cookieManager.removeAllCookie();
         }
-        NinjaToast.show(context, R.string.toast_clear_cookie_successful);
     }
 
-    public static void clearFromData(Context context) {
+    public static void clearFormData(Context context) {
         WebViewDatabase.getInstance(context).clearFormData();
-        NinjaToast.show(context, R.string.toast_clear_form_data_successful);
     }
 
     public static void clearHistory(Context context) {
@@ -297,7 +289,6 @@ public class BrowserUnit {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2) {
             WebViewDatabase.getInstance(context).clearUsernamePassword();
         }
-        NinjaToast.show(context, R.string.toast_clear_passwords_successful);
     }
 
     private static boolean deleteDir(File dir) {

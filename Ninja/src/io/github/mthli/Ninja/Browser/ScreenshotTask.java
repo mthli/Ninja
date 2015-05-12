@@ -1,4 +1,4 @@
-package io.github.mthli.Ninja.Task;
+package io.github.mthli.Ninja.Browser;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -36,7 +36,7 @@ public class ScreenshotTask extends AsyncTask<Void, Void, Boolean> {
     @Override
     protected void onPostExecute(Boolean result) {
         if (result) {
-            NinjaToast.show(context, context.getString(R.string.toast_screenshot_successful) + " " + path);
+            NinjaToast.show(context, context.getString(R.string.toast_screenshot_successful) + path);
         } else {
             NinjaToast.show(context, R.string.toast_screenshot_failed);
         }

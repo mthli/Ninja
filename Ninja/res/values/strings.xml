@@ -273,13 +273,13 @@
         Double taps quit
     </string>
     <string name="toast_export_bookmarks_successful">
-        Export bookmarks file at:
+        Export bookmarks file at:&#160;
     </string>
     <string name="toast_export_bookmarks_failed">
         Export bookmarks failed
     </string>
     <string name="toast_import_bookmarks_successful">
-        Import bookmarks count:
+        Import bookmarks count:&#160;
     </string>
     <string name="toast_import_bookmarks_failed">
         Import bookmarks failed
@@ -290,14 +290,11 @@
     <string name="toast_judge">
         Give our 5 stars :)
     </string>
-    <string name="toast_last_page">
-        Last page now
-    </string>
     <string name="toast_load_error">
         Can\'t load this URL
     </string>
     <string name="toast_load_in_background">
-        Load in background
+        Load in background&#8230;
     </string>
     <string name="toast_new_tab_successful">
         Open in new tab successful
@@ -306,10 +303,10 @@
         Can\'t refresh this page
     </string>
     <string name="toast_start_screenshot">
-        Start screenshot
+        Start screenshot&#8230;
     </string>
     <string name="toast_screenshot_successful">
-        Save screenshot at:
+        Save screenshot at:&#160;
     </string>
     <string name="toast_screenshot_failed">
         Screenshot failed
@@ -321,7 +318,10 @@
         Can\'t share this page
     </string>
     <string name="toast_start_download">
-        Start download
+        Start download&#8230;
+    </string>
+    <string name="toast_wait_a_minute">
+        Wait a minute&#8230;
     </string>
 
 </resources>

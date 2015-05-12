@@ -37,6 +37,12 @@
             </intent-filter>
         </activity>
 
+        <!-- SettingActivity -->
+        <activity android:name=".Activity.SettingActivity"
+                  android:label="@string/setting_label"
+                  android:theme="@style/SettingActivityTheme">
+        </activity>
+
     </application>
 
 </manifest>

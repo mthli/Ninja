@@ -167,6 +167,7 @@ public class RecordAction {
         return record;
     }
 
+    // TODO: Use database sort but not Collections.sort()
     public List<Record> listBookmarks() {
         List<Record> list = new ArrayList<>();
 
@@ -198,6 +199,7 @@ public class RecordAction {
         return list;
     }
 
+    // TODO: Use database sort but not Collections.sort()
     public List<Record> listHistory() {
         List<Record> list = new ArrayList<>();
 

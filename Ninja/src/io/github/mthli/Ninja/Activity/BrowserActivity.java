@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -26,7 +27,7 @@ import android.widget.*;
 import io.github.mthli.Ninja.Browser.AlbumController;
 import io.github.mthli.Ninja.Browser.BrowserContainer;
 import io.github.mthli.Ninja.Browser.BrowserController;
-import io.github.mthli.Ninja.Task.ScreenshotTask;
+import io.github.mthli.Ninja.Browser.ScreenshotTask;
 import io.github.mthli.Ninja.Database.Record;
 import io.github.mthli.Ninja.Database.RecordAction;
 import io.github.mthli.Ninja.R;
@@ -1021,7 +1022,8 @@ public class BrowserActivity extends Activity implements BrowserController {
                         IntentUnit.share(BrowserActivity.this, ninjaWebView.getTitle(), ninjaWebView.getUrl());
                     }
                 } else if (s.equals(array[3])) { // Setting
-                    // TODO: intent to SettingActivity
+                    Intent intent = new Intent(BrowserActivity.this, SettingActivity.class);
+                    startActivity(intent);
                 } else if (s.equals(array[4])) { // Quit
                     finish();
                 }

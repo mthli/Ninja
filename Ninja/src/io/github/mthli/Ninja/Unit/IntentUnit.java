@@ -45,19 +45,19 @@ public class IntentUnit {
         github = b;
     }
 
-    private static boolean databaseChange = false;
-    public static boolean isDatabaseChange() {
-        return databaseChange;
+    private static boolean dbChange = false;
+    public static boolean isDBChange() {
+        return dbChange;
     }
-    public static void setDatabaseChange(boolean b) {
-        databaseChange = b;
+    public static void setDBChange(boolean b) {
+        dbChange = b;
     }
 
-    private static boolean sharedPreferenceChange = false;
-    public static boolean isSharedPreferenceChange() {
-        return sharedPreferenceChange;
+    private static boolean spChange = false;
+    public static boolean isSPChange() {
+        return spChange;
     }
-    public static void setSharedPreferenceChange(boolean b) {
-        sharedPreferenceChange = b;
+    public static void setSPChange(boolean b) {
+        spChange = b;
     }
 }

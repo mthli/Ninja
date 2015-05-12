@@ -112,7 +112,6 @@ public class CompleteAdapter extends BaseAdapter implements Filterable {
     private CompleteFilter filter = new CompleteFilter();
 
     public CompleteAdapter(Context context, int layoutResId, List<Record> recordList) {
-        super();
         this.context = context;
         this.layoutResId = layoutResId;
         this.originalList = new ArrayList<>();
