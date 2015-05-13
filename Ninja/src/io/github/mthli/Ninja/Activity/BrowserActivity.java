@@ -580,7 +580,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                showAlbum(holder, false, true);
+                showAlbum(holder, true, true);
             }
         });
         albumView.startAnimation(animation);
@@ -592,17 +592,14 @@ public class BrowserActivity extends Activity implements BrowserController {
         webView.setFlag(BrowserUnit.FLAG_NINJA);
         webView.setAlbumCover(ViewUnit.capture(webView, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
         webView.setAlbumTitle(title);
+        ViewUnit.bound(this, webView);
 
         BrowserContainer.add(webView);
         final View albumView = webView.getAlbumView();
         switcherContainer.addView(albumView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
         if (!foreground) {
-            /* Very important for displaying webview's layout correctly */
-            int specWidth = View.MeasureSpec.makeMeasureSpec(windowWidth, View.MeasureSpec.EXACTLY);
-            int specHeight = View.MeasureSpec.makeMeasureSpec((int) (windowHeight - statusBarHeight - dimen48dp), View.MeasureSpec.EXACTLY);
-            webView.measure(specWidth, specHeight);
-            webView.layout(0, 0, webView.getMeasuredWidth(), webView.getMeasuredHeight());
+            ViewUnit.bound(this, webView);
             webView.loadUrl(url);
             webView.deactivate();
 
@@ -627,7 +624,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                showAlbum(webView, false, false);
+                showAlbum(webView, true, false);
 
                 if (url != null && !url.isEmpty()) {
                     webView.loadUrl(url);
@@ -684,6 +681,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             webView.setFlag(BrowserUnit.FLAG_NINJA);
             webView.setAlbumCover(ViewUnit.capture(webView, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
             webView.setAlbumTitle(getString(R.string.album_untitled));
+            ViewUnit.bound(this, webView);
             webView.loadUrl(url);
 
             BrowserContainer.add(webView);
@@ -777,6 +775,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             webView.setFlag(BrowserUnit.FLAG_NINJA);
             webView.setAlbumCover(ViewUnit.capture(webView, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
             webView.setAlbumTitle(getString(R.string.album_untitled));
+            ViewUnit.bound(this, webView);
 
             int index = switcherContainer.indexOfChild(currentAlbumController.getAlbumView());
             currentAlbumController.deactivate();
