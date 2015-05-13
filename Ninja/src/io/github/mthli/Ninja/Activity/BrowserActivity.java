@@ -349,7 +349,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
                     RecordAction action = new RecordAction(BrowserActivity.this);
                     action.open(false);
-                    List<Record> list = new ArrayList<Record>();
+                    final List<Record> list;
                     if (layout.getFlag() == BrowserUnit.FLAG_BOOKMARKS) {
                         list = action.listBookmarks();
                         Collections.sort(list, new Comparator<Record>() {
@@ -360,6 +360,8 @@ public class BrowserActivity extends Activity implements BrowserController {
                         });
                     } else if (layout.getFlag() == BrowserUnit.FLAG_HISTORY) {
                         list = action.listHistory();
+                    } else {
+                        list = new ArrayList<Record>();
                     }
                     action.close();
 
@@ -367,7 +369,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                     TextView textView = (TextView) layout.findViewById(R.id.list_empty);
                     listView.setEmptyView(textView);
 
-                    NinjaListAdapter adapter = new NinjaListAdapter(BrowserActivity.this, R.layout.list_item, list);
+                    final NinjaListAdapter adapter = new NinjaListAdapter(BrowserActivity.this, R.layout.list_item, list);
                     listView.setAdapter(adapter);
                     adapter.notifyDataSetChanged();
 
@@ -379,6 +381,21 @@ public class BrowserActivity extends Activity implements BrowserController {
                         }
                     }, shortAnimTime);
                     updateProgress(BrowserUnit.PROGRESS_MAX);
+
+                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            updateAlbum(list.get(position).getURL());
+                        }
+                    });
+
+                    listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                        @Override
+                        public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                            showListMenu(adapter, list, position);
+                            return true;
+                        }
+                    });
                 } else {
                     NinjaToast.show(BrowserActivity.this, R.string.toast_refresh_failed);
                 }
