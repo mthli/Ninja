@@ -611,6 +611,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         webView.setAlbumTitle(title);
         ViewUnit.bound(this, webView);
 
+        // TODO: index when open new tab in background?
         BrowserContainer.add(webView);
         final View albumView = webView.getAlbumView();
         switcherContainer.addView(albumView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
