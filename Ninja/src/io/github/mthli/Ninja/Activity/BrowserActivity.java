@@ -611,10 +611,15 @@ public class BrowserActivity extends Activity implements BrowserController {
         webView.setAlbumTitle(title);
         ViewUnit.bound(this, webView);
 
-        // TODO: index when open new tab in background?
-        BrowserContainer.add(webView);
         final View albumView = webView.getAlbumView();
-        switcherContainer.addView(albumView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        if (currentAlbumController != null && (currentAlbumController instanceof NinjaWebView) && resultMsg != null) {
+            int index = BrowserContainer.indexOf(currentAlbumController) + 1;
+            BrowserContainer.add(webView, index);
+            switcherContainer.addView(albumView, index, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT));
+        } else {
+            BrowserContainer.add(webView);
+            switcherContainer.addView(albumView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        }
 
         if (!foreground) {
             ViewUnit.bound(this, webView);

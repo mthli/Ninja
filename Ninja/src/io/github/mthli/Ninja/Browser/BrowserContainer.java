@@ -2,11 +2,11 @@ package io.github.mthli.Ninja.Browser;
 
 import io.github.mthli.Ninja.View.NinjaWebView;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class BrowserContainer {
-    private static List<AlbumController> list = new ArrayList<>();
+    private static List<AlbumController> list = new LinkedList<>();
 
     public static AlbumController get(int index) {
         return list.get(index);
