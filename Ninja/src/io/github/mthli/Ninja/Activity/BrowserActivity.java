@@ -163,7 +163,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     @Override
     public void onPause() {
         Intent toService = new Intent(this, HolderService.class);
-        IntentUnit.setClear(true);
+        IntentUnit.setClear(false);
         stopService(toService);
 
         create = false;
@@ -661,10 +661,12 @@ public class BrowserActivity extends Activity implements BrowserController {
         if (BrowserContainer.size() < 1 && url == null) {
             addAlbum(BrowserUnit.FLAG_HOME);
         } else if (BrowserContainer.size() >= 1 && url == null) {
+            int index = BrowserContainer.size() - 1;
             if (currentAlbumController != null) {
+                index = BrowserContainer.indexOf(currentAlbumController);
                 currentAlbumController.deactivate();
             }
-            currentAlbumController = BrowserContainer.get(BrowserContainer.size() - 1);
+            currentAlbumController = BrowserContainer.get(index);
             contentFrame.addView((View) currentAlbumController);
             currentAlbumController.activate();
 
@@ -930,9 +932,9 @@ public class BrowserActivity extends Activity implements BrowserController {
     private void updateRefresh(boolean running) {
         if (running) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                omniboxRefresh.setImageDrawable(getResources().getDrawable(R.drawable.cl_selector, null));
+                omniboxRefresh.setImageDrawable(getResources().getDrawable(R.drawable.cl_selector_dark, null));
             } else {
-                omniboxRefresh.setImageDrawable(getResources().getDrawable(R.drawable.cl_selector));
+                omniboxRefresh.setImageDrawable(getResources().getDrawable(R.drawable.cl_selector_dark));
             }
         } else {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

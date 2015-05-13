@@ -46,11 +46,15 @@
       <list>
         <option value="layoutResourceFile" />
         <option value="layoutResourceFile_vertical" />
-        <option value="resourceFile" />
         <option value="valueResourceFile" />
         <option value="Class" />
+        <option value="resourceFile" />
       </list>
     </option>
+  </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="KEY_STORE_PATH" value="$USER_HOME$/Dropbox/Projects/Ninja.jks" />
+    <option name="KEY_ALIAS" value="Ninja" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -60,8 +64,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/res/layout/dialog.xml" />
-        <option value="$PROJECT_DIR$/res/layout/dialog_item.xml" />
         <option value="$PROJECT_DIR$/res/layout/dialog_header.xml" />
         <option value="$PROJECT_DIR$/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/NinjaWebViewClient.java" />
@@ -86,7 +88,6 @@
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Database/RecordAction.java" />
         <option value="$PROJECT_DIR$/res/menu/setting_menu.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Fragment/SettingFragment.java" />
-        <option value="$PROJECT_DIR$/res/values/strings_app.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/CompleteAdapter.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/ClearCookiesTask.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/ClearFormDataTask.java" />
@@ -108,9 +109,12 @@
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/NotificationUnit.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/SettingFragment.java" />
         <option value="$PROJECT_DIR$/res/xml/preference.xml" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/BrowserActivity.java" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/res/values-zh/strings.xml" />
+        <option value="$PROJECT_DIR$/res/drawable/cl_selector_light.xml" />
+        <option value="$PROJECT_DIR$/res/drawable/cl_selector_dark.xml" />
+        <option value="$PROJECT_DIR$/res/values/strings_app.xml" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/BrowserActivity.java" />
       </list>
     </option>
   </component>
@@ -128,10 +132,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2" />
-    <option name="y" value="-3" />
-    <option name="width" value="1370" />
-    <option name="height" value="748" />
+    <option name="width" value="1366" />
+    <option name="height" value="741" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -156,9 +158,9 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -190,6 +192,68 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Activity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -202,6 +266,60 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable-xxhdpi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -224,7 +342,11 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Public/Ninja/Ninja/src/io/github/mthli/Ninja/Browser/NinjaView.java" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Dropbox/Projects/Ninja.jks" />
+    <property name="ExportedModule" value="Ninja" />
+    <property name="ExportedApkPath" value="$USER_HOME$/Ninja.1.0.1.apk" />
+    <property name="AndroidRunProguardForReleaseBuild" value="true" />
+    <property name="AndroidProguardConfigPaths" value="/opt/android-sdk/tools/proguard/proguard-android.txt:/home/matthew/IdeaProjects/Ninja/proguard-project.txt" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -433,8 +555,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="-3" width="1370" height="748" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1366" height="741" extended-state="4" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -442,21 +564,21 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.423716" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32905295" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" x="323" y="135" width="872" height="464" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31269842" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.312" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24622357" sideWeight="0.51111114" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43650794" sideWeight="0.5030211" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30634922" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30497593" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32857144" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" x="0" y="18" width="1318" height="721" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42380953" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2439577" sideWeight="0.4888889" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.260574" sideWeight="0.4888889" order="0" side_tool="false" content_ui="combo" x="502" y="88" width="435" height="613" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41904762" sideWeight="0.49697885" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25984848" sideWeight="0.4888889" order="0" side_tool="false" content_ui="combo" x="502" y="88" width="435" height="613" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4189406" sideWeight="0.49697885" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -466,18 +588,18 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43650794" sideWeight="0.5030211" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3258427" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24622357" sideWeight="0.4888889" order="0" side_tool="false" content_ui="combo" x="502" y="88" width="435" height="613" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42063493" sideWeight="0.49697885" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42063493" sideWeight="0.49697885" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -491,8 +613,8 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30793652" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32857144" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" x="0" y="18" width="1318" height="721" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2439577" sideWeight="0.4888889" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -526,121 +648,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/View/SwitcherPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.5373135">
-          <caret line="425" column="0" selection-start-line="425" selection-start-column="0" selection-end-line="425" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#setFlingVelocity#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="class#Status#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="class#StatusListener#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="class#DragHelperCallback#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#clampViewPositionVertical#0;class#DragHelperCallback#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#onViewPositionChanged#0;class#DragHelperCallback#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#onViewDragStateChanged#0;class#DragHelperCallback#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#onViewReleased#0;class#DragHelperCallback#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="class#LayoutParams#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#LayoutParams#5;class#LayoutParams#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#SwitcherPanel#2;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#generateLayoutParams#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#generateLayoutParams#1;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#checkLayoutParams#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#onMeasure#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#onLayout#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#draw#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#computeTopPosition#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#computeScroll#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#onInterceptTouchEvent#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#shouldCollapsed#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#shouldExpanded#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#expanded#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#collapsed#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#fling#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#dispatchOnExpanded#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#dispatchOnCollapsed#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#dispatchOnFling#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#smoothSlideTo#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#applyParallaxForCurrentSlideOffset#0;class#SwitcherPanel#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/search.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66086954">
-          <caret line="62" column="54" selection-start-line="62" selection-start-column="54" selection-end-line="64" selection-end-column="38" />
-          <folding>
-            <element signature="e#3016#3039#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/dialog_item.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26086956">
-          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="14" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/dialog_edit.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33913043">
-          <caret line="13" column="69" selection-start-line="13" selection-start-column="69" selection-end-line="13" selection-end-column="69" />
-          <folding>
-            <element signature="e#486#513#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/list.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26408452">
-          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Database/Record.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05033557">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Database/RecordAction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8955224">
           <caret line="169" column="57" selection-start-line="169" selection-start-column="57" selection-end-line="169" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#open#0;class#RecordAction#0" expanded="false" />
-            <element signature="method#addBookmark#0;class#RecordAction#0" expanded="false" />
-            <element signature="method#addBookmark#0;class#RecordAction#0" expanded="false" />
-            <element signature="method#addHistory#0;class#RecordAction#0" expanded="false" />
-            <element signature="method#checkBookmark#0;class#RecordAction#0" expanded="false" />
-            <element signature="method#deleteBookmark#0;class#RecordAction#0" expanded="false" />
-            <element signature="method#checkBookmark#1;class#RecordAction#0" expanded="false" />
-            <element signature="method#deleteBookmark#1;class#RecordAction#0" expanded="false" />
-            <element signature="method#deleteHistory#0;class#RecordAction#0" expanded="false" />
-            <element signature="method#get#0;class#RecordAction#0" expanded="false" />
-            <element signature="method#listBookmarks#0;class#RecordAction#0" expanded="false" />
-            <element signature="method#listHistory#0;class#RecordAction#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -648,7 +659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -656,7 +666,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3034826">
           <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -664,7 +673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.49751243">
           <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -672,7 +680,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -680,7 +687,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39800996">
           <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -688,7 +694,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.6666666">
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -696,7 +701,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.10067114">
           <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -704,15 +708,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8305369">
           <caret line="81" column="41" selection-start-line="79" selection-start-column="8" selection-end-line="81" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings_app.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5970149">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -720,7 +715,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5970149">
           <caret line="24" column="13" selection-start-line="18" selection-start-column="4" selection-end-line="24" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -728,17 +722,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.42785236">
           <caret line="113" column="4" selection-start-line="113" selection-start-column="4" selection-end-line="113" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="class#CompleteFilter#0;class#CompleteAdapter#0" expanded="false" />
-            <element signature="class#CompleteItem#0;class#CompleteAdapter#0" expanded="false" />
-            <element signature="method#CompleteItem#0;class#CompleteItem#0;class#CompleteAdapter#0" expanded="false" />
-            <element signature="method#equals#0;class#CompleteItem#0;class#CompleteAdapter#0" expanded="false" />
-            <element signature="method#hashCode#0;class#CompleteItem#0;class#CompleteAdapter#0" expanded="false" />
-            <element signature="class#Holder#0;class#CompleteAdapter#0" expanded="false" />
-            <element signature="method#dedup#0;class#CompleteAdapter#0" expanded="false" />
-            <element signature="method#getView#0;class#CompleteAdapter#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -746,10 +729,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.74626863">
           <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
-          <folding>
-            <element signature="e#439#440#0" expanded="true" />
-            <element signature="e#477#478#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -757,7 +736,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3034826">
           <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -765,7 +743,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4477612">
           <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -773,9 +750,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="47" column="99" selection-start-line="47" selection-start-column="99" selection-end-line="47" selection-end-column="99" />
-          <folding>
-            <element signature="e#1384#1445#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -783,9 +757,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5566502">
           <caret line="47" column="99" selection-start-line="47" selection-start-column="99" selection-end-line="47" selection-end-column="99" />
-          <folding>
-            <element signature="e#1261#1322#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -793,9 +764,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.70149255">
           <caret line="38" column="93" selection-start-line="38" selection-start-column="93" selection-end-line="38" selection-end-column="93" />
-          <folding>
-            <element signature="e#1362#1417#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -803,7 +771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.47263682">
           <caret line="100" column="39" selection-start-line="100" selection-start-column="39" selection-end-line="100" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -811,23 +778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3283582">
           <caret line="254" column="39" selection-start-line="254" selection-start-column="39" selection-end-line="254" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#isNetworkAvailable#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#isURL#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#queryWrapper#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#copyURL#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#download#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#screenshot#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#exportBookmarks#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#importBookmarks#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#clearBookmarks#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#clearCache#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="class#11109:11236" expanded="false" />
-            <element signature="method#clearHistory#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#clearPasswords#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#deleteDir#0;class#BrowserUnit#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -835,7 +785,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="12" selection-start-line="12" selection-start-column="4" selection-end-line="20" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -843,7 +792,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.42288557">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -851,7 +799,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7960199">
           <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -859,24 +806,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42288557">
-          <caret line="32" column="68" selection-start-line="32" selection-start-column="68" selection-end-line="32" selection-end-column="68" />
-          <folding>
-            <element signature="e#215#236#0" expanded="true" />
-            <element signature="e#922#940#0" expanded="true" />
-            <element signature="e#1245#1263#0" expanded="true" />
-            <element signature="e#1668#1693#0" expanded="true" />
-            <element signature="e#1734#1760#0" expanded="true" />
-            <element signature="e#1931#1949#0" expanded="true" />
-            <element signature="e#2149#2167#0" expanded="true" />
-            <element signature="e#2772#2795#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -884,7 +813,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="42" column="18" selection-start-line="38" selection-start-column="8" selection-end-line="42" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -892,13 +820,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="3.358209">
           <caret line="135" column="77" selection-start-line="135" selection-start-column="77" selection-end-line="135" selection-end-column="77" />
-          <folding>
-            <element signature="e#1302#1336#0" expanded="false" />
-            <element signature="e#1911#1912#0" expanded="false" />
-            <element signature="e#2314#2348#0" expanded="false" />
-            <element signature="e#4159#4160#0" expanded="false" />
-            <element signature="e#5196#5197#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -906,7 +827,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9004975">
           <caret line="150" column="5" selection-start-line="24" selection-start-column="4" selection-end-line="150" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -914,7 +834,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.49751243">
           <caret line="20" column="33" selection-start-line="6" selection-start-column="4" selection-end-line="20" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -922,7 +841,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7064677">
           <caret line="313" column="16" selection-start-line="313" selection-start-column="16" selection-end-line="313" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -930,7 +848,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.59731543">
           <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -938,7 +855,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.92449665">
           <caret line="68" column="5" selection-start-line="17" selection-start-column="4" selection-end-line="68" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -946,7 +862,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.21979865">
           <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -954,11 +869,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.47263682">
           <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#getEmailIntent#0;class#IntentUnit#0" expanded="false" />
-            <element signature="method#share#0;class#IntentUnit#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -990,49 +900,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28524047">
           <caret line="76" column="34" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#onConfigurationChanged#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onKeyDown#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#initControlPanel#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#initSearchPanel#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#12394:12944" expanded="false" />
-            <element signature="method#beforeTextChanged#0;class#12394:12944" expanded="false" />
-            <element signature="method#onTextChanged#0;class#12394:12944" expanded="false" />
-            <element signature="method#afterTextChanged#0;class#12394:12944" expanded="false" />
-            <element signature="method#prepareRecord#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#showOverflow#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#newTab#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#newTab#1;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#19683:21064" expanded="false" />
-            <element signature="method#onAnimationRepeat#0;class#19683:21064" expanded="false" />
-            <element signature="method#onAnimationEnd#0;class#19683:21064" expanded="false" />
-            <element signature="method#newTab#2;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#24673:25459" expanded="false" />
-            <element signature="method#onAnimationEnd#0;class#24673:25459" expanded="false" />
-            <element signature="method#showTab#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#showTab#1;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateTab#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#deleteTab#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#30905:32467" expanded="false" />
-            <element signature="method#onAnimationRepeat#0;class#30905:32467" expanded="false" />
-            <element signature="method#onAnimationStart#0;class#30905:32467" expanded="false" />
-            <element signature="method#onAnimationEnd#0;class#30905:32467" expanded="false" />
-            <element signature="method#showListMenu#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#33496:35476" expanded="false" />
-            <element signature="method#updateAutoComplete#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateBookmarks#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateInputBox#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateProgress#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateOmniBox#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateRefreshButton#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#showSoftInput#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#hideSoftInput#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#showSearchPanel#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#hideSearchPanel#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onCreateView#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onLongPress#0;class#BrowserActivity#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1040,7 +907,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.447761">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1048,14 +914,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22885571">
           <caret line="232" column="29" selection-start-line="232" selection-start-column="29" selection-end-line="232" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#pause#0;class#NinjaWebView#0" expanded="false" />
-            <element signature="method#resume#0;class#NinjaWebView#0" expanded="false" />
-            <element signature="method#destroy#0;class#NinjaWebView#0" expanded="false" />
-            <element signature="method#onLongPress#0;class#NinjaWebView#0" expanded="false" />
-            <element signature="method#prepareRecord#0;class#NinjaWebView#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1063,7 +921,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4079602">
           <caret line="100" column="22" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1071,25 +928,93 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.65174127">
           <caret line="84" column="21" selection-start-line="84" selection-start-column="21" selection-end-line="84" selection-end-column="21" />
-          <folding>
-            <element signature="e#157#188#0" expanded="false" />
-            <element signature="e#4092#4122#0" expanded="false" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values-zh/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3252595">
+          <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47231835">
+          <caret line="190" column="13" selection-start-line="190" selection-start-column="13" selection-end-line="190" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable-xxhdpi/ic_action_cl_active.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable-xxhdpi/ic_action_cl_light.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/cl_selector_light.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44665012">
+          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable-xxhdpi/ic_action_cl_dark.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/search.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45614034">
+          <caret line="45" column="58" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/cl_selector_dark.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2257525">
+          <caret line="9" column="59" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings_app.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2257525">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12541807">
+          <caret line="5" column="52" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Service/HolderService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.2885573">
-          <caret line="94" column="59" selection-start-line="94" selection-start-column="59" selection-end-line="94" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.4966443">
+          <caret line="81" column="37" selection-start-line="81" selection-start-column="37" selection-end-line="81" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/BrowserActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="162" column="13" selection-start-line="162" selection-start-column="13" selection-end-line="162" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.12248322">
+          <caret line="660" column="57" selection-start-line="660" selection-start-column="57" selection-end-line="660" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="false" />
             <element signature="method#onCreate#0;class#BrowserActivity#0" expanded="false" />
@@ -1097,7 +1022,6 @@
             <element signature="method#onNewIntent#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#dispatchIntent#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#onResume#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onPause#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#onDestroy#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#onConfigurationChanged#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#onKeyDown#0;class#BrowserActivity#0" expanded="false" />
@@ -1105,18 +1029,17 @@
             <element signature="method#initSwitcherView#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#initMainView#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#initSearchPanel#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#15550:16133" expanded="false" />
-            <element signature="method#beforeTextChanged#0;class#15550:16133" expanded="false" />
-            <element signature="method#onTextChanged#0;class#15550:16133" expanded="false" />
-            <element signature="method#afterTextChanged#0;class#15550:16133" expanded="false" />
+            <element signature="class#15551:16134" expanded="false" />
+            <element signature="method#beforeTextChanged#0;class#15551:16134" expanded="false" />
+            <element signature="method#onTextChanged#0;class#15551:16134" expanded="false" />
+            <element signature="method#afterTextChanged#0;class#15551:16134" expanded="false" />
             <element signature="method#addAlbum#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#22822:23260" expanded="false" />
-            <element signature="method#onAnimationRepeat#0;class#22822:23260" expanded="false" />
+            <element signature="class#22823:23261" expanded="false" />
+            <element signature="method#onAnimationRepeat#0;class#22823:23261" expanded="false" />
             <element signature="method#addAlbum#1;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#24946:25744" expanded="false" />
-            <element signature="method#onAnimationRepeat#0;class#24946:25744" expanded="false" />
-            <element signature="method#onAnimationEnd#0;class#24946:25744" expanded="false" />
-            <element signature="method#pinAlbums#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#24947:25745" expanded="false" />
+            <element signature="method#onAnimationRepeat#0;class#24947:25745" expanded="false" />
+            <element signature="method#onAnimationEnd#0;class#24947:25745" expanded="false" />
             <element signature="method#showAlbum#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#updateAlbum#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#updateAlbum#1;class#BrowserActivity#0" expanded="false" />
@@ -1135,30 +1058,10 @@
             <element signature="method#hideSearchPanel#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#showSearchPanel#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#showOverflow#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#45091:45680" expanded="false" />
-            <element signature="method#onStartTrackingTouch#0;class#45091:45680" expanded="false" />
-            <element signature="method#onProgressChanged#0;class#45091:45680" expanded="false" />
-            <element signature="method#onStopTrackingTouch#0;class#45091:45680" expanded="false" />
             <element signature="method#showListMenu#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#showEditDialog#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#prepareRecord#0;class#BrowserActivity#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values-zh/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3252595">
-          <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47231835">
-          <caret line="190" column="13" selection-start-line="190" selection-start-column="13" selection-end-line="190" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>

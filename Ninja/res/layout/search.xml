@@ -43,7 +43,7 @@
                  android:layout_alignParentRight="true"
                  android:layout_marginLeft="@dimen/layout_margin_8dp"
                  android:layout_marginRight="@dimen/layout_margin_8dp"
-                 android:src="@drawable/cl_selector"
+                 android:src="@drawable/cl_selector_light"
                  android:background="@color/transparent">
     </ImageButton>
 
