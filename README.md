@@ -39,7 +39,7 @@ Incognito mode is a necessary feature for a web browser, but since `WebView(Cont
 
  - New design launcher icon(must be 512px * 512px).
 
- - Translate `strings_general.xml` at [this link](https://github.com/mthli/Ninja/blob/master/Ninja/res/values/strings_general.xml "strings_general.xml").
+ - Translate `strings.xml` at [this link](https://github.com/mthli/Ninja/blob/master/Ninja/res/values/strings.xml "strings.xml").
 
  - Fork and pull request is welcome all time :)
 
@@ -49,7 +49,13 @@ Just import the `Ninja` folder with your __IntelliJ IDEA__.
 
 ## Thanks:
 
-[Lightning-Browser](https://github.com/anthonycr/Lightning-Browser "Lightning-Browser")/[Thunder-Browser](https://github.com/anthonycr/Thunder-Browser "Thunder-Browser") created by [Anthony Restaino](https://github.com/anthonycr "Anthony Restaino").
+ - [AndroidSlidingUpPanel](https://github.com/umano/AndroidSlidingUpPanel "AndroidSlidingUpPanel")
+
+ - [Android Swipe-to-Dismiss Sample Code](https://github.com/romannurik/Android-SwipeToDismiss "Android Swipe-to-Dismiss Sample Code")
+
+ - [android-ago](https://github.com/curioustechizen/android-ago "android-ago")
+
+ - [Lightning Browser](https://github.com/anthonycr/Lightning-Browser "Lightning-Browser")
 
 ## License:
 
