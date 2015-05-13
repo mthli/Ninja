@@ -14,7 +14,7 @@
               android:layout_marginLeft="@dimen/layout_margin_20dp"
               android:layout_marginRight="@dimen/layout_margin_20dp"
               android:textColor="@color/text"
-              android:textSize="18sp"
+              android:textSize="@dimen/text_size_18sp"
               android:singleLine="true"
               android:ellipsize="none">
     </TextView>

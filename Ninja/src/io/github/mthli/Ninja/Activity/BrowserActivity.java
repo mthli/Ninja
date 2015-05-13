@@ -981,7 +981,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         builder.setView(layout);
 
         ListView listView = (ListView) layout.findViewById(R.id.dialog_list);
-        DialogAdapter adapter = new DialogAdapter(this, R.layout.dialog_item, list);
+        DialogAdapter adapter = new DialogAdapter(this, R.layout.dialog_text_item, list);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
@@ -1087,7 +1087,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         ListView listView = (ListView) layout.findViewById(R.id.dialog_list);
         listView.addHeaderView(dialogHeader);
 
-        DialogAdapter adapter = new DialogAdapter(this, R.layout.dialog_item, list);
+        DialogAdapter adapter = new DialogAdapter(this, R.layout.dialog_text_item, list);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
@@ -1158,7 +1158,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
 
         ListView listView = (ListView) layout.findViewById(R.id.dialog_list);
-        DialogAdapter dialogAdapter = new DialogAdapter(this, R.layout.dialog_item, stringList);
+        DialogAdapter dialogAdapter = new DialogAdapter(this, R.layout.dialog_text_item, stringList);
         listView.setAdapter(dialogAdapter);
         dialogAdapter.notifyDataSetChanged();
 

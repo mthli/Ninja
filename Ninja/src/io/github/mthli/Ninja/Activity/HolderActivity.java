@@ -114,7 +114,7 @@ public class HolderActivity extends Activity {
         list.addAll(Arrays.asList(strings));
 
         ListView listView = (ListView) linearLayout.findViewById(R.id.dialog_list);
-        DialogAdapter adapter = new DialogAdapter(this, R.layout.dialog_item, list);
+        DialogAdapter adapter = new DialogAdapter(this, R.layout.dialog_text_item, list);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 

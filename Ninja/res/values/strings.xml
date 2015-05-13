@@ -217,11 +217,11 @@
     <string name="setting_title_version">
         Version
     </string>
-    <!-- GitHub -->
-    <string name="setting_title_github">
-        GitHub
+    <!-- License -->
+    <string name="setting_title_license">
+        License
     </string>
-    <!-- Internship -->
+    <!-- Contact -->
     <string name="setting_title_contact_us">
         Contact us
     </string>

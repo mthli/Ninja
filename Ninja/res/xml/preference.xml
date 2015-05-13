@@ -84,7 +84,7 @@
                     android:summary="@string/app_version">
         </Preference>
 
-        <Preference android:title="@string/setting_title_github" />
+        <Preference android:title="@string/setting_title_license" />
 
         <Preference android:title="@string/setting_title_contact_us" />
 

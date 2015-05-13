@@ -2,20 +2,6 @@
 
 <resources>
 
-    <!-- Info -->
-    <string name="app_name">
-        Ninja
-    </string>
-    <string name="app_version">
-        1.1.0
-    </string>
-    <string name="app_github">
-        https://github.com/mthli/Ninja
-    </string>
-    <string name="app_gmail">
-        matthewlee0725@gmail.com
-    </string>
-
     <!-- Scheme -->
     <string name="app_scheme_http">
         http
@@ -23,5 +9,116 @@
     <string name="app_scheme_https">
         https
     </string>
+
+    <!-- Info -->
+    <string name="app_name">
+        Ninja
+    </string>
+    <string name="app_version">
+        1.1.0
+    </string>
+    <string name="app_gmail">
+        matthewlee0725@gmail.com
+    </string>
+
+    <!-- AndroidSlidingUpPanel -->
+    <string name="license_title_android_sliding_up_panel">
+        Android Sliding Up Panel
+    </string>
+    <string name="license_content_android_sliding_up_panel">
+        Apache License Version 2.0
+    </string>
+    <string name="license_author_android_sliding_up_panel">
+        Umano: News Read To You
+    </string>
+    <string name="license_url_android_sliding_up_panel">
+        http://git.io/vUruG
+    </string>
+
+    <!-- Android-SwipeToDismiss -->
+    <string name="license_title_android_swipe_to_dismiss">
+        Android Swipe-to-Dismiss Sample Code
+    </string>
+    <string name="license_content_android_swipe_to_dismiss">
+        Apache License Version 2.0
+    </string>
+    <string name="license_author_android_swipe_to_dismiss">
+        Roman Nurik
+    </string>
+    <string name="license_url_android_swipe_to_dismiss">
+        http://git.io/vUruO
+    </string>
+
+    <!-- AndroidAgo -->
+    <string name="license_title_android_ago">
+        android-ago
+    </string>
+    <string name="license_content_android_ago">
+        Apache License Version 2.0
+    </string>
+    <string name="license_author_android_ago">
+        Kiran Rao
+    </string>
+    <string name="license_url_android_ago">
+        http://git.io/vUrum
+    </string>
+
+    <!-- Lightning -->
+    <string name="license_title_lightning">
+        Lightning Browser
+    </string>
+    <string name="license_content_lightning">
+        Mozilla Public License Version 2.0
+    </string>
+    <string name="license_author_lightning">
+        Anthony Restaino
+    </string>
+    <string name="license_url_lightning">
+        http://git.io/vUruk
+    </string>
+
+    <!-- Ninja -->
+    <string name="license_title_ninja">
+        Ninja
+    </string>
+    <string name="license_content_ninja">
+        Apache License Version 2.0
+    </string>
+    <string name="license_author_ninja">
+        Matthew Lee
+    </string>
+    <string name="license_url_ninja">
+        http://git.io/vUrEh
+    </string>
+
+    <!-- All in one -->
+    <string-array name="license_titles">
+        <item>@string/license_title_android_sliding_up_panel</item>
+        <item>@string/license_title_android_swipe_to_dismiss</item>
+        <item>@string/license_title_android_ago</item>
+        <item>@string/license_title_lightning</item>
+        <item>@string/license_title_ninja</item>
+    </string-array>
+    <string-array name="license_contents">
+        <item>@string/license_content_android_sliding_up_panel</item>
+        <item>@string/license_content_android_swipe_to_dismiss</item>
+        <item>@string/license_content_android_ago</item>
+        <item>@string/license_content_lightning</item>
+        <item>@string/license_content_ninja</item>
+    </string-array>
+    <string-array name="license_authors">
+        <item>@string/license_author_android_sliding_up_panel</item>
+        <item>@string/license_author_android_swipe_to_dismiss</item>
+        <item>@string/license_author_android_ago</item>
+        <item>@string/license_author_lightning</item>
+        <item>@string/license_author_ninja</item>
+    </string-array>
+    <string-array name="license_urls">
+        <item>@string/license_url_android_sliding_up_panel</item>
+        <item>@string/license_url_android_swipe_to_dismiss</item>
+        <item>@string/license_url_android_ago</item>
+        <item>@string/license_url_lightning</item>
+        <item>@string/license_url_ninja</item>
+    </string-array>
 
 </resources>

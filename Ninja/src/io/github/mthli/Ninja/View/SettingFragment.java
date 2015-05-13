@@ -1,5 +1,6 @@
 package io.github.mthli.Ninja.View;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,6 +10,9 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.webkit.CookieManager;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Task.ClearCacheTask;
 import io.github.mthli.Ninja.Task.ClearFormDataTask;
@@ -17,7 +21,17 @@ import io.github.mthli.Ninja.Task.ExportBookmarksTask;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.Unit.IntentUnit;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class SettingFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private static final String LICENSE_TITLE = "LICENSE_TITLE";
+    private static final String LICENSE_CONTENT = "LICENSE_CONTENT";
+    private static final String LICENSE_AUTHOR = "LICENSE_AUTHOR";
+    private static final String LICENSE_URL = "LICENSE_URL";
+
     private ListPreference searchEngine;
     private ListPreference notiPriority;
 
@@ -102,8 +116,8 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
             case R.string.setting_title_version:
                 NinjaToast.show(getActivity(), R.string.toast_judge);
                 break;
-            case R.string.setting_title_github:
-                NinjaToast.show(getActivity(), R.string.app_github);
+            case R.string.setting_title_license:
+                showLicenseDialog();
                 break;
             case R.string.setting_title_contact_us:
                 NinjaToast.show(getActivity(), R.string.app_gmail);
@@ -127,5 +141,41 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
             CookieManager manager = CookieManager.getInstance();
             manager.setAcceptCookie(sharedPreferences.getBoolean(getString(R.string.sp_cookies), true));
         }
+    }
+
+    private void showLicenseDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setCancelable(true);
+
+        LinearLayout layout = (LinearLayout) getActivity().getLayoutInflater().inflate(R.layout.dialog, null, false);
+        builder.setView(layout);
+
+        List<Map<String, String>> list = new ArrayList<>();
+        String[] titles = getResources().getStringArray(R.array.license_titles);
+        String[] contents = getResources().getStringArray(R.array.license_contents);
+        String[] authors = getResources().getStringArray(R.array.license_authors);
+        String[] urls = getResources().getStringArray(R.array.license_urls);
+        for (int i = 0; i < 5; i++) {
+            Map<String, String> map = new HashMap<>();
+            map.put(LICENSE_TITLE, titles[i]);
+            map.put(LICENSE_CONTENT, contents[i]);
+            map.put(LICENSE_AUTHOR, authors[i]);
+            map.put(LICENSE_URL, urls[i]);
+            list.add(map);
+        }
+
+        SimpleAdapter adapter = new SimpleAdapter(
+                getActivity(),
+                list,
+                R.layout.dialog_license_item,
+                new String[] {LICENSE_TITLE, LICENSE_CONTENT, LICENSE_AUTHOR, LICENSE_URL},
+                new int[] {R.id.dialog_license_item_title, R.id.dialog_license_item_content, R.id.dialog_license_item_author, R.id.dialog_license_item_url}
+        );
+
+        ListView listView = (ListView) layout.findViewById(R.id.dialog_list);
+        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        builder.create().show();
     }
 }

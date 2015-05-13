@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white">
+
+    <TextView android:id="@+id/dialog_license_item_title"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/layout_margin_12dp"
+              android:layout_marginLeft="@dimen/layout_margin_20dp"
+              android:layout_marginRight="@dimen/layout_margin_20dp"
+              android:textColor="@color/text"
+              android:textSize="@dimen/text_size_16sp"
+              android:singleLine="true"
+              android:ellipsize="none">
+    </TextView>
+
+    <TextView android:id="@+id/dialog_license_item_content"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="@dimen/layout_margin_20dp"
+              android:layout_marginRight="@dimen/layout_margin_20dp"
+              android:textColor="@color/blue_500"
+              android:textSize="@dimen/text_size_14sp">
+    </TextView>
+
+    <TextView android:id="@+id/dialog_license_item_author"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="@dimen/layout_margin_20dp"
+              android:layout_marginRight="@dimen/layout_margin_20dp"
+              android:textColor="@color/text_secondary"
+              android:textSize="@dimen/text_size_14sp">
+    </TextView>
+
+    <TextView android:id="@+id/dialog_license_item_url"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="@dimen/layout_margin_12dp"
+              android:layout_marginLeft="@dimen/layout_margin_20dp"
+              android:layout_marginRight="@dimen/layout_margin_20dp"
+              android:textColor="@color/text_secondary"
+              android:textSize="@dimen/text_size_14sp">
+    </TextView>
+
+</LinearLayout>

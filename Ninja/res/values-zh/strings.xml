@@ -217,11 +217,11 @@
     <string name="setting_title_version">
         版本号
     </string>
-    <!-- GitHub -->
-    <string name="setting_title_github">
-        GitHub
+    <!-- License -->
+    <string name="setting_title_license">
+        协议
     </string>
-    <!-- Internship -->
+    <!-- Contact -->
     <string name="setting_title_contact_us">
         联系我们
     </string>
