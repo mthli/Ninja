@@ -5,7 +5,7 @@ A web browser that open links in background without ever living your favorite ap
 
 Open source copy of [Link Bubble](https://play.google.com/store/apps/details?id=com.linkbubble.playstore "Link Bubble") and [Flynx](https://play.google.com/store/apps/details?id=com.flynx "Flynx").
 
-[Download latest Ninja.apk](https://github.com/mthli/Ninja/releases/download/v1.0.0/Ninja.1.0.0.apk "Ninja.1.0.0.apk")
+[Download latest Ninja.apk](https://github.com/mthli/Ninja/releases/download/v1.1.0/Ninja.1.1.0.apk "Ninja.1.1.0.apk")
 
 __SUPPORT: Android 4.1+__
 
@@ -13,7 +13,23 @@ __LONG TERM MAINTENANCE.__
 
 ## Screenshot:
 
-![all_in_one.png](/Art/screenshot/en/all_in_one.png "all_in_one.png")
+![all_in_one.png](/Art/screenshot/all_in_one.png "all_in_one.png")
+
+## Features:
+
+ - Open links in background without ever living your favorite apps.
+
+ - Lightweight and no extra permissions.
+
+ - [html5test](html5test.com "html5test.com") access __509__ with latest [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview "Android System WebView").
+
+ - Adblock.
+
+ - Capture whole page screenshot.
+
+ - Change brightness.
+
+ - More features comming soon...
 
 ## How to use Ninja?
 
