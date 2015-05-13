@@ -580,7 +580,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                showAlbum(holder, true);
+                showAlbum(holder, false, true);
             }
         });
         albumView.startAnimation(animation);
@@ -627,7 +627,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                showAlbum(webView, false);
+                showAlbum(webView, false, false);
 
                 if (url != null && !url.isEmpty()) {
                     webView.loadUrl(url);
@@ -710,7 +710,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     @Override
-    public synchronized void showAlbum(AlbumController controller, final boolean capture) {
+    public synchronized void showAlbum(AlbumController controller, final boolean expand, final boolean capture) {
         if (controller == null || controller == currentAlbumController) {
             switcherPanel.expanded();
             return;
@@ -724,12 +724,15 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         currentAlbumController = controller;
         currentAlbumController.activate();
+        switcherScroller.smoothScrollTo(currentAlbumController.getAlbumView().getLeft(), 0);
         updateOmnibox();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                switcherScroller.smoothScrollTo(currentAlbumController.getAlbumView().getLeft(), 0);
-                switcherPanel.expanded();
+                if (expand) {
+                    switcherPanel.expanded();
+                }
+
                 if (capture) {
                     currentAlbumController.setAlbumCover(ViewUnit.capture(((View) currentAlbumController), dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
                 }
@@ -805,9 +808,6 @@ public class BrowserActivity extends Activity implements BrowserController {
         if (controller != currentAlbumController) {
             switcherContainer.removeView(controller.getAlbumView());
             BrowserContainer.remove(controller);
-            if (BrowserContainer.size() <= 1) {
-                switcherPanel.expanded();
-            }
         } else {
             switcherContainer.removeView(controller.getAlbumView());
             int index = BrowserContainer.indexOf(controller);
@@ -815,7 +815,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             if (index >= BrowserContainer.size()) {
                 index = BrowserContainer.size() - 1;
             }
-            showAlbum(BrowserContainer.get(index), false);
+            showAlbum(BrowserContainer.get(index), false, false);
         }
     }
 

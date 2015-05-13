@@ -67,7 +67,7 @@ public class Album {
         albumView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                browserController.showAlbum(albumController, false);
+                browserController.showAlbum(albumController, false, false);
             }
         });
 
