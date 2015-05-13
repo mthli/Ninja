@@ -1,6 +1,5 @@
 package io.github.mthli.Ninja.View;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -193,11 +192,9 @@ public class SwitcherPanel extends ViewGroup {
 
         dimen108dp = getResources().getDimensionPixelSize(R.dimen.layout_height_108dp);
         dimen48dp = getResources().getDimensionPixelOffset(R.dimen.layout_height_48dp);
-        if (context instanceof Activity) {
-            int windowHeight = ViewUnit.getWindowHeight(context);
-            int statusBarHeight = ViewUnit.getStatusBarHeight(context);
-            coverHeight = windowHeight - statusBarHeight - dimen108dp - dimen48dp;
-        }
+        int windowHeight = ViewUnit.getWindowHeight(context);
+        int statusBarHeight = ViewUnit.getStatusBarHeight(context);
+        coverHeight = windowHeight - statusBarHeight - dimen108dp - dimen48dp;
     }
 
     @Override
@@ -277,7 +274,6 @@ public class SwitcherPanel extends ViewGroup {
         }
         setMeasuredDimension(widthSize, heightSize);
 
-        // TODO: keyBoardListener behavior when onMeasure() repeat
         keyBoardShowing = heightSize < getHeight() || omnibox == null;
     }
 

@@ -61,7 +61,7 @@
               android:textColorHint="@color/hint"
               android:textCursorDrawable="@null"
               android:textSize="@dimen/text_size_16sp"
-              android:imeOptions="actionDone"
+              android:imeOptions="actionDone|flagNoExtractUi"
               android:inputType="text"
               android:singleLine="true"
               android:background="@drawable/round_corner_shape_white">

@@ -43,10 +43,6 @@ public class BrowserActivity extends Activity implements BrowserController {
     private static final int DOUBLE_TAPS_QUIT_DEFAULT = 512;
 
     private SwitcherPanel switcherPanel;
-
-    private int windowWidth;
-    private int windowHeight;
-    private int statusBarHeight;
     private float dimen144dp;
     private float dimen108dp;
     private float dimen48dp;
@@ -110,7 +106,10 @@ public class BrowserActivity extends Activity implements BrowserController {
             }
         });
 
-        initData();
+        dimen144dp = getResources().getDimensionPixelSize(R.dimen.layout_width_144dp);
+        dimen108dp = getResources().getDimensionPixelSize(R.dimen.layout_height_108dp);
+        dimen48dp = getResources().getDimensionPixelOffset(R.dimen.layout_height_48dp);
+
         initSwitcherView();
         initMainView();
         initSearchPanel();
@@ -183,13 +182,16 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-
+        hideSoftInput(inputBox);
+        hideSearchPanel();
         if (switcherPanel.getStatus() != SwitcherPanel.Status.EXPANDED) {
             switcherPanel.expanded();
         }
-        float coverHeight = windowHeight - statusBarHeight - dimen108dp - dimen48dp;
+        super.onConfigurationChanged(newConfig);
+
+        float coverHeight = ViewUnit.getWindowHeight(this) - ViewUnit.getStatusBarHeight(this) - dimen108dp - dimen48dp;
         switcherPanel.setCoverHeight(coverHeight);
+        updateAutoComplete(); // For inputBox.setDropDownWidth()
     }
 
     @Override
@@ -227,15 +229,6 @@ public class BrowserActivity extends Activity implements BrowserController {
             }
         }
         return true;
-    }
-
-    private void initData() {
-        windowWidth = ViewUnit.getWindowWidth(this);
-        windowHeight = ViewUnit.getWindowHeight(this);
-        statusBarHeight = ViewUnit.getStatusBarHeight(this);
-        dimen144dp = getResources().getDimensionPixelSize(R.dimen.layout_width_144dp);
-        dimen108dp = getResources().getDimensionPixelSize(R.dimen.layout_height_108dp);
-        dimen48dp = getResources().getDimensionPixelOffset(R.dimen.layout_height_48dp);
     }
 
     private void initSwitcherView() {
@@ -853,8 +846,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         inputBox.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
-        // TODO: DropDownBackgroundDrawable/Resource
-        inputBox.setDropDownWidth(windowWidth);
+        inputBox.setDropDownWidth(ViewUnit.getWindowWidth(this));
         inputBox.setDropDownVerticalOffset(12);
         inputBox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

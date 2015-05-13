@@ -154,7 +154,7 @@
                                       android:selectAllOnFocus="true"
                                       android:completionThreshold="1"
                                       android:singleLine="true"
-                                      android:imeOptions="actionDone"
+                                      android:imeOptions="actionDone|flagNoExtractUi"
                                       android:inputType="text"
                                       android:background="@color/white">
                 </AutoCompleteTextView>
