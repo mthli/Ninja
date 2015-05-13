@@ -9,8 +9,11 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.webkit.CookieManager;
-import io.github.mthli.Ninja.Browser.*;
 import io.github.mthli.Ninja.R;
+import io.github.mthli.Ninja.Task.ClearCacheTask;
+import io.github.mthli.Ninja.Task.ClearFormDataTask;
+import io.github.mthli.Ninja.Task.ClearPasswordsTask;
+import io.github.mthli.Ninja.Task.ExportBookmarksTask;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.Unit.IntentUnit;
 

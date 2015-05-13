@@ -10,7 +10,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-import io.github.mthli.Ninja.Browser.ImportBookmarksTask;
+import io.github.mthli.Ninja.Task.ImportBookmarksTask;
 import io.github.mthli.Ninja.View.SettingFragment;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Unit.IntentUnit;

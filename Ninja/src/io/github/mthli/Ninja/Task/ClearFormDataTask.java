@@ -1,4 +1,4 @@
-package io.github.mthli.Ninja.Browser;
+package io.github.mthli.Ninja.Task;
 
 import android.app.ProgressDialog;
 import android.content.Context;

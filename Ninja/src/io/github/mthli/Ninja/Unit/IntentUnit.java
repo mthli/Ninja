@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.net.MailTo;
 
 public class IntentUnit {
-    public static final String PIN = "PIN";
     public static final String OPEN = "OPEN";
 
     public static final int REQUEST_FILE = 0x102;

@@ -37,9 +37,6 @@ public class SwitcherPanel extends ViewGroup {
 
     /* coverHeight: px */
     private float coverHeight = 0f;
-    public float getCoverHeight() {
-        return coverHeight;
-    }
     public void setCoverHeight(float coverHeight) {
         this.coverHeight = coverHeight;
     }
@@ -47,29 +44,14 @@ public class SwitcherPanel extends ViewGroup {
     /* shadowHeight: dp */
     public static final int SHADOW_HEIGHT_DEFAULT = 2;
     private int shadowHeight = SHADOW_HEIGHT_DEFAULT;
-    public int getShadowHeight() {
-        return shadowHeight;
-    }
-    public void setShadowHeight(int shadowHeight) {
-        this.shadowHeight = shadowHeight;
-    }
 
     /* parallaxOffset: dp */
     public static final int PARALLAX_OFFSET_DEFAULT = 64;
     private int parallaxOffset = PARALLAX_OFFSET_DEFAULT;
-    public int getParallaxOffset() {
-        return parallaxOffset;
-    }
-    public void setParallaxOffset(int parallaxOffset) {
-        this.parallaxOffset = parallaxOffset;
-    }
 
     /* flingVelocity: dp/s */
     public static final int FLING_VELOCITY_DEFAULT = 256;
     private int flingVelocity = FLING_VELOCITY_DEFAULT;
-    public int getFlingVelocity() {
-        return flingVelocity;
-    }
     public void setFlingVelocity(int flingVelocity) {
         this.flingVelocity = flingVelocity;
         if (dragHelper != null) {

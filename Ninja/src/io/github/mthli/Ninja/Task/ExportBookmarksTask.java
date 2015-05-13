@@ -1,4 +1,4 @@
-package io.github.mthli.Ninja.Browser;
+package io.github.mthli.Ninja.Task;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -6,13 +6,18 @@ import android.os.AsyncTask;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.View.NinjaToast;
+import io.github.mthli.Ninja.View.SettingFragment;
 
-public class ClearPasswordsTask extends AsyncTask<Void, Void, Boolean> {
+public class ExportBookmarksTask extends AsyncTask<Void, Void, Boolean> {
+    private SettingFragment fragment;
     private Context context;
+    private String path;
     private ProgressDialog dialog;
 
-    public ClearPasswordsTask(Context context) {
-        this.context = context;
+    public ExportBookmarksTask(SettingFragment fragment) {
+        this.fragment = fragment;
+        this.context = fragment.getActivity();
+        this.path = null;
     }
 
     @Override
@@ -25,18 +30,24 @@ public class ClearPasswordsTask extends AsyncTask<Void, Void, Boolean> {
 
     @Override
     protected Boolean doInBackground(Void... params) {
-        BrowserUnit.clearPasswords(context);
+        path = BrowserUnit.exportBookmarks(context);
 
         if (isCancelled()) {
             return false;
         }
-        return true;
+        return path != null && !path.isEmpty();
     }
 
     @Override
     protected void onPostExecute(Boolean result) {
         dialog.hide();
         dialog.dismiss();
-        NinjaToast.show(context, R.string.toast_clear_passwords_successful);
+
+        if (result) {
+            fragment.setDBChange(true);
+            NinjaToast.show(context, context.getString(R.string.toast_export_bookmarks_successful) + path);
+        } else {
+            NinjaToast.show(context, context.getString(R.string.toast_export_bookmarks_failed));
+        }
     }
 }

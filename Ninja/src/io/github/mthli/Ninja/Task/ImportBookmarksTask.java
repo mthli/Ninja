@@ -1,4 +1,4 @@
-package io.github.mthli.Ninja.Browser;
+package io.github.mthli.Ninja.Task;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -7,12 +7,18 @@ import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.View.NinjaToast;
 
-public class ClearCacheTask extends AsyncTask<Void, Void, Boolean> {
+import java.io.File;
+
+public class ImportBookmarksTask extends AsyncTask<Void, Void, Boolean> {
     private Context context;
+    private File file;
+    private int count;
     private ProgressDialog dialog;
 
-    public ClearCacheTask(Context context) {
+    public ImportBookmarksTask(Context context, File file) {
         this.context = context;
+        this.file = file;
+        this.count = 0;
     }
 
     @Override
@@ -25,10 +31,12 @@ public class ClearCacheTask extends AsyncTask<Void, Void, Boolean> {
 
     @Override
     protected Boolean doInBackground(Void... params) {
+        count = BrowserUnit.importBookmarks(context, file);
+
         if (isCancelled()) {
             return false;
         }
-        return BrowserUnit.clearCache(context);
+        return count >= 0;
     }
 
     @Override
@@ -37,9 +45,9 @@ public class ClearCacheTask extends AsyncTask<Void, Void, Boolean> {
         dialog.dismiss();
 
         if (result) {
-            NinjaToast.show(context, R.string.toast_clear_cache_successful);
+            NinjaToast.show(context, context.getString(R.string.toast_import_bookmarks_successful) + count);
         } else {
-            NinjaToast.show(context, R.string.toast_clear_cache_failed);
+            NinjaToast.show(context, R.string.toast_import_bookmarks_failed);
         }
     }
 }

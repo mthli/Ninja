@@ -48,7 +48,6 @@ public class NotificationUnit {
         }
 
         Intent toActivity = new Intent(context, BrowserActivity.class);
-        toActivity.putExtra(IntentUnit.PIN, true);
         PendingIntent pin = PendingIntent.getActivity(context, 0, toActivity, 0);
         builder.setContentIntent(pin);
 

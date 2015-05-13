@@ -27,7 +27,7 @@ import android.widget.*;
 import io.github.mthli.Ninja.Browser.AlbumController;
 import io.github.mthli.Ninja.Browser.BrowserContainer;
 import io.github.mthli.Ninja.Browser.BrowserController;
-import io.github.mthli.Ninja.Browser.ScreenshotTask;
+import io.github.mthli.Ninja.Task.ScreenshotTask;
 import io.github.mthli.Ninja.Database.Record;
 import io.github.mthli.Ninja.Database.RecordAction;
 import io.github.mthli.Ninja.R;
