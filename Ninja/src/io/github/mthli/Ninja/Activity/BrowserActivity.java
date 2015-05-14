@@ -1090,9 +1090,10 @@ public class BrowserActivity extends Activity implements BrowserController {
         final List<String> list = new ArrayList<>();
         list.addAll(Arrays.asList(array));
         if (currentAlbumController != null && currentAlbumController instanceof NinjaRelativeLayout) {
-            list.remove(array[0]);
-            list.remove(array[1]);
-            list.remove(array[2]);
+            list.remove(array[0]); // Go to top
+            list.remove(array[1]); // Find in page
+            list.remove(array[2]); // Screenshot
+            list.remove(array[3]); // Share
         }
 
         RelativeLayout dialogHeader = (RelativeLayout) getLayoutInflater().inflate(R.layout.dialog_header, null, false);
@@ -1132,23 +1133,26 @@ public class BrowserActivity extends Activity implements BrowserController {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String s = list.get(position - 1);
-                if (s.equals(array[0])) { // Find in page
+                if (s.equals(array[0])) { // Go to top
+                    NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
+                    ninjaWebView.scrollTo(0, 0); // Maybe use Handler().postDelay() would better.
+                } else if (s.equals(array[1])) { // Find in page
                     hideSoftInput(inputBox);
                     showSearchPanel();
-                } else if (s.equals(array[1])) { // Screenshot
-                    final NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
+                } else if (s.equals(array[2])) { // Screenshot
+                    NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
                     new ScreenshotTask(BrowserActivity.this, ninjaWebView).execute();
-                } else if (s.equals(array[2])) { // Share
+                } else if (s.equals(array[3])) { // Share
                     if (!prepareRecord()) {
                         NinjaToast.show(BrowserActivity.this, R.string.toast_share_failed);
                     } else {
                         NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
                         IntentUnit.share(BrowserActivity.this, ninjaWebView.getTitle(), ninjaWebView.getUrl());
                     }
-                } else if (s.equals(array[3])) { // Setting
+                } else if (s.equals(array[4])) { // Setting
                     Intent intent = new Intent(BrowserActivity.this, SettingActivity.class);
                     startActivity(intent);
-                } else if (s.equals(array[4])) { // Quit
+                } else if (s.equals(array[5])) { // Quit
                     finish();
                 }
                 dialog.hide();

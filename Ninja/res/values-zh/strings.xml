@@ -62,6 +62,7 @@
         搜索或输入地址
     </string>
     <string-array name="main_overflow">
+        <item>返回顶部</item>
         <item>页内搜索</item>
         <item>网页截图</item>
         <item>分享</item>

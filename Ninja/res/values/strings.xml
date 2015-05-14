@@ -62,6 +62,7 @@
         Search or type URL
     </string>
     <string-array name="main_overflow">
+        <item>Go to top</item>
         <item>Find in page</item>
         <item>Screenshot</item>
         <item>Share</item>
