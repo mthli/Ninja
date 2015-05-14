@@ -983,7 +983,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         final List<String> list = new ArrayList<>();
         list.add(getString(R.string.main_menu_new_tab));
-        list.add(getString(R.string.main_menu_copy));
+        list.add(getString(R.string.main_menu_copy_link));
         if (result != null && (result.getType() == WebView.HitTestResult.IMAGE_TYPE || result.getType() == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE)) {
             list.add(getString(R.string.main_menu_save));
         }
@@ -1015,7 +1015,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 if (s.equals(getString(R.string.main_menu_new_tab))) { // New tab
                     addAlbum(getString(R.string.album_untitled), target, false, null);
                     NinjaToast.show(BrowserActivity.this, R.string.toast_new_tab_successful);
-                } else if (s.equals(getString(R.string.main_menu_copy))) { // Copy link
+                } else if (s.equals(getString(R.string.main_menu_copy_link))) { // Copy link
                     BrowserUnit.copyURL(BrowserActivity.this, target);
                 } else if (s.equals(getString(R.string.main_menu_save))) { // Save
                     BrowserUnit.download(BrowserActivity.this, target, target, BrowserUnit.MIME_TYPE_IMAGE);
