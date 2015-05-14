@@ -3,8 +3,6 @@ Ninja
 
 A web browser that open links in background without ever living your favorite apps.
 
-Open source copy of [Link Bubble](https://play.google.com/store/apps/details?id=com.linkbubble.playstore "Link Bubble") and [Flynx](https://play.google.com/store/apps/details?id=com.flynx "Flynx").
-
 [Download latest Ninja.apk](https://github.com/mthli/Ninja/releases/download/v1.1.0/Ninja.1.1.0.apk "Ninja.1.1.0.apk")
 
 __SUPPORT: Android 4.1+__
@@ -29,17 +27,27 @@ __LONG TERM MAINTENANCE.__
 
  - Change brightness.
 
+ - Fashion tab switcher.
+
+ - Webpage go to top easy.
+
  - More features comming soon...
 
 ## How to use Ninja?
 
-Basically Ninja is a simple web browser like any others, but you can open links in background follow the steps below:
+Basically Ninja is a simple web browser like any others, but there are some different things you need to know:
+
+### Load in background:
 
  1. Set Ninja as your __default browser__ when click links.
 
  2. __Single tap__ will open links in background, and show a __clickable__ notification in statusbar.
 
  3. __Double taps__ will show a dialog that allows you to open links in foreground, etc.
+
+### Switch tabs:
+
+Press the omnibox and drag it down, then the fashion tab switcher will display. __Remember__ that if the soft keyboard is shown the tab switcher would not display, it's our design :)
 
 ## QA:
 
