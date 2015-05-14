@@ -654,7 +654,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         albumView.startAnimation(animation);
     }
 
-    private void pinAlbums(String url) {
+    private synchronized void pinAlbums(String url) {
         hideSoftInput(inputBox);
         hideSearchPanel();
         switcherContainer.removeAllViews();
