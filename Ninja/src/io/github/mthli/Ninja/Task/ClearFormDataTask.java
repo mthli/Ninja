@@ -13,6 +13,7 @@ public class ClearFormDataTask extends AsyncTask<Void, Void, Boolean> {
 
     public ClearFormDataTask(Context context) {
         this.context = context;
+        this.dialog = null;
     }
 
     @Override

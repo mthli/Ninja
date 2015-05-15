@@ -300,9 +300,6 @@
     <string name="toast_refresh_failed">
         无法刷新此页面。
     </string>
-    <string name="toast_start_screenshot">
-        开始截图&#8230;
-    </string>
     <string name="toast_screenshot_successful">
         截图保存位置：
     </string>

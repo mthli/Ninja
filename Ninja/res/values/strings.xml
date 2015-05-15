@@ -300,9 +300,6 @@
     <string name="toast_refresh_failed">
         Can\'t refresh this page.
     </string>
-    <string name="toast_start_screenshot">
-        Start screenshot&#8230;
-    </string>
     <string name="toast_screenshot_successful">
         Save screenshot at:&#160;
     </string>

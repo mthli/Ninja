@@ -11,12 +11,13 @@ import io.github.mthli.Ninja.View.SettingFragment;
 public class ExportBookmarksTask extends AsyncTask<Void, Void, Boolean> {
     private SettingFragment fragment;
     private Context context;
-    private String path;
     private ProgressDialog dialog;
+    private String path;
 
     public ExportBookmarksTask(SettingFragment fragment) {
         this.fragment = fragment;
         this.context = fragment.getActivity();
+        this.dialog = null;
         this.path = null;
     }
 

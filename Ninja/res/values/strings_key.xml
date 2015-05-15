@@ -2,6 +2,10 @@
 
 <resources>
 
+    <string name="sp_first">
+        SP_FIRST
+    </string>
+
     <string name="sp_brightness">
         SP_BRIGHTNESS
     </string>

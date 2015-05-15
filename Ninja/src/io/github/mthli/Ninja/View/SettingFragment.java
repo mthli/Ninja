@@ -10,6 +10,8 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.webkit.CookieManager;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -114,7 +116,7 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
                 new ClearPasswordsTask(getActivity()).execute();
                 break;
             case R.string.setting_title_version:
-                NinjaToast.show(getActivity(), R.string.toast_judge);
+                showIntroductionDialog();
                 break;
             case R.string.setting_title_license:
                 showLicenseDialog();
@@ -141,6 +143,38 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
             CookieManager manager = CookieManager.getInstance();
             manager.setAcceptCookie(sharedPreferences.getBoolean(getString(R.string.sp_cookies), true));
         }
+    }
+
+    private void showIntroductionDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setCancelable(true);
+
+        LinearLayout layout = (LinearLayout) getActivity().getLayoutInflater().inflate(R.layout.dialog_introduction, null, false);
+        builder.setView(layout);
+
+        WebView webView = (WebView) layout.findViewById(R.id.dialog_introduction);
+        webView.setHorizontalScrollBarEnabled(false);
+        webView.setVerticalScrollBarEnabled(false);
+
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setDefaultTextEncodingName(BrowserUnit.URL_ENCODING);
+        webSettings.setSupportZoom(true);
+        webSettings.setBuiltInZoomControls(true);
+        webSettings.setDisplayZoomControls(false);
+        webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setTextZoom(100);
+        webSettings.setUseWideViewPort(true);
+
+        String lang;
+        if (getResources().getConfiguration().locale.getLanguage().equals("zh")) {
+            lang = BrowserUnit.NINJA_INTRODUCTION_ZH;
+        } else {
+            lang = BrowserUnit.NINJA_INTRODUCTION_EN;
+        }
+        webView.loadUrl(BrowserUnit.BASE_URL + lang);
+
+        builder.create().show();
     }
 
     private void showLicenseDialog() {

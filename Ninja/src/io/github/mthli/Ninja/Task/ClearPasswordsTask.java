@@ -13,6 +13,7 @@ public class ClearPasswordsTask extends AsyncTask<Void, Void, Boolean> {
 
     public ClearPasswordsTask(Context context) {
         this.context = context;
+        this.dialog = null;
     }
 
     @Override

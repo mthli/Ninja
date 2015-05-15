@@ -122,18 +122,6 @@ public class BrowserActivity extends Activity implements BrowserController {
         setIntent(intent);
     }
 
-    private void dispatchIntent(Intent intent) {
-        Intent toService = new Intent(this, HolderService.class);
-        IntentUnit.setClear(false);
-        stopService(toService);
-
-        if (intent != null && intent.hasExtra(IntentUnit.OPEN)) { // From HolderActivity's menu
-            pinAlbums(intent.getStringExtra(IntentUnit.OPEN));
-        } else {
-            pinAlbums(null);
-        }
-    }
-
     @Override
     public void onResume() {
         super.onResume();
@@ -156,6 +144,30 @@ public class BrowserActivity extends Activity implements BrowserController {
                 }
             }
             IntentUnit.setSPChange(false);
+        }
+    }
+
+    private void dispatchIntent(Intent intent) {
+        Intent toService = new Intent(this, HolderService.class);
+        IntentUnit.setClear(false);
+        stopService(toService);
+
+        if (intent != null && intent.hasExtra(IntentUnit.OPEN)) { // From HolderActivity's menu
+            pinAlbums(intent.getStringExtra(IntentUnit.OPEN));
+        } else {
+            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+            if (sp.getBoolean(getString(R.string.sp_first), true)) {
+                String lang;
+                if (getResources().getConfiguration().locale.getLanguage().equals("zh")) {
+                    lang = BrowserUnit.NINJA_INTRODUCTION_ZH;
+                } else {
+                    lang = BrowserUnit.NINJA_INTRODUCTION_EN;
+                }
+                pinAlbums(BrowserUnit.BASE_URL + lang);
+                sp.edit().putBoolean(getString(R.string.sp_first), false).commit();
+            } else {
+                pinAlbums(null);
+            }
         }
     }
 

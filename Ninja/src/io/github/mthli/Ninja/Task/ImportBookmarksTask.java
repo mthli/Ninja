@@ -11,12 +11,13 @@ import java.io.File;
 
 public class ImportBookmarksTask extends AsyncTask<Void, Void, Boolean> {
     private Context context;
+    private ProgressDialog dialog;
     private File file;
     private int count;
-    private ProgressDialog dialog;
 
     public ImportBookmarksTask(Context context, File file) {
         this.context = context;
+        this.dialog = null;
         this.file = file;
         this.count = 0;
     }

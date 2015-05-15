@@ -35,6 +35,10 @@ public class BrowserUnit {
     public static final String MIME_TYPE_TEXT_PLAIN = "text/plain";
     public static final String MIME_TYPE_IMAGE = "image/*";
 
+    public static final String BASE_URL = "file:///android_asset/";
+    public static final String NINJA_INTRODUCTION_EN = "ninja_introduction_en.html";
+    public static final String NINJA_INTRODUCTION_ZH = "ninja_introduction_zh.html";
+
     public static final String SEARCH_ENGINE_GOOGLE = "https://www.google.com/search?q=";
     public static final String SEARCH_ENGINE_DUCKDUCKGO = "https://duckduckgo.com/?q=";
     public static final String SEARCH_ENGINE_STARTPAGE = "https://startpage.com/do/search?query=";
