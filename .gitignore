@@ -26,3 +26,6 @@ proguard_logs/
 
 # Log Files
 *.log
+
+# Others
+*.directory
