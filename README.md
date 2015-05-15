@@ -3,15 +3,11 @@ Ninja
 
 A web browser that open links in background without ever leaving your favorite apps.
 
-[Download latest Ninja.apk](https://github.com/mthli/Ninja/releases/download/v1.1.1/Ninja.1.1.1.apk "Ninja.1.1.1.apk")
+[Download latest Ninja.apk](https://github.com/mthli/Ninja/releases/download/v1.1.2/Ninja.1.1.2.apk "Ninja.1.1.2.apk")
 
 __SUPPORT: Android 4.1+__
 
 __LONG TERM MAINTENANCE.__
-
-## Screenshot:
-
-![all_in_one.png](/Art/screenshot/all_in_one.png "all_in_one.png")
 
 ## Features:
 
@@ -47,13 +43,15 @@ Basically Ninja is a simple web browser like any others, but there are some diff
 
 ### Switch tabs:
 
-Press the omnibox and drag it down, then the fashion tab switcher will display. __Remember__ that if the soft keyboard is shown the tab switcher would not display, it's our design :)
+![tab_switcher.png](/Art/screenshot/tab_switcher.png "tab_switcher.png")
+
+ - Press the __address bar__ and __drag it down__, then the fashion tab switcher will display.
+
+ - __Swipe up/down__ to dismiss a page.
+
+ - __Remember__ that if the soft keyboard is shown the tab switcher would not display, it's our design :)
 
 ## QA:
-
-### Why not Google Play?
-
-Ninja is still under development, we need to add some features and fix some bugs, when we think it is right time we will deploy Ninja to Google Play(maybe tomorrow :P).
 
 ### Why no incognito mode?
 
@@ -62,6 +60,8 @@ Incognito mode is a necessary feature for a web browser, but since `WebView(Cont
 ### What can I do for Ninja?
 
  - New design launcher icon(must be 512px * 512px).
+
+ - Translate `ninja_introduction_en.md` at [this link](https://github.com/mthli/Ninja/blob/master/Ninja/assets/ninja_introduction_en.md "ninja_introduction_en.md")
 
  - Translate `strings.xml` at [this link](https://github.com/mthli/Ninja/blob/master/Ninja/res/values/strings.xml "strings.xml").
 
