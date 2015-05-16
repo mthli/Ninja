@@ -5,6 +5,8 @@ Ninja
 
 A web browser that open links in background without ever leaving your favorite apps.
 
+[Ninja in Google Play](https://play.google.com/store/apps/details?id=io.github.mthli.Ninja "Ninja in Google Play")
+
 [Download latest Ninja.apk](https://github.com/mthli/Ninja/releases/download/v1.1.2/Ninja.1.1.2.apk "Ninja.1.1.2.apk")
 
 __SUPPORT: Android 4.1+__
