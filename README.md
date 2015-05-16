@@ -1,6 +1,8 @@
 Ninja
 ===
 
+![background.png](/Art/screenshot/en/background.png "background.png")
+
 A web browser that open links in background without ever leaving your favorite apps.
 
 [Download latest Ninja.apk](https://github.com/mthli/Ninja/releases/download/v1.1.2/Ninja.1.1.2.apk "Ninja.1.1.2.apk")
@@ -27,7 +29,7 @@ __LONG TERM MAINTENANCE.__
 
  - Webpage go to top easy.
 
- - More features comming soon...
+ - More features coming soon...
 
 ## How to use Ninja?
 
@@ -43,7 +45,7 @@ Basically Ninja is a simple web browser like any others, but there are some diff
 
 ### Switch tabs:
 
-![tab_switcher.png](/Art/screenshot/tab_switcher.png "tab_switcher.png")
+![tab_switcher_header.png](/Art/screenshot/en/tab_switcher_header.png "tab_switcher_header.png")
 
  - Press the __address bar__ and __drag it down__, then the fashion tab switcher will display.
 
@@ -51,7 +53,7 @@ Basically Ninja is a simple web browser like any others, but there are some diff
 
  - __Remember__ that if the soft keyboard is shown the tab switcher would not display, it's our design :)
 
-## QA:
+## Q&A:
 
 ### Why no incognito mode?
 
