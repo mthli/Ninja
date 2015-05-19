@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
+import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -82,7 +83,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         super.onCreate(savedInstanceState);
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean top = sp.getBoolean(getString(R.string.sp_anchor), true);
+        boolean top = sp.getBoolean(getString(R.string.sp_anchor), false); // TODO
         if (top) {
             anchor = SwitcherPanel.Anchor.TOP;
             setContentView(R.layout.main_top);
@@ -882,11 +883,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     @Override
     public void updateBookmarks() {
         if (currentAlbumController == null || !(currentAlbumController instanceof NinjaWebView)) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                omniboxBookmark.setImageDrawable(getResources().getDrawable(R.drawable.bookmark_selector_dark, null));
-            } else {
-                omniboxBookmark.setImageDrawable(getResources().getDrawable(R.drawable.bookmark_selector_dark));
-            }
+            omniboxBookmark.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.bookmark_selector_dark));
             return;
         }
 
@@ -894,17 +891,9 @@ public class BrowserActivity extends Activity implements BrowserController {
         action.open(false);
         String url = ((NinjaWebView) currentAlbumController).getUrl();
         if (action.checkBookmark(url)) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                omniboxBookmark.setImageDrawable(getResources().getDrawable(R.drawable.bookmark_selector_blue, null));
-            } else {
-                omniboxBookmark.setImageDrawable(getResources().getDrawable(R.drawable.bookmark_selector_blue));
-            }
+            omniboxBookmark.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.bookmark_selector_blue));
         } else {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                omniboxBookmark.setImageDrawable(getResources().getDrawable(R.drawable.bookmark_selector_dark, null));
-            } else {
-                omniboxBookmark.setImageDrawable(getResources().getDrawable(R.drawable.bookmark_selector_dark));
-            }
+            omniboxBookmark.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.bookmark_selector_dark));
         }
         action.close();
     }
@@ -964,17 +953,9 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     private void updateRefresh(boolean running) {
         if (running) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                omniboxRefresh.setImageDrawable(getResources().getDrawable(R.drawable.cl_selector_dark, null));
-            } else {
-                omniboxRefresh.setImageDrawable(getResources().getDrawable(R.drawable.cl_selector_dark));
-            }
+            omniboxRefresh.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.cl_selector_dark));
         } else {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                omniboxRefresh.setImageDrawable(getResources().getDrawable(R.drawable.refresh_selector, null));
-            } else {
-                omniboxRefresh.setImageDrawable(getResources().getDrawable(R.drawable.refresh_selector));
-            }
+            omniboxRefresh.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.refresh_selector));
         }
     }
 

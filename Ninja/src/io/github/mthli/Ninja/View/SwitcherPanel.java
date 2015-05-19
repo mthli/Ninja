@@ -45,7 +45,7 @@ public class SwitcherPanel extends ViewGroup {
 
     /* parallaxOffset: dp */
     public static final int PARALLAX_OFFSET_TOP_DEFAULT = 64;
-    public static final int PARALLAX_OFFSET_BOTTOM_DEFAULT = 32;
+    public static final int PARALLAX_OFFSET_BOTTOM_DEFAULT = 16;
     private int parallaxOffset = PARALLAX_OFFSET_TOP_DEFAULT;
 
     /* flingVelocity: dp/s */
@@ -169,7 +169,7 @@ public class SwitcherPanel extends ViewGroup {
         super(context, attrs, defStyleAttr);
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean top = sp.getBoolean(getContext().getString(R.string.sp_anchor), true);
+        boolean top = sp.getBoolean(getContext().getString(R.string.sp_anchor), false); // TODO
         if (top) {
             anchor = Anchor.TOP;
             parallaxOffset = PARALLAX_OFFSET_TOP_DEFAULT;
