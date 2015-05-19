@@ -47,7 +47,6 @@ public class BrowserActivity extends Activity implements BrowserController {
     private float dimen144dp;
     private float dimen108dp;
     private float dimen48dp;
-    private SwitcherPanel.Anchor anchor = SwitcherPanel.Anchor.TOP;
 
     private HorizontalScrollView switcherScroller;
     private LinearLayout switcherContainer;
@@ -83,10 +82,8 @@ public class BrowserActivity extends Activity implements BrowserController {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         boolean top = sp.getBoolean(getString(R.string.sp_anchor), false); // TODO
         if (top) {
-            anchor = SwitcherPanel.Anchor.TOP;
             setContentView(R.layout.main_top);
         } else {
-            anchor = SwitcherPanel.Anchor.BOTTOM;
             setContentView(R.layout.main_bottom);
         }
 
