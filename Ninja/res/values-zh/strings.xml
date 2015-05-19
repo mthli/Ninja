@@ -21,11 +21,6 @@
         无标题
     </string>
 
-    <!-- Dialog -->
-    <string name="dialog_header_title">
-        亮度
-    </string>
-
     <!-- Holder -->
     <string-array name="holder_menu">
         <item>前台打开</item>
@@ -63,6 +58,7 @@
     </string>
     <string-array name="main_overflow">
         <item>返回顶部</item>
+        <item>前进一页</item>
         <item>页内搜索</item>
         <item>网页截图</item>
         <item>分享</item>
@@ -79,7 +75,6 @@
     <string name="search_hint">
         搜索
     </string>
-
     <!-- Setting -->
     <string name="setting_label">
         设置
@@ -167,6 +162,20 @@
     <string name="setting_summary_multiple_windows">
         允许网站打开多个窗口
     </string>
+    <!-- User Agent -->
+    <string name="setting_title_user_agent">
+        浏览器标识
+    </string>
+    <string name="setting_summary_user_agent_default">
+        默认
+    </string>
+    <string name="setting_summary_user_agent_desktop">
+        桌面
+    </string>
+    <string-array name="setting_values_user_agent">
+        <item>@string/setting_summary_user_agent_default</item>
+        <item>@string/setting_summary_user_agent_desktop</item>
+    </string-array>
     <!-- Data setting -->
     <string name="setting_title_data">
         数据
@@ -234,8 +243,8 @@
     <string name="toast_add_bookmark_failed">
         无法将此页面添加为书签。
     </string>
-    <string name="toast_change_brightness_failed">
-        设置屏幕亮度失败。
+    <string name="toast_already_at_the_front">
+        已经在最前面了。
     </string>
     <string name="toast_clear_bookmarks_successful">
         清空书签成功。

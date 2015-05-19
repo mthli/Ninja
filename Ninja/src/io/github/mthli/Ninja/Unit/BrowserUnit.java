@@ -27,6 +27,7 @@ public class BrowserUnit {
     public static final String SUFFIX_PNG = ".png";
     public static final String SUFFIX_TXT = ".txt";
 
+    // Maybe enum would better.
     public static final int FLAG_BOOKMARKS = 0x100;
     public static final int FLAG_HISTORY = 0x101;
     public static final int FLAG_HOME = 0x102;
@@ -45,6 +46,7 @@ public class BrowserUnit {
     public static final String SEARCH_ENGINE_BING = "http://www.bing.com/search?q=";
     public static final String SEARCH_ENGINE_BAIDU = "http://www.baidu.com/s?wd=";
 
+    public static final String UA_DESKTOP = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36";  // Chrome desktop 41.0.2228.0
     public static final String URL_ENCODING = "UTF-8";
     public static final String URL_ABOUT_BLANK = "about:blank";
     public static final String URL_SCHEME_ABOUT = "about:";

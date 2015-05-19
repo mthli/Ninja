@@ -36,6 +36,7 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
 
     private ListPreference searchEngine;
     private ListPreference notiPriority;
+    private ListPreference userAgent;
 
     private boolean spChange = false;
     public boolean isSPChange() {
@@ -68,6 +69,9 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
 
         notiPriority = (ListPreference) findPreference(getString(R.string.sp_notification_priority));
         notiPriority.setSummary(sp.getString(getString(R.string.sp_notification_priority), getString(R.string.setting_summary_notification_priority_default)));
+
+        userAgent = (ListPreference) findPreference(getString(R.string.sp_user_agent));
+        userAgent.setSummary(sp.getString(getString(R.string.sp_user_agent), getString(R.string.setting_summary_user_agent_default)));
     }
 
     @Override
@@ -131,17 +135,20 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
     }
 
     @Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+    public void onSharedPreferenceChanged(SharedPreferences sp, String key) {
         spChange = true;
         if (key.equals(getString(R.string.sp_search_engine))) {
-            String summary = sharedPreferences.getString(key, getString(R.string.setting_summary_search_engine_google));
+            String summary = sp.getString(key, getString(R.string.setting_summary_search_engine_google));
             searchEngine.setSummary(summary);
         } else if (key.equals(getString(R.string.sp_notification_priority))) {
-            String summary = sharedPreferences.getString(key, getString(R.string.setting_summary_notification_priority_default));
+            String summary = sp.getString(key, getString(R.string.setting_summary_notification_priority_default));
             notiPriority.setSummary(summary);
+        } else if (key.equals(getString(R.string.sp_user_agent))) {
+            String summary = sp.getString(key, getString(R.string.setting_summary_user_agent_default));
+            userAgent.setSummary(summary);
         } else if (key.equals(getString(R.string.sp_cookies))) {
             CookieManager manager = CookieManager.getInstance();
-            manager.setAcceptCookie(sharedPreferences.getBoolean(getString(R.string.sp_cookies), true));
+            manager.setAcceptCookie(sp.getBoolean(getString(R.string.sp_cookies), true));
         }
     }
 

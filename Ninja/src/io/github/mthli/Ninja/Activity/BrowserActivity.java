@@ -15,6 +15,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -86,13 +87,6 @@ public class BrowserActivity extends Activity implements BrowserController {
         } else {
             setContentView(R.layout.main_bottom);
         }
-
-        int brightness = sp.getInt(getString(R.string.sp_brightness), -1);
-        if (brightness < 0) {
-            brightness = ViewUnit.getBrightness(this);  // 130
-            sp.edit().putInt(getString(R.string.sp_brightness), brightness).commit();
-        }
-        ViewUnit.setBrightness(this, brightness);
 
         create = true;
         shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
@@ -298,6 +292,8 @@ public class BrowserActivity extends Activity implements BrowserController {
         inputBox.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                Log.e("actionId", String.valueOf(actionId));
+
                 if (currentAlbumController == null || !(actionId == EditorInfo.IME_ACTION_DONE)) {
                     return false;
                 }
@@ -1083,17 +1079,13 @@ public class BrowserActivity extends Activity implements BrowserController {
         list.addAll(Arrays.asList(array));
         if (currentAlbumController != null && currentAlbumController instanceof NinjaRelativeLayout) {
             list.remove(array[0]); // Go to top
-            list.remove(array[1]); // Find in page
-            list.remove(array[2]); // Screenshot
-            list.remove(array[3]); // Share
+            list.remove(array[1]); // Go forward
+            list.remove(array[2]); // Find in page
+            list.remove(array[3]); // Screenshot
+            list.remove(array[4]); // Share
         }
 
-        RelativeLayout dialogHeader = (RelativeLayout) getLayoutInflater().inflate(R.layout.dialog_header, null, false);
-        SeekBar seekBar = (SeekBar) dialogHeader.findViewById(R.id.dialog_header_seek_bar);
-
         ListView listView = (ListView) layout.findViewById(R.id.dialog_list);
-        listView.addHeaderView(dialogHeader);
-
         DialogAdapter adapter = new DialogAdapter(this, R.layout.dialog_text_item, list);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
@@ -1101,50 +1093,37 @@ public class BrowserActivity extends Activity implements BrowserController {
         final AlertDialog dialog = builder.create();
         dialog.show();
 
-        final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        int brightness = sp.getInt(getString(R.string.sp_brightness), BRIGHTNESS_BEGIN_DEFAULT);
-        seekBar.setProgress(brightness);
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
-
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                int progress = seekBar.getProgress();
-                ViewUnit.setBrightness(BrowserActivity.this, progress);
-                sp.edit().putInt(getString(R.string.sp_brightness), progress).commit();
-            }
-        });
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String s = list.get(position - 1);
+                String s = list.get(position);
                 if (s.equals(array[0])) { // Go to top
                     NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
                     ninjaWebView.scrollTo(0, 0); // Maybe use Handler().postDelay() would better.
-                } else if (s.equals(array[1])) { // Find in page
+                } else if (s.equals(array[1])) { // Go forward
+                    NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
+                    if (ninjaWebView.canGoForward()) {
+                        ninjaWebView.goForward();
+                    } else {
+                        NinjaToast.show(BrowserActivity.this, R.string.toast_already_at_the_front);
+                    }
+                } else if (s.equals(array[2])) { // Find in page
                     hideSoftInput(inputBox);
                     showSearchPanel();
-                } else if (s.equals(array[2])) { // Screenshot
+                } else if (s.equals(array[3])) { // Screenshot
                     NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
                     new ScreenshotTask(BrowserActivity.this, ninjaWebView).execute();
-                } else if (s.equals(array[3])) { // Share
+                } else if (s.equals(array[4])) { // Share
                     if (!prepareRecord()) {
                         NinjaToast.show(BrowserActivity.this, R.string.toast_share_failed);
                     } else {
                         NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
                         IntentUnit.share(BrowserActivity.this, ninjaWebView.getTitle(), ninjaWebView.getUrl());
                     }
-                } else if (s.equals(array[4])) { // Setting
+                } else if (s.equals(array[5])) { // Setting
                     Intent intent = new Intent(BrowserActivity.this, SettingActivity.class);
                     startActivity(intent);
-                } else if (s.equals(array[5])) { // Quit
+                } else if (s.equals(array[6])) { // Quit
                     finish();
                 }
                 dialog.hide();

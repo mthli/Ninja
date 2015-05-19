@@ -2,6 +2,7 @@
 
 <resources>
 
-    <integer name="seek_bar_max">130</integer>
+    <integer name="seek_bar_min">0</integer>
+    <integer name="seek_bar_max">255</integer>
 
 </resources>

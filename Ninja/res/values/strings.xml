@@ -21,11 +21,6 @@
         Untitled
     </string>
 
-    <!-- Dialog -->
-    <string name="dialog_header_title">
-        Brightness
-    </string>
-
     <!-- Holder -->
     <string-array name="holder_menu">
         <item>Foreground</item>
@@ -63,6 +58,7 @@
     </string>
     <string-array name="main_overflow">
         <item>Go to top</item>
+        <item>Go forward</item>
         <item>Find in page</item>
         <item>Screenshot</item>
         <item>Share</item>
@@ -167,6 +163,20 @@
     <string name="setting_summary_multiple_windows">
         Enable multiple windows
     </string>
+    <!-- User Agent -->
+    <string name="setting_title_user_agent">
+        User agent
+    </string>
+    <string name="setting_summary_user_agent_default">
+        Default
+    </string>
+    <string name="setting_summary_user_agent_desktop">
+        Desktop
+    </string>
+    <string-array name="setting_values_user_agent">
+        <item>@string/setting_summary_user_agent_default</item>
+        <item>@string/setting_summary_user_agent_desktop</item>
+    </string-array>
     <!-- Data setting -->
     <string name="setting_title_data">
         Data
@@ -234,8 +244,8 @@
     <string name="toast_add_bookmark_failed">
         Can\'t add this page to bookmark.
     </string>
-    <string name="toast_change_brightness_failed">
-        Change brightness failed.
+    <string name="toast_already_at_the_front">
+        Already at the front.
     </string>
     <string name="toast_clear_bookmarks_successful">
         Clear bookmarks successful.

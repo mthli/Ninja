@@ -31,6 +31,7 @@ public class NinjaWebView extends WebView implements AlbumController {
     private int dimen144dp;
     private int dimen108dp;
     private int animTime;
+    private String userAgentOriginal;
 
     private Album album;
     private NinjaWebViewClient webViewClient;
@@ -113,6 +114,7 @@ public class NinjaWebView extends WebView implements AlbumController {
 
     private synchronized void initWebSettings() {
         WebSettings webSettings = getSettings();
+        userAgentOriginal = webSettings.getUserAgentString();
 
         webSettings.setAllowContentAccess(true);
         webSettings.setAllowFileAccess(true);
@@ -149,6 +151,13 @@ public class NinjaWebView extends WebView implements AlbumController {
         webSettings.setGeolocationEnabled(sp.getBoolean(context.getString(R.string.sp_location), true));
         webSettings.setSupportMultipleWindows(sp.getBoolean(context.getString(R.string.sp_multiple_windows), true));
         webSettings.setSaveFormData(sp.getBoolean(context.getString(R.string.sp_passwords), true));
+
+        String userAgent = sp.getString(context.getString(R.string.sp_user_agent), context.getString(R.string.setting_summary_user_agent_default));
+        if (userAgent.equals(context.getString(R.string.setting_summary_user_agent_desktop))) {
+            webSettings.setUserAgentString(BrowserUnit.UA_DESKTOP);
+        } else {
+            webSettings.setUserAgentString(userAgentOriginal);
+        }
 
         webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
         webSettings.setLoadWithOverviewMode(true);

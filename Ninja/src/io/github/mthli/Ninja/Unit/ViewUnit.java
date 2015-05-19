@@ -1,16 +1,12 @@
 package io.github.mthli.Ninja.Unit;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.*;
-import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
-import android.view.WindowManager;
 import io.github.mthli.Ninja.R;
-import io.github.mthli.Ninja.View.NinjaToast;
 
 public class ViewUnit {
     public static void bound(Context context, View view) {
@@ -88,30 +84,5 @@ public class ViewUnit {
     public static int getWindowWidth(Context context) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         return displayMetrics.widthPixels;
-    }
-
-    public static int getBrightness(Context context) {
-        return Settings.System.getInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, -1);
-    }
-
-    public static void setBrightness(Activity activity, int value) {
-        if (value < 0) {
-            autoBrightness(activity);
-            return;
-        }
-
-        try {
-            Settings.System.putInt(activity.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, value);
-            WindowManager.LayoutParams layoutParams = activity.getWindow().getAttributes();
-            layoutParams.screenBrightness = value / 255f;
-            activity.getWindow().setAttributes(layoutParams);
-        } catch (Exception e) {
-            e.printStackTrace();
-            NinjaToast.show(activity, R.string.toast_change_brightness_failed);
-        }
-    }
-
-    public static void autoBrightness(Context context) {
-        Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC);
     }
 }
