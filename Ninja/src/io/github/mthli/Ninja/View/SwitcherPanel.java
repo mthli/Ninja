@@ -25,7 +25,6 @@ public class SwitcherPanel extends ViewGroup {
 
     private float dimen108dp = 0f;
     private float dimen48dp = 0f;
-    private boolean keyBoardShowing = false;
 
     /* slideRange: px */
     private float slideRange = 0f;
@@ -56,6 +55,11 @@ public class SwitcherPanel extends ViewGroup {
         if (dragHelper != null) {
             dragHelper.setMinVelocity(ViewUnit.dp2px(getContext(), flingVelocity));
         }
+    }
+
+    private boolean keyBoardShowing = false;
+    public void fixKeyBoardShowing(int height) {
+        keyBoardShowing = getMeasuredHeight() < height;
     }
 
     /* switcherView's position */
@@ -269,7 +273,7 @@ public class SwitcherPanel extends ViewGroup {
         }
         setMeasuredDimension(widthSize, heightSize);
 
-        keyBoardShowing = heightSize < getHeight() || omnibox.getVisibility() == GONE; ///
+        keyBoardShowing = heightSize < getHeight(); ///
     }
 
     @Override
@@ -358,7 +362,7 @@ public class SwitcherPanel extends ViewGroup {
             interceptX = event.getRawX();
             interceptY = event.getRawY();
         } else if (action == MotionEvent.ACTION_MOVE) {
-            if (!keyBoardShowing && shouldCollapsed()) {
+            if (!keyBoardShowing && omnibox.getVisibility() == VISIBLE && shouldCollapsed()) {
                 float deltaY = event.getRawY() - interceptY;
                 if (anchor == Anchor.TOP && deltaY >= ViewUnit.dp2px(getContext(), 32)) {
                     collapsed();

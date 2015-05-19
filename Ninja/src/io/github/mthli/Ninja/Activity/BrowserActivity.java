@@ -17,6 +17,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
@@ -210,9 +211,16 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
         super.onConfigurationChanged(newConfig);
 
-        // TODO: when bottom
         float coverHeight = ViewUnit.getWindowHeight(this) - ViewUnit.getStatusBarHeight(this) - dimen108dp - dimen48dp;
         switcherPanel.setCoverHeight(coverHeight);
+        switcherPanel.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                switcherPanel.fixKeyBoardShowing(switcherPanel.getHeight());
+                switcherPanel.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+            }
+        });
+
         updateAutoComplete(); // For inputBox.setDropDownWidth()
     }
 

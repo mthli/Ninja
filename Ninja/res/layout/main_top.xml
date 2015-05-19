@@ -86,11 +86,12 @@
                   android:layout_height="match_parent"
                   android:background="@color/white">
 
-        <FrameLayout android:id="@+id/main_header"
-                     android:layout_width="match_parent"
-                     android:layout_height="@dimen/layout_height_48dp"
-                     android:minHeight="@dimen/layout_height_48dp"
-                     android:background="@color/background">
+        <LinearLayout android:id="@+id/main_header"
+                      android:orientation="vertical"
+                      android:layout_width="match_parent"
+                      android:layout_height="@dimen/layout_height_48dp"
+                      android:minHeight="@dimen/layout_height_48dp"
+                      android:background="@color/background">
 
             <RelativeLayout android:id="@+id/main_omnibox"
                             android:layout_width="match_parent"
@@ -245,7 +246,7 @@
 
             </RelativeLayout>
 
-        </FrameLayout>
+        </LinearLayout>
 
         <FrameLayout android:id="@+id/main_content"
                      android:layout_width="match_parent"
