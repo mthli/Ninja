@@ -60,6 +60,18 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/setting_title_adblock">
+
+        <CheckBoxPreference android:key="@string/sp_ad_block"
+                            android:defaultValue="true"
+                            android:title="@string/setting_title_adblock"
+                            android:summary="@string/setting_summary_adblock">
+        </CheckBoxPreference>
+
+        <Preference android:title="@string/setting_title_whitelist" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/setting_title_data">
 
         <CheckBoxPreference android:key="@string/sp_passwords"

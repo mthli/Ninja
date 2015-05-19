@@ -5,10 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceScreen;
+import android.preference.*;
 import android.webkit.CookieManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -83,6 +80,9 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         switch (preference.getTitleRes()) {
+            case R.string.setting_title_whitelist:
+                // TODO
+                break;
             case R.string.setting_title_export_bookmarks:
                 new ExportBookmarksTask(this).execute();
                 break;

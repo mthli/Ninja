@@ -7,7 +7,7 @@ import io.github.mthli.Ninja.Unit.RecordUnit;
 
 public class RecordHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Ninja.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     public RecordHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -20,5 +20,9 @@ public class RecordHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {}
+    public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {
+        if (oldVersion == 1 && newVersion == 2) {
+            database.execSQL(RecordUnit.CREATE_ADBLOCK);
+        }
+    }
 }

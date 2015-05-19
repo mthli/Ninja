@@ -177,6 +177,16 @@
         <item>@string/setting_summary_user_agent_default</item>
         <item>@string/setting_summary_user_agent_desktop</item>
     </string-array>
+    <!-- AdBlock setting -->
+    <string name="setting_title_adblock">
+        AdBlock
+    </string>
+    <string name="setting_summary_adblock">
+        Enable AdBlock
+    </string>
+    <string name="setting_title_whitelist">
+        Whitelist
+    </string>
     <!-- Data setting -->
     <string name="setting_title_data">
         Data

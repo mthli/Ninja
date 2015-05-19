@@ -53,7 +53,17 @@ public class AdBlock {
         return domains.contains(domain.toLowerCase(locale));
     }
 
+    public static void addDomain(String domain) {
+        domains.add(domain.trim().toLowerCase(locale));
+    }
+
+    public static void removeDomain(String domain) {
+        domains.remove(domain.trim().toLowerCase(locale));
+    }
+
     private static String getDomain(String url) throws URISyntaxException {
+        url = url.trim().toLowerCase(locale); ///
+
         int index = url.indexOf('/', 8);
         if (index != -1) {
             url = url.substring(0, index);

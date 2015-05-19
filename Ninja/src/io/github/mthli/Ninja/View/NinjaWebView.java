@@ -159,6 +159,8 @@ public class NinjaWebView extends WebView implements AlbumController {
             webSettings.setUserAgentString(userAgentOriginal);
         }
 
+        webViewClient.enableAdBlock(sp.getBoolean(context.getString(R.string.sp_ad_block), true));
+
         webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
         webSettings.setLoadWithOverviewMode(true);
         webSettings.setTextZoom(100);

@@ -17,7 +17,12 @@ import java.net.URISyntaxException;
 public class NinjaWebViewClient extends WebViewClient {
     private NinjaWebView ninjaWebView;
     private Context context;
+
     private AdBlock adBlock;
+    private boolean enable = true;
+    public void enableAdBlock(boolean enable) {
+        this.enable = enable;
+    }
 
     public NinjaWebViewClient(NinjaWebView ninjaWebView) {
         super();
@@ -83,7 +88,7 @@ public class NinjaWebViewClient extends WebViewClient {
     @Deprecated
     @Override
     public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
-        if (adBlock.isAd(url)) {
+        if (enable && adBlock.isAd(url)) {
             return new WebResourceResponse(
                     BrowserUnit.MIME_TYPE_TEXT_PLAIN,
                     BrowserUnit.URL_ENCODING,
@@ -97,7 +102,7 @@ public class NinjaWebViewClient extends WebViewClient {
     @Override
     public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            if (adBlock.isAd(request.getUrl().toString())) {
+            if (enable && adBlock.isAd(request.getUrl().toString())) {
                 return new WebResourceResponse(
                         BrowserUnit.MIME_TYPE_TEXT_PLAIN,
                         BrowserUnit.URL_ENCODING,

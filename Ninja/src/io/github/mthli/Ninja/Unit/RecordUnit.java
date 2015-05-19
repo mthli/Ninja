@@ -5,10 +5,12 @@ import io.github.mthli.Ninja.Database.Record;
 public class RecordUnit {
     public static final String TABLE_BOOKMARKS = "BOOKMARKS";
     public static final String TABLE_HISTORY = "HISTORY";
+    public static final String TABLE_ADBLOCK = "ADBLOCK";
 
     public static final String COLUMN_TITLE = "TITLE";
     public static final String COLUMN_URL = "URL";
     public static final String COLUMN_TIME = "TIME";
+    public static final String COLUMN_DOMAIN = "DOMAIN";
 
     public static final String CREATE_HISTORY = "CREATE TABLE "
             + TABLE_HISTORY
@@ -24,6 +26,12 @@ public class RecordUnit {
             + " " + COLUMN_TITLE + " text,"
             + " " + COLUMN_URL + " text,"
             + " " + COLUMN_TIME + " integer"
+            + ")";
+
+    public static final String CREATE_ADBLOCK = "CREATE TABLE "
+            + TABLE_ADBLOCK
+            + " ("
+            + " " + COLUMN_DOMAIN
             + ")";
 
     private static Record holder;
