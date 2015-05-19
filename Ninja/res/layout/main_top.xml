@@ -86,167 +86,162 @@
                   android:layout_height="match_parent"
                   android:background="@color/white">
 
-        <LinearLayout android:id="@+id/main_header"
-                      android:orientation="vertical"
-                      android:layout_width="match_parent"
-                      android:layout_height="@dimen/layout_height_48dp"
-                      android:minHeight="@dimen/layout_height_48dp"
-                      android:background="@color/background">
+        <RelativeLayout android:id="@+id/main_omnibox"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/layout_height_48dp"
+                        android:minHeight="@dimen/layout_height_48dp"
+                        android:background="@color/background">
 
-            <RelativeLayout android:id="@+id/main_omnibox"
+            <ImageButton android:id="@+id/main_omnibox_overflow"
+                         android:contentDescription="@null"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_centerInParent="true"
+                         android:layout_alignParentRight="true"
+                         android:layout_marginLeft="@dimen/layout_margin_8dp"
+                         android:layout_marginRight="@dimen/layout_margin_8dp"
+                         android:layout_gravity="center"
+                         android:src="@drawable/overflow_selector"
+                         android:background="@color/transparent">
+            </ImageButton>
+
+            <RelativeLayout android:id="@+id/main_omnibox_url"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="@dimen/layout_height_36dp"
+                            android:minHeight="@dimen/layout_height_36dp"
+                            android:layout_centerInParent="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_toLeftOf="@id/main_omnibox_overflow"
+                            android:layout_marginLeft="@dimen/layout_margin_8dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:background="@drawable/round_corner_shape_white">
 
-                <ImageButton android:id="@+id/main_omnibox_overflow"
+                <ImageButton android:id="@+id/main_omnibox_bookmark"
+                             android:contentDescription="@null"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_centerInParent="true"
+                             android:layout_alignParentLeft="true"
+                             android:layout_margin="@dimen/layout_margin_4dp"
+                             android:src="@drawable/bookmark_selector_dark"
+                             android:background="@color/transparent">
+                </ImageButton>
+
+                <ImageButton android:id="@+id/main_omnibox_refresh"
                              android:contentDescription="@null"
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content"
                              android:layout_centerInParent="true"
                              android:layout_alignParentRight="true"
-                             android:layout_marginLeft="@dimen/layout_margin_8dp"
-                             android:layout_marginRight="@dimen/layout_margin_8dp"
-                             android:layout_gravity="center"
-                             android:src="@drawable/overflow_selector"
+                             android:layout_margin="@dimen/layout_margin_4dp"
+                             android:src="@drawable/refresh_selector"
                              android:background="@color/transparent">
                 </ImageButton>
 
-                <RelativeLayout android:id="@+id/main_omnibox_url"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/layout_height_36dp"
-                                android:minHeight="@dimen/layout_height_36dp"
-                                android:layout_centerInParent="true"
-                                android:layout_alignParentLeft="true"
-                                android:layout_toLeftOf="@id/main_omnibox_overflow"
-                                android:layout_marginLeft="@dimen/layout_margin_8dp"
-                                android:focusable="true"
-                                android:focusableInTouchMode="true"
-                                android:background="@drawable/round_corner_shape_white">
-
-                    <ImageButton android:id="@+id/main_omnibox_bookmark"
-                                 android:contentDescription="@null"
-                                 android:layout_width="wrap_content"
-                                 android:layout_height="wrap_content"
-                                 android:layout_centerInParent="true"
-                                 android:layout_alignParentLeft="true"
-                                 android:layout_margin="@dimen/layout_margin_4dp"
-                                 android:src="@drawable/bookmark_selector_dark"
-                                 android:background="@color/transparent">
-                    </ImageButton>
-
-                    <ImageButton android:id="@+id/main_omnibox_refresh"
-                                 android:contentDescription="@null"
-                                 android:layout_width="wrap_content"
-                                 android:layout_height="wrap_content"
-                                 android:layout_centerInParent="true"
-                                 android:layout_alignParentRight="true"
-                                 android:layout_margin="@dimen/layout_margin_4dp"
-                                 android:src="@drawable/refresh_selector"
-                                 android:background="@color/transparent">
-                    </ImageButton>
-
-                    <AutoCompleteTextView android:id="@+id/main_omnibox_input"
-                                          android:layout_width="match_parent"
-                                          android:layout_height="@dimen/layout_height_36dp"
-                                          android:minHeight="@dimen/layout_height_36dp"
-                                          android:layout_centerInParent="true"
-                                          android:layout_toLeftOf="@id/main_omnibox_refresh"
-                                          android:layout_toRightOf="@id/main_omnibox_bookmark"
-                                          android:hint="@string/main_omnibox_input_hint"
-                                          android:textColor="@color/text"
-                                          android:textColorHint="@color/hint"
-                                          android:textCursorDrawable="@null"
-                                          android:textSize="@dimen/text_size_16sp"
-                                          android:selectAllOnFocus="true"
-                                          android:completionThreshold="1"
-                                          android:singleLine="true"
-                                          android:imeOptions="actionDone|flagNoExtractUi"
-                                          android:inputType="text"
-                                          android:background="@color/white">
-                    </AutoCompleteTextView>
-
-                </RelativeLayout>
-
-                <ProgressBar android:id="@+id/main_progress_bar"
-                             android:layout_width="match_parent"
-                             android:layout_height="@dimen/layout_height_2dp"
-                             android:maxHeight="@dimen/layout_height_2dp"
-                             android:layout_alignParentBottom="true"
-                             android:indeterminate="false"
-                             android:indeterminateOnly="false"
-                             android:progressDrawable="@drawable/progress_bar_layer_list">
-                </ProgressBar>
+                <AutoCompleteTextView android:id="@+id/main_omnibox_input"
+                                      android:layout_width="match_parent"
+                                      android:layout_height="@dimen/layout_height_36dp"
+                                      android:minHeight="@dimen/layout_height_36dp"
+                                      android:layout_centerInParent="true"
+                                      android:layout_toLeftOf="@id/main_omnibox_refresh"
+                                      android:layout_toRightOf="@id/main_omnibox_bookmark"
+                                      android:hint="@string/main_omnibox_input_hint"
+                                      android:textColor="@color/text"
+                                      android:textColorHint="@color/hint"
+                                      android:textCursorDrawable="@null"
+                                      android:textSize="@dimen/text_size_16sp"
+                                      android:selectAllOnFocus="true"
+                                      android:completionThreshold="1"
+                                      android:singleLine="true"
+                                      android:imeOptions="actionDone"
+                                      android:inputType="text"
+                                      android:background="@color/white">
+                </AutoCompleteTextView>
 
             </RelativeLayout>
 
-            <RelativeLayout android:id="@+id/main_search_panel"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:visibility="gone">
+            <ProgressBar android:id="@+id/main_progress_bar"
+                         android:layout_width="match_parent"
+                         android:layout_height="@dimen/layout_height_2dp"
+                         android:maxHeight="@dimen/layout_height_2dp"
+                         android:layout_alignParentBottom="true"
+                         android:indeterminate="false"
+                         android:indeterminateOnly="false"
+                         android:progressDrawable="@drawable/progress_bar_layer_list">
+            </ProgressBar>
 
-                <LinearLayout android:id="@+id/main_search_left"
-                              android:orientation="horizontal"
-                              android:layout_width="wrap_content"
-                              android:layout_height="wrap_content"
-                              android:layout_centerInParent="true"
-                              android:layout_alignParentLeft="true"
-                              android:layout_marginLeft="@dimen/layout_margin_8dp"
-                              android:layout_marginRight="@dimen/layout_margin_8dp">
+        </RelativeLayout>
 
-                    <ImageButton android:id="@+id/main_search_up"
-                                 android:contentDescription="@null"
-                                 android:layout_width="wrap_content"
-                                 android:layout_height="wrap_content"
-                                 android:layout_margin="@dimen/layout_margin_4dp"
-                                 android:src="@drawable/up_selector"
-                                 android:background="@color/transparent">
-                    </ImageButton>
+        <RelativeLayout android:id="@+id/main_search_panel"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/layout_height_48dp"
+                        android:minHeight="@dimen/layout_height_48dp"
+                        android:background="@color/background"
+                        android:visibility="gone">
 
-                    <ImageButton android:id="@+id/main_search_down"
-                                 android:contentDescription="@null"
-                                 android:layout_width="wrap_content"
-                                 android:layout_height="wrap_content"
-                                 android:layout_margin="@dimen/layout_margin_4dp"
-                                 android:src="@drawable/down_selector"
-                                 android:background="@color/transparent">
-                    </ImageButton>
-
-                </LinearLayout>
-
-                <ImageButton android:id="@+id/main_search_cancel"
-                             android:contentDescription="@null"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:layout_centerInParent="true"
-                             android:layout_alignParentRight="true"
-                             android:layout_marginLeft="@dimen/layout_margin_8dp"
-                             android:layout_marginRight="@dimen/layout_margin_8dp"
-                             android:src="@drawable/cl_selector_light"
-                             android:background="@color/transparent">
-                </ImageButton>
-
-                <EditText android:id="@+id/main_search_box"
-                          android:layout_width="match_parent"
-                          android:layout_height="@dimen/layout_height_36dp"
-                          android:minHeight="@dimen/layout_height_36dp"
+            <LinearLayout android:id="@+id/main_search_left"
+                          android:orientation="horizontal"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
                           android:layout_centerInParent="true"
-                          android:layout_toLeftOf="@id/main_search_cancel"
-                          android:layout_toRightOf="@id/main_search_left"
-                          android:paddingLeft="@dimen/padding_8dp"
-                          android:paddingRight="@dimen/padding_8dp"
-                          android:hint="@string/search_hint"
-                          android:textColor="@color/text"
-                          android:textColorHint="@color/hint"
-                          android:textCursorDrawable="@null"
-                          android:textSize="@dimen/text_size_16sp"
-                          android:imeOptions="actionDone|flagNoExtractUi"
-                          android:inputType="text"
-                          android:singleLine="true"
-                          android:background="@drawable/round_corner_shape_white">
-                </EditText>
+                          android:layout_alignParentLeft="true"
+                          android:layout_marginLeft="@dimen/layout_margin_8dp"
+                          android:layout_marginRight="@dimen/layout_margin_8dp">
 
-            </RelativeLayout>
+                <ImageButton android:id="@+id/main_search_up"
+                             android:contentDescription="@null"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_margin="@dimen/layout_margin_4dp"
+                             android:src="@drawable/up_selector"
+                             android:background="@color/transparent">
+                </ImageButton>
 
-        </LinearLayout>
+                <ImageButton android:id="@+id/main_search_down"
+                             android:contentDescription="@null"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_margin="@dimen/layout_margin_4dp"
+                             android:src="@drawable/down_selector"
+                             android:background="@color/transparent">
+                </ImageButton>
+
+            </LinearLayout>
+
+            <ImageButton android:id="@+id/main_search_cancel"
+                         android:contentDescription="@null"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_centerInParent="true"
+                         android:layout_alignParentRight="true"
+                         android:layout_marginLeft="@dimen/layout_margin_8dp"
+                         android:layout_marginRight="@dimen/layout_margin_8dp"
+                         android:src="@drawable/cl_selector_light"
+                         android:background="@color/transparent">
+            </ImageButton>
+
+            <EditText android:id="@+id/main_search_box"
+                      android:layout_width="match_parent"
+                      android:layout_height="@dimen/layout_height_36dp"
+                      android:minHeight="@dimen/layout_height_36dp"
+                      android:layout_centerInParent="true"
+                      android:layout_toLeftOf="@id/main_search_cancel"
+                      android:layout_toRightOf="@id/main_search_left"
+                      android:paddingLeft="@dimen/padding_8dp"
+                      android:paddingRight="@dimen/padding_8dp"
+                      android:hint="@string/search_hint"
+                      android:textColor="@color/text"
+                      android:textColorHint="@color/hint"
+                      android:textCursorDrawable="@null"
+                      android:textSize="@dimen/text_size_16sp"
+                      android:imeOptions="actionDone"
+                      android:inputType="text"
+                      android:singleLine="true"
+                      android:background="@drawable/round_corner_shape_white">
+            </EditText>
+
+        </RelativeLayout>
 
         <FrameLayout android:id="@+id/main_content"
                      android:layout_width="match_parent"
