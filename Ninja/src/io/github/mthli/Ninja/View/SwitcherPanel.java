@@ -269,7 +269,7 @@ public class SwitcherPanel extends ViewGroup {
         }
         setMeasuredDimension(widthSize, heightSize);
 
-        keyBoardShowing = heightSize < getHeight() || omnibox == null;
+        keyBoardShowing = heightSize < getHeight() || omnibox.getVisibility() == GONE; ///
     }
 
     @Override

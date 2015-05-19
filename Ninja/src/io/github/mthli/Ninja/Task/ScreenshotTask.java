@@ -43,8 +43,12 @@ public class ScreenshotTask extends AsyncTask<Void, Void, Boolean> {
 
     @Override
     protected Boolean doInBackground(Void... params) {
-        Bitmap bitmap = ViewUnit.capture(webView, windowWidth, contentHeight, false, Bitmap.Config.ARGB_8888);
-        path = BrowserUnit.screenshot(context, bitmap, title);
+        try {
+            Bitmap bitmap = ViewUnit.capture(webView, windowWidth, contentHeight, false, Bitmap.Config.ARGB_8888);
+            path = BrowserUnit.screenshot(context, bitmap, title);
+        } catch (Exception e) {
+            path = null;
+        }
         return path != null && !path.isEmpty();
     }
 

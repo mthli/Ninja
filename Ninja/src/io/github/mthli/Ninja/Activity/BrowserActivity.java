@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -18,7 +17,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
@@ -51,12 +49,11 @@ public class BrowserActivity extends Activity implements BrowserController {
     private SwitcherPanel.Anchor anchor = SwitcherPanel.Anchor.TOP;
 
     private HorizontalScrollView switcherScroller;
-    private ViewGroup switcherContainer;
+    private LinearLayout switcherContainer;
     private ImageButton switcherBookmarks;
     private ImageButton switcherHistory;
     private ImageButton switcherAdd;
 
-    private ViewGroup mainView;
     private RelativeLayout omnibox;
     private AutoCompleteTextView inputBox;
     private ImageButton omniboxBookmark;
@@ -65,7 +62,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     private ProgressBar progressBar;
     private FrameLayout contentFrame;
 
-    private ViewGroup searchPanel;
+    private RelativeLayout searchPanel;
     private EditText searchBox;
     private ImageButton searchUp;
     private ImageButton searchDown;
@@ -121,8 +118,10 @@ public class BrowserActivity extends Activity implements BrowserController {
         dimen48dp = getResources().getDimensionPixelOffset(R.dimen.layout_height_48dp);
 
         initSwitcherView();
-        initMainView();
+        initOmnibox();
         initSearchPanel();
+
+        contentFrame = (FrameLayout) findViewById(R.id.main_content);
         dispatchIntent(getIntent());
     }
 
@@ -256,7 +255,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     private void initSwitcherView() {
         switcherScroller = (HorizontalScrollView) findViewById(R.id.switcher_scroller);
-        switcherContainer = (ViewGroup) findViewById(R.id.switcher_container);
+        switcherContainer = (LinearLayout) findViewById(R.id.switcher_container);
         switcherBookmarks = (ImageButton) findViewById(R.id.switcher_bookmarks);
         switcherHistory = (ImageButton) findViewById(R.id.switcher_history);
         switcherAdd = (ImageButton) findViewById(R.id.switcher_add);
@@ -283,15 +282,13 @@ public class BrowserActivity extends Activity implements BrowserController {
         });
     }
 
-    private void initMainView() {
-        mainView = (ViewGroup) findViewById(R.id.main_view);
+    private void initOmnibox() {
         omnibox = (RelativeLayout) findViewById(R.id.main_omnibox);
         inputBox = (AutoCompleteTextView) findViewById(R.id.main_omnibox_input);
         omniboxBookmark = (ImageButton) findViewById(R.id.main_omnibox_bookmark);
         omniboxRefresh = (ImageButton) findViewById(R.id.main_omnibox_refresh);
         omniboxOverflow = (ImageButton) findViewById(R.id.main_omnibox_overflow);
         progressBar = (ProgressBar) findViewById(R.id.main_progress_bar);
-        contentFrame = (FrameLayout) findViewById(R.id.main_content);
 
         inputBox.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -426,11 +423,11 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     private void initSearchPanel() {
-        searchPanel = (ViewGroup) getLayoutInflater().inflate(R.layout.search, null, false);
-        searchBox = (EditText) searchPanel.findViewById(R.id.search_box);
-        searchUp = (ImageButton) searchPanel.findViewById(R.id.search_up);
-        searchDown = (ImageButton) searchPanel.findViewById(R.id.search_down);
-        searchCancel = (ImageButton) searchPanel.findViewById(R.id.search_cancel);
+        searchPanel = (RelativeLayout) findViewById(R.id.main_search_panel);
+        searchBox = (EditText) findViewById(R.id.main_search_box);
+        searchUp = (ImageButton) findViewById(R.id.main_search_up);
+        searchDown = (ImageButton) findViewById(R.id.main_search_down);
+        searchCancel = (ImageButton) findViewById(R.id.main_search_cancel);
 
         searchBox.addTextChangedListener(new TextWatcher() {
             @Override
@@ -1057,26 +1054,15 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     private void hideSearchPanel() {
-        int index = mainView.indexOfChild(searchPanel);
-        if (index < 0) {
-            return;
-        }
-
         hideSoftInput(searchBox);
         searchBox.setText("");
-        mainView.removeView(searchPanel);
-        mainView.addView(omnibox, index, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        searchPanel.setVisibility(View.GONE);
+        omnibox.setVisibility(View.VISIBLE);
     }
 
-    // TODO: show when bottom
     private void showSearchPanel() {
-        int index = mainView.indexOfChild(omnibox);
-        if (index < 0) {
-            return;
-        }
-
-        mainView.removeView(omnibox);
-        mainView.addView(searchPanel, index, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        omnibox.setVisibility(View.GONE);
+        searchPanel.setVisibility(View.VISIBLE);
         showSoftInput(searchBox);
     }
 
