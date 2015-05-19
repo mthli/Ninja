@@ -17,6 +17,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
@@ -46,24 +47,24 @@ public class BrowserActivity extends Activity implements BrowserController {
     private float dimen144dp;
     private float dimen108dp;
     private float dimen48dp;
+    private SwitcherPanel.Anchor anchor = SwitcherPanel.Anchor.TOP;
 
     private HorizontalScrollView switcherScroller;
-    private LinearLayout switcherContainer;
+    private ViewGroup switcherContainer;
     private ImageButton switcherBookmarks;
     private ImageButton switcherHistory;
     private ImageButton switcherAdd;
 
-    private LinearLayout mainView;
+    private ViewGroup mainView;
     private RelativeLayout omnibox;
     private AutoCompleteTextView inputBox;
     private ImageButton omniboxBookmark;
     private ImageButton omniboxRefresh;
     private ImageButton omniboxOverflow;
-    private LinearLayout progressWrapper;
     private ProgressBar progressBar;
     private FrameLayout contentFrame;
 
-    private RelativeLayout searchPanel;
+    private ViewGroup searchPanel;
     private EditText searchBox;
     private ImageButton searchUp;
     private ImageButton searchDown;
@@ -79,9 +80,17 @@ public class BrowserActivity extends Activity implements BrowserController {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean top = sp.getBoolean(getString(R.string.sp_anchor), true);
+        if (top) {
+            anchor = SwitcherPanel.Anchor.TOP;
+            setContentView(R.layout.main_top);
+        } else {
+            anchor = SwitcherPanel.Anchor.BOTTOM;
+            setContentView(R.layout.main_bottom);
+        }
+
         int brightness = sp.getInt(getString(R.string.sp_brightness), -1);
         if (brightness < 0) {
             brightness = ViewUnit.getBrightness(this);  // 130
@@ -201,6 +210,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
         super.onConfigurationChanged(newConfig);
 
+        // TODO: when bottom
         float coverHeight = ViewUnit.getWindowHeight(this) - ViewUnit.getStatusBarHeight(this) - dimen108dp - dimen48dp;
         switcherPanel.setCoverHeight(coverHeight);
         updateAutoComplete(); // For inputBox.setDropDownWidth()
@@ -245,7 +255,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     private void initSwitcherView() {
         switcherScroller = (HorizontalScrollView) findViewById(R.id.switcher_scroller);
-        switcherContainer = (LinearLayout) findViewById(R.id.switcher_container);
+        switcherContainer = (ViewGroup) findViewById(R.id.switcher_container);
         switcherBookmarks = (ImageButton) findViewById(R.id.switcher_bookmarks);
         switcherHistory = (ImageButton) findViewById(R.id.switcher_history);
         switcherAdd = (ImageButton) findViewById(R.id.switcher_add);
@@ -273,13 +283,12 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     private void initMainView() {
-        mainView = (LinearLayout) findViewById(R.id.main_view);
+        mainView = (ViewGroup) findViewById(R.id.main_view);
         omnibox = (RelativeLayout) findViewById(R.id.main_omnibox);
         inputBox = (AutoCompleteTextView) findViewById(R.id.main_omnibox_input);
         omniboxBookmark = (ImageButton) findViewById(R.id.main_omnibox_bookmark);
         omniboxRefresh = (ImageButton) findViewById(R.id.main_omnibox_refresh);
         omniboxOverflow = (ImageButton) findViewById(R.id.main_omnibox_overflow);
-        progressWrapper = (LinearLayout) findViewById(R.id.main_progress_wrapper);
         progressBar = (ProgressBar) findViewById(R.id.main_progress_bar);
         contentFrame = (FrameLayout) findViewById(R.id.main_content);
 
@@ -416,7 +425,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     private void initSearchPanel() {
-        searchPanel = (RelativeLayout) getLayoutInflater().inflate(R.layout.search, null, false);
+        searchPanel = (ViewGroup) getLayoutInflater().inflate(R.layout.search, null, false);
         searchBox = (EditText) searchPanel.findViewById(R.id.search_box);
         searchUp = (ImageButton) searchPanel.findViewById(R.id.search_up);
         searchDown = (ImageButton) searchPanel.findViewById(R.id.search_down);
@@ -684,7 +693,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
 
         if (BrowserContainer.size() < 1 && url == null) {
-            addAlbum(BrowserUnit.FLAG_HOME);
+            addAlbum(BrowserUnit.FLAG_HOME); // TODO
         } else if (BrowserContainer.size() >= 1 && url == null) {
             int index = BrowserContainer.size() - 1;
             if (currentAlbumController != null) {
@@ -854,12 +863,10 @@ public class BrowserActivity extends Activity implements BrowserController {
         list.addAll(action.listHistory());
         action.close();
 
-        CompleteAdapter adapter = new CompleteAdapter(this, R.layout.complete_item, list);
+        final CompleteAdapter adapter = new CompleteAdapter(this, R.layout.complete_item, list);
         inputBox.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
-        inputBox.setDropDownWidth(ViewUnit.getWindowWidth(this));
-        inputBox.setDropDownVerticalOffset(12);
         inputBox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -948,10 +955,10 @@ public class BrowserActivity extends Activity implements BrowserController {
         updateBookmarks();
         if (progress < BrowserUnit.PROGRESS_MAX) {
             updateRefresh(true);
-            progressWrapper.setVisibility(View.VISIBLE);
+            progressBar.setVisibility(View.VISIBLE);
         } else {
             updateRefresh(false);
-            progressWrapper.setVisibility(View.GONE);
+            progressBar.setVisibility(View.GONE);
         }
     }
 
@@ -1080,6 +1087,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         mainView.addView(omnibox, index, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
     }
 
+    // TODO: show when bottom
     private void showSearchPanel() {
         int index = mainView.indexOfChild(omnibox);
         if (index < 0) {

@@ -6,15 +6,6 @@
         android:layout_height="match_parent"
         android:background="@color/white">
 
-    <TextView android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_centerInParent="true"
-              android:layout_alignParentBottom="true"
-              android:layout_margin="@dimen/layout_margin_8dp"
-              android:text="about:blank"
-              android:textSize="@dimen/text_size_14sp"
-              android:textColor="@color/hint"
-              android:gravity="center">
-    </TextView>
+    <!-- TODO: homepage desigh -->
 
 </io.github.mthli.Ninja.View.NinjaRelativeLayout>

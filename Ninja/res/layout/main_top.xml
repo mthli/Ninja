@@ -161,24 +161,17 @@
 
             </RelativeLayout>
 
-        </RelativeLayout>
-
-        <LinearLayout android:id="@+id/main_progress_wrapper"
-                      android:orientation="vertical"
-                      android:layout_width="match_parent"
-                      android:layout_height="@dimen/layout_height_2dp"
-                      android:visibility="gone">
-
             <ProgressBar android:id="@+id/main_progress_bar"
                          android:layout_width="match_parent"
                          android:layout_height="@dimen/layout_height_2dp"
                          android:maxHeight="@dimen/layout_height_2dp"
+                         android:layout_alignParentBottom="true"
                          android:indeterminate="false"
                          android:indeterminateOnly="false"
                          android:progressDrawable="@drawable/progress_bar_layer_list">
             </ProgressBar>
 
-        </LinearLayout>
+        </RelativeLayout>
 
         <FrameLayout android:id="@+id/main_content"
                      android:layout_width="match_parent"

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<io.github.mthli.Ninja.View.SwitcherPanel
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/switcher_panel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout android:id="@+id/switcher_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/background">
+
+        <RelativeLayout android:id="@+id/switcher_header"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/layout_height_48dp"
+                        android:layout_alignParentBottom="true"
+                        android:minHeight="@dimen/layout_height_48dp">
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="@dimen/layout_margin_14dp"
+                      android:layout_centerInParent="true"
+                      android:layout_alignParentLeft="true"
+                      android:gravity="center"
+                      android:text="@string/app_name"
+                      android:textColor="@color/white"
+                      android:textSize="@dimen/text_size_16sp"
+                      android:singleLine="true"
+                      android:ellipsize="none">
+            </TextView>
+
+            <ImageButton android:id="@+id/switcher_add"
+                         android:contentDescription="@null"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_centerInParent="true"
+                         android:layout_margin="@dimen/layout_margin_8dp"
+                         android:src="@drawable/add_selector"
+                         android:background="@color/transparent">
+            </ImageButton>
+
+            <ImageButton android:id="@+id/switcher_history"
+                         android:contentDescription="@null"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_alignParentRight="true"
+                         android:layout_margin="@dimen/layout_margin_8dp"
+                         android:src="@drawable/history_selector"
+                         android:background="@color/transparent">
+            </ImageButton>
+
+            <ImageButton android:id="@+id/switcher_bookmarks"
+                         android:contentDescription="@null"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_toLeftOf="@id/switcher_history"
+                         android:layout_margin="@dimen/layout_margin_8dp"
+                         android:src="@drawable/bookmark_selector_light"
+                         android:background="@color/transparent">
+            </ImageButton>
+
+        </RelativeLayout>
+
+        <HorizontalScrollView android:id="@+id/switcher_scroller"
+                              android:layout_width="match_parent"
+                              android:layout_height="match_parent"
+                              android:layout_alignParentTop="true"
+                              android:layout_above="@id/switcher_header"
+                              android:scrollbars="none">
+
+            <LinearLayout android:id="@+id/switcher_container"
+                          android:orientation="horizontal"
+                          android:layout_width="wrap_content"
+                          android:layout_height="match_parent">
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+    </RelativeLayout>
+
+    <LinearLayout android:id="@+id/main_view"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:gravity="bottom"
+                  android:background="@color/white">
+
+        <!-- TODO: how to not use layout_margin_48dp? -->
+        <FrameLayout android:id="@+id/main_content"
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:layout_marginTop="@dimen/layout_margin_48dp">
+        </FrameLayout>
+
+        <RelativeLayout android:id="@+id/main_omnibox"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/layout_height_48dp"
+                        android:minHeight="@dimen/layout_height_48dp"
+                        android:background="@color/background">
+
+            <ProgressBar android:id="@+id/main_progress_bar"
+                         android:layout_width="match_parent"
+                         android:layout_height="@dimen/layout_height_2dp"
+                         android:maxHeight="@dimen/layout_height_2dp"
+                         android:layout_alignParentTop="true"
+                         android:indeterminate="false"
+                         android:indeterminateOnly="false"
+                         android:progressDrawable="@drawable/progress_bar_layer_list">
+            </ProgressBar>
+
+            <ImageButton android:id="@+id/main_omnibox_overflow"
+                         android:contentDescription="@null"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_centerInParent="true"
+                         android:layout_alignParentRight="true"
+                         android:layout_marginLeft="@dimen/layout_margin_8dp"
+                         android:layout_marginRight="@dimen/layout_margin_8dp"
+                         android:layout_gravity="center"
+                         android:src="@drawable/overflow_selector"
+                         android:background="@color/transparent">
+            </ImageButton>
+
+            <RelativeLayout android:id="@+id/main_omnibox_url"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/layout_height_36dp"
+                            android:minHeight="@dimen/layout_height_36dp"
+                            android:layout_centerInParent="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_toLeftOf="@id/main_omnibox_overflow"
+                            android:layout_marginLeft="@dimen/layout_margin_8dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:background="@drawable/round_corner_shape_white">
+
+                <ImageButton android:id="@+id/main_omnibox_bookmark"
+                             android:contentDescription="@null"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_centerInParent="true"
+                             android:layout_alignParentLeft="true"
+                             android:layout_margin="@dimen/layout_margin_4dp"
+                             android:src="@drawable/bookmark_selector_dark"
+                             android:background="@color/transparent">
+                </ImageButton>
+
+                <ImageButton android:id="@+id/main_omnibox_refresh"
+                             android:contentDescription="@null"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_centerInParent="true"
+                             android:layout_alignParentRight="true"
+                             android:layout_margin="@dimen/layout_margin_4dp"
+                             android:src="@drawable/refresh_selector"
+                             android:background="@color/transparent">
+                </ImageButton>
+
+                <AutoCompleteTextView android:id="@+id/main_omnibox_input"
+                                      android:layout_width="match_parent"
+                                      android:layout_height="@dimen/layout_height_36dp"
+                                      android:minHeight="@dimen/layout_height_36dp"
+                                      android:layout_centerInParent="true"
+                                      android:layout_toLeftOf="@id/main_omnibox_refresh"
+                                      android:layout_toRightOf="@id/main_omnibox_bookmark"
+                                      android:hint="@string/main_omnibox_input_hint"
+                                      android:textColor="@color/text"
+                                      android:textColorHint="@color/hint"
+                                      android:textCursorDrawable="@null"
+                                      android:textSize="@dimen/text_size_16sp"
+                                      android:selectAllOnFocus="true"
+                                      android:completionThreshold="1"
+                                      android:singleLine="true"
+                                      android:imeOptions="actionDone|flagNoExtractUi"
+                                      android:inputType="text"
+                                      android:background="@color/white">
+                </AutoCompleteTextView>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</io.github.mthli.Ninja.View.SwitcherPanel>
+

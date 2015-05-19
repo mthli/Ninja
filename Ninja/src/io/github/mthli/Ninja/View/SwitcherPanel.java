@@ -1,18 +1,19 @@
 package io.github.mthli.Ninja.View;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Unit.ViewUnit;
@@ -21,8 +22,6 @@ public class SwitcherPanel extends ViewGroup {
     private View switcherView;
     private View mainView;
     private RelativeLayout omnibox;
-    private LinearLayout progressWrapper;
-    private Drawable shadowDrawable;
 
     private float dimen108dp = 0f;
     private float dimen48dp = 0f;
@@ -45,8 +44,9 @@ public class SwitcherPanel extends ViewGroup {
     private int shadowHeight = SHADOW_HEIGHT_DEFAULT;
 
     /* parallaxOffset: dp */
-    public static final int PARALLAX_OFFSET_DEFAULT = 64;
-    private int parallaxOffset = PARALLAX_OFFSET_DEFAULT;
+    public static final int PARALLAX_OFFSET_TOP_DEFAULT = 64;
+    public static final int PARALLAX_OFFSET_BOTTOM_DEFAULT = 32;
+    private int parallaxOffset = PARALLAX_OFFSET_TOP_DEFAULT;
 
     /* flingVelocity: dp/s */
     public static final int FLING_VELOCITY_DEFAULT = 256;
@@ -58,6 +58,16 @@ public class SwitcherPanel extends ViewGroup {
         }
     }
 
+    /* switcherView's position */
+    public enum Anchor {
+        TOP,
+        BOTTOM
+    }
+    private static final Anchor ANCHOR_DEFAULT = Anchor.TOP;
+    private Anchor anchor = ANCHOR_DEFAULT;
+    private Drawable shadowDrawable;
+
+    /* mainView's status */
     public enum Status {
         EXPANDED,
         COLLAPSED,
@@ -87,13 +97,6 @@ public class SwitcherPanel extends ViewGroup {
         }
 
         @Override
-        public int clampViewPositionVertical(View child, int top, int dy) {
-            int hideTop = computeTopPosition(0f);
-            int showTop = computeTopPosition(1f);
-            return Math.min(Math.max(top, showTop), hideTop);
-        }
-
-        @Override
         public int getViewVerticalDragRange(View child) {
             return (int) slideRange;
         }
@@ -112,29 +115,13 @@ public class SwitcherPanel extends ViewGroup {
 
                 if (slideOffset == 1f && status != Status.EXPANDED) {
                     status = Status.EXPANDED;
-                    switcherView.setVisibility(INVISIBLE);
+                    switcherView.setEnabled(false);
                     dispatchOnExpanded();
                 } else if (slideOffset == 0f && status != Status.COLLAPSED) {
                     status = Status.COLLAPSED;
                     dispatchOnCollapsed();
                 }
             }
-        }
-
-        @Override
-        public void onViewReleased(View view, float x, float y) {
-            int target;
-            float direction = -y;
-            if (direction > 0) {
-                target = computeTopPosition(1f);
-            } else if (direction < 0) {
-                target = computeTopPosition(0f);
-            } else {
-                target = computeTopPosition(0f);
-            }
-
-            dragHelper.settleCapturedViewAt(view.getLeft(), target);
-            invalidate();
         }
     }
 
@@ -181,12 +168,19 @@ public class SwitcherPanel extends ViewGroup {
     public SwitcherPanel(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            shadowDrawable = getResources().getDrawable(R.drawable.shadow, null);
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean top = sp.getBoolean(getContext().getString(R.string.sp_anchor), true);
+        if (top) {
+            anchor = Anchor.TOP;
+            parallaxOffset = PARALLAX_OFFSET_TOP_DEFAULT;
+            shadowDrawable = ContextCompat.getDrawable(getContext(), R.drawable.shadow_below);
         } else {
-            shadowDrawable = getResources().getDrawable(R.drawable.shadow);
+            anchor = Anchor.BOTTOM;
+            parallaxOffset = PARALLAX_OFFSET_BOTTOM_DEFAULT;
+            shadowDrawable = ContextCompat.getDrawable(getContext(), R.drawable.shadow_above);
         }
-        this.dragHelper = ViewDragHelper.create(this, 0.5f, new DragHelperCallback());
+
+        dragHelper = ViewDragHelper.create(this, 0.5f, new DragHelperCallback());
         setFlingVelocity(FLING_VELOCITY_DEFAULT);
         setWillNotDraw(false);
 
@@ -194,6 +188,7 @@ public class SwitcherPanel extends ViewGroup {
         dimen48dp = getResources().getDimensionPixelOffset(R.dimen.layout_height_48dp);
         int windowHeight = ViewUnit.getWindowHeight(context);
         int statusBarHeight = ViewUnit.getStatusBarHeight(context);
+
         coverHeight = windowHeight - statusBarHeight - dimen108dp - dimen48dp;
     }
 
@@ -230,7 +225,6 @@ public class SwitcherPanel extends ViewGroup {
         switcherView = getChildAt(0);
         mainView = getChildAt(1);
         omnibox = (RelativeLayout) mainView.findViewById(R.id.main_omnibox);
-        progressWrapper = (LinearLayout) mainView.findViewById(R.id.main_progress_wrapper);
 
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
         int heightSize = MeasureSpec.getSize(heightMeasureSpec);
@@ -244,6 +238,7 @@ public class SwitcherPanel extends ViewGroup {
             int width = layoutWidth;
             int height = layoutHeight;
             if (child == switcherView) {
+                height = (int) (height - coverHeight);
                 width = width - layoutParams.leftMargin - layoutParams.rightMargin;
             } else if (child == mainView) {
                 height = height - layoutParams.topMargin;
@@ -290,10 +285,15 @@ public class SwitcherPanel extends ViewGroup {
             if (child == mainView) {
                 top = computeTopPosition(slideOffset);
             }
+            if (child == switcherView && anchor == Anchor.BOTTOM) {
+                top = computeTopPosition(slideOffset) + mainView.getMeasuredHeight();
+            }
+
             int height = child.getMeasuredHeight();
             int bottom = top + height;
             int left = paddingLeft + layoutParams.leftMargin;
             int right = left + child.getMeasuredWidth();
+
             child.layout(left, top, right, bottom);
         }
         applyParallaxForCurrentSlideOffset();
@@ -304,23 +304,36 @@ public class SwitcherPanel extends ViewGroup {
         super.draw(canvas);
 
         int left = mainView.getLeft();
-        int top = (int) (mainView.getTop() + dimen48dp);
-        if (progressWrapper.getVisibility() == VISIBLE) {
-            top = top + progressWrapper.getHeight();
-        }
         int right = mainView.getRight();
-        int bottom = top + ((int) (ViewUnit.dp2px(getContext(), shadowHeight)));
+        int top;
+        int bottom;
+
+        if (anchor == Anchor.TOP) {
+            top = (int) (mainView.getTop() + dimen48dp);
+            bottom = top + ((int) (ViewUnit.dp2px(getContext(), shadowHeight)));
+        } else {
+            bottom = (int) (mainView.getBottom() - dimen48dp);
+            top = bottom - ((int) (ViewUnit.dp2px(getContext(), shadowHeight)));
+        }
         shadowDrawable.setBounds(left, top, right, bottom);
         shadowDrawable.draw(canvas);
     }
 
     private int computeTopPosition(float slideOffset) {
         int slidePixelOffset = (int) (slideOffset * slideRange);
-        return (int) (getMeasuredHeight() - getPaddingBottom() - coverHeight - slidePixelOffset);
+        if (anchor == Anchor.TOP) {
+            return (int) (getMeasuredHeight() - getPaddingBottom() - coverHeight - slidePixelOffset);
+        } else {
+            return (int) (getPaddingTop() - mainView.getMeasuredHeight() + coverHeight + slidePixelOffset);
+        }
     }
 
     private float computeSlideOffset(int topPosition) {
-        return (computeTopPosition(0f) - topPosition) / slideRange;
+        if (anchor == Anchor.TOP) {
+            return (computeTopPosition(0f) - topPosition) / slideRange;
+        } else {
+            return (topPosition - computeTopPosition(0f)) / slideRange;
+        }
     }
 
     @Override
@@ -347,7 +360,10 @@ public class SwitcherPanel extends ViewGroup {
         } else if (action == MotionEvent.ACTION_MOVE) {
             if (!keyBoardShowing && shouldCollapsed()) {
                 float deltaY = event.getRawY() - interceptY;
-                if (deltaY >= ViewUnit.dp2px(getContext(), 32)) {
+                if (anchor == Anchor.TOP && deltaY >= ViewUnit.dp2px(getContext(), 32)) {
+                    collapsed();
+                    return true;
+                } else if (anchor == Anchor.BOTTOM && deltaY <= -ViewUnit.dp2px(getContext(), 32)) {
                     collapsed();
                     return true;
                 }
@@ -397,7 +413,7 @@ public class SwitcherPanel extends ViewGroup {
     }
 
     public void collapsed() {
-        switcherView.setVisibility(VISIBLE);
+        switcherView.setEnabled(true);
         smoothSlideTo(0f);
         status = Status.COLLAPSED;
     }
@@ -411,13 +427,19 @@ public class SwitcherPanel extends ViewGroup {
 
         LayoutParams layoutParams = (LayoutParams) switcherView.getLayoutParams();
         int defaultHeight = (int) (getHeight() - getPaddingBottom() - getPaddingTop() - coverHeight);
-        if (slideOffset < 0) {
-            layoutParams.height = top - getPaddingBottom();
-            switcherView.requestLayout();
+
+        if (slideOffset <= 0) {
+            if (anchor == Anchor.TOP) {
+                layoutParams.height = top - getPaddingBottom();
+            } else {
+                layoutParams.height = getHeight() - getPaddingBottom() - mainView.getMeasuredHeight() - top;
+            }
         } else if (layoutParams.height != defaultHeight) {
             layoutParams.height = defaultHeight;
-            switcherView.requestLayout();
         }
+
+        // Very important for switcherView works good.
+        switcherView.requestLayout();
     }
 
     private void dispatchOnExpanded() {
@@ -454,7 +476,11 @@ public class SwitcherPanel extends ViewGroup {
     private void applyParallaxForCurrentSlideOffset() {
         if (parallaxOffset > 0) {
             float offset = ViewUnit.dp2px(getContext(), parallaxOffset);
-            switcherView.setTranslationY(-(offset * Math.max(slideOffset, 0)));
+            if (anchor == Anchor.TOP) {
+                switcherView.setTranslationY(-(offset * Math.max(slideOffset, 0)));
+            } else {
+                switcherView.setTranslationY(+(offset * Math.max(slideOffset, 0)));
+            }
         }
     }
 }

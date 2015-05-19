@@ -4,6 +4,10 @@
 
     <solid android:color="@color/white" />
 
-    <corners android:radius="@dimen/radius_1dp" />
+    <corners android:radius="1dp" />
+
+    <padding android:left="@dimen/padding_8dp"
+             android:right="@dimen/padding_8dp">
+    </padding>
 
 </shape>
