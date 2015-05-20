@@ -31,7 +31,7 @@ Since AdBlick maybe cause some websites display error, you can add they to `Sett
 
 ## Screenshot:
 
-Ninja supports __capture entire webpage__ function.
+Ninja supports __capture entire webpage__ function. 
 
 But that is not means you could screenshot a long long long webpage(__OOM__, etc).
 
