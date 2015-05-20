@@ -31,6 +31,7 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
 
     private ListPreference searchEngine;
     private ListPreference notiPriority;
+    private ListPreference tabPosition;
     private ListPreference userAgent;
 
     private boolean spChange = false;
@@ -64,6 +65,9 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
 
         notiPriority = (ListPreference) findPreference(getString(R.string.sp_notification_priority));
         notiPriority.setSummary(sp.getString(getString(R.string.sp_notification_priority), getString(R.string.setting_summary_notification_priority_default)));
+
+        tabPosition = (ListPreference) findPreference(getString(R.string.sp_anchor));
+        tabPosition.setSummary(sp.getString(getString(R.string.sp_anchor), getString(R.string.setting_summary_tab_position_top)));
 
         userAgent = (ListPreference) findPreference(getString(R.string.sp_user_agent));
         userAgent.setSummary(sp.getString(getString(R.string.sp_user_agent), getString(R.string.setting_summary_user_agent_default)));
@@ -151,6 +155,10 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
         } else if (key.equals(getString(R.string.sp_notification_priority))) {
             String summary = sp.getString(key, getString(R.string.setting_summary_notification_priority_default));
             notiPriority.setSummary(summary);
+        } else if (key.equals(getString(R.string.sp_anchor))) {
+            String summary = sp.getString(key, getString(R.string.setting_summary_tab_position_top));
+            tabPosition.setSummary(summary);
+            NinjaToast.show(getActivity(), R.string.toast_need_restart);
         } else if (key.equals(getString(R.string.sp_user_agent))) {
             String summary = sp.getString(key, getString(R.string.setting_summary_user_agent_default));
             userAgent.setSummary(summary);

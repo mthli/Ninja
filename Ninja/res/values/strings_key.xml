@@ -10,13 +10,10 @@
     <string name="sp_anchor">
         SP_ANCHOR
     </string>
+
     <string name="sp_ad_block">
         SP_AD_BLOCK
     </string>
-    <string name="sp_user_agent">
-        SP_USER_AGENT
-    </string>
-
     <string name="sp_cookies">
         SP_COOKIES
     </string>
@@ -40,6 +37,9 @@
     </string>
     <string name="sp_search_engine">
         SP_SEARCH_ENGINE
+    </string>
+    <string name="sp_user_agent">
+        SP_USER_AGENT
     </string>
 
 </resources>

@@ -20,6 +20,14 @@
                         android:entryValues="@array/setting_values_notification_priority">
         </ListPreference>
 
+        <ListPreference android:key="@string/sp_anchor"
+                        android:defaultValue="@string/setting_summary_tab_position_top"
+                        android:title="@string/setting_title_tab_position"
+                        android:summary="@string/setting_summary_tab_position_top"
+                        android:entries="@array/setting_values_tab_position"
+                        android:entryValues="@array/setting_values_tab_position">
+        </ListPreference>
+
         <CheckBoxPreference android:key="@string/sp_images"
                             android:defaultValue="true"
                             android:title="@string/setting_title_images"

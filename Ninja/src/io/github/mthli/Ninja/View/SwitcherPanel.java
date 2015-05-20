@@ -43,9 +43,9 @@ public class SwitcherPanel extends ViewGroup {
     private int shadowHeight = SHADOW_HEIGHT_DEFAULT;
 
     /* parallaxOffset: dp */
-    public static final int PARALLAX_OFFSET_TOP_DEFAULT = 64;
-    public static final int PARALLAX_OFFSET_BOTTOM_DEFAULT = 16;
-    private int parallaxOffset = PARALLAX_OFFSET_TOP_DEFAULT;
+    public static final int PARALLAX_OFFSET_DEFAULT_TOP = 64;
+    public static final int PARALLAX_OFFSET_DEFAULT_BOTTOM = 16;
+    private int parallaxOffset = PARALLAX_OFFSET_DEFAULT_TOP;
 
     /* flingVelocity: dp/s */
     public static final int FLING_VELOCITY_DEFAULT = 256;
@@ -173,14 +173,14 @@ public class SwitcherPanel extends ViewGroup {
         super(context, attrs, defStyleAttr);
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean top = sp.getBoolean(getContext().getString(R.string.sp_anchor), false); // TODO
-        if (top) {
+        String ac = sp.getString(context.getString(R.string.sp_anchor), context.getString(R.string.setting_summary_tab_position_top));
+        if (ac.equals(context.getString(R.string.setting_summary_tab_position_top))) {
             anchor = Anchor.TOP;
-            parallaxOffset = PARALLAX_OFFSET_TOP_DEFAULT;
+            parallaxOffset = PARALLAX_OFFSET_DEFAULT_TOP;
             shadowDrawable = ContextCompat.getDrawable(getContext(), R.drawable.shadow_below);
         } else {
             anchor = Anchor.BOTTOM;
-            parallaxOffset = PARALLAX_OFFSET_BOTTOM_DEFAULT;
+            parallaxOffset = PARALLAX_OFFSET_DEFAULT_BOTTOM;
             shadowDrawable = ContextCompat.getDrawable(getContext(), R.drawable.shadow_above);
         }
 

@@ -127,6 +127,20 @@
         <item>@string/setting_summary_notification_priority_default</item>
         <item>@string/setting_summary_notification_priority_low</item>
     </string-array>
+    <!-- Tab switcher -->
+    <string name="setting_title_tab_position">
+        标签栏位置
+    </string>
+    <string name="setting_summary_tab_position_top">
+        顶部
+    </string>
+    <string name="setting_summary_tab_position_bottom">
+        底部
+    </string>
+    <string-array name="setting_values_tab_position">
+        <item>@string/setting_summary_tab_position_top</item>
+        <item>@string/setting_summary_tab_position_bottom</item>
+    </string-array>
     <!-- Cookie -->
     <string name="setting_title_cookie">
         Cookie
@@ -362,6 +376,9 @@
     </string>
     <string name="toast_new_tab_successful">
         新建标签成功。
+    </string>
+    <string name="toast_need_restart">
+        重启浏览器生效。
     </string>
     <string name="toast_refresh_failed">
         无法刷新此页面。

@@ -128,6 +128,20 @@
         <item>@string/setting_summary_notification_priority_default</item>
         <item>@string/setting_summary_notification_priority_low</item>
     </string-array>
+    <!-- Tab switcher -->
+    <string name="setting_title_tab_position">
+        Tab position
+    </string>
+    <string name="setting_summary_tab_position_top">
+        Top
+    </string>
+    <string name="setting_summary_tab_position_bottom">
+        Bottom
+    </string>
+    <string-array name="setting_values_tab_position">
+        <item>@string/setting_summary_tab_position_top</item>
+        <item>@string/setting_summary_tab_position_bottom</item>
+    </string-array>
     <!-- Cookie -->
     <string name="setting_title_cookie">
         Cookie
@@ -360,6 +374,9 @@
     </string>
     <string name="toast_load_in_background">
         Load in background&#8230;
+    </string>
+    <string name="toast_need_restart">
+        Need restart.
     </string>
     <string name="toast_new_tab_successful">
         Open in new tab successful.

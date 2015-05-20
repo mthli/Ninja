@@ -81,8 +81,8 @@ public class BrowserActivity extends Activity implements BrowserController {
         super.onCreate(savedInstanceState);
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean top = sp.getBoolean(getString(R.string.sp_anchor), false); // TODO
-        if (top) {
+        String anchor = sp.getString(getString(R.string.sp_anchor), getString(R.string.setting_summary_tab_position_top));
+        if (anchor.equals(getString(R.string.setting_summary_tab_position_top))) {
             setContentView(R.layout.main_top);
         } else {
             setContentView(R.layout.main_bottom);
