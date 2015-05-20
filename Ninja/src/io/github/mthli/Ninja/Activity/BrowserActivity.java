@@ -370,7 +370,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                     } else if (layout.getFlag() == BrowserUnit.FLAG_HISTORY) {
                         list = action.listHistory();
                     } else {
-                        list = new ArrayList<Record>();
+                        list = new ArrayList<>();
                     }
                     action.close();
 

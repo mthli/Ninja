@@ -33,7 +33,7 @@
         输入书签标题
     </string>
     <string name="list_empty">
-        当前列表为空。
+        当前列表为空
     </string>
     <string-array name="list_menu">
         <item>新建标签</item>
@@ -68,7 +68,7 @@
 
     <!-- Notification -->
     <string name="notification_content_text">
-        点击前往浏览网页。
+        点击前往浏览网页
     </string>
 
     <!-- Search -->
@@ -288,109 +288,106 @@
 
     <!-- Toast -->
     <string name="toast_add_successful">
-        添加成功。
+        添加成功
     </string>
     <string name="toast_add_bookmark_successful">
-        添加书签成功。
+        添加书签成功
     </string>
     <string name="toast_add_bookmark_failed">
-        无法将此页面添加为书签。
+        无法将此页面添加为书签
     </string>
     <string name="toast_already_at_the_front">
-        已经在最前面了。
+        已经在最前面了
     </string>
     <string name="toast_clear_bookmarks_successful">
-        清空书签成功。
+        清空书签成功
     </string>
     <string name="toast_clear_cache_successful">
-        清空缓存成功。
+        清空缓存成功
     </string>
     <string name="toast_clear_cache_failed">
-        清空缓存失败。
+        清空缓存失败
     </string>
     <string name="toast_clear_cookie_successful">
-        清空Cookie成功。
+        清空Cookie成功
     </string>
     <string name="toast_clear_form_data_successful">
-        清空表单数据成功。
+        清空表单数据成功
     </string>
     <string name="toast_clear_history_successful">
-        清空历史成功。
+        清空历史成功
     </string>
     <string name="toast_clear_passwords_successful">
-        清空密码成功。
+        清空密码成功
     </string>
     <string name="toast_copy_successful">
-        拷贝成功。
+        拷贝成功
     </string>
     <string name="toast_delete_bookmark_successful">
-        删除书签成功。
+        删除书签成功
     </string>
     <string name="toast_delete_successful">
-        删除成功。
+        删除成功
     </string>
     <string name="toast_domain_already_exists">
-        域名已经存在。
+        域名已经存在
     </string>
     <string name="toast_double_taps_quit">
-        双击退出。
+        双击退出
     </string>
     <string name="toast_export_bookmarks_successful">
         导出的书签文件位于：
     </string>
     <string name="toast_export_bookmarks_failed">
-        导出书签失败。
+        导出书签失败
     </string>
     <string name="toast_export_whitelist_successful">
         导出的白名单文件位于：
     </string>
     <string name="toast_export_whitelist_failed">
-        导出白名单失败。
+        导出白名单失败
     </string>
     <string name="toast_import_bookmarks_successful">
         导入书签数量：
     </string>
     <string name="toast_import_bookmarks_failed">
-        导入书签失败。
+        导入书签失败
     </string>
     <string name="toast_import_whitelist_successful">
         导入域名数量：
     </string>
     <string name="toast_import_whitelist_failed">
-        导入白名单失败。
+        导入白名单失败
     </string>
     <string name="toast_input_empty">
-        你没有输入任何东西。
+        你没有输入任何东西
     </string>
     <string name="toast_invalid_domain">
-        无效的域名。
-    </string>
-    <string name="toast_judge">
-        给我们5星好评 :)
+        无效的域名
     </string>
     <string name="toast_load_error">
-        无法加载此链接。
+        无法加载此链接
     </string>
     <string name="toast_load_in_background">
         开始后台加载&#8230;
     </string>
     <string name="toast_new_tab_successful">
-        新建标签成功。
+        新建标签成功
     </string>
     <string name="toast_need_restart">
-        重启浏览器生效。
+        重启浏览器生效
     </string>
     <string name="toast_refresh_failed">
-        无法刷新此页面。
+        无法刷新此页面
     </string>
     <string name="toast_screenshot_successful">
         截图保存位置：
     </string>
     <string name="toast_screenshot_failed">
-        截图失败。
+        截图失败
     </string>
     <string name="toast_share_failed">
-        无法分享此页面。
+        无法分享此页面
     </string>
     <string name="toast_start_download">
         开始下载&#8230;

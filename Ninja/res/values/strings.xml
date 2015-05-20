@@ -33,7 +33,7 @@
         Input bookmark\'s title
     </string>
     <string name="list_empty">
-        Current list is empty.
+        Current list is empty
     </string>
     <string-array name="list_menu">
         <item>New tab</item>
@@ -68,7 +68,7 @@
 
     <!-- Notification -->
     <string name="notification_content_text">
-        Click to view pages.
+        Click to view pages
     </string>
 
     <!-- Search -->
@@ -289,109 +289,106 @@
 
     <!-- Toast -->
     <string name="toast_add_successful">
-        Add successful.
+        Add successful
     </string>
     <string name="toast_add_bookmark_successful">
-        Add bookmark successful.
+        Add bookmark successful
     </string>
     <string name="toast_add_bookmark_failed">
-        Can\'t add this page to bookmark.
+        Can\'t add this page to bookmark
     </string>
     <string name="toast_already_at_the_front">
-        Already at the front.
+        Already at the front
     </string>
     <string name="toast_clear_bookmarks_successful">
-        Clear bookmarks successful.
+        Clear bookmarks successful
     </string>
     <string name="toast_clear_cache_successful">
-        Clear cache successful.
+        Clear cache successful
     </string>
     <string name="toast_clear_cache_failed">
-        Clear cache failed.
+        Clear cache failed
     </string>
     <string name="toast_clear_cookie_successful">
-        Clear cookie successful.
+        Clear cookie successful
     </string>
     <string name="toast_clear_form_data_successful">
-        Clear form data successful.
+        Clear form data successful
     </string>
     <string name="toast_clear_history_successful">
-        Clear history successful.
+        Clear history successful
     </string>
     <string name="toast_clear_passwords_successful">
-        Clear passwords successful.
+        Clear passwords successful
     </string>
     <string name="toast_copy_successful">
-        Copy successful.
+        Copy successful
     </string>
     <string name="toast_delete_bookmark_successful">
-        Delete bookmark successful.
+        Delete bookmark successful
     </string>
     <string name="toast_delete_successful">
-        Delete successful.
+        Delete successful
     </string>
     <string name="toast_domain_already_exists">
-        Domain already exists.
+        Domain already exists
     </string>
     <string name="toast_double_taps_quit">
-        Double taps quit.
+        Double taps quit
     </string>
     <string name="toast_export_bookmarks_successful">
         Export bookmarks file at:&#160;
     </string>
     <string name="toast_export_bookmarks_failed">
-        Export bookmarks failed.
+        Export bookmarks failed
     </string>
     <string name="toast_export_whitelist_successful">
         Export whitelist file at:&#160;
     </string>
     <string name="toast_export_whitelist_failed">
-        Export whitelist failed.
+        Export whitelist failed
     </string>
     <string name="toast_import_bookmarks_successful">
         Import bookmarks count:&#160;
     </string>
     <string name="toast_import_bookmarks_failed">
-        Import bookmarks failed.
+        Import bookmarks failed
     </string>
     <string name="toast_import_whitelist_successful">
         Import domains count:&#160;
     </string>
     <string name="toast_import_whitelist_failed">
-        Import whitelist failed.
+        Import whitelist failed
     </string>
     <string name="toast_input_empty">
-        You haven\'t input anything.
+        You haven\'t input anything
     </string>
     <string name="toast_invalid_domain">
-        Invalid domain.
-    </string>
-    <string name="toast_judge">
-        Give our 5 stars :)
+        Invalid domain
     </string>
     <string name="toast_load_error">
-        Can\'t load this URL.
+        Can\'t load this URL
     </string>
     <string name="toast_load_in_background">
         Load in background&#8230;
     </string>
     <string name="toast_need_restart">
-        Need restart.
+        Need restart
     </string>
     <string name="toast_new_tab_successful">
-        Open in new tab successful.
+        Open in new tab successful
     </string>
     <string name="toast_refresh_failed">
-        Can\'t refresh this page.
+        Can\'t refresh this page
     </string>
     <string name="toast_screenshot_successful">
         Save screenshot at:&#160;
     </string>
     <string name="toast_screenshot_failed">
-        Screenshot failed.
+        Screenshot failed
     </string>
     <string name="toast_share_failed">
-        Can\'t share this page.
+        Can\'t share this page
     </string>
     <string name="toast_start_download">
         Start download&#8230;
