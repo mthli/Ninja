@@ -4,7 +4,8 @@
 
     <item android:id="@+id/whitelist_menu_clear"
           android:title="@string/whitelist_menu_clear"
-          android:showAsAction="collapseActionView">
+          android:icon="@drawable/ic_action_clear"
+          android:showAsAction="always">
     </item>
 
 </menu>
