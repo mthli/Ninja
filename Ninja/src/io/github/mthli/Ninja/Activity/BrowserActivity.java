@@ -71,6 +71,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     private static boolean quit = false;
     private boolean create = true;
     private int shortAnimTime = 0;
+    private int mediumAnimTime = 0;
     private int longAnimTime = 0;
     private AlbumController currentAlbumController = null;
 
@@ -88,6 +89,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         create = true;
         shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
+        mediumAnimTime = getResources().getInteger(android.R.integer.config_mediumAnimTime);
         longAnimTime = getResources().getInteger(android.R.integer.config_longAnimTime);
         switcherPanel = (SwitcherPanel) findViewById(R.id.switcher_panel);
         switcherPanel.setStatusListener(new SwitcherPanel.StatusListener() {
@@ -215,39 +217,14 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            hideSoftInput(inputBox);
-            if (switcherPanel.getStatus() != SwitcherPanel.Status.EXPANDED) {
-                switcherPanel.expanded();
-            } else if (currentAlbumController == null) {
-                finish();
-            } else if (currentAlbumController instanceof NinjaWebView) {
-                NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
-                if (ninjaWebView.canGoBack()) {
-                    ninjaWebView.goBack();
-                } else {
-                    updateAlbum();
-                }
-            } else if (currentAlbumController instanceof NinjaRelativeLayout) {
-                switch (currentAlbumController.getFlag()) {
-                    case BrowserUnit.FLAG_BOOKMARKS:
-                        updateAlbum();
-                        break;
-                    case BrowserUnit.FLAG_HISTORY:
-                        updateAlbum();
-                        break;
-                    case BrowserUnit.FLAG_HOME:
-                        doubleTapsQuit();
-                        break;
-                    default:
-                        finish();
-                        break;
-                }
-            } else {
-                finish();
-            }
+        if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
+            return onKeyCodeVolumeUp();
+        } else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+            return onKeyCodeVolumeDown();
+        } else if (keyCode == KeyEvent.KEYCODE_BACK) {
+            return onKeyCodeBack();
         }
-        return true;
+        return false;
     }
 
     private void initSwitcherView() {
@@ -1020,6 +997,76 @@ public class BrowserActivity extends Activity implements BrowserController {
         });
     }
 
+    private boolean onKeyCodeVolumeUp() {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        if (sp.getBoolean(getString(R.string.sp_volume), true) && currentAlbumController instanceof NinjaWebView) {
+            NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
+            int height = ninjaWebView.getMeasuredHeight();
+            int scrollY = ninjaWebView.getScrollY();
+            int distance = Math.min(height, scrollY);
+
+            ObjectAnimator anim = ObjectAnimator.ofInt(ninjaWebView, "scrollY", scrollY, scrollY - distance);
+            anim.setDuration(mediumAnimTime);
+            anim.start();
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean onKeyCodeVolumeDown() {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        if (sp.getBoolean(getString(R.string.sp_volume), true) && currentAlbumController instanceof NinjaWebView) {
+            NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
+            int height = ninjaWebView.getMeasuredHeight();
+            int scrollY = ninjaWebView.getScrollY();
+            int surplus = (int) (ninjaWebView.getContentHeight() * ViewUnit.getDensity(this) - height - scrollY);
+            int distance = Math.min(height, surplus);
+
+            ObjectAnimator anim = ObjectAnimator.ofInt(ninjaWebView, "scrollY", scrollY, scrollY + distance);
+            anim.setDuration(mediumAnimTime);
+            anim.start();
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean onKeyCodeBack() {
+        hideSoftInput(inputBox);
+        if (switcherPanel.getStatus() != SwitcherPanel.Status.EXPANDED) {
+            switcherPanel.expanded();
+        } else if (currentAlbumController == null) {
+            finish();
+        } else if (currentAlbumController instanceof NinjaWebView) {
+            NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
+            if (ninjaWebView.canGoBack()) {
+                ninjaWebView.goBack();
+            } else {
+                updateAlbum();
+            }
+        } else if (currentAlbumController instanceof NinjaRelativeLayout) {
+            switch (currentAlbumController.getFlag()) {
+                case BrowserUnit.FLAG_BOOKMARKS:
+                    updateAlbum();
+                    break;
+                case BrowserUnit.FLAG_HISTORY:
+                    updateAlbum();
+                    break;
+                case BrowserUnit.FLAG_HOME:
+                    doubleTapsQuit();
+                    break;
+                default:
+                    finish();
+                    break;
+            }
+        } else {
+            finish();
+        }
+
+        return true;
+    }
+
     private void doubleTapsQuit() {
         final Timer timer = new Timer();
         if (!quit) {
@@ -1095,7 +1142,9 @@ public class BrowserActivity extends Activity implements BrowserController {
                 String s = list.get(position);
                 if (s.equals(array[0])) { // Go to top
                     NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
-                    ninjaWebView.scrollTo(0, 0); // Maybe use Handler().postDelay() would better.
+                    ObjectAnimator anim = ObjectAnimator.ofInt(ninjaWebView, "scrollY", ninjaWebView.getScrollY(), 0);
+                    anim.setDuration(mediumAnimTime);
+                    anim.start();
                 } else if (s.equals(array[1])) { // Go forward
                     NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
                     if (ninjaWebView.canGoForward()) {

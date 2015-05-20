@@ -30,6 +30,12 @@
                         android:entryValues="@array/setting_values_tab_position">
         </ListPreference>
 
+        <CheckBoxPreference android:key="@string/sp_volume"
+                            android:defaultValue="true"
+                            android:title="@string/setting_title_scroll_control"
+                            android:summary="@string/setting_summary_scroll_control">
+        </CheckBoxPreference>
+
         <CheckBoxPreference android:key="@string/sp_images"
                             android:defaultValue="true"
                             android:title="@string/setting_title_images"

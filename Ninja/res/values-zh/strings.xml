@@ -141,6 +141,13 @@
         <item>@string/setting_summary_tab_position_top</item>
         <item>@string/setting_summary_tab_position_bottom</item>
     </string-array>
+    <!-- Volume key scroll -->
+    <string name="setting_title_scroll_control">
+        音量键控制
+    </string>
+    <string name="setting_summary_scroll_control">
+        使用音量键滚动网页
+    </string>
     <!-- Cookie -->
     <string name="setting_title_cookie">
         Cookie

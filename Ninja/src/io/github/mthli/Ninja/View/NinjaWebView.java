@@ -96,6 +96,9 @@ public class NinjaWebView extends WebView implements AlbumController {
 
         setFocusable(true);
         setFocusableInTouchMode(true);
+
+        // setHorizontalScrollBarEnabled(true);
+        // setVerticalScrollBarEnabled(true);
         setScrollbarFadingEnabled(true);
 
         setWebViewClient(webViewClient);

@@ -142,6 +142,13 @@
         <item>@string/setting_summary_tab_position_top</item>
         <item>@string/setting_summary_tab_position_bottom</item>
     </string-array>
+    <!-- Volume key scroll -->
+    <string name="setting_title_scroll_control">
+        Scroll control
+    </string>
+    <string name="setting_summary_scroll_control">
+        Use volume keys to scroll webpage
+    </string>
     <!-- Cookie -->
     <string name="setting_title_cookie">
         Cookie
