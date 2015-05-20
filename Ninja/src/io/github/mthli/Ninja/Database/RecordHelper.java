@@ -13,18 +13,16 @@ public class RecordHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    // TODO: 1 to 2
     @Override
     public void onCreate(SQLiteDatabase database) {
         database.execSQL(RecordUnit.CREATE_BOOKMARKS);
         database.execSQL(RecordUnit.CREATE_HISTORY);
-        database.execSQL(RecordUnit.CREATE_WHITELIST); //
+        database.execSQL(RecordUnit.CREATE_WHITELIST);
     }
 
-    // TODO: 1 to 2
     @Override
     public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {
-        if (newVersion < 2) {
+        if (newVersion <= 2) { // 1 to 2
             database.execSQL(RecordUnit.CREATE_WHITELIST);
         }
     }

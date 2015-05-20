@@ -677,7 +677,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
 
         if (BrowserContainer.size() < 1 && url == null) {
-            addAlbum(BrowserUnit.FLAG_HOME); // TODO
+            addAlbum(BrowserUnit.FLAG_HOME);
         } else if (BrowserContainer.size() >= 1 && url == null) {
             int index = BrowserContainer.size() - 1;
             if (currentAlbumController != null) {
