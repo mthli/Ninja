@@ -47,7 +47,8 @@ public class BrowserUnit {
     public static final String SEARCH_ENGINE_BING = "http://www.bing.com/search?q=";
     public static final String SEARCH_ENGINE_BAIDU = "http://www.baidu.com/s?wd=";
 
-    public static final String UA_DESKTOP = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36";  // Chrome desktop 41.0.2228.0
+    // Chrome desktop 41.0.2228.0
+    public static final String UA_DESKTOP = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36";
     public static final String URL_ENCODING = "UTF-8";
     public static final String URL_ABOUT_BLANK = "about:blank";
     public static final String URL_SCHEME_ABOUT = "about:";
@@ -260,7 +261,7 @@ public class BrowserUnit {
         }
     }
 
-    /* CookieManager.removeAllCookies() must be called on a thread with a running Looper */
+    // CookieManager.removeAllCookies() must be called on a thread with a running Looper.
     public static void clearCookies(Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             CookieManager cookieManager = CookieManager.getInstance();

@@ -337,6 +337,9 @@
     <string name="toast_input_empty">
         You haven\'t input anything.
     </string>
+    <string name="toast_invalid_domain">
+        Invalid domain.
+    </string>
     <string name="toast_judge">
         Give our 5 stars :)
     </string>

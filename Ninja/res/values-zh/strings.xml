@@ -187,7 +187,7 @@
         白名单
     </string>
     <string name="setting_summary_whitelist">
-        使网页可以正常显示
+        使网站可以正常显示
     </string>
     <string name="setting_title_export_whilelist">
         导出白名单
@@ -335,6 +335,9 @@
     </string>
     <string name="toast_input_empty">
         你没有输入任何东西。
+    </string>
+    <string name="toast_invalid_domain">
+        无效的域名。
     </string>
     <string name="toast_judge">
         给我们5星好评 :)

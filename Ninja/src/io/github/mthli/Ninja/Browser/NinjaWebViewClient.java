@@ -19,7 +19,11 @@ public class NinjaWebViewClient extends WebViewClient {
     private Context context;
 
     private AdBlock adBlock;
+
     private boolean white;
+    public void updateWhite(boolean white) {
+        this.white = white;
+    }
 
     private boolean enable;
     public void enableAdBlock(boolean enable) {

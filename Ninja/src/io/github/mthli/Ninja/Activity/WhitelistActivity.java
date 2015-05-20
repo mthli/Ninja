@@ -14,6 +14,7 @@ import android.widget.ListView;
 import io.github.mthli.Ninja.Browser.AdBlock;
 import io.github.mthli.Ninja.Database.RecordAction;
 import io.github.mthli.Ninja.R;
+import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.View.NinjaToast;
 import io.github.mthli.Ninja.View.WhitelistAdapter;
 
@@ -58,6 +59,8 @@ public class WhitelistActivity extends Activity {
                 String domain = editText.getText().toString().trim();
                 if (domain.isEmpty()) {
                     NinjaToast.show(WhitelistActivity.this, R.string.toast_input_empty);
+                } else if (!BrowserUnit.isURL(domain)) {
+                    NinjaToast.show(WhitelistActivity.this, R.string.toast_invalid_domain);
                 } else {
                     RecordAction action = new RecordAction(WhitelistActivity.this);
                     action.open(true);

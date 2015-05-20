@@ -201,7 +201,7 @@ public class NinjaWebView extends WebView implements AlbumController {
             return;
         }
 
-        webViewClient.enableAdBlock(!adBlock.isWhite(url));
+        webViewClient.updateWhite(adBlock.isWhite(url));
         super.loadUrl(url);
         if (browserController != null && foreground) {
             browserController.updateBookmarks();
@@ -210,7 +210,7 @@ public class NinjaWebView extends WebView implements AlbumController {
 
     @Override
     public void reload() {
-        webViewClient.enableAdBlock(!adBlock.isWhite(getUrl()));
+        webViewClient.updateWhite(adBlock.isWhite(getUrl()));
         super.reload();
     }
 
