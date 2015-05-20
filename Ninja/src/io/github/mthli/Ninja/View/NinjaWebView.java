@@ -9,7 +9,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
-import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -60,17 +59,10 @@ public class NinjaWebView extends WebView implements AlbumController {
     }
 
     public NinjaWebView(Context context) {
-        this(context, null);
-    }
+        // Cannot create a dialog, the WebView context is not an Activity.
+        super(context);
 
-    public NinjaWebView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
-    }
-
-    public NinjaWebView(Context context, AttributeSet attrs, int defStyle) {
-        super(new NinjaContextWrapper(context), attrs, defStyle);
-
-        this.context = new NinjaContextWrapper(context);
+        this.context = context;
         this.dimen144dp = getResources().getDimensionPixelSize(R.dimen.layout_width_144dp);
         this.dimen108dp = getResources().getDimensionPixelSize(R.dimen.layout_height_108dp);
         this.animTime = getResources().getInteger(android.R.integer.config_shortAnimTime);

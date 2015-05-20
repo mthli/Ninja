@@ -11,6 +11,7 @@ import io.github.mthli.Ninja.Browser.BrowserContainer;
 import io.github.mthli.Ninja.Browser.BrowserController;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Unit.*;
+import io.github.mthli.Ninja.View.NinjaContextWrapper;
 import io.github.mthli.Ninja.View.NinjaWebView;
 
 public class HolderService extends Service implements BrowserController {
@@ -40,7 +41,7 @@ public class HolderService extends Service implements BrowserController {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        NinjaWebView webView = new NinjaWebView(this);
+        NinjaWebView webView = new NinjaWebView(new NinjaContextWrapper(this));
         webView.setBrowserController(this);
         webView.setFlag(BrowserUnit.FLAG_NINJA);
         webView.setAlbumCover(null);
