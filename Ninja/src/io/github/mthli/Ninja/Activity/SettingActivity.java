@@ -65,8 +65,10 @@ public class SettingActivity extends Activity {
             IntentUnit.setDBChange(fragment.isDBChange());
             IntentUnit.setSPChange(fragment.isSPChange());
             finish();
+            return true;
         }
-        return true;
+
+        return false;
     }
 
     @Override

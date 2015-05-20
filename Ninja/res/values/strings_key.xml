@@ -2,8 +2,9 @@
 
 <resources>
 
+    <!-- TODO: change when new version code -->
     <string name="sp_first">
-        SP_FIRST
+        SP_FIRST_5
     </string>
 
     <string name="sp_ad_block">

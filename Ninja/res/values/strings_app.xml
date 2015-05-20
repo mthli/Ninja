@@ -63,6 +63,20 @@
         http://git.io/vUrum
     </string>
 
+    <!-- github-markdown-css -->
+    <string name="license_title_github_markdown_css">
+        github-markdown-css
+    </string>
+    <string name="license_content_github_markdown_css">
+        The MIT License (MIT)
+    </string>
+    <string name="license_author_github_markdown_css">
+        Sindre Sorhus
+    </string>
+    <string name="license_url_github_markdown_css">
+        http://git.io/Gxy92Q
+    </string>
+
     <!-- Lightning -->
     <string name="license_title_lightning">
         Lightning Browser
@@ -96,6 +110,7 @@
         <item>@string/license_title_android_sliding_up_panel</item>
         <item>@string/license_title_android_swipe_to_dismiss</item>
         <item>@string/license_title_android_ago</item>
+        <item>@string/license_title_github_markdown_css</item>
         <item>@string/license_title_lightning</item>
         <item>@string/license_title_ninja</item>
     </string-array>
@@ -103,6 +118,7 @@
         <item>@string/license_content_android_sliding_up_panel</item>
         <item>@string/license_content_android_swipe_to_dismiss</item>
         <item>@string/license_content_android_ago</item>
+        <item>@string/license_content_github_markdown_css</item>
         <item>@string/license_content_lightning</item>
         <item>@string/license_content_ninja</item>
     </string-array>
@@ -110,6 +126,7 @@
         <item>@string/license_author_android_sliding_up_panel</item>
         <item>@string/license_author_android_swipe_to_dismiss</item>
         <item>@string/license_author_android_ago</item>
+        <item>@string/license_author_github_markdown_css</item>
         <item>@string/license_author_lightning</item>
         <item>@string/license_author_ninja</item>
     </string-array>
@@ -117,6 +134,7 @@
         <item>@string/license_url_android_sliding_up_panel</item>
         <item>@string/license_url_android_swipe_to_dismiss</item>
         <item>@string/license_url_android_ago</item>
+        <item>@string/license_url_github_markdown_css</item>
         <item>@string/license_url_lightning</item>
         <item>@string/license_url_ninja</item>
     </string-array>
