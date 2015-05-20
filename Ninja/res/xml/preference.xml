@@ -3,7 +3,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory android:title="@string/setting_title_browser">
-
+        <!-- TODO: ListPreference entryValues should language-independent -->
         <ListPreference android:key="@string/sp_search_engine"
                         android:defaultValue="@string/setting_summary_search_engine_google"
                         android:title="@string/setting_title_search_engine"
@@ -12,6 +12,7 @@
                         android:entryValues="@array/setting_values_search_engine">
         </ListPreference>
 
+        <!-- TODO: ListPreference entryValues should language-independent -->
         <ListPreference android:key="@string/sp_notification_priority"
                         android:defaultValue="@string/setting_summary_notification_priority_default"
                         android:title="@string/setting_title_notification_priority"
@@ -20,6 +21,7 @@
                         android:entryValues="@array/setting_values_notification_priority">
         </ListPreference>
 
+        <!-- TODO: ListPreference entryValues should language-independent -->
         <ListPreference android:key="@string/sp_anchor"
                         android:defaultValue="@string/setting_summary_tab_position_top"
                         android:title="@string/setting_title_tab_position"
@@ -58,6 +60,7 @@
                             android:summary="@string/setting_summary_multiple_windows">
         </CheckBoxPreference>
 
+        <!-- TODO: ListPreference entryValues should language-independent -->
         <ListPreference android:key="@string/sp_user_agent"
                         android:defaultValue="@string/setting_summary_user_agent_default"
                         android:title="@string/setting_title_user_agent"

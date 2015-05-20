@@ -15,7 +15,6 @@ import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -69,7 +68,6 @@ public class BrowserActivity extends Activity implements BrowserController {
     private ImageButton searchDown;
     private ImageButton searchCancel;
 
-    private static final int BRIGHTNESS_BEGIN_DEFAULT = 130;
     private static boolean quit = false;
     private boolean create = true;
     private int shortAnimTime = 0;
