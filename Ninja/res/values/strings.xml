@@ -188,7 +188,7 @@
         Whitelist
     </string>
     <string name="setting_summary_whitelist">
-        Make webpages display correctly
+        Allow these sites show ads
     </string>
     <string name="setting_title_export_whilelist">
         Export whitelist
@@ -328,11 +328,23 @@
     <string name="toast_export_bookmarks_failed">
         Export bookmarks failed.
     </string>
+    <string name="toast_export_whitelist_successful">
+        Export whitelist file at:&#160;
+    </string>
+    <string name="toast_export_whitelist_failed">
+        Export whitelist failed.
+    </string>
     <string name="toast_import_bookmarks_successful">
         Import bookmarks count:&#160;
     </string>
     <string name="toast_import_bookmarks_failed">
         Import bookmarks failed.
+    </string>
+    <string name="toast_import_whitelist_successful">
+        Import domains count:&#160;
+    </string>
+    <string name="toast_import_whitelist_failed">
+        Import whitelist failed.
     </string>
     <string name="toast_input_empty">
         You haven\'t input anything.

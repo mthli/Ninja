@@ -34,7 +34,7 @@ public class AdBlock {
         thread.start();
     }
 
-    private static void loadDomains(Context context) {
+    public static void loadDomains(Context context) {
         RecordAction action = new RecordAction(context);
         action.open(true);
         whitelist.clear();

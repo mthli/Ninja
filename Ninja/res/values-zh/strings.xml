@@ -187,7 +187,7 @@
         白名单
     </string>
     <string name="setting_summary_whitelist">
-        使网站可以正常显示
+        允许指定网站显示广告
     </string>
     <string name="setting_title_export_whilelist">
         导出白名单
@@ -327,11 +327,23 @@
     <string name="toast_export_bookmarks_failed">
         导出书签失败。
     </string>
+    <string name="toast_export_whitelist_successful">
+        导出的白名单文件位于：
+    </string>
+    <string name="toast_export_whitelist_failed">
+        导出白名单失败。
+    </string>
     <string name="toast_import_bookmarks_successful">
         导入书签数量：
     </string>
     <string name="toast_import_bookmarks_failed">
         导入书签失败。
+    </string>
+    <string name="toast_import_whitelist_successful">
+        导入域名数量：
+    </string>
+    <string name="toast_import_whitelist_failed">
+        导入白名单失败。
     </string>
     <string name="toast_input_empty">
         你没有输入任何东西。

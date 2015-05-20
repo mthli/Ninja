@@ -9,8 +9,9 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 import io.github.mthli.Ninja.Task.ImportBookmarksTask;
+import io.github.mthli.Ninja.Task.ImportWhitelistTask;
+import io.github.mthli.Ninja.View.NinjaToast;
 import io.github.mthli.Ninja.View.SettingFragment;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Unit.IntentUnit;
@@ -70,12 +71,20 @@ public class SettingActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode != IntentUnit.REQUEST_FILE && resultCode != Activity.RESULT_OK || data == null || data.getData() == null) {
-            Toast.makeText(this, R.string.toast_import_bookmarks_failed, Toast.LENGTH_SHORT).show();
-            return;
+        if (requestCode == IntentUnit.REQUEST_BOOKMARKS) {
+            if (resultCode != Activity.RESULT_OK || data == null || data.getData() == null) {
+                NinjaToast.show(this, R.string.toast_import_bookmarks_failed);
+            } else {
+                File file = new File(data.getData().getPath());
+                new ImportBookmarksTask(this, file).execute();
+            }
+        } else if (requestCode == IntentUnit.REQUEST_WHITELIST) {
+            if (resultCode != Activity.RESULT_OK || data == null || data.getData() == null) {
+                NinjaToast.show(this, R.string.toast_import_whitelist_failed);
+            } else {
+                File file = new File(data.getData().getPath());
+                new ImportWhitelistTask(this, file).execute();
+            }
         }
-
-        File file = new File(data.getData().getPath());
-        new ImportBookmarksTask(this, file).execute();
     }
 }

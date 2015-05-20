@@ -14,10 +14,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import io.github.mthli.Ninja.Activity.WhitelistActivity;
 import io.github.mthli.Ninja.R;
-import io.github.mthli.Ninja.Task.ClearCacheTask;
-import io.github.mthli.Ninja.Task.ClearFormDataTask;
-import io.github.mthli.Ninja.Task.ClearPasswordsTask;
-import io.github.mthli.Ninja.Task.ExportBookmarksTask;
+import io.github.mthli.Ninja.Task.*;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.Unit.IntentUnit;
 
@@ -85,6 +82,15 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
                 Intent toWhitelist = new Intent(getActivity(), WhitelistActivity.class);
                 getActivity().startActivity(toWhitelist);
                 break;
+            case R.string.setting_title_export_whilelist:
+                new ExportWhitelistTask(this).execute();
+                break;
+            case R.string.setting_title_import_whilelist:
+                Intent importWhitelist = new Intent(Intent.ACTION_GET_CONTENT);
+                importWhitelist.setType(IntentUnit.INTENT_TYPE_TEXT_PLAIN);
+                importWhitelist.addCategory(Intent.CATEGORY_OPENABLE);
+                getActivity().startActivityForResult(importWhitelist, IntentUnit.REQUEST_WHITELIST);
+                break;
             case R.string.setting_title_export_bookmarks:
                 new ExportBookmarksTask(this).execute();
                 break;
@@ -92,7 +98,7 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
                 Intent importBookmarks = new Intent(Intent.ACTION_GET_CONTENT);
                 importBookmarks.setType(IntentUnit.INTENT_TYPE_TEXT_PLAIN);
                 importBookmarks.addCategory(Intent.CATEGORY_OPENABLE);
-                getActivity().startActivityForResult(importBookmarks, IntentUnit.REQUEST_FILE);
+                getActivity().startActivityForResult(importBookmarks, IntentUnit.REQUEST_BOOKMARKS);
                 break;
             case R.string.setting_title_clear_bookmarks:
                 BrowserUnit.clearBookmarks(getActivity());

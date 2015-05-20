@@ -6,19 +6,20 @@ import android.os.AsyncTask;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.View.NinjaToast;
-import io.github.mthli.Ninja.View.SettingFragment;
 
-public class ExportBookmarksTask extends AsyncTask<Void, Void, Boolean> {
-    private SettingFragment fragment;
+import java.io.File;
+
+public class ImportWhitelistTask extends AsyncTask<Void, Void, Boolean> {
     private Context context;
     private ProgressDialog dialog;
-    private String path;
+    private File file;
+    private int count;
 
-    public ExportBookmarksTask(SettingFragment fragment) {
-        this.fragment = fragment;
-        this.context = fragment.getActivity();
+    public ImportWhitelistTask(Context context, File file) {
+        this.context = context;
         this.dialog = null;
-        this.path = null;
+        this.file = file;
+        this.count = 0;
     }
 
     @Override
@@ -31,12 +32,12 @@ public class ExportBookmarksTask extends AsyncTask<Void, Void, Boolean> {
 
     @Override
     protected Boolean doInBackground(Void... params) {
-        path = BrowserUnit.exportBookmarks(context);
+        count = BrowserUnit.importWhitelist(context, file);
 
         if (isCancelled()) {
             return false;
         }
-        return path != null && !path.isEmpty();
+        return count >= 0;
     }
 
     @Override
@@ -45,10 +46,9 @@ public class ExportBookmarksTask extends AsyncTask<Void, Void, Boolean> {
         dialog.dismiss();
 
         if (result) {
-            fragment.setDBChange(true);
-            NinjaToast.show(context, context.getString(R.string.toast_export_bookmarks_successful) + path);
+            NinjaToast.show(context, context.getString(R.string.toast_import_whitelist_successful) + count);
         } else {
-            NinjaToast.show(context, R.string.toast_export_bookmarks_failed);
+            NinjaToast.show(context, R.string.toast_import_whitelist_failed);
         }
     }
 }

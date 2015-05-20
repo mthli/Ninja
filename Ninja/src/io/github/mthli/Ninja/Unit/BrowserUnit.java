@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.webkit.*;
+import io.github.mthli.Ninja.Browser.AdBlock;
 import io.github.mthli.Ninja.Database.Record;
 import io.github.mthli.Ninja.Database.RecordAction;
 import io.github.mthli.Ninja.R;
@@ -212,6 +213,33 @@ public class BrowserUnit {
         }
     }
 
+    public static String exportWhitelist(Context context) {
+        RecordAction action = new RecordAction(context);
+        action.open(false);
+        List<String> list = action.listDomains();
+        action.close();
+
+        String filename = context.getString(R.string.whilelist_filename);
+        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename + SUFFIX_TXT);
+        int count = 0;
+        while (file.exists()) {
+            count++;
+            file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename + "." + count + SUFFIX_TXT);
+        }
+
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
+            for (String domain : list) {
+                writer.write(domain);
+                writer.newLine();
+            }
+            writer.close();
+            return file.getAbsolutePath();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
     public static int importBookmarks(Context context, File file) {
         if (file == null) {
             return -1;
@@ -236,6 +264,31 @@ public class BrowserUnit {
             }
             reader.close();
             action.close();
+        } catch (Exception e) {}
+
+        return count;
+    }
+
+    public static int importWhitelist(Context context, File file) {
+        if (file == null) {
+            return -1;
+        }
+
+        int count = 0;
+        try {
+            RecordAction action = new RecordAction(context);
+            action.open(true);
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String line;
+            while ((line = reader.readLine().trim()) != null) {
+                if (!action.checkDomain(line)) {
+                    action.addDomain(line);
+                    count++;
+                }
+            }
+            reader.close();
+            action.close();
+            AdBlock.loadDomains(context); // TODO
         } catch (Exception e) {}
 
         return count;

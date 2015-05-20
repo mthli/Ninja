@@ -8,13 +8,13 @@ import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.View.NinjaToast;
 import io.github.mthli.Ninja.View.SettingFragment;
 
-public class ExportBookmarksTask extends AsyncTask<Void, Void, Boolean> {
+public class ExportWhitelistTask extends AsyncTask<Void, Void, Boolean> {
     private SettingFragment fragment;
     private Context context;
     private ProgressDialog dialog;
     private String path;
 
-    public ExportBookmarksTask(SettingFragment fragment) {
+    public ExportWhitelistTask(SettingFragment fragment) {
         this.fragment = fragment;
         this.context = fragment.getActivity();
         this.dialog = null;
@@ -31,7 +31,7 @@ public class ExportBookmarksTask extends AsyncTask<Void, Void, Boolean> {
 
     @Override
     protected Boolean doInBackground(Void... params) {
-        path = BrowserUnit.exportBookmarks(context);
+        path = BrowserUnit.exportWhitelist(context);
 
         if (isCancelled()) {
             return false;
@@ -46,9 +46,9 @@ public class ExportBookmarksTask extends AsyncTask<Void, Void, Boolean> {
 
         if (result) {
             fragment.setDBChange(true);
-            NinjaToast.show(context, context.getString(R.string.toast_export_bookmarks_successful) + path);
+            NinjaToast.show(context, context.getString(R.string.toast_export_whitelist_successful) + path);
         } else {
-            NinjaToast.show(context, R.string.toast_export_bookmarks_failed);
+            NinjaToast.show(context, R.string.toast_export_whitelist_failed);
         }
     }
 }
