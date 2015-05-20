@@ -34,9 +34,9 @@ public class AdBlock {
         thread.start();
     }
 
-    public static void loadDomains(Context context) {
+    private synchronized static void loadDomains(Context context) {
         RecordAction action = new RecordAction(context);
-        action.open(true);
+        action.open(false);
         whitelist.clear();
         for (String domain : action.listDomains()) {
             whitelist.add(domain);
@@ -90,7 +90,7 @@ public class AdBlock {
         return hosts.contains(domain.toLowerCase(locale));
     }
 
-    public void addDomain(String domain) {
+    public synchronized void addDomain(String domain) {
         RecordAction action = new RecordAction(context);
         action.open(true);
         action.addDomain(domain);
@@ -98,7 +98,7 @@ public class AdBlock {
         whitelist.add(domain);
     }
 
-    public void removeDomain(String domain) {
+    public synchronized void removeDomain(String domain) {
         RecordAction action = new RecordAction(context);
         action.open(true);
         action.deleteDomain(domain);
@@ -106,7 +106,7 @@ public class AdBlock {
         whitelist.remove(domain);
     }
 
-    public void clearDomains() {
+    public synchronized void clearDomains() {
         RecordAction action = new RecordAction(context);
         action.open(true);
         action.clearDomains();

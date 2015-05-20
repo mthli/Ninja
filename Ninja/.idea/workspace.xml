@@ -41,66 +41,7 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="BrowserUnit.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/BrowserUnit.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4477612">
-              <caret line="290" column="49" selection-start-line="290" selection-start-column="49" selection-end-line="290" selection-end-column="49" />
-              <folding>
-                <element signature="method#isNetworkAvailable#0;class#BrowserUnit#0" expanded="false" />
-                <element signature="method#isURL#0;class#BrowserUnit#0" expanded="false" />
-                <element signature="method#queryWrapper#0;class#BrowserUnit#0" expanded="false" />
-                <element signature="method#copyURL#0;class#BrowserUnit#0" expanded="false" />
-                <element signature="method#download#0;class#BrowserUnit#0" expanded="false" />
-                <element signature="method#screenshot#0;class#BrowserUnit#0" expanded="false" />
-                <element signature="method#exportBookmarks#0;class#BrowserUnit#0" expanded="false" />
-                <element signature="method#exportWhitelist#0;class#BrowserUnit#0" expanded="false" />
-                <element signature="method#importBookmarks#0;class#BrowserUnit#0" expanded="false" />
-                <element signature="method#clearBookmarks#0;class#BrowserUnit#0" expanded="false" />
-                <element signature="method#clearCache#0;class#BrowserUnit#0" expanded="false" />
-                <element signature="method#clearCookies#0;class#BrowserUnit#0" expanded="false" />
-                <element signature="class#13486:13613" expanded="false" />
-                <element signature="method#clearHistory#0;class#BrowserUnit#0" expanded="false" />
-                <element signature="method#clearPasswords#0;class#BrowserUnit#0" expanded="false" />
-                <element signature="method#deleteDir#0;class#BrowserUnit#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImportWhitelistTask.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Task/ImportWhitelistTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdBlock.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/AdBlock.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="method#loadHosts#0;class#AdBlock#0" expanded="false" />
-                <element signature="method#loadDomains#0;class#AdBlock#0" expanded="false" />
-                <element signature="method#getDomain#0;class#AdBlock#0" expanded="false" />
-                <element signature="method#AdBlock#0;class#AdBlock#0" expanded="false" />
-                <element signature="method#isWhite#0;class#AdBlock#0" expanded="false" />
-                <element signature="method#isAd#0;class#AdBlock#0" expanded="false" />
-                <element signature="method#addDomain#0;class#AdBlock#0" expanded="false" />
-                <element signature="method#removeDomain#0;class#AdBlock#0" expanded="false" />
-                <element signature="method#clearDomains#0;class#AdBlock#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -160,7 +101,6 @@
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/WhitelistAdapter.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Database/RecordHelper.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/BrowserActivity.java" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/NinjaWebViewClient.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/NinjaWebView.java" />
         <option value="$PROJECT_DIR$/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/res/menu/whilelist_menu.xml" />
@@ -174,6 +114,7 @@
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/SettingFragment.java" />
         <option value="$PROJECT_DIR$/res/values-zh/strings.xml" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/NinjaWebViewClient.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/AdBlock.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/BrowserUnit.java" />
       </list>
@@ -501,6 +442,7 @@
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/matthew/IdeaProjects/Ninja/src/io/github/mthli/Ninja/Unit/IntentUnit.java" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -710,7 +652,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="-3" width="1370" height="748" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -725,7 +667,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43650794" sideWeight="0.5030211" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2857143" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2857143" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32857144" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" x="4" y="37" width="1358" height="667" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42222223" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2439577" sideWeight="0.4888889" order="1" side_tool="false" content_ui="tabs" />
@@ -1243,25 +1185,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/NinjaWebViewClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#685#686#0" expanded="true" />
-            <element signature="e#719#720#0" expanded="true" />
-            <element signature="method#NinjaWebViewClient#0;class#NinjaWebViewClient#0" expanded="false" />
-            <element signature="method#onPageStarted#0;class#NinjaWebViewClient#0" expanded="false" />
-            <element signature="method#onPageFinished#0;class#NinjaWebViewClient#0" expanded="false" />
-            <element signature="method#shouldOverrideUrlLoading#0;class#NinjaWebViewClient#0" expanded="false" />
-            <element signature="e#2944#2955#0" expanded="false" />
-            <element signature="method#shouldInterceptRequest#0;class#NinjaWebViewClient#0" expanded="false" />
-            <element signature="method#shouldInterceptRequest#1;class#NinjaWebViewClient#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2238806">
@@ -1346,14 +1269,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/IntentUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="54" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/values-zh/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="3.7036395">
@@ -1394,10 +1309,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Task/ImportWhitelistTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35323384">
+          <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/IntentUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05472637">
+          <caret line="10" column="54" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/WhitelistActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6453901">
-          <caret line="70" column="32" selection-start-line="70" selection-start-column="32" selection-end-line="70" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="70" column="57" selection-start-line="70" selection-start-column="57" selection-end-line="70" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="false" />
             <element signature="method#onCreateOptionsMenu#0;class#WhitelistActivity#0" expanded="false" />
@@ -1408,16 +1339,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/AdBlock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.07462686">
+          <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="method#loadHosts#0;class#AdBlock#0" expanded="false" />
-            <element signature="method#loadDomains#0;class#AdBlock#0" expanded="false" />
             <element signature="method#getDomain#0;class#AdBlock#0" expanded="false" />
             <element signature="method#AdBlock#0;class#AdBlock#0" expanded="false" />
-            <element signature="method#isWhite#0;class#AdBlock#0" expanded="false" />
-            <element signature="method#isAd#0;class#AdBlock#0" expanded="false" />
             <element signature="method#addDomain#0;class#AdBlock#0" expanded="false" />
             <element signature="method#removeDomain#0;class#AdBlock#0" expanded="false" />
             <element signature="method#clearDomains#0;class#AdBlock#0" expanded="false" />
@@ -1425,18 +1352,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Task/ImportWhitelistTask.java">
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/NinjaWebViewClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
-          <folding />
+        <state vertical-scroll-proportion="0.14925373">
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+          <folding>
+            <element signature="e#685#686#0" expanded="true" />
+            <element signature="e#719#720#0" expanded="true" />
+            <element signature="method#NinjaWebViewClient#0;class#NinjaWebViewClient#0" expanded="false" />
+            <element signature="method#onPageStarted#0;class#NinjaWebViewClient#0" expanded="false" />
+            <element signature="method#onPageFinished#0;class#NinjaWebViewClient#0" expanded="false" />
+            <element signature="e#2944#2955#0" expanded="false" />
+            <element signature="method#shouldInterceptRequest#0;class#NinjaWebViewClient#0" expanded="false" />
+            <element signature="method#shouldInterceptRequest#1;class#NinjaWebViewClient#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/BrowserUnit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4477612">
-          <caret line="290" column="49" selection-start-line="290" selection-start-column="49" selection-end-line="290" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.28026533">
+          <caret line="184" column="58" selection-start-line="184" selection-start-column="58" selection-end-line="184" selection-end-column="58" />
           <folding>
             <element signature="method#isNetworkAvailable#0;class#BrowserUnit#0" expanded="false" />
             <element signature="method#isURL#0;class#BrowserUnit#0" expanded="false" />
@@ -1447,6 +1383,7 @@
             <element signature="method#exportBookmarks#0;class#BrowserUnit#0" expanded="false" />
             <element signature="method#exportWhitelist#0;class#BrowserUnit#0" expanded="false" />
             <element signature="method#importBookmarks#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="method#importWhitelist#0;class#BrowserUnit#0" expanded="false" />
             <element signature="method#clearBookmarks#0;class#BrowserUnit#0" expanded="false" />
             <element signature="method#clearCache#0;class#BrowserUnit#0" expanded="false" />
             <element signature="method#clearCookies#0;class#BrowserUnit#0" expanded="false" />

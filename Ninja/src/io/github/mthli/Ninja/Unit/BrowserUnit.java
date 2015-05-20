@@ -274,7 +274,9 @@ public class BrowserUnit {
             return -1;
         }
 
+        AdBlock adBlock = new AdBlock(context);
         int count = 0;
+
         try {
             RecordAction action = new RecordAction(context);
             action.open(true);
@@ -282,13 +284,12 @@ public class BrowserUnit {
             String line;
             while ((line = reader.readLine().trim()) != null) {
                 if (!action.checkDomain(line)) {
-                    action.addDomain(line);
+                    adBlock.addDomain(line);
                     count++;
                 }
             }
             reader.close();
             action.close();
-            AdBlock.loadDomains(context); // TODO
         } catch (Exception e) {}
 
         return count;
