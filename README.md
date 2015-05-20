@@ -7,7 +7,7 @@ A web browser that open links in background without ever leaving your favorite a
 
 [Ninja in Google Play](https://play.google.com/store/apps/details?id=io.github.mthli.Ninja "Ninja in Google Play")
 
-[Download latest Ninja.apk](https://github.com/mthli/Ninja/releases/download/v1.1.2/Ninja.1.1.2.apk "Ninja.1.1.2.apk")
+[Download latest Ninja.apk](https://github.com/mthli/Ninja/releases/download/v1.1.3/Ninja.1.1.3.apk "Ninja.1.1.3.apk")
 
 __SUPPORT: Android 4.1+__
 
@@ -21,15 +21,11 @@ __LONG TERM MAINTENANCE.__
 
  - [html5test](html5test.com "html5test.com") access __509__ with latest [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview "Android System WebView").
 
- - Adblock.
+ - Adblock and whitelist.
 
  - Capture whole page screenshot.
 
- - Change brightness.
-
  - Fashion tab switcher.
-
- - Webpage go to top easy.
 
  - More features coming soon...
 
@@ -37,23 +33,33 @@ __LONG TERM MAINTENANCE.__
 
 Basically Ninja is a simple web browser like any others, but there are some different things you need to know:
 
-### Load in background:
+### Switch tabs:
+
+ - You can set tab switcher position in __screen top or screen bottom__ at `Setting/Browser/Tab position`.
+
+ - Press the __address bar__ and __drag it down or up__, then the fashion tab switcher will display.
+
+ - __Swipe up/down__ to dimiss a page.
+
+__Remember__ that if the soft keyboard is shown the tab switcher would not display, it's our design :)
+
+### Load in background when you click links in other App:
 
  1. Set Ninja as your __default browser__ when click links.
 
- 2. __Single tap__ will open links in background, and show a __clickable__ notification in statusbar.
+ 2. __Single tap__ will open links in background, and show a clickable notification in statusbar.
 
  3. __Double taps__ will show a dialog that allows you to open links in foreground, etc.
 
-### Switch tabs:
+### AdBlock whitelist:
 
-![tab_switcher_header.png](/Art/screenshot/en/tab_switcher_header.png "tab_switcher_header.png")
+Since AdBlick maybe cause some websites display error, you can add they to `Setting/AdBlock/Whitelist`.
 
- - Press the __address bar__ and __drag it down__, then the fashion tab switcher will display.
+### Screenshot:
 
- - __Swipe up/down__ to dismiss a page.
+Ninja supports __capture entire webpage__ function.
 
- - __Remember__ that if the soft keyboard is shown the tab switcher would not display, it's our design :)
+But that is not means you could screenshot a long long long webpage(__OOM__, etc).
 
 ## Q&A:
 
@@ -82,6 +88,8 @@ Just import the `Ninja` folder with your __IntelliJ IDEA__.
  - [Android Swipe-to-Dismiss Sample Code](https://github.com/romannurik/Android-SwipeToDismiss "Android Swipe-to-Dismiss Sample Code")
 
  - [android-ago](https://github.com/curioustechizen/android-ago "android-ago")
+
+ - [github-markdown-css](https://github.com/sindresorhus/github-markdown-css "github-markdown-css")
 
  - [Lightning Browser](https://github.com/anthonycr/Lightning-Browser "Lightning-Browser")
 

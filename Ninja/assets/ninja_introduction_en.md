@@ -25,13 +25,13 @@ __Remember__ that if the soft keyboard is shown the tab switcher would not displ
 
  3. __Double taps__ will show a dialog that allows you to open links in foreground, etc.
 
-## AdBlock whitelist
+## AdBlock whitelist:
 
 Since AdBlick maybe cause some websites display error, you can add they to `Setting/AdBlock/Whitelist`.
 
 ## Screenshot:
 
-Ninja supports __capture entire webpage__ function. 
+Ninja supports __capture entire webpage__ function.
 
 But that is not means you could screenshot a long long long webpage(__OOM__, etc).
 
