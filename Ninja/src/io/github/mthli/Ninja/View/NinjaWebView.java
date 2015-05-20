@@ -40,6 +40,11 @@ public class NinjaWebView extends WebView implements AlbumController {
     private NinjaClickHandler clickHandler;
     private GestureDetector gestureDetector;
 
+    private AdBlock adBlock;
+    public AdBlock getAdBlock() {
+        return adBlock;
+    }
+
     private boolean foreground;
     public boolean isForeground() {
         return foreground;
@@ -71,6 +76,7 @@ public class NinjaWebView extends WebView implements AlbumController {
         this.animTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
         this.foreground = false;
 
+        this.adBlock = new AdBlock(this.context);
         this.album = new Album(this.context, this, this.browserController);
         this.webViewClient = new NinjaWebViewClient(this);
         this.webChromeClient = new NinjaWebChromeClient(this);
@@ -175,11 +181,11 @@ public class NinjaWebView extends WebView implements AlbumController {
 
     @Override
     public synchronized void loadUrl(String url) {
-        if (url == null || url.isEmpty()) {
+        if (url == null || url.trim().isEmpty()) {
             NinjaToast.show(context, R.string.toast_load_error);
             return;
         }
-        url = BrowserUnit.queryWrapper(context, url);
+        url = BrowserUnit.queryWrapper(context, url.trim());
 
         if (url.startsWith(BrowserUnit.URL_SCHEME_MAIL_TO)) {
             Intent intent = IntentUnit.getEmailIntent(MailTo.parse(url));
@@ -195,10 +201,17 @@ public class NinjaWebView extends WebView implements AlbumController {
             return;
         }
 
+        webViewClient.enableAdBlock(!adBlock.isWhite(url));
         super.loadUrl(url);
         if (browserController != null && foreground) {
             browserController.updateBookmarks();
         }
+    }
+
+    @Override
+    public void reload() {
+        webViewClient.enableAdBlock(!adBlock.isWhite(getUrl()));
+        super.reload();
     }
 
     @Override

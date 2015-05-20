@@ -25,8 +25,19 @@
         <item name="android:alertDialogTheme">@style/AlertDialogStyle</item>
     </style>
 
+    <style name="WhitelistActivityTheme" parent="android:Theme.Material.Light.DarkActionBar" >
+        <item name="android:colorAccent">@color/blue_500</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="android:textColorHighlight">@color/blue_300</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:drawSelectorOnTop">true</item>
+        <item name="android:alertDialogTheme">@style/AlertDialogStyle</item>
+    </style>
+
     <style name="AutoCompleteTextViewStyle" parent="android:Widget.Material.Light.AutoCompleteTextView">
         <item name="android:popupElevation">@dimen/elevation_2dp</item>
+        <item name="android:popupBackground">@color/white</item>
     </style>
 
     <style name="AlertDialogStyle" parent="android:Theme.Material.Light.Dialog.Alert">

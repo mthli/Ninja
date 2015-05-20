@@ -62,6 +62,12 @@
                   android:theme="@style/SettingActivityTheme">
         </activity>
 
+        <!-- WhitelistActivity -->
+        <activity android:name=".Activity.WhitelistActivity"
+                  android:label="@string/whitelist_label"
+                  android:theme="@style/WhitelistActivityTheme">
+        </activity>
+
     </application>
 
 </manifest>

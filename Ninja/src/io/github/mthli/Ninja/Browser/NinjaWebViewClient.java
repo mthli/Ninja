@@ -19,17 +19,20 @@ public class NinjaWebViewClient extends WebViewClient {
     private Context context;
 
     private AdBlock adBlock;
-    private boolean enable = true;
+    private boolean white;
+
+    private boolean enable;
     public void enableAdBlock(boolean enable) {
         this.enable = enable;
     }
 
     public NinjaWebViewClient(NinjaWebView ninjaWebView) {
         super();
-
         this.ninjaWebView = ninjaWebView;
         this.context = ninjaWebView.getContext();
-        this.adBlock = new AdBlock(ninjaWebView.getContext());
+        this.adBlock = ninjaWebView.getAdBlock();
+        this.white = false;
+        this.enable = true;
     }
 
     @Override
@@ -82,13 +85,14 @@ public class NinjaWebViewClient extends WebViewClient {
             }
         }
 
+        white = adBlock.isWhite(url);
         return super.shouldOverrideUrlLoading(view, url);
     }
 
     @Deprecated
     @Override
     public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
-        if (enable && adBlock.isAd(url)) {
+        if (enable && !white && adBlock.isAd(url)) {
             return new WebResourceResponse(
                     BrowserUnit.MIME_TYPE_TEXT_PLAIN,
                     BrowserUnit.URL_ENCODING,
@@ -102,7 +106,7 @@ public class NinjaWebViewClient extends WebViewClient {
     @Override
     public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            if (enable && adBlock.isAd(request.getUrl().toString())) {
+            if (enable && !white && adBlock.isAd(request.getUrl().toString())) {
                 return new WebResourceResponse(
                         BrowserUnit.MIME_TYPE_TEXT_PLAIN,
                         BrowserUnit.URL_ENCODING,

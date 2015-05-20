@@ -5,7 +5,7 @@ import io.github.mthli.Ninja.Database.Record;
 public class RecordUnit {
     public static final String TABLE_BOOKMARKS = "BOOKMARKS";
     public static final String TABLE_HISTORY = "HISTORY";
-    public static final String TABLE_ADBLOCK = "ADBLOCK";
+    public static final String TABLE_WHITELIST = "WHITELIST";
 
     public static final String COLUMN_TITLE = "TITLE";
     public static final String COLUMN_URL = "URL";
@@ -28,8 +28,8 @@ public class RecordUnit {
             + " " + COLUMN_TIME + " integer"
             + ")";
 
-    public static final String CREATE_ADBLOCK = "CREATE TABLE "
-            + TABLE_ADBLOCK
+    public static final String CREATE_WHITELIST = "CREATE TABLE "
+            + TABLE_WHITELIST
             + " ("
             + " " + COLUMN_DOMAIN
             + ")";

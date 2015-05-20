@@ -12,6 +12,7 @@ import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import io.github.mthli.Ninja.Activity.WhitelistActivity;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Task.ClearCacheTask;
 import io.github.mthli.Ninja.Task.ClearFormDataTask;
@@ -81,7 +82,8 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         switch (preference.getTitleRes()) {
             case R.string.setting_title_whitelist:
-                // TODO
+                Intent toWhitelist = new Intent(getActivity(), WhitelistActivity.class);
+                getActivity().startActivity(toWhitelist);
                 break;
             case R.string.setting_title_export_bookmarks:
                 new ExportBookmarksTask(this).execute();

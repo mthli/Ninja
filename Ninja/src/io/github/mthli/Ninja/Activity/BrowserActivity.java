@@ -292,8 +292,6 @@ public class BrowserActivity extends Activity implements BrowserController {
         inputBox.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                Log.e("actionId", String.valueOf(actionId));
-
                 if (currentAlbumController == null || !(actionId == EditorInfo.IME_ACTION_DONE)) {
                     return false;
                 }
@@ -378,11 +376,11 @@ public class BrowserActivity extends Activity implements BrowserController {
                     }
                     action.close();
 
-                    ListView listView = (ListView) layout.findViewById(R.id.list);
-                    TextView textView = (TextView) layout.findViewById(R.id.list_empty);
+                    ListView listView = (ListView) layout.findViewById(R.id.record_list);
+                    TextView textView = (TextView) layout.findViewById(R.id.record_list_empty);
                     listView.setEmptyView(textView);
 
-                    final NinjaListAdapter adapter = new NinjaListAdapter(BrowserActivity.this, R.layout.list_item, list);
+                    final RecordAdapter adapter = new RecordAdapter(BrowserActivity.this, R.layout.record_item, list);
                     listView.setAdapter(adapter);
                     adapter.notifyDataSetChanged();
 
@@ -505,7 +503,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     private synchronized void addAlbum(int flag) {
         final AlbumController holder;
         if (flag == BrowserUnit.FLAG_BOOKMARKS) {
-            NinjaRelativeLayout layout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.list, null, false);
+            NinjaRelativeLayout layout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.record_list, null, false);
             layout.setBrowserController(this);
             layout.setFlag(BrowserUnit.FLAG_BOOKMARKS);
             layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
@@ -523,11 +521,11 @@ public class BrowserActivity extends Activity implements BrowserController {
                 }
             });
 
-            ListView listView = (ListView) layout.findViewById(R.id.list);
-            TextView textView = (TextView) layout.findViewById(R.id.list_empty);
+            ListView listView = (ListView) layout.findViewById(R.id.record_list);
+            TextView textView = (TextView) layout.findViewById(R.id.record_list_empty);
             listView.setEmptyView(textView);
 
-            final NinjaListAdapter adapter = new NinjaListAdapter(this, R.layout.list_item, list);
+            final RecordAdapter adapter = new RecordAdapter(this, R.layout.record_item, list);
             listView.setAdapter(adapter);
             adapter.notifyDataSetChanged();
 
@@ -546,7 +544,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 }
             });
         } else if (flag == BrowserUnit.FLAG_HISTORY) {
-            NinjaRelativeLayout layout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.list, null, false);
+            NinjaRelativeLayout layout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.record_list, null, false);
             layout.setBrowserController(this);
             layout.setFlag(BrowserUnit.FLAG_HISTORY);
             layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
@@ -558,11 +556,11 @@ public class BrowserActivity extends Activity implements BrowserController {
             final List<Record> list = action.listHistory();
             action.close();
 
-            ListView listView = (ListView) layout.findViewById(R.id.list);
-            TextView textView = (TextView) layout.findViewById(R.id.list_empty);
+            ListView listView = (ListView) layout.findViewById(R.id.record_list);
+            TextView textView = (TextView) layout.findViewById(R.id.record_list_empty);
             listView.setEmptyView(textView);
 
-            final NinjaListAdapter adapter = new NinjaListAdapter(this, R.layout.list_item, list);
+            final RecordAdapter adapter = new RecordAdapter(this, R.layout.record_item, list);
             listView.setAdapter(adapter);
             adapter.notifyDataSetChanged();
 
@@ -1132,7 +1130,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         });
     }
 
-    private void showListMenu(final NinjaListAdapter listAdapter, final List<Record> recordList, final int location) {
+    private void showListMenu(final RecordAdapter listAdapter, final List<Record> recordList, final int location) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
 
@@ -1189,7 +1187,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         });
     }
 
-    private void showEditDialog(final NinjaListAdapter listAdapter, List<Record> recordList, int location) {
+    private void showEditDialog(final RecordAdapter listAdapter, List<Record> recordList, int location) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
 

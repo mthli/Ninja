@@ -62,7 +62,7 @@ public class RecordAction {
 
         ContentValues values = new ContentValues();
         values.put(RecordUnit.COLUMN_DOMAIN, domain.trim());
-        database.insert(RecordUnit.TABLE_ADBLOCK, null, values);
+        database.insert(RecordUnit.TABLE_WHITELIST, null, values);
         return true;
     }
 
@@ -140,9 +140,9 @@ public class RecordAction {
         }
 
         Cursor cursor = database.query(
-                RecordUnit.TABLE_ADBLOCK,
+                RecordUnit.TABLE_WHITELIST,
                 new String[] {RecordUnit.COLUMN_DOMAIN},
-                RecordUnit.COLUMN_URL + "=?",
+                RecordUnit.COLUMN_DOMAIN + "=?",
                 new String[] {domain.trim()},
                 null,
                 null,
@@ -194,7 +194,7 @@ public class RecordAction {
             return false;
         }
 
-        database.execSQL("DELETE FROM "+ RecordUnit.TABLE_ADBLOCK + " WHERE " + RecordUnit.COLUMN_DOMAIN + " = " + "\"" + domain.trim() + "\"");
+        database.execSQL("DELETE FROM "+ RecordUnit.TABLE_WHITELIST + " WHERE " + RecordUnit.COLUMN_DOMAIN + " = " + "\"" + domain.trim() + "\"");
         return true;
     }
 
@@ -206,7 +206,11 @@ public class RecordAction {
         database.execSQL("DELETE FROM " + RecordUnit.TABLE_HISTORY);
     }
 
-    private Record get(Cursor cursor) {
+    public void clearDomains() {
+        database.execSQL("DELETE FROM " + RecordUnit.TABLE_WHITELIST);
+    }
+
+    private Record getRecord(Cursor cursor) {
         Record record = new Record();
         record.setTitle(cursor.getString(0));
         record.setURL(cursor.getString(1));
@@ -239,7 +243,7 @@ public class RecordAction {
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            list.add(get(cursor));
+            list.add(getRecord(cursor));
             cursor.moveToNext();
         }
         cursor.close();
@@ -271,7 +275,34 @@ public class RecordAction {
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            list.add(get(cursor));
+            list.add(getRecord(cursor));
+            cursor.moveToNext();
+        }
+        cursor.close();
+
+        return list;
+    }
+
+    public List<String> listDomains() {
+        List<String> list = new ArrayList<>();
+
+        Cursor cursor = database.query(
+                RecordUnit.TABLE_WHITELIST,
+                new String[] {RecordUnit.COLUMN_DOMAIN},
+                null,
+                null,
+                null,
+                null,
+                RecordUnit.COLUMN_DOMAIN
+        );
+
+        if (cursor == null) {
+            return list;
+        }
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            list.add(cursor.getString(0));
             cursor.moveToNext();
         }
         cursor.close();

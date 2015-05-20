@@ -187,6 +187,18 @@
     <string name="setting_title_whitelist">
         Whitelist
     </string>
+    <string name="setting_summary_whitelist">
+        Make webpages display correctly
+    </string>
+    <string name="setting_title_export_whilelist">
+        Export whitelist
+    </string>
+    <string name="setting_title_import_whilelist">
+        Import whilelist
+    </string>
+    <string name="whilelist_filename">
+        NinjaWhitelist
+    </string>
     <!-- Data setting -->
     <string name="setting_title_data">
         Data
@@ -247,7 +259,24 @@
         Contact us
     </string>
 
+    <!-- Whitelist -->
+    <string name="whitelist_label">
+        Whitelist
+    </string>
+    <string name="whitelist_menu_clear">
+        Clear
+    </string>
+    <string name="whitelist_edit_hint">
+        Domain
+    </string>
+    <string name="whitelist_add">
+        Add
+    </string>
+
     <!-- Toast -->
+    <string name="toast_add_successful">
+        Add successful.
+    </string>
     <string name="toast_add_bookmark_successful">
         Add bookmark successful.
     </string>
@@ -286,6 +315,9 @@
     </string>
     <string name="toast_delete_successful">
         Delete successful.
+    </string>
+    <string name="toast_domain_already_exists">
+        Domain already exists.
     </string>
     <string name="toast_double_taps_quit">
         Double taps quit.

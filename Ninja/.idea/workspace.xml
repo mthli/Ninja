@@ -42,14 +42,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SettingFragment.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/View/SettingFragment.java">
+      <file leaf-file-name="WhitelistActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/WhitelistActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.49751243">
-              <caret line="31" column="60" selection-start-line="31" selection-start-column="60" selection-end-line="31" selection-end-column="60" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="100" column="5" selection-start-line="100" selection-start-column="5" selection-end-line="100" selection-end-column="5" />
               <folding>
-                <element signature="e#2611#2644#0" expanded="true" />
-                <element signature="e#3142#3174#0" expanded="true" />
+                <element signature="imports" expanded="false" />
+                <element signature="method#onCreate#0;class#WhitelistActivity#0" expanded="false" />
+                <element signature="method#onCreateOptionsMenu#0;class#WhitelistActivity#0" expanded="false" />
+                <element signature="method#onOptionsItemSelected#0;class#WhitelistActivity#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NinjaWebView.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/View/NinjaWebView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.6915423">
+              <caret line="253" column="5" selection-start-line="253" selection-start-column="5" selection-end-line="253" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="method#setBrowserController#0;class#NinjaWebView#0" expanded="false" />
+                <element signature="method#NinjaWebView#2;class#NinjaWebView#0" expanded="false" />
+                <element signature="method#initWebView#0;class#NinjaWebView#0" expanded="false" />
+                <element signature="method#initWebSettings#0;class#NinjaWebView#0" expanded="false" />
+                <element signature="method#initPreferences#0;class#NinjaWebView#0" expanded="false" />
+                <element signature="method#initAlbum#0;class#NinjaWebView#0" expanded="false" />
+                <element signature="method#loadUrl#0;class#NinjaWebView#0" expanded="false" />
+                <element signature="method#reload#0;class#NinjaWebView#0" expanded="false" />
+                <element signature="method#activate#0;class#NinjaWebView#0" expanded="false" />
+                <element signature="method#deactivate#0;class#NinjaWebView#0" expanded="false" />
+                <element signature="method#update#0;class#NinjaWebView#0" expanded="false" />
+                <element signature="method#update#1;class#NinjaWebView#0" expanded="false" />
+                <element signature="method#pause#0;class#NinjaWebView#0" expanded="false" />
+                <element signature="method#resume#0;class#NinjaWebView#0" expanded="false" />
+                <element signature="method#destroy#0;class#NinjaWebView#0" expanded="false" />
+                <element signature="method#onLongPress#0;class#NinjaWebView#0" expanded="false" />
+                <element signature="method#prepareRecord#0;class#NinjaWebView#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NinjaWebViewClient.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/NinjaWebViewClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="118" column="5" selection-start-line="118" selection-start-column="5" selection-end-line="118" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="method#NinjaWebViewClient#0;class#NinjaWebViewClient#0" expanded="false" />
+                <element signature="method#onPageStarted#0;class#NinjaWebViewClient#0" expanded="false" />
+                <element signature="method#onPageFinished#0;class#NinjaWebViewClient#0" expanded="false" />
+                <element signature="method#shouldOverrideUrlLoading#0;class#NinjaWebViewClient#0" expanded="false" />
+                <element signature="e#2864#2875#0" expanded="false" />
+                <element signature="method#shouldInterceptRequest#0;class#NinjaWebViewClient#0" expanded="false" />
+                <element signature="method#shouldInterceptRequest#1;class#NinjaWebViewClient#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -61,9 +111,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="valueResourceFile" />
+        <option value="resourceFile" />
         <option value="layoutResourceFile_vertical" />
         <option value="layoutResourceFile" />
-        <option value="resourceFile" />
         <option value="Class" />
       </list>
     </option>
@@ -80,15 +130,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/BrowserController.java" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/Album.java" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Service/HolderService.java" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/BrowserContainer.java" />
-        <option value="$PROJECT_DIR$/res/layout/main.xml" />
-        <option value="$PROJECT_DIR$/res/layout/search.xml" />
-        <option value="$PROJECT_DIR$/res/layout/dialog_edit.xml" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/SPUnit.java" />
-        <option value="$PROJECT_DIR$/assets/ninja_introduction_zh.md" />
         <option value="$PROJECT_DIR$/assets/ninja_introduction_en.md" />
         <option value="$PROJECT_DIR$/assets/ninja_introduction_zh.html" />
         <option value="$PROJECT_DIR$/assets/ninja_introduction_en.html" />
@@ -105,32 +146,41 @@
         <option value="$PROJECT_DIR$/res/drawable/round_corner_shape_blue.xml" />
         <option value="$PROJECT_DIR$/res/drawable/round_corner_shape_white.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/CompleteAdapter.java" />
-        <option value="$PROJECT_DIR$/res/values/dimens.xml" />
-        <option value="$PROJECT_DIR$/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/res/values-v21/styles.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Task/ScreenshotTask.java" />
         <option value="$PROJECT_DIR$/res/layout/main_bottom.xml" />
         <option value="$PROJECT_DIR$/res/layout/main_top.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/SwitcherPanel.java" />
         <option value="$PROJECT_DIR$/res/values/integers.xml" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/BrowserUnit.java" />
         <option value="$PROJECT_DIR$/res/layout/dialog_header.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/ViewUnit.java" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/BrowserActivity.java" />
         <option value="$PROJECT_DIR$/res/values/strings_app.xml" />
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/AdBlock.java" />
         <option value="$PROJECT_DIR$/res/values/strings_key.xml" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/AdBlockActivity.java" />
+        <option value="$PROJECT_DIR$/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/SettingFragment.java" />
+        <option value="$PROJECT_DIR$/res/layout/record_list_item.xml" />
+        <option value="$PROJECT_DIR$/res/values/dimens.xml" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/RecordAdapter.java" />
+        <option value="$PROJECT_DIR$/res/layout/whitelist_item.xml" />
+        <option value="$PROJECT_DIR$/res/layout/record_item.xml" />
+        <option value="$PROJECT_DIR$/res/layout/record_list.xml" />
+        <option value="$PROJECT_DIR$/res/layout/whitelist.xml" />
+        <option value="$PROJECT_DIR$/res/xml/preference.xml" />
+        <option value="$PROJECT_DIR$/res/menu/whilelist_menu.xml" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/RecordUnit.java" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Database/RecordAction.java" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/WhitelistAdapter.java" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/WhitelistActivity.java" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Database/RecordHelper.java" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/BrowserUnit.java" />
+        <option value="$PROJECT_DIR$/res/values-v21/styles.xml" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/BrowserActivity.java" />
+        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/AdBlock.java" />
+        <option value="$PROJECT_DIR$/res/values-zh/strings.xml" />
+        <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/NinjaWebViewClient.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/NinjaWebView.java" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/AdBlockActivity.java" />
-        <option value="$PROJECT_DIR$/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/res/values-zh/strings.xml" />
-        <option value="$PROJECT_DIR$/res/xml/preference.xml" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/SettingFragment.java" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Database/RecordAction.java" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/RecordUnit.java" />
-        <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Database/RecordHelper.java" />
       </list>
     </option>
   </component>
@@ -212,6 +262,10 @@
               <option name="myItemId" value="Ninja" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -252,8 +306,48 @@
               <option name="myItemId" value="Ninja" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Browser" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -342,6 +436,10 @@
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values-v21" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -358,6 +456,70 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="menu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ninja" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -628,7 +790,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2439577" sideWeight="0.4888889" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.38618523" sideWeight="0.47142857" order="0" side_tool="false" content_ui="combo" x="862" y="84" width="435" height="613" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.38618523" sideWeight="0.47142857" order="0" side_tool="false" content_ui="combo" x="862" y="84" width="435" height="613" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4063492" sideWeight="0.49697885" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -638,36 +800,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43650794" sideWeight="0.5030211" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42222223" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.38618523" sideWeight="0.47142857" order="0" side_tool="false" content_ui="combo" x="862" y="84" width="435" height="613" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4063492" sideWeight="0.49697885" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32905295" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" x="241" y="139" width="872" height="464" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3542296" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30793652" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24622357" sideWeight="0.5285714" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2857143" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32857144" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" x="4" y="37" width="1358" height="667" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2439577" sideWeight="0.4888889" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -691,96 +823,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/layout/dialog_introduction.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28695652">
-          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ant.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proguard-project.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.466443">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/anim/slide_in_up.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="6" selection-start-line="2" selection-start-column="0" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable/shadow_above.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15100671">
-          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable/shadow_below.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17617449">
-          <caret line="7" column="15" selection-start-line="4" selection-start-column="4" selection-end-line="7" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/home.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2112676">
-          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///opt/android-sdk/sources/android-22/android/widget/LinearLayout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33251834">
-          <caret line="62" column="13" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable/drop_down_shape.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2238806">
-          <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
-          <folding>
-            <element signature="e#216#236#0" expanded="false" />
-            <element signature="e#264#284#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/complete_item.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -832,43 +874,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/list.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35234898">
-          <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/View/Album.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.29850745">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/IntentUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14925373">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="76" selection-start-line="7" selection-start-column="76" selection-end-line="7" selection-end-column="76" />
         </state>
       </provider>
     </entry>
@@ -891,145 +900,6 @@
         <state vertical-scroll-proportion="0.5522388">
           <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/main_top.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3478261">
-          <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
-          <folding>
-            <element signature="e#703#730#0" expanded="false" />
-            <element signature="e#770#797#0" expanded="false" />
-            <element signature="n#TextView#0;n#FrameLayout#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#965#992#0" expanded="false" />
-            <element signature="e#1134#1152#0" expanded="false" />
-            <element signature="e#1247#1270#0" expanded="false" />
-            <element signature="n#LinearLayout#0;n#FrameLayout#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="n#ImageButton#0;n#LinearLayout#0;n#FrameLayout#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#1954#1980#0" expanded="false" />
-            <element signature="n#ImageButton#1;n#LinearLayout#0;n#FrameLayout#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#2470#2496#0" expanded="false" />
-            <element signature="n#ImageButton#2;n#LinearLayout#0;n#FrameLayout#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#2975#3001#0" expanded="false" />
-            <element signature="n#HorizontalScrollView#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="n#LinearLayout#0;n#HorizontalScrollView#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="n#LinearLayout#1;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="n#RelativeLayout#0;n#LinearLayout#1;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#4230#4257#0" expanded="false" />
-            <element signature="e#4300#4327#0" expanded="false" />
-            <element signature="n#ImageButton#0;n#RelativeLayout#0;n#LinearLayout#1;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#4818#4844#0" expanded="false" />
-            <element signature="e#4897#4923#0" expanded="false" />
-            <element signature="e#5319#5346#0" expanded="false" />
-            <element signature="e#5393#5420#0" expanded="false" />
-            <element signature="e#5686#5712#0" expanded="false" />
-            <element signature="n#ImageButton#0;n#RelativeLayout#0;n#RelativeLayout#0;n#LinearLayout#1;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#6364#6390#0" expanded="false" />
-            <element signature="n#ImageButton#1;n#RelativeLayout#0;n#RelativeLayout#0;n#LinearLayout#1;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#7017#7043#0" expanded="false" />
-            <element signature="e#7425#7452#0" expanded="false" />
-            <element signature="e#7509#7536#0" expanded="false" />
-            <element signature="e#7843#7876#0" expanded="false" />
-            <element signature="e#8149#8172#0" expanded="false" />
-            <element signature="n#ProgressBar#0;n#RelativeLayout#0;n#LinearLayout#1;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#8824#8850#0" expanded="false" />
-            <element signature="e#8894#8920#0" expanded="false" />
-            <element signature="n#RelativeLayout#1;n#LinearLayout#1;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#9408#9435#0" expanded="false" />
-            <element signature="e#9478#9505#0" expanded="false" />
-            <element signature="n#LinearLayout#0;n#RelativeLayout#1;n#LinearLayout#1;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#10045#10071#0" expanded="false" />
-            <element signature="e#10125#10151#0" expanded="false" />
-            <element signature="n#ImageButton#0;n#LinearLayout#0;n#RelativeLayout#1;n#LinearLayout#1;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#10462#10488#0" expanded="false" />
-            <element signature="n#ImageButton#1;n#LinearLayout#0;n#RelativeLayout#1;n#LinearLayout#1;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#10966#10992#0" expanded="false" />
-            <element signature="n#ImageButton#0;n#RelativeLayout#1;n#LinearLayout#1;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#11613#11639#0" expanded="false" />
-            <element signature="e#11692#11718#0" expanded="false" />
-            <element signature="e#12038#12065#0" expanded="false" />
-            <element signature="e#12106#12133#0" expanded="false" />
-            <element signature="e#12376#12396#0" expanded="false" />
-            <element signature="e#12440#12460#0" expanded="false" />
-            <element signature="e#12496#12517#0" expanded="false" />
-            <element signature="e#12726#12749#0" expanded="false" />
-            <element signature="n#FrameLayout#0;n#LinearLayout#1;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/main_bottom.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26086956">
-          <caret line="81" column="45" selection-start-line="81" selection-start-column="45" selection-end-line="81" selection-end-column="45" />
-          <folding>
-            <element signature="n#RelativeLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="n#RelativeLayout#0;n#RelativeLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#671#698#0" expanded="false" />
-            <element signature="e#805#832#0" expanded="false" />
-            <element signature="n#TextView#0;n#RelativeLayout#0;n#RelativeLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#1000#1027#0" expanded="false" />
-            <element signature="e#1229#1247#0" expanded="false" />
-            <element signature="e#1342#1365#0" expanded="false" />
-            <element signature="n#ImageButton#0;n#RelativeLayout#0;n#RelativeLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#1835#1861#0" expanded="false" />
-            <element signature="n#ImageButton#1;n#RelativeLayout#0;n#RelativeLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#2372#2398#0" expanded="false" />
-            <element signature="n#ImageButton#2;n#RelativeLayout#0;n#RelativeLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#2923#2949#0" expanded="false" />
-            <element signature="n#HorizontalScrollView#0;n#RelativeLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="n#LinearLayout#0;n#HorizontalScrollView#0;n#RelativeLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="n#FrameLayout#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#4446#4473#0" expanded="false" />
-            <element signature="n#RelativeLayout#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#4660#4687#0" expanded="false" />
-            <element signature="e#4730#4757#0" expanded="false" />
-            <element signature="n#ProgressBar#0;n#RelativeLayout#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#4992#5018#0" expanded="false" />
-            <element signature="e#5062#5088#0" expanded="false" />
-            <element signature="n#ImageButton#0;n#RelativeLayout#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#5805#5831#0" expanded="false" />
-            <element signature="e#5884#5910#0" expanded="false" />
-            <element signature="n#RelativeLayout#0;n#RelativeLayout#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#6306#6333#0" expanded="false" />
-            <element signature="e#6380#6407#0" expanded="false" />
-            <element signature="e#6673#6699#0" expanded="false" />
-            <element signature="n#ImageButton#0;n#RelativeLayout#0;n#RelativeLayout#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#7351#7377#0" expanded="false" />
-            <element signature="n#ImageButton#1;n#RelativeLayout#0;n#RelativeLayout#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#8004#8030#0" expanded="false" />
-            <element signature="e#8412#8439#0" expanded="false" />
-            <element signature="e#8496#8523#0" expanded="false" />
-            <element signature="e#8830#8863#0" expanded="false" />
-            <element signature="e#9136#9159#0" expanded="false" />
-            <element signature="n#RelativeLayout#1;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#9835#9862#0" expanded="false" />
-            <element signature="e#9905#9932#0" expanded="false" />
-            <element signature="n#LinearLayout#0;n#RelativeLayout#1;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#10472#10498#0" expanded="false" />
-            <element signature="e#10552#10578#0" expanded="false" />
-            <element signature="n#ImageButton#0;n#LinearLayout#0;n#RelativeLayout#1;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#10889#10915#0" expanded="false" />
-            <element signature="n#ImageButton#1;n#LinearLayout#0;n#RelativeLayout#1;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#11393#11419#0" expanded="false" />
-            <element signature="n#ImageButton#0;n#RelativeLayout#1;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
-            <element signature="e#12040#12066#0" expanded="false" />
-            <element signature="e#12119#12145#0" expanded="false" />
-            <element signature="e#12465#12492#0" expanded="false" />
-            <element signature="e#12533#12560#0" expanded="false" />
-            <element signature="e#12803#12823#0" expanded="false" />
-            <element signature="e#12867#12887#0" expanded="false" />
-            <element signature="e#12923#12944#0" expanded="false" />
-            <element signature="e#13153#13176#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1106,128 +976,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/values-v21/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24875621">
-          <caret line="10" column="76" selection-start-line="10" selection-start-column="76" selection-end-line="10" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47263682">
-          <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/BrowserUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6467662">
-          <caret line="127" column="48" selection-start-line="127" selection-start-column="48" selection-end-line="127" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/SettingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45273632">
-          <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/BrowserActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5970149">
-          <caret line="1109" column="64" selection-start-line="1109" selection-start-column="64" selection-end-line="1109" selection-end-column="64" />
-          <folding>
-            <element signature="method#onCreate#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#3521:3801" expanded="false" />
-            <element signature="method#onNewIntent#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onResume#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#dispatchIntent#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onPause#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onConfigurationChanged#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onKeyDown#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#initSwitcherView#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#initOmnibox#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#initSearchPanel#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#16969:17552" expanded="false" />
-            <element signature="method#beforeTextChanged#0;class#16969:17552" expanded="false" />
-            <element signature="method#onTextChanged#0;class#16969:17552" expanded="false" />
-            <element signature="method#afterTextChanged#0;class#16969:17552" expanded="false" />
-            <element signature="method#addAlbum#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#24241:24685" expanded="false" />
-            <element signature="method#onAnimationRepeat#0;class#24241:24685" expanded="false" />
-            <element signature="method#addAlbum#1;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#26443:27247" expanded="false" />
-            <element signature="method#onAnimationRepeat#0;class#26443:27247" expanded="false" />
-            <element signature="method#onAnimationEnd#0;class#26443:27247" expanded="false" />
-            <element signature="method#pinAlbums#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#showAlbum#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateAlbum#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateAlbum#1;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#removeAlbum#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateAutoComplete#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateBookmarks#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateInputBox#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateOmnibox#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateProgress#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#updateRefresh#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onCreateView#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#onLongPress#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#doubleTapsQuit#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#hideSoftInput#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#showSoftInput#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#hideSearchPanel#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#showSearchPanel#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="e#44751#46823#0" expanded="false" />
-            <element signature="e#46822#46823#0" expanded="false" />
-            <element signature="method#showListMenu#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#showEditDialog#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#prepareRecord#0;class#BrowserActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/View/NinjaToast.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14925373">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/AdBlock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27363184">
-          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#AdBlock#0;class#AdBlock#0" expanded="false" />
-            <element signature="method#loadDomains#0;class#AdBlock#0" expanded="false" />
-            <element signature="method#isAd#0;class#AdBlock#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/View/NinjaWebView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39800996">
-          <caret line="191" column="72" selection-start-line="191" selection-start-column="72" selection-end-line="191" selection-end-column="72" />
-          <folding>
-            <element signature="e#6484#6523#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/NinjaWebViewClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5505804">
-          <caret line="92" column="53" selection-start-line="92" selection-start-column="53" selection-end-line="92" selection-end-column="53" />
           <folding />
         </state>
       </provider>
@@ -1240,14 +992,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/WhitelistActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09950249">
-          <caret line="4" column="47" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/values/strings_app.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.42288557">
@@ -1256,18 +1000,225 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///opt/android-sdk/sources/android-22/android/database/sqlite/SQLiteDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5986733">
+          <caret line="414" column="16" selection-start-line="414" selection-start-column="16" selection-end-line="414" selection-end-column="16" />
+          <folding>
+            <element signature="e#16301#16302#0" expanded="false" />
+            <element signature="e#16377#16378#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="12" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.75124377">
+          <caret line="66" column="57" selection-start-line="66" selection-start-column="57" selection-end-line="66" selection-end-column="57" />
+          <folding>
+            <element signature="e#849#867#0" expanded="true" />
+            <element signature="e#2935#2960#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable-xxhdpi/ic_action_add_default.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable-xxhdpi/ic_action_add_active.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/menu/setting_menu.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/View/SettingFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8955224">
+          <caret line="109" column="30" selection-start-line="109" selection-start-column="30" selection-end-line="109" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/SettingActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.62189054">
+          <caret line="34" column="55" selection-start-line="26" selection-start-column="8" selection-end-line="34" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/main_top.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5565217">
+          <caret line="152" column="78" selection-start-line="152" selection-start-column="78" selection-end-line="153" selection-end-column="69" />
+          <folding>
+            <element signature="n#TextView#0;n#FrameLayout#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#ImageButton#0;n#LinearLayout#0;n#FrameLayout#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#ImageButton#1;n#LinearLayout#0;n#FrameLayout#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#ImageButton#2;n#LinearLayout#0;n#FrameLayout#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#LinearLayout#0;n#HorizontalScrollView#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#ImageButton#0;n#RelativeLayout#0;n#LinearLayout#1;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#ImageButton#0;n#RelativeLayout#0;n#RelativeLayout#0;n#LinearLayout#1;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#ImageButton#1;n#RelativeLayout#0;n#RelativeLayout#0;n#LinearLayout#1;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#ProgressBar#0;n#RelativeLayout#0;n#LinearLayout#1;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#RelativeLayout#1;n#LinearLayout#1;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#LinearLayout#0;n#RelativeLayout#1;n#LinearLayout#1;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#ImageButton#0;n#LinearLayout#0;n#RelativeLayout#1;n#LinearLayout#1;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#ImageButton#1;n#LinearLayout#0;n#RelativeLayout#1;n#LinearLayout#1;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#ImageButton#0;n#RelativeLayout#1;n#LinearLayout#1;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#FrameLayout#0;n#LinearLayout#1;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/main_bottom.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4">
+          <caret line="117" column="77" selection-start-line="117" selection-start-column="77" selection-end-line="117" selection-end-column="77" />
+          <folding>
+            <element signature="n#RelativeLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#RelativeLayout#0;n#RelativeLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#TextView#0;n#RelativeLayout#0;n#RelativeLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#ImageButton#0;n#RelativeLayout#0;n#RelativeLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#ImageButton#1;n#RelativeLayout#0;n#RelativeLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#ImageButton#2;n#RelativeLayout#0;n#RelativeLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#HorizontalScrollView#0;n#RelativeLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#LinearLayout#0;n#HorizontalScrollView#0;n#RelativeLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#FrameLayout#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#ProgressBar#0;n#RelativeLayout#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#RelativeLayout#0;n#RelativeLayout#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#ImageButton#0;n#RelativeLayout#0;n#RelativeLayout#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#ImageButton#1;n#RelativeLayout#0;n#RelativeLayout#0;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#RelativeLayout#1;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#LinearLayout#0;n#RelativeLayout#1;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#ImageButton#0;n#LinearLayout#0;n#RelativeLayout#1;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#ImageButton#1;n#LinearLayout#0;n#RelativeLayout#1;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+            <element signature="n#ImageButton#0;n#RelativeLayout#1;n#LinearLayout#0;n#io.github.mthli.Ninja.View.SwitcherPanel#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72139305">
+          <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/record_list.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.57391304">
+          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+          <folding>
+            <element signature="e#864#887#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/record_item.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32173914">
+          <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
+          <folding>
+            <element signature="e#467#494#0" expanded="false" />
+            <element signature="e#541#568#0" expanded="false" />
+            <element signature="e#616#643#0" expanded="false" />
+            <element signature="e#1052#1075#0" expanded="false" />
+            <element signature="e#1607#1633#0" expanded="false" />
+            <element signature="e#1719#1742#0" expanded="false" />
+            <element signature="e#2065#2092#0" expanded="false" />
+            <element signature="e#2133#2160#0" expanded="false" />
+            <element signature="e#2202#2229#0" expanded="false" />
+            <element signature="e#2317#2340#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/whitelist.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6869565">
+          <caret line="59" column="53" selection-start-line="59" selection-start-column="53" selection-end-line="59" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/View/RecordAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.10067114">
+          <caret line="14" column="56" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/whitelist_item.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15652174">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+          <folding>
+            <element signature="e#587#613#0" expanded="true" />
+            <element signature="e#1114#1141#0" expanded="true" />
+            <element signature="e#1219#1242#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/IntentUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14925373">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/res/xml/preference.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50248754">
-          <caret line="70" column="70" selection-start-line="70" selection-start-column="70" selection-end-line="70" selection-end-column="70" />
+        <state vertical-scroll-proportion="0.45273632">
+          <caret line="76" column="77" selection-start-line="76" selection-start-column="77" selection-end-line="76" selection-end-column="77" />
           <folding>
             <element signature="n#ListPreference#0;n#PreferenceCategory#0;n#PreferenceScreen#0;n#!!top" expanded="false" />
             <element signature="n#ListPreference#1;n#PreferenceCategory#0;n#PreferenceScreen#0;n#!!top" expanded="false" />
             <element signature="n#CheckBoxPreference#1;n#PreferenceCategory#0;n#PreferenceScreen#0;n#!!top" expanded="false" />
             <element signature="n#CheckBoxPreference#2;n#PreferenceCategory#0;n#PreferenceScreen#0;n#!!top" expanded="false" />
-            <element signature="n#CheckBoxPreference#3;n#PreferenceCategory#0;n#PreferenceScreen#0;n#!!top" expanded="false" />
-            <element signature="n#CheckBoxPreference#4;n#PreferenceCategory#0;n#PreferenceScreen#0;n#!!top" expanded="false" />
-            <element signature="n#ListPreference#2;n#PreferenceCategory#0;n#PreferenceScreen#0;n#!!top" expanded="false" />
+            <element signature="e#2828#2851#0" expanded="false" />
+            <element signature="e#3787#3822#0" expanded="false" />
+            <element signature="e#3881#3921#0" expanded="false" />
+            <element signature="e#3960#4000#0" expanded="false" />
             <element signature="n#PreferenceCategory#2;n#PreferenceScreen#0;n#!!top" expanded="false" />
             <element signature="n#CheckBoxPreference#0;n#PreferenceCategory#2;n#PreferenceScreen#0;n#!!top" expanded="false" />
             <element signature="n#Preference#0;n#PreferenceCategory#3;n#PreferenceScreen#0;n#!!top" expanded="false" />
@@ -1275,55 +1226,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/values-zh/strings.xml">
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/RecordUnit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37954938">
-          <caret line="187" column="13" selection-start-line="187" selection-start-column="13" selection-end-line="187" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.7960199">
+          <caret line="32" column="18" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="18" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5389948">
-          <caret line="188" column="13" selection-start-line="188" selection-start-column="13" selection-end-line="188" selection-end-column="13" />
-          <folding>
-            <element signature="n#string#33;n#resources#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///opt/android-sdk/sources/android-22/android/database/sqlite/SQLiteDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5986733">
-          <caret line="414" column="16" selection-start-line="414" selection-start-column="16" selection-end-line="414" selection-end-column="16" />
-          <folding>
-            <element signature="e#16301#16302#0" expanded="true" />
-            <element signature="e#16377#16378#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Database/RecordHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5472637">
-          <caret line="24" column="56" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.4477612">
+          <caret line="20" column="57" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/RecordUnit.java">
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/View/WhitelistAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5771144">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.37313432">
+          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/menu/whilelist_menu.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14925373">
+          <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+          <folding>
+            <element signature="e#180#210#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/BrowserUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25373134">
+          <caret line="96" column="30" selection-start-line="96" selection-start-column="30" selection-end-line="96" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#isNetworkAvailable#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="method#isURL#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="method#queryWrapper#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="method#copyURL#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="method#download#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="method#screenshot#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="method#exportBookmarks#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="method#importBookmarks#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="method#clearBookmarks#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="method#clearCache#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="method#clearCookies#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="class#11659:11786" expanded="false" />
+            <element signature="method#clearHistory#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="method#clearPasswords#0;class#BrowserUnit#0" expanded="false" />
+            <element signature="method#deleteDir#0;class#BrowserUnit#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Database/RecordAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.84577113">
-          <caret line="198" column="5" selection-start-line="198" selection-start-column="5" selection-end-line="198" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.4477612">
+          <caret line="57" column="44" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="false" />
             <element signature="method#open#0;class#RecordAction#0" expanded="false" />
@@ -1338,20 +1303,168 @@
             <element signature="method#deleteBookmark#1;class#RecordAction#0" expanded="false" />
             <element signature="method#deleteHistory#0;class#RecordAction#0" expanded="false" />
             <element signature="method#deleteDomain#0;class#RecordAction#0" expanded="false" />
-            <element signature="method#get#0;class#RecordAction#0" expanded="false" />
+            <element signature="method#getRecord#0;class#RecordAction#0" expanded="false" />
             <element signature="method#listBookmarks#0;class#RecordAction#0" expanded="false" />
             <element signature="method#listHistory#0;class#RecordAction#0" expanded="false" />
+            <element signature="method#listDomains#0;class#RecordAction#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/View/SettingFragment.java">
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/NinjaWebChromeClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.49751243">
-          <caret line="31" column="60" selection-start-line="31" selection-start-column="60" selection-end-line="31" selection-end-column="60" />
+        <state vertical-scroll-proportion="-0.6666667">
+          <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values-v21/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65174127">
+          <caret line="39" column="64" selection-start-line="39" selection-start-column="64" selection-end-line="39" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/BrowserActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12347826">
+          <caret line="293" column="85" selection-start-line="293" selection-start-column="85" selection-end-line="293" selection-end-column="85" />
           <folding>
-            <element signature="e#2611#2644#0" expanded="true" />
-            <element signature="e#3142#3174#0" expanded="true" />
+            <element signature="class#3521:3801" expanded="false" />
+            <element signature="method#onNewIntent#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onResume#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onPause#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onDestroy#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onConfigurationChanged#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onKeyDown#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#initSwitcherView#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#initSearchPanel#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#16917:17500" expanded="false" />
+            <element signature="method#beforeTextChanged#0;class#16917:17500" expanded="false" />
+            <element signature="method#onTextChanged#0;class#16917:17500" expanded="false" />
+            <element signature="method#afterTextChanged#0;class#16917:17500" expanded="false" />
+            <element signature="method#addAlbum#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#24223:24667" expanded="false" />
+            <element signature="method#onAnimationRepeat#0;class#24223:24667" expanded="false" />
+            <element signature="method#addAlbum#1;class#BrowserActivity#0" expanded="false" />
+            <element signature="class#26425:27229" expanded="false" />
+            <element signature="method#onAnimationRepeat#0;class#26425:27229" expanded="false" />
+            <element signature="method#onAnimationEnd#0;class#26425:27229" expanded="false" />
+            <element signature="method#pinAlbums#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#showAlbum#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateAlbum#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateAlbum#1;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#removeAlbum#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateAutoComplete#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateBookmarks#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateInputBox#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateOmnibox#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateProgress#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#updateRefresh#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#doubleTapsQuit#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#hideSoftInput#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#hideSearchPanel#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#showSearchPanel#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#showEditDialog#0;class#BrowserActivity#0" expanded="false" />
+            <element signature="method#prepareRecord#0;class#BrowserActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/hosts.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3631841">
+          <caret line="15118" column="12" selection-start-line="15118" selection-start-column="6" selection-end-line="15118" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/AdBlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="100" column="19" selection-start-line="100" selection-start-column="19" selection-end-line="100" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#loadDomains#0;class#AdBlock#0" expanded="false" />
+            <element signature="method#AdBlock#0;class#AdBlock#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49220103">
+          <caret line="269" column="14" selection-start-line="269" selection-start-column="14" selection-end-line="269" selection-end-column="14" />
+          <folding>
+            <element signature="n#string#33;n#resources#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values-zh/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6811092">
+          <caret line="268" column="10" selection-start-line="268" selection-start-column="10" selection-end-line="268" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/NinjaWebViewClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="118" column="5" selection-start-line="118" selection-start-column="5" selection-end-line="118" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#NinjaWebViewClient#0;class#NinjaWebViewClient#0" expanded="false" />
+            <element signature="method#onPageStarted#0;class#NinjaWebViewClient#0" expanded="false" />
+            <element signature="method#onPageFinished#0;class#NinjaWebViewClient#0" expanded="false" />
+            <element signature="method#shouldOverrideUrlLoading#0;class#NinjaWebViewClient#0" expanded="false" />
+            <element signature="e#2864#2875#0" expanded="false" />
+            <element signature="method#shouldInterceptRequest#0;class#NinjaWebViewClient#0" expanded="false" />
+            <element signature="method#shouldInterceptRequest#1;class#NinjaWebViewClient#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/WhitelistActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="100" column="5" selection-start-line="100" selection-start-column="5" selection-end-line="100" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#onCreate#0;class#WhitelistActivity#0" expanded="false" />
+            <element signature="method#onCreateOptionsMenu#0;class#WhitelistActivity#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#WhitelistActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/View/NinjaWebView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.6915423">
+          <caret line="253" column="5" selection-start-line="253" selection-start-column="5" selection-end-line="253" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#setBrowserController#0;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#NinjaWebView#2;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#initWebView#0;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#initWebSettings#0;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#initPreferences#0;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#initAlbum#0;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#loadUrl#0;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#reload#0;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#activate#0;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#deactivate#0;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#update#0;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#update#1;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#pause#0;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#resume#0;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#destroy#0;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#onLongPress#0;class#NinjaWebView#0" expanded="false" />
+            <element signature="method#prepareRecord#0;class#NinjaWebView#0" expanded="false" />
           </folding>
         </state>
       </provider>

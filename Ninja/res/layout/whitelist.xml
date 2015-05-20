@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white">
+
+    <LinearLayout android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content">
+
+        <EditText android:id="@+id/whilelist_edit"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="@dimen/layout_margin_8dp"
+                  android:layout_marginLeft="@dimen/layout_margin_8dp"
+                  android:layout_marginRight="@dimen/layout_margin_8dp"
+                  android:hint="@string/whitelist_edit_hint"
+                  android:textColor="@color/text"
+                  android:textColorHint="@color/hint"
+                  android:textCursorDrawable="@null"
+                  android:textSize="@dimen/text_size_14sp"
+                  android:imeOptions="actionDone"
+                  android:inputType="textMultiLine"
+                  android:selectAllOnFocus="true">
+        </EditText>
+
+        <Button android:id="@+id/whilelist_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/layout_margin_8dp"
+                android:layout_marginRight="@dimen/layout_margin_8dp"
+                android:layout_marginBottom="@dimen/layout_margin_8dp"
+                android:text="@string/whitelist_add"
+                android:textColor="@color/text"
+                android:textAllCaps="true">
+        </Button>
+
+    </LinearLayout>
+
+    <View android:layout_width="match_parent"
+          android:layout_height="@dimen/layout_height_1dp"
+          android:background="@color/dividers">
+    </View>
+
+    <ListView android:id="@+id/whitelist"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:drawSelectorOnTop="true">
+    </ListView>
+
+    <TextView android:id="@+id/whitelist_empty"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_gravity="center"
+              android:gravity="center"
+              android:text="@string/list_empty"
+              android:textColor="@color/hint"
+              android:textSize="@dimen/text_size_14sp"
+              android:singleLine="true"
+              android:ellipsize="none"
+              android:visibility="gone">
+    </TextView>
+
+</LinearLayout>

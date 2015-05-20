@@ -8,45 +8,45 @@
 
     <RelativeLayout android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp">
+                    android:layout_marginTop="@dimen/layout_margin_12dp"
+                    android:layout_marginLeft="@dimen/layout_margin_16dp"
+                    android:layout_marginRight="@dimen/layout_margin_16dp">
 
         <com.github.curioustechizen.ago.RelativeTimeTextView
-                android:id="@+id/list_item_time"
+                android:id="@+id/record_item_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_alignParentRight="true"
                 android:textColor="@color/hint"
-                android:textSize="12sp"
+                android:textSize="@dimen/text_size_12sp"
                 android:singleLine="true"
                 android:ellipsize="end">
         </com.github.curioustechizen.ago.RelativeTimeTextView>
 
-        <TextView android:id="@+id/list_item_title"
+        <TextView android:id="@+id/record_item_title"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:layout_centerInParent="true"
                   android:layout_alignParentLeft="true"
-                  android:layout_toLeftOf="@id/list_item_time"
-                  android:layout_marginRight="8dp"
+                  android:layout_toLeftOf="@id/record_item_time"
+                  android:layout_marginRight="@dimen/layout_margin_8dp"
                   android:textColor="@color/text"
-                  android:textSize="16sp"
+                  android:textSize="@dimen/text_size_16sp"
                   android:singleLine="true"
                   android:ellipsize="end">
         </TextView>
 
     </RelativeLayout>
 
-    <TextView android:id="@+id/list_item_url"
+    <TextView android:id="@+id/record_item_url"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:layout_marginBottom="12dp"
-              android:layout_marginLeft="16dp"
-              android:layout_marginRight="16dp"
+              android:layout_marginBottom="@dimen/layout_margin_12dp"
+              android:layout_marginLeft="@dimen/layout_margin_16dp"
+              android:layout_marginRight="@dimen/layout_margin_16dp"
               android:textColor="@color/text_secondary"
-              android:textSize="14sp"
+              android:textSize="@dimen/text_size_14sp"
               android:singleLine="true"
               android:ellipsize="end">
     </TextView>

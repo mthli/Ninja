@@ -19,6 +19,7 @@ import org.json.JSONObject;
 import java.io.*;
 import java.net.URLEncoder;
 import java.util.List;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 public class BrowserUnit {
@@ -71,6 +72,7 @@ public class BrowserUnit {
         if (url == null) {
             return false;
         }
+        url = url.toLowerCase(Locale.getDefault());
 
         if (url.startsWith(URL_ABOUT_BLANK)
                 || url.startsWith(URL_SCHEME_MAIL_TO)
@@ -78,7 +80,6 @@ public class BrowserUnit {
             return true;
         }
 
-        url = url.toLowerCase();
         String regex = "^((ftp|http|https|intent)?://)"                      // support scheme
                 + "?(([0-9a-z_!~*'().&=+$%-]+: )?[0-9a-z_!~*'().&=+$%-]+@)?" // ftp的user@
                 + "(([0-9]{1,3}\\.){3}[0-9]{1,3}"                            // IP形式的URL -> 199.194.52.184
@@ -132,7 +133,7 @@ public class BrowserUnit {
 
     public static void copyURL(Context context, String url) {
         ClipboardManager manager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-        ClipData data = ClipData.newPlainText(null, url);
+        ClipData data = ClipData.newPlainText(null, url.trim());
         manager.setPrimaryClip(data);
         NinjaToast.show(context, R.string.toast_copy_successful);
     }
@@ -155,9 +156,10 @@ public class BrowserUnit {
         }
 
         File dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-        if (name == null || name.isEmpty()) {
+        if (name == null || name.trim().isEmpty()) {
             name = String.valueOf(System.currentTimeMillis());
         }
+        name = name.trim();
 
         int count = 0;
         File file = new File(dir, name + SUFFIX_PNG);
@@ -223,8 +225,8 @@ public class BrowserUnit {
             while ((line = reader.readLine()) != null) {
                 JSONObject object = new JSONObject(line);
                 Record record = new Record();
-                record.setTitle(object.getString(RecordUnit.COLUMN_TITLE));
-                record.setURL(object.getString(RecordUnit.COLUMN_URL));
+                record.setTitle(object.getString(RecordUnit.COLUMN_TITLE).trim());
+                record.setURL(object.getString(RecordUnit.COLUMN_URL).trim());
                 record.setTime(object.getLong(RecordUnit.COLUMN_TIME));
                 if (!action.checkBookmark(record)) {
                     action.addBookmark(record);

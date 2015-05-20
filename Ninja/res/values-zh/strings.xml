@@ -186,6 +186,18 @@
     <string name="setting_title_whitelist">
         白名单
     </string>
+    <string name="setting_summary_whitelist">
+        使网页可以正常显示
+    </string>
+    <string name="setting_title_export_whilelist">
+        导出白名单
+    </string>
+    <string name="setting_title_import_whilelist">
+        导入白名单
+    </string>
+    <string name="whilelist_filename">
+        Ninja白名单
+    </string>
     <!-- Data setting -->
     <string name="setting_title_data">
         数据
@@ -246,7 +258,24 @@
         联系我们
     </string>
 
+    <!-- Whitelist -->
+    <string name="whitelist_label">
+        白名单
+    </string>
+    <string name="whitelist_menu_clear">
+        清空
+    </string>
+    <string name="whitelist_edit_hint">
+        域名
+    </string>
+    <string name="whitelist_add">
+        添加
+    </string>
+
     <!-- Toast -->
+    <string name="toast_add_successful">
+        添加成功。
+    </string>
     <string name="toast_add_bookmark_successful">
         添加书签成功。
     </string>
@@ -285,6 +314,9 @@
     </string>
     <string name="toast_delete_successful">
         删除成功。
+    </string>
+    <string name="toast_domain_already_exists">
+        域名已经存在。
     </string>
     <string name="toast_double_taps_quit">
         双击退出。

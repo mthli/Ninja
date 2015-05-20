@@ -2,31 +2,22 @@ package io.github.mthli.Ninja.Browser;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import io.github.mthli.Ninja.Database.RecordAction;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.HashSet;
-import java.util.Locale;
-import java.util.Set;
+import java.util.*;
 
 public class AdBlock {
     private static final String FILE = "hosts.txt";
-    private static final Set<String> domains = new HashSet<String>();
+    private static final Set<String> hosts = new HashSet<>();
+    private static final List<String> whitelist = new ArrayList<>();
     private static final Locale locale = Locale.getDefault();
 
-    private Context context;
-
-    public AdBlock(Context context) {
-        this.context = context;
-        if (domains.isEmpty()) {
-            loadDomains();
-        }
-    }
-
-    private void loadDomains() {
+    private static void loadHosts(final Context context) {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -35,7 +26,7 @@ public class AdBlock {
                     BufferedReader reader = new BufferedReader(new InputStreamReader(manager.open(FILE)));
                     String line;
                     while ((line = reader.readLine()) != null) {
-                        domains.add(line.trim().toLowerCase(locale));
+                        hosts.add(line.toLowerCase(locale));
                     }
                 } catch (IOException i) {}
             }
@@ -43,28 +34,20 @@ public class AdBlock {
         thread.start();
     }
 
-    public boolean isAd(String url) {
-        String domain;
-        try {
-            domain = getDomain(url);
-        } catch (URISyntaxException u) {
-            return false;
+    private static void loadDomains(Context context) {
+        RecordAction action = new RecordAction(context);
+        action.open(true);
+        whitelist.clear();
+        for (String domain : action.listDomains()) {
+            whitelist.add(domain);
         }
-        return domains.contains(domain.toLowerCase(locale));
-    }
-
-    public static void addDomain(String domain) {
-        domains.add(domain.trim().toLowerCase(locale));
-    }
-
-    public static void removeDomain(String domain) {
-        domains.remove(domain.trim().toLowerCase(locale));
+        action.close();
     }
 
     private static String getDomain(String url) throws URISyntaxException {
-        url = url.trim().toLowerCase(locale); ///
+        url = url.toLowerCase(locale);
 
-        int index = url.indexOf('/', 8);
+        int index = url.indexOf('/', 8); // -> http://(7) and https://(8)
         if (index != -1) {
             url = url.substring(0, index);
         }
@@ -75,5 +58,59 @@ public class AdBlock {
             return url;
         }
         return domain.startsWith("www.") ? domain.substring(4) : domain;
+    }
+
+    private Context context;
+
+    public AdBlock(Context context) {
+        this.context = context;
+
+        if (hosts.isEmpty()) {
+            loadHosts(context);
+        }
+        loadDomains(context);
+    }
+
+    public boolean isWhite(String url) {
+        for (String domain : whitelist) {
+            if (url.contains(domain)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isAd(String url) {
+        String domain;
+        try {
+            domain = getDomain(url);
+        } catch (URISyntaxException u) {
+            return false;
+        }
+        return hosts.contains(domain.toLowerCase(locale));
+    }
+
+    public void addDomain(String domain) {
+        RecordAction action = new RecordAction(context);
+        action.open(true);
+        action.addDomain(domain);
+        action.close();
+        whitelist.add(domain);
+    }
+
+    public void removeDomain(String domain) {
+        RecordAction action = new RecordAction(context);
+        action.open(true);
+        action.deleteDomain(domain);
+        action.close();
+        whitelist.remove(domain);
+    }
+
+    public void clearDomains() {
+        RecordAction action = new RecordAction(context);
+        action.open(true);
+        action.clearDomains();
+        action.close();
+        whitelist.clear();
     }
 }

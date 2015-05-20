@@ -12,12 +12,12 @@ import io.github.mthli.Ninja.R;
 
 import java.util.List;
 
-public class NinjaListAdapter extends ArrayAdapter<Record> {
+public class RecordAdapter extends ArrayAdapter<Record> {
     private Context context;
     private int layoutResId;
     private List<Record> list;
 
-    public NinjaListAdapter(Context context, int layoutResId, List<Record> list) {
+    public RecordAdapter(Context context, int layoutResId, List<Record> list) {
         super(context, layoutResId, list);
         this.context = context;
         this.layoutResId = layoutResId;
@@ -38,9 +38,9 @@ public class NinjaListAdapter extends ArrayAdapter<Record> {
         if (view == null) {
             view = LayoutInflater.from(context).inflate(layoutResId, parent, false);
             holder = new Holder();
-            holder.title = (TextView) view.findViewById(R.id.list_item_title);
-            holder.time = (RelativeTimeTextView) view.findViewById(R.id.list_item_time);
-            holder.url = (TextView) view.findViewById(R.id.list_item_url);
+            holder.title = (TextView) view.findViewById(R.id.record_item_title);
+            holder.time = (RelativeTimeTextView) view.findViewById(R.id.record_item_time);
+            holder.url = (TextView) view.findViewById(R.id.record_item_url);
             view.setTag(holder);
         } else {
             holder = (Holder) view.getTag();

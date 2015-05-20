@@ -8,6 +8,7 @@
     <dimen name="layout_height_48dp">48dp</dimen>
     <dimen name="layout_height_36dp">36dp</dimen>
     <dimen name="layout_height_2dp">2dp</dimen>
+    <dimen name="layout_height_1dp">1dp</dimen>
 
     <dimen name="layout_margin_48dp">48dp</dimen>
     <dimen name="layout_margin_20dp">20dp</dimen>
