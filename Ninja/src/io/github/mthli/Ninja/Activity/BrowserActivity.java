@@ -227,6 +227,18 @@ public class BrowserActivity extends Activity implements BrowserController {
         return false;
     }
 
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_VOLUME_UP || keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+            if (sp.getBoolean(getString(R.string.sp_volume), true) && currentAlbumController instanceof NinjaWebView) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     private void initSwitcherView() {
         switcherScroller = (HorizontalScrollView) findViewById(R.id.switcher_scroller);
         switcherContainer = (LinearLayout) findViewById(R.id.switcher_container);
