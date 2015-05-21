@@ -5,7 +5,7 @@ Ninja
 
 A web browser that open links in background without ever leaving your favorite apps.
 
-[Ninja in Coolapk](https://play.google.com/store/apps/details?id=io.github.mthli.Ninja "Ninja in Cookapk")
+[Ninja in Coolapk](http://coolapk.com/apk/io.github.mthli.Ninja "Ninja in Cookapk")
 
 [Download latest Ninja.apk](https://github.com/mthli/Ninja/releases/download/v1.1.3/Ninja.1.1.3.apk "Ninja.1.1.3.apk")
 
