@@ -5,7 +5,7 @@ Ninja
 
 A web browser that open links in background without ever leaving your favorite apps.
 
-[Ninja in Google Play](https://play.google.com/store/apps/details?id=io.github.mthli.Ninja "Ninja in Google Play")
+[Ninja in Coolapk](https://play.google.com/store/apps/details?id=io.github.mthli.Ninja "Ninja in Cookapk")
 
 [Download latest Ninja.apk](https://github.com/mthli/Ninja/releases/download/v1.1.3/Ninja.1.1.3.apk "Ninja.1.1.3.apk")
 
@@ -70,6 +70,10 @@ But that is not means you could screenshot a long long long webpage(__OOM__, etc
 ### Why no incognito mode?
 
 Incognito mode is a necessary feature for a web browser, but since `WebView(Context context, AttributeSet attrs, int defStyleAttr, boolean privateBrowsing)` was __deprecated__ in API level 17 and no longer supported, the incognito mode is __conflict__ with our UI design, so we stop it(but maybe restart to develop it someday). If you want to add incognito mode you can fork our sourse code and do it by yourself :)
+
+### Why not Google Play?
+
+![reject.png](/Art/info/reject.png "reject.png")
 
 ### What can I do for Ninja?
 
