@@ -19,13 +19,17 @@ __LONG TERM MAINTENANCE.__
 
  - Lightweight and no extra permissions.
 
+ - Fashion tab switcher.
+
  - [html5test](html5test.com "html5test.com") access __509__ with latest [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview "Android System WebView").
 
  - Adblock and whitelist.
 
  - Capture whole page screenshot.
 
- - Fashion tab switcher.
+ - Volume up/down to scroll webpage.
+
+ - Webpage go to top easy.
 
  - More features coming soon...
 
