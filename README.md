@@ -73,7 +73,7 @@ Incognito mode is a necessary feature for a web browser, but since `WebView(Cont
 
 ### Why not Google Play?
 
-![reject.png](/Art/info/reject.png "reject.png")
+![reject.png](/Art/info/en/reject.png "reject.png")
 
 ### What can I do for Ninja?
 
