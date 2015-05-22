@@ -9,7 +9,7 @@
         <item name="android:textColor">@color/text</item>
         <item name="android:textColorSecondary">@color/text_secondary</item>
         <item name="android:textColorHighlight">@color/blue_300</item>
-        <item name="android:windowBackground">@color/background</item>
+        <item name="android:windowBackground">@color/background_dark</item>
         <item name="android:drawSelectorOnTop">true</item>
         <item name="android:alertDialogTheme">@style/AlertDialogStyle</item>
         <item name="android:autoCompleteTextViewStyle">@style/AutoCompleteTextViewStyle</item>

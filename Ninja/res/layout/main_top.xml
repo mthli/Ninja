@@ -10,7 +10,7 @@
                   android:orientation="vertical"
                   android:layout_width="match_parent"
                   android:layout_height="match_parent"
-                  android:background="@color/background">
+                  android:background="@color/background_dark">
 
         <FrameLayout android:id="@+id/switcher_header"
                      android:layout_width="match_parent"
@@ -90,7 +90,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/layout_height_48dp"
                         android:minHeight="@dimen/layout_height_48dp"
-                        android:background="@color/background">
+                        android:background="@color/background_dark">
 
             <ImageButton android:id="@+id/main_omnibox_overflow"
                          android:contentDescription="@null"
@@ -177,7 +177,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/layout_height_48dp"
                         android:minHeight="@dimen/layout_height_48dp"
-                        android:background="@color/background"
+                        android:background="@color/background_dark"
                         android:visibility="gone">
 
             <LinearLayout android:id="@+id/main_search_left"

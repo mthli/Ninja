@@ -263,7 +263,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         switcherAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addAlbum(BrowserUnit.FLAG_HOME);
+                addAlbum(BrowserUnit.FLAG_HOME); ///
             }
         });
     }
@@ -341,6 +341,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 } else if (currentAlbumController instanceof NinjaRelativeLayout) {
                     final NinjaRelativeLayout layout = (NinjaRelativeLayout) currentAlbumController;
                     if (layout.getFlag() == BrowserUnit.FLAG_HOME) {
+                        // TODO: notifyDatChange()
                         return;
                     }
                     updateProgress(BrowserUnit.PROGRESS_MIN);
@@ -565,11 +566,11 @@ public class BrowserActivity extends Activity implements BrowserController {
                     return true;
                 }
             });
-        } else if (flag == BrowserUnit.FLAG_HOME) {
+        } else if (flag == BrowserUnit.FLAG_HOME) { // TODO: new design
             NinjaRelativeLayout layout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.home, null, false);
             layout.setBrowserController(this);
             layout.setFlag(BrowserUnit.FLAG_HOME);
-            layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
+            layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565)); // TODO
             layout.setAlbumTitle(getString(R.string.album_title_home));
             holder = layout;
         } else {
@@ -677,7 +678,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
 
         if (BrowserContainer.size() < 1 && url == null) {
-            addAlbum(BrowserUnit.FLAG_HOME);
+            addAlbum(BrowserUnit.FLAG_HOME); ///
         } else if (BrowserContainer.size() >= 1 && url == null) {
             int index = BrowserContainer.size() - 1;
             if (currentAlbumController != null) {
@@ -766,8 +767,8 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         NinjaRelativeLayout layout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.home, null, false);
         layout.setBrowserController(this);
-        layout.setFlag(BrowserUnit.FLAG_HOME);
-        layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
+        layout.setFlag(BrowserUnit.FLAG_HOME); // TODO: new design
+        layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565)); // TODO
         layout.setAlbumTitle(getString(R.string.album_title_home));
 
         int index = switcherContainer.indexOfChild(currentAlbumController.getAlbumView());
@@ -821,7 +822,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         if (currentAlbumController == null || BrowserContainer.size() <= 1) {
             switcherContainer.removeView(controller.getAlbumView());
             BrowserContainer.remove(controller);
-            addAlbum(BrowserUnit.FLAG_HOME);
+            addAlbum(BrowserUnit.FLAG_HOME); ///
             return;
         }
 
@@ -1065,7 +1066,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 case BrowserUnit.FLAG_HISTORY:
                     updateAlbum();
                     break;
-                case BrowserUnit.FLAG_HOME:
+                case BrowserUnit.FLAG_HOME: ///
                     doubleTapsQuit();
                     break;
                 default:

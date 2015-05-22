@@ -56,6 +56,9 @@
     <string name="main_omnibox_input_hint">
         Search or type URL
     </string>
+    <string name="main_about_blank">
+        about:blank
+    </string>
     <string-array name="main_overflow">
         <item>Go to top</item>
         <item>Go forward</item>

@@ -6,11 +6,14 @@ public class RecordUnit {
     public static final String TABLE_BOOKMARKS = "BOOKMARKS";
     public static final String TABLE_HISTORY = "HISTORY";
     public static final String TABLE_WHITELIST = "WHITELIST";
+    public static final String TABLE_GRID = "GRID";
 
     public static final String COLUMN_TITLE = "TITLE";
     public static final String COLUMN_URL = "URL";
     public static final String COLUMN_TIME = "TIME";
     public static final String COLUMN_DOMAIN = "DOMAIN";
+    public static final String COLUMN_FILENAME = "FILENAME";
+    public static final String COLUMN_ORDINAL = "ORDINAL";
 
     public static final String CREATE_HISTORY = "CREATE TABLE "
             + TABLE_HISTORY
@@ -32,6 +35,15 @@ public class RecordUnit {
             + TABLE_WHITELIST
             + " ("
             + " " + COLUMN_DOMAIN
+            + ")";
+
+    public static final String CREATE_GRID = "CREATE TABLE "
+            + TABLE_GRID
+            + " ("
+            + " " + COLUMN_TITLE + " text,"
+            + " " + COLUMN_URL + " text,"
+            + " " + COLUMN_FILENAME + " text,"
+            + " " + COLUMN_ORDINAL + " integer"
             + ")";
 
     private static Record holder;

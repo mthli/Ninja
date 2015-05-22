@@ -2,11 +2,18 @@
 
 <resources>
 
-    <dimen name="layout_width_144dp">144dp</dimen>
+    <!-- DynamicGrid -->
+    <dimen name="dgv_overlap_if_switch_straight_line">16dp</dimen>
 
+    <dimen name="layout_width_168dp">168dp</dimen>
+    <dimen name="layout_width_144dp">144dp</dimen>
+    <dimen name="layout_width_16dp">16dp</dimen>
+
+    <dimen name="layout_height_144dp">144dp</dimen>
     <dimen name="layout_height_108dp">108dp</dimen>
     <dimen name="layout_height_48dp">48dp</dimen>
     <dimen name="layout_height_36dp">36dp</dimen>
+    <dimen name="layout_height_16dp">16dp</dimen>
     <dimen name="layout_height_2dp">2dp</dimen>
     <dimen name="layout_height_1dp">1dp</dimen>
 

@@ -56,6 +56,9 @@
     <string name="main_omnibox_input_hint">
         搜索或输入地址
     </string>
+    <string name="main_about_blank">
+        空白页
+    </string>
     <string-array name="main_overflow">
         <item>返回顶部</item>
         <item>前进一页</item>

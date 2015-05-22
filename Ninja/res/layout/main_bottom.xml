@@ -9,7 +9,7 @@
     <RelativeLayout android:id="@+id/switcher_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/background">
+                    android:background="@color/background_dark">
 
         <RelativeLayout android:id="@+id/switcher_header"
                         android:layout_width="match_parent"
@@ -97,7 +97,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/layout_height_48dp"
                         android:minHeight="@dimen/layout_height_48dp"
-                        android:background="@color/background">
+                        android:background="@color/background_dark">
 
             <ProgressBar android:id="@+id/main_progress_bar"
                          android:layout_width="match_parent"
@@ -184,7 +184,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/layout_height_48dp"
                         android:minHeight="@dimen/layout_height_48dp"
-                        android:background="@color/background"
+                        android:background="@color/background_dark"
                         android:visibility="gone">
 
             <LinearLayout android:id="@+id/main_search_left"

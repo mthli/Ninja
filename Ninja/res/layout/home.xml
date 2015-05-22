@@ -6,16 +6,27 @@
         android:layout_height="match_parent"
         android:background="@color/white">
 
-    <!-- TODO: homepage new design -->
+    <org.askerov.dynamicgrid.DynamicGridView
+            android:id="@+id/home_grid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnWidth="@dimen/layout_width_168dp"
+            android:horizontalSpacing="@dimen/layout_width_16dp"
+            android:verticalSpacing="@dimen/layout_height_16dp"
+            android:stretchMode="columnWidth"
+            android:drawSelectorOnTop="true">
+    </org.askerov.dynamicgrid.DynamicGridView>
 
-    <TextView android:layout_width="match_parent"
+    <TextView android:id="@+id/home_about_blank"
+              android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:layout_alignParentBottom="true"
               android:layout_margin="@dimen/layout_margin_8dp"
               android:gravity="center"
-              android:text="about:blank"
+              android:text="@string/main_about_blank"
               android:textColor="@color/hint"
-              android:textSize="@dimen/text_size_14sp">
+              android:textSize="@dimen/text_size_14sp"
+              android:visibility="gone">
     </TextView>
 
 </io.github.mthli.Ninja.View.NinjaRelativeLayout>
