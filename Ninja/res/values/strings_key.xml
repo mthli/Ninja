@@ -40,6 +40,9 @@
     <string name="sp_user_agent">
         SP_USER_AGENT
     </string>
+    <string name="sp_scroll_bar">
+        SP_SCROLL_BAR
+    </string>
     <string name="sp_volume">
         SP_VOLUME
     </string>

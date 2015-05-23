@@ -96,9 +96,6 @@ public class NinjaWebView extends WebView implements AlbumController {
 
         setFocusable(true);
         setFocusableInTouchMode(true);
-
-        // setHorizontalScrollBarEnabled(true);
-        // setVerticalScrollBarEnabled(true);
         setScrollbarFadingEnabled(true);
 
         setWebViewClient(webViewClient);
@@ -152,6 +149,14 @@ public class NinjaWebView extends WebView implements AlbumController {
         webSettings.setGeolocationEnabled(sp.getBoolean(context.getString(R.string.sp_location), true));
         webSettings.setSupportMultipleWindows(sp.getBoolean(context.getString(R.string.sp_multiple_windows), true));
         webSettings.setSaveFormData(sp.getBoolean(context.getString(R.string.sp_passwords), true));
+
+        if (sp.getBoolean(context.getString(R.string.sp_scroll_bar), true)) {
+            setHorizontalScrollBarEnabled(true);
+            setVerticalScrollBarEnabled(true);
+        } else {
+            setHorizontalScrollBarEnabled(false);
+            setVerticalScrollBarEnabled(false);
+        }
 
         String userAgent = sp.getString(context.getString(R.string.sp_user_agent), context.getString(R.string.setting_summary_user_agent_default));
         if (userAgent.equals(context.getString(R.string.setting_summary_user_agent_desktop))) {

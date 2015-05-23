@@ -71,7 +71,7 @@ public class WhitelistActivity extends Activity {
                         adBlock.addDomain(domain.trim());
                         list.add(0, domain.trim());
                         adapter.notifyDataSetChanged();
-                        NinjaToast.show(WhitelistActivity.this, R.string.toast_add_successful);
+                        NinjaToast.show(WhitelistActivity.this, R.string.toast_add_whitelist_successful);
                     }
                     action.close();
                 }

@@ -192,6 +192,13 @@
     <string name="setting_summary_multiple_windows">
         Enable multiple windows
     </string>
+    <!-- Scroll bar -->
+    <string name="setting_title_scroll_bar">
+        Scroll bar
+    </string>
+    <string name="setting_summary_scroll_bar">
+        Show scroll bar in webpage
+    </string>
     <!-- User Agent -->
     <string name="setting_title_user_agent">
         User agent
@@ -303,9 +310,6 @@
     </string>
 
     <!-- Toast -->
-    <string name="toast_add_successful">
-        Add successful
-    </string>
     <string name="toast_add_bookmark_successful">
         Add bookmark successful
     </string>
@@ -317,6 +321,9 @@
     </string>
     <string name="toast_add_to_home_failed">
         Add to home failed
+    </string>
+    <string name="toast_add_whitelist_successful">
+        Add domain successful
     </string>
     <string name="toast_already_at_the_front">
         Already at the front

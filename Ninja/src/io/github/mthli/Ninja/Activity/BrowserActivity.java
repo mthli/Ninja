@@ -721,7 +721,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
 
         if (BrowserContainer.size() < 1 && url == null) {
-            addAlbum(BrowserUnit.FLAG_HOME); ///
+            addAlbum(BrowserUnit.FLAG_HOME);
         } else if (BrowserContainer.size() >= 1 && url == null) {
             int index = BrowserContainer.size() - 1;
             if (currentAlbumController != null) {
@@ -866,7 +866,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         if (currentAlbumController == null || BrowserContainer.size() <= 1) {
             switcherContainer.removeView(controller.getAlbumView());
             BrowserContainer.remove(controller);
-            addAlbum(BrowserUnit.FLAG_HOME); ///
+            addAlbum(BrowserUnit.FLAG_HOME);
             return;
         }
 
@@ -1110,7 +1110,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 case BrowserUnit.FLAG_HISTORY:
                     updateAlbum();
                     break;
-                case BrowserUnit.FLAG_HOME: ///
+                case BrowserUnit.FLAG_HOME:
                     doubleTapsQuit();
                     break;
                 default:
@@ -1225,10 +1225,8 @@ public class BrowserActivity extends Activity implements BrowserController {
                     new ScreenshotTask(BrowserActivity.this, ninjaWebView).execute();
                 } else if (s.equals(array[4])) { // Add to home
                     NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
-
                     RecordAction action = new RecordAction(BrowserActivity.this);
                     action.open(true);
-
                     if (action.checkGridItem(ninjaWebView.getUrl())) {
                         NinjaToast.show(BrowserActivity.this, R.string.toast_already_exist_in_home);
                     } else {

@@ -191,6 +191,13 @@
     <string name="setting_summary_multiple_windows">
         允许网站打开多个窗口
     </string>
+    <!-- Scroll bar -->
+    <string name="setting_title_scroll_bar">
+        滚动条
+    </string>
+    <string name="setting_summary_scroll_bar">
+        在网页中显示滚动条
+    </string>
     <!-- User Agent -->
     <string name="setting_title_user_agent">
         浏览器标识
@@ -302,9 +309,6 @@
     </string>
 
     <!-- Toast -->
-    <string name="toast_add_successful">
-        添加成功
-    </string>
     <string name="toast_add_bookmark_successful">
         添加书签成功
     </string>
@@ -316,6 +320,9 @@
     </string>
     <string name="toast_add_to_home_failed">
         添加到首页失败
+    </string>
+    <string name="toast_add_whitelist_successful">
+        添加域名成功
     </string>
     <string name="toast_already_at_the_front">
         已经在最前面了
