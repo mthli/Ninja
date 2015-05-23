@@ -29,8 +29,8 @@
     </string-array>
 
     <!-- List -->
-    <string name="list_edit_hint">
-        Input bookmark\'s title
+    <string name="dialog_edit_hint">
+        Input title
     </string>
     <string name="list_empty">
         Current list is empty

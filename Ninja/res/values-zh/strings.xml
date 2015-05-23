@@ -29,8 +29,8 @@
     </string-array>
 
     <!-- List -->
-    <string name="list_edit_hint">
-        输入书签标题
+    <string name="dialog_edit_hint">
+        输入标题
     </string>
     <string name="list_empty">
         当前列表为空

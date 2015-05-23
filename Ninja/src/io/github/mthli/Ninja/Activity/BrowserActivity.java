@@ -410,23 +410,23 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         RecordAction action = new RecordAction(this);
         action.open(false);
-        final List<GridItem> list = action.listGrid();
+        final List<GridItem> gridList = action.listGrid();
         action.close();
 
         DynamicGridView gridView = (DynamicGridView) layout.findViewById(R.id.home_grid);
         TextView aboutBlank = (TextView) layout.findViewById(R.id.home_about_blank);
         gridView.setEmptyView(aboutBlank);
 
-        GridAdapter adapter;
+        final GridAdapter gridAdapter;
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            adapter = new GridAdapter(this, list, 3);
+            gridAdapter = new GridAdapter(this, gridList, 3);
         } else {
-            adapter = new GridAdapter(this, list, 2);
+            gridAdapter = new GridAdapter(this, gridList, 2);
         }
-        gridView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+        gridView.setAdapter(gridAdapter);
+        gridAdapter.notifyDataSetChanged();
 
-        /* Wait for adapter.notifyDataSetChanged() */
+        /* Wait for gridAdapter.notifyDataSetChanged() */
         if (update) {
             gridView.postDelayed(new Runnable() {
                 @Override
@@ -440,14 +440,14 @@ public class BrowserActivity extends Activity implements BrowserController {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                updateAlbum(list.get(position).getURL());
+                updateAlbum(gridList.get(position).getURL());
             }
         });
 
         gridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                // TODO
+                showGridMenu(gridList.get(position));
                 return true;
             }
         });
@@ -1334,7 +1334,52 @@ public class BrowserActivity extends Activity implements BrowserController {
         });
     }
 
-    private void showListMenu(final RecordAdapter listAdapter, final List<Record> recordList, final int location) {
+    private void showGridMenu(final GridItem gridItem) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+
+        LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog, null, false);
+        builder.setView(layout);
+
+        final String[] array = getResources().getStringArray(R.array.list_menu);
+        final List<String> stringList = new ArrayList<>();
+        stringList.addAll(Arrays.asList(array));
+        stringList.remove(array[1]); // Copy link
+        stringList.remove(array[2]); // Share
+
+        ListView listView = (ListView) layout.findViewById(R.id.dialog_list);
+        DialogAdapter dialogAdapter = new DialogAdapter(this, R.layout.dialog_text_item, stringList);
+        listView.setAdapter(dialogAdapter);
+        dialogAdapter.notifyDataSetChanged();
+
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String s = stringList.get(position);
+                if (s.equals(array[0])) { // New tab
+                    addAlbum(getString(R.string.album_untitled), gridItem.getURL(), false, null);
+                    NinjaToast.show(BrowserActivity.this, R.string.toast_new_tab_successful);
+                } else if (s.equals(array[3])) { // Edit
+                    showEditDialog(gridItem);
+                } else if (s.equals(array[4])) { // Delete
+                    RecordAction action = new RecordAction(BrowserActivity.this);
+                    action.open(true);
+                    action.deleteGridItem(gridItem);
+                    action.close();
+                    initHomeGrid((NinjaRelativeLayout) currentAlbumController, true);
+                    NinjaToast.show(BrowserActivity.this, R.string.toast_delete_successful);
+                }
+
+                dialog.hide();
+                dialog.dismiss();
+            }
+        });
+    }
+
+    private void showListMenu(final RecordAdapter recordAdapter, final List<Record> recordList, final int location) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
 
@@ -1369,7 +1414,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 } else if (s.equals(array[2])) { // Share
                     IntentUnit.share(BrowserActivity.this, record.getTitle(), record.getURL());
                 } else if (s.equals(array[3])) { // Edit
-                    showEditDialog(listAdapter, recordList, location);
+                    showEditDialog(recordAdapter, recordList, location);
                 } else if (s.equals(array[4])) { // Delete
                     RecordAction action = new RecordAction(BrowserActivity.this);
                     action.open(true);
@@ -1381,7 +1426,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                     action.close();
 
                     recordList.remove(location);
-                    listAdapter.notifyDataSetChanged();
+                    recordAdapter.notifyDataSetChanged();
 
                     updateBookmarks();
                     updateAutoComplete();
@@ -1395,7 +1440,55 @@ public class BrowserActivity extends Activity implements BrowserController {
         });
     }
 
-    private void showEditDialog(final RecordAdapter listAdapter, List<Record> recordList, int location) {
+    private void showEditDialog(final GridItem gridItem) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+
+        LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog_edit, null, false);
+        builder.setView(layout);
+
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+        final EditText editText = (EditText) layout.findViewById(R.id.dialog_edit);
+        editText.setText(gridItem.getTitle());
+        editText.setSelection(gridItem.getTitle().length());
+        hideSoftInput(inputBox);
+        showSoftInput(editText);
+
+        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId != EditorInfo.IME_ACTION_DONE) {
+                    return false;
+                }
+
+                String text = editText.getText().toString().trim();
+                if (text.isEmpty()) {
+                    NinjaToast.show(BrowserActivity.this, R.string.toast_input_empty);
+                    return true;
+                }
+
+                RecordAction action = new RecordAction(BrowserActivity.this);
+                action.open(true);
+                gridItem.setTitle(text);
+                action.updateGridItem(gridItem);
+                action.close();
+
+                hideSoftInput(editText);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        dialog.hide();
+                        dialog.dismiss();
+                    }
+                }, longAnimTime);
+                return false;
+            }
+        });
+    }
+
+    private void showEditDialog(final RecordAdapter recordAdapter, List<Record> recordList, int location) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
 
@@ -1411,6 +1504,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         editText.setSelection(record.getTitle().length());
         hideSoftInput(inputBox);
         showSoftInput(editText);
+
         editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -1430,7 +1524,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 action.updateBookmark(record);
                 action.close();
 
-                listAdapter.notifyDataSetChanged();
+                recordAdapter.notifyDataSetChanged();
                 hideSoftInput(editText);
                 new Handler().postDelayed(new Runnable() {
                     @Override
