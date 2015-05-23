@@ -5,7 +5,17 @@ You can view introduction at `Setting/Others/Version` after close this page.
 
 ---
 
-Basically Ninja is a simple web browser like any others, but there are some different things you need to know.
+Basically Ninja is a simple web browser like any others, but there are some different things you need to know:
+
+### Custom home:
+
+ - First login Ninja, home show as `about:blank`.
+
+ - Use the overflow menu's __Add to home__ to pin webpages.
+
+ - Use the overflow menu's __Relayout__ to custom your home.
+
+ - __Long press__ on a card of home, you can edit it title.
 
 ## Switch tabs:
 
@@ -31,7 +41,7 @@ Since AdBlick maybe cause some websites display error, you can add they to `Sett
 
 ## Screenshot:
 
-Ninja supports __capture entire webpage__ function. 
+Ninja supports __capture entire webpage__ function.
 
 But that is not means you could screenshot a long long long webpage(__OOM__, etc).
 

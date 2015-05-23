@@ -7,7 +7,7 @@ A web browser that open links in background without ever leaving your favorite a
 
 [Ninja in Coolapk](http://coolapk.com/apk/io.github.mthli.Ninja "Ninja in Cookapk")
 
-[Download latest Ninja.apk](https://github.com/mthli/Ninja/releases/download/v1.1.3/Ninja.1.1.3.apk "Ninja.1.1.3.apk")
+[Download latest Ninja.apk](https://github.com/mthli/Ninja/releases/download/v1.1.5/Ninja.1.1.5.apk "Ninja.1.1.5.apk")
 
 __SUPPORT: Android 4.1+__
 
@@ -19,9 +19,11 @@ __LONG TERM MAINTENANCE.__
 
  - Lightweight and no extra permissions.
 
+ - Custom home.
+
  - Fashion tab switcher.
 
- - [html5test](html5test.com "html5test.com") access __509__ with latest [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview "Android System WebView").
+ - [html5test](html5test.com "html5test.com") access __509UP__ with latest [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview "Android System WebView").
 
  - Adblock and whitelist.
 
@@ -36,6 +38,16 @@ __LONG TERM MAINTENANCE.__
 ## How to use Ninja?
 
 Basically Ninja is a simple web browser like any others, but there are some different things you need to know:
+
+### Custom home:
+
+ - First login Ninja, home show as `about:blank`.
+
+ - Use the overflow menu's __Add to home__ to pin webpages.
+
+ - Use the overflow menu's __Relayout__ to custom your home.
+
+ - __Long press__ on a card of home, you can edit it title.
 
 ### Switch tabs:
 
@@ -96,6 +108,8 @@ Just import the `Ninja` folder with your __IntelliJ IDEA__.
  - [Android Swipe-to-Dismiss Sample Code](https://github.com/romannurik/Android-SwipeToDismiss "Android Swipe-to-Dismiss Sample Code")
 
  - [android-ago](https://github.com/curioustechizen/android-ago "android-ago")
+
+ - [DynamicGrid](https://github.com/askerov/DynamicGrid "DynamicGrid")
 
  - [github-markdown-css](https://github.com/sindresorhus/github-markdown-css "github-markdown-css")
 
