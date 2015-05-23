@@ -65,9 +65,9 @@
     <string-array name="main_overflow">
         <item>Go to top</item>
         <item>Go forward</item>
+        <item>Add to home</item>
         <item>Find in page</item>
         <item>Screenshot</item>
-        <item>Add to home</item>
         <item>Share</item>
         <item>Relayout</item>
         <item>Setting</item>

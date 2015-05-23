@@ -65,9 +65,9 @@
     <string-array name="main_overflow">
         <item>返回顶部</item>
         <item>前进一页</item>
+        <item>添加拨号</item>
         <item>页内搜索</item>
         <item>网页截图</item>
-        <item>添加拨号</item>
         <item>分享</item>
         <item>排版</item>
         <item>设置</item>

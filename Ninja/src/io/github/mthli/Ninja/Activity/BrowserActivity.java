@@ -1180,9 +1180,9 @@ public class BrowserActivity extends Activity implements BrowserController {
         if (currentAlbumController != null && currentAlbumController instanceof NinjaRelativeLayout) {
             stringList.remove(array[0]); // Go to top
             stringList.remove(array[1]); // Go forward
-            stringList.remove(array[2]); // Find in page
-            stringList.remove(array[3]); // Screenshot
-            stringList.remove(array[4]); // Add to home
+            stringList.remove(array[2]); // Add to home
+            stringList.remove(array[3]); // Find in page
+            stringList.remove(array[4]); // Screenshot
             stringList.remove(array[5]); // Share
 
             NinjaRelativeLayout ninjaRelativeLayout = (NinjaRelativeLayout) currentAlbumController;
@@ -1217,13 +1217,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                     } else {
                         NinjaToast.show(BrowserActivity.this, R.string.toast_already_at_the_front);
                     }
-                } else if (s.equals(array[2])) { // Find in page
-                    hideSoftInput(inputBox);
-                    showSearchPanel();
-                } else if (s.equals(array[3])) { // Screenshot
-                    NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
-                    new ScreenshotTask(BrowserActivity.this, ninjaWebView).execute();
-                } else if (s.equals(array[4])) { // Add to home
+                } else if (s.equals(array[2])) { // Add to home
                     NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
                     RecordAction action = new RecordAction(BrowserActivity.this);
                     action.open(true);
@@ -1243,6 +1237,12 @@ public class BrowserActivity extends Activity implements BrowserController {
                         }
                     }
                     action.close();
+                } else if (s.equals(array[3])) { // Find in page
+                    hideSoftInput(inputBox);
+                    showSearchPanel();
+                } else if (s.equals(array[4])) { // Screenshot
+                    NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
+                    new ScreenshotTask(BrowserActivity.this, ninjaWebView).execute();
                 } else if (s.equals(array[5])) { // Share
                     if (!prepareRecord()) {
                         NinjaToast.show(BrowserActivity.this, R.string.toast_share_failed);
