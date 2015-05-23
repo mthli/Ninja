@@ -67,7 +67,7 @@
         <item>前进一页</item>
         <item>页内搜索</item>
         <item>网页截图</item>
-        <item>首页添加</item>
+        <item>添加拨号</item>
         <item>分享</item>
         <item>排版</item>
         <item>设置</item>
@@ -403,6 +403,12 @@
     </string>
     <string name="toast_refresh_failed">
         无法刷新此页面
+    </string>
+    <string name="toast_relayout_successful">
+        排版成功
+    </string>
+    <string name="toast_relayout_failed">
+        排版写入数据库失败
     </string>
     <string name="toast_screenshot_successful">
         截图保存位置：

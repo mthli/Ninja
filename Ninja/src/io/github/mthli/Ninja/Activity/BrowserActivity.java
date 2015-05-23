@@ -16,6 +16,7 @@ import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
@@ -28,6 +29,7 @@ import android.widget.*;
 import io.github.mthli.Ninja.Browser.AlbumController;
 import io.github.mthli.Ninja.Browser.BrowserContainer;
 import io.github.mthli.Ninja.Browser.BrowserController;
+import io.github.mthli.Ninja.Task.SaveGridTask;
 import io.github.mthli.Ninja.Task.ScreenshotTask;
 import io.github.mthli.Ninja.Database.Record;
 import io.github.mthli.Ninja.Database.RecordAction;
@@ -1257,25 +1259,27 @@ public class BrowserActivity extends Activity implements BrowserController {
 
                     omnibox.setVisibility(View.GONE);
                     relayoutOK.setVisibility(View.VISIBLE);
+
+                    relayoutOK.setOnTouchListener(new View.OnTouchListener() {
+                        @Override
+                        public boolean onTouch(View v, MotionEvent event) {
+                            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                                relayoutOK.setTextColor(getResources().getColor(R.color.blue_500));
+                            } else if (event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL) {
+                                relayoutOK.setTextColor(getResources().getColor(R.color.white));
+                            }
+
+                            return false;
+                        }
+                    });
+
                     relayoutOK.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             gridView.stopEditMode();
                             relayoutOK.setVisibility(View.GONE);
                             omnibox.setVisibility(View.VISIBLE);
-
-                            new Handler().post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    RecordAction action = new RecordAction(BrowserActivity.this);
-                                    action.open(true);
-                                    action.clearGrid();
-                                    for (GridItem item : gridList) {
-                                        action.addGridItem(item);
-                                    }
-                                    action.close();
-                                }
-                            });
+                            new SaveGridTask(BrowserActivity.this, gridList).execute();
                         }
                     });
 
