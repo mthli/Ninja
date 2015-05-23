@@ -45,8 +45,8 @@
       <file leaf-file-name="BrowserActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/BrowserActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35323384">
-              <caret line="1124" column="5" selection-start-line="1124" selection-start-column="5" selection-end-line="1124" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.37313432">
+              <caret line="56" column="43" selection-start-line="56" selection-start-column="43" selection-end-line="56" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="false" />
                 <element signature="method#onCreate#0;class#BrowserActivity#0" expanded="false" />
@@ -97,8 +97,8 @@
                 <element signature="method#hideSearchPanel#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#showSearchPanel#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#showOverflow#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="class#53557:54340" expanded="false" />
-                <element signature="method#onDragPositionsChanged#0;class#53557:54340" expanded="false" />
+                <element signature="class#53563:55415" expanded="false" />
+                <element signature="method#onDragPositionsChanged#0;class#53563:55415" expanded="false" />
                 <element signature="method#showListMenu#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#showEditDialog#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#prepareRecord#0;class#BrowserActivity#0" expanded="false" />
@@ -655,7 +655,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2439577" sideWeight="0.4888889" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.38618523" sideWeight="0.47142857" order="0" side_tool="false" content_ui="combo" x="767" y="51" width="435" height="613" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.38618523" sideWeight="0.47142857" order="0" side_tool="false" content_ui="combo" x="767" y="51" width="435" height="613" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3952381" sideWeight="0.49697885" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1226,9 +1226,7 @@
         <state vertical-scroll-proportion="0.9701493">
           <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
           <folding>
-            <element signature="e#813#860#0" expanded="true" />
-            <element signature="e#1451#1485#0" expanded="true" />
-            <element signature="e#1542#1572#0" expanded="true" />
+            <element signature="e#813#860#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1279,8 +1277,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/BrowserActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35323384">
-          <caret line="1124" column="5" selection-start-line="1124" selection-start-column="5" selection-end-line="1124" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.37313432">
+          <caret line="56" column="43" selection-start-line="56" selection-start-column="43" selection-end-line="56" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="false" />
             <element signature="method#onCreate#0;class#BrowserActivity#0" expanded="false" />
@@ -1331,8 +1329,8 @@
             <element signature="method#hideSearchPanel#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#showSearchPanel#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#showOverflow#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#53557:54340" expanded="false" />
-            <element signature="method#onDragPositionsChanged#0;class#53557:54340" expanded="false" />
+            <element signature="class#53563:55415" expanded="false" />
+            <element signature="method#onDragPositionsChanged#0;class#53563:55415" expanded="false" />
             <element signature="method#showListMenu#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#showEditDialog#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#prepareRecord#0;class#BrowserActivity#0" expanded="false" />

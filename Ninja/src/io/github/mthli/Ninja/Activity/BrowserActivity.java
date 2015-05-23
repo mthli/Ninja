@@ -1203,7 +1203,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                 String s = stringList.get(position);
                 if (s.equals(array[0])) { // Go to top
                     NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
@@ -1293,12 +1293,31 @@ public class BrowserActivity extends Activity implements BrowserController {
 
                         @Override
                         public void onDragPositionsChanged(int oldPosition, int newPosition) {
-                            GridItem tempItem = gridList.get(newPosition);
-                            tempItem.setOrdinal(oldPosition);
-                            gridList.set(oldPosition, tempItem);
-
+                            if (oldPosition < newPosition) {
+                                for (int i = newPosition; i > oldPosition; i--) {
+                                    GridItem item = gridList.get(i);
+                                    item.setOrdinal(i - 1);
+                                }
+                            } else if (oldPosition > newPosition) {
+                                for (int i = newPosition; i < oldPosition; i++) {
+                                    GridItem item = gridList.get(i);
+                                    item.setOrdinal(i + 1);
+                                }
+                            }
                             dragItem.setOrdinal(newPosition);
-                            gridList.set(newPosition, dragItem);
+
+                            Collections.sort(gridList, new Comparator<GridItem>() {
+                                @Override
+                                public int compare(GridItem first, GridItem second) {
+                                    if (first.getOrdinal() < second.getOrdinal()) {
+                                        return -1;
+                                    } else if (first.getOrdinal() > second.getOrdinal()) {
+                                        return 1;
+                                    } else {
+                                        return 0;
+                                    }
+                                }
+                            });
                         }
                     });
                     gridView.startEditMode();
