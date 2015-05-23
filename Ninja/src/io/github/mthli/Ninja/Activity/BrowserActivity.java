@@ -15,7 +15,6 @@ import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -119,9 +118,9 @@ public class BrowserActivity extends Activity implements BrowserController {
         initSwitcherView();
         initOmnibox();
         initSearchPanel();
-
         relayoutButton = (Button) findViewById(R.id.main_relayout_ok);
         contentFrame = (FrameLayout) findViewById(R.id.main_content);
+
         dispatchIntent(getIntent());
     }
 
@@ -234,6 +233,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         } else if (keyCode == KeyEvent.KEYCODE_BACK) {
             return onKeyCodeBack();
         }
+
         return false;
     }
 
@@ -316,10 +316,11 @@ public class BrowserActivity extends Activity implements BrowserController {
                 }
 
                 NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
-                RecordAction action = new RecordAction(BrowserActivity.this);
-                action.open(true);
                 String title = ninjaWebView.getTitle();
                 String url = ninjaWebView.getUrl();
+
+                RecordAction action = new RecordAction(BrowserActivity.this);
+                action.open(true);
                 if (action.checkBookmark(url)) {
                     action.deleteBookmark(url);
                     NinjaToast.show(BrowserActivity.this, R.string.toast_delete_bookmark_successful);
@@ -328,6 +329,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                     NinjaToast.show(BrowserActivity.this, R.string.toast_add_bookmark_successful);
                 }
                 action.close();
+
                 updateBookmarks();
                 updateAutoComplete();
             }
@@ -351,60 +353,10 @@ public class BrowserActivity extends Activity implements BrowserController {
                 } else if (currentAlbumController instanceof NinjaRelativeLayout) {
                     final NinjaRelativeLayout layout = (NinjaRelativeLayout) currentAlbumController;
                     if (layout.getFlag() == BrowserUnit.FLAG_HOME) {
-                        // TODO: notifyDatChange()
+                        initHomeGrid(layout);
                         return;
                     }
-                    updateProgress(BrowserUnit.PROGRESS_MIN);
-
-                    RecordAction action = new RecordAction(BrowserActivity.this);
-                    action.open(false);
-                    final List<Record> list;
-                    if (layout.getFlag() == BrowserUnit.FLAG_BOOKMARKS) {
-                        list = action.listBookmarks();
-                        Collections.sort(list, new Comparator<Record>() {
-                            @Override
-                            public int compare(Record first, Record second) {
-                                return first.getTitle().compareTo(second.getTitle());
-                            }
-                        });
-                    } else if (layout.getFlag() == BrowserUnit.FLAG_HISTORY) {
-                        list = action.listHistory();
-                    } else {
-                        list = new ArrayList<>();
-                    }
-                    action.close();
-
-                    ListView listView = (ListView) layout.findViewById(R.id.record_list);
-                    TextView textView = (TextView) layout.findViewById(R.id.record_list_empty);
-                    listView.setEmptyView(textView);
-
-                    final RecordAdapter adapter = new RecordAdapter(BrowserActivity.this, R.layout.record_item, list);
-                    listView.setAdapter(adapter);
-                    adapter.notifyDataSetChanged();
-
-                    /* Wait for adapter.notifyDataSetChanged() */
-                    listView.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
-                        }
-                    }, shortAnimTime);
-                    updateProgress(BrowserUnit.PROGRESS_MAX);
-
-                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            updateAlbum(list.get(position).getURL());
-                        }
-                    });
-
-                    listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-                        @Override
-                        public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                            showListMenu(adapter, list, position);
-                            return true;
-                        }
-                    });
+                    initBHList(layout, true);
                 } else {
                     NinjaToast.show(BrowserActivity.this, R.string.toast_refresh_failed);
                 }
@@ -415,6 +367,94 @@ public class BrowserActivity extends Activity implements BrowserController {
             @Override
             public void onClick(View v) {
                 showOverflow();
+            }
+        });
+    }
+
+    private void initHomeGrid(NinjaRelativeLayout layout) {
+        RecordAction action = new RecordAction(this);
+        action.open(false);
+        final List<GridItem> list = action.listGrid();
+        action.close();
+
+        DynamicGridView gridView = (DynamicGridView) layout.findViewById(R.id.home_grid);
+        TextView aboutBlank = (TextView) layout.findViewById(R.id.home_about_blank);
+        gridView.setEmptyView(aboutBlank);
+
+        GridAdapter adapter = new GridAdapter(this, list, 2);
+        gridView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                updateAlbum(list.get(position).getURL());
+            }
+        });
+
+        gridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                // TODO
+                return true;
+            }
+        });
+    }
+
+    private void initBHList(final NinjaRelativeLayout layout, boolean update) {
+        if (update) {
+            updateProgress(BrowserUnit.PROGRESS_MIN);
+        }
+
+        RecordAction action = new RecordAction(BrowserActivity.this);
+        action.open(false);
+        final List<Record> list;
+        if (layout.getFlag() == BrowserUnit.FLAG_BOOKMARKS) {
+            list = action.listBookmarks();
+            Collections.sort(list, new Comparator<Record>() {
+                @Override
+                public int compare(Record first, Record second) {
+                    return first.getTitle().compareTo(second.getTitle());
+                }
+            });
+        } else if (layout.getFlag() == BrowserUnit.FLAG_HISTORY) {
+            list = action.listHistory();
+        } else {
+            list = new ArrayList<>();
+        }
+        action.close();
+
+        ListView listView = (ListView) layout.findViewById(R.id.record_list);
+        TextView textView = (TextView) layout.findViewById(R.id.record_list_empty);
+        listView.setEmptyView(textView);
+
+        final RecordAdapter adapter = new RecordAdapter(BrowserActivity.this, R.layout.record_item, list);
+        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        /* Wait for adapter.notifyDataSetChanged() */
+        if (update) {
+            listView.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
+                    updateProgress(BrowserUnit.PROGRESS_MAX);
+                }
+            }, shortAnimTime);
+        }
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                updateAlbum(list.get(position).getURL());
+            }
+        });
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                showListMenu(adapter, list, position);
+                return true;
             }
         });
     }
@@ -507,40 +547,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
             layout.setAlbumTitle(getString(R.string.album_title_bookmarks));
             holder = layout;
-
-            RecordAction action = new RecordAction(this);
-            action.open(false);
-            final List<Record> list = action.listBookmarks();
-            action.close();
-            Collections.sort(list, new Comparator<Record>() {
-                @Override
-                public int compare(Record first, Record second) {
-                    return first.getTitle().compareTo(second.getTitle());
-                }
-            });
-
-            ListView listView = (ListView) layout.findViewById(R.id.record_list);
-            TextView textView = (TextView) layout.findViewById(R.id.record_list_empty);
-            listView.setEmptyView(textView);
-
-            final RecordAdapter adapter = new RecordAdapter(this, R.layout.record_item, list);
-            listView.setAdapter(adapter);
-            adapter.notifyDataSetChanged();
-
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    updateAlbum(list.get(position).getURL());
-                }
-            });
-
-            listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-                @Override
-                public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                    showListMenu(adapter, list, position);
-                    return true;
-                }
-            });
+            initBHList(layout, false);
         } else if (flag == BrowserUnit.FLAG_HISTORY) {
             NinjaRelativeLayout layout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.record_list, null, false);
             layout.setBrowserController(this);
@@ -548,34 +555,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
             layout.setAlbumTitle(getString(R.string.album_title_history));
             holder = layout;
-
-            RecordAction action = new RecordAction(this);
-            action.open(false);
-            final List<Record> list = action.listHistory();
-            action.close();
-
-            ListView listView = (ListView) layout.findViewById(R.id.record_list);
-            TextView textView = (TextView) layout.findViewById(R.id.record_list_empty);
-            listView.setEmptyView(textView);
-
-            final RecordAdapter adapter = new RecordAdapter(this, R.layout.record_item, list);
-            listView.setAdapter(adapter);
-            adapter.notifyDataSetChanged();
-
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    updateAlbum(list.get(position).getURL());
-                }
-            });
-
-            listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-                @Override
-                public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                    showListMenu(adapter, list, position);
-                    return true;
-                }
-            });
+            initBHList(layout, false);
         } else if (flag == BrowserUnit.FLAG_HOME) {
             NinjaRelativeLayout layout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.home, null, false);
             layout.setBrowserController(this);
@@ -583,34 +563,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
             layout.setAlbumTitle(getString(R.string.album_title_home));
             holder = layout;
-
-            RecordAction action = new RecordAction(this);
-            action.open(false);
-            List<GridItem> list = action.listGrid();
-            action.close();
-
-            DynamicGridView gridView = (DynamicGridView) layout.findViewById(R.id.home_grid);
-            TextView aboutBlank = (TextView) layout.findViewById(R.id.home_about_blank);
-            gridView.setEmptyView(aboutBlank);
-
-            GridAdapter adapter = new GridAdapter(this, list, 2);
-            gridView.setAdapter(adapter);
-            adapter.notifyDataSetChanged();
-
-            gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    // TODO
-                }
-            });
-
-            gridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-                @Override
-                public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                    // TODO
-                    return true;
-                }
-            });
+            initHomeGrid(layout);
         } else {
             return;
         }
@@ -805,9 +758,10 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         NinjaRelativeLayout layout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.home, null, false);
         layout.setBrowserController(this);
-        layout.setFlag(BrowserUnit.FLAG_HOME); // TODO: new design
+        layout.setFlag(BrowserUnit.FLAG_HOME);
         layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
         layout.setAlbumTitle(getString(R.string.album_title_home));
+        initHomeGrid(layout);
 
         int index = switcherContainer.indexOfChild(currentAlbumController.getAlbumView());
         currentAlbumController.deactivate();
@@ -1178,7 +1132,12 @@ public class BrowserActivity extends Activity implements BrowserController {
             stringList.remove(array[3]); // Screenshot
             stringList.remove(array[4]); // Add to home
             stringList.remove(array[5]); // Share
-        } else {
+
+            NinjaRelativeLayout ninjaRelativeLayout = (NinjaRelativeLayout) currentAlbumController;
+            if (ninjaRelativeLayout.getFlag() != BrowserUnit.FLAG_HOME) {
+                stringList.remove(array[6]); // Relayout
+            }
+        } else if (currentAlbumController != null && currentAlbumController instanceof NinjaWebView) {
             stringList.remove(array[6]); // Relayout
         }
 
