@@ -243,6 +243,17 @@
 
         </RelativeLayout>
 
+        <Button android:id="@+id/main_relayout_ok"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/layout_height_48dp"
+                android:minHeight="@dimen/layout_height_48dp"
+                android:text="@string/main_relayout_ok"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_16sp"
+                android:background="@color/background_dark"
+                android:visibility="gone">
+        </Button>
+
         <FrameLayout android:id="@+id/main_content"
                      android:layout_width="match_parent"
                      android:layout_height="match_parent">

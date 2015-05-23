@@ -15,6 +15,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -37,6 +38,7 @@ import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.Unit.IntentUnit;
 import io.github.mthli.Ninja.Unit.ViewUnit;
 import io.github.mthli.Ninja.View.*;
+import org.askerov.dynamicgrid.DynamicGridView;
 
 import java.util.*;
 
@@ -44,7 +46,9 @@ public class BrowserActivity extends Activity implements BrowserController {
     private static final int DOUBLE_TAPS_QUIT_DEFAULT = 512;
 
     private SwitcherPanel switcherPanel;
+    private float dimen156dp;
     private float dimen144dp;
+    private float dimen117dp;
     private float dimen108dp;
     private float dimen48dp;
 
@@ -55,6 +59,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     private ImageButton switcherAdd;
 
     private RelativeLayout omnibox;
+    private Button relayoutButton;
     private AutoCompleteTextView inputBox;
     private ImageButton omniboxBookmark;
     private ImageButton omniboxRefresh;
@@ -105,7 +110,9 @@ public class BrowserActivity extends Activity implements BrowserController {
             }
         });
 
+        dimen156dp = getResources().getDimensionPixelSize(R.dimen.layout_width_156dp);
         dimen144dp = getResources().getDimensionPixelSize(R.dimen.layout_width_144dp);
+        dimen117dp = getResources().getDimensionPixelSize(R.dimen.layout_height_117dp);
         dimen108dp = getResources().getDimensionPixelSize(R.dimen.layout_height_108dp);
         dimen48dp = getResources().getDimensionPixelOffset(R.dimen.layout_height_48dp);
 
@@ -113,6 +120,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         initOmnibox();
         initSearchPanel();
 
+        relayoutButton = (Button) findViewById(R.id.main_relayout_ok);
         contentFrame = (FrameLayout) findViewById(R.id.main_content);
         dispatchIntent(getIntent());
     }
@@ -213,6 +221,8 @@ public class BrowserActivity extends Activity implements BrowserController {
         });
 
         updateAutoComplete(); // For inputBox.setDropDownWidth()
+
+        // TODO: new GridAdapetr.
     }
 
     @Override
@@ -566,13 +576,41 @@ public class BrowserActivity extends Activity implements BrowserController {
                     return true;
                 }
             });
-        } else if (flag == BrowserUnit.FLAG_HOME) { // TODO: new design
+        } else if (flag == BrowserUnit.FLAG_HOME) {
             NinjaRelativeLayout layout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.home, null, false);
             layout.setBrowserController(this);
             layout.setFlag(BrowserUnit.FLAG_HOME);
-            layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565)); // TODO
+            layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
             layout.setAlbumTitle(getString(R.string.album_title_home));
             holder = layout;
+
+            RecordAction action = new RecordAction(this);
+            action.open(false);
+            List<GridItem> list = action.listGrid();
+            action.close();
+
+            DynamicGridView gridView = (DynamicGridView) layout.findViewById(R.id.home_grid);
+            TextView aboutBlank = (TextView) layout.findViewById(R.id.home_about_blank);
+            gridView.setEmptyView(aboutBlank);
+
+            GridAdapter adapter = new GridAdapter(this, list, 2);
+            gridView.setAdapter(adapter);
+            adapter.notifyDataSetChanged();
+
+            gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    // TODO
+                }
+            });
+
+            gridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                @Override
+                public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                    // TODO
+                    return true;
+                }
+            });
         } else {
             return;
         }
@@ -768,7 +806,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         NinjaRelativeLayout layout = (NinjaRelativeLayout) getLayoutInflater().inflate(R.layout.home, null, false);
         layout.setBrowserController(this);
         layout.setFlag(BrowserUnit.FLAG_HOME); // TODO: new design
-        layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565)); // TODO
+        layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
         layout.setAlbumTitle(getString(R.string.album_title_home));
 
         int index = switcherContainer.indexOfChild(currentAlbumController.getAlbumView());
@@ -1127,24 +1165,27 @@ public class BrowserActivity extends Activity implements BrowserController {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
 
-        LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog, null, false);
-        builder.setView(layout);
+        LinearLayout linearLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog, null, false);
+        builder.setView(linearLayout);
 
         final String[] array = getResources().getStringArray(R.array.main_overflow);
-        final List<String> list = new ArrayList<>();
-        list.addAll(Arrays.asList(array));
+        final List<String> stringList = new ArrayList<>();
+        stringList.addAll(Arrays.asList(array));
         if (currentAlbumController != null && currentAlbumController instanceof NinjaRelativeLayout) {
-            list.remove(array[0]); // Go to top
-            list.remove(array[1]); // Go forward
-            list.remove(array[2]); // Find in page
-            list.remove(array[3]); // Screenshot
-            list.remove(array[4]); // Share
+            stringList.remove(array[0]); // Go to top
+            stringList.remove(array[1]); // Go forward
+            stringList.remove(array[2]); // Find in page
+            stringList.remove(array[3]); // Screenshot
+            stringList.remove(array[4]); // Add to home
+            stringList.remove(array[5]); // Share
+        } else {
+            stringList.remove(array[6]); // Relayout
         }
 
-        ListView listView = (ListView) layout.findViewById(R.id.dialog_list);
-        DialogAdapter adapter = new DialogAdapter(this, R.layout.dialog_text_item, list);
-        listView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+        ListView listView = (ListView) linearLayout.findViewById(R.id.dialog_list);
+        DialogAdapter dialogAdapter = new DialogAdapter(this, R.layout.dialog_text_item, stringList);
+        listView.setAdapter(dialogAdapter);
+        dialogAdapter.notifyDataSetChanged();
 
         final AlertDialog dialog = builder.create();
         dialog.show();
@@ -1152,7 +1193,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String s = list.get(position);
+                String s = stringList.get(position);
                 if (s.equals(array[0])) { // Go to top
                     NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
                     ObjectAnimator anim = ObjectAnimator.ofInt(ninjaWebView, "scrollY", ninjaWebView.getScrollY(), 0);
@@ -1171,19 +1212,92 @@ public class BrowserActivity extends Activity implements BrowserController {
                 } else if (s.equals(array[3])) { // Screenshot
                     NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
                     new ScreenshotTask(BrowserActivity.this, ninjaWebView).execute();
-                } else if (s.equals(array[4])) { // Share
+                } else if (s.equals(array[4])) { // Add to home
+                    NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
+
+                    RecordAction action = new RecordAction(BrowserActivity.this);
+                    action.open(true);
+
+                    if (action.checkGridItem(ninjaWebView.getUrl())) {
+                        NinjaToast.show(BrowserActivity.this, R.string.toast_already_exist_in_home);
+                    } else {
+                        String title = ninjaWebView.getTitle().trim();
+                        String url = ninjaWebView.getUrl().trim();
+                        Bitmap bitmap = ViewUnit.capture(ninjaWebView, dimen156dp, dimen117dp, false, Bitmap.Config.ARGB_8888);
+                        int ordinal = action.listGrid().size(); // TODO: action.getSize()
+                        GridItem item = new GridItem(title, url, bitmap, ordinal);
+
+                        if (action.addGridItem(item)) {
+                            NinjaToast.show(BrowserActivity.this, R.string.toast_add_to_home_successful);
+                        } else {
+                            NinjaToast.show(BrowserActivity.this, R.string.toast_add_to_home_failed);
+                        }
+                    }
+                    action.close();
+                } else if (s.equals(array[5])) { // Share
                     if (!prepareRecord()) {
                         NinjaToast.show(BrowserActivity.this, R.string.toast_share_failed);
                     } else {
                         NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
                         IntentUnit.share(BrowserActivity.this, ninjaWebView.getTitle(), ninjaWebView.getUrl());
                     }
-                } else if (s.equals(array[5])) { // Setting
+                } else if (s.equals(array[6])) { // Relayout
+                    NinjaRelativeLayout ninjaRelativeLayout = (NinjaRelativeLayout) currentAlbumController;
+                    final DynamicGridView gridView = (DynamicGridView) ninjaRelativeLayout.findViewById(R.id.home_grid);
+                    final List<GridItem> gridList = ((GridAdapter) gridView.getAdapter()).getList();
+
+                    omnibox.setVisibility(View.GONE);
+                    relayoutButton.setVisibility(View.VISIBLE);
+
+                    gridView.setOnDragListener(new DynamicGridView.OnDragListener() {
+                        private GridItem dragItem;
+
+                        @Override
+                        public void onDragStarted(int position) {
+                            dragItem = gridList.get(position);
+                        }
+
+                        @Override
+                        public void onDragPositionsChanged(int oldPosition, int newPosition) {
+                            GridItem tempItem = gridList.get(newPosition);
+                            tempItem.setOrdinal(oldPosition);
+                            gridList.set(oldPosition, tempItem);
+
+                            dragItem.setOrdinal(newPosition);
+                            gridList.set(newPosition, dragItem);
+                        }
+                    });
+
+                    relayoutButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            gridView.stopEditMode();
+                            relayoutButton.setVisibility(View.GONE);
+                            omnibox.setVisibility(View.VISIBLE);
+
+                            new Handler().post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    RecordAction action = new RecordAction(BrowserActivity.this);
+                                    action.open(true);
+                                    action.clearGrid();
+                                    for (GridItem item : gridList) {
+                                        action.addGridItem(item);
+                                    }
+                                    action.close();
+                                }
+                            });
+                        }
+                    });
+
+                    gridView.startEditMode();
+                } else if (s.equals(array[7])) { // Setting
                     Intent intent = new Intent(BrowserActivity.this, SettingActivity.class);
                     startActivity(intent);
-                } else if (s.equals(array[6])) { // Quit
+                } else if (s.equals(array[8])) { // Quit
                     finish();
                 }
+
                 dialog.hide();
                 dialog.dismiss();
             }
@@ -1235,12 +1349,16 @@ public class BrowserActivity extends Activity implements BrowserController {
                         action.deleteHistory(record);
                     }
                     action.close();
+
                     recordList.remove(location);
                     listAdapter.notifyDataSetChanged();
+
                     updateBookmarks();
                     updateAutoComplete();
+
                     NinjaToast.show(BrowserActivity.this, R.string.toast_delete_successful);
                 }
+
                 dialog.hide();
                 dialog.dismiss();
             }

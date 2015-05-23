@@ -56,6 +56,9 @@
     <string name="main_omnibox_input_hint">
         Search or type URL
     </string>
+    <string name="main_relayout_ok">
+        OK
+    </string>
     <string name="main_about_blank">
         about:blank
     </string>
@@ -64,7 +67,9 @@
         <item>Go forward</item>
         <item>Find in page</item>
         <item>Screenshot</item>
+        <item>Add to home</item>
         <item>Share</item>
+        <item>Relayout</item>
         <item>Setting</item>
         <item>Quit</item>
     </string-array>
@@ -307,8 +312,17 @@
     <string name="toast_add_bookmark_failed">
         Can\'t add this page to bookmark
     </string>
+    <string name="toast_add_to_home_successful">
+        Add to home successful
+    </string>
+    <string name="toast_add_to_home_failed">
+        Add to home failed
+    </string>
     <string name="toast_already_at_the_front">
         Already at the front
+    </string>
+    <string name="toast_already_exist_in_home">
+        Already exist in home
     </string>
     <string name="toast_clear_bookmarks_successful">
         Clear bookmarks successful

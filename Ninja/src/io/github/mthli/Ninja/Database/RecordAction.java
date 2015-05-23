@@ -4,10 +4,12 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.Unit.RecordUnit;
 import io.github.mthli.Ninja.View.GridItem;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class RecordAction {
@@ -83,8 +85,7 @@ public class RecordAction {
                 || item.getTitle().trim().isEmpty()
                 || item.getURL() == null
                 || item.getURL().trim().isEmpty()
-                || item.getFilename() == null
-                || item.getFilename().trim().isEmpty()
+                || item.getCover() == null
                 || item.getOrdinal() < 0) {
             return false;
         }
@@ -92,7 +93,7 @@ public class RecordAction {
         ContentValues values = new ContentValues();
         values.put(RecordUnit.COLUMN_TITLE, item.getTitle().trim());
         values.put(RecordUnit.COLUMN_URL, item.getURL().trim());
-        values.put(RecordUnit.COLUMN_FILENAME, item.getFilename().trim());
+        values.put(RecordUnit.COLUMN_COVER, BrowserUnit.bitmap2bytes(item.getCover())); ///
         values.put(RecordUnit.COLUMN_ORDINAL, item.getOrdinal());
         database.insert(RecordUnit.TABLE_GRID, null, values);
         return true;
@@ -122,8 +123,7 @@ public class RecordAction {
                 || item.getTitle().trim().isEmpty()
                 || item.getURL() == null
                 || item.getURL().trim().isEmpty()
-                || item.getFilename() == null
-                || item.getFilename().trim().isEmpty()
+                || item.getCover() == null
                 || item.getOrdinal() < 0) {
             return false;
         }
@@ -131,7 +131,7 @@ public class RecordAction {
         ContentValues values = new ContentValues();
         values.put(RecordUnit.COLUMN_TITLE, item.getTitle().trim());
         values.put(RecordUnit.COLUMN_URL, item.getURL().trim());
-        values.put(RecordUnit.COLUMN_FILENAME, item.getFilename().trim());
+        values.put(RecordUnit.COLUMN_COVER, BrowserUnit.bitmap2bytes(item.getCover())); ///
         values.put(RecordUnit.COLUMN_ORDINAL, item.getOrdinal());
         database.update(RecordUnit.TABLE_GRID, values, RecordUnit.COLUMN_URL + "=?", new String[] {item.getURL()});
         return true;
@@ -249,6 +249,34 @@ public class RecordAction {
         return false;
     }
 
+    public boolean checkGridItem(String url) {
+        if (url == null || url.trim().isEmpty()) {
+            return false;
+        }
+
+        Cursor cursor = database.query(
+                RecordUnit.TABLE_GRID,
+                new String[] {RecordUnit.COLUMN_URL},
+                RecordUnit.COLUMN_URL + "=?",
+                new String[] {url.trim()},
+                null,
+                null,
+                null
+        );
+
+        if (cursor != null) {
+            boolean result = false;
+            if (cursor.moveToFirst()) {
+                result = true;
+            }
+            cursor.close();
+
+            return result;
+        }
+
+        return false;
+    }
+
     public boolean deleteBookmark(Record record) {
         if (record == null || record.getURL() == null || record.getURL().trim().isEmpty()) {
             return false;
@@ -331,7 +359,7 @@ public class RecordAction {
         GridItem item = new GridItem();
         item.setTitle(cursor.getString(0));
         item.setURL(cursor.getString(1));
-        item.setFilename(cursor.getString(2));
+        item.setCover(BrowserUnit.bytes2bitmap(cursor.getBlob(2))); ///
         item.setOrdinal(cursor.getInt(3));
         return item;
     }
@@ -428,14 +456,14 @@ public class RecordAction {
     }
 
     public List<GridItem> listGrid() {
-        List<GridItem> list = new ArrayList<>();
+        List<GridItem> list = new LinkedList<>();
 
         Cursor cursor = database.query(
                 RecordUnit.TABLE_GRID,
                 new String[] {
                         RecordUnit.COLUMN_TITLE,
                         RecordUnit.COLUMN_URL,
-                        RecordUnit.COLUMN_FILENAME,
+                        RecordUnit.COLUMN_COVER,
                         RecordUnit.COLUMN_ORDINAL
                 },
                 null,

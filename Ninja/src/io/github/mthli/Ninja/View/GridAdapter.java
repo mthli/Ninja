@@ -1,6 +1,7 @@
 package io.github.mthli.Ninja.View;
 
 import android.content.Context;
+import android.support.v4.view.ViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +18,12 @@ public class GridAdapter extends BaseDynamicGridAdapter {
         ImageView cover;
     }
 
-    private Context context;
     private List<GridItem> list;
+    public List<GridItem> getList() {
+        return list;
+    }
+
+    private Context context;
 
     public GridAdapter(Context context, List<GridItem> list, int columnCount) {
         super(context, list, columnCount);
@@ -43,9 +48,9 @@ public class GridAdapter extends BaseDynamicGridAdapter {
 
         GridItem item = list.get(position);
         holder.title.setText(item.getTitle());
+        holder.cover.setImageBitmap(item.getCover());
 
-        // TODO: file to bitmap
-
+        ViewCompat.setElevation(view, context.getResources().getDimensionPixelSize(R.dimen.elevation_1dp));
         return view;
     }
 }

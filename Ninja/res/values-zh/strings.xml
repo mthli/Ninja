@@ -56,15 +56,20 @@
     <string name="main_omnibox_input_hint">
         搜索或输入地址
     </string>
+    <string name="main_relayout_ok">
+        确定
+    </string>
     <string name="main_about_blank">
-        空白页
+        about:blank
     </string>
     <string-array name="main_overflow">
         <item>返回顶部</item>
         <item>前进一页</item>
         <item>页内搜索</item>
         <item>网页截图</item>
+        <item>首页添加</item>
         <item>分享</item>
+        <item>排版</item>
         <item>设置</item>
         <item>退出</item>
     </string-array>
@@ -306,8 +311,17 @@
     <string name="toast_add_bookmark_failed">
         无法将此页面添加为书签
     </string>
+    <string name="toast_add_to_home_successful">
+        添加到首页成功
+    </string>
+    <string name="toast_add_to_home_failed">
+        添加到首页失败
+    </string>
     <string name="toast_already_at_the_front">
         已经在最前面了
+    </string>
+    <string name="toast_already_exist_in_home">
+        首页中已经存在该网址
     </string>
     <string name="toast_clear_bookmarks_successful">
         清空书签成功

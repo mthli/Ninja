@@ -3,6 +3,7 @@ package io.github.mthli.Ninja.Unit;
 import android.app.DownloadManager;
 import android.content.*;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -131,6 +132,17 @@ public class BrowserUnit {
             searchEngine = SEARCH_ENGINE_GOOGLE;
         }
         return searchEngine + query;
+    }
+
+    public static byte[] bitmap2bytes(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        return stream.toByteArray();
+    }
+
+    public static Bitmap bytes2bitmap(byte[] bytes) {
+        Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+        return bitmap;
     }
 
     public static void copyURL(Context context, String url) {

@@ -1,5 +1,7 @@
 package io.github.mthli.Ninja.View;
 
+import android.graphics.Bitmap;
+
 public class GridItem {
     private String title;
     public String getTitle() {
@@ -17,12 +19,12 @@ public class GridItem {
         this.url = url;
     }
 
-    private String filename;
-    public String getFilename() {
-        return filename;
+    private Bitmap cover;
+    public Bitmap getCover() {
+        return cover;
     }
-    public void setFilename(String filename) {
-        this.filename = filename;
+    public void setCover(Bitmap cover) {
+        this.cover = cover;
     }
 
     private int ordinal;
@@ -36,14 +38,14 @@ public class GridItem {
     public GridItem() {
         this.title = null;
         this.url = null;
-        this.filename = null;
+        this.cover = null;
         this.ordinal = -1;
     }
 
-    public GridItem(String title, String url, String filename, int ordinal) {
+    public GridItem(String title, String url, Bitmap cover, int ordinal) {
         this.title = title;
         this.url = url;
-        this.filename = filename;
+        this.cover = cover;
         this.ordinal = ordinal;
     }
 }
