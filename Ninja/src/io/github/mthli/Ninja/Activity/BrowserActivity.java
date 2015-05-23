@@ -58,19 +58,20 @@ public class BrowserActivity extends Activity implements BrowserController {
     private ImageButton switcherAdd;
 
     private RelativeLayout omnibox;
-    private Button relayoutButton;
     private AutoCompleteTextView inputBox;
     private ImageButton omniboxBookmark;
     private ImageButton omniboxRefresh;
     private ImageButton omniboxOverflow;
     private ProgressBar progressBar;
-    private FrameLayout contentFrame;
 
     private RelativeLayout searchPanel;
     private EditText searchBox;
     private ImageButton searchUp;
     private ImageButton searchDown;
     private ImageButton searchCancel;
+
+    private Button relayoutOK;
+    private FrameLayout contentFrame;
 
     private static boolean quit = false;
     private boolean create = true;
@@ -118,7 +119,8 @@ public class BrowserActivity extends Activity implements BrowserController {
         initSwitcherView();
         initOmnibox();
         initSearchPanel();
-        relayoutButton = (Button) findViewById(R.id.main_relayout_ok);
+
+        relayoutOK = (Button) findViewById(R.id.main_relayout_ok);
         contentFrame = (FrameLayout) findViewById(R.id.main_content);
 
         dispatchIntent(getIntent());
@@ -187,6 +189,19 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         create = false;
         inputBox.clearFocus();
+        if (currentAlbumController != null && currentAlbumController instanceof NinjaRelativeLayout) {
+            NinjaRelativeLayout layout = (NinjaRelativeLayout) currentAlbumController;
+            if (layout.getFlag() == BrowserUnit.FLAG_HOME) {
+                DynamicGridView gridView = (DynamicGridView) layout.findViewById(R.id.home_grid);
+                if (gridView.isEditMode()) {
+                    gridView.stopEditMode();
+                    relayoutOK.setVisibility(View.GONE);
+                    omnibox.setVisibility(View.VISIBLE);
+                    initHomeGrid(layout, true);
+                }
+            }
+        }
+
         super.onPause();
     }
 
@@ -202,6 +217,18 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
+        if (currentAlbumController != null && currentAlbumController instanceof NinjaRelativeLayout) {
+            NinjaRelativeLayout layout = (NinjaRelativeLayout) currentAlbumController;
+            if (layout.getFlag() == BrowserUnit.FLAG_HOME) {
+                DynamicGridView gridView = (DynamicGridView) layout.findViewById(R.id.home_grid);
+                if (gridView.isEditMode()) {
+                    gridView.stopEditMode();
+                    relayoutOK.setVisibility(View.GONE);
+                    omnibox.setVisibility(View.VISIBLE);
+                }
+            }
+        }
+
         hideSoftInput(inputBox);
         hideSearchPanel();
         if (switcherPanel.getStatus() != SwitcherPanel.Status.EXPANDED) {
@@ -219,9 +246,12 @@ public class BrowserActivity extends Activity implements BrowserController {
             }
         });
 
-        updateAutoComplete(); // For inputBox.setDropDownWidth()
-
-        // TODO: new GridAdapetr.
+        if (currentAlbumController != null && currentAlbumController instanceof NinjaRelativeLayout) {
+            NinjaRelativeLayout layout = (NinjaRelativeLayout) currentAlbumController;
+            if (layout.getFlag() == BrowserUnit.FLAG_HOME) {
+                initHomeGrid(layout, true);
+            }
+        }
     }
 
     @Override
@@ -273,7 +303,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         switcherAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addAlbum(BrowserUnit.FLAG_HOME); ///
+                addAlbum(BrowserUnit.FLAG_HOME);
             }
         });
     }
@@ -353,7 +383,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 } else if (currentAlbumController instanceof NinjaRelativeLayout) {
                     final NinjaRelativeLayout layout = (NinjaRelativeLayout) currentAlbumController;
                     if (layout.getFlag() == BrowserUnit.FLAG_HOME) {
-                        initHomeGrid(layout);
+                        initHomeGrid(layout, true);
                         return;
                     }
                     initBHList(layout, true);
@@ -371,7 +401,11 @@ public class BrowserActivity extends Activity implements BrowserController {
         });
     }
 
-    private void initHomeGrid(NinjaRelativeLayout layout) {
+    private void initHomeGrid(final NinjaRelativeLayout layout, boolean update) {
+        if (update) {
+            updateProgress(BrowserUnit.PROGRESS_MIN);
+        }
+
         RecordAction action = new RecordAction(this);
         action.open(false);
         final List<GridItem> list = action.listGrid();
@@ -381,9 +415,25 @@ public class BrowserActivity extends Activity implements BrowserController {
         TextView aboutBlank = (TextView) layout.findViewById(R.id.home_about_blank);
         gridView.setEmptyView(aboutBlank);
 
-        GridAdapter adapter = new GridAdapter(this, list, 2);
+        GridAdapter adapter;
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            adapter = new GridAdapter(this, list, 3);
+        } else {
+            adapter = new GridAdapter(this, list, 2);
+        }
         gridView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+
+        /* Wait for adapter.notifyDataSetChanged() */
+        if (update) {
+            gridView.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
+                    updateProgress(BrowserUnit.PROGRESS_MAX);
+                }
+            }, shortAnimTime);
+        }
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -563,7 +613,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
             layout.setAlbumTitle(getString(R.string.album_title_home));
             holder = layout;
-            initHomeGrid(layout);
+            initHomeGrid(layout, false);
         } else {
             return;
         }
@@ -761,7 +811,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         layout.setFlag(BrowserUnit.FLAG_HOME);
         layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
         layout.setAlbumTitle(getString(R.string.album_title_home));
-        initHomeGrid(layout);
+        initHomeGrid(layout, true);
 
         int index = switcherContainer.indexOfChild(currentAlbumController.getAlbumView());
         currentAlbumController.deactivate();
@@ -1206,7 +1256,28 @@ public class BrowserActivity extends Activity implements BrowserController {
                     final List<GridItem> gridList = ((GridAdapter) gridView.getAdapter()).getList();
 
                     omnibox.setVisibility(View.GONE);
-                    relayoutButton.setVisibility(View.VISIBLE);
+                    relayoutOK.setVisibility(View.VISIBLE);
+                    relayoutOK.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            gridView.stopEditMode();
+                            relayoutOK.setVisibility(View.GONE);
+                            omnibox.setVisibility(View.VISIBLE);
+
+                            new Handler().post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    RecordAction action = new RecordAction(BrowserActivity.this);
+                                    action.open(true);
+                                    action.clearGrid();
+                                    for (GridItem item : gridList) {
+                                        action.addGridItem(item);
+                                    }
+                                    action.close();
+                                }
+                            });
+                        }
+                    });
 
                     gridView.setOnDragListener(new DynamicGridView.OnDragListener() {
                         private GridItem dragItem;
@@ -1226,29 +1297,6 @@ public class BrowserActivity extends Activity implements BrowserController {
                             gridList.set(newPosition, dragItem);
                         }
                     });
-
-                    relayoutButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            gridView.stopEditMode();
-                            relayoutButton.setVisibility(View.GONE);
-                            omnibox.setVisibility(View.VISIBLE);
-
-                            new Handler().post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    RecordAction action = new RecordAction(BrowserActivity.this);
-                                    action.open(true);
-                                    action.clearGrid();
-                                    for (GridItem item : gridList) {
-                                        action.addGridItem(item);
-                                    }
-                                    action.close();
-                                }
-                            });
-                        }
-                    });
-
                     gridView.startEditMode();
                 } else if (s.equals(array[7])) { // Setting
                     Intent intent = new Intent(BrowserActivity.this, SettingActivity.class);
