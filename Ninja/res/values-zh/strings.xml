@@ -316,10 +316,10 @@
         无法将此页面添加为书签
     </string>
     <string name="toast_add_to_home_successful">
-        添加到首页成功
+        添加拨号成功
     </string>
     <string name="toast_add_to_home_failed">
-        添加到首页失败
+        添加拨号失败
     </string>
     <string name="toast_add_whitelist_successful">
         添加域名成功
