@@ -34,7 +34,7 @@ public class RecordUnit {
     public static final String CREATE_WHITELIST = "CREATE TABLE "
             + TABLE_WHITELIST
             + " ("
-            + " " + COLUMN_DOMAIN
+            + " " + COLUMN_DOMAIN + " text"
             + ")";
 
     public static final String CREATE_GRID = "CREATE TABLE "
