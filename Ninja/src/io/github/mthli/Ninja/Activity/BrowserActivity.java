@@ -263,6 +263,8 @@ public class BrowserActivity extends Activity implements BrowserController {
             return onKeyCodeVolumeUp();
         } else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
             return onKeyCodeVolumeDown();
+        } else if (keyCode == KeyEvent.KEYCODE_MENU) {
+            return showOverflow();
         } else if (keyCode == KeyEvent.KEYCODE_BACK) {
             return onKeyCodeBack();
         }
@@ -1173,7 +1175,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         showSoftInput(searchBox);
     }
 
-    private void showOverflow() {
+    private boolean showOverflow() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
 
@@ -1336,6 +1338,8 @@ public class BrowserActivity extends Activity implements BrowserController {
                 dialog.dismiss();
             }
         });
+
+        return true;
     }
 
     private void showGridMenu(final GridItem gridItem) {
