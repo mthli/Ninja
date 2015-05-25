@@ -1,5 +1,7 @@
 package io.github.mthli.Ninja.Activity;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -20,6 +22,7 @@ import android.text.Html;
 import android.text.TextWatcher;
 import android.view.*;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.view.inputmethod.EditorInfo;
@@ -661,7 +664,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                showAlbum(holder, true, true);
+                showAlbum(holder, false, true, true);
             }
         });
         albumView.startAnimation(animation);
@@ -711,7 +714,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                showAlbum(webView, true, false);
+                showAlbum(webView, false, true, false);
 
                 if (url != null && !url.isEmpty()) {
                     webView.loadUrl(url);
@@ -728,8 +731,8 @@ public class BrowserActivity extends Activity implements BrowserController {
     private synchronized void pinAlbums(String url) {
         hideSoftInput(inputBox);
         hideSearchPanel();
-        switcherContainer.removeAllViews();
-        contentFrame.removeAllViews();
+        switcherContainer.removeAllViews(); ///
+        contentFrame.removeAllViews(); ///
 
         for (AlbumController controller : BrowserContainer.list()) {
             if (controller instanceof NinjaWebView) {
@@ -796,7 +799,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     @Override
-    public synchronized void showAlbum(AlbumController controller, final boolean expand, final boolean capture) {
+    public synchronized void showAlbum(AlbumController controller, boolean anim, final boolean expand, final boolean capture) {
         if (controller == null || controller == currentAlbumController) {
             switcherPanel.expanded();
             return;
@@ -805,8 +808,30 @@ public class BrowserActivity extends Activity implements BrowserController {
         if (currentAlbumController != null) {
             currentAlbumController.deactivate();
         }
-        contentFrame.removeAllViews();
-        contentFrame.addView((View) controller);
+
+        if (currentAlbumController != null && anim) {
+            final View rv = (View) currentAlbumController;
+            final View av = (View) controller;
+
+            Animation fadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out);
+            fadeOut.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationRepeat(Animation animation) {}
+
+                @Override
+                public void onAnimationEnd(Animation animation) {}
+
+                @Override
+                public void onAnimationStart(Animation animation) {
+                    contentFrame.removeAllViews();
+                    contentFrame.addView(av);
+                }
+            });
+            rv.startAnimation(fadeOut);
+        } else {
+            contentFrame.removeAllViews();
+            contentFrame.addView((View) controller);
+        }
 
         currentAlbumController = controller;
         currentAlbumController.activate();
@@ -841,7 +866,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         int index = switcherContainer.indexOfChild(currentAlbumController.getAlbumView());
         currentAlbumController.deactivate();
         switcherContainer.removeView(currentAlbumController.getAlbumView());
-        contentFrame.removeAllViews();
+        contentFrame.removeAllViews(); ///
 
         switcherContainer.addView(layout.getAlbumView(), index, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
         contentFrame.addView(layout);
@@ -869,7 +894,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             int index = switcherContainer.indexOfChild(currentAlbumController.getAlbumView());
             currentAlbumController.deactivate();
             switcherContainer.removeView(currentAlbumController.getAlbumView());
-            contentFrame.removeAllViews();
+            contentFrame.removeAllViews(); ///
 
             switcherContainer.addView(webView.getAlbumView(), index, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             contentFrame.addView(webView);
@@ -903,7 +928,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             if (index >= BrowserContainer.size()) {
                 index = BrowserContainer.size() - 1;
             }
-            showAlbum(BrowserContainer.get(index), false, false);
+            showAlbum(BrowserContainer.get(index), false, false, false);
         }
     }
 
