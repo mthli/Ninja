@@ -748,7 +748,8 @@ public class BrowserActivity extends Activity implements BrowserController {
         } else if (BrowserContainer.size() >= 1 && url == null) {
             int index = BrowserContainer.size() - 1;
             if (currentAlbumController != null) {
-                index = BrowserContainer.indexOf(currentAlbumController);
+                // When BrowserActivity open, always show latest ((View) currentAlbumController)
+                // index = BrowserContainer.indexOf(currentAlbumController);
                 currentAlbumController.deactivate();
             }
             currentAlbumController = BrowserContainer.get(index);
