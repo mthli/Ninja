@@ -152,15 +152,26 @@ public class BrowserUnit {
         return url;
     }
 
-    public static byte[] bitmap2bytes(Bitmap bitmap) {
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-        return stream.toByteArray();
+    public static boolean bitmap2File(Context context, Bitmap bitmap, String filename) {
+        try {
+            FileOutputStream fileOutputStream = context.openFileOutput(filename, Context.MODE_PRIVATE);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
+            fileOutputStream.flush();
+            fileOutputStream.close();
+        } catch (Exception e) {
+            return false;
+        }
+
+        return true;
     }
 
-    public static Bitmap bytes2bitmap(byte[] bytes) {
-        Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-        return bitmap;
+    public static Bitmap file2Bitmap(Context context, String filename) {
+        try {
+            FileInputStream fileInputStream = context.openFileInput(filename);
+            return BitmapFactory.decodeStream(fileInputStream);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public static void copyURL(Context context, String url) {

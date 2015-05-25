@@ -1339,10 +1339,11 @@ public class BrowserActivity extends Activity implements BrowserController {
                         String title = ninjaWebView.getTitle().trim();
                         String url = ninjaWebView.getUrl().trim();
                         Bitmap bitmap = ViewUnit.capture(ninjaWebView, dimen156dp, dimen117dp, false, Bitmap.Config.ARGB_8888);
+                        String filename = System.currentTimeMillis() + BrowserUnit.SUFFIX_PNG;
                         int ordinal = action.listGrid().size(); // TODO: action.getSize()
-                        GridItem item = new GridItem(title, url, bitmap, ordinal);
+                        GridItem item = new GridItem(title, url, filename, ordinal);
 
-                        if (action.addGridItem(item)) {
+                        if (BrowserUnit.bitmap2File(BrowserActivity.this, bitmap, filename) && action.addGridItem(item)) {
                             NinjaToast.show(BrowserActivity.this, R.string.toast_add_to_home_successful);
                         } else {
                             NinjaToast.show(BrowserActivity.this, R.string.toast_add_to_home_failed);
@@ -1481,6 +1482,8 @@ public class BrowserActivity extends Activity implements BrowserController {
                     action.open(true);
                     action.deleteGridItem(gridItem);
                     action.close();
+                    BrowserActivity.this.deleteFile(gridItem.getFilename());
+
                     initHomeGrid((NinjaRelativeLayout) currentAlbumController, true);
                     NinjaToast.show(BrowserActivity.this, R.string.toast_delete_successful);
                 }

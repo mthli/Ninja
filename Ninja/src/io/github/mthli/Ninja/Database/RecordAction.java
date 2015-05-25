@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.Unit.RecordUnit;
 import io.github.mthli.Ninja.View.GridItem;
 
@@ -85,7 +84,8 @@ public class RecordAction {
                 || item.getTitle().trim().isEmpty()
                 || item.getURL() == null
                 || item.getURL().trim().isEmpty()
-                || item.getCover() == null
+                || item.getFilename() == null
+                || item.getFilename().trim().isEmpty()
                 || item.getOrdinal() < 0) {
             return false;
         }
@@ -93,7 +93,7 @@ public class RecordAction {
         ContentValues values = new ContentValues();
         values.put(RecordUnit.COLUMN_TITLE, item.getTitle().trim());
         values.put(RecordUnit.COLUMN_URL, item.getURL().trim());
-        values.put(RecordUnit.COLUMN_COVER, BrowserUnit.bitmap2bytes(item.getCover())); ///
+        values.put(RecordUnit.COLUMN_FILENAME, item.getFilename().trim());
         values.put(RecordUnit.COLUMN_ORDINAL, item.getOrdinal());
         database.insert(RecordUnit.TABLE_GRID, null, values);
         return true;
@@ -123,7 +123,8 @@ public class RecordAction {
                 || item.getTitle().trim().isEmpty()
                 || item.getURL() == null
                 || item.getURL().trim().isEmpty()
-                || item.getCover() == null
+                || item.getFilename() == null
+                || item.getFilename().trim().isEmpty()
                 || item.getOrdinal() < 0) {
             return false;
         }
@@ -131,7 +132,7 @@ public class RecordAction {
         ContentValues values = new ContentValues();
         values.put(RecordUnit.COLUMN_TITLE, item.getTitle().trim());
         values.put(RecordUnit.COLUMN_URL, item.getURL().trim());
-        values.put(RecordUnit.COLUMN_COVER, BrowserUnit.bitmap2bytes(item.getCover())); ///
+        values.put(RecordUnit.COLUMN_FILENAME, item.getFilename().trim());
         values.put(RecordUnit.COLUMN_ORDINAL, item.getOrdinal());
         database.update(RecordUnit.TABLE_GRID, values, RecordUnit.COLUMN_URL + "=?", new String[] {item.getURL()});
         return true;
@@ -359,7 +360,7 @@ public class RecordAction {
         GridItem item = new GridItem();
         item.setTitle(cursor.getString(0));
         item.setURL(cursor.getString(1));
-        item.setCover(BrowserUnit.bytes2bitmap(cursor.getBlob(2))); ///
+        item.setFilename(cursor.getString(2));
         item.setOrdinal(cursor.getInt(3));
         return item;
     }
@@ -463,7 +464,7 @@ public class RecordAction {
                 new String[] {
                         RecordUnit.COLUMN_TITLE,
                         RecordUnit.COLUMN_URL,
-                        RecordUnit.COLUMN_COVER,
+                        RecordUnit.COLUMN_FILENAME,
                         RecordUnit.COLUMN_ORDINAL
                 },
                 null,

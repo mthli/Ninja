@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 import io.github.mthli.Ninja.Unit.RecordUnit;
 
 public class RecordHelper extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "Ninja2.db";
+    private static final String DATABASE_NAME = "Ninja3.db";
     private static final int DATABASE_VERSION = 1;
 
     public RecordHelper(Context context) {
