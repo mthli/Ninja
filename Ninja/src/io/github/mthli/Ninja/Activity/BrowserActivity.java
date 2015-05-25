@@ -14,6 +14,7 @@ import android.os.Message;
 import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.text.Editable;
+import android.text.Html;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -900,7 +901,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String url = ((TextView) view.findViewById(R.id.complete_item_url)).getText().toString();
-                inputBox.setText(url);
+                inputBox.setText(Html.fromHtml(BrowserUnit.urlWrapper(url)), EditText.BufferType.SPANNABLE);
                 inputBox.setSelection(url.length());
                 updateAlbum(url);
                 hideSoftInput(inputBox);
@@ -928,7 +929,11 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     @Override
     public void updateInputBox(String query) {
-        inputBox.setText(query);
+        if (query != null) {
+            inputBox.setText(Html.fromHtml(BrowserUnit.urlWrapper(query)), EditText.BufferType.SPANNABLE);
+        } else {
+            inputBox.setText(null);
+        }
         inputBox.clearFocus();
     }
 
@@ -1048,6 +1053,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 } else if (s.equals(getString(R.string.main_menu_save))) { // Save
                     BrowserUnit.download(BrowserActivity.this, target, target, BrowserUnit.MIME_TYPE_IMAGE);
                 }
+
                 dialog.hide();
                 dialog.dismiss();
             }
