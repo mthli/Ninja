@@ -1,7 +1,5 @@
 package io.github.mthli.Ninja.Activity;
 
-import android.animation.Animator;
-import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -22,7 +20,6 @@ import android.text.Html;
 import android.text.TextWatcher;
 import android.view.*;
 import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.view.inputmethod.EditorInfo;
@@ -805,11 +802,9 @@ public class BrowserActivity extends Activity implements BrowserController {
             return;
         }
 
-        if (currentAlbumController != null) {
-            currentAlbumController.deactivate();
-        }
-
         if (currentAlbumController != null && anim) {
+            currentAlbumController.deactivate();
+
             final View rv = (View) currentAlbumController;
             final View av = (View) controller;
 
@@ -829,6 +824,9 @@ public class BrowserActivity extends Activity implements BrowserController {
             });
             rv.startAnimation(fadeOut);
         } else {
+            if (currentAlbumController != null) {
+                currentAlbumController.deactivate();
+            }
             contentFrame.removeAllViews();
             contentFrame.addView((View) controller);
         }
