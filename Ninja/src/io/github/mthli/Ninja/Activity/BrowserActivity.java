@@ -30,7 +30,6 @@ import android.widget.*;
 import io.github.mthli.Ninja.Browser.AlbumController;
 import io.github.mthli.Ninja.Browser.BrowserContainer;
 import io.github.mthli.Ninja.Browser.BrowserController;
-import io.github.mthli.Ninja.Task.SaveGridTask;
 import io.github.mthli.Ninja.Task.ScreenshotTask;
 import io.github.mthli.Ninja.Database.Record;
 import io.github.mthli.Ninja.Database.RecordAction;
@@ -1390,7 +1389,15 @@ public class BrowserActivity extends Activity implements BrowserController {
                             gridView.stopEditMode();
                             relayoutOK.setVisibility(View.GONE);
                             omnibox.setVisibility(View.VISIBLE);
-                            new SaveGridTask(BrowserActivity.this, gridList).execute();
+
+                            RecordAction action = new RecordAction(BrowserActivity.this);
+                            action.open(true);
+                            action.clearGrid();
+                            for (GridItem item : gridList) {
+                                action.addGridItem(item);
+                            }
+                            action.close();
+                            NinjaToast.show(BrowserActivity.this, R.string.toast_relayout_successful);
                         }
                     });
 
