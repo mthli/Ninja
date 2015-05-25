@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -16,15 +18,13 @@ import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewTreeObserver;
+import android.view.*;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.*;
 import io.github.mthli.Ninja.Browser.AlbumController;
@@ -75,6 +75,23 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     private Button relayoutOK;
     private FrameLayout contentFrame;
+
+    private class VideoCompletionListener implements MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener {
+        @Override
+        public boolean onError(MediaPlayer mp, int what, int extra) {
+            return false;
+        }
+
+        @Override
+        public void onCompletion(MediaPlayer mp) {
+            onHideCustomView();
+        }
+    }
+    private FullscreenHolder fullscreenHolder;
+    private View customView;
+    private VideoView videoView;
+    private int originalOrientation;
+    private WebChromeClient.CustomViewCallback customViewCallback;
 
     private static boolean quit = false;
     private boolean create = true;
@@ -266,6 +283,9 @@ public class BrowserActivity extends Activity implements BrowserController {
         } else if (keyCode == KeyEvent.KEYCODE_MENU) {
             return showOverflow();
         } else if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (fullscreenHolder != null || customView != null || videoView != null) {
+                return onHideCustomView();
+            }
             return onKeyCodeBack();
         }
 
@@ -1009,6 +1029,89 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     @Override
+    public boolean onShowCustomView(View view, int requestedOrientation, WebChromeClient.CustomViewCallback callback) {
+        return onShowCustomView(view, callback);
+    }
+
+    @Override
+    public boolean onShowCustomView(View view, WebChromeClient.CustomViewCallback callback) {
+        if (view == null) {
+            return false;
+        }
+        if (customView != null && callback != null) {
+            callback.onCustomViewHidden();
+            return false;
+        }
+
+        customView = view;
+        originalOrientation = getRequestedOrientation();
+
+        fullscreenHolder = new FullscreenHolder(this);
+        fullscreenHolder.addView(
+                customView,
+                new FrameLayout.LayoutParams(
+                        FrameLayout.LayoutParams.MATCH_PARENT,
+                        FrameLayout.LayoutParams.MATCH_PARENT
+                ));
+
+        FrameLayout decorView = (FrameLayout) getWindow().getDecorView();
+        decorView.addView(
+                fullscreenHolder,
+                new FrameLayout.LayoutParams(
+                        FrameLayout.LayoutParams.MATCH_PARENT,
+                        FrameLayout.LayoutParams.MATCH_PARENT
+                ));
+
+        customView.setKeepScreenOn(true);
+        ((View) currentAlbumController).setVisibility(View.GONE);
+        setCustomFullscreen(true);
+
+        if (view instanceof FrameLayout) {
+            if (((FrameLayout) view).getFocusedChild() instanceof VideoView) {
+                videoView = (VideoView) ((FrameLayout) view).getFocusedChild();
+                videoView.setOnErrorListener(new VideoCompletionListener());
+                videoView.setOnCompletionListener(new VideoCompletionListener());
+            }
+        }
+        customViewCallback = callback;
+
+        return true;
+    }
+
+    @Override
+    public boolean onHideCustomView() {
+        if (customView == null || customViewCallback == null || currentAlbumController == null) {
+            return false;
+        }
+
+        FrameLayout decorView = (FrameLayout) getWindow().getDecorView();
+        if (decorView != null) {
+            decorView.removeView(fullscreenHolder);
+        }
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+            try {
+                customViewCallback.onCustomViewHidden();
+            } catch (Throwable t) {}
+        }
+
+        customView.setKeepScreenOn(false);
+        ((View) currentAlbumController).setVisibility(View.VISIBLE);
+        setCustomFullscreen(false);
+
+        fullscreenHolder = null;
+        customView = null;
+        if (videoView != null) {
+            videoView.setOnErrorListener(null);
+            videoView.setOnCompletionListener(null);
+            videoView = null;
+        }
+        setRequestedOrientation(originalOrientation);
+
+        return true;
+    }
+
+    @Override
     public void onLongPress(String url) {
         WebView.HitTestResult result;
         if (!(currentAlbumController instanceof NinjaWebView)) {
@@ -1564,5 +1667,26 @@ public class BrowserActivity extends Activity implements BrowserController {
             return false;
         }
         return true;
+    }
+
+    private void setCustomFullscreen(boolean fullscreen) {
+        WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
+        /*
+         * Can not use View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION,
+         * so we can not hide NavigationBar :(
+         */
+        int bits = WindowManager.LayoutParams.FLAG_FULLSCREEN;
+
+        if (fullscreen) {
+            layoutParams.flags |= bits;
+        } else {
+            layoutParams.flags &= ~bits;
+            if (customView != null) {
+                customView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+            } else {
+                contentFrame.setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+            }
+        }
+        getWindow().setAttributes(layoutParams);
     }
 }

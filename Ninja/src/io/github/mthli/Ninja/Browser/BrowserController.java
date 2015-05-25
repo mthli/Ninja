@@ -1,6 +1,8 @@
 package io.github.mthli.Ninja.Browser;
 
 import android.os.Message;
+import android.view.View;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 
 public interface BrowserController {
@@ -17,6 +19,12 @@ public interface BrowserController {
     void removeAlbum(AlbumController albumController);
 
     void onCreateView(WebView view, Message resultMsg);
+
+    boolean onShowCustomView(View view, int requestedOrientation, WebChromeClient.CustomViewCallback callback);
+
+    boolean onShowCustomView(View view, WebChromeClient.CustomViewCallback callback);
+
+    boolean onHideCustomView();
 
     void onLongPress(String url);
 }

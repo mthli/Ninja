@@ -5,6 +5,8 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.os.Message;
+import android.view.View;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import io.github.mthli.Ninja.Browser.AlbumController;
 import io.github.mthli.Ninja.Browser.BrowserContainer;
@@ -35,6 +37,21 @@ public class HolderService extends Service implements BrowserController {
 
     @Override
     public void onCreateView(WebView view, Message resultMsg) {}
+
+    @Override
+    public boolean onShowCustomView(View view, int requestedOrientation, WebChromeClient.CustomViewCallback callback) {
+        return true;
+    }
+
+    @Override
+    public boolean onShowCustomView(View view, WebChromeClient.CustomViewCallback callback) {
+        return true;
+    }
+
+    @Override
+    public boolean onHideCustomView() {
+        return true;
+    }
 
     @Override
     public void onLongPress(String url) {}
