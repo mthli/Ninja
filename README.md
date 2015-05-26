@@ -7,7 +7,7 @@ A web browser that open links in background without ever leaving your favorite a
 
 [Ninja in Coolapk](http://coolapk.com/apk/io.github.mthli.Ninja "Ninja in Cookapk")
 
-[Download latest Ninja.apk](https://github.com/mthli/Ninja/releases/download/v1.1.5/Ninja.1.1.5.apk "Ninja.1.1.5.apk")
+[Download latest Ninja.apk](https://github.com/mthli/Ninja/releases/download/v1.1.7/Ninja.1.1.7.apk "Ninja.1.1.7.apk")
 
 __SUPPORT: Android 4.1+__
 
