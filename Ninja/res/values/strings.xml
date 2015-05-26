@@ -21,13 +21,6 @@
         Untitled
     </string>
 
-    <!-- Holder -->
-    <string-array name="holder_menu">
-        <item>Foreground</item>
-        <item>Copy link</item>
-        <item>Share</item>
-    </string-array>
-
     <!-- List -->
     <string name="dialog_edit_hint">
         Input title
@@ -35,13 +28,6 @@
     <string name="list_empty">
         Current list is empty
     </string>
-    <string-array name="list_menu">
-        <item>New tab</item>
-        <item>Copy link</item>
-        <item>Share</item>
-        <item>Edit</item>
-        <item>Delete</item>
-    </string-array>
 
     <!-- Main -->
     <string name="main_menu_new_tab">
@@ -62,17 +48,6 @@
     <string name="main_about_blank">
         about:blank
     </string>
-    <string-array name="main_overflow">
-        <item>Go to top</item>
-        <item>Go forward</item>
-        <item>Add to home</item>
-        <item>Find in page</item>
-        <item>Screenshot</item>
-        <item>Share</item>
-        <item>Relayout</item>
-        <item>Setting</item>
-        <item>Quit</item>
-    </string-array>
 
     <!-- Notification -->
     <string name="notification_content_text">
@@ -111,13 +86,6 @@
     <string name="setting_summary_search_engine_baidu">
         Baidu
     </string>
-    <string-array name="setting_values_search_engine">
-        <item>@string/setting_summary_search_engine_google</item>
-        <item>@string/setting_summary_search_engine_duckduckgo</item>
-        <item>@string/setting_summary_search_engine_startpage</item>
-        <item>@string/setting_summary_search_engine_bing</item>
-        <item>@string/setting_summary_search_engine_baidu</item>
-    </string-array>
     <!-- Notification -->
     <string name="setting_title_notification_priority">
         Notification priority
@@ -131,11 +99,6 @@
     <string name="setting_summary_notification_priority_low">
         Low
     </string>
-    <string-array name="setting_values_notification_priority">
-        <item>@string/setting_summary_notification_priority_high</item>
-        <item>@string/setting_summary_notification_priority_default</item>
-        <item>@string/setting_summary_notification_priority_low</item>
-    </string-array>
     <!-- Tab switcher -->
     <string name="setting_title_tab_position">
         Tab position
@@ -146,16 +109,18 @@
     <string name="setting_summary_tab_position_bottom">
         Bottom
     </string>
-    <string-array name="setting_values_tab_position">
-        <item>@string/setting_summary_tab_position_top</item>
-        <item>@string/setting_summary_tab_position_bottom</item>
-    </string-array>
     <!-- Volume key scroll -->
-    <string name="setting_title_scroll_control">
-        Scroll control
+    <string name="setting_title_volume_control">
+        Volume control
     </string>
-    <string name="setting_summary_scroll_control">
-        Use volume keys to scroll webpage
+    <string name="setting_summary_vc_scroll_webpage">
+        Scroll webpage
+    </string>
+    <string name="setting_summary_vc_switch_tabs">
+        Switch tabs
+    </string>
+    <string name="setting_summary_vc_system_default">
+        System default
     </string>
     <!-- Cookie -->
     <string name="setting_title_cookie">
@@ -209,10 +174,6 @@
     <string name="setting_summary_user_agent_desktop">
         Desktop
     </string>
-    <string-array name="setting_values_user_agent">
-        <item>@string/setting_summary_user_agent_default</item>
-        <item>@string/setting_summary_user_agent_desktop</item>
-    </string-array>
     <!-- AdBlock setting -->
     <string name="setting_title_adblock">
         AdBlock

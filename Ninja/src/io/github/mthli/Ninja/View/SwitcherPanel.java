@@ -173,8 +173,8 @@ public class SwitcherPanel extends ViewGroup {
         super(context, attrs, defStyleAttr);
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getContext());
-        String ac = sp.getString(context.getString(R.string.sp_anchor), context.getString(R.string.setting_summary_tab_position_top));
-        if (ac.equals(context.getString(R.string.setting_summary_tab_position_top))) {
+        int ac = Integer.valueOf(sp.getString(context.getString(R.string.sp_anchor), "0"));
+        if (ac == 0) {
             anchor = Anchor.TOP;
             parallaxOffset = PARALLAX_OFFSET_DEFAULT_TOP;
             shadowDrawable = ContextCompat.getDrawable(getContext(), R.drawable.shadow_below);

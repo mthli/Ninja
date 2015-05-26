@@ -158,8 +158,8 @@ public class NinjaWebView extends WebView implements AlbumController {
             setVerticalScrollBarEnabled(false);
         }
 
-        String userAgent = sp.getString(context.getString(R.string.sp_user_agent), context.getString(R.string.setting_summary_user_agent_default));
-        if (userAgent.equals(context.getString(R.string.setting_summary_user_agent_desktop))) {
+        int userAgent = Integer.valueOf(sp.getString(context.getString(R.string.sp_user_agent), "0"));
+        if (userAgent != 0) {
             webSettings.setUserAgentString(BrowserUnit.UA_DESKTOP);
         } else {
             webSettings.setUserAgentString(userAgentOriginal);

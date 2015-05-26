@@ -21,12 +21,12 @@ public class NotificationUnit {
         Notification.Builder builder = new Notification.Builder(context);
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-        String priority = sp.getString(context.getString(R.string.sp_notification_priority), context.getString(R.string.setting_summary_notification_priority_default));
-        if (priority.equals(context.getString(R.string.setting_summary_notification_priority_default))) {
+        int priority = Integer.valueOf(sp.getString(context.getString(R.string.sp_notification_priority), "0"));
+        if (priority == 0) {
             builder.setPriority(Notification.PRIORITY_DEFAULT);
-        } else if (priority.equals(context.getString(R.string.setting_summary_notification_priority_high))) {
+        } else if (priority == 1) {
             builder.setPriority(Notification.PRIORITY_HIGH);
-        } else if (priority.equals(context.getString(R.string.setting_summary_notification_priority_low))) {
+        } else if (priority == 2) {
             builder.setPriority(Notification.PRIORITY_LOW);
         } else {
             builder.setPriority(Notification.PRIORITY_DEFAULT);

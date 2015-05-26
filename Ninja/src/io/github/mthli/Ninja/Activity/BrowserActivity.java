@@ -104,8 +104,8 @@ public class BrowserActivity extends Activity implements BrowserController {
         super.onCreate(savedInstanceState);
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        String anchor = sp.getString(getString(R.string.sp_anchor), getString(R.string.setting_summary_tab_position_top));
-        if (anchor.equals(getString(R.string.setting_summary_tab_position_top))) {
+        int anchor = Integer.valueOf(sp.getString(getString(R.string.sp_anchor), "0"));
+        if (anchor == 0) {
             setContentView(R.layout.main_top);
         } else {
             setContentView(R.layout.main_bottom);
@@ -295,7 +295,8 @@ public class BrowserActivity extends Activity implements BrowserController {
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_VOLUME_UP || keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
             SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-            if (sp.getBoolean(getString(R.string.sp_volume), true) && currentAlbumController instanceof NinjaWebView) {
+            int vc = Integer.valueOf(sp.getString(getString(R.string.sp_volume), "0"));
+            if (vc != 2) {
                 return true;
             }
         }
@@ -1190,7 +1191,12 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     private boolean onKeyCodeVolumeUp() {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        if (sp.getBoolean(getString(R.string.sp_volume), true) && currentAlbumController instanceof NinjaWebView) {
+        int vc = Integer.valueOf(sp.getString(getString(R.string.sp_volume), "0"));
+
+        if (vc == 0) { // Switch tabs
+            showAlbum(nextAlbumController(false), false, false, true);
+            return true;
+        } else if (vc == 1 && currentAlbumController instanceof NinjaWebView) { // Scroll webpage
             NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
             int height = ninjaWebView.getMeasuredHeight();
             int scrollY = ninjaWebView.getScrollY();
@@ -1207,7 +1213,12 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     private boolean onKeyCodeVolumeDown() {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        if (sp.getBoolean(getString(R.string.sp_volume), true) && currentAlbumController instanceof NinjaWebView) {
+        int vc = Integer.valueOf(sp.getString(getString(R.string.sp_volume), "0"));
+
+        if (vc == 0) { // Switch tabs
+            showAlbum(nextAlbumController(true), false, false, true);
+            return true;
+        } else if (vc == 1 && currentAlbumController instanceof NinjaWebView) {
             NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
             int height = ninjaWebView.getMeasuredHeight();
             int scrollY = ninjaWebView.getScrollY();
@@ -1722,5 +1733,27 @@ public class BrowserActivity extends Activity implements BrowserController {
             }
         }
         getWindow().setAttributes(layoutParams);
+    }
+
+    private AlbumController nextAlbumController(boolean next) {
+        if (BrowserContainer.size() <= 1) {
+            return currentAlbumController;
+        }
+
+        List<AlbumController> list = BrowserContainer.list();
+        int index = list.indexOf(currentAlbumController);
+        if (next) {
+            index++;
+            if (index >= list.size()) {
+                index = 0;
+            }
+        } else {
+            index--;
+            if (index < 0) {
+                index = list.size() - 1;
+            }
+        }
+
+        return list.get(index);
     }
 }

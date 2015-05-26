@@ -3,38 +3,38 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory android:title="@string/setting_title_browser">
-        <!-- TODO: ListPreference entryValues should language-independent -->
+
         <ListPreference android:key="@string/sp_search_engine"
-                        android:defaultValue="@string/setting_summary_search_engine_google"
+                        android:defaultValue="0"
                         android:title="@string/setting_title_search_engine"
                         android:summary="@string/setting_summary_search_engine_google"
-                        android:entries="@array/setting_values_search_engine"
+                        android:entries="@array/setting_entries_search_engine"
                         android:entryValues="@array/setting_values_search_engine">
         </ListPreference>
 
-        <!-- TODO: ListPreference entryValues should language-independent -->
         <ListPreference android:key="@string/sp_notification_priority"
-                        android:defaultValue="@string/setting_summary_notification_priority_default"
+                        android:defaultValue="0"
                         android:title="@string/setting_title_notification_priority"
                         android:summary="@string/setting_summary_notification_priority_default"
-                        android:entries="@array/setting_values_notification_priority"
+                        android:entries="@array/setting_entries_notification_priority"
                         android:entryValues="@array/setting_values_notification_priority">
         </ListPreference>
 
-        <!-- TODO: ListPreference entryValues should language-independent -->
         <ListPreference android:key="@string/sp_anchor"
-                        android:defaultValue="@string/setting_summary_tab_position_top"
+                        android:defaultValue="0"
                         android:title="@string/setting_title_tab_position"
                         android:summary="@string/setting_summary_tab_position_top"
-                        android:entries="@array/setting_values_tab_position"
+                        android:entries="@array/setting_entries_tab_position"
                         android:entryValues="@array/setting_values_tab_position">
         </ListPreference>
 
-        <CheckBoxPreference android:key="@string/sp_volume"
-                            android:defaultValue="true"
-                            android:title="@string/setting_title_scroll_control"
-                            android:summary="@string/setting_summary_scroll_control">
-        </CheckBoxPreference>
+        <ListPreference android:key="@string/sp_volume"
+                        android:defaultValue="0"
+                        android:title="@string/setting_title_volume_control"
+                        android:summary="@string/setting_summary_vc_switch_tabs"
+                        android:entries="@array/setting_entries_volume_control"
+                        android:entryValues="@array/setting_values_volume_control">
+        </ListPreference>
 
         <CheckBoxPreference android:key="@string/sp_images"
                             android:defaultValue="true"
@@ -72,12 +72,11 @@
                             android:summary="@string/setting_summary_scroll_bar">
         </CheckBoxPreference>
 
-        <!-- TODO: ListPreference entryValues should language-independent -->
         <ListPreference android:key="@string/sp_user_agent"
-                        android:defaultValue="@string/setting_summary_user_agent_default"
+                        android:defaultValue="0"
                         android:title="@string/setting_title_user_agent"
                         android:summary="@string/setting_summary_user_agent_default"
-                        android:entries="@array/setting_values_user_agent"
+                        android:entries="@array/setting_entries_user_agent"
                         android:entryValues="@array/setting_values_user_agent">
         </ListPreference>
 

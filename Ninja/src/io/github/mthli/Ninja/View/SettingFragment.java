@@ -32,7 +32,14 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
     private ListPreference searchEngine;
     private ListPreference notiPriority;
     private ListPreference tabPosition;
+    private ListPreference volumeControl;
     private ListPreference userAgent;
+
+    private String[] seEntries;
+    private String[] npEntries;
+    private String[] tpEntries;
+    private String[] vcEntries;
+    private String[] ucEntries;
 
     private boolean spChange = false;
     public boolean isSPChange() {
@@ -59,18 +66,32 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
 
         SharedPreferences sp = getPreferenceScreen().getSharedPreferences();
         sp.registerOnSharedPreferenceChangeListener(this);
+        String summary;
 
+        seEntries = getResources().getStringArray(R.array.setting_entries_search_engine);
+        summary = seEntries[Integer.valueOf(sp.getString(getString(R.string.sp_search_engine), "0"))];
         searchEngine = (ListPreference) findPreference(getString(R.string.sp_search_engine));
-        searchEngine.setSummary(sp.getString(getString(R.string.sp_search_engine), getString(R.string.setting_summary_search_engine_google)));
+        searchEngine.setSummary(summary);
 
+        npEntries = getResources().getStringArray(R.array.setting_entries_notification_priority);
+        summary = npEntries[Integer.valueOf(sp.getString(getString(R.string.sp_notification_priority), "0"))];
         notiPriority = (ListPreference) findPreference(getString(R.string.sp_notification_priority));
-        notiPriority.setSummary(sp.getString(getString(R.string.sp_notification_priority), getString(R.string.setting_summary_notification_priority_default)));
+        notiPriority.setSummary(summary);
 
+        tpEntries = getResources().getStringArray(R.array.setting_entries_tab_position);
+        summary = tpEntries[Integer.valueOf(sp.getString(getString(R.string.sp_anchor), "0"))];
         tabPosition = (ListPreference) findPreference(getString(R.string.sp_anchor));
-        tabPosition.setSummary(sp.getString(getString(R.string.sp_anchor), getString(R.string.setting_summary_tab_position_top)));
+        tabPosition.setSummary(summary);
 
+        vcEntries = getResources().getStringArray(R.array.setting_entries_volume_control);
+        summary = vcEntries[Integer.valueOf(sp.getString(getString(R.string.sp_volume), "0"))];
+        volumeControl = (ListPreference) findPreference(getString(R.string.sp_volume));
+        volumeControl.setSummary(summary);
+
+        ucEntries = getResources().getStringArray(R.array.setting_entries_user_agent);
+        summary = ucEntries[Integer.valueOf(sp.getString(getString(R.string.sp_user_agent), "0"))];
         userAgent = (ListPreference) findPreference(getString(R.string.sp_user_agent));
-        userAgent.setSummary(sp.getString(getString(R.string.sp_user_agent), getString(R.string.setting_summary_user_agent_default)));
+        userAgent.setSummary(summary);
     }
 
     @Override
@@ -150,17 +171,20 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
     public void onSharedPreferenceChanged(SharedPreferences sp, String key) {
         spChange = true;
         if (key.equals(getString(R.string.sp_search_engine))) {
-            String summary = sp.getString(key, getString(R.string.setting_summary_search_engine_google));
+            String summary = seEntries[Integer.valueOf(sp.getString(key, "0"))];
             searchEngine.setSummary(summary);
         } else if (key.equals(getString(R.string.sp_notification_priority))) {
-            String summary = sp.getString(key, getString(R.string.setting_summary_notification_priority_default));
+            String summary = npEntries[Integer.valueOf(sp.getString(key, "0"))];
             notiPriority.setSummary(summary);
         } else if (key.equals(getString(R.string.sp_anchor))) {
-            String summary = sp.getString(key, getString(R.string.setting_summary_tab_position_top));
+            String summary = tpEntries[Integer.valueOf(sp.getString(key, "0"))];
             tabPosition.setSummary(summary);
             NinjaToast.show(getActivity(), R.string.toast_need_restart);
+        } else if (key.equals(getString(R.string.sp_volume))) {
+            String summary = vcEntries[Integer.valueOf(sp.getString(key, "0"))];
+            volumeControl.setSummary(summary);
         } else if (key.equals(getString(R.string.sp_user_agent))) {
-            String summary = sp.getString(key, getString(R.string.setting_summary_user_agent_default));
+            String summary = ucEntries[Integer.valueOf(sp.getString(key, "0"))];
             userAgent.setSummary(summary);
         } else if (key.equals(getString(R.string.sp_cookies))) {
             CookieManager manager = CookieManager.getInstance();

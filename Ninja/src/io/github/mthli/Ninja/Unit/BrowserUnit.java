@@ -114,24 +114,21 @@ public class BrowserUnit {
         } catch (UnsupportedEncodingException u) {}
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-        String searchEngine = sp.getString(
-                context.getString(R.string.sp_search_engine),
-                context.getString(R.string.setting_summary_search_engine_google)
-        );
-        if (searchEngine.equals(context.getString(R.string.setting_summary_search_engine_google))) {
-            searchEngine = SEARCH_ENGINE_GOOGLE;
-        } else if (searchEngine.equals(context.getString(R.string.setting_summary_search_engine_duckduckgo))) {
-            searchEngine = SEARCH_ENGINE_DUCKDUCKGO;
-        } else if (searchEngine.equals(context.getString(R.string.setting_summary_search_engine_startpage))) {
-            searchEngine = SEARCH_ENGINE_STARTPAGE;
-        } else if (searchEngine.equals(context.getString(R.string.setting_summary_search_engine_bing))) {
-            searchEngine = SEARCH_ENGINE_BING;
-        } else if (searchEngine.equals(context.getString(R.string.setting_summary_search_engine_baidu))) {
-            searchEngine = SEARCH_ENGINE_BAIDU;
-        } else {
-            searchEngine = SEARCH_ENGINE_GOOGLE;
+        final int i = Integer.valueOf(sp.getString(context.getString(R.string.sp_search_engine), "0"));
+        switch (i) {
+            case 0:
+                return SEARCH_ENGINE_GOOGLE + query;
+            case 1:
+                return SEARCH_ENGINE_DUCKDUCKGO + query;
+            case 2:
+                return SEARCH_ENGINE_STARTPAGE + query;
+            case 3:
+                return SEARCH_ENGINE_BING + query;
+            case 4:
+                return SEARCH_ENGINE_BAIDU + query;
+            default:
+                return SEARCH_ENGINE_GOOGLE + query;
         }
-        return searchEngine + query;
     }
 
     public static String urlWrapper(String url) {
