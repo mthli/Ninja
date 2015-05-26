@@ -4,46 +4,46 @@
 
     <!-- AndroidAgo -->
     <string name="android_ago_just_now">
-        Just now
+        刚刚
     </string>
 
     <!-- Album -->
     <string name="album_title_bookmarks">
-        Bookmarks
+        书签
     </string>
     <string name="album_title_history">
-        History
+        历史
     </string>
     <string name="album_title_home">
-        Home
+        首页
     </string>
     <string name="album_untitled">
-        Untitled
+        无标题
     </string>
 
     <!-- List -->
     <string name="dialog_edit_hint">
-        Input title
+        输入标题
     </string>
     <string name="list_empty">
-        Current list is empty
+        当前列表为空
     </string>
 
     <!-- Main -->
     <string name="main_menu_new_tab">
-        New tab
+        新建标签
     </string>
     <string name="main_menu_copy_link">
-        Copy link
+        拷贝链接
     </string>
     <string name="main_menu_save">
-        Save
+        保存
     </string>
     <string name="main_omnibox_input_hint">
-        Search or type URL
+        搜索或输入网址
     </string>
     <string name="main_relayout_ok">
-        OK
+        确定
     </string>
     <string name="main_about_blank">
         about:blank
@@ -51,25 +51,25 @@
 
     <!-- Notification -->
     <string name="notification_content_text">
-        Click to view pages
+        点击前往浏览网页
     </string>
 
     <!-- Search -->
     <string name="search_hint">
-        Search
+        搜索
     </string>
 
     <!-- Setting -->
     <string name="setting_label">
-        Setting
+        设置
     </string>
     <!-- Browser setting -->
     <string name="setting_title_browser">
-        Browser
+        浏览
     </string>
     <!-- Search engine -->
     <string name="setting_title_search_engine">
-        Search engine
+        搜索引擎
     </string>
     <string name="setting_summary_search_engine_google">
         Google
@@ -88,308 +88,308 @@
     </string>
     <!-- Notification -->
     <string name="setting_title_notification_priority">
-        Notification priority
+        通知栏优先级
     </string>
     <string name="setting_summary_notification_priority_default">
-        Default
+        默认
     </string>
     <string name="setting_summary_notification_priority_high">
-        High
+        高
     </string>
     <string name="setting_summary_notification_priority_low">
-        Low
+        低
     </string>
     <!-- Tab switcher -->
     <string name="setting_title_tab_position">
-        Tab position
+        标签栏位置
     </string>
     <string name="setting_summary_tab_position_top">
-        Top
+        顶部
     </string>
     <string name="setting_summary_tab_position_bottom">
-        Bottom
+        底部
     </string>
     <!-- Volume key scroll -->
     <string name="setting_title_volume_control">
-        Volume control
+        音量键控制
     </string>
     <string name="setting_summary_vc_switch_tabs">
-        Switch tabs
+        切换标签页
     </string>
     <string name="setting_summary_vc_scroll_webpage">
-        Scroll webpage
+        滚动网页
     </string>
     <string name="setting_summary_vc_system_default">
-        System default
+        系统默认
     </string>
     <!-- Cookie -->
     <string name="setting_title_cookie">
         Cookie
     </string>
     <string name="setting_summary_cookie">
-        Enable cookie
+        允许接收Cookie
     </string>
     <!-- Images -->
     <string name="setting_title_images">
-        Images
+        图片
     </string>
     <string name="setting_summary_images">
-        Enable network images
+        允许加载图片
     </string>
     <!-- JavaScript -->
     <string name="setting_title_javascript">
         JavaScript
     </string>
     <string name="setting_summary_javascript">
-        Enable JavaScript
+        允许运行JavaScript
     </string>
     <!-- Location -->
     <string name="setting_title_location">
-        Location
+        地理位置
     </string>
     <string name="setting_summary_location">
-        Enable geolocation
+        允许获取地理位置
     </string>
     <!-- Multiple windows -->
     <string name="setting_title_multiple_windows">
-        Multiple windows
+        多窗口
     </string>
     <string name="setting_summary_multiple_windows">
-        Enable multiple windows
+        允许多窗口
     </string>
     <!-- Scroll bar -->
     <string name="setting_title_scroll_bar">
-        Scroll bar
+        滚动条
     </string>
     <string name="setting_summary_scroll_bar">
-        Show scroll bar in webpage
+        在网页中显示滚动条
     </string>
     <!-- User Agent -->
     <string name="setting_title_user_agent">
-        User agent
+        浏览器标识
     </string>
     <string name="setting_summary_user_agent_default">
-        Default
+        默认
     </string>
     <string name="setting_summary_user_agent_desktop">
-        Desktop
+        桌面
     </string>
     <!-- AdBlock setting -->
     <string name="setting_title_adblock">
         AdBlock
     </string>
     <string name="setting_summary_adblock">
-        Enable AdBlock
+        允许运行AdBlock
     </string>
     <string name="setting_title_whitelist">
-        Whitelist
+        白名单
     </string>
     <string name="setting_summary_whitelist">
-        Allow these sites show ads
+        允许某些站点显示广告
     </string>
     <string name="setting_title_export_whilelist">
-        Export whitelist
+        导出白名单
     </string>
     <string name="setting_title_import_whilelist">
-        Import whilelist
+        导入白名单
     </string>
     <string name="whilelist_filename">
-        NinjaWhitelist
+        Ninja白名单
     </string>
     <!-- Data setting -->
     <string name="setting_title_data">
-        Data
+        数据
     </string>
     <!-- Passwords -->
     <string name="setting_title_passwords">
-        Passwords
+        密码
     </string>
     <string name="setting_summary_passwords">
-        Save passwords
+        保存密码
     </string>
     <string name="setting_title_clear_passwords">
-        Clear passwords
+        清空密码
     </string>
     <!-- Bookmarks -->
     <string name="setting_title_export_bookmarks">
-        Export bookmarks
+        导出书签
     </string>
     <string name="setting_title_import_bookmarks">
-        Import bookmarks
+        导入书签
     </string>
     <string name="bookmarks_filename">
-        NinjaBookmarks
+        Ninja书签
     </string>
     <string name="setting_title_clear_bookmarks">
-        Clear bookmarks
+        清空书签
     </string>
     <!-- Cache -->
     <string name="setting_title_clear_cache">
-        Clear cache
+        清空缓存
     </string>
     <!-- Cookie -->
     <string name="setting_title_clear_cookie">
-        Clear cookie
+        清空Cookie
     </string>
     <!-- Form data -->
     <string name="setting_title_clear_form_data">
-        Clear form data
+        清空表单数据
     </string>
     <!-- History -->
     <string name="setting_title_clear_history">
-        Clear history
+        清空历史
     </string>
     <!-- Others setting -->
     <string name="setting_title_others">
-        Others
+        其他
     </string>
     <!-- Version -->
     <string name="setting_title_version">
-        Version
+        版本号
     </string>
     <!-- License -->
     <string name="setting_title_license">
-        License
+        协议
     </string>
     <!-- Contact -->
     <string name="setting_title_contact_us">
-        Contact us
+        联系我们
     </string>
 
     <!-- Whitelist -->
     <string name="whitelist_label">
-        Whitelist
+        白名单
     </string>
     <string name="whitelist_menu_clear">
-        Clear
+        清空
     </string>
     <string name="whitelist_edit_hint">
-        Domain
+        域名
     </string>
     <string name="whitelist_add">
-        Add
+        添加
     </string>
 
     <!-- Toast -->
     <string name="toast_add_bookmark_successful">
-        Add bookmark successful
+        添加书签成功
     </string>
     <string name="toast_add_bookmark_failed">
-        Can\'t add this page to bookmark
+        无法将此页面添加到书签
     </string>
     <string name="toast_add_to_home_successful">
-        Add to home successful
+        添加拨号成功
     </string>
     <string name="toast_add_to_home_failed">
-        Add to home failed
+        添加拨号失败
     </string>
     <string name="toast_add_whitelist_successful">
-        Add domain successful
+        添加域名成功
     </string>
     <string name="toast_already_at_the_front">
-        Already at the front
+        已经是最前面了
     </string>
     <string name="toast_already_exist_in_home">
-        Already exist in home
+        首页中已存在该网址
     </string>
     <string name="toast_clear_bookmarks_successful">
-        Clear bookmarks successful
+        清空书签成功
     </string>
     <string name="toast_clear_cache_successful">
-        Clear cache successful
+        清空缓存成功
     </string>
     <string name="toast_clear_cache_failed">
-        Clear cache failed
+        清空缓存失败
     </string>
     <string name="toast_clear_cookie_successful">
-        Clear cookie successful
+        清空Cookie成功
     </string>
     <string name="toast_clear_form_data_successful">
-        Clear form data successful
+        清空表单数据成功
     </string>
     <string name="toast_clear_history_successful">
-        Clear history successful
+        清空历史成功
     </string>
     <string name="toast_clear_passwords_successful">
-        Clear passwords successful
+        清空密码成功
     </string>
     <string name="toast_copy_successful">
-        Copy successful
+        拷贝成功
     </string>
     <string name="toast_delete_bookmark_successful">
-        Delete bookmark successful
+        删除书签成功
     </string>
     <string name="toast_delete_successful">
-        Delete successful
+        删除成功
     </string>
     <string name="toast_domain_already_exists">
-        Domain already exists
+        域名已经存在了
     </string>
     <string name="toast_double_taps_quit">
-        Double taps quit
+        双击退出
     </string>
     <string name="toast_export_bookmarks_successful">
-        Export bookmarks file at:&#160;
+        导出的书签文件位于：
     </string>
     <string name="toast_export_bookmarks_failed">
-        Export bookmarks failed
+        导出书签失败
     </string>
     <string name="toast_export_whitelist_successful">
-        Export whitelist file at:&#160;
+        导出的白名单文件位于：
     </string>
     <string name="toast_export_whitelist_failed">
-        Export whitelist failed
+        导出白名单失败
     </string>
     <string name="toast_import_bookmarks_successful">
-        Import bookmarks count:&#160;
+        导入的书签数量：
     </string>
     <string name="toast_import_bookmarks_failed">
-        Import bookmarks failed
+        导入书签失败
     </string>
     <string name="toast_import_whitelist_successful">
-        Import domains count:&#160;
+        导入的域名数量：
     </string>
     <string name="toast_import_whitelist_failed">
-        Import whitelist failed
+        导入白名单失败
     </string>
     <string name="toast_input_empty">
-        You haven\'t input anything
+        你还没有输入任何东西
     </string>
     <string name="toast_invalid_domain">
-        Invalid domain
+        无效的域名
     </string>
     <string name="toast_load_error">
-        Can\'t load this URL
+        无法加载此网址
     </string>
     <string name="toast_load_in_background">
-        Load in background&#8230;
+        正在后台加载&#8230;
     </string>
     <string name="toast_need_restart">
-        Need restart
+        重启浏览器生效
     </string>
     <string name="toast_new_tab_successful">
-        Open in new tab successful
+        新建标签成功
     </string>
     <string name="toast_refresh_failed">
-        Can\'t refresh this page
+        无法刷新此页面
     </string>
     <string name="toast_relayout_successful">
-        Relayout successful
+        排版成功
     </string>
     <string name="toast_screenshot_successful">
-        Save screenshot at:&#160;
+        保存的截图位于：
     </string>
     <string name="toast_screenshot_failed">
-        Screenshot failed
+        截图失败
     </string>
     <string name="toast_share_failed">
-        Can\'t share this page
+        无法分享此页面
     </string>
     <string name="toast_start_download">
-        Start download&#8230;
+        开始下载&#8230;
     </string>
     <string name="toast_wait_a_minute">
-        Wait a minute&#8230;
+        稍等片刻&#8230;
     </string>
 
 </resources>

@@ -4,7 +4,7 @@
 
     <style name="BrowserActivityTheme" parent="android:Theme.DeviceDefault.Light.NoActionBar">
         <item name="android:textColor">@color/text</item>
-        <item name="android:textColorHighlight">@color/blue_300</item>
+        <item name="android:textColorHighlight">@color/blue_200</item>
         <item name="android:textColorSecondary">@color/text_secondary</item>
         <item name="android:windowBackground">@color/background_dark</item>
         <item name="android:drawSelectorOnTop">true</item>
@@ -12,7 +12,7 @@
 
     <style name="SettingActivityTheme" parent="android:Theme.DeviceDefault.Light.DarkActionBar">
         <item name="android:textColor">@color/text</item>
-        <item name="android:textColorHighlight">@color/blue_300</item>
+        <item name="android:textColorHighlight">@color/blue_200</item>
         <item name="android:textColorSecondary">@color/text_secondary</item>
         <item name="android:windowBackground">@color/white</item>
         <item name="android:drawSelectorOnTop">true</item>
@@ -21,7 +21,7 @@
     <style name="WhitelistActivityTheme" parent="android:Theme.DeviceDefault.Light.DarkActionBar">
         <item name="android:textColor">@color/text</item>
         <item name="android:textColorSecondary">@color/text</item>
-        <item name="android:textColorHighlight">@color/blue_300</item>
+        <item name="android:textColorHighlight">@color/blue_200</item>
         <item name="android:windowBackground">@color/white</item>
         <item name="android:drawSelectorOnTop">true</item>
     </style>
