@@ -29,7 +29,7 @@ __LONG TERM MAINTENANCE.__
 
  - Capture whole page screenshot.
 
- - Volume up/down to scroll webpage.
+ - Custom volume control.
 
  - Webpage go to top easy.
 

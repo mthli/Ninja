@@ -35,6 +35,16 @@ __Remember__ that if the soft keyboard is shown the tab switcher would not displ
 
  3. __Double taps__ will show a dialog that allows you to open links in foreground, etc.
 
+## Volume control:
+
+In `Setting/Browser/Volume control` you can set the volume keys behavior:
+
+ - Switch tabs.
+
+ - Scroll webpages.
+
+ - System default.
+
 ## AdBlock whitelist:
 
 Since AdBlick maybe cause some websites display error, you can add they to `Setting/AdBlock/Whitelist`.
@@ -47,4 +57,4 @@ But that is not means you could screenshot a long long long webpage(__OOM__, etc
 
 ---
 
-_2015.05.23 Matthew Lee_
+_2015.05.26 Matthew Lee_
