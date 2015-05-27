@@ -24,6 +24,9 @@ public class Album {
     }
 
     private TextView albumTitle;
+    public String getAlbumTitle() {
+        return albumTitle.getText().toString();
+    }
     public void setAlbumTitle(String title) {
         albumTitle.setText(title);
     }

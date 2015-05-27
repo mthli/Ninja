@@ -12,6 +12,8 @@ public interface AlbumController {
 
     void setAlbumCover(Bitmap bitmap);
 
+    String getAlbumTitle();
+
     void setAlbumTitle(String title);
 
     void activate();

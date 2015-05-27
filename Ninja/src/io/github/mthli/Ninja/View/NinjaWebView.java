@@ -235,6 +235,11 @@ public class NinjaWebView extends WebView implements AlbumController {
     }
 
     @Override
+    public String getAlbumTitle() {
+        return album.getAlbumTitle();
+    }
+
+    @Override
     public void setAlbumTitle(String title) {
         album.setAlbumTitle(title);
     }

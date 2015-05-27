@@ -62,6 +62,11 @@ public class NinjaRelativeLayout extends RelativeLayout implements AlbumControll
     }
 
     @Override
+    public String getAlbumTitle() {
+        return album.getAlbumTitle();
+    }
+
+    @Override
     public void setAlbumTitle(String title) {
         album.setAlbumTitle(title);
     }

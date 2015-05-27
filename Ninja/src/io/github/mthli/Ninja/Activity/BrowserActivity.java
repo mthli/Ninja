@@ -1194,7 +1194,9 @@ public class BrowserActivity extends Activity implements BrowserController {
         int vc = Integer.valueOf(sp.getString(getString(R.string.sp_volume), "0"));
 
         if (vc == 0) { // Switch tabs
-            showAlbum(nextAlbumController(false), false, false, true);
+            AlbumController controller = nextAlbumController(false);
+            showAlbum(controller, false, false, true);
+            NinjaToast.show(this, controller.getAlbumTitle());
             return true;
         } else if (vc == 1 && currentAlbumController instanceof NinjaWebView) { // Scroll webpage
             NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
@@ -1216,7 +1218,9 @@ public class BrowserActivity extends Activity implements BrowserController {
         int vc = Integer.valueOf(sp.getString(getString(R.string.sp_volume), "0"));
 
         if (vc == 0) { // Switch tabs
-            showAlbum(nextAlbumController(true), false, false, true);
+            AlbumController controller = nextAlbumController(true);
+            showAlbum(controller, false, false, true);
+            NinjaToast.show(this, controller.getAlbumTitle());
             return true;
         } else if (vc == 1 && currentAlbumController instanceof NinjaWebView) {
             NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
