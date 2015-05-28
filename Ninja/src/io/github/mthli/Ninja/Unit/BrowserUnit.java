@@ -180,11 +180,14 @@ public class BrowserUnit {
 
     public static void download(Context context, String url, String contentDisposition, String mimeType) {
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
+        String filename = URLUtil.guessFileName(url, contentDisposition, mimeType);
+
         request.allowScanningByMediaScanner();
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-        request.setTitle(URLUtil.guessFileName(url, contentDisposition, mimeType));
+        request.setTitle(filename);
         request.setMimeType(mimeType);
-        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, context.getString(R.string.app_name));
+        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, filename);
+
         DownloadManager manager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
         manager.enqueue(request);
         NinjaToast.show(context, R.string.toast_start_download);

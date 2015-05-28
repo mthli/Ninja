@@ -12,6 +12,7 @@ public class NinjaDownloadListener implements DownloadListener {
         this.context = context;
     }
 
+    @Override
     public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimeType, long contentLength) {
         BrowserUnit.download(context, url, contentDisposition, mimeType);
     }
