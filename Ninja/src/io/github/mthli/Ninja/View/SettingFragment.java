@@ -34,12 +34,14 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
     private ListPreference tabPosition;
     private ListPreference volumeControl;
     private ListPreference userAgent;
+    private ListPreference rendering;
 
     private String[] seEntries;
     private String[] npEntries;
     private String[] tpEntries;
     private String[] vcEntries;
     private String[] ucEntries;
+    private String[] rdEntries;
 
     private boolean spChange = false;
     public boolean isSPChange() {
@@ -92,6 +94,11 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
         summary = ucEntries[Integer.valueOf(sp.getString(getString(R.string.sp_user_agent), "0"))];
         userAgent = (ListPreference) findPreference(getString(R.string.sp_user_agent));
         userAgent.setSummary(summary);
+
+        rdEntries = getResources().getStringArray(R.array.setting_entries_rendering);
+        summary = rdEntries[Integer.valueOf(sp.getString(getString(R.string.sp_rendering), "0"))];
+        rendering = (ListPreference) findPreference(getString(R.string.sp_rendering));
+        rendering.setSummary(summary);
     }
 
     @Override
@@ -186,6 +193,9 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
         } else if (key.equals(getString(R.string.sp_user_agent))) {
             String summary = ucEntries[Integer.valueOf(sp.getString(key, "0"))];
             userAgent.setSummary(summary);
+        } else if (key.equals(getString(R.string.sp_rendering))) {
+            String summary = rdEntries[Integer.valueOf(sp.getString(key, "0"))];
+            rendering.setSummary(summary);
         } else if (key.equals(getString(R.string.sp_cookies))) {
             CookieManager manager = CookieManager.getInstance();
             manager.setAcceptCookie(sp.getBoolean(getString(R.string.sp_cookies), true));

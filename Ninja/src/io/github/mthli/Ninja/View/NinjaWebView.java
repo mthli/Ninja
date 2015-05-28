@@ -4,11 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Paint;
 import android.net.MailTo;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -25,6 +29,13 @@ import io.github.mthli.Ninja.Unit.ViewUnit;
 import java.net.URISyntaxException;
 
 public class NinjaWebView extends WebView implements AlbumController {
+    private static final float[] NEGATIVE_COLOR = {
+            -1.0f, 0, 0, 0, 255, // red
+            0, -1.0f, 0, 0, 255, // green
+            0, 0, -1.0f, 0, 255, // blue
+            0, 0, 0, 1.0f, 0     // alpha
+    };
+
     private Context context;
     private int flag = BrowserUnit.FLAG_NINJA;
     private int dimen144dp;
@@ -165,6 +176,9 @@ public class NinjaWebView extends WebView implements AlbumController {
             webSettings.setUserAgentString(userAgentOriginal);
         }
 
+        int mode = Integer.valueOf(sp.getString(context.getString(R.string.sp_rendering), "0"));
+        initRendering(mode);
+
         webViewClient.enableAdBlock(sp.getBoolean(context.getString(R.string.sp_ad_block), true));
 
         webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
@@ -177,6 +191,46 @@ public class NinjaWebView extends WebView implements AlbumController {
         album.setAlbumCover(null);
         album.setAlbumTitle(context.getString(R.string.album_untitled));
         album.setBrowserController(browserController);
+    }
+
+    private void initRendering(int mode) {
+        Paint paint = new Paint();
+
+        switch (mode) {
+            case 0: { // Default
+                paint.setColorFilter(null);
+                break;
+            } case 1: { // Grayscale
+                ColorMatrix matrix = new ColorMatrix();
+                matrix.setSaturation(0);
+                ColorMatrixColorFilter filter = new ColorMatrixColorFilter(matrix);
+                paint.setColorFilter(filter);
+                break;
+            } case 2: { // Inverted
+                ColorMatrixColorFilter filter = new ColorMatrixColorFilter(NEGATIVE_COLOR);
+                paint.setColorFilter(filter);
+                break;
+            } case 3: { // Inverted grayscale
+                ColorMatrix matrix = new ColorMatrix();
+                matrix.set(NEGATIVE_COLOR);
+
+                ColorMatrix gcm = new ColorMatrix();
+                gcm.setSaturation(0);
+
+                ColorMatrix concat = new ColorMatrix();
+                concat.setConcat(matrix, gcm);
+
+                ColorMatrixColorFilter filter = new ColorMatrixColorFilter(concat);
+                paint.setColorFilter(filter);
+                break;
+            } default: {
+                paint.setColorFilter(null);
+                break;
+            }
+        }
+
+        // maybe sometime LAYER_TYPE_NONE would better?
+        setLayerType(View.LAYER_TYPE_HARDWARE, paint);
     }
 
     @Override

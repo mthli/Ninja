@@ -80,6 +80,14 @@
                         android:entryValues="@array/setting_values_user_agent">
         </ListPreference>
 
+        <ListPreference android:key="@string/sp_rendering"
+                        android:defaultValue="0"
+                        android:title="@string/setting_title_rendering"
+                        android:summary="@string/setting_summary_rendering_default"
+                        android:entries="@array/setting_entries_rendering"
+                        android:entryValues="@array/setting_values_rendering">
+        </ListPreference>
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/setting_title_adblock">
