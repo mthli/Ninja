@@ -9,6 +9,7 @@ import android.preference.*;
 import android.webkit.CookieManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -206,7 +207,7 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setCancelable(true);
 
-        LinearLayout layout = (LinearLayout) getActivity().getLayoutInflater().inflate(R.layout.dialog_introduction, null, false);
+        FrameLayout layout = (FrameLayout) getActivity().getLayoutInflater().inflate(R.layout.dialog_introduction, null, false);
         builder.setView(layout);
 
         WebView webView = (WebView) layout.findViewById(R.id.dialog_introduction);
@@ -238,7 +239,7 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setCancelable(true);
 
-        LinearLayout layout = (LinearLayout) getActivity().getLayoutInflater().inflate(R.layout.dialog_list, null, false);
+        FrameLayout layout = (FrameLayout) getActivity().getLayoutInflater().inflate(R.layout.dialog_list, null, false);
         builder.setView(layout);
 
         List<Map<String, String>> list = new ArrayList<>();
@@ -246,7 +247,7 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
         String[] contents = getResources().getStringArray(R.array.license_contents);
         String[] authors = getResources().getStringArray(R.array.license_authors);
         String[] urls = getResources().getStringArray(R.array.license_urls);
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 8; i++) {
             Map<String, String> map = new HashMap<>();
             map.put(LICENSE_TITLE, titles[i]);
             map.put(LICENSE_CONTENT, contents[i]);

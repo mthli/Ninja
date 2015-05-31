@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- TODO: like popup_list.xml -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/white">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
 
     <ListView android:id="@+id/dialog_list"
               android:layout_width="match_parent"
@@ -13,7 +10,8 @@
               android:divider="@null"
               android:dividerHeight="@dimen/divider_height_0dp"
               android:drawSelectorOnTop="true"
-              android:scrollbars="none">
+              android:scrollbars="none"
+              android:background="@drawable/round_corner_shape_white">
     </ListView>
 
-</LinearLayout>
+</FrameLayout>

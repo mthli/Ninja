@@ -11,7 +11,7 @@
               android:dividerHeight="@dimen/divider_height_0dp"
               android:drawSelectorOnTop="true"
               android:scrollbars="none"
-              android:background="@drawable/popup_shape">
+              android:background="@drawable/round_corner_shape_white">
     </ListView>
 
 </FrameLayout>

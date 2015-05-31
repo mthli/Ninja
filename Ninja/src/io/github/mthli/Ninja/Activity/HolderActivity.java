@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 import io.github.mthli.Ninja.Database.Record;
 import io.github.mthli.Ninja.R;
@@ -106,7 +106,7 @@ public class HolderActivity extends Activity {
         AlertDialog.Builder builder = new AlertDialog.Builder(new NinjaContextWrapper(this));
         builder.setCancelable(true);
 
-        LinearLayout linearLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog_list, null, false);
+        FrameLayout linearLayout = (FrameLayout) getLayoutInflater().inflate(R.layout.dialog_list, null, false);
         builder.setView(linearLayout);
 
         String[] strings = getResources().getStringArray(R.array.holder_menu);

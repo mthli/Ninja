@@ -13,6 +13,7 @@
         <item name="android:drawSelectorOnTop">true</item>
         <item name="android:alertDialogTheme">@style/AlertDialogStyle</item>
         <item name="android:autoCompleteTextViewStyle">@style/AutoCompleteTextViewStyle</item>
+        <item name="android:popupAnimationStyle">@style/PopupAnimation</item>
     </style>
 
     <style name="SettingActivityTheme" parent="android:Theme.Material.Light.DarkActionBar">

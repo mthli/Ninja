@@ -296,7 +296,6 @@ public class BrowserActivity extends Activity implements BrowserController {
         } else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
             return onKeyCodeVolumeDown();
         } else if (keyCode == KeyEvent.KEYCODE_MENU) {
-            // return showOverflow();
             return showOverflow();
         } else if (keyCode == KeyEvent.KEYCODE_BACK) {
             if (fullscreenHolder != null || customView != null || videoView != null) {
@@ -438,7 +437,6 @@ public class BrowserActivity extends Activity implements BrowserController {
         omniboxOverflow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // showOverflow();
                 showOverflow();
             }
         });
@@ -656,7 +654,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             layout.setAlbumCover(ViewUnit.capture(layout, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
             layout.setAlbumTitle(getString(R.string.album_title_home));
             holder = layout;
-            initHomeGrid(layout, false);
+            initHomeGrid(layout, true);
         } else {
             return;
         }
@@ -1169,7 +1167,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
 
-        LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog_list, null, false);
+        FrameLayout layout = (FrameLayout) getLayoutInflater().inflate(R.layout.dialog_list, null, false);
         builder.setView(layout);
 
         ListView listView = (ListView) layout.findViewById(R.id.dialog_list);
@@ -1375,28 +1373,31 @@ public class BrowserActivity extends Activity implements BrowserController {
         overflowMenu = new PopupWindow(this);
         overflowMenu.setContentView(layout);
 
-        overflowMenu.setWidth(getResources().getDimensionPixelOffset(R.dimen.layout_width_192dp));
+        overflowMenu.setWidth(getResources().getDimensionPixelOffset(R.dimen.layout_width_225dp));
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE && currentAlbumController instanceof NinjaWebView) {
             overflowMenu.setHeight(getResources().getDimensionPixelOffset(R.dimen.layout_height_320dp));
         } else {
             overflowMenu.setHeight(LinearLayout.LayoutParams.WRAP_CONTENT);
         }
 
-        overflowMenu.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.transparent)));
-        ShadowViewHelper.bindShadowHelper(
-                new ShadowProperty()
-                        .setShadowRadius(getResources().getDimensionPixelOffset(R.dimen.radius_1dp))
-                        .setShadowDy(2)
-                        .setShadowColor(getResources().getColor(R.color.shadow_light)),
-                layout);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            overflowMenu.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.transparent)));
+            ShadowViewHelper.bindShadowHelper(
+                    new ShadowProperty()
+                            .setShadowRadius(getResources().getDimensionPixelOffset(R.dimen.radius_1dp))
+                            .setShadowDy(2)
+                            .setShadowColor(getResources().getColor(R.color.shadow_light)),
+                    layout);
+        } else {
+            overflowMenu.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.popup_holo_light));
+        }
         overflowMenu.setFocusable(true);
-        overflowMenu.setAnimationStyle(R.style.PopupAnimation);
 
         dimBackground(true, true);
         if (anchor == 0) {
-            overflowMenu.showAtLocation(omniboxOverflow, Gravity.TOP | Gravity.RIGHT, 0, 50);
+            overflowMenu.showAtLocation(omniboxOverflow, Gravity.TOP | Gravity.RIGHT, 0, getResources().getDimensionPixelOffset(R.dimen.layout_height_25dp));
         } else {
-            overflowMenu.showAtLocation(omniboxOverflow, Gravity.BOTTOM | Gravity.RIGHT, 0, 64);
+            overflowMenu.showAtLocation(omniboxOverflow, Gravity.BOTTOM | Gravity.RIGHT, 0, getResources().getDimensionPixelOffset(R.dimen.layout_height_32dp));
         }
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -1583,7 +1584,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
 
-        LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog_list, null, false);
+        FrameLayout layout = (FrameLayout) getLayoutInflater().inflate(R.layout.dialog_list, null, false);
         builder.setView(layout);
 
         final String[] array = getResources().getStringArray(R.array.list_menu);
@@ -1630,7 +1631,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
 
-        LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog_list, null, false);
+        FrameLayout layout = (FrameLayout) getLayoutInflater().inflate(R.layout.dialog_list, null, false);
         builder.setView(layout);
 
         final String[] array = getResources().getStringArray(R.array.list_menu);
@@ -1691,7 +1692,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
 
-        LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog_edit, null, false);
+        FrameLayout layout = (FrameLayout) getLayoutInflater().inflate(R.layout.dialog_edit, null, false);
         builder.setView(layout);
 
         final AlertDialog dialog = builder.create();
@@ -1739,7 +1740,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
 
-        LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog_edit, null, false);
+        FrameLayout layout = (FrameLayout) getLayoutInflater().inflate(R.layout.dialog_edit, null, false);
         builder.setView(layout);
 
         final AlertDialog dialog = builder.create();

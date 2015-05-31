@@ -5,7 +5,7 @@
     <!-- DynamicGrid -->
     <dimen name="dgv_overlap_if_switch_straight_line">16dp</dimen>
 
-    <dimen name="layout_width_192dp">192dp</dimen>
+    <dimen name="layout_width_225dp">210dp</dimen>
     <dimen name="layout_width_156dp">156dp</dimen>
     <dimen name="layout_width_144dp">144dp</dimen>
 
@@ -15,6 +15,8 @@
     <dimen name="layout_height_108dp">108dp</dimen>
     <dimen name="layout_height_48dp">48dp</dimen>
     <dimen name="layout_height_36dp">36dp</dimen>
+    <dimen name="layout_height_32dp">32dp</dimen>
+    <dimen name="layout_height_25dp">25dp</dimen>
     <dimen name="layout_height_12dp">12dp</dimen>
     <dimen name="layout_height_2dp">2dp</dimen>
     <dimen name="layout_height_1dp">1dp</dimen>
@@ -39,7 +41,6 @@
 
     <dimen name="elevation_2dp">2dp</dimen>
     <dimen name="elevation_1dp">1dp</dimen>
-    <dimen name="radius_2dp">2dp</dimen>
     <dimen name="radius_1dp">1dp</dimen>
     <dimen name="divider_height_0dp">0dp</dimen>
 

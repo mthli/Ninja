@@ -7,7 +7,7 @@ A web browser that open links in background without ever leaving your favorite a
 
 [Ninja in Coolapk](http://coolapk.com/apk/io.github.mthli.Ninja "Ninja in Cookapk")
 
-[Download latest Ninja.apk](https://github.com/mthli/Ninja/releases/download/v1.1.8/Ninja.1.1.8.apk "Ninja.1.1.8.apk")
+[Download latest Ninja.apk](https://github.com/mthli/Ninja/releases/download/v1.1.9/Ninja.1.1.9.apk "Ninja.1.1.9.apk")
 
 __SUPPORT: Android 4.1+__
 
@@ -114,6 +114,8 @@ Just import the `Ninja` folder with your __IntelliJ IDEA__.
  - [github-markdown-css](https://github.com/sindresorhus/github-markdown-css "github-markdown-css")
 
  - [Lightning Browser](https://github.com/anthonycr/Lightning-Browser "Lightning-Browser")
+
+ - [ShadowViewHelper](https://github.com/wangjiegulu/ShadowViewHelper "ShadowViewHelper")
 
 ## License:
 
