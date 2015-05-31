@@ -212,6 +212,12 @@ public class BrowserActivity extends Activity implements BrowserController {
         IntentUnit.setClear(false);
         stopService(toService);
 
+        if (overflowMenu != null && overflowMenu.isShowing()) {
+            overflowMenu.setOnDismissListener(null);
+            overflowMenu.dismiss();
+            dimBackground(false, false);
+        }
+
         create = false;
         inputBox.clearFocus();
         if (currentAlbumController != null && currentAlbumController instanceof NinjaRelativeLayout) {
@@ -661,7 +667,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         BrowserContainer.add(holder);
         switcherContainer.addView(albumView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
-        Animation animation = AnimationUtils.loadAnimation(this, R.anim.slide_in_up);
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.album_slide_in_up);
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationRepeat(Animation animation) {
@@ -711,7 +717,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
 
         albumView.setVisibility(View.INVISIBLE);
-        Animation animation = AnimationUtils.loadAnimation(this, R.anim.slide_in_up);
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.album_slide_in_up);
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationRepeat(Animation animation) {
@@ -819,7 +825,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             final View rv = (View) currentAlbumController;
             final View av = (View) controller;
 
-            Animation fadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out);
+            Animation fadeOut = AnimationUtils.loadAnimation(this, R.anim.album_fade_out);
             fadeOut.setAnimationListener(new Animation.AnimationListener() {
                 @Override
                 public void onAnimationRepeat(Animation animation) {}
@@ -1333,7 +1339,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             hideSoftInput(inputBox);
         }
 
-        LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.popup_list, null, false);
+        final FrameLayout layout = (FrameLayout) getLayoutInflater().inflate(R.layout.popup_list, null, false);
         ListView listView = (ListView) layout.findViewById(R.id.popup_list);
 
         LinearLayout header = (LinearLayout) getLayoutInflater().inflate(R.layout.popup_header, null, false);
@@ -1376,7 +1382,6 @@ public class BrowserActivity extends Activity implements BrowserController {
             overflowMenu.setHeight(LinearLayout.LayoutParams.WRAP_CONTENT);
         }
 
-        // TODO: 9.png
         overflowMenu.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.transparent)));
         ShadowViewHelper.bindShadowHelper(
                 new ShadowProperty()
@@ -1385,8 +1390,9 @@ public class BrowserActivity extends Activity implements BrowserController {
                         .setShadowColor(getResources().getColor(R.color.shadow_light)),
                 layout);
         overflowMenu.setFocusable(true);
+        overflowMenu.setAnimationStyle(R.style.PopupAnimation);
 
-        dimBackground(true);
+        dimBackground(true, true);
         if (anchor == 0) {
             overflowMenu.showAtLocation(omniboxOverflow, Gravity.TOP | Gravity.RIGHT, 0, 50);
         } else {
@@ -1429,7 +1435,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         overflowMenu.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
             public void onDismiss() {
-                dimBackground(false);
+                dimBackground(false, true);
             }
         });
 
@@ -1842,30 +1848,41 @@ public class BrowserActivity extends Activity implements BrowserController {
         return list.get(index);
     }
 
-    private void dimBackground(boolean dim) {
+    private void dimBackground(boolean dim, boolean anim) {
         final Window window = getWindow();
         float from;
         float to;
 
-        if (dim) {
-            from = 1f;
-            to = 0.5f;
-        } else {
-            from = 0.5f;
-            to = 1f;
-        }
+        if (anim) {
+            if (dim) {
+                from = 1f;
+                to = 0.5f;
+            } else {
+                from = 0.5f;
+                to = 1f;
+            }
 
-        ValueAnimator animator = ValueAnimator.ofFloat(from, to);
-        animator.setDuration(shortAnimTime);
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                WindowManager.LayoutParams params = window.getAttributes();
-                params.alpha = (Float) animation.getAnimatedValue();
+            ValueAnimator animator = ValueAnimator.ofFloat(from, to);
+            animator.setDuration(shortAnimTime);
+            animator.setInterpolator(new DecelerateInterpolator());
+            animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    WindowManager.LayoutParams params = window.getAttributes();
+                    params.alpha = (Float) animation.getAnimatedValue();
+                    window.setAttributes(params);
+                }
+            });
+            animator.start();
+        } else {
+            WindowManager.LayoutParams params = window.getAttributes();
+            if (dim) {
+                params.alpha = 0.5f;
+                window.setAttributes(params);
+            } else {
+                params.alpha = 1f;
                 window.setAttributes(params);
             }
-        });
-
-        animator.start();
+        }
     }
 }

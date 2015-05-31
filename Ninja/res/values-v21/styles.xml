@@ -43,6 +43,12 @@
     <style name="AlertDialogStyle" parent="android:Theme.Material.Light.Dialog.Alert">
         <item name="android:colorAccent">@color/blue_500</item>
         <item name="android:background">@color/white</item>
+        <item name="android:windowElevation">@dimen/elevation_2dp</item>
+    </style>
+
+    <style name="PopupAnimation">
+        <item name="android:windowEnterAnimation">@anim/popup_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/popup_fade_out</item>
     </style>
 
 </resources>

@@ -19,7 +19,7 @@ public class ShadowViewHelper {
     private float ry;
 
     public static ShadowViewHelper bindShadowHelper(ShadowProperty shadowProperty, View view) {
-        return new ShadowViewHelper(shadowProperty, view, Color.WHITE, 0, 0);
+        return new ShadowViewHelper(shadowProperty, view, Color.TRANSPARENT, 0, 0);
     }
 
     public static ShadowViewHelper bindShadowHelper(ShadowProperty shadowProperty, View view, int color) {
@@ -27,7 +27,7 @@ public class ShadowViewHelper {
     }
 
     public static ShadowViewHelper bindShadowHelper(ShadowProperty shadowProperty, View view, float rx, float ry) {
-        return new ShadowViewHelper(shadowProperty, view, Color.WHITE, rx, ry);
+        return new ShadowViewHelper(shadowProperty, view, Color.TRANSPARENT, rx, ry);
     }
 
     public static ShadowViewHelper bindShadowHelper(ShadowProperty shadowProperty, View view, int color, float rx, float ry) {

@@ -39,7 +39,8 @@
 
     <dimen name="elevation_2dp">2dp</dimen>
     <dimen name="elevation_1dp">1dp</dimen>
-    <dimen name="divider_height_0dp">0dp</dimen>
+    <dimen name="radius_2dp">2dp</dimen>
     <dimen name="radius_1dp">1dp</dimen>
+    <dimen name="divider_height_0dp">0dp</dimen>
 
 </resources>
