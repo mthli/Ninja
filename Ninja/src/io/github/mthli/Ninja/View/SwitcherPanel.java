@@ -58,6 +58,9 @@ public class SwitcherPanel extends ViewGroup {
     }
 
     private boolean keyBoardShowing = false;
+    public boolean isKeyBoardShowing() {
+        return keyBoardShowing;
+    }
     public void fixKeyBoardShowing(int height) {
         keyBoardShowing = getMeasuredHeight() < height;
     }

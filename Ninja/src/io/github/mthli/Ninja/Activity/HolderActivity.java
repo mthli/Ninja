@@ -106,7 +106,7 @@ public class HolderActivity extends Activity {
         AlertDialog.Builder builder = new AlertDialog.Builder(new NinjaContextWrapper(this));
         builder.setCancelable(true);
 
-        LinearLayout linearLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog, null, false);
+        LinearLayout linearLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog_list, null, false);
         builder.setView(linearLayout);
 
         String[] strings = getResources().getStringArray(R.array.holder_menu);

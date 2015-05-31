@@ -238,7 +238,7 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setCancelable(true);
 
-        LinearLayout layout = (LinearLayout) getActivity().getLayoutInflater().inflate(R.layout.dialog, null, false);
+        LinearLayout layout = (LinearLayout) getActivity().getLayoutInflater().inflate(R.layout.dialog_list, null, false);
         builder.setView(layout);
 
         List<Map<String, String>> list = new ArrayList<>();

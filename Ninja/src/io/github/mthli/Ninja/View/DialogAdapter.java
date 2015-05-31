@@ -34,7 +34,7 @@ public class DialogAdapter extends ArrayAdapter<String> {
         if (view == null) {
             view = LayoutInflater.from(context).inflate(layoutResId, parent, false);
             holder = new Holder();
-            holder.textView = (TextView) view.findViewById(R.id.dialog_list_item);
+            holder.textView = (TextView) view.findViewById(R.id.dialog_text_item);
             view.setTag(holder);
         } else {
             holder = (Holder) view.getTag();

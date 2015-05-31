@@ -1,6 +1,7 @@
 package io.github.mthli.Ninja.Activity;
 
 import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -8,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
@@ -27,6 +29,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.*;
+import com.wangjie.shadowviewhelper.ShadowProperty;
+import com.wangjie.shadowviewhelper.ShadowViewHelper;
 import io.github.mthli.Ninja.Browser.AlbumController;
 import io.github.mthli.Ninja.Browser.BrowserContainer;
 import io.github.mthli.Ninja.Browser.BrowserController;
@@ -47,6 +51,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     private static final int DOUBLE_TAPS_QUIT_DEFAULT = 512;
 
     private SwitcherPanel switcherPanel;
+    private int anchor;
     private float dimen156dp;
     private float dimen144dp;
     private float dimen117dp;
@@ -65,6 +70,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     private ImageButton omniboxRefresh;
     private ImageButton omniboxOverflow;
     private ProgressBar progressBar;
+    private PopupWindow overflowMenu;
 
     private RelativeLayout searchPanel;
     private EditText searchBox;
@@ -104,7 +110,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         super.onCreate(savedInstanceState);
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        int anchor = Integer.valueOf(sp.getString(getString(R.string.sp_anchor), "0"));
+        anchor = Integer.valueOf(sp.getString(getString(R.string.sp_anchor), "0"));
         if (anchor == 0) {
             setContentView(R.layout.main_top);
         } else {
@@ -253,6 +259,10 @@ public class BrowserActivity extends Activity implements BrowserController {
         if (switcherPanel.getStatus() != SwitcherPanel.Status.EXPANDED) {
             switcherPanel.expanded();
         }
+
+        if (overflowMenu != null) {
+            overflowMenu.dismiss();
+        }
         super.onConfigurationChanged(newConfig);
 
         float coverHeight = ViewUnit.getWindowHeight(this) - ViewUnit.getStatusBarHeight(this) - dimen108dp - dimen48dp;
@@ -280,12 +290,13 @@ public class BrowserActivity extends Activity implements BrowserController {
         } else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
             return onKeyCodeVolumeDown();
         } else if (keyCode == KeyEvent.KEYCODE_MENU) {
+            // return showOverflow();
             return showOverflow();
         } else if (keyCode == KeyEvent.KEYCODE_BACK) {
             if (fullscreenHolder != null || customView != null || videoView != null) {
                 return onHideCustomView();
             }
-            return onKeyCodeBack();
+            return onKeyCodeBack(true);
         }
 
         return false;
@@ -421,6 +432,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         omniboxOverflow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // showOverflow();
                 showOverflow();
             }
         });
@@ -729,8 +741,8 @@ public class BrowserActivity extends Activity implements BrowserController {
     private synchronized void pinAlbums(String url) {
         hideSoftInput(inputBox);
         hideSearchPanel();
-        switcherContainer.removeAllViews(); ///
-        contentFrame.removeAllViews(); ///
+        switcherContainer.removeAllViews();
+        contentFrame.removeAllViews();
 
         for (AlbumController controller : BrowserContainer.list()) {
             if (controller instanceof NinjaWebView) {
@@ -748,8 +760,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         } else if (BrowserContainer.size() >= 1 && url == null) {
             int index = BrowserContainer.size() - 1;
             if (currentAlbumController != null) {
-                // When BrowserActivity open, always show latest ((View) currentAlbumController)
-                // index = BrowserContainer.indexOf(currentAlbumController);
+                index = BrowserContainer.indexOf(currentAlbumController); ///
                 currentAlbumController.deactivate();
             }
             currentAlbumController = BrowserContainer.get(index);
@@ -805,7 +816,6 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         if (currentAlbumController != null && anim) {
             currentAlbumController.deactivate();
-
             final View rv = (View) currentAlbumController;
             final View av = (View) controller;
 
@@ -1153,7 +1163,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
 
-        LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog, null, false);
+        LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog_list, null, false);
         builder.setView(layout);
 
         ListView listView = (ListView) layout.findViewById(R.id.dialog_list);
@@ -1238,7 +1248,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         return false;
     }
 
-    private boolean onKeyCodeBack() {
+    private boolean onKeyCodeBack(boolean douQ) {
         hideSoftInput(inputBox);
         if (switcherPanel.getStatus() != SwitcherPanel.Status.EXPANDED) {
             switcherPanel.expanded();
@@ -1260,7 +1270,9 @@ public class BrowserActivity extends Activity implements BrowserController {
                     updateAlbum();
                     break;
                 case BrowserUnit.FLAG_HOME:
-                    doubleTapsQuit();
+                    if (douQ) {
+                        doubleTapsQuit();
+                    }
                     break;
                 default:
                     finish();
@@ -1317,56 +1329,126 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     private boolean showOverflow() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(true);
+        if (switcherPanel.isKeyBoardShowing()) {
+            hideSoftInput(inputBox);
+        }
 
-        LinearLayout linearLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog, null, false);
-        builder.setView(linearLayout);
+        LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.popup_list, null, false);
+        ListView listView = (ListView) layout.findViewById(R.id.popup_list);
+
+        LinearLayout header = (LinearLayout) getLayoutInflater().inflate(R.layout.popup_header, null, false);
+        ImageButton back = (ImageButton) header.findViewById(R.id.popup_header_back);
+        ImageButton forward = (ImageButton) header.findViewById(R.id.popup_header_forward);
+        ImageButton home = (ImageButton) header.findViewById(R.id.popup_header_home);
+        if (currentAlbumController instanceof NinjaWebView) {
+            listView.addHeaderView(header);
+        }
 
         final String[] array = getResources().getStringArray(R.array.main_overflow);
         final List<String> stringList = new ArrayList<>();
         stringList.addAll(Arrays.asList(array));
         if (currentAlbumController != null && currentAlbumController instanceof NinjaRelativeLayout) {
             stringList.remove(array[0]); // Go to top
-            stringList.remove(array[1]); // Go forward
-            stringList.remove(array[2]); // Add to home
-            stringList.remove(array[3]); // Find in page
-            stringList.remove(array[4]); // Screenshot
-            stringList.remove(array[5]); // Share
+            stringList.remove(array[1]); // Add to home
+            stringList.remove(array[2]); // Find in page
+            stringList.remove(array[3]); // Screenshot
+            stringList.remove(array[4]); // Share
 
             NinjaRelativeLayout ninjaRelativeLayout = (NinjaRelativeLayout) currentAlbumController;
             if (ninjaRelativeLayout.getFlag() != BrowserUnit.FLAG_HOME) {
-                stringList.remove(array[6]); // Relayout
+                stringList.remove(array[5]); // Relayout
             }
         } else if (currentAlbumController != null && currentAlbumController instanceof NinjaWebView) {
-            stringList.remove(array[6]); // Relayout
+            stringList.remove(array[5]); // Relayout
         }
 
-        ListView listView = (ListView) linearLayout.findViewById(R.id.dialog_list);
         DialogAdapter dialogAdapter = new DialogAdapter(this, R.layout.dialog_text_item, stringList);
         listView.setAdapter(dialogAdapter);
         dialogAdapter.notifyDataSetChanged();
 
-        final AlertDialog dialog = builder.create();
-        dialog.show();
+        overflowMenu = new PopupWindow(this);
+        overflowMenu.setContentView(layout);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        overflowMenu.setWidth(getResources().getDimensionPixelOffset(R.dimen.layout_width_192dp));
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE && currentAlbumController instanceof NinjaWebView) {
+            overflowMenu.setHeight(getResources().getDimensionPixelOffset(R.dimen.layout_height_320dp));
+        } else {
+            overflowMenu.setHeight(LinearLayout.LayoutParams.WRAP_CONTENT);
+        }
+
+        // TODO: 9.png
+        overflowMenu.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.transparent)));
+        ShadowViewHelper.bindShadowHelper(
+                new ShadowProperty()
+                        .setShadowRadius(getResources().getDimensionPixelOffset(R.dimen.radius_1dp))
+                        .setShadowDy(2)
+                        .setShadowColor(getResources().getColor(R.color.shadow_light)),
+                layout);
+        overflowMenu.setFocusable(true);
+
+        dimBackground(true);
+        if (anchor == 0) {
+            overflowMenu.showAtLocation(omniboxOverflow, Gravity.TOP | Gravity.RIGHT, 0, 50);
+        } else {
+            overflowMenu.showAtLocation(omniboxOverflow, Gravity.BOTTOM | Gravity.RIGHT, 0, 64);
+        }
+
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                String s = stringList.get(position);
-                if (s.equals(array[0])) { // Go to top
-                    NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
-                    ObjectAnimator anim = ObjectAnimator.ofInt(ninjaWebView, "scrollY", ninjaWebView.getScrollY(), 0);
-                    anim.setDuration(mediumAnimTime);
-                    anim.start();
-                } else if (s.equals(array[1])) { // Go forward
+            public void onClick(View v) {
+                onKeyCodeBack(false);
+                overflowMenu.dismiss();
+            }
+        });
+
+        forward.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (currentAlbumController instanceof NinjaWebView) {
                     NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
                     if (ninjaWebView.canGoForward()) {
                         ninjaWebView.goForward();
                     } else {
                         NinjaToast.show(BrowserActivity.this, R.string.toast_already_at_the_front);
                     }
-                } else if (s.equals(array[2])) { // Add to home
+                } else {
+                    NinjaToast.show(BrowserActivity.this, R.string.toast_already_at_the_front);
+                }
+                overflowMenu.dismiss();
+            }
+        });
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateAlbum();
+                overflowMenu.dismiss();
+            }
+        });
+
+        overflowMenu.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                dimBackground(false);
+            }
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                String s;
+                if (currentAlbumController instanceof NinjaWebView) {
+                    s = stringList.get(position - 1);
+                } else {
+                    s = stringList.get(position);
+                }
+
+                if (s.equals(array[0])) { // Go to top
+                    NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
+                    ObjectAnimator anim = ObjectAnimator.ofInt(ninjaWebView, "scrollY", ninjaWebView.getScrollY(), 0);
+                    anim.setDuration(mediumAnimTime);
+                    anim.start();
+                } else if (s.equals(array[1])) { // Add to home
                     NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
                     RecordAction action = new RecordAction(BrowserActivity.this);
                     action.open(true);
@@ -1387,20 +1469,20 @@ public class BrowserActivity extends Activity implements BrowserController {
                         }
                     }
                     action.close();
-                } else if (s.equals(array[3])) { // Find in page
+                } else if (s.equals(array[2])) { // Find in page
                     hideSoftInput(inputBox);
                     showSearchPanel();
-                } else if (s.equals(array[4])) { // Screenshot
+                } else if (s.equals(array[3])) { // Screenshot
                     NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
                     new ScreenshotTask(BrowserActivity.this, ninjaWebView).execute();
-                } else if (s.equals(array[5])) { // Share
+                } else if (s.equals(array[4])) { // Share
                     if (!prepareRecord()) {
                         NinjaToast.show(BrowserActivity.this, R.string.toast_share_failed);
                     } else {
                         NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
                         IntentUnit.share(BrowserActivity.this, ninjaWebView.getTitle(), ninjaWebView.getUrl());
                     }
-                } else if (s.equals(array[6])) { // Relayout
+                } else if (s.equals(array[5])) { // Relayout
                     NinjaRelativeLayout ninjaRelativeLayout = (NinjaRelativeLayout) currentAlbumController;
                     final DynamicGridView gridView = (DynamicGridView) ninjaRelativeLayout.findViewById(R.id.home_grid);
                     final List<GridItem> gridList = ((GridAdapter) gridView.getAdapter()).getList();
@@ -1477,15 +1559,14 @@ public class BrowserActivity extends Activity implements BrowserController {
                         }
                     });
                     gridView.startEditMode();
-                } else if (s.equals(array[7])) { // Setting
+                } else if (s.equals(array[6])) { // Setting
                     Intent intent = new Intent(BrowserActivity.this, SettingActivity.class);
                     startActivity(intent);
-                } else if (s.equals(array[8])) { // Quit
+                } else if (s.equals(array[7])) { // Quit
                     finish();
                 }
 
-                dialog.hide();
-                dialog.dismiss();
+                overflowMenu.dismiss();
             }
         });
 
@@ -1496,7 +1577,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
 
-        LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog, null, false);
+        LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog_list, null, false);
         builder.setView(layout);
 
         final String[] array = getResources().getStringArray(R.array.list_menu);
@@ -1543,7 +1624,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
 
-        LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog, null, false);
+        LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog_list, null, false);
         builder.setView(layout);
 
         final String[] array = getResources().getStringArray(R.array.list_menu);
@@ -1759,5 +1840,32 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
 
         return list.get(index);
+    }
+
+    private void dimBackground(boolean dim) {
+        final Window window = getWindow();
+        float from;
+        float to;
+
+        if (dim) {
+            from = 1f;
+            to = 0.5f;
+        } else {
+            from = 0.5f;
+            to = 1f;
+        }
+
+        ValueAnimator animator = ValueAnimator.ofFloat(from, to);
+        animator.setDuration(shortAnimTime);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                WindowManager.LayoutParams params = window.getAttributes();
+                params.alpha = (Float) animation.getAnimatedValue();
+                window.setAttributes(params);
+            }
+        });
+
+        animator.start();
     }
 }

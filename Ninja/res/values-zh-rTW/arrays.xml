@@ -21,7 +21,6 @@
     <!-- Main -->
     <string-array name="main_overflow">
         <item>回到頂部</item>
-        <item>前進一頁</item>
         <item>添加撥號</item>
         <item>頁內搜索</item>
         <item>網頁截圖</item>
