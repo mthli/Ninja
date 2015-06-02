@@ -1,7 +1,6 @@
 package io.github.mthli.Ninja.Activity;
 
 import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -9,7 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
-import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
@@ -29,8 +27,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.*;
-import com.wangjie.shadowviewhelper.ShadowProperty;
-import com.wangjie.shadowviewhelper.ShadowViewHelper;
 import io.github.mthli.Ninja.Browser.AlbumController;
 import io.github.mthli.Ninja.Browser.BrowserContainer;
 import io.github.mthli.Ninja.Browser.BrowserController;
@@ -60,6 +56,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     private HorizontalScrollView switcherScroller;
     private LinearLayout switcherContainer;
+    private ImageButton switcherSetting;
     private ImageButton switcherBookmarks;
     private ImageButton switcherHistory;
     private ImageButton switcherAdd;
@@ -70,7 +67,6 @@ public class BrowserActivity extends Activity implements BrowserController {
     private ImageButton omniboxRefresh;
     private ImageButton omniboxOverflow;
     private ProgressBar progressBar;
-    private PopupWindow overflowMenu;
 
     private RelativeLayout searchPanel;
     private EditText searchBox;
@@ -110,7 +106,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         super.onCreate(savedInstanceState);
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        anchor = Integer.valueOf(sp.getString(getString(R.string.sp_anchor), "0"));
+        anchor = Integer.valueOf(sp.getString(getString(R.string.sp_anchor), "1"));
         if (anchor == 0) {
             setContentView(R.layout.main_top);
         } else {
@@ -212,12 +208,6 @@ public class BrowserActivity extends Activity implements BrowserController {
         IntentUnit.setClear(false);
         stopService(toService);
 
-        if (overflowMenu != null && overflowMenu.isShowing()) {
-            overflowMenu.setOnDismissListener(null);
-            overflowMenu.dismiss();
-            dimBackground(false, false);
-        }
-
         create = false;
         inputBox.clearFocus();
         if (currentAlbumController != null && currentAlbumController instanceof NinjaRelativeLayout) {
@@ -264,10 +254,6 @@ public class BrowserActivity extends Activity implements BrowserController {
         hideSearchPanel();
         if (switcherPanel.getStatus() != SwitcherPanel.Status.EXPANDED) {
             switcherPanel.expanded();
-        }
-
-        if (overflowMenu != null) {
-            overflowMenu.dismiss();
         }
         super.onConfigurationChanged(newConfig);
 
@@ -323,9 +309,18 @@ public class BrowserActivity extends Activity implements BrowserController {
     private void initSwitcherView() {
         switcherScroller = (HorizontalScrollView) findViewById(R.id.switcher_scroller);
         switcherContainer = (LinearLayout) findViewById(R.id.switcher_container);
+        switcherSetting = (ImageButton) findViewById(R.id.switcher_setting);
         switcherBookmarks = (ImageButton) findViewById(R.id.switcher_bookmarks);
         switcherHistory = (ImageButton) findViewById(R.id.switcher_history);
         switcherAdd = (ImageButton) findViewById(R.id.switcher_add);
+
+        switcherSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BrowserActivity.this, SettingActivity.class);
+                startActivity(intent);
+            }
+        });
 
         switcherBookmarks.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -957,6 +952,9 @@ public class BrowserActivity extends Activity implements BrowserController {
         inputBox.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
+        inputBox.setDropDownWidth(ViewUnit.getWindowWidth(this));
+        inputBox.setDropDownVerticalOffset(getResources().getDimensionPixelOffset(R.dimen.layout_height_6dp));
+
         inputBox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -1333,20 +1331,11 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     private boolean showOverflow() {
-        if (switcherPanel.isKeyBoardShowing()) {
-            hideSoftInput(inputBox);
-        }
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
 
-        final FrameLayout layout = (FrameLayout) getLayoutInflater().inflate(R.layout.popup_list, null, false);
-        ListView listView = (ListView) layout.findViewById(R.id.popup_list);
-
-        LinearLayout header = (LinearLayout) getLayoutInflater().inflate(R.layout.popup_header, null, false);
-        ImageButton back = (ImageButton) header.findViewById(R.id.popup_header_back);
-        ImageButton forward = (ImageButton) header.findViewById(R.id.popup_header_forward);
-        ImageButton home = (ImageButton) header.findViewById(R.id.popup_header_home);
-        if (currentAlbumController instanceof NinjaWebView) {
-            listView.addHeaderView(header);
-        }
+        FrameLayout layout = (FrameLayout) getLayoutInflater().inflate(R.layout.dialog_list, null, false);
+        builder.setView(layout);
 
         final String[] array = getResources().getStringArray(R.array.main_overflow);
         final List<String> stringList = new ArrayList<>();
@@ -1366,90 +1355,18 @@ public class BrowserActivity extends Activity implements BrowserController {
             stringList.remove(array[5]); // Relayout
         }
 
+        ListView listView = (ListView) layout.findViewById(R.id.dialog_list);
         DialogAdapter dialogAdapter = new DialogAdapter(this, R.layout.dialog_text_item, stringList);
         listView.setAdapter(dialogAdapter);
         dialogAdapter.notifyDataSetChanged();
 
-        overflowMenu = new PopupWindow(this);
-        overflowMenu.setContentView(layout);
-
-        overflowMenu.setWidth(getResources().getDimensionPixelOffset(R.dimen.layout_width_225dp));
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE && currentAlbumController instanceof NinjaWebView) {
-            overflowMenu.setHeight(getResources().getDimensionPixelOffset(R.dimen.layout_height_320dp));
-        } else {
-            overflowMenu.setHeight(LinearLayout.LayoutParams.WRAP_CONTENT);
-        }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            overflowMenu.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.transparent)));
-            ShadowViewHelper.bindShadowHelper(
-                    new ShadowProperty()
-                            .setShadowRadius(getResources().getDimensionPixelOffset(R.dimen.radius_1dp))
-                            .setShadowDy(2)
-                            .setShadowColor(getResources().getColor(R.color.shadow_light)),
-                    layout);
-        } else {
-            overflowMenu.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.popup_holo_light));
-        }
-        overflowMenu.setFocusable(true);
-
-        dimBackground(true, true);
-        if (anchor == 0) {
-            overflowMenu.showAtLocation(omniboxOverflow, Gravity.TOP | Gravity.RIGHT, 0, getResources().getDimensionPixelOffset(R.dimen.layout_height_25dp));
-        } else {
-            overflowMenu.showAtLocation(omniboxOverflow, Gravity.BOTTOM | Gravity.RIGHT, 0, getResources().getDimensionPixelOffset(R.dimen.layout_height_32dp));
-        }
-
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onKeyCodeBack(false);
-                overflowMenu.dismiss();
-            }
-        });
-
-        forward.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (currentAlbumController instanceof NinjaWebView) {
-                    NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
-                    if (ninjaWebView.canGoForward()) {
-                        ninjaWebView.goForward();
-                    } else {
-                        NinjaToast.show(BrowserActivity.this, R.string.toast_already_at_the_front);
-                    }
-                } else {
-                    NinjaToast.show(BrowserActivity.this, R.string.toast_already_at_the_front);
-                }
-                overflowMenu.dismiss();
-            }
-        });
-
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updateAlbum();
-                overflowMenu.dismiss();
-            }
-        });
-
-        overflowMenu.setOnDismissListener(new PopupWindow.OnDismissListener() {
-            @Override
-            public void onDismiss() {
-                dimBackground(false, true);
-            }
-        });
+        final AlertDialog dialog = builder.create();
+        dialog.show();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                String s;
-                if (currentAlbumController instanceof NinjaWebView) {
-                    s = stringList.get(position - 1);
-                } else {
-                    s = stringList.get(position);
-                }
-
+                String s = stringList.get(position);
                 if (s.equals(array[0])) { // Go to top
                     NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
                     ObjectAnimator anim = ObjectAnimator.ofInt(ninjaWebView, "scrollY", ninjaWebView.getScrollY(), 0);
@@ -1566,14 +1483,12 @@ public class BrowserActivity extends Activity implements BrowserController {
                         }
                     });
                     gridView.startEditMode();
-                } else if (s.equals(array[6])) { // Setting
-                    Intent intent = new Intent(BrowserActivity.this, SettingActivity.class);
-                    startActivity(intent);
-                } else if (s.equals(array[7])) { // Quit
+                } else if (s.equals(array[6])) { // Quit
                     finish();
                 }
 
-                overflowMenu.dismiss();
+                dialog.hide();
+                dialog.dismiss();
             }
         });
 
@@ -1847,43 +1762,5 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
 
         return list.get(index);
-    }
-
-    private void dimBackground(boolean dim, boolean anim) {
-        final Window window = getWindow();
-        float from;
-        float to;
-
-        if (anim) {
-            if (dim) {
-                from = 1f;
-                to = 0.5f;
-            } else {
-                from = 0.5f;
-                to = 1f;
-            }
-
-            ValueAnimator animator = ValueAnimator.ofFloat(from, to);
-            animator.setDuration(shortAnimTime);
-            animator.setInterpolator(new DecelerateInterpolator());
-            animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                @Override
-                public void onAnimationUpdate(ValueAnimator animation) {
-                    WindowManager.LayoutParams params = window.getAttributes();
-                    params.alpha = (Float) animation.getAnimatedValue();
-                    window.setAttributes(params);
-                }
-            });
-            animator.start();
-        } else {
-            WindowManager.LayoutParams params = window.getAttributes();
-            if (dim) {
-                params.alpha = 0.5f;
-                window.setAttributes(params);
-            } else {
-                params.alpha = 1f;
-                window.setAttributes(params);
-            }
-        }
     }
 }

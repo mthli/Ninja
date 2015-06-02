@@ -42,9 +42,9 @@ public class RelativeTimeTextView extends TextView {
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs,
                 R.styleable.RelativeTimeTextView, 0, 0);
         try {
-            mText = a.getString(R.styleable.RelativeTimeTextView_reference_time);
-            mPrefix = a.getString(R.styleable.RelativeTimeTextView_relative_time_prefix);
-            mSuffix = a.getString(R.styleable.RelativeTimeTextView_relative_time_suffix);
+            mText = a.getString(R.styleable.RelativeTimeTextView_referenceTime);
+            mPrefix = a.getString(R.styleable.RelativeTimeTextView_relativeTimePrefix);
+            mSuffix = a.getString(R.styleable.RelativeTimeTextView_relativeTimeSuffix);
 
             mPrefix = mPrefix == null ? "" : mPrefix;
             mSuffix = mSuffix == null ? "" : mSuffix;

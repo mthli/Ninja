@@ -82,7 +82,7 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
         notiPriority.setSummary(summary);
 
         tpEntries = getResources().getStringArray(R.array.setting_entries_tab_position);
-        summary = tpEntries[Integer.valueOf(sp.getString(getString(R.string.sp_anchor), "0"))];
+        summary = tpEntries[Integer.valueOf(sp.getString(getString(R.string.sp_anchor), "1"))];
         tabPosition = (ListPreference) findPreference(getString(R.string.sp_anchor));
         tabPosition.setSummary(summary);
 
@@ -185,7 +185,7 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
             String summary = npEntries[Integer.valueOf(sp.getString(key, "0"))];
             notiPriority.setSummary(summary);
         } else if (key.equals(getString(R.string.sp_anchor))) {
-            String summary = tpEntries[Integer.valueOf(sp.getString(key, "0"))];
+            String summary = tpEntries[Integer.valueOf(sp.getString(key, "1"))];
             tabPosition.setSummary(summary);
             NinjaToast.show(getActivity(), R.string.toast_need_restart);
         } else if (key.equals(getString(R.string.sp_volume))) {

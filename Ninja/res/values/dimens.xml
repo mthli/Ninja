@@ -18,6 +18,7 @@
     <dimen name="layout_height_32dp">32dp</dimen>
     <dimen name="layout_height_25dp">25dp</dimen>
     <dimen name="layout_height_12dp">12dp</dimen>
+    <dimen name="layout_height_6dp">6dp</dimen>
     <dimen name="layout_height_2dp">2dp</dimen>
     <dimen name="layout_height_1dp">1dp</dimen>
 

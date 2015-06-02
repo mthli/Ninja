@@ -4,9 +4,9 @@
 
     <!-- AndroidAgo -->
     <declare-styleable name="RelativeTimeTextView">
-        <attr name="relative_time_prefix" format="string" />
-        <attr name="relative_time_suffix" format="string" />
-        <attr name="reference_time" format="string" />
+        <attr name="relativeTimePrefix" format="string" />
+        <attr name="relativeTimeSuffix" format="string" />
+        <attr name="referenceTime" format="string" />
     </declare-styleable>
 
 </resources>

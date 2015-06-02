@@ -17,17 +17,16 @@
                      android:layout_height="@dimen/layout_height_48dp"
                      android:minHeight="@dimen/layout_height_48dp">
 
-            <TextView android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:layout_marginLeft="@dimen/layout_margin_16dp"
-                      android:layout_gravity="center|left"
-                      android:gravity="center"
-                      android:text="@string/app_name"
-                      android:textColor="@color/white"
-                      android:textSize="@dimen/text_size_16sp"
-                      android:singleLine="true"
-                      android:ellipsize="none">
-            </TextView>
+            <ImageButton android:id="@+id/switcher_setting"
+                         android:contentDescription="@null"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_gravity="center|left"
+                         android:gravity="center"
+                         android:layout_margin="@dimen/layout_margin_8dp"
+                         android:src="@drawable/setting_selector"
+                         android:background="@color/transparent">
+            </ImageButton>
 
             <LinearLayout android:orientation="horizontal"
                           android:layout_width="wrap_content"
