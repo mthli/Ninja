@@ -268,8 +268,19 @@
         协议
     </string>
     <!-- Contact -->
-    <string name="setting_title_contact_us">
-        联系我们
+    <string name="setting_title_donation">
+        捐赠
+    </string>
+    <string name="donation_content">
+        捐赠所得将会被用于：\n
+        - 提升开发环境配置。\n
+        - 提升开发者积极性。\n\n
+        所有的捐赠都会被认为：\n
+        - 无偿的，这意味着捐赠者不能命令或强迫开发者做捐赠者想做的任何事。\n
+        - 归开发者所有。\n
+        - 捐赠者同意上述所有观点。\n\n
+        支付宝：\n
+        matthewlee0725@gmail.com
     </string>
 
     <!-- Whitelist -->

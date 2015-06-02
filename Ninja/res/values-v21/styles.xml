@@ -42,8 +42,8 @@
 
     <style name="AlertDialogStyle" parent="android:Theme.Material.Light.Dialog.Alert">
         <item name="android:colorAccent">@color/blue_500</item>
-        <item name="android:background">@color/white</item>
         <item name="android:windowElevation">@dimen/elevation_2dp</item>
+        <item name="android:background">@color/white</item>
     </style>
 
 </resources>

@@ -4,7 +4,7 @@
               android:orientation="vertical"
               android:layout_width="@dimen/layout_width_156dp"
               android:layout_height="@dimen/layout_height_141dp"
-              android:background="@drawable/round_corner_shape_light">
+              android:background="@drawable/grid_item_shape">
 
     <TextView android:id="@+id/grid_item_title"
               android:layout_width="match_parent"

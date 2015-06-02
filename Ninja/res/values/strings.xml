@@ -268,8 +268,19 @@
         License
     </string>
     <!-- Contact -->
-    <string name="setting_title_contact_us">
-        Contact us
+    <string name="setting_title_donation">
+        Donation
+    </string>
+    <string name="donation_content">
+        The income from donations will be used to:\n
+        - Improve the development environment.\n
+        - Improve the developer\'s enthusiasm.\n\n
+        All donations will be considered:\n
+        - Unpaid which mains the donor can not command or force the developer to do anything the donor want.\n
+        - Owned by the developer.\n
+        - The donor have agreed all above points.\n\n
+        Alipay:\n
+        matthewlee0725@gmail.com
     </string>
 
     <!-- Whitelist -->

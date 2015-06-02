@@ -142,7 +142,7 @@
 
         <Preference android:title="@string/setting_title_license" />
 
-        <Preference android:title="@string/setting_title_contact_us" />
+        <Preference android:title="@string/setting_title_donation" />
 
     </PreferenceCategory>
 

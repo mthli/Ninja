@@ -268,8 +268,19 @@
         協議
     </string>
     <!-- Contact -->
-    <string name="setting_title_contact_us">
-        聯系我們
+    <string name="setting_title_donation">
+        捐贈
+    </string>
+    <string name="donation_content">
+        捐贈所得將會被用于：\n
+        - 提升開發環境配置。\n
+        - 提升開發者積極性。\n\n
+        所有的捐贈都會被認爲：\n
+        - 無償的，這意味著捐贈者不能命令或強迫開發者做捐贈者想做的任何事。\n
+        - 歸開發者所有。\n
+        - 捐贈者同意上述所有觀點。\n\n
+        支付寶：\n
+        matthewlee0725@gmail.com
     </string>
 
     <!-- Whitelist -->

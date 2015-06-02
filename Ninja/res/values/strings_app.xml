@@ -17,9 +17,6 @@
     <string name="app_version">
         1.2.0
     </string>
-    <string name="app_gmail">
-        matthewlee0725@gmail.com
-    </string>
 
     <!-- AndroidSlidingUpPanel -->
     <string name="license_title_android_sliding_up_panel">
@@ -119,20 +116,6 @@
         http://git.io/vUrEh
     </string>
 
-    <!-- ShadowViewHelper -->
-    <string name="license_title_svh">
-        ShadowViewHelper
-    </string>
-    <string name="license_content_svh">
-        Apache License Version 2.0
-    </string>
-    <string name="license_author_svh">
-        WangJie
-    </string>
-    <string name="license_url_svh">
-        http://git.io/vkrK3
-    </string>
-
     <!-- All in one -->
     <string-array name="license_titles">
         <item>@string/license_title_android_sliding_up_panel</item>
@@ -142,7 +125,6 @@
         <item>@string/license_title_github_markdown_css</item>
         <item>@string/license_title_lightning</item>
         <item>@string/license_title_ninja</item>
-        <item>@string/license_title_svh</item>
     </string-array>
     <string-array name="license_contents">
         <item>@string/license_content_android_sliding_up_panel</item>
@@ -152,7 +134,6 @@
         <item>@string/license_content_github_markdown_css</item>
         <item>@string/license_content_lightning</item>
         <item>@string/license_content_ninja</item>
-        <item>@string/license_content_svh</item>
     </string-array>
     <string-array name="license_authors">
         <item>@string/license_author_android_sliding_up_panel</item>
@@ -162,7 +143,6 @@
         <item>@string/license_author_github_markdown_css</item>
         <item>@string/license_author_lightning</item>
         <item>@string/license_author_ninja</item>
-        <item>@string/license_author_svh</item>
     </string-array>
     <string-array name="license_urls">
         <item>@string/license_url_android_sliding_up_panel</item>
@@ -172,7 +152,6 @@
         <item>@string/license_url_github_markdown_css</item>
         <item>@string/license_url_lightning</item>
         <item>@string/license_url_ninja</item>
-        <item>@string/license_url_svh</item>
     </string-array>
 
 </resources>

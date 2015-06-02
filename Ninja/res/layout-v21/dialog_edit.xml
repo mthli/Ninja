@@ -3,7 +3,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             android:background="@drawable/round_corner_shape_light">
+             android:background="@drawable/round_corner_shape_white">
 
     <EditText android:id="@+id/dialog_edit"
               android:layout_width="match_parent"

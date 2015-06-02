@@ -1,10 +1,6 @@
 Ninja introduction
 ===
 
-You can view introduction at `Setting/Others/Version` after close this page.
-
----
-
 Basically Ninja is a simple web browser like any others, but there are some different things you need to know:
 
 ### Custom home:
@@ -57,4 +53,4 @@ But that is not means you could screenshot a long long long webpage(__OOM__, etc
 
 ---
 
-_2015.05.26 Matthew Lee_
+_2015.06.02 Matthew Lee_

@@ -89,10 +89,10 @@ public class Album {
     }
 
     public void activate() {
-        albumView.setBackgroundResource(R.drawable.round_corner_shape_blue);
+        albumView.setBackgroundResource(R.drawable.album_shape_blue);
     }
 
     public void deactivate() {
-        albumView.setBackgroundResource(R.drawable.round_corner_shape_dark);
+        albumView.setBackgroundResource(R.drawable.album_shape_dark);
     }
 }

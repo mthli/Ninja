@@ -7,10 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.*;
 import android.webkit.CookieManager;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import io.github.mthli.Ninja.Activity.WhitelistActivity;
@@ -160,14 +157,11 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
             case R.string.setting_title_clear_passwords:
                 new ClearPasswordsTask(getActivity()).execute();
                 break;
-            case R.string.setting_title_version:
-                showIntroductionDialog();
-                break;
             case R.string.setting_title_license:
                 showLicenseDialog();
                 break;
-            case R.string.setting_title_contact_us:
-                NinjaToast.show(getActivity(), R.string.app_gmail);
+            case R.string.setting_title_donation:
+                showDonationDialog();
                 break;
             default:
                 break;
@@ -203,38 +197,6 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
         }
     }
 
-    private void showIntroductionDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setCancelable(true);
-
-        FrameLayout layout = (FrameLayout) getActivity().getLayoutInflater().inflate(R.layout.dialog_introduction, null, false);
-        builder.setView(layout);
-
-        WebView webView = (WebView) layout.findViewById(R.id.dialog_introduction);
-        webView.setHorizontalScrollBarEnabled(false);
-        webView.setVerticalScrollBarEnabled(false);
-
-        WebSettings webSettings = webView.getSettings();
-        webSettings.setDefaultTextEncodingName(BrowserUnit.URL_ENCODING);
-        webSettings.setSupportZoom(true);
-        webSettings.setBuiltInZoomControls(true);
-        webSettings.setDisplayZoomControls(false);
-        webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
-        webSettings.setLoadWithOverviewMode(true);
-        webSettings.setTextZoom(100);
-        webSettings.setUseWideViewPort(true);
-
-        String lang;
-        if (getResources().getConfiguration().locale.getLanguage().equals("zh")) {
-            lang = BrowserUnit.NINJA_INTRODUCTION_ZH;
-        } else {
-            lang = BrowserUnit.NINJA_INTRODUCTION_EN;
-        }
-        webView.loadUrl(BrowserUnit.BASE_URL + lang);
-
-        builder.create().show();
-    }
-
     private void showLicenseDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setCancelable(true);
@@ -247,7 +209,7 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
         String[] contents = getResources().getStringArray(R.array.license_contents);
         String[] authors = getResources().getStringArray(R.array.license_authors);
         String[] urls = getResources().getStringArray(R.array.license_urls);
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 7; i++) {
             Map<String, String> map = new HashMap<>();
             map.put(LICENSE_TITLE, titles[i]);
             map.put(LICENSE_CONTENT, contents[i]);
@@ -267,6 +229,16 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
         ListView listView = (ListView) layout.findViewById(R.id.dialog_list);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+
+        builder.create().show();
+    }
+
+    private void showDonationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setCancelable(true);
+
+        FrameLayout layout = (FrameLayout) getActivity().getLayoutInflater().inflate(R.layout.dialog_donation, null, false);
+        builder.setView(layout);
 
         builder.create().show();
     }
