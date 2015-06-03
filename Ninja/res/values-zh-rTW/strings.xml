@@ -21,10 +21,39 @@
         無標題
     </string>
 
-    <!-- List -->
+    <!-- Dialog -->
     <string name="dialog_edit_hint">
         輸入標題
     </string>
+    <string name="dialog_sign_in_username">
+        用戶名
+    </string>
+    <string name="dialog_sign_in_password">
+        密碼
+    </string>
+    <string name="dialog_button_positive">
+        確認
+    </string>
+    <string name="dialog_button_negative">
+        取消
+    </string>
+    <string name="dialog_title_resubmission">
+        重新提交
+    </string>
+    <string name="dialog_title_warning">
+        警告
+    </string>
+    <string name="dialog_title_sign_in">
+        登入
+    </string>
+    <string name="dialog_content_resubmission">
+        你想要重新提交你的數據嗎？
+    </string>
+    <string name="dialog_content_ssl_error">
+        當前站點的證書是不可信任的，需要繼續浏覽嗎？
+    </string>
+
+    <!-- List -->
     <string name="list_empty">
         當前列表爲空
     </string>

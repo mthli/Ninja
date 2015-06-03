@@ -21,10 +21,39 @@
         Untitled
     </string>
 
-    <!-- List -->
+    <!-- Dialog -->
     <string name="dialog_edit_hint">
         Input title
     </string>
+    <string name="dialog_sign_in_username">
+        Username
+    </string>
+    <string name="dialog_sign_in_password">
+        Password
+    </string>
+    <string name="dialog_button_positive">
+        OK
+    </string>
+    <string name="dialog_button_negative">
+        Cancel
+    </string>
+    <string name="dialog_title_resubmission">
+        Resubmission
+    </string>
+    <string name="dialog_title_warning">
+        Warning
+    </string>
+    <string name="dialog_title_sign_in">
+        Sign in
+    </string>
+    <string name="dialog_content_resubmission">
+        Would you like to resubmit your data?
+    </string>
+    <string name="dialog_content_ssl_error">
+        The certificate of the site is not trusted. Proceed anyway?
+    </string>
+
+    <!-- List -->
     <string name="list_empty">
         Current list is empty
     </string>

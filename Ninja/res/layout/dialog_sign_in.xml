@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <EditText android:id="@+id/dialog_sign_in_username"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="@dimen/layout_margin_20dp"
+              android:layout_marginRight="@dimen/layout_margin_20dp"
+              android:hint="@string/dialog_sign_in_username"
+              android:textColor="@color/text"
+              android:textSize="@dimen/text_size_16sp"
+              android:textCursorDrawable="@null"
+              android:singleLine="true"
+              android:ellipsize="none"
+              android:inputType="text">
+    </EditText>
+
+    <EditText android:id="@+id/dialog_sign_in_password"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="@dimen/layout_margin_20dp"
+              android:layout_marginRight="@dimen/layout_margin_20dp"
+              android:hint="@string/dialog_sign_in_password"
+              android:textColor="@color/text"
+              android:textSize="@dimen/text_size_16sp"
+              android:textCursorDrawable="@null"
+              android:singleLine="true"
+              android:ellipsize="none"
+              android:inputType="textPassword">
+    </EditText>
+
+</LinearLayout>

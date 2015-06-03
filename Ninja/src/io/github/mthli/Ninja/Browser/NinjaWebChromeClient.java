@@ -62,7 +62,7 @@ public class NinjaWebChromeClient extends WebChromeClient {
      * @param callback
      */
     @Override
-    public void onGeolocationPermissionsShowPrompt (String origin, GeolocationPermissions.Callback callback) {
+    public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
         super.onGeolocationPermissionsShowPrompt(origin, callback);
     }
 }

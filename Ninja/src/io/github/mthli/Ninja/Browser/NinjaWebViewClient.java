@@ -1,11 +1,21 @@
 package io.github.mthli.Ninja.Browser;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.net.MailTo;
+import android.net.http.SslError;
 import android.os.Build;
+import android.os.Message;
+import android.support.annotation.NonNull;
+import android.text.method.PasswordTransformationMethod;
+import android.view.LayoutInflater;
 import android.webkit.*;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.Unit.IntentUnit;
@@ -120,5 +130,93 @@ public class NinjaWebViewClient extends WebViewClient {
         }
 
         return super.shouldInterceptRequest(view, request);
+    }
+
+    @Override
+    public void onScaleChanged(WebView view, float oldScale, float newScale) {
+        if (view.isShown()) {
+            view.invalidate();
+        }
+    }
+
+    @Override
+    public void onFormResubmission(WebView view, @NonNull final Message dontResend, final Message resend) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.dialog_title_resubmission);
+        builder.setMessage(R.string.dialog_content_resubmission);
+        builder.setPositiveButton(R.string.dialog_button_positive, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                resend.sendToTarget();
+            }
+        });
+        builder.setNegativeButton(R.string.dialog_button_negative, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dontResend.sendToTarget();
+            }
+        });
+
+        builder.create().show();
+    }
+
+    @Override
+    public void onReceivedSslError(WebView view, @NonNull final SslErrorHandler handler, SslError error) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.dialog_title_warning);
+        builder.setMessage(R.string.dialog_content_ssl_error);
+        builder.setPositiveButton(R.string.dialog_button_positive, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                handler.proceed();
+            }
+        });
+        builder.setNegativeButton(R.string.dialog_button_negative, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                handler.cancel();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        if (error.getPrimaryError() == SslError.SSL_UNTRUSTED) {
+            dialog.show();
+        } else {
+            handler.proceed();
+        }
+    }
+
+    @Override
+    public void onReceivedHttpAuthRequest(WebView view, @NonNull final HttpAuthHandler handler, String host, String realm) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.dialog_title_sign_in);
+
+        LinearLayout signInLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.dialog_sign_in, null, false);
+        final EditText userEdit = (EditText) signInLayout.findViewById(R.id.dialog_sign_in_username);
+        final EditText passEdit = (EditText) signInLayout.findViewById(R.id.dialog_sign_in_password);
+        passEdit.setTypeface(Typeface.DEFAULT);
+        passEdit.setTransformationMethod(new PasswordTransformationMethod());
+        builder.setView(signInLayout);
+
+        builder.setPositiveButton(R.string.dialog_button_positive, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String user = userEdit.getText().toString().trim();
+                String pass = passEdit.getText().toString().trim();
+                handler.proceed(user, pass);
+            }
+        });
+
+        builder.setNegativeButton(R.string.dialog_button_negative, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                handler.cancel();
+            }
+        });
+
+        builder.create().show();
     }
 }
