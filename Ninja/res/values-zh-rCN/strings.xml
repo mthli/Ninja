@@ -79,7 +79,7 @@
     </string>
 
     <!-- Notification -->
-    <string name="notification_content_text">
+    <string name="notification_content_holder">
         点击前往浏览网页
     </string>
 
@@ -418,7 +418,7 @@
         无法加载此网址
     </string>
     <string name="toast_load_in_background">
-        正在后台加载&#8230;
+        正在后台加载
     </string>
     <string name="toast_need_restart">
         重启浏览器生效
@@ -442,10 +442,10 @@
         无法分享此页面
     </string>
     <string name="toast_start_download">
-        开始下载&#8230;
+        开始下载
     </string>
     <string name="toast_wait_a_minute">
-        稍等片刻&#8230;
+        稍等片刻
     </string>
 
 </resources>

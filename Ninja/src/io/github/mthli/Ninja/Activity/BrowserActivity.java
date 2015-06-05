@@ -106,7 +106,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         super.onCreate(savedInstanceState);
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        anchor = Integer.valueOf(sp.getString(getString(R.string.sp_anchor), "1"));
+        anchor = Integer.valueOf(sp.getString(getString(R.string.sp_anchor), "0"));
         if (anchor == 0) {
             setContentView(R.layout.main_top);
         } else {
@@ -278,12 +278,15 @@ public class BrowserActivity extends Activity implements BrowserController {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
-            return onKeyCodeVolumeUp();
+            // When video fullscreen, just control the sound
+            return !(fullscreenHolder != null || customView != null || videoView != null) && onKeyCodeVolumeUp();
         } else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
-            return onKeyCodeVolumeDown();
+            // When video fullscreen, just control the sound
+            return !(fullscreenHolder != null || customView != null || videoView != null) && onKeyCodeVolumeDown();
         } else if (keyCode == KeyEvent.KEYCODE_MENU) {
             return showOverflow();
         } else if (keyCode == KeyEvent.KEYCODE_BACK) {
+            // When video fullscreen, first close it
             if (fullscreenHolder != null || customView != null || videoView != null) {
                 return onHideCustomView();
             }
@@ -295,6 +298,11 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
+        // When video fullscreen, just control the sound
+        if (fullscreenHolder != null || customView != null || videoView != null) {
+            return false;
+        }
+
         if (keyCode == KeyEvent.KEYCODE_VOLUME_UP || keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
             SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
             int vc = Integer.valueOf(sp.getString(getString(R.string.sp_volume), "0"));
@@ -953,8 +961,6 @@ public class BrowserActivity extends Activity implements BrowserController {
         adapter.notifyDataSetChanged();
 
         inputBox.setDropDownWidth(ViewUnit.getWindowWidth(this));
-        inputBox.setDropDownVerticalOffset(getResources().getDimensionPixelOffset(R.dimen.layout_height_6dp));
-
         inputBox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

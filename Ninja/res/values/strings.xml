@@ -79,7 +79,7 @@
     </string>
 
     <!-- Notification -->
-    <string name="notification_content_text">
+    <string name="notification_content_holder">
         Click to view pages
     </string>
 
@@ -418,7 +418,7 @@
         Can\'t load this URL
     </string>
     <string name="toast_load_in_background">
-        Load in background&#8230;
+        Load in background
     </string>
     <string name="toast_need_restart">
         Need restart
@@ -442,10 +442,10 @@
         Can\'t share this page
     </string>
     <string name="toast_start_download">
-        Start download&#8230;
+        Start download
     </string>
     <string name="toast_wait_a_minute">
-        Wait a minute&#8230;
+        Wait a minute
     </string>
 
 </resources>

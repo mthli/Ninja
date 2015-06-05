@@ -89,7 +89,7 @@ public class HolderService extends Service implements BrowserController {
     }
 
     private void updateNotification() {
-        Notification notification = NotificationUnit.getBuilder(this).build();
-        startForeground(NotificationUnit.ID, notification);
+        Notification notification = NotificationUnit.getHBuilder(this).build();
+        startForeground(NotificationUnit.HOLDER_ID, notification);
     }
 }

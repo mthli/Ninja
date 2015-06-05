@@ -1,7 +1,6 @@
 package io.github.mthli.Ninja.Unit;
 
 import android.app.Notification;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -15,9 +14,9 @@ import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.View.NinjaWebView;
 
 public class NotificationUnit {
-    public static final int ID = 0x65536;
+    public static final int HOLDER_ID = 0x65536;
 
-    public static Notification.Builder getBuilder(Context context) {
+    public static Notification.Builder getHBuilder(Context context) {
         Notification.Builder builder = new Notification.Builder(context);
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
@@ -42,7 +41,7 @@ public class NotificationUnit {
 
         builder.setSmallIcon(R.drawable.ic_notification_ninja);
         builder.setContentTitle(context.getString(R.string.app_name));
-        builder.setContentText(context.getString(R.string.notification_content_text));
+        builder.setContentText(context.getString(R.string.notification_content_holder));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             builder.setColor(context.getResources().getColor(R.color.blue_500));
         }
@@ -52,10 +51,5 @@ public class NotificationUnit {
         builder.setContentIntent(pin);
 
         return builder;
-    }
-
-    public static void cancel(Context context) {
-        NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        manager.cancel(ID);
     }
 }
