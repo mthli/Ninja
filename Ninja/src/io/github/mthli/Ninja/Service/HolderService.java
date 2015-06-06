@@ -3,9 +3,11 @@ package io.github.mthli.Ninja.Service;
 import android.app.Notification;
 import android.app.Service;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.IBinder;
 import android.os.Message;
 import android.view.View;
+import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import io.github.mthli.Ninja.Browser.AlbumController;
@@ -34,6 +36,12 @@ public class HolderService extends Service implements BrowserController {
 
     @Override
     public void removeAlbum(AlbumController albumController) {}
+
+    @Override
+    public void openFileChooser(ValueCallback<Uri> uploadMsg) {}
+
+    @Override
+    public void showFileChooser(ValueCallback<Uri[]> filePathCallback) {}
 
     @Override
     public void onCreateView(WebView view, Message resultMsg) {}

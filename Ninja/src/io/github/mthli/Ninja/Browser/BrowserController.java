@@ -1,7 +1,9 @@
 package io.github.mthli.Ninja.Browser;
 
+import android.net.Uri;
 import android.os.Message;
 import android.view.View;
+import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 
@@ -17,6 +19,10 @@ public interface BrowserController {
     void showAlbum(AlbumController albumController, boolean anim, boolean expand, boolean capture);
 
     void removeAlbum(AlbumController albumController);
+
+    void openFileChooser(ValueCallback<Uri> uploadMsg);
+
+    void showFileChooser(ValueCallback<Uri[]> filePathCallback);
 
     void onCreateView(WebView view, Message resultMsg);
 

@@ -17,7 +17,7 @@
             android:stretchMode="columnWidth"
             android:verticalSpacing="@dimen/layout_height_12dp"
             android:numColumns="auto_fit"
-            android:scrollbars="vertical">
+            android:scrollbars="none">
     </org.askerov.dynamicgrid.DynamicGridView>
 
     <TextView android:id="@+id/home_about_blank"

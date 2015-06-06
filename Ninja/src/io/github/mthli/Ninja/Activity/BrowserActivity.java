@@ -12,6 +12,7 @@ import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -27,6 +28,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.*;
@@ -197,7 +199,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         if (intent != null && intent.hasExtra(IntentUnit.OPEN)) { // From HolderActivity's menu
             pinAlbums(intent.getStringExtra(IntentUnit.OPEN));
-        } else if (intent != null && intent.getAction().equals(Intent.ACTION_WEB_SEARCH)) { // From ActionMode and some others
+        } else if (intent != null && intent.getAction() != null && intent.getAction().equals(Intent.ACTION_WEB_SEARCH)) { // From ActionMode and some others
             pinAlbums(intent.getStringExtra(SearchManager.QUERY));
         } else {
             SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
@@ -1791,5 +1793,15 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
 
         return list.get(index);
+    }
+
+    @Override
+    public void openFileChooser(ValueCallback<Uri> uploadMsg) {
+        // TODO
+    }
+
+    @Override
+    public void showFileChooser(ValueCallback<Uri[]> filePathCallback) {
+        // TODO
     }
 }

@@ -8,8 +8,9 @@ public class IntentUnit {
     public static final String OPEN = "OPEN";
 
     public static final int REQUEST_BOOKMARKS = 0x100;
-    public static final int REQUEST_WHITELIST = 0x101;
-    public static final int REQUEST_CLEAR = 0x102;
+    public static final int REQUEST_FILE = 0x101;
+    public static final int REQUEST_WHITELIST = 0x102;
+    public static final int REQUEST_CLEAR = 0x103;
     public static final String INTENT_TYPE_TEXT_PLAIN = "text/plain";
     public static final String INTENT_TYPE_MESSAGE_RFC822 = "message/rfc822";
 
