@@ -3,6 +3,7 @@ package io.github.mthli.Ninja.Activity;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -106,7 +107,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         super.onCreate(savedInstanceState);
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        anchor = Integer.valueOf(sp.getString(getString(R.string.sp_anchor), "0"));
+        anchor = Integer.valueOf(sp.getString(getString(R.string.sp_anchor), "1"));
         if (anchor == 0) {
             setContentView(R.layout.main_top);
         } else {
@@ -185,6 +186,8 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         if (intent != null && intent.hasExtra(IntentUnit.OPEN)) { // From HolderActivity's menu
             pinAlbums(intent.getStringExtra(IntentUnit.OPEN));
+        } else if (intent != null && intent.getAction().equals(Intent.ACTION_WEB_SEARCH)) { // From ActionMode and some others
+            pinAlbums(intent.getStringExtra(SearchManager.QUERY));
         } else {
             SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
             if (sp.getBoolean(getString(R.string.sp_first), true)) {

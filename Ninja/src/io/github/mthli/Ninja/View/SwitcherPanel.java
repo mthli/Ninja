@@ -176,7 +176,7 @@ public class SwitcherPanel extends ViewGroup {
         super(context, attrs, defStyleAttr);
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getContext());
-        int ac = Integer.valueOf(sp.getString(context.getString(R.string.sp_anchor), "0"));
+        int ac = Integer.valueOf(sp.getString(context.getString(R.string.sp_anchor), "1"));
         if (ac == 0) {
             anchor = Anchor.TOP;
             parallaxOffset = PARALLAX_OFFSET_DEFAULT_TOP;

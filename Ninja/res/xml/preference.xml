@@ -21,7 +21,7 @@
         </ListPreference>
 
         <ListPreference android:key="@string/sp_anchor"
-                        android:defaultValue="0"
+                        android:defaultValue="1"
                         android:title="@string/setting_title_tab_position"
                         android:summary="@string/setting_summary_tab_position_top"
                         android:entries="@array/setting_entries_tab_position"

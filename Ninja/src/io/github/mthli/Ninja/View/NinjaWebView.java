@@ -12,9 +12,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import android.view.View;
+import android.view.*;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import io.github.mthli.Ninja.Browser.*;
@@ -29,10 +27,10 @@ import java.net.URISyntaxException;
 
 public class NinjaWebView extends WebView implements AlbumController {
     private static final float[] NEGATIVE_COLOR = {
-            -1.0f, 0, 0, 0, 255, // red
-            0, -1.0f, 0, 0, 255, // green
-            0, 0, -1.0f, 0, 255, // blue
-            0, 0, 0, 1.0f, 0     // alpha
+            -1.0f, 0, 0, 0, 255, // Red
+            0, -1.0f, 0, 0, 255, // Green
+            0, 0, -1.0f, 0, 255, // Blue
+            0, 0, 0, 1.0f, 0     // Alpha
     };
 
     private Context context;
