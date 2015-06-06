@@ -50,8 +50,8 @@ public class GridAdapter extends BaseDynamicGridAdapter {
         GridItem item = list.get(position);
         holder.title.setText(item.getTitle());
         holder.cover.setImageBitmap(BrowserUnit.file2Bitmap(context, item.getFilename()));
-
         ViewCompat.setElevation(view, context.getResources().getDimensionPixelSize(R.dimen.elevation_1dp));
+
         return view;
     }
 }

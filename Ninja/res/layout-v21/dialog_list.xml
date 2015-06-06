@@ -9,7 +9,6 @@
               android:layout_height="wrap_content"
               android:divider="@null"
               android:dividerHeight="@dimen/divider_height_0dp"
-              android:drawSelectorOnTop="true"
               android:background="@drawable/round_corner_shape_white">
     </ListView>
 

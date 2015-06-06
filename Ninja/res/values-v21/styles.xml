@@ -2,14 +2,14 @@
 
 <resources>
 
-    <style name="BrowserActivityTheme" parent="android:Theme.Material.NoActionBar">
+    <style name="BrowserActivityTheme" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:colorPrimary">@color/blue_500</item>
         <item name="android:colorPrimaryDark">@color/blue_700</item>
         <item name="android:colorAccent">@color/blue_500</item>
         <item name="android:textColor">@color/text</item>
         <item name="android:textColorSecondary">@color/text_secondary</item>
         <item name="android:textColorHighlight">@color/blue_200</item>
-        <item name="android:actionModeBackground">@color/gray_900</item>
+        <item name="android:windowBackground">@color/background_dark</item>
         <item name="android:drawSelectorOnTop">true</item>
         <item name="android:alertDialogTheme">@style/AlertDialogStyle</item>
         <item name="android:autoCompleteTextViewStyle">@style/AutoCompleteTextViewStyle</item>
@@ -42,7 +42,6 @@
 
     <style name="AlertDialogStyle" parent="android:Theme.Material.Light.Dialog.Alert">
         <item name="android:colorAccent">@color/blue_500</item>
-        <item name="android:windowElevation">@dimen/elevation_2dp</item>
         <item name="android:background">@color/white</item>
     </style>
 

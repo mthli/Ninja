@@ -2,6 +2,7 @@ package io.github.mthli.Ninja.Activity;
 
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.Context;
@@ -9,6 +10,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
@@ -105,6 +107,14 @@ public class BrowserActivity extends Activity implements BrowserController {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            ActivityManager.TaskDescription description = new ActivityManager.TaskDescription(
+                    getString(R.string.app_name),
+                    BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher),
+                    getResources().getColor(R.color.background_dark)
+            );
+            setTaskDescription(description);
+        }
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         anchor = Integer.valueOf(sp.getString(getString(R.string.sp_anchor), "1"));
@@ -963,6 +973,9 @@ public class BrowserActivity extends Activity implements BrowserController {
         inputBox.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            inputBox.setDropDownVerticalOffset(getResources().getDimensionPixelOffset(R.dimen.layout_height_6dp));
+        }
         inputBox.setDropDownWidth(ViewUnit.getWindowWidth(this));
         inputBox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

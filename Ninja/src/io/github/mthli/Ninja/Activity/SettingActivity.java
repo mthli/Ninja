@@ -1,10 +1,7 @@
 package io.github.mthli.Ninja.Activity;
 
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -25,14 +22,6 @@ public class SettingActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ActivityManager.TaskDescription description = new ActivityManager.TaskDescription(
-                    getString(R.string.app_name),
-                    BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher),
-                    getResources().getColor(R.color.blue_500)
-            );
-            setTaskDescription(description);
-        }
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
         fragment = new SettingFragment();

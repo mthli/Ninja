@@ -1,9 +1,6 @@
 package io.github.mthli.Ninja.Activity;
 
 import android.app.Activity;
-import android.app.ActivityManager;
-import android.graphics.BitmapFactory;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,14 +26,6 @@ public class WhitelistActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.whitelist);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ActivityManager.TaskDescription description = new ActivityManager.TaskDescription(
-                    getString(R.string.app_name),
-                    BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher),
-                    getResources().getColor(R.color.blue_500)
-            );
-            setTaskDescription(description);
-        }
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
         RecordAction action = new RecordAction(this);

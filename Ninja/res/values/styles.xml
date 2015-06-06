@@ -2,23 +2,22 @@
 
 <resources>
 
-    <style name="BrowserActivityTheme" parent="android:Theme.DeviceDefault.NoActionBar">
-        <item name="android:textColor">@color/white</item>
+    <style name="BrowserActivityTheme" parent="android:Theme.Holo.Light.NoActionBar">
+        <item name="android:textColor">@color/text</item>
         <item name="android:textColorHighlight">@color/blue_200</item>
         <item name="android:drawSelectorOnTop">true</item>
     </style>
 
-    <style name="SettingActivityTheme" parent="android:Theme.DeviceDefault.Light.DarkActionBar">
+    <style name="SettingActivityTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <item name="android:textColor">@color/text</item>
         <item name="android:textColorHighlight">@color/blue_200</item>
         <item name="android:windowBackground">@color/white</item>
         <item name="android:drawSelectorOnTop">true</item>
     </style>
 
-    <style name="WhitelistActivityTheme" parent="android:Theme.DeviceDefault.Light.DarkActionBar">
+    <style name="WhitelistActivityTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <item name="android:textColor">@color/text</item>
         <item name="android:textColorHighlight">@color/blue_200</item>
-        <item name="android:windowBackground">@color/white</item>
         <item name="android:drawSelectorOnTop">true</item>
     </style>
 
