@@ -120,17 +120,7 @@
 
         <Preference android:title="@string/setting_title_import_bookmarks" />
 
-        <Preference android:title="@string/setting_title_clear_bookmarks" />
-
-        <Preference android:title="@string/setting_title_clear_cache" />
-
-        <Preference android:title="@string/setting_title_clear_cookie" />
-
-        <Preference android:title="@string/setting_title_clear_form_data" />
-
-        <Preference android:title="@string/setting_title_clear_history" />
-
-        <Preference android:title="@string/setting_title_clear_passwords" />
+        <Preference android:title="@string/setting_title_clear_control" />
 
     </PreferenceCategory>
 

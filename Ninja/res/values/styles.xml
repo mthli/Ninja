@@ -5,6 +5,7 @@
     <style name="BrowserActivityTheme" parent="android:Theme.Holo.Light.NoActionBar">
         <item name="android:textColor">@color/text</item>
         <item name="android:textColorHighlight">@color/blue_200</item>
+        <item name="android:windowBackground">@color/background_dark</item>
         <item name="android:drawSelectorOnTop">true</item>
     </style>
 
@@ -16,6 +17,12 @@
     </style>
 
     <style name="WhitelistActivityTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="android:textColor">@color/text</item>
+        <item name="android:textColorHighlight">@color/blue_200</item>
+        <item name="android:drawSelectorOnTop">true</item>
+    </style>
+
+    <style name="ClearActivityTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <item name="android:textColor">@color/text</item>
         <item name="android:textColorHighlight">@color/blue_200</item>
         <item name="android:drawSelectorOnTop">true</item>

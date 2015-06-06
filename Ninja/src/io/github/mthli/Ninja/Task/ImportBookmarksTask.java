@@ -3,6 +3,7 @@ package io.github.mthli.Ninja.Task;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import io.github.mthli.Ninja.Fragment.SettingFragment;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.View.NinjaToast;
@@ -10,13 +11,15 @@ import io.github.mthli.Ninja.View.NinjaToast;
 import java.io.File;
 
 public class ImportBookmarksTask extends AsyncTask<Void, Void, Boolean> {
+    private SettingFragment fragment;
     private Context context;
     private ProgressDialog dialog;
     private File file;
     private int count;
 
-    public ImportBookmarksTask(Context context, File file) {
-        this.context = context;
+    public ImportBookmarksTask(SettingFragment fragment, File file) {
+        this.fragment = fragment;
+        this.context = fragment.getActivity();
         this.dialog = null;
         this.file = file;
         this.count = 0;
@@ -46,6 +49,7 @@ public class ImportBookmarksTask extends AsyncTask<Void, Void, Boolean> {
         dialog.dismiss();
 
         if (result) {
+            fragment.setDBChange(true);
             NinjaToast.show(context, context.getString(R.string.toast_import_bookmarks_successful) + count);
         } else {
             NinjaToast.show(context, R.string.toast_import_bookmarks_failed);

@@ -21,6 +21,35 @@
         無標題
     </string>
 
+    <!-- Clear -->
+    <string name="clear_label">
+        清空
+    </string>
+    <string name="clear_menu_done_all">
+        完成
+    </string>
+    <string name="clear_title_quit">
+        退出時清空選擇項
+    </string>
+    <string name="clear_title_bookmarks">
+        清空書簽
+    </string>
+    <string name="clear_title_cache">
+        清空緩存
+    </string>
+    <string name="clear_title_cookie">
+        清空Cookie
+    </string>
+    <string name="clear_title_form_data">
+        清空表單數據
+    </string>
+    <string name="clear_title_history">
+        清空曆史
+    </string>
+    <string name="clear_title_passwords">
+        清空密碼
+    </string>
+
     <!-- Dialog -->
     <string name="dialog_edit_hint">
         輸入標題
@@ -252,9 +281,6 @@
     <string name="setting_summary_passwords">
         保存密碼
     </string>
-    <string name="setting_title_clear_passwords">
-        清空密碼
-    </string>
     <!-- Bookmarks -->
     <string name="setting_title_export_bookmarks">
         導出書簽
@@ -265,24 +291,9 @@
     <string name="bookmarks_filename">
         Ninja書簽
     </string>
-    <string name="setting_title_clear_bookmarks">
-        清空書簽
-    </string>
-    <!-- Cache -->
-    <string name="setting_title_clear_cache">
-        清空緩存
-    </string>
-    <!-- Cookie -->
-    <string name="setting_title_clear_cookie">
-        清空Cookie
-    </string>
-    <!-- Form data -->
-    <string name="setting_title_clear_form_data">
-        清空表單數據
-    </string>
-    <!-- History -->
-    <string name="setting_title_clear_history">
-        清空曆史
+    <!-- Clear -->
+    <string name="setting_title_clear_control">
+        清空數據
     </string>
     <!-- Others setting -->
     <string name="setting_title_others">
@@ -348,26 +359,11 @@
     <string name="toast_already_exist_in_home">
         首頁中已存在該網址
     </string>
-    <string name="toast_clear_bookmarks_successful">
-        清空書簽成功
+    <string name="toast_clear_successful">
+        清空成功
     </string>
-    <string name="toast_clear_cache_successful">
-        清空緩存成功
-    </string>
-    <string name="toast_clear_cache_failed">
-        清空緩存失敗
-    </string>
-    <string name="toast_clear_cookie_successful">
-        清空Cookie成功
-    </string>
-    <string name="toast_clear_form_data_successful">
-        清空表單數據成功
-    </string>
-    <string name="toast_clear_history_successful">
-        清空曆史成功
-    </string>
-    <string name="toast_clear_passwords_successful">
-        清空密碼成功
+    <string name="toast_clear_failed">
+        清空失敗
     </string>
     <string name="toast_copy_successful">
         拷貝成功

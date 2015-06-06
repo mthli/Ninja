@@ -341,7 +341,6 @@ public class BrowserUnit {
         action.open(true);
         action.clearBookmarks();
         action.close();
-        NinjaToast.show(context, R.string.toast_clear_bookmarks_successful);
     }
 
     public static boolean clearCache(Context context) {
@@ -357,7 +356,7 @@ public class BrowserUnit {
     }
 
     // CookieManager.removeAllCookies() must be called on a thread with a running Looper.
-    public static void clearCookies(Context context) {
+    public static void clearCookie(Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             CookieManager cookieManager = CookieManager.getInstance();
             cookieManager.flush();
@@ -385,7 +384,6 @@ public class BrowserUnit {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2) {
             WebIconDatabase.getInstance().removeAllIcons();
         }
-        NinjaToast.show(context, R.string.toast_clear_history_successful);
     }
 
     public static void clearPasswords(Context context) {

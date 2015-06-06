@@ -1,7 +1,6 @@
-package io.github.mthli.Ninja.View;
+package io.github.mthli.Ninja.Fragment;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,11 +9,12 @@ import android.webkit.CookieManager;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import io.github.mthli.Ninja.Activity.ClearActivity;
 import io.github.mthli.Ninja.Activity.WhitelistActivity;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Task.*;
-import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.Unit.IntentUnit;
+import io.github.mthli.Ninja.View.NinjaToast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -57,7 +57,7 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.preference);
+        addPreferencesFromResource(R.xml.preference_setting);
     }
 
     @Override
@@ -113,7 +113,7 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
                 getActivity().startActivity(toWhitelist);
                 break;
             case R.string.setting_title_export_whilelist:
-                new ExportWhitelistTask(this).execute();
+                new ExportWhitelistTask(getActivity()).execute();
                 break;
             case R.string.setting_title_import_whilelist:
                 Intent importWhitelist = new Intent(Intent.ACTION_GET_CONTENT);
@@ -122,7 +122,7 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
                 getActivity().startActivityForResult(importWhitelist, IntentUnit.REQUEST_WHITELIST);
                 break;
             case R.string.setting_title_export_bookmarks:
-                new ExportBookmarksTask(this).execute();
+                new ExportBookmarksTask(getActivity()).execute();
                 break;
             case R.string.setting_title_import_bookmarks:
                 Intent importBookmarks = new Intent(Intent.ACTION_GET_CONTENT);
@@ -130,32 +130,9 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
                 importBookmarks.addCategory(Intent.CATEGORY_OPENABLE);
                 getActivity().startActivityForResult(importBookmarks, IntentUnit.REQUEST_BOOKMARKS);
                 break;
-            case R.string.setting_title_clear_bookmarks:
-                BrowserUnit.clearBookmarks(getActivity());
-                dbChange = true;
-                break;
-            case R.string.setting_title_clear_cache:
-                new ClearCacheTask(getActivity()).execute();
-                break;
-            case R.string.setting_title_clear_cookie:
-                ProgressDialog dialog = new ProgressDialog(getActivity());
-                dialog.setCancelable(false);
-                dialog.setMessage(getString(R.string.toast_wait_a_minute));
-                dialog.show();
-                BrowserUnit.clearCookies(getActivity());
-                dialog.hide();
-                dialog.dismiss();
-                NinjaToast.show(getActivity(), R.string.toast_clear_cookie_successful);
-                break;
-            case R.string.setting_title_clear_form_data:
-                new ClearFormDataTask(getActivity()).execute();
-                break;
-            case R.string.setting_title_clear_history:
-                BrowserUnit.clearHistory(getActivity());
-                dbChange = true;
-                break;
-            case R.string.setting_title_clear_passwords:
-                new ClearPasswordsTask(getActivity()).execute();
+            case R.string.setting_title_clear_control:
+                Intent clearControl = new Intent(getActivity(), ClearActivity.class);
+                getActivity().startActivityForResult(clearControl, IntentUnit.REQUEST_CLEAR);
                 break;
             case R.string.setting_title_license:
                 showLicenseDialog();

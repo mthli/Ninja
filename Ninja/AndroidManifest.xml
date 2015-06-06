@@ -73,6 +73,18 @@
                   android:theme="@style/WhitelistActivityTheme">
         </activity>
 
+        <!-- ClearActivity -->
+        <activity android:name=".Activity.ClearActivity"
+                  android:label="@string/clear_label"
+                  android:theme="@style/ClearActivityTheme">
+        </activity>
+
+        <!-- ClearService -->
+        <service android:name=".Service.ClearService"
+                 android:label="@string/app_name"
+                 android:icon="@drawable/ic_launcher">
+        </service>
+
     </application>
 
 </manifest>

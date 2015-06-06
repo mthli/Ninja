@@ -50,4 +50,26 @@
         SP_VOLUME_9
     </string>
 
+    <string name="sp_clear_quit">
+        SP_CLEAR_QUIT_9
+    </string>
+    <string name="sp_clear_bookmarks">
+        SP_CLEAR_BOOKMARKS_9
+    </string>
+    <string name="sp_clear_cache">
+        SP_CLEAR_CACHE_9
+    </string>
+    <string name="sp_clear_cookie">
+        SP_CLEAR_COOKIE_9
+    </string>
+    <string name="sp_clear_form_data">
+        SP_CLEAR_FORM_DATA_9
+    </string>
+    <string name="sp_clear_history">
+        SP_CLEAR_HISTORY_9
+    </string>
+    <string name="sp_clear_passwords">
+        SP_CLEAR_PASSWORDS_9
+    </string>
+
 </resources>

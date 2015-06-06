@@ -21,6 +21,35 @@
         Untitled
     </string>
 
+    <!-- Clear -->
+    <string name="clear_label">
+        Clear
+    </string>
+    <string name="clear_menu_done_all">
+        Done all
+    </string>
+    <string name="clear_title_quit">
+        Clear when quit
+    </string>
+    <string name="clear_title_bookmarks">
+        Clear bookmarks
+    </string>
+    <string name="clear_title_cache">
+        Clear cache
+    </string>
+    <string name="clear_title_cookie">
+        Clear cookie
+    </string>
+    <string name="clear_title_form_data">
+        Clear form data
+    </string>
+    <string name="clear_title_history">
+        Clear history
+    </string>
+    <string name="clear_title_passwords">
+        Clear passwords
+    </string>
+
     <!-- Dialog -->
     <string name="dialog_edit_hint">
         Input title
@@ -252,9 +281,6 @@
     <string name="setting_summary_passwords">
         Save passwords
     </string>
-    <string name="setting_title_clear_passwords">
-        Clear passwords
-    </string>
     <!-- Bookmarks -->
     <string name="setting_title_export_bookmarks">
         Export bookmarks
@@ -265,24 +291,9 @@
     <string name="bookmarks_filename">
         NinjaBookmarks
     </string>
-    <string name="setting_title_clear_bookmarks">
-        Clear bookmarks
-    </string>
-    <!-- Cache -->
-    <string name="setting_title_clear_cache">
-        Clear cache
-    </string>
-    <!-- Cookie -->
-    <string name="setting_title_clear_cookie">
-        Clear cookie
-    </string>
-    <!-- Form data -->
-    <string name="setting_title_clear_form_data">
-        Clear form data
-    </string>
-    <!-- History -->
-    <string name="setting_title_clear_history">
-        Clear history
+    <!-- Clear -->
+    <string name="setting_title_clear_control">
+        Clear control
     </string>
     <!-- Others setting -->
     <string name="setting_title_others">
@@ -348,26 +359,11 @@
     <string name="toast_already_exist_in_home">
         Already exist in home
     </string>
-    <string name="toast_clear_bookmarks_successful">
-        Clear bookmarks successful
+    <string name="toast_clear_successful">
+        Clear successful
     </string>
-    <string name="toast_clear_cache_successful">
-        Clear cache successful
-    </string>
-    <string name="toast_clear_cache_failed">
-        Clear cache failed
-    </string>
-    <string name="toast_clear_cookie_successful">
-        Clear cookie successful
-    </string>
-    <string name="toast_clear_form_data_successful">
-        Clear form data successful
-    </string>
-    <string name="toast_clear_history_successful">
-        Clear history successful
-    </string>
-    <string name="toast_clear_passwords_successful">
-        Clear passwords successful
+    <string name="toast_clear_failed">
+        Clear failed
     </string>
     <string name="toast_copy_successful">
         Copy successful

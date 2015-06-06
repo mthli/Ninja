@@ -33,6 +33,7 @@ import android.widget.*;
 import io.github.mthli.Ninja.Browser.AlbumController;
 import io.github.mthli.Ninja.Browser.BrowserContainer;
 import io.github.mthli.Ninja.Browser.BrowserController;
+import io.github.mthli.Ninja.Service.ClearService;
 import io.github.mthli.Ninja.Task.ScreenshotTask;
 import io.github.mthli.Ninja.Database.Record;
 import io.github.mthli.Ninja.Database.RecordAction;
@@ -190,9 +191,9 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     private void dispatchIntent(Intent intent) {
-        Intent toService = new Intent(this, HolderService.class);
+        Intent toHolderService = new Intent(this, HolderService.class);
         IntentUnit.setClear(false);
-        stopService(toService);
+        stopService(toHolderService);
 
         if (intent != null && intent.hasExtra(IntentUnit.OPEN)) { // From HolderActivity's menu
             pinAlbums(intent.getStringExtra(IntentUnit.OPEN));
@@ -217,9 +218,9 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     @Override
     public void onPause() {
-        Intent toService = new Intent(this, HolderService.class);
+        Intent toHolderService = new Intent(this, HolderService.class);
         IntentUnit.setClear(false);
-        stopService(toService);
+        stopService(toHolderService);
 
         create = false;
         inputBox.clearFocus();
@@ -241,9 +242,15 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     @Override
     public void onDestroy() {
-        Intent toService = new Intent(this, HolderService.class);
+        Intent toHolderService = new Intent(this, HolderService.class);
         IntentUnit.setClear(true);
-        stopService(toService);
+        stopService(toHolderService);
+
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        if (sp.getBoolean(getString(R.string.sp_clear_quit), false)) {
+            Intent toClearService = new Intent(this, ClearService.class);
+            startService(toClearService);
+        }
 
         BrowserContainer.clear();
         super.onDestroy();

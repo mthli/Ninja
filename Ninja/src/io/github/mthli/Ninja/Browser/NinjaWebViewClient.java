@@ -22,7 +22,6 @@ import io.github.mthli.Ninja.Unit.IntentUnit;
 import io.github.mthli.Ninja.View.NinjaWebView;
 
 import java.io.ByteArrayInputStream;
-import java.net.URISyntaxException;
 
 public class NinjaWebViewClient extends WebViewClient {
     private NinjaWebView ninjaWebView;
@@ -94,9 +93,7 @@ public class NinjaWebViewClient extends WebViewClient {
                 intent = Intent.parseUri(url, Intent.URI_INTENT_SCHEME);
                 context.startActivity(intent);
                 return true;
-            } catch (URISyntaxException u) {
-                return false;
-            }
+            } catch (Exception e) {} // When intent fail will crash
         }
 
         white = adBlock.isWhite(url);
