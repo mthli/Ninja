@@ -99,6 +99,8 @@ public class BrowserActivity extends Activity implements BrowserController {
     private VideoView videoView;
     private int originalOrientation;
     private WebChromeClient.CustomViewCallback customViewCallback;
+    private ValueCallback<Uri> uploadMsg = null;
+    private ValueCallback<Uri[]> filePathCallback = null;
 
     private static boolean quit = false;
     private boolean create = true;
@@ -106,6 +108,14 @@ public class BrowserActivity extends Activity implements BrowserController {
     private int mediumAnimTime = 0;
     private int longAnimTime = 0;
     private AlbumController currentAlbumController = null;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            filePathCallback.onReceiveValue(WebChromeClient.FileChooserParams.parseResult(resultCode, intent));
+            // filePathCallback = null;
+        }
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -201,6 +211,8 @@ public class BrowserActivity extends Activity implements BrowserController {
             pinAlbums(intent.getStringExtra(IntentUnit.OPEN));
         } else if (intent != null && intent.getAction() != null && intent.getAction().equals(Intent.ACTION_WEB_SEARCH)) { // From ActionMode and some others
             pinAlbums(intent.getStringExtra(SearchManager.QUERY));
+        } else if (intent != null && filePathCallback != null) {
+            filePathCallback = null;
         } else {
             SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
             if (sp.getBoolean(getString(R.string.sp_first), true)) {
@@ -1082,6 +1094,44 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     @Override
+    public void openFileChooser(ValueCallback<Uri> uploadMsg) {
+        // Because Activity launchMode is singleInstance,
+        // so we can not get result from onActivityResult when Android 4.X,
+        // what a pity
+        //
+        // this.uploadMsg = uploadMsg;
+        // Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        // intent.addCategory(Intent.CATEGORY_OPENABLE);
+        // intent.setType("*/*");
+        // startActivityForResult(Intent.createChooser(intent, getString(R.string.main_file_chooser)), IntentUnit.REQUEST_FILE_16);
+        uploadMsg.onReceiveValue(null);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+
+        FrameLayout layout = (FrameLayout) getLayoutInflater().inflate(R.layout.dialog_desc, null, false);
+        TextView textView = (TextView) layout.findViewById(R.id.dialog_desc);
+        textView.setText(R.string.dialog_content_upload);
+
+        builder.setView(layout);
+        builder.create().show();
+    }
+
+    @Override
+    public void showFileChooser(ValueCallback<Uri[]> filePathCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            this.filePathCallback = filePathCallback;
+
+            try {
+                Intent intent = fileChooserParams.createIntent();
+                startActivityForResult(intent, IntentUnit.REQUEST_FILE_21);
+            } catch (Exception e) {
+                NinjaToast.show(this, R.string.toast_open_file_manager_failed);
+            }
+        }
+    }
+
+    @Override
     public void onCreateView(WebView view, final Message resultMsg) {
         if (resultMsg == null) {
             return;
@@ -1793,15 +1843,5 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
 
         return list.get(index);
-    }
-
-    @Override
-    public void openFileChooser(ValueCallback<Uri> uploadMsg) {
-        // TODO
-    }
-
-    @Override
-    public void showFileChooser(ValueCallback<Uri[]> filePathCallback) {
-        // TODO
     }
 }

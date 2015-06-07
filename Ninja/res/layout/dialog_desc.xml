@@ -3,12 +3,12 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             android:background="@drawable/round_corner_shape_white">
+             android:background="@drawable/round_corner_shape_light">
 
-    <TextView android:layout_width="match_parent"
+    <TextView android:id="@+id/dialog_desc"
+              android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:layout_margin="@dimen/layout_margin_20dp"
-              android:text="@string/donation_content"
               android:textColor="@color/text"
               android:textSize="@dimen/text_size_14sp">
     </TextView>

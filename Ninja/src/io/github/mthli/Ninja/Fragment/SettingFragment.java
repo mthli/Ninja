@@ -9,6 +9,7 @@ import android.webkit.CookieManager;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import io.github.mthli.Ninja.Activity.ClearActivity;
 import io.github.mthli.Ninja.Activity.WhitelistActivity;
 import io.github.mthli.Ninja.R;
@@ -214,9 +215,11 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setCancelable(true);
 
-        FrameLayout layout = (FrameLayout) getActivity().getLayoutInflater().inflate(R.layout.dialog_donation, null, false);
-        builder.setView(layout);
+        FrameLayout layout = (FrameLayout) getActivity().getLayoutInflater().inflate(R.layout.dialog_desc, null, false);
+        TextView textView = (TextView) layout.findViewById(R.id.dialog_desc);
+        textView.setText(R.string.dialog_content_donation);
 
+        builder.setView(layout);
         builder.create().show();
     }
 }

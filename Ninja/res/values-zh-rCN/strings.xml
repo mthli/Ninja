@@ -81,6 +81,20 @@
     <string name="dialog_content_ssl_error">
         当前站点的证书是不可信任的，需要继续浏览吗？
     </string>
+    <string name="dialog_content_donation">
+        捐赠所得将会被用于：\n
+        - 提升开发环境配置。\n
+        - 提升开发者积极性。\n\n
+        所有的捐赠都会被认为：\n
+        - 无偿的，这意味着捐赠者不能命令或强迫开发者做捐赠者想做的任何事。\n
+        - 归开发者所有。\n
+        - 捐赠者同意上述所有观点。\n\n
+        支付宝：\n
+        matthewlee0725@gmail.com
+    </string>
+    <string name="dialog_content_upload">
+        由于某些原因我们无法在Android 4.X中上传文件，但这项功能在Android 5.X中可以正常工作。这是多么遗憾的一件事啊！
+    </string>
 
     <!-- List -->
     <string name="list_empty">
@@ -311,17 +325,6 @@
     <string name="setting_title_donation">
         捐赠
     </string>
-    <string name="donation_content">
-        捐赠所得将会被用于：\n
-        - 提升开发环境配置。\n
-        - 提升开发者积极性。\n\n
-        所有的捐赠都会被认为：\n
-        - 无偿的，这意味着捐赠者不能命令或强迫开发者做捐赠者想做的任何事。\n
-        - 归开发者所有。\n
-        - 捐赠者同意上述所有观点。\n\n
-        支付宝：\n
-        matthewlee0725@gmail.com
-    </string>
 
     <!-- Whitelist -->
     <string name="whitelist_label">
@@ -421,6 +424,9 @@
     </string>
     <string name="toast_new_tab_successful">
         新建标签成功
+    </string>
+    <string name="toast_open_file_manager_failed"> <!--- TODO -->
+        Open file manager failed
     </string>
     <string name="toast_refresh_failed">
         无法刷新此页面

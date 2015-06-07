@@ -22,7 +22,7 @@ public interface BrowserController {
 
     void openFileChooser(ValueCallback<Uri> uploadMsg);
 
-    void showFileChooser(ValueCallback<Uri[]> filePathCallback);
+    void showFileChooser(ValueCallback<Uri[]> filePathCallback, WebChromeClient.FileChooserParams fileChooserParams);
 
     void onCreateView(WebView view, Message resultMsg);
 

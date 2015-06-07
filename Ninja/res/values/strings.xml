@@ -81,6 +81,20 @@
     <string name="dialog_content_ssl_error">
         The certificate of the site is not trusted. Proceed anyway?
     </string>
+    <string name="dialog_content_donation">
+        The income from donations will be used to:\n
+        - Improve the development environment.\n
+        - Improve the developer\'s enthusiasm.\n\n
+        All donations will be considered:\n
+        - Unpaid which mains the donor can not command or force the developer to do anything the donor want.\n
+        - Owned by the developer.\n
+        - The donor have agreed all above points.\n\n
+        Alipay:\n
+        matthewlee0725@gmail.com
+    </string>
+    <string name="dialog_content_upload">
+        For some reasons we have no idea to upload files in Android 4.X, but in Android 5.X this function works fine. What a pity :(
+    </string>
 
     <!-- List -->
     <string name="list_empty">
@@ -311,17 +325,6 @@
     <string name="setting_title_donation">
         Donation
     </string>
-    <string name="donation_content">
-        The income from donations will be used to:\n
-        - Improve the development environment.\n
-        - Improve the developer\'s enthusiasm.\n\n
-        All donations will be considered:\n
-        - Unpaid which mains the donor can not command or force the developer to do anything the donor want.\n
-        - Owned by the developer.\n
-        - The donor have agreed all above points.\n\n
-        Alipay:\n
-        matthewlee0725@gmail.com
-    </string>
 
     <!-- Whitelist -->
     <string name="whitelist_label">
@@ -421,6 +424,9 @@
     </string>
     <string name="toast_new_tab_successful">
         Open in new tab successful
+    </string>
+    <string name="toast_open_file_manager_failed">
+        Open file manager failed
     </string>
     <string name="toast_refresh_failed">
         Can\'t refresh this page

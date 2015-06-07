@@ -1,5 +1,6 @@
 package io.github.mthli.Ninja.Browser;
 
+import android.net.Uri;
 import android.os.Message;
 import android.view.View;
 import android.webkit.*;
@@ -53,6 +54,27 @@ public class NinjaWebChromeClient extends WebChromeClient {
     public void onHideCustomView() {
         ninjaWebView.getBrowserController().onHideCustomView();
         super.onHideCustomView();
+    }
+
+    /* For 4.1 to 4.4 */
+    public void openFileChooser(ValueCallback<Uri> uploadMsg) {
+        ninjaWebView.getBrowserController().openFileChooser(uploadMsg);
+    }
+
+    /* For 4.1 to 4.4 */
+    public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType) {
+        ninjaWebView.getBrowserController().openFileChooser(uploadMsg);
+    }
+
+    /* For 4.1 to 4.4 */
+    public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType, String capture) {
+        ninjaWebView.getBrowserController().openFileChooser(uploadMsg);
+    }
+
+    @Override
+    public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+        ninjaWebView.getBrowserController().showFileChooser(filePathCallback, fileChooserParams);
+        return true;
     }
 
     /**
