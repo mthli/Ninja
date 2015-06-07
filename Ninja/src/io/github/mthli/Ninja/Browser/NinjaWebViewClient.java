@@ -130,13 +130,6 @@ public class NinjaWebViewClient extends WebViewClient {
     }
 
     @Override
-    public void onScaleChanged(WebView view, float oldScale, float newScale) {
-        if (view.isShown()) {
-            view.invalidate();
-        }
-    }
-
-    @Override
     public void onFormResubmission(WebView view, @NonNull final Message dontResend, final Message resend) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setCancelable(false);

@@ -170,7 +170,7 @@
                                       android:completionThreshold="1"
                                       android:singleLine="true"
                                       android:imeOptions="actionDone"
-                                      android:inputType="text"
+                                      android:inputType="textNoSuggestions"
                                       android:background="@color/white">
                 </AutoCompleteTextView>
 

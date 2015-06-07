@@ -1,6 +1,8 @@
 Ninja introduction
 ===
 
+__The author has to prepare for the final exam, so MAYBE pause updates__.
+
 Basically Ninja is a simple web browser like any others, but there are some different things you need to know:
 
 ### Custom home:
@@ -53,4 +55,4 @@ But that is not means you could screenshot a long long long webpage(__OOM__, etc
 
 ---
 
-_2015.06.02 Matthew Lee_
+_2015.06.07 Matthew Lee_
