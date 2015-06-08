@@ -15,7 +15,6 @@
               android:layout_marginRight="@dimen/layout_margin_20dp"
               android:layout_gravity="center"
               android:gravity="top|left"
-              android:hint="@string/dialog_edit_hint"
               android:textColor="@color/text"
               android:textColorHint="@color/hint"
               android:textCursorDrawable="@null"

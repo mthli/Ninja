@@ -51,8 +51,11 @@
     </string>
 
     <!-- Dialog -->
-    <string name="dialog_edit_hint">
+    <string name="dialog_title_hint">
         輸入標題
+    </string>
+    <string name="dialog_se_hint">
+        https://www.google.com/search?q=
     </string>
     <string name="dialog_sign_in_username">
         用戶名
@@ -65,6 +68,9 @@
     </string>
     <string name="dialog_button_negative">
         取消
+    </string>
+    <string name="dialog_button_custom">
+        自定義
     </string>
     <string name="dialog_title_resubmission">
         重新提交
@@ -157,6 +163,9 @@
     </string>
     <string name="setting_summary_search_engine_baidu">
         Baidu
+    </string>
+    <string name="setting_summary_search_engine_custom">
+        自定義
     </string>
     <!-- Notification -->
     <string name="setting_title_notification_priority">
@@ -424,6 +433,9 @@
     </string>
     <string name="toast_new_tab_successful">
         新建標簽成功
+    </string>
+    <string name="toast_open_file_manager_failed">
+        打開文件管理器失敗
     </string>
     <string name="toast_refresh_failed">
         無法刷新此頁面

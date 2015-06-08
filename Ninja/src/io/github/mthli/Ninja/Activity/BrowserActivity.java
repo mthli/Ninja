@@ -1464,7 +1464,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                         String url = ninjaWebView.getUrl().trim();
                         Bitmap bitmap = ViewUnit.capture(ninjaWebView, dimen156dp, dimen117dp, false, Bitmap.Config.ARGB_8888);
                         String filename = System.currentTimeMillis() + BrowserUnit.SUFFIX_PNG;
-                        int ordinal = action.listGrid().size(); // TODO: action.getSize()
+                        int ordinal = action.listGrid().size();
                         GridItem item = new GridItem(title, url, filename, ordinal);
 
                         if (BrowserUnit.bitmap2File(BrowserActivity.this, bitmap, filename) && action.addGridItem(item)) {
@@ -1695,6 +1695,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         dialog.show();
 
         final EditText editText = (EditText) layout.findViewById(R.id.dialog_edit);
+        editText.setHint(R.string.dialog_title_hint);
         editText.setText(gridItem.getTitle());
         editText.setSelection(gridItem.getTitle().length());
         hideSoftInput(inputBox);
@@ -1744,6 +1745,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         final Record record = recordList.get(location);
         final EditText editText = (EditText) layout.findViewById(R.id.dialog_edit);
+        editText.setHint(R.string.dialog_title_hint);
         editText.setText(record.getTitle());
         editText.setSelection(record.getTitle().length());
         hideSoftInput(inputBox);

@@ -60,6 +60,8 @@ public class BrowserUnit {
     public static final String URL_SCHEME_HTTP = "http://";
     public static final String URL_SCHEME_HTTPS = "https://";
     public static final String URL_SCHEME_INTENT = "intent://";
+    public static final String URL_PREFIX_GOOGLE_PLUS = "plus.url.google.com/url?q=";
+    public static final String URL_SUFFIX_GOOGLE_PLUS = "&rct";
 
     public static boolean isNetworkAvailable(Context context) {
         if (context == null) {
@@ -98,6 +100,13 @@ public class BrowserUnit {
     }
 
     public static String queryWrapper(Context context, String query) {
+        // Use prefix and suffix to process some special links
+        if (query.contains(URL_PREFIX_GOOGLE_PLUS)) {
+            int start = query.indexOf(URL_PREFIX_GOOGLE_PLUS) + URL_PREFIX_GOOGLE_PLUS.length();
+            int end = query.indexOf(URL_SUFFIX_GOOGLE_PLUS);
+            query = query.substring(start, end);
+        }
+
         if (isURL(query)) {
             if (query.startsWith(URL_SCHEME_ABOUT) || query.startsWith(URL_SCHEME_MAIL_TO)) {
                 return query;
@@ -114,6 +123,7 @@ public class BrowserUnit {
         } catch (UnsupportedEncodingException u) {}
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+        String custom = sp.getString(context.getString(R.string.sp_search_engine_custom), SEARCH_ENGINE_GOOGLE);
         final int i = Integer.valueOf(sp.getString(context.getString(R.string.sp_search_engine), "0"));
         switch (i) {
             case 0:
@@ -126,6 +136,8 @@ public class BrowserUnit {
                 return SEARCH_ENGINE_BING + query;
             case 4:
                 return SEARCH_ENGINE_BAIDU + query;
+            case 5:
+                return custom + query;
             default:
                 return SEARCH_ENGINE_GOOGLE + query;
         }
@@ -180,7 +192,7 @@ public class BrowserUnit {
 
     public static void download(Context context, String url, String contentDisposition, String mimeType) {
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
-        String filename = URLUtil.guessFileName(url, contentDisposition, mimeType); // TODO: maybe unexpected filename.
+        String filename = URLUtil.guessFileName(url, contentDisposition, mimeType); // Maybe unexpected filename.
 
         request.allowScanningByMediaScanner();
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);

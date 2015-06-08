@@ -51,8 +51,11 @@
     </string>
 
     <!-- Dialog -->
-    <string name="dialog_edit_hint">
+    <string name="dialog_title_hint">
         Input title
+    </string>
+    <string name="dialog_se_hint">
+        https://www.google.com/search?q=
     </string>
     <string name="dialog_sign_in_username">
         Username
@@ -65,6 +68,9 @@
     </string>
     <string name="dialog_button_negative">
         Cancel
+    </string>
+    <string name="dialog_button_custom">
+        Custom
     </string>
     <string name="dialog_title_resubmission">
         Resubmission
@@ -157,6 +163,9 @@
     </string>
     <string name="setting_summary_search_engine_baidu">
         Baidu
+    </string>
+    <string name="setting_summary_search_engine_custom">
+        Custom
     </string>
     <!-- Notification -->
     <string name="setting_title_notification_priority">

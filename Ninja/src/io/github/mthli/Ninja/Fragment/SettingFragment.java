@@ -6,10 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.*;
 import android.webkit.CookieManager;
-import android.widget.FrameLayout;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.TextView;
+import android.widget.*;
 import io.github.mthli.Ninja.Activity.ClearActivity;
 import io.github.mthli.Ninja.Activity.WhitelistActivity;
 import io.github.mthli.Ninja.R;
@@ -70,9 +67,15 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
         String summary;
 
         seEntries = getResources().getStringArray(R.array.setting_entries_search_engine);
-        summary = seEntries[Integer.valueOf(sp.getString(getString(R.string.sp_search_engine), "0"))];
         searchEngine = (ListPreference) findPreference(getString(R.string.sp_search_engine));
-        searchEngine.setSummary(summary);
+        int num = Integer.valueOf(sp.getString(getString(R.string.sp_search_engine), "0"));
+        if (0 <= num && num <= 4) {
+            summary = seEntries[num];
+            searchEngine.setSummary(summary);
+        } else {
+            summary = getString(R.string.setting_summary_search_engine_custom);
+            searchEngine.setSummary(summary);
+        }
 
         npEntries = getResources().getStringArray(R.array.setting_entries_notification_priority);
         summary = npEntries[Integer.valueOf(sp.getString(getString(R.string.sp_notification_priority), "0"))];
@@ -151,8 +154,13 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
     public void onSharedPreferenceChanged(SharedPreferences sp, String key) {
         spChange = true;
         if (key.equals(getString(R.string.sp_search_engine))) {
-            String summary = seEntries[Integer.valueOf(sp.getString(key, "0"))];
-            searchEngine.setSummary(summary);
+            int num = Integer.valueOf(sp.getString(key, "0"));
+            if (0 <= num && num <= 4) {
+                searchEngine.setSummary(seEntries[num]);
+            } else {
+                searchEngine.setValue("5");
+                searchEngine.setSummary(R.string.setting_summary_search_engine_custom);
+            }
         } else if (key.equals(getString(R.string.sp_notification_priority))) {
             String summary = npEntries[Integer.valueOf(sp.getString(key, "0"))];
             notiPriority.setSummary(summary);

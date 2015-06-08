@@ -22,11 +22,11 @@ public class RecordHelper extends SQLiteOpenHelper {
         database.execSQL(RecordUnit.CREATE_GRID);
     }
 
-    // TODO: UPGRADE ATTENTION!!!
+    // UPGRADE ATTENTION!!!
     @Override
     public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {}
 
-    // TODO: UPGRADE ATTENTION!!!
+    // UPGRADE ATTENTION!!!
     private boolean isTableExist(@NonNull String tableName) {
         return false;
     }

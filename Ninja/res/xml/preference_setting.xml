@@ -4,13 +4,14 @@
 
     <PreferenceCategory android:title="@string/setting_title_browser">
 
-        <ListPreference android:key="@string/sp_search_engine"
-                        android:defaultValue="0"
-                        android:title="@string/setting_title_search_engine"
-                        android:summary="@string/setting_summary_search_engine_google"
-                        android:entries="@array/setting_entries_search_engine"
-                        android:entryValues="@array/setting_values_search_engine">
-        </ListPreference>
+        <io.github.mthli.Ninja.View.SearchEngineListPreference
+                android:key="@string/sp_search_engine"
+                android:defaultValue="0"
+                android:title="@string/setting_title_search_engine"
+                android:summary="@string/setting_summary_search_engine_google"
+                android:entries="@array/setting_entries_search_engine"
+                android:entryValues="@array/setting_values_search_engine">
+        </io.github.mthli.Ninja.View.SearchEngineListPreference>
 
         <ListPreference android:key="@string/sp_notification_priority"
                         android:defaultValue="0"
