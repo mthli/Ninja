@@ -72,6 +72,9 @@
     <string name="dialog_button_custom">
         Custom
     </string>
+    <string name="dialog_title_download">
+        Download
+    </string>
     <string name="dialog_title_resubmission">
         Resubmission
     </string>

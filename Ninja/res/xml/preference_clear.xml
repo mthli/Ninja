@@ -13,7 +13,7 @@
     </CheckBoxPreference>
 
     <CheckBoxPreference android:key="@string/sp_clear_cache"
-                        android:defaultValue="false"
+                        android:defaultValue="true"
                         android:title="@string/clear_title_cache">
     </CheckBoxPreference>
 
@@ -24,12 +24,12 @@
 
 
     <CheckBoxPreference android:key="@string/sp_clear_form_data"
-                        android:defaultValue="false"
+                        android:defaultValue="true"
                         android:title="@string/clear_title_form_data">
     </CheckBoxPreference>
 
     <CheckBoxPreference android:key="@string/sp_clear_history"
-                        android:defaultValue="false"
+                        android:defaultValue="true"
                         android:title="@string/clear_title_history">
     </CheckBoxPreference>
 

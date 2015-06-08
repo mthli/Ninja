@@ -72,6 +72,9 @@
     <string name="dialog_button_custom">
         自定义
     </string>
+    <string name="dialog_title_download">
+        下载
+    </string>
     <string name="dialog_title_resubmission">
         重新提交
     </string>

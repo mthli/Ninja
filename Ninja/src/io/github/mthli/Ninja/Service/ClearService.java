@@ -24,10 +24,10 @@ public class ClearService extends Service {
     private void clear() {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         boolean clearBookmarks = sp.getBoolean(getString(R.string.sp_clear_bookmarks), false);
-        boolean clearCache = sp.getBoolean(getString(R.string.sp_clear_cache), false);
+        boolean clearCache = sp.getBoolean(getString(R.string.sp_clear_cache), true);
         boolean clearCookie = sp.getBoolean(getString(R.string.sp_clear_cookie), false);
-        boolean clearFormData = sp.getBoolean(getString(R.string.sp_clear_form_data), false);
-        boolean clearHistory = sp.getBoolean(getString(R.string.sp_clear_history), false);
+        boolean clearFormData = sp.getBoolean(getString(R.string.sp_clear_form_data), true);
+        boolean clearHistory = sp.getBoolean(getString(R.string.sp_clear_history), true);
         boolean clearPasswords = sp.getBoolean(getString(R.string.sp_clear_passwords), false);
 
         if (clearBookmarks) {
