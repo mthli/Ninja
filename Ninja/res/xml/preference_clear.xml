@@ -9,7 +9,7 @@
 
     <CheckBoxPreference android:key="@string/sp_clear_bookmarks"
                         android:defaultValue="false"
-                        android:title="@string/clear_title_passwords">
+                        android:title="@string/clear_title_bookmarks">
     </CheckBoxPreference>
 
     <CheckBoxPreference android:key="@string/sp_clear_cache"
@@ -24,7 +24,7 @@
 
 
     <CheckBoxPreference android:key="@string/sp_clear_form_data"
-                        android:defaultValue="true"
+                        android:defaultValue="false"
                         android:title="@string/clear_title_form_data">
     </CheckBoxPreference>
 

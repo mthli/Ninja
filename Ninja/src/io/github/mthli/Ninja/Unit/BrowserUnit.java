@@ -16,17 +16,20 @@ import io.github.mthli.Ninja.Database.Record;
 import io.github.mthli.Ninja.Database.RecordAction;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.View.NinjaToast;
-import org.json.JSONObject;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.*;
 import java.net.URLEncoder;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 import java.util.regex.Pattern;
 
 public class BrowserUnit {
     public static final int PROGRESS_MAX = 100;
     public static final int PROGRESS_MIN = 0;
+    public static final String SUFFIX_HTML = ".html";
     public static final String SUFFIX_PNG = ".png";
     public static final String SUFFIX_TXT = ".txt";
 
@@ -40,6 +43,10 @@ public class BrowserUnit {
     public static final String MIME_TYPE_IMAGE = "image/*";
 
     public static final String BASE_URL = "file:///android_asset/";
+    public static final String NINJA_BOOKMARK_TYPE = "<DT><A HREF=\"{url}\" ADD_DATE=\"{time}\">{title}</A>";
+    public static final String NINJA_BOOKMARK_TITLE = "{title}";
+    public static final String NINJA_BOOKMARK_URL = "{url}";
+    public static final String NINJA_BOOKMARK_TIME = "{time}";
     public static final String NINJA_INTRODUCTION_EN = "ninja_introduction_en.html";
     public static final String NINJA_INTRODUCTION_ZH = "ninja_introduction_zh.html";
 
@@ -242,21 +249,21 @@ public class BrowserUnit {
         action.close();
 
         String filename = context.getString(R.string.bookmarks_filename);
-        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename + SUFFIX_TXT);
+        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename + SUFFIX_HTML);
         int count = 0;
         while (file.exists()) {
             count++;
-            file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename + "." + count + SUFFIX_TXT);
+            file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename + "." + count + SUFFIX_HTML);
         }
 
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
             for (Record record : list) {
-                JSONObject object = new JSONObject();
-                object.put(RecordUnit.COLUMN_TITLE, record.getTitle());
-                object.put(RecordUnit.COLUMN_URL, record.getURL());
-                object.put(RecordUnit.COLUMN_TIME, record.getTime());
-                writer.write(object.toString());
+                String type = NINJA_BOOKMARK_TYPE;
+                type = type.replace(NINJA_BOOKMARK_TITLE, record.getTitle());
+                type = type.replace(NINJA_BOOKMARK_URL, record.getURL());
+                type = type.replace(NINJA_BOOKMARK_TIME, String.valueOf(record.getTime()));
+                writer.write(type);
                 writer.newLine();
             }
             writer.close();
@@ -297,29 +304,38 @@ public class BrowserUnit {
         if (file == null) {
             return -1;
         }
+        List<Record> list = new ArrayList<>();
 
-        int count = 0;
         try {
             RecordAction action = new RecordAction(context);
             action.open(true);
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                JSONObject object = new JSONObject(line);
+
+            Document document = Jsoup.parse(file, URL_ENCODING);
+            Elements elements = document.select("a");
+            for (Element element : elements) {
                 Record record = new Record();
-                record.setTitle(object.getString(RecordUnit.COLUMN_TITLE).trim());
-                record.setURL(object.getString(RecordUnit.COLUMN_URL).trim());
-                record.setTime(object.getLong(RecordUnit.COLUMN_TIME));
+                record.setTitle(element.text());
+                record.setURL(element.attr("href").trim());
+                record.setTime(System.currentTimeMillis());
                 if (!action.checkBookmark(record)) {
-                    action.addBookmark(record);
-                    count++;
+                    list.add(record);
                 }
             }
-            reader.close();
+
+            Collections.sort(list, new Comparator<Record>() {
+                @Override
+                public int compare(Record first, Record second) {
+                    return first.getTitle().compareTo(second.getTitle());
+                }
+            });
+
+            for (Record record : list) {
+                action.addBookmark(record);
+            }
             action.close();
         } catch (Exception e) {}
 
-        return count;
+        return list.size();
     }
 
     public static int importWhitelist(Context context, File file) {

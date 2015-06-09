@@ -26,7 +26,7 @@ public class ClearService extends Service {
         boolean clearBookmarks = sp.getBoolean(getString(R.string.sp_clear_bookmarks), false);
         boolean clearCache = sp.getBoolean(getString(R.string.sp_clear_cache), true);
         boolean clearCookie = sp.getBoolean(getString(R.string.sp_clear_cookie), false);
-        boolean clearFormData = sp.getBoolean(getString(R.string.sp_clear_form_data), true);
+        boolean clearFormData = sp.getBoolean(getString(R.string.sp_clear_form_data), false);
         boolean clearHistory = sp.getBoolean(getString(R.string.sp_clear_history), true);
         boolean clearPasswords = sp.getBoolean(getString(R.string.sp_clear_passwords), false);
 
