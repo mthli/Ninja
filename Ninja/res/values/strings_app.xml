@@ -15,7 +15,7 @@
         Ninja
     </string>
     <string name="app_version">
-        1.2.6
+        1.2.7
     </string>
 
     <!-- AndroidSlidingUpPanel -->
@@ -88,6 +88,20 @@
         http://git.io/Gxy92Q
     </string>
 
+    <!-- jsoup -->
+    <string name="license_title_jsoup">
+        jsoup
+    </string>
+    <string name="license_content_jsoup">
+        The MIT License (MIT)
+    </string>
+    <string name="license_author_jsoup">
+        Jonathan Hedley
+    </string>
+    <string name="license_url_jsoup">
+        http://git.io/vIz04
+    </string>
+
     <!-- Lightning -->
     <string name="license_title_lightning">
         Lightning Browser
@@ -123,6 +137,7 @@
         <item>@string/license_title_android_ago</item>
         <item>@string/license_title_dynamic_grid</item>
         <item>@string/license_title_github_markdown_css</item>
+        <item>@string/license_title_jsoup</item>
         <item>@string/license_title_lightning</item>
         <item>@string/license_title_ninja</item>
     </string-array>
@@ -132,6 +147,7 @@
         <item>@string/license_content_android_ago</item>
         <item>@string/license_content_dynamic_grid</item>
         <item>@string/license_content_github_markdown_css</item>
+        <item>@string/license_content_jsoup</item>
         <item>@string/license_content_lightning</item>
         <item>@string/license_content_ninja</item>
     </string-array>
@@ -141,6 +157,7 @@
         <item>@string/license_author_android_ago</item>
         <item>@string/license_author_dynamic_grid</item>
         <item>@string/license_author_github_markdown_css</item>
+        <item>@string/license_author_jsoup</item>
         <item>@string/license_author_lightning</item>
         <item>@string/license_author_ninja</item>
     </string-array>
@@ -150,6 +167,7 @@
         <item>@string/license_url_android_ago</item>
         <item>@string/license_url_dynamic_grid</item>
         <item>@string/license_url_github_markdown_css</item>
+        <item>@string/license_url_jsoup</item>
         <item>@string/license_url_lightning</item>
         <item>@string/license_url_ninja</item>
     </string-array>
