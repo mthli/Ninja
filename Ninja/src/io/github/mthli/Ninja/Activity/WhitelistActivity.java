@@ -78,6 +78,12 @@ public class WhitelistActivity extends Activity {
     }
 
     @Override
+    public void onStop() {
+        super.onStop();
+        finish();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.whilelist_menu, menu);
         return super.onCreateOptionsMenu(menu);

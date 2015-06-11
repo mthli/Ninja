@@ -27,6 +27,12 @@ public class ClearActivity extends Activity {
     }
 
     @Override
+    public void onStop() {
+        super.onStop();
+        finish();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.clear_menu, menu);
         return super.onCreateOptionsMenu(menu);

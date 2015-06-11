@@ -28,6 +28,12 @@ public class SettingActivity extends Activity {
     }
 
     @Override
+    public void onStop() {
+        super.onStop();
+        finish();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.setting_menu, menu);
         return super.onCreateOptionsMenu(menu);
