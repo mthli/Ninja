@@ -8,6 +8,7 @@ import android.preference.*;
 import android.webkit.CookieManager;
 import android.widget.*;
 import io.github.mthli.Ninja.Activity.ClearActivity;
+import io.github.mthli.Ninja.Activity.TokenActivity;
 import io.github.mthli.Ninja.Activity.WhitelistActivity;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Task.*;
@@ -124,6 +125,10 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
                 importWhitelist.setType(IntentUnit.INTENT_TYPE_TEXT_PLAIN);
                 importWhitelist.addCategory(Intent.CATEGORY_OPENABLE);
                 getActivity().startActivityForResult(importWhitelist, IntentUnit.REQUEST_WHITELIST);
+                break;
+            case R.string.setting_title_token:
+                Intent toToken = new Intent(getActivity(), TokenActivity.class);
+                getActivity().startActivity(toToken);
                 break;
             case R.string.setting_title_export_bookmarks:
                 new ExportBookmarksTask(getActivity()).execute();

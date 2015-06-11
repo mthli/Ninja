@@ -109,6 +109,20 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/setting_title_readability">
+
+        <CheckBoxPreference android:key="@string/sp_readability"
+                            android:defaultValue="false"
+                            android:title="@string/setting_title_readability"
+                            android:summary="@string/setting_summary_readability">
+        </CheckBoxPreference>
+
+        <Preference android:title="@string/setting_title_token"
+                    android:summary="@string/setting_summary_token">
+        </Preference>
+
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/setting_title_data">
 
         <CheckBoxPreference android:key="@string/sp_passwords"

@@ -38,7 +38,6 @@ public class NinjaWebView extends WebView implements AlbumController {
     private int dimen144dp;
     private int dimen108dp;
     private int animTime;
-    private String userAgentOriginal;
 
     private Album album;
     private NinjaWebViewClient webViewClient;
@@ -55,6 +54,11 @@ public class NinjaWebView extends WebView implements AlbumController {
     private boolean foreground;
     public boolean isForeground() {
         return foreground;
+    }
+
+    private String userAgentOriginal;
+    public String getUserAgentOriginal() {
+        return userAgentOriginal;
     }
 
     private BrowserController browserController = null;

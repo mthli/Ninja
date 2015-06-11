@@ -1412,6 +1412,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     }
 
     private boolean showOverflow() {
+        final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
 
@@ -1426,14 +1427,18 @@ public class BrowserActivity extends Activity implements BrowserController {
             stringList.remove(array[1]); // Add to home
             stringList.remove(array[2]); // Find in page
             stringList.remove(array[3]); // Screenshot
-            stringList.remove(array[4]); // Share
+            stringList.remove(array[4]); // Readability
+            stringList.remove(array[5]); // Share
 
             NinjaRelativeLayout ninjaRelativeLayout = (NinjaRelativeLayout) currentAlbumController;
             if (ninjaRelativeLayout.getFlag() != BrowserUnit.FLAG_HOME) {
-                stringList.remove(array[5]); // Relayout
+                stringList.remove(array[6]); // Relayout
             }
         } else if (currentAlbumController != null && currentAlbumController instanceof NinjaWebView) {
-            stringList.remove(array[5]); // Relayout
+            if (!sp.getBoolean(getString(R.string.sp_readability), false)) {
+                stringList.remove(array[4]); // Readability
+            }
+            stringList.remove(array[6]); // Relayout
         }
 
         ListView listView = (ListView) layout.findViewById(R.id.dialog_list);
@@ -1480,14 +1485,24 @@ public class BrowserActivity extends Activity implements BrowserController {
                 } else if (s.equals(array[3])) { // Screenshot
                     NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
                     new ScreenshotTask(BrowserActivity.this, ninjaWebView).execute();
-                } else if (s.equals(array[4])) { // Share
+                } else if (s.equals(array[4])) { // Readability
+                    String token = sp.getString(getString(R.string.sp_readability_token), null);
+                    if (token == null || token.trim().isEmpty()) {
+                        NinjaToast.show(BrowserActivity.this, R.string.toast_token_empty);
+                    } else {
+                        NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
+                        Intent intent = new Intent(BrowserActivity.this, ReadabilityActivity.class);
+                        intent.putExtra(IntentUnit.URL, ninjaWebView.getUrl());
+                        startActivity(intent);
+                    }
+                } else if (s.equals(array[5])) { // Share
                     if (!prepareRecord()) {
                         NinjaToast.show(BrowserActivity.this, R.string.toast_share_failed);
                     } else {
                         NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
                         IntentUnit.share(BrowserActivity.this, ninjaWebView.getTitle(), ninjaWebView.getUrl());
                     }
-                } else if (s.equals(array[5])) { // Relayout
+                } else if (s.equals(array[6])) { // Relayout
                     NinjaRelativeLayout ninjaRelativeLayout = (NinjaRelativeLayout) currentAlbumController;
                     final DynamicGridView gridView = (DynamicGridView) ninjaRelativeLayout.findViewById(R.id.home_grid);
                     final List<GridItem> gridList = ((GridAdapter) gridView.getAdapter()).getList();
@@ -1564,7 +1579,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                         }
                     });
                     gridView.startEditMode();
-                } else if (s.equals(array[6])) { // Quit
+                } else if (s.equals(array[7])) { // Quit
                     finish();
                 }
 

@@ -39,6 +39,7 @@ public class BrowserUnit {
     public static final int FLAG_HOME = 0x102;
     public static final int FLAG_NINJA = 0x103;
 
+    public static final String MIME_TYPE_TEXT_HTML = "text/html";
     public static final String MIME_TYPE_TEXT_PLAIN = "text/plain";
     public static final String MIME_TYPE_IMAGE = "image/*";
 

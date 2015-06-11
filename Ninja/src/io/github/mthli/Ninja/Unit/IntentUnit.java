@@ -6,6 +6,7 @@ import android.net.MailTo;
 
 public class IntentUnit {
     public static final String OPEN = "OPEN";
+    public static final String URL = "URL";
 
     public static final int REQUEST_BOOKMARKS = 0x100;
     public static final int REQUEST_FILE_16 = 0x101;

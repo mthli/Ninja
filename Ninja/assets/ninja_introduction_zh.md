@@ -47,6 +47,12 @@ Ninja在操作上与其他浏览器并没有明显的区别，但是仍然有以
 
 你可以在`设置/Adblock/白名单`中将这些网站加入AdBlock的白名单。
 
+## 阅读模式：
+
+Ninja支持阅读模式，但是实现这个功能需要__Readability的令牌__。
+
+你可以前往[Readability Developer APIs](https://www.readability.com/developers/api "Readability Developer APIs")获取你自己的令牌并在`设置/阅读模式/口令`中设置。
+
 ## 网页截图：
 
 Ninja提供了网页截图功能，可以截取整张网页。
@@ -55,4 +61,4 @@ Ninja提供了网页截图功能，可以截取整张网页。
 
 ---
 
-_2015.06.07 Matthew Lee_
+_2015.06.11 Matthew Lee_

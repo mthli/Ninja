@@ -10,29 +10,28 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content">
 
-        <EditText android:id="@+id/whilelist_edit"
+        <EditText android:id="@+id/token_edit"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_marginTop="@dimen/layout_margin_8dp"
                   android:layout_marginLeft="@dimen/layout_margin_8dp"
                   android:layout_marginRight="@dimen/layout_margin_8dp"
-                  android:hint="@string/whitelist_edit_hint"
+                  android:hint="@string/token_edit_hint"
                   android:textColor="@color/text"
                   android:textColorHint="@color/hint"
                   android:textCursorDrawable="@null"
                   android:textSize="@dimen/text_size_14sp"
                   android:imeOptions="actionDone"
-                  android:inputType="textMultiLine"
-                  android:selectAllOnFocus="true">
+                  android:inputType="textMultiLine">
         </EditText>
 
-        <Button android:id="@+id/whilelist_add"
+        <Button android:id="@+id/token_add"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/layout_margin_8dp"
                 android:layout_marginRight="@dimen/layout_margin_8dp"
                 android:layout_marginBottom="@dimen/layout_margin_8dp"
-                android:text="@string/whitelist_add"
+                android:text="@string/token_add"
                 android:textColor="@color/text"
                 android:textAllCaps="true">
         </Button>
@@ -44,23 +43,15 @@
           android:background="@color/dividers">
     </View>
 
-    <ListView android:id="@+id/whitelist"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:drawSelectorOnTop="true">
-    </ListView>
-
-    <TextView android:id="@+id/whitelist_empty"
-              android:layout_width="match_parent"
+    <TextView android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:layout_margin="@dimen/layout_margin_20dp"
               android:layout_gravity="center|top"
               android:gravity="center"
-              android:text="@string/list_empty"
+              android:text="@string/token_desc"
               android:textAllCaps="false"
               android:textColor="@color/hint"
-              android:textSize="@dimen/text_size_14sp"
-              android:visibility="gone">
+              android:textSize="@dimen/text_size_14sp">
     </TextView>
 
 </LinearLayout>

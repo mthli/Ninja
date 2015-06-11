@@ -135,6 +135,20 @@
         Click to view pages
     </string>
 
+    <!-- Readability -->
+    <string name="readability_label">
+        Readability
+    </string>
+    <string name="readability_menu_background">
+        Background
+    </string>
+    <string name="readability_menu_share">
+        Share
+    </string>
+    <string name="readability_empty">
+        Readability load failed, maybe network connect error, Readability token error or URL error
+    </string>
+
     <!-- Search -->
     <string name="search_hint">
         Search
@@ -296,6 +310,19 @@
     <string name="whilelist_filename">
         NinjaWhitelist
     </string>
+    <!-- Readability setting -->
+    <string name="setting_title_readability">
+        Readability
+    </string>
+    <string name="setting_title_token">
+        Token
+    </string>
+    <string name="setting_summary_readability">
+        Enable Readability
+    </string>
+    <string name="setting_summary_token">
+        Set Readability token
+    </string>
     <!-- Data setting -->
     <string name="setting_title_data">
         Data
@@ -338,20 +365,6 @@
         Donation
     </string>
 
-    <!-- Whitelist -->
-    <string name="whitelist_label">
-        Whitelist
-    </string>
-    <string name="whitelist_menu_clear">
-        Clear
-    </string>
-    <string name="whitelist_edit_hint">
-        Domain
-    </string>
-    <string name="whitelist_add">
-        Add
-    </string>
-
     <!-- Toast -->
     <string name="toast_add_bookmark_successful">
         Add bookmark successful
@@ -364,6 +377,9 @@
     </string>
     <string name="toast_add_to_home_failed">
         Add to home failed
+    </string>
+    <string name="toast_add_token_successful">
+        Add Readability token successful
     </string>
     <string name="toast_add_whitelist_successful">
         Add domain successful
@@ -458,8 +474,39 @@
     <string name="toast_start_download">
         Start download
     </string>
+    <string name="toast_token_empty">
+        Please set Readability token
+    </string>
     <string name="toast_wait_a_minute">
         Wait a minute
+    </string>
+
+    <!-- Token -->
+    <string name="token_label">
+        Token
+    </string>
+    <string name="token_edit_hint">
+        Readability token
+    </string>
+    <string name="token_add">
+        Add
+    </string>
+    <string name="token_desc">
+        Go to https://www.readability.com/developers/api to get your own Readability token
+    </string>
+
+    <!-- Whitelist -->
+    <string name="whitelist_label">
+        Whitelist
+    </string>
+    <string name="whitelist_menu_clear">
+        Clear
+    </string>
+    <string name="whitelist_edit_hint">
+        Domain
+    </string>
+    <string name="whitelist_add">
+        Add
     </string>
 
 </resources>

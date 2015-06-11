@@ -135,6 +135,20 @@
         点击前往浏览网页
     </string>
 
+    <!-- Readability -->
+    <string name="readability_label">
+        阅读模式
+    </string>
+    <string name="readability_menu_background">
+        背景
+    </string>
+    <string name="readability_menu_share">
+        分享
+    </string>
+    <string name="readability_empty">
+        阅读模式加载失败，原因可能是网络连接问题，Readability令牌错误或者链接错误
+    </string>
+
     <!-- Search -->
     <string name="search_hint">
         搜索
@@ -296,6 +310,19 @@
     <string name="whilelist_filename">
         Ninja白名单
     </string>
+    <!-- Readability setting -->
+    <string name="setting_title_readability">
+        阅读模式
+    </string>
+    <string name="setting_title_token">
+        令牌
+    </string>
+    <string name="setting_summary_readability">
+        允许使用阅读模式
+    </string>
+    <string name="setting_summary_token">
+        设置Readability令牌
+    </string>
     <!-- Data setting -->
     <string name="setting_title_data">
         数据
@@ -338,20 +365,6 @@
         捐赠
     </string>
 
-    <!-- Whitelist -->
-    <string name="whitelist_label">
-        白名单
-    </string>
-    <string name="whitelist_menu_clear">
-        清空
-    </string>
-    <string name="whitelist_edit_hint">
-        域名
-    </string>
-    <string name="whitelist_add">
-        添加
-    </string>
-
     <!-- Toast -->
     <string name="toast_add_bookmark_successful">
         添加书签成功
@@ -364,6 +377,9 @@
     </string>
     <string name="toast_add_to_home_failed">
         添加拨号失败
+    </string>
+    <string name="toast_add_token_successful">
+        添加Readability令牌成功
     </string>
     <string name="toast_add_whitelist_successful">
         添加域名成功
@@ -458,8 +474,39 @@
     <string name="toast_start_download">
         开始下载
     </string>
+    <string name="toast_token_empty">
+        请设置Readability令牌
+    </string>
     <string name="toast_wait_a_minute">
         稍等片刻
+    </string>
+
+    <!-- Token -->
+    <string name="token_label">
+        令牌
+    </string>
+    <string name="token_edit_hint">
+        Readability令牌
+    </string>
+    <string name="token_add">
+        添加
+    </string>
+    <string name="token_desc">
+        前往https://www.readability.com/developers/api获取你自己的Readability令牌
+    </string>
+
+    <!-- Whitelist -->
+    <string name="whitelist_label">
+        白名单
+    </string>
+    <string name="whitelist_menu_clear">
+        清空
+    </string>
+    <string name="whitelist_edit_hint">
+        域名
+    </string>
+    <string name="whitelist_add">
+        添加
     </string>
 
 </resources>

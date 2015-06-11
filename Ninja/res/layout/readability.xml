@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:id="@+id/readability_frame"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <ProgressBar android:id="@+id/readability_progress"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center">
+    </ProgressBar>
+
+    <WebView android:id="@+id/readability_webview"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:visibility="gone">
+    </WebView>
+
+    <TextView android:id="@+id/readability_empty"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_margin="@dimen/layout_margin_20dp"
+              android:layout_gravity="center"
+              android:gravity="center"
+              android:text="@string/readability_empty"
+              android:textAllCaps="false"
+              android:textColor="@color/hint"
+              android:textSize="@dimen/text_size_14sp"
+              android:visibility="gone">
+    </TextView>
+
+</FrameLayout>

@@ -21,7 +21,6 @@ public class SettingActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
         fragment = new SettingFragment();

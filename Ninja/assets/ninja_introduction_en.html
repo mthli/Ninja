@@ -1,16 +1,26 @@
-<link rel="stylesheet" href="/markdown.css">
+<link rel="stylesheet" href="./typo.css" />
+<meta name="viewport" content="width=device-width">
 <style>
-    .markdown-body {
-    min-width: 200px;
-    max-width: 790px;
-    margin: 0 auto;
-    padding: 30px;
+    html {
+    background: #FFFFFF;
+    }
+    img {
+    max-width: device-width;
+    width: expression(this.width > device-width ? device-width : this.width);
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    }
+    body {
+    width: 90%;
+    margin: 2em auto 0;
     }
 </style>
 <title>
     Ninja introduction
 </title>
-<article class="markdown-body">
+<div class="typo typo-selection">
 
     <h1>Ninja introduction</h1>
 
@@ -42,6 +52,12 @@
 
     <p>Since AdBlick maybe cause some websites display error, you can add they to <code>Setting/AdBlock/Whitelist</code>.</p>
 
+    <h2>Readability:</h2>
+
+    <p>Ninja support read mode but it need <strong>the token of Readability</strong>.</p>
+
+    <p>To get the token you should go to <a href="https://www.readability.com/developers/api" title="Readability Developer APIs">Readability Developer APIs</a> to get your own token and set it in <code>Setting/Readability/Token</code>.</p>
+
     <h2>Screenshot:</h2>
 
     <p>Ninja supports <strong>capture entire webpage</strong> function.</p>
@@ -50,6 +66,6 @@
 
     <hr/>
 
-    <p><em>2015.06.07 Matthew Lee</em></p>
+    <p><em>2015.06.11 Matthew Lee</em></p>
 
-</article>
+</div>

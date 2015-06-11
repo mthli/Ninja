@@ -1,10 +1,12 @@
 package io.github.mthli.Ninja.Activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -25,7 +27,6 @@ public class WhitelistActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.whitelist);
-
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
         RecordAction action = new RecordAction(this);
@@ -41,6 +42,8 @@ public class WhitelistActivity extends Activity {
         adapter.notifyDataSetChanged();
 
         final EditText editText = (EditText) findViewById(R.id.whilelist_edit);
+        showSoftInput(editText);
+
         Button button = (Button) findViewById(R.id.whilelist_add);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +72,12 @@ public class WhitelistActivity extends Activity {
     }
 
     @Override
+    public void onPause() {
+        hideSoftInput(findViewById(R.id.whilelist_edit));
+        super.onPause();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.whilelist_menu, menu);
         return super.onCreateOptionsMenu(menu);
@@ -90,5 +99,17 @@ public class WhitelistActivity extends Activity {
                 break;
         }
         return true;
+    }
+
+    private void hideSoftInput(View view) {
+        view.clearFocus();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    private void showSoftInput(View view) {
+        view.requestFocus();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
     }
 }

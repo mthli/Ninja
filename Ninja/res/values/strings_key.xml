@@ -4,9 +4,10 @@
 
     <!-- TODO: change when new version code -->
     <string name="sp_first">
-        SP_FIRST_19
+        SP_FIRST_20
     </string>
 
+    <!-- General -->
     <string name="sp_ad_block">
         SP_AD_BLOCK_9
     </string>
@@ -53,6 +54,7 @@
         SP_VOLUME_9
     </string>
 
+    <!-- Clear -->
     <string name="sp_clear_quit">
         SP_CLEAR_QUIT_9
     </string>
@@ -73,6 +75,17 @@
     </string>
     <string name="sp_clear_passwords">
         SP_CLEAR_PASSWORDS_9
+    </string>
+
+    <!-- Readability -->
+    <string name="sp_readability">
+        SP_READABILITY_9
+    </string>
+    <string name="sp_readability_token">
+        SP_READABILITY_TOKEN_9
+    </string>
+    <string name="sp_readability_background">
+        SP_READABILITY_BACKGROUND_9
     </string>
 
 </resources>

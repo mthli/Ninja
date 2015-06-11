@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/readability_menu_background"
+          android:title="@string/readability_menu_background"
+          android:icon="@drawable/ic_action_background"
+          android:showAsAction="ifRoom">
+    </item>
+
+    <item android:id="@+id/readability_menu_share"
+          android:title="@string/readability_menu_share"
+          android:icon="@drawable/ic_action_share"
+          android:showAsAction="ifRoom">
+    </item>
+
+</menu>

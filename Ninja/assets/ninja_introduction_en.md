@@ -47,6 +47,12 @@ In `Setting/Browser/Volume control` you can set the volume keys behavior:
 
 Since AdBlick maybe cause some websites display error, you can add they to `Setting/AdBlock/Whitelist`.
 
+## Readability:
+
+Ninja support read mode but it need __the token of Readability__.
+
+To get the token you should go to [Readability Developer APIs](https://www.readability.com/developers/api "Readability Developer APIs") to get your own token and set it in `Setting/Readability/Token`.
+
 ## Screenshot:
 
 Ninja supports __capture entire webpage__ function.
@@ -55,4 +61,4 @@ But that is not means you could screenshot a long long long webpage(__OOM__, etc
 
 ---
 
-_2015.06.07 Matthew Lee_
+_2015.06.11 Matthew Lee_

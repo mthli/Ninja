@@ -21,8 +21,8 @@ public class ClearActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         getActionBar().setDisplayHomeAsUpEnabled(true);
+
         getFragmentManager().beginTransaction().replace(android.R.id.content, new ClearFragment()).commit();
     }
 

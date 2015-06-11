@@ -2,7 +2,7 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="io.github.mthli.Ninja"
-          android:versionCode="19"
+          android:versionCode="20"
           android:versionName="@string/app_version">
 
     <!-- SDK -->
@@ -61,6 +61,12 @@
             </meta-data>
         </activity>
 
+        <!-- ReadabilityActivity -->
+        <activity android:name=".Activity.ReadabilityActivity"
+                  android:label="@string/readability_label"
+                  android:theme="@style/ReadabilityActivityTheme">
+        </activity>
+
         <!-- SettingActivity -->
         <activity android:name=".Activity.SettingActivity"
                   android:label="@string/setting_label"
@@ -71,6 +77,12 @@
         <activity android:name=".Activity.WhitelistActivity"
                   android:label="@string/whitelist_label"
                   android:theme="@style/WhitelistActivityTheme">
+        </activity>
+
+        <!-- TokenActivity -->
+        <activity android:name=".Activity.TokenActivity"
+                  android:label="@string/token_label"
+                  android:theme="@style/TokenActivityTheme">
         </activity>
 
         <!-- ClearActivity -->
