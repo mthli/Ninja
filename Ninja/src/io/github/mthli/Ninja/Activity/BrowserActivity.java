@@ -230,6 +230,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
     }
 
+    // TODO: change to onStop()
     @Override
     public void onPause() {
         Intent toHolderService = new Intent(this, HolderService.class);

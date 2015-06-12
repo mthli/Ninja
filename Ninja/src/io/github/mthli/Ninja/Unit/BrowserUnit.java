@@ -301,6 +301,7 @@ public class BrowserUnit {
         }
     }
 
+    // TODO: not depended jsoup
     public static int importBookmarks(Context context, File file) {
         if (file == null) {
             return -1;

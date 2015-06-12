@@ -6,8 +6,6 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,19 +15,11 @@ import android.webkit.WebView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import io.github.mthli.Ninja.R;
+import io.github.mthli.Ninja.Task.ReadabilityTask;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.Unit.IntentUnit;
 import io.github.mthli.Ninja.View.NinjaToast;
 import org.json.JSONObject;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 public class ReadabilityActivity extends Activity {
     private static final String HEADER = "<link rel=\"stylesheet\" href=\"./typo.css\" />\n"
@@ -52,7 +42,8 @@ public class ReadabilityActivity extends Activity {
             + "    }\n"
             + "</style>\n";
     private static final String HEADER_BACKGROUND = "{background}";
-    private static final String DIV_CLASS_TYPO = "typo typo-selection";
+    private static final String DIV = "<div>";
+    private static final String DIV_CLASS_TYPO = "<div class=\"typo typo-selection\">";
     private static final String COLOR_WHITE = "#FFFFFF";
     private static final String COLOR_YELLOW = "#F5F5DC";
 
@@ -85,66 +76,18 @@ public class ReadabilityActivity extends Activity {
     private SharedPreferences sp;
     private String query = null;
     private JSONObject result = null;
+    public void setResult(JSONObject result) {
+        this.result = result;
+    }
 
-    private enum Status {
+    public enum Status {
         RUNNING,
         IDLE
     }
     private Status status = Status.IDLE;
-    private Runnable readability = new Runnable() {
-        @Override
-        public void run() {
-            status = Status.RUNNING;
-            try {
-                URL url = new URL(query);
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setDefaultUseCaches(true);
-                connection.setUseCaches(true);
-                connection.connect();
-
-                if (connection.getResponseCode() == 200) {
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                    StringBuilder builder = new StringBuilder();
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        builder.append(line);
-                    }
-                    reader.close();
-                    connection.disconnect();
-
-                    result = new JSONObject(builder.toString());
-                    Message msg = new Message();
-                    msg.what = RESULT_SUCCESSFUL;
-                    handler.sendMessage(msg);
-                } else {
-                    result = null;
-                    Message msg = new Message();
-                    msg.what = RESULT_FAILED;
-                    handler.sendMessage(msg);
-                }
-            } catch (Exception e) {
-                result = null;
-                Message msg = new Message();
-                msg.what = RESULT_FAILED;
-                handler.sendMessage(msg);
-            }
-            status = Status.IDLE;
-        }
-    };
-
-    private Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            switch(msg.what) {
-                case RESULT_SUCCESSFUL:
-                    showLoadSuccessful();
-                    break;
-                default:
-                    showLoadError();
-                    break;
-            }
-        }
-    };
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -168,7 +111,7 @@ public class ReadabilityActivity extends Activity {
         } else {
             String url = intent.getStringExtra(IntentUnit.URL);
             query = REQUEST.replace(REQUEST_URL, url).replace(REQUEST_TOKEN, token);
-            new Thread(readability).start();
+            new ReadabilityTask(this, query).execute();
         }
     }
 
@@ -199,7 +142,7 @@ public class ReadabilityActivity extends Activity {
                     sp.edit().putInt(getString(R.string.sp_readability_background), getResources().getColor(R.color.white)).commit();
                     findViewById(R.id.readability_frame).setBackgroundColor(getResources().getColor(R.color.white));
                 }
-                if (status == Status.IDLE) {
+                if (status == Status.IDLE && result != null) {
                     showLoadSuccessful();
                 }
                 break;
@@ -228,13 +171,7 @@ public class ReadabilityActivity extends Activity {
         } else {
             header = HEADER.replace(HEADER_BACKGROUND, "#F5F5DC");
         }
-        content = header + content;
-
-        Document document = Jsoup.parse(content, BrowserUnit.BASE_URL);
-        Elements elements = document.select("div");
-        Element div = elements.first();
-        div.addClass(DIV_CLASS_TYPO);
-        return document.outerHtml();
+        return (header + content).replace(DIV, DIV_CLASS_TYPO);
     }
 
     private void initWebView() {
@@ -275,19 +212,19 @@ public class ReadabilityActivity extends Activity {
         }
     }
 
-    private void showLoadStart() {
+    public void showLoadStart() {
         webView.setVisibility(View.GONE);
         emptyView.setVisibility(View.GONE);
         progressBar.setVisibility(View.VISIBLE);
     }
 
-    private void showLoadError() {
+    public void showLoadError() {
         progressBar.setVisibility(View.GONE);
         webView.setVisibility(View.GONE);
         emptyView.setVisibility(View.VISIBLE);
     }
 
-    private void showLoadSuccessful() {
+    public void showLoadSuccessful() {
         try {
             getActionBar().setTitle(result.getString(RESULT_TITLE));
             getActionBar().setSubtitle(result.getString(RESULT_URL));
