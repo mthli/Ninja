@@ -25,7 +25,9 @@ __LONG TERM MAINTENANCE.__
 
  - [html5test](html5test.com "html5test.com") access __509UP__ with latest [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview "Android System WebView").
 
- - Adblock and whitelist.
+ - __Adblock__ and whitelist.
+
+ - __Readability__.
 
  - Capture whole page screenshot.
 
