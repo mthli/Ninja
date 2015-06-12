@@ -86,9 +86,15 @@ public class ReadabilityActivity extends Activity {
     private String query = null;
     private JSONObject result = null;
 
+    private enum Status {
+        RUNNING,
+        IDLE
+    }
+    private Status status = Status.IDLE;
     private Runnable readability = new Runnable() {
         @Override
         public void run() {
+            status = Status.RUNNING;
             try {
                 URL url = new URL(query);
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -122,6 +128,7 @@ public class ReadabilityActivity extends Activity {
                 msg.what = RESULT_FAILED;
                 handler.sendMessage(msg);
             }
+            status = Status.IDLE;
         }
     };
 
@@ -192,7 +199,9 @@ public class ReadabilityActivity extends Activity {
                     sp.edit().putInt(getString(R.string.sp_readability_background), getResources().getColor(R.color.white)).commit();
                     findViewById(R.id.readability_frame).setBackgroundColor(getResources().getColor(R.color.white));
                 }
-                showLoadSuccessful();
+                if (status == Status.IDLE) {
+                    showLoadSuccessful();
+                }
                 break;
             case R.id.readability_menu_share:
                 if (result != null) {

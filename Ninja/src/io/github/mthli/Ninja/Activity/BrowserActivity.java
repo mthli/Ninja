@@ -268,6 +268,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         BrowserContainer.clear();
         super.onDestroy();
+        System.exit(0); // For remove all WebView thread
     }
 
     @Override

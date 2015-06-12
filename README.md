@@ -71,6 +71,12 @@ __Remember__ that if the soft keyboard is shown the tab switcher would not displ
 
 Since AdBlick maybe cause some websites display error, you can add they to `Setting/AdBlock/Whitelist`.
 
+### Readability:
+
+Ninja support read mode but it need __the token of Readability__.
+
+To get the token you should go to [Readability Developer APIs](https://www.readability.com/developers/api "Readability Developer APIs") to get your own token and set it in `Setting/Readability/Token`.
+
 ### Screenshot:
 
 Ninja supports __capture entire webpage__ function.
@@ -111,11 +117,11 @@ Just import the `Ninja` folder with your __IntelliJ IDEA__.
 
  - [DynamicGrid](https://github.com/askerov/DynamicGrid "DynamicGrid")
 
- - [github-markdown-css](https://github.com/sindresorhus/github-markdown-css "github-markdown-css")
-
  - [jsoup](https://github.com/jhy/jsoup "jsoup")
 
  - [Lightning Browser](https://github.com/anthonycr/Lightning-Browser "Lightning-Browser")
+
+ - [typo.css](https://github.com/sofish/typo.css "typo.css")
 
 ## License:
 

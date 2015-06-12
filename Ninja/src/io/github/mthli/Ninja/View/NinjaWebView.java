@@ -355,6 +355,7 @@ public class NinjaWebView extends WebView implements AlbumController {
         resumeTimers();
     }
 
+    @Override
     public synchronized void destroy() {
         stopLoading();
         onPause();
@@ -362,6 +363,7 @@ public class NinjaWebView extends WebView implements AlbumController {
         setVisibility(GONE);
         removeAllViews();
         destroyDrawingCache();
+        super.destroy();
     }
 
     public boolean isLoadFinish() {
