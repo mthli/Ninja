@@ -8,10 +8,4 @@
           android:showAsAction="ifRoom">
     </item>
 
-    <item android:id="@+id/readability_menu_share"
-          android:title="@string/readability_menu_share"
-          android:icon="@drawable/ic_action_share"
-          android:showAsAction="ifRoom">
-    </item>
-
 </menu>

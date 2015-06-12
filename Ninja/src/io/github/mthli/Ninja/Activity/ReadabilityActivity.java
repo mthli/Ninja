@@ -18,7 +18,6 @@ import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Task.ReadabilityTask;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
 import io.github.mthli.Ninja.Unit.IntentUnit;
-import io.github.mthli.Ninja.View.NinjaToast;
 import org.json.JSONObject;
 
 public class ReadabilityActivity extends Activity {
@@ -144,17 +143,6 @@ public class ReadabilityActivity extends Activity {
                 }
                 if (status == Status.IDLE && result != null) {
                     showLoadSuccessful();
-                }
-                break;
-            case R.id.readability_menu_share:
-                if (result != null) {
-                    try {
-                        IntentUnit.share(this, result.getString(RESULT_TITLE), result.getString(RESULT_URL));
-                    } catch (Exception e) {
-                        NinjaToast.show(this, R.string.toast_share_failed);
-                    }
-                } else {
-                    NinjaToast.show(this, R.string.toast_share_failed);
                 }
                 break;
             default:
