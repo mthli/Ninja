@@ -119,8 +119,6 @@ Just import the `Ninja` folder with your __IntelliJ IDEA__.
 
  - [DynamicGrid](https://github.com/askerov/DynamicGrid "DynamicGrid")
 
- - [jsoup](https://github.com/jhy/jsoup "jsoup")
-
  - [Lightning Browser](https://github.com/anthonycr/Lightning-Browser "Lightning-Browser")
 
  - [typo.css](https://github.com/sofish/typo.css "typo.css")
