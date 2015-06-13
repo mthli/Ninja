@@ -7,7 +7,6 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
@@ -180,11 +179,11 @@ public class SwitcherPanel extends ViewGroup {
         if (ac == 0) {
             anchor = Anchor.TOP;
             parallaxOffset = PARALLAX_OFFSET_DEFAULT_TOP;
-            shadowDrawable = ContextCompat.getDrawable(getContext(), R.drawable.shadow_below);
+            shadowDrawable = ViewUnit.getDrawable(getContext(), R.drawable.shadow_below);
         } else {
             anchor = Anchor.BOTTOM;
             parallaxOffset = PARALLAX_OFFSET_DEFAULT_BOTTOM;
-            shadowDrawable = ContextCompat.getDrawable(getContext(), R.drawable.shadow_above);
+            shadowDrawable = ViewUnit.getDrawable(getContext(), R.drawable.shadow_above);
         }
 
         dragHelper = ViewDragHelper.create(this, 0.5f, new DragHelperCallback());

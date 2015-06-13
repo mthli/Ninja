@@ -18,7 +18,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
-import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
@@ -1014,7 +1013,7 @@ public class BrowserActivity extends Activity implements BrowserController {
     @Override
     public void updateBookmarks() {
         if (currentAlbumController == null || !(currentAlbumController instanceof NinjaWebView)) {
-            omniboxBookmark.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.bookmark_selector_dark));
+            omniboxBookmark.setImageDrawable(ViewUnit.getDrawable(this, R.drawable.bookmark_selector_dark));
             return;
         }
 
@@ -1022,9 +1021,9 @@ public class BrowserActivity extends Activity implements BrowserController {
         action.open(false);
         String url = ((NinjaWebView) currentAlbumController).getUrl();
         if (action.checkBookmark(url)) {
-            omniboxBookmark.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.bookmark_selector_blue));
+            omniboxBookmark.setImageDrawable(ViewUnit.getDrawable(this, R.drawable.bookmark_selector_blue));
         } else {
-            omniboxBookmark.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.bookmark_selector_dark));
+            omniboxBookmark.setImageDrawable(ViewUnit.getDrawable(this, R.drawable.bookmark_selector_dark));
         }
         action.close();
     }
@@ -1088,9 +1087,9 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     private void updateRefresh(boolean running) {
         if (running) {
-            omniboxRefresh.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.cl_selector_dark));
+            omniboxRefresh.setImageDrawable(ViewUnit.getDrawable(this, R.drawable.cl_selector_dark));
         } else {
-            omniboxRefresh.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.refresh_selector));
+            omniboxRefresh.setImageDrawable(ViewUnit.getDrawable(this, R.drawable.refresh_selector));
         }
     }
 

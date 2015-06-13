@@ -1,7 +1,6 @@
 package io.github.mthli.Ninja.View;
 
 import android.content.Context;
-import android.support.v4.view.ViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
+import io.github.mthli.Ninja.Unit.ViewUnit;
 import org.askerov.dynamicgrid.BaseDynamicGridAdapter;
 
 import java.util.List;
@@ -50,7 +50,7 @@ public class GridAdapter extends BaseDynamicGridAdapter {
         GridItem item = list.get(position);
         holder.title.setText(item.getTitle());
         holder.cover.setImageBitmap(BrowserUnit.file2Bitmap(context, item.getFilename()));
-        ViewCompat.setElevation(view, context.getResources().getDimensionPixelSize(R.dimen.elevation_1dp));
+        ViewUnit.setElevation(view, context.getResources().getDimensionPixelSize(R.dimen.elevation_1dp));
 
         return view;
     }
