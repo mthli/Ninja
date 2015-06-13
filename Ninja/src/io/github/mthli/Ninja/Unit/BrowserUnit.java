@@ -392,8 +392,8 @@ public class BrowserUnit {
                 public void onReceiveValue(Boolean value) {}
             });
         } else {
-            CookieManager cookieManager = CookieManager.getInstance();
             CookieSyncManager cookieSyncManager = CookieSyncManager.createInstance(context);
+            CookieManager cookieManager = CookieManager.getInstance();
             cookieManager.removeAllCookie();
         }
     }
