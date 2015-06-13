@@ -44,6 +44,7 @@ public class SettingActivity extends Activity {
             default:
                 break;
         }
+
         return true;
     }
 

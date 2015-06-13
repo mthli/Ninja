@@ -138,12 +138,11 @@ public class NinjaWebView extends WebView implements AlbumController {
         webSettings.setDomStorageEnabled(true);
         webSettings.setGeolocationDatabasePath(context.getFilesDir().toString());
 
-        webSettings.setDefaultTextEncodingName(BrowserUnit.URL_ENCODING);
-
         webSettings.setSupportZoom(true);
         webSettings.setBuiltInZoomControls(true);
         webSettings.setDisplayZoomControls(false);
 
+        webSettings.setDefaultTextEncodingName(BrowserUnit.URL_ENCODING);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             webSettings.setLoadsImagesAutomatically(true);
         } else {
@@ -154,6 +153,11 @@ public class NinjaWebView extends WebView implements AlbumController {
     public synchronized void initPreferences() {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         WebSettings webSettings = getSettings();
+
+        webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setTextZoom(100);
+        webSettings.setUseWideViewPort(true);
 
         webSettings.setBlockNetworkImage(!sp.getBoolean(context.getString(R.string.sp_images), true));
         webSettings.setJavaScriptEnabled(sp.getBoolean(context.getString(R.string.sp_javascript), true));
@@ -181,11 +185,6 @@ public class NinjaWebView extends WebView implements AlbumController {
         initRendering(mode);
 
         webViewClient.enableAdBlock(sp.getBoolean(context.getString(R.string.sp_ad_block), true));
-
-        webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
-        webSettings.setLoadWithOverviewMode(true);
-        webSettings.setTextZoom(100);
-        webSettings.setUseWideViewPort(true);
     }
 
     private synchronized void initAlbum() {
@@ -223,6 +222,7 @@ public class NinjaWebView extends WebView implements AlbumController {
 
                 ColorMatrixColorFilter filter = new ColorMatrixColorFilter(concat);
                 paint.setColorFilter(filter);
+
                 break;
             } default: {
                 paint.setColorFilter(null);
@@ -240,12 +240,13 @@ public class NinjaWebView extends WebView implements AlbumController {
             NinjaToast.show(context, R.string.toast_load_error);
             return;
         }
-        url = BrowserUnit.queryWrapper(context, url.trim());
 
+        url = BrowserUnit.queryWrapper(context, url.trim());
         if (url.startsWith(BrowserUnit.URL_SCHEME_MAIL_TO)) {
             Intent intent = IntentUnit.getEmailIntent(MailTo.parse(url));
             context.startActivity(intent);
             reload();
+
             return;
         } else if (url.startsWith(BrowserUnit.URL_SCHEME_INTENT)) {
             Intent intent;
@@ -253,6 +254,7 @@ public class NinjaWebView extends WebView implements AlbumController {
                 intent = Intent.parseUri(url, Intent.URI_INTENT_SCHEME);
                 context.startActivity(intent);
             } catch (URISyntaxException u) {}
+
             return;
         }
 

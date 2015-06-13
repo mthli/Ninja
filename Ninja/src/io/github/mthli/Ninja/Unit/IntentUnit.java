@@ -23,6 +23,7 @@ public class IntentUnit {
         intent.putExtra(Intent.EXTRA_SUBJECT, mailTo.getSubject());
         intent.putExtra(Intent.EXTRA_CC, mailTo.getCc());
         intent.setType(INTENT_TYPE_MESSAGE_RFC822);
+
         return intent;
     }
 

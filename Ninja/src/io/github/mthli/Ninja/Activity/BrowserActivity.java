@@ -113,7 +113,6 @@ public class BrowserActivity extends Activity implements BrowserController {
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             filePathCallback.onReceiveValue(WebChromeClient.FileChooserParams.parseResult(resultCode, intent));
-            // filePathCallback = null;
         }
     }
 
@@ -180,10 +179,10 @@ public class BrowserActivity extends Activity implements BrowserController {
     @Override
     public void onResume() {
         super.onResume();
-
         if (create) {
             return;
         }
+
         dispatchIntent(getIntent());
 
         if (IntentUnit.isDBChange()) {
@@ -198,6 +197,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                     ((NinjaWebView) controller).initPreferences();
                 }
             }
+
             IntentUnit.setSPChange(false);
         }
     }
@@ -218,9 +218,9 @@ public class BrowserActivity extends Activity implements BrowserController {
             if (sp.getBoolean(getString(R.string.sp_first), true)) {
                 String lang;
                 if (getResources().getConfiguration().locale.getLanguage().equals("zh")) {
-                    lang = BrowserUnit.NINJA_INTRODUCTION_ZH;
+                    lang = BrowserUnit.INTRODUCTION_ZH;
                 } else {
-                    lang = BrowserUnit.NINJA_INTRODUCTION_EN;
+                    lang = BrowserUnit.INTRODUCTION_EN;
                 }
                 pinAlbums(BrowserUnit.BASE_URL + lang);
                 sp.edit().putBoolean(getString(R.string.sp_first), false).commit();
@@ -230,7 +230,6 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
     }
 
-    // TODO: change to onStop()
     @Override
     public void onPause() {
         Intent toHolderService = new Intent(this, HolderService.class);

@@ -46,6 +46,7 @@ public class RecordAction {
         values.put(RecordUnit.COLUMN_URL, record.getURL().trim());
         values.put(RecordUnit.COLUMN_TIME, record.getTime());
         database.insert(RecordUnit.TABLE_BOOKMARKS, null, values);
+
         return true;
     }
 
@@ -64,6 +65,7 @@ public class RecordAction {
         values.put(RecordUnit.COLUMN_URL, record.getURL().trim());
         values.put(RecordUnit.COLUMN_TIME, record.getTime());
         database.insert(RecordUnit.TABLE_HISTORY, null, values);
+
         return true;
     }
 
@@ -75,6 +77,7 @@ public class RecordAction {
         ContentValues values = new ContentValues();
         values.put(RecordUnit.COLUMN_DOMAIN, domain.trim());
         database.insert(RecordUnit.TABLE_WHITELIST, null, values);
+
         return true;
     }
 
@@ -96,6 +99,7 @@ public class RecordAction {
         values.put(RecordUnit.COLUMN_FILENAME, item.getFilename().trim());
         values.put(RecordUnit.COLUMN_ORDINAL, item.getOrdinal());
         database.insert(RecordUnit.TABLE_GRID, null, values);
+
         return true;
     }
 
@@ -114,6 +118,7 @@ public class RecordAction {
         values.put(RecordUnit.COLUMN_URL, record.getURL().trim());
         values.put(RecordUnit.COLUMN_TIME, record.getTime());
         database.update(RecordUnit.TABLE_BOOKMARKS, values, RecordUnit.COLUMN_TIME + "=?", new String[] {String.valueOf(record.getTime())});
+
         return true;
     }
 
@@ -135,6 +140,7 @@ public class RecordAction {
         values.put(RecordUnit.COLUMN_FILENAME, item.getFilename().trim());
         values.put(RecordUnit.COLUMN_ORDINAL, item.getOrdinal());
         database.update(RecordUnit.TABLE_GRID, values, RecordUnit.COLUMN_URL + "=?", new String[] {item.getURL()});
+
         return true;
     }
 
@@ -353,6 +359,7 @@ public class RecordAction {
         record.setTitle(cursor.getString(0));
         record.setURL(cursor.getString(1));
         record.setTime(cursor.getLong(2));
+
         return record;
     }
 
@@ -362,6 +369,7 @@ public class RecordAction {
         item.setURL(cursor.getString(1));
         item.setFilename(cursor.getString(2));
         item.setOrdinal(cursor.getInt(3));
+
         return item;
     }
 

@@ -148,6 +148,7 @@ public class ReadabilityActivity extends Activity {
             default:
                 break;
         }
+
         return true;
     }
 
@@ -159,6 +160,7 @@ public class ReadabilityActivity extends Activity {
         } else {
             header = HEADER.replace(HEADER_BACKGROUND, "#F5F5DC");
         }
+
         return (header + content).replace(DIV, DIV_CLASS_TYPO);
     }
 

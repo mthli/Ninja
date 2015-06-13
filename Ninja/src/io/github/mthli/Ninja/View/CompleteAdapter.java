@@ -48,6 +48,7 @@ public class CompleteAdapter extends BaseAdapter implements Filterable {
             FilterResults results = new FilterResults();
             results.values = resultList;
             results.count = resultList.size();
+
             return results;
         }
 
@@ -96,6 +97,7 @@ public class CompleteAdapter extends BaseAdapter implements Filterable {
             if (title == null || url == null) {
                 return 0;
             }
+
             return title.hashCode() & url.hashCode();
         }
     }

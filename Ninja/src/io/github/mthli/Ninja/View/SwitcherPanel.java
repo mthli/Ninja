@@ -274,8 +274,8 @@ public class SwitcherPanel extends ViewGroup {
                 slideRange = mainView.getMeasuredHeight() - coverHeight;
             }
         }
-        setMeasuredDimension(widthSize, heightSize);
 
+        setMeasuredDimension(widthSize, heightSize);
         keyBoardShowing = heightSize < getHeight(); ///
     }
 
@@ -303,6 +303,7 @@ public class SwitcherPanel extends ViewGroup {
 
             child.layout(left, top, right, bottom);
         }
+
         applyParallaxForCurrentSlideOffset();
     }
 
@@ -322,6 +323,7 @@ public class SwitcherPanel extends ViewGroup {
             bottom = (int) (mainView.getBottom() - dimen48dp);
             top = bottom - ((int) (ViewUnit.dp2px(getContext(), shadowHeight)));
         }
+
         shadowDrawable.setBounds(left, top, right, bottom);
         shadowDrawable.draw(canvas);
     }
@@ -381,6 +383,7 @@ public class SwitcherPanel extends ViewGroup {
             expanded();
             return true;
         }
+
         return super.onInterceptTouchEvent(event);
     }
 
@@ -392,6 +395,7 @@ public class SwitcherPanel extends ViewGroup {
         int right = left + omnibox.getWidth();
         int top = location[1];
         int bottom = top + omnibox.getHeight();
+
         return status == Status.EXPANDED
                 && left <= interceptX
                 && interceptX <= right
@@ -407,6 +411,7 @@ public class SwitcherPanel extends ViewGroup {
         int right = left + mainView.getWidth();
         int top = location[1];
         int bottom = top + mainView.getHeight();
+
         return status == Status.COLLAPSED
                 && left <= event.getRawX()
                 && event.getRawX() <= right
@@ -477,6 +482,7 @@ public class SwitcherPanel extends ViewGroup {
             ViewCompat.postInvalidateOnAnimation(this);
             return true;
         }
+
         return false;
     }
 

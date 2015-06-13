@@ -18,8 +18,8 @@ public class NotificationUnit {
 
     public static Notification.Builder getHBuilder(Context context) {
         Notification.Builder builder = new Notification.Builder(context);
-
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+
         int priority = Integer.valueOf(sp.getString(context.getString(R.string.sp_notification_priority), "0"));
         if (priority == 0) {
             builder.setPriority(Notification.PRIORITY_DEFAULT);

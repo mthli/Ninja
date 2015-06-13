@@ -83,7 +83,6 @@ public class Album {
         });
 
         albumCover = (ImageView) albumView.findViewById(R.id.album_cover);
-
         albumTitle = (TextView) albumView.findViewById(R.id.album_title);
         albumTitle.setText(context.getString(R.string.album_untitled));
     }

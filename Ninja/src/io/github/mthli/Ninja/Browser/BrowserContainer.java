@@ -16,6 +16,7 @@ public class BrowserContainer {
         if (list.get(index) instanceof NinjaWebView) {
             ((NinjaWebView) list.get(index)).destroy();
         }
+
         list.set(index, controller);
     }
 
@@ -31,6 +32,7 @@ public class BrowserContainer {
         if (list.get(index) instanceof NinjaWebView) {
             ((NinjaWebView) list.get(index)).destroy();
         }
+
         list.remove(index);
     }
 
@@ -38,6 +40,7 @@ public class BrowserContainer {
         if (controller instanceof NinjaWebView) {
             ((NinjaWebView) controller).destroy();
         }
+
         list.remove(controller);
     }
 
@@ -59,6 +62,7 @@ public class BrowserContainer {
                 ((NinjaWebView) albumController).destroy();
             }
         }
+
         list.clear();
     }
 }
