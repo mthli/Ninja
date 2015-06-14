@@ -87,6 +87,12 @@ But that is not means you could screenshot a long long long webpage(__OOM__, etc
 
 ## Q&A:
 
+### Where is the AdBlock's hosts.txt comes from?
+
+We don't use the AdBlock Plus' Easylist.
+
+The `hosts.txt` comes from [hpHosts](http://hosts-file.net/ad_servers.txt "hpHosts")
+
 ### Why no incognito mode?
 
 Incognito mode is a necessary feature for a web browser, but since `WebView(Context context, AttributeSet attrs, int defStyleAttr, boolean privateBrowsing)` was __deprecated__ in API level 17 and no longer supported, the incognito mode is __conflict__ with our UI design, so we stop it(but maybe restart to develop it someday). If you want to add incognito mode you can fork our sourse code and do it by yourself :)
