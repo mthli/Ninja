@@ -66,7 +66,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/res/values-zh-rTW/arrays.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/SearchEngineListPreference.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Database/RecordHelper.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/NinjaDownloadListener.java" />
@@ -93,8 +92,6 @@
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/ClearActivity.java" />
         <option value="$PROJECT_DIR$/res/menu/readability_menu.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/WhitelistAdapter.java" />
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/res/values/strings_key.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/IntentUnit.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/NotificationUnit.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/Album.java" />
@@ -107,7 +104,6 @@
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/TokenActivity.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/SettingActivity.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/ReadabilityActivity.java" />
-        <option value="$PROJECT_DIR$/res/values/strings_app.xml" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Fragment/SettingFragment.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/BrowserActivity.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/WhitelistActivity.java" />
@@ -117,6 +113,10 @@
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/NinjaVewDragHelper.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/View/NinjaViewDragHelper.java" />
         <option value="$PROJECT_DIR$/src/io/github/mthli/Ninja/Unit/BrowserUnit.java" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/res/values/strings_app.xml" />
+        <option value="$PROJECT_DIR$/res/values/strings_key.xml" />
+        <option value="$PROJECT_DIR$/assets/hosts.txt" />
       </list>
     </option>
   </component>
@@ -134,8 +134,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1364" />
-    <option name="height" value="741" />
+    <option name="x" value="-2" />
+    <option name="y" value="-3" />
+    <option name="width" value="1370" />
+    <option name="height" value="748" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -160,8 +162,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -180,23 +180,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ninja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ninja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -446,7 +434,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1364" height="741" extended-state="4" />
+    <frame x="-2" y="-3" width="1370" height="748" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -455,26 +443,26 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32905295" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" x="188" y="205" width="872" height="464" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2439577" sideWeight="0.5253165" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43650794" sideWeight="0.5030211" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42857143" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4272152" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32857144" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" x="14" y="105" width="1338" height="532" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41455695" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2439577" sideWeight="0.47468355" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31183612" sideWeight="0.47142857" order="0" side_tool="false" content_ui="combo" x="727" y="51" width="435" height="613" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31117824" sideWeight="0.47142857" order="0" side_tool="false" content_ui="combo" x="727" y="51" width="435" height="613" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4873016" sideWeight="0.49697885" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4873016" sideWeight="0.49697885" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42900303" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.384" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
@@ -509,27 +497,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/AdBlock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32231405">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/AlbumController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12396694">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/BrowserContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.049586777">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Browser/BrowserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2231405">
@@ -793,7 +760,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17355372">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -829,15 +795,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.52675587">
           <caret line="71" column="64" selection-start-line="71" selection-start-column="64" selection-end-line="71" selection-end-column="64" />
-          <folding>
-            <element signature="method#bound#0;class#ViewUnit#0" expanded="false" />
-            <element signature="method#capture#0;class#ViewUnit#0" expanded="false" />
-            <element signature="method#dp2px#0;class#ViewUnit#0" expanded="false" />
-            <element signature="method#getDrawable#0;class#ViewUnit#0" expanded="false" />
-            <element signature="method#getStatusBarHeight#0;class#ViewUnit#0" expanded="false" />
-            <element signature="method#getWindowHeight#0;class#ViewUnit#0" expanded="false" />
-            <element signature="method#setElevation#0;class#ViewUnit#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -852,39 +809,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.6115702">
           <caret line="198" column="5" selection-start-line="198" selection-start-column="5" selection-end-line="198" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#setFlingVelocity#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="class#Anchor#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="class#Status#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="class#StatusListener#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="class#DragHelperCallback#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#onViewPositionChanged#0;class#DragHelperCallback#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#onViewDragStateChanged#0;class#DragHelperCallback#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="class#LayoutParams#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#LayoutParams#5;class#LayoutParams#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#SwitcherPanel#2;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#generateLayoutParams#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#generateLayoutParams#1;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#checkLayoutParams#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#onMeasure#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#onLayout#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#draw#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#computeTopPosition#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#computeSlideOffset#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#computeScroll#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#onInterceptTouchEvent#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#shouldCollapsed#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#shouldExpanded#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#expanded#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#collapsed#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#fling#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#dispatchOnExpanded#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#dispatchOnCollapsed#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#dispatchOnFling#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#smoothSlideTo#0;class#SwitcherPanel#0" expanded="false" />
-            <element signature="method#applyParallaxForCurrentSlideOffset#0;class#SwitcherPanel#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -892,7 +816,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25083613">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -900,30 +823,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.548495">
           <caret line="362" column="5" selection-start-line="362" selection-start-column="5" selection-end-line="362" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#isURL#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#queryWrapper#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#urlWrapper#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#bitmap2File#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#file2Bitmap#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#copyURL#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#download#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#screenshot#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#exportBookmarks#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#exportWhitelist#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#importBookmarks#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#importWhitelist#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#clearBookmarks#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#clearCache#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#clearCookie#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="class#15536:15663" expanded="false" />
-            <element signature="method#clearHistory#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#clearPasswords#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#deleteDir#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#getBookmarkTitle#0;class#BrowserUnit#0" expanded="false" />
-            <element signature="method#getBookmarkURL#0;class#BrowserUnit#0" expanded="false" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings_key.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14876033">
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings_app.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4214876">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12396694">
+          <caret line="5" column="52" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/hosts.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8507463">
+          <caret line="44881" column="26" selection-start-line="44881" selection-start-column="26" selection-end-line="44881" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
