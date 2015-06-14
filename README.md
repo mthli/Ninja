@@ -91,7 +91,7 @@ But that is not means you could screenshot a long long long webpage(__OOM__, etc
 
 We don't use the AdBlock Plus' Easylist.
 
-The `hosts.txt` comes from [hpHosts](http://hosts-file.net/ad_servers.txt "hpHosts")
+The `hosts.txt` comes from [hpHosts](http://hosts-file.net/ad_servers.txt "hpHosts").
 
 ### Why no incognito mode?
 
