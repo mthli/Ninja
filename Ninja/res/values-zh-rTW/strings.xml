@@ -459,6 +459,9 @@
     <string name="toast_refresh_failed">
         無法刷新此頁面
     </string>
+    <string name="toast_cannot_forward">
+        不能往前走
+    </string>
     <string name="toast_relayout_successful">
         排版成功
     </string>
