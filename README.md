@@ -119,7 +119,7 @@ Just import the `Ninja` folder with your __IntelliJ IDEA__.
 
 ## Derivatives:
 
- - [UltimateBrowserProject](https://github.com/balzathor/UltimateBrowserProject "UltimateBrowserProject)
+ - [UltimateBrowserProject](https://github.com/balzathor/UltimateBrowserProject "UltimateBrowserProject")
 
 ## Thanks:
 
