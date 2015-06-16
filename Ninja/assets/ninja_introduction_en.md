@@ -55,9 +55,9 @@ To get the token you should go to [Readability Developer APIs](https://www.reada
 
 ## Screenshot:
 
-Ninja can __capture entire webpages!__
+Ninja can __capture entire webpages__!
 
-But that does not mean you could screenshot a very long webpage which may cause the browser to go __Out of Memory__ .
+But that does not mean you could screenshot a very long webpage which may cause the browser to go __Out of Memory__.
 
 ---
 

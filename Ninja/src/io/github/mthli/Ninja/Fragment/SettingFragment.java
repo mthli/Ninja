@@ -94,9 +94,15 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
         volumeControl.setSummary(summary);
 
         ucEntries = getResources().getStringArray(R.array.setting_entries_user_agent);
-        summary = ucEntries[Integer.valueOf(sp.getString(getString(R.string.sp_user_agent), "0"))];
         userAgent = (ListPreference) findPreference(getString(R.string.sp_user_agent));
-        userAgent.setSummary(summary);
+        num = Integer.valueOf(sp.getString(getString(R.string.sp_user_agent), "0"));
+        if (0 <= num && num <= 1) {
+            summary = ucEntries[num];
+            userAgent.setSummary(summary);
+        } else {
+            summary = getString(R.string.setting_summary_user_agent_custom);
+            userAgent.setSummary(summary);
+        }
 
         rdEntries = getResources().getStringArray(R.array.setting_entries_rendering);
         summary = rdEntries[Integer.valueOf(sp.getString(getString(R.string.sp_rendering), "0"))];
@@ -177,8 +183,13 @@ public class SettingFragment extends PreferenceFragment implements SharedPrefere
             String summary = vcEntries[Integer.valueOf(sp.getString(key, "1"))];
             volumeControl.setSummary(summary);
         } else if (key.equals(getString(R.string.sp_user_agent))) {
-            String summary = ucEntries[Integer.valueOf(sp.getString(key, "0"))];
-            userAgent.setSummary(summary);
+            int num = Integer.valueOf(sp.getString(key, "0"));
+            if (0 <= num && num <= 1) {
+                userAgent.setSummary(ucEntries[num]);
+            } else {
+                userAgent.setValue("2");
+                userAgent.setSummary(R.string.setting_summary_user_agent_custom);
+            }
         } else if (key.equals(getString(R.string.sp_rendering))) {
             String summary = rdEntries[Integer.valueOf(sp.getString(key, "0"))];
             rendering.setSummary(summary);

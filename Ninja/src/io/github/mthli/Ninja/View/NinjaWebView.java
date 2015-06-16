@@ -175,8 +175,10 @@ public class NinjaWebView extends WebView implements AlbumController {
         }
 
         int userAgent = Integer.valueOf(sp.getString(context.getString(R.string.sp_user_agent), "0"));
-        if (userAgent != 0) {
+        if (userAgent == 1) {
             webSettings.setUserAgentString(BrowserUnit.UA_DESKTOP);
+        } else if (userAgent == 2) {
+            webSettings.setUserAgentString(sp.getString(context.getString(R.string.sp_user_agent_custom), userAgentOriginal));
         } else {
             webSettings.setUserAgentString(userAgentOriginal);
         }
