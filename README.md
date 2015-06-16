@@ -109,11 +109,17 @@ Incognito mode is a necessary feature for a web browser, but since `WebView(Cont
 
  - Translate `strings.xml` at [this link](https://github.com/mthli/Ninja/blob/master/Ninja/res/values/strings.xml "strings.xml").
 
+ - Fix bugs and add awesome features.
+
  - Fork and pull request is welcome all time :)
 
 ## How to use the source code?
 
 Just import the `Ninja` folder with your __IntelliJ IDEA__.
+
+## Derivatives:
+
+ - [UltimateBrowserProject](https://github.com/balzathor/UltimateBrowserProject "UltimateBrowserProject)
 
 ## Thanks:
 
