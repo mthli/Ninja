@@ -29,30 +29,30 @@
         Done all
     </string>
     <string name="clear_title_quit">
-        Clear when quit
+        Clear when application exits
     </string>
     <string name="clear_title_bookmarks">
-        Clear bookmarks
+        Clear Bookmarks
     </string>
     <string name="clear_title_cache">
-        Clear cache
+        Clear Cache
     </string>
     <string name="clear_title_cookie">
-        Clear cookie
+        Clear Cookies
     </string>
     <string name="clear_title_form_data">
-        Clear form data
+        Clear Form data
     </string>
     <string name="clear_title_history">
-        Clear history
+        Clear History
     </string>
     <string name="clear_title_passwords">
-        Clear passwords
+        Clear Passwords
     </string>
 
     <!-- Dialog -->
     <string name="dialog_title_hint">
-        Input title
+        Input Title
     </string>
     <string name="dialog_se_hint">
         https://www.google.com/search?q=
@@ -73,10 +73,10 @@
         Custom
     </string>
     <string name="dialog_title_download">
-        Download
+        Do you want to download the file?
     </string>
     <string name="dialog_title_resubmission">
-        Resubmission
+        Resubmit
     </string>
     <string name="dialog_title_warning">
         Warning
@@ -102,7 +102,7 @@
         matthewlee0725@gmail.com
     </string>
     <string name="dialog_content_upload">
-        For some reasons we have no idea to upload files in Android 4.X, but in Android 5.X this function works fine. What a pity :(
+        Currently, File upload is only supported on Android 5.0 and Above.
     </string>
 
     <!-- List -->
@@ -132,7 +132,7 @@
 
     <!-- Notification -->
     <string name="notification_content_holder">
-        Click to view pages
+        Click to View Pages
     </string>
 
     <!-- Readability -->
@@ -146,7 +146,7 @@
         Share
     </string>
     <string name="readability_empty">
-        Readability load failed, maybe network connect error, Readability token error or URL error
+        Failed to load Readability, Please check your network connection.
     </string>
 
     <!-- Search -->
@@ -154,17 +154,17 @@
         Search
     </string>
 
-    <!-- Setting -->
+    <!-- Settings -->
     <string name="setting_label">
-        Setting
+        Settings
     </string>
     <!-- Browser setting -->
     <string name="setting_title_browser">
-        Browser
+        Browser Settings
     </string>
     <!-- Search engine -->
     <string name="setting_title_search_engine">
-        Search engine
+        Search Engine
     </string>
     <string name="setting_summary_search_engine_google">
         Google
@@ -173,7 +173,7 @@
         DuckDuckGo
     </string>
     <string name="setting_summary_search_engine_startpage">
-        Startpage
+        StartPage
     </string>
     <string name="setting_summary_search_engine_bing">
         Bing
@@ -186,7 +186,7 @@
     </string>
     <!-- Notification -->
     <string name="setting_title_notification_priority">
-        Notification priority
+        Notification Priority
     </string>
     <string name="setting_summary_notification_priority_default">
         Default
@@ -199,7 +199,7 @@
     </string>
     <!-- Tab switcher -->
     <string name="setting_title_tab_position">
-        Tab position
+        Tab Position
     </string>
     <string name="setting_summary_tab_position_top">
         Top
@@ -209,30 +209,30 @@
     </string>
     <!-- Volume key scroll -->
     <string name="setting_title_volume_control">
-        Volume control
+        Volume Control
     </string>
     <string name="setting_summary_vc_switch_tabs">
-        Switch tabs
+        Switch Tabs
     </string>
     <string name="setting_summary_vc_scroll_webpage">
-        Scroll webpage
+        Scroll Webpage
     </string>
     <string name="setting_summary_vc_system_default">
-        System default
+        System Default
     </string>
-    <!-- Cookie -->
+    <!-- Cookies -->
     <string name="setting_title_cookie">
-        Cookie
+        Cookies
     </string>
     <string name="setting_summary_cookie">
-        Enable cookie
+        Enable Cookies
     </string>
     <!-- Images -->
     <string name="setting_title_images">
         Images
     </string>
     <string name="setting_summary_images">
-        Enable network images
+        Enable Network images
     </string>
     <!-- JavaScript -->
     <string name="setting_title_javascript">
@@ -246,25 +246,25 @@
         Location
     </string>
     <string name="setting_summary_location">
-        Enable geolocation
+        Allow websites to access your location
     </string>
     <!-- Multiple windows -->
     <string name="setting_title_multiple_windows">
-        Multiple windows
+        Multiple Windows
     </string>
     <string name="setting_summary_multiple_windows">
-        Enable multiple windows
+        Enable Multiple windows
     </string>
     <!-- Scroll bar -->
     <string name="setting_title_scroll_bar">
-        Scroll bar
+        Scroll Bar
     </string>
     <string name="setting_summary_scroll_bar">
-        Show scroll bar in webpage
+        Show/Hide scroll bar on webpages
     </string>
     <!-- User Agent -->
     <string name="setting_title_user_agent">
-        User agent
+        User Environment
     </string>
     <string name="setting_summary_user_agent_default">
         Default
@@ -286,7 +286,7 @@
         Inverted
     </string>
     <string name="setting_summary_rendering_inverted_grayscale">
-        Inverted grayscale
+        Inverted Grayscale
     </string>
     <!-- AdBlock setting -->
     <string name="setting_title_adblock">
@@ -321,7 +321,7 @@
         Enable Readability
     </string>
     <string name="setting_summary_token">
-        Set Readability token
+        Set Readability Token
     </string>
     <!-- Data setting -->
     <string name="setting_title_data">
@@ -332,21 +332,21 @@
         Passwords
     </string>
     <string name="setting_summary_passwords">
-        Save passwords
+        Save Passwords
     </string>
     <!-- Bookmarks -->
     <string name="setting_title_export_bookmarks">
-        Export bookmarks
+        Export Bookmarks
     </string>
     <string name="setting_title_import_bookmarks">
-        Import bookmarks
+        Import Bookmarks
     </string>
     <string name="bookmarks_filename">
         NinjaBookmarks
     </string>
     <!-- Clear -->
     <string name="setting_title_clear_control">
-        Clear control
+        Clear Control
     </string>
     <!-- Others setting -->
     <string name="setting_title_others">
@@ -362,27 +362,27 @@
     </string>
     <!-- Contact -->
     <string name="setting_title_donation">
-        Donation
+        Donate
     </string>
 
     <!-- Toast -->
     <string name="toast_add_bookmark_successful">
-        Add bookmark successful
+        Bookmark Successfully Added
     </string>
     <string name="toast_add_bookmark_failed">
         Can\'t add this page to bookmark
     </string>
     <string name="toast_add_to_home_successful">
-        Add to home successful
+        Successfully added to Home
     </string>
     <string name="toast_add_to_home_failed">
-        Add to home failed
+        Failed to add to Home
     </string>
     <string name="toast_add_token_successful">
-        Add Readability token successful
+        Successfully added Readability API
     </string>
     <string name="toast_add_whitelist_successful">
-        Add domain successful
+        Successfully added Domain
     </string>
     <string name="toast_already_at_the_front">
         Already at the front
@@ -391,49 +391,49 @@
         Already exist in home
     </string>
     <string name="toast_clear_successful">
-        Clear successful
+        Successfully Cleared
     </string>
     <string name="toast_clear_failed">
-        Clear failed
+        Failed to Clear
     </string>
     <string name="toast_copy_successful">
-        Copy successful
+        Successfully Copied
     </string>
     <string name="toast_delete_bookmark_successful">
-        Delete bookmark successful
+        Successfully Deleted Bookmark
     </string>
     <string name="toast_delete_successful">
-        Delete successful
+        Successfully Deleted
     </string>
     <string name="toast_domain_already_exists">
         Domain already exists
     </string>
     <string name="toast_double_taps_quit">
-        Double taps quit
+        Press again to exit
     </string>
     <string name="toast_export_bookmarks_successful">
-        Export bookmarks file at:&#160;
+        Exported bookmarks file at:&#160;
     </string>
     <string name="toast_export_bookmarks_failed">
-        Export bookmarks failed
+        Failed to export Bookmarks
     </string>
     <string name="toast_export_whitelist_successful">
-        Export whitelist file at:&#160;
+        Exported whitelist file at:&#160;
     </string>
     <string name="toast_export_whitelist_failed">
-        Export whitelist failed
+        Failed to export Whitelist
     </string>
     <string name="toast_import_bookmarks_successful">
-        Import bookmarks count:&#160;
+        Imported bookmarks count:&#160;
     </string>
     <string name="toast_import_bookmarks_failed">
-        Import bookmarks failed
+        Failed to import Bookmarks
     </string>
     <string name="toast_import_whitelist_successful">
-        Import domains count:&#160;
+        Imported domains count:&#160;
     </string>
     <string name="toast_import_whitelist_failed">
-        Import whitelist failed
+        Failed to import Whitelist
     </string>
     <string name="toast_input_empty">
         You haven\'t input anything
@@ -445,40 +445,40 @@
         Can\'t load this URL
     </string>
     <string name="toast_load_in_background">
-        Load in background
+        Loading in background
     </string>
     <string name="toast_need_restart">
-        Need restart
+        Please restart the application for changes to take effect
     </string>
     <string name="toast_new_tab_successful">
-        Open in new tab successful
+        Successfully opened in a new tab
     </string>
     <string name="toast_open_file_manager_failed">
-        Open file manager failed
+        Failed to open File Manager
     </string>
     <string name="toast_refresh_failed">
         Can\'t refresh this page
     </string>
     <string name="toast_relayout_successful">
-        Relayout successful
+        Successfully Relayout
     </string>
     <string name="toast_screenshot_successful">
-        Save screenshot at:&#160;
+        Saved screenshot at:&#160;
     </string>
     <string name="toast_screenshot_failed">
-        Screenshot failed
+        Failed to capture Screenshot
     </string>
     <string name="toast_share_failed">
         Can\'t share this page
     </string>
     <string name="toast_start_download">
-        Start download
+        Starting download
     </string>
     <string name="toast_token_empty">
         Please set Readability token
     </string>
     <string name="toast_wait_a_minute">
-        Wait a minute
+        Please wait for a moment
     </string>
 
     <!-- Token -->
