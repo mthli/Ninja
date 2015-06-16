@@ -3,21 +3,21 @@ Ninja introduction
 
 __The author has to prepare for the final exam, so MAYBE pause updates__.
 
-Basically Ninja is a simple web browser like any others, but there are some different things you need to know:
+Basically Ninja is a simple web browser like any other, but there are some different things you need to know:
 
 ### Custom home:
 
- - First login Ninja, home show as `about:blank`.
+ - On the applications first start, home page shows as `about:blank`.
 
- - Use the overflow menu's __Add to home__ to pin webpages.
+ - Use the overflow menu's __Add to home__ to pin webpages to Homepage.
 
- - Use the overflow menu's __Relayout__ to custom your home.
+ - Use the overflow menu's __Relayout__ to customize your homepage layout.
 
- - __Long press__ on a card of home, you can edit it title.
+ - __Long press__ on a card on the homepage, and you can edit the title.
 
 ## Switch tabs:
 
- - You can set tab switcher position in __screen top or screen bottom__ at `Setting/Browser/Tab position`.
+ - You can set tab switcher position to be at the __screen top or screen bottom__ at `Settings/Browser/Tab position`.
 
  - Press the __address bar__ and __drag it down or up__, then the fashion tab switcher will display.
 
@@ -27,15 +27,15 @@ __Remember__ that if the soft keyboard is shown the tab switcher would not displ
 
 ## Load in background when you click links in other App:
 
- 1. Set Ninja as your __default browser__ when click links.
+ 1. Set Ninja as your __default browser__ when the link is clicked.
 
- 2. __Single tap__ will open links in background, and show a clickable notification in statusbar.
+ 2. __Single tap__ will open the links in the background, and show a clickable notification in the statusbar.
 
- 3. __Double taps__ will show a dialog that allows you to open links in foreground, etc.
+ 3. __Double tap__ will show a dialog that allows you to open links in foreground, etc.
 
 ## Volume control:
 
-In `Setting/Browser/Volume control` you can set the volume keys behavior:
+In `Settings/Browser/Volume control` you can set the volume keys behavior to:
 
  - Switch tabs.
 
@@ -45,19 +45,19 @@ In `Setting/Browser/Volume control` you can set the volume keys behavior:
 
 ## AdBlock whitelist:
 
-Since AdBlick maybe cause some websites display error, you can add they to `Setting/AdBlock/Whitelist`.
+Since AdBlock maybe cause some websites display error, you can add those websites to the whitelist `Settings/AdBlock/Whitelist`.
 
 ## Readability:
 
-Ninja support read mode but it need __the token of Readability__.
+Ninja supports read mode but it needs __Readability API Token__.
 
-To get the token you should go to [Readability Developer APIs](https://www.readability.com/developers/api "Readability Developer APIs") to get your own token and set it in `Setting/Readability/Token`.
+To get the token you should go to [Readability Developer APIs](https://www.readability.com/developers/api "Readability Developer APIs") and set it in `Settings/Readability/Token`.
 
 ## Screenshot:
 
-Ninja supports __capture entire webpage__ function.
+Ninja can __capture entire webpages!__
 
-But that is not means you could screenshot a long long long webpage(__OOM__, etc).
+But that does not mean you could screenshot a very long webpage which may cause the browser to go __Out of Memory__ .
 
 ---
 
