@@ -14,8 +14,8 @@ public class SwipeToDismissListener implements View.OnTouchListener {
     private View view;
     private Object token;
     private DismissCallback callback;
-    private int viewHeight = 1;
 
+    private int viewHeight = 1;
     private int slop;
     private int minFlingVelocity;
     private int maxFlingVelocity;

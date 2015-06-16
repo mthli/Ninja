@@ -83,7 +83,7 @@
                   android:orientation="vertical"
                   android:layout_width="match_parent"
                   android:layout_height="match_parent"
-                  android:background="@color/white">
+                  android:background="@color/background_dark">
 
         <RelativeLayout android:id="@+id/main_omnibox"
                         android:layout_width="match_parent"
@@ -255,7 +255,8 @@
 
         <FrameLayout android:id="@+id/main_content"
                      android:layout_width="match_parent"
-                     android:layout_height="match_parent">
+                     android:layout_height="match_parent"
+                     android:background="@color/white">
         </FrameLayout>
 
     </LinearLayout>

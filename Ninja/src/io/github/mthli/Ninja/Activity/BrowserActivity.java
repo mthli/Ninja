@@ -20,7 +20,9 @@ import android.os.Message;
 import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.Html;
+import android.text.InputType;
 import android.text.TextWatcher;
+import android.text.method.KeyListener;
 import android.view.*;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -339,7 +341,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
         if (keyCode == KeyEvent.KEYCODE_VOLUME_UP || keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
             SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-            int vc = Integer.valueOf(sp.getString(getString(R.string.sp_volume), "0"));
+            int vc = Integer.valueOf(sp.getString(getString(R.string.sp_volume), "1"));
             if (vc != 2) {
                 return true;
             }
@@ -393,6 +395,35 @@ public class BrowserActivity extends Activity implements BrowserController {
         omniboxRefresh = (ImageButton) findViewById(R.id.main_omnibox_refresh);
         omniboxOverflow = (ImageButton) findViewById(R.id.main_omnibox_overflow);
         progressBar = (ProgressBar) findViewById(R.id.main_progress_bar);
+
+        inputBox.setOnTouchListener(new SwipeToBoundListener(omnibox, new SwipeToBoundListener.BoundCallback() {
+            private KeyListener keyListener = inputBox.getKeyListener();
+
+            @Override
+            public boolean canSwipe() {
+                return !switcherPanel.isKeyBoardShowing();
+            }
+
+            @Override
+            public void onSwipe() {
+                inputBox.setKeyListener(null);
+                inputBox.setFocusable(false);
+                inputBox.setFocusableInTouchMode(false);
+                inputBox.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+            }
+
+            @Override
+            public void onBound(boolean left) {
+                inputBox.setKeyListener(keyListener);
+                inputBox.setFocusable(true);
+                inputBox.setFocusableInTouchMode(true);
+                inputBox.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+
+                AlbumController controller = nextAlbumController(left);
+                showAlbum(controller, false, false, true);
+                NinjaToast.show(BrowserActivity.this, controller.getAlbumTitle());
+            }
+        }));
 
         inputBox.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -1284,12 +1315,17 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     private boolean onKeyCodeVolumeUp() {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        int vc = Integer.valueOf(sp.getString(getString(R.string.sp_volume), "0"));
+        int vc = Integer.valueOf(sp.getString(getString(R.string.sp_volume), "1"));
 
         if (vc == 0) { // Switch tabs
+            if (switcherPanel.isKeyBoardShowing()) {
+                return true;
+            }
+
             AlbumController controller = nextAlbumController(false);
             showAlbum(controller, false, false, true);
             NinjaToast.show(this, controller.getAlbumTitle());
+
             return true;
         } else if (vc == 1 && currentAlbumController instanceof NinjaWebView) { // Scroll webpage
             NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
@@ -1300,6 +1336,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             ObjectAnimator anim = ObjectAnimator.ofInt(ninjaWebView, "scrollY", scrollY, scrollY - distance);
             anim.setDuration(mediumAnimTime);
             anim.start();
+
             return true;
         }
 
@@ -1308,12 +1345,17 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     private boolean onKeyCodeVolumeDown() {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        int vc = Integer.valueOf(sp.getString(getString(R.string.sp_volume), "0"));
+        int vc = Integer.valueOf(sp.getString(getString(R.string.sp_volume), "1"));
 
         if (vc == 0) { // Switch tabs
+            if (switcherPanel.isKeyBoardShowing()) {
+                return true;
+            }
+
             AlbumController controller = nextAlbumController(true);
             showAlbum(controller, false, false, true);
             NinjaToast.show(this, controller.getAlbumTitle());
+
             return true;
         } else if (vc == 1 && currentAlbumController instanceof NinjaWebView) {
             NinjaWebView ninjaWebView = (NinjaWebView) currentAlbumController;
@@ -1325,6 +1367,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             ObjectAnimator anim = ObjectAnimator.ofInt(ninjaWebView, "scrollY", scrollY, scrollY + distance);
             anim.setDuration(mediumAnimTime);
             anim.start();
+
             return true;
         }
 
