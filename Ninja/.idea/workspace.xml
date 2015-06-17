@@ -45,8 +45,8 @@
       <file leaf-file-name="BrowserActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/BrowserActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="205" column="47" selection-start-line="205" selection-start-column="47" selection-end-line="205" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.27363184">
+              <caret line="411" column="38" selection-start-line="411" selection-start-column="38" selection-end-line="411" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="false" />
                 <element signature="class#VideoCompletionListener#0;class#BrowserActivity#0" expanded="false" />
@@ -62,25 +62,24 @@
                 <element signature="method#onKeyDown#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#onKeyUp#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#initSwitcherView#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="method#initOmnibox#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#initHomeGrid#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#initBHList#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#initSearchPanel#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="class#24855:25438" expanded="false" />
-                <element signature="method#beforeTextChanged#0;class#24855:25438" expanded="false" />
-                <element signature="method#onTextChanged#0;class#24855:25438" expanded="false" />
-                <element signature="method#afterTextChanged#0;class#24855:25438" expanded="false" />
+                <element signature="class#24775:25358" expanded="false" />
+                <element signature="method#beforeTextChanged#0;class#24775:25358" expanded="false" />
+                <element signature="method#onTextChanged#0;class#24775:25358" expanded="false" />
+                <element signature="method#afterTextChanged#0;class#24775:25358" expanded="false" />
                 <element signature="method#addAlbum#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="class#29553:30004" expanded="false" />
-                <element signature="method#onAnimationRepeat#0;class#29553:30004" expanded="false" />
+                <element signature="class#29473:29924" expanded="false" />
+                <element signature="method#onAnimationRepeat#0;class#29473:29924" expanded="false" />
                 <element signature="method#addAlbum#1;class#BrowserActivity#0" expanded="false" />
-                <element signature="class#31768:32579" expanded="false" />
-                <element signature="method#onAnimationRepeat#0;class#31768:32579" expanded="false" />
-                <element signature="method#onAnimationEnd#0;class#31768:32579" expanded="false" />
+                <element signature="class#31688:32499" expanded="false" />
+                <element signature="method#onAnimationRepeat#0;class#31688:32499" expanded="false" />
+                <element signature="method#onAnimationEnd#0;class#31688:32499" expanded="false" />
                 <element signature="method#pinAlbums#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#showAlbum#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="class#36619:37064" expanded="false" />
-                <element signature="method#onAnimationStart#0;class#36619:37064" expanded="false" />
+                <element signature="class#36539:36984" expanded="false" />
+                <element signature="method#onAnimationStart#0;class#36539:36984" expanded="false" />
                 <element signature="method#updateAlbum#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#updateAlbum#1;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#removeAlbum#0;class#BrowserActivity#0" expanded="false" />
@@ -91,7 +90,7 @@
                 <element signature="method#updateProgress#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#updateRefresh#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#openFileChooser#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="e#46194#46243#0" expanded="false" />
+                <element signature="e#46114#46163#0" expanded="false" />
                 <element signature="method#showFileChooser#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#onCreateView#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#onShowCustomView#0;class#BrowserActivity#0" expanded="false" />
@@ -107,8 +106,8 @@
                 <element signature="method#hideSearchPanel#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#showSearchPanel#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#showOverflow#0;class#BrowserActivity#0" expanded="false" />
-                <element signature="class#66054:67906" expanded="false" />
-                <element signature="method#onDragPositionsChanged#0;class#66054:67906" expanded="false" />
+                <element signature="class#65974:67826" expanded="false" />
+                <element signature="method#onDragPositionsChanged#0;class#65974:67826" expanded="false" />
                 <element signature="method#showGridMenu#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#showListMenu#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#showEditDialog#0;class#BrowserActivity#0" expanded="false" />
@@ -577,26 +576,26 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32905295" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" x="349" y="233" width="872" height="464" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2439577" sideWeight="0.5253165" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43650794" sideWeight="0.5030211" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.528481" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.52698416" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32857144" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" x="14" y="105" width="1338" height="532" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4141252" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2439577" sideWeight="0.47468355" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.31042296" sideWeight="0.47142857" order="0" side_tool="false" content_ui="combo" x="744" y="86" width="435" height="599" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47936508" sideWeight="0.49697885" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4799358" sideWeight="0.49697885" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42900303" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3809524" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
@@ -617,7 +616,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/BrowserActivity.java</url>
-          <line>1473</line>
+          <line>1472</line>
           <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
@@ -1039,8 +1038,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/mthli/Ninja/Activity/BrowserActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="205" column="47" selection-start-line="205" selection-start-column="47" selection-end-line="205" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.27363184">
+          <caret line="411" column="38" selection-start-line="411" selection-start-column="38" selection-end-line="411" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="false" />
             <element signature="class#VideoCompletionListener#0;class#BrowserActivity#0" expanded="false" />
@@ -1056,25 +1055,24 @@
             <element signature="method#onKeyDown#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#onKeyUp#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#initSwitcherView#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="method#initOmnibox#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#initHomeGrid#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#initBHList#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#initSearchPanel#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#24855:25438" expanded="false" />
-            <element signature="method#beforeTextChanged#0;class#24855:25438" expanded="false" />
-            <element signature="method#onTextChanged#0;class#24855:25438" expanded="false" />
-            <element signature="method#afterTextChanged#0;class#24855:25438" expanded="false" />
+            <element signature="class#24775:25358" expanded="false" />
+            <element signature="method#beforeTextChanged#0;class#24775:25358" expanded="false" />
+            <element signature="method#onTextChanged#0;class#24775:25358" expanded="false" />
+            <element signature="method#afterTextChanged#0;class#24775:25358" expanded="false" />
             <element signature="method#addAlbum#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#29553:30004" expanded="false" />
-            <element signature="method#onAnimationRepeat#0;class#29553:30004" expanded="false" />
+            <element signature="class#29473:29924" expanded="false" />
+            <element signature="method#onAnimationRepeat#0;class#29473:29924" expanded="false" />
             <element signature="method#addAlbum#1;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#31768:32579" expanded="false" />
-            <element signature="method#onAnimationRepeat#0;class#31768:32579" expanded="false" />
-            <element signature="method#onAnimationEnd#0;class#31768:32579" expanded="false" />
+            <element signature="class#31688:32499" expanded="false" />
+            <element signature="method#onAnimationRepeat#0;class#31688:32499" expanded="false" />
+            <element signature="method#onAnimationEnd#0;class#31688:32499" expanded="false" />
             <element signature="method#pinAlbums#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#showAlbum#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#36619:37064" expanded="false" />
-            <element signature="method#onAnimationStart#0;class#36619:37064" expanded="false" />
+            <element signature="class#36539:36984" expanded="false" />
+            <element signature="method#onAnimationStart#0;class#36539:36984" expanded="false" />
             <element signature="method#updateAlbum#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#updateAlbum#1;class#BrowserActivity#0" expanded="false" />
             <element signature="method#removeAlbum#0;class#BrowserActivity#0" expanded="false" />
@@ -1085,7 +1083,7 @@
             <element signature="method#updateProgress#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#updateRefresh#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#openFileChooser#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="e#46194#46243#0" expanded="false" />
+            <element signature="e#46114#46163#0" expanded="false" />
             <element signature="method#showFileChooser#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#onCreateView#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#onShowCustomView#0;class#BrowserActivity#0" expanded="false" />
@@ -1101,8 +1099,8 @@
             <element signature="method#hideSearchPanel#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#showSearchPanel#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#showOverflow#0;class#BrowserActivity#0" expanded="false" />
-            <element signature="class#66054:67906" expanded="false" />
-            <element signature="method#onDragPositionsChanged#0;class#66054:67906" expanded="false" />
+            <element signature="class#65974:67826" expanded="false" />
+            <element signature="method#onDragPositionsChanged#0;class#65974:67826" expanded="false" />
             <element signature="method#showGridMenu#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#showListMenu#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#showEditDialog#0;class#BrowserActivity#0" expanded="false" />

@@ -410,7 +410,6 @@ public class BrowserActivity extends Activity implements BrowserController {
                 inputBox.setFocusable(false);
                 inputBox.setFocusableInTouchMode(false);
                 inputBox.clearFocus();
-                inputBox.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
             }
 
             @Override
@@ -418,8 +417,8 @@ public class BrowserActivity extends Activity implements BrowserController {
                 inputBox.setKeyListener(keyListener);
                 inputBox.setFocusable(true);
                 inputBox.setFocusableInTouchMode(true);
-                inputBox.clearFocus();
                 inputBox.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+                inputBox.clearFocus();
 
                 AlbumController controller = nextAlbumController(left);
                 showAlbum(controller, false, false, true);
