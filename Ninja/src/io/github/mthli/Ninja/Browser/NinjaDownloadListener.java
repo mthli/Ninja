@@ -1,5 +1,6 @@
 package io.github.mthli.Ninja.Browser;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -7,6 +8,7 @@ import android.webkit.DownloadListener;
 import android.webkit.URLUtil;
 import io.github.mthli.Ninja.R;
 import io.github.mthli.Ninja.Unit.BrowserUnit;
+import io.github.mthli.Ninja.Unit.IntentUnit;
 
 public class NinjaDownloadListener implements DownloadListener {
     private Context context;
@@ -18,7 +20,13 @@ public class NinjaDownloadListener implements DownloadListener {
 
     @Override
     public void onDownloadStart(final String url, String userAgent, final String contentDisposition, final String mimeType, long contentLength) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        final Context holder = IntentUnit.getContext();
+        if (holder == null || !(holder instanceof Activity)) {
+            BrowserUnit.download(context, url, contentDisposition, mimeType);
+            return;
+        }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(holder);
         builder.setCancelable(false);
 
         builder.setTitle(R.string.dialog_title_download);
@@ -27,7 +35,7 @@ public class NinjaDownloadListener implements DownloadListener {
         builder.setPositiveButton(R.string.dialog_button_positive, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                BrowserUnit.download(context, url, contentDisposition, mimeType);
+                BrowserUnit.download(holder, url, contentDisposition, mimeType);
             }
         });
 

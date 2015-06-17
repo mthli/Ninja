@@ -1,5 +1,6 @@
 package io.github.mthli.Ninja.Browser;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -131,7 +132,12 @@ public class NinjaWebViewClient extends WebViewClient {
 
     @Override
     public void onFormResubmission(WebView view, @NonNull final Message dontResend, final Message resend) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        Context holder = IntentUnit.getContext();
+        if (holder == null || !(holder instanceof Activity)) {
+            return;
+        }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(holder);
         builder.setCancelable(false);
         builder.setTitle(R.string.dialog_title_resubmission);
         builder.setMessage(R.string.dialog_content_resubmission);
@@ -153,7 +159,12 @@ public class NinjaWebViewClient extends WebViewClient {
 
     @Override
     public void onReceivedSslError(WebView view, @NonNull final SslErrorHandler handler, SslError error) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        Context holder = IntentUnit.getContext();
+        if (holder == null || !(holder instanceof Activity)) {
+            return;
+        }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(holder);
         builder.setCancelable(false);
         builder.setTitle(R.string.dialog_title_warning);
         builder.setMessage(R.string.dialog_content_ssl_error);
@@ -180,11 +191,16 @@ public class NinjaWebViewClient extends WebViewClient {
 
     @Override
     public void onReceivedHttpAuthRequest(WebView view, @NonNull final HttpAuthHandler handler, String host, String realm) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        Context holder = IntentUnit.getContext();
+        if (holder == null || !(holder instanceof Activity)) {
+            return;
+        }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(holder);
         builder.setCancelable(false);
         builder.setTitle(R.string.dialog_title_sign_in);
 
-        LinearLayout signInLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.dialog_sign_in, null, false);
+        LinearLayout signInLayout = (LinearLayout) LayoutInflater.from(holder).inflate(R.layout.dialog_sign_in, null, false);
         final EditText userEdit = (EditText) signInLayout.findViewById(R.id.dialog_sign_in_username);
         final EditText passEdit = (EditText) signInLayout.findViewById(R.id.dialog_sign_in_password);
         passEdit.setTypeface(Typeface.DEFAULT);

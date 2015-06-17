@@ -84,7 +84,7 @@ public class NinjaWebView extends WebView implements AlbumController {
         this.album = new Album(this.context, this, this.browserController);
         this.webViewClient = new NinjaWebViewClient(this);
         this.webChromeClient = new NinjaWebChromeClient(this);
-        this.downloadListener = new NinjaDownloadListener(this.context);
+        this.downloadListener = new NinjaDownloadListener(this.context); // TODO
         this.clickHandler = new NinjaClickHandler(this);
         this.gestureDetector = new GestureDetector(context, new NinjaGestureListener(this));
 
@@ -166,6 +166,7 @@ public class NinjaWebView extends WebView implements AlbumController {
         webSettings.setSupportMultipleWindows(sp.getBoolean(context.getString(R.string.sp_multiple_windows), false));
         webSettings.setSaveFormData(sp.getBoolean(context.getString(R.string.sp_passwords), true));
 
+        // TODO
         if (sp.getBoolean(context.getString(R.string.sp_scroll_bar), true)) {
             setHorizontalScrollBarEnabled(true);
             setVerticalScrollBarEnabled(true);

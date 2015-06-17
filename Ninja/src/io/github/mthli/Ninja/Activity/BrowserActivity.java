@@ -184,6 +184,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             return;
         }
 
+        IntentUnit.setContext(this);
         dispatchIntent(getIntent());
 
         if (IntentUnit.isDBChange()) {
@@ -252,6 +253,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             }
         }
 
+        IntentUnit.setContext(this);
         super.onPause();
     }
 
@@ -268,6 +270,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         }
 
         BrowserContainer.clear();
+        IntentUnit.setContext(null);
         super.onDestroy();
         System.exit(0); // For remove all WebView thread
     }
@@ -811,6 +814,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         albumView.startAnimation(animation);
     }
 
+    // TODO: decrease expense when onResume()
     private synchronized void pinAlbums(String url) {
         hideSoftInput(inputBox);
         hideSearchPanel();

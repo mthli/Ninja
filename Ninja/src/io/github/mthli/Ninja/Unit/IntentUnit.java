@@ -34,6 +34,15 @@ public class IntentUnit {
         context.startActivity(intent);
     }
 
+    // Activity holder
+    private static Context context = null;
+    public static void setContext(Context holder) {
+        context = holder;
+    }
+    public static Context getContext() {
+        return context;
+    }
+
     private static boolean clear = false;
     public static boolean isClear() {
         return clear;
