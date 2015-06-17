@@ -432,7 +432,7 @@ public class BrowserActivity extends Activity implements BrowserController {
         inputBox.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (currentAlbumController == null || !(actionId == EditorInfo.IME_ACTION_DONE)) {
+                if (currentAlbumController == null) { // || !(actionId == EditorInfo.IME_ACTION_DONE)
                     return false;
                 }
 
