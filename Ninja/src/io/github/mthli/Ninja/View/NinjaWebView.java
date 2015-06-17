@@ -108,6 +108,8 @@ public class NinjaWebView extends WebView implements AlbumController {
 
         setFocusable(true);
         setFocusableInTouchMode(true);
+        setHorizontalScrollBarEnabled(false);
+        setVerticalScrollBarEnabled(false);
         setScrollbarFadingEnabled(true);
 
         setWebViewClient(webViewClient);
@@ -165,15 +167,6 @@ public class NinjaWebView extends WebView implements AlbumController {
         webSettings.setGeolocationEnabled(sp.getBoolean(context.getString(R.string.sp_location), true));
         webSettings.setSupportMultipleWindows(sp.getBoolean(context.getString(R.string.sp_multiple_windows), false));
         webSettings.setSaveFormData(sp.getBoolean(context.getString(R.string.sp_passwords), true));
-
-        // TODO
-        if (sp.getBoolean(context.getString(R.string.sp_scroll_bar), true)) {
-            setHorizontalScrollBarEnabled(true);
-            setVerticalScrollBarEnabled(true);
-        } else {
-            setHorizontalScrollBarEnabled(false);
-            setVerticalScrollBarEnabled(false);
-        }
 
         int userAgent = Integer.valueOf(sp.getString(context.getString(R.string.sp_user_agent), "0"));
         if (userAgent == 1) {
@@ -325,6 +318,16 @@ public class NinjaWebView extends WebView implements AlbumController {
 
         setAlbumCover(ViewUnit.capture(this, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
         if (isLoadFinish()) {
+            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+            if (sp.getBoolean(context.getString(R.string.sp_scroll_bar), true)) {
+                setHorizontalScrollBarEnabled(true);
+                setVerticalScrollBarEnabled(true);
+            } else {
+                setHorizontalScrollBarEnabled(false);
+                setVerticalScrollBarEnabled(false);
+            }
+            setScrollbarFadingEnabled(true);
+
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
