@@ -180,11 +180,11 @@ public class BrowserActivity extends Activity implements BrowserController {
     @Override
     public void onResume() {
         super.onResume();
+        IntentUnit.setContext(this);
         if (create) {
             return;
         }
 
-        IntentUnit.setContext(this);
         dispatchIntent(getIntent());
 
         if (IntentUnit.isDBChange()) {
