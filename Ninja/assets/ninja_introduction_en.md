@@ -23,6 +23,8 @@ Basically Ninja is a simple web browser like any other, but there are some diffe
 
  - __Swipe up/down__ to dimiss a page.
 
+ - Or just __swipe the omnibox left/right__ to swicth tabs :)
+
 __Remember__ that if the soft keyboard is shown the tab switcher would not display, it's our design :)
 
 ## Load in background when you click links in other App:
@@ -61,4 +63,4 @@ But that does not mean you could screenshot a very long webpage which may cause 
 
 ---
 
-_2015.06.11 Matthew Lee_
+_2015.06.17 Matthew Lee_
