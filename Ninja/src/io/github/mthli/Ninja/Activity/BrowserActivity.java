@@ -227,7 +227,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 pinAlbums(BrowserUnit.BASE_URL + lang);
                 sp.edit().putBoolean(getString(R.string.sp_first), false).commit();
             } else {
-                pinAlbums(null);
+                pinAlbums(null); ///
             }
         }
     }
