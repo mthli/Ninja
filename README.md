@@ -61,7 +61,7 @@ Basically Ninja is a simple web browser like any others, but there are some diff
 
  - Or just __swipe the omnibox left/right__ to switch tab :)
 
-The __Settings__ is located in the bottom left of tab switcher, the __gear__ icon.
+The __Settings__ is located in the top or bottom left of tab switcher, the __gear__ icon.
 
 __Remember__ that if the soft keyboard is shown the tab switcher would not works, it's our design :)
 
