@@ -1,13 +1,13 @@
 Ninja
 ===
 
-![background.png](/Art/screenshot/en/background.png "background.png")
+![background.png](/Art/screenshot/background.png "background.png")
 
-A web browser that open links in background without ever leaving your favorite apps.
+Yet another web browser for Android.
 
 [Ninja in Coolapk](http://coolapk.com/apk/io.github.mthli.Ninja "Ninja in Cookapk")
 
-[Download latest Ninja.apk](https://github.com/mthli/Ninja/releases/download/v1.3.0/Ninja.1.3.0.apk "Ninja.1.3.0.apk")
+[Download latest Ninja.apk](https://github.com/mthli/Ninja/releases/download/v1.3.2/Ninja.1.3.2.apk "Ninja.1.3.2.apk")
 
 __SUPPORT: Android 4.1+__
 
@@ -61,6 +61,8 @@ Basically Ninja is a simple web browser like any others, but there are some diff
 
  - Or just __swipe the omnibox left/right__ to switch tab :)
 
+The __Settings__ is located in the bottom left of tab switcher, the __gear__ icon.
+
 __Remember__ that if the soft keyboard is shown the tab switcher would not works, it's our design :)
 
 ### Load in background when you click links in other App:
@@ -101,7 +103,7 @@ Incognito mode is a necessary feature for a web browser, but since `WebView(Cont
 
 ### Why not Google Play?
 
-![reject.png](/Art/info/en/reject.png "reject.png")
+![reject.png](/Art/info/reject.png "reject.png")
 
 ### What can I do for Ninja?
 
