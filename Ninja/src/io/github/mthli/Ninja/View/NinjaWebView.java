@@ -71,8 +71,7 @@ public class NinjaWebView extends WebView implements AlbumController {
     }
 
     public NinjaWebView(Context context) {
-        // Cannot create a dialog, the WebView context is not an Activity.
-        super(context);
+        super(context); // Cannot create a dialog, the WebView context is not an Activity
 
         this.context = context;
         this.dimen144dp = getResources().getDimensionPixelSize(R.dimen.layout_width_144dp);
@@ -84,7 +83,7 @@ public class NinjaWebView extends WebView implements AlbumController {
         this.album = new Album(this.context, this, this.browserController);
         this.webViewClient = new NinjaWebViewClient(this);
         this.webChromeClient = new NinjaWebChromeClient(this);
-        this.downloadListener = new NinjaDownloadListener(this.context); // TODO
+        this.downloadListener = new NinjaDownloadListener(this.context);
         this.clickHandler = new NinjaClickHandler(this);
         this.gestureDetector = new GestureDetector(context, new NinjaGestureListener(this));
 

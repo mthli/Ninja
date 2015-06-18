@@ -33,6 +33,7 @@ import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.*;
+import io.github.mthli.Ninja.Browser.AdBlock;
 import io.github.mthli.Ninja.Browser.AlbumController;
 import io.github.mthli.Ninja.Browser.BrowserContainer;
 import io.github.mthli.Ninja.Browser.BrowserController;
@@ -164,10 +165,10 @@ public class BrowserActivity extends Activity implements BrowserController {
         initSwitcherView();
         initOmnibox();
         initSearchPanel();
-
         relayoutOK = (Button) findViewById(R.id.main_relayout_ok);
         contentFrame = (FrameLayout) findViewById(R.id.main_content);
 
+        new AdBlock(this); // For AdBlock cold boot
         dispatchIntent(getIntent());
     }
 
@@ -227,7 +228,7 @@ public class BrowserActivity extends Activity implements BrowserController {
                 pinAlbums(BrowserUnit.BASE_URL + lang);
                 sp.edit().putBoolean(getString(R.string.sp_first), false).commit();
             } else {
-                pinAlbums(null); ///
+                pinAlbums(null);
             }
         }
     }
@@ -814,12 +815,11 @@ public class BrowserActivity extends Activity implements BrowserController {
         albumView.startAnimation(animation);
     }
 
-    // TODO: decrease expense when onResume()
     private synchronized void pinAlbums(String url) {
         hideSoftInput(inputBox);
         hideSearchPanel();
         switcherContainer.removeAllViews();
-        contentFrame.removeAllViews();
+        // contentFrame.removeAllViews();
 
         for (AlbumController controller : BrowserContainer.list()) {
             if (controller instanceof NinjaWebView) {
@@ -835,12 +835,14 @@ public class BrowserActivity extends Activity implements BrowserController {
         if (BrowserContainer.size() < 1 && url == null) {
             addAlbum(BrowserUnit.FLAG_HOME);
         } else if (BrowserContainer.size() >= 1 && url == null) {
-            int index = BrowserContainer.size() - 1;
             if (currentAlbumController != null) {
-                index = BrowserContainer.indexOf(currentAlbumController); ///
-                currentAlbumController.deactivate();
+                currentAlbumController.activate();
+                return;
             }
+
+            int index = BrowserContainer.size() - 1;
             currentAlbumController = BrowserContainer.get(index);
+            contentFrame.removeAllViews(); //
             contentFrame.addView((View) currentAlbumController);
             currentAlbumController.activate();
 
@@ -865,6 +867,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             final View albumView = webView.getAlbumView();
             albumView.setVisibility(View.VISIBLE);
             switcherContainer.addView(albumView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            contentFrame.removeAllViews(); //
             contentFrame.addView(webView);
 
             if (currentAlbumController != null) {

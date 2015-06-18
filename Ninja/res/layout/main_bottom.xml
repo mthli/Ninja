@@ -84,7 +84,7 @@
                   android:gravity="bottom"
                   android:background="@color/background_dark">
 
-        <!-- TODO: how to not use layout_margin_48dp? -->
+        <!-- How to not use layout_margin_48dp? -->
         <FrameLayout android:id="@+id/main_content"
                      android:layout_width="match_parent"
                      android:layout_height="match_parent"

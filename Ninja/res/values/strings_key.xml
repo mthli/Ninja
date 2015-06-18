@@ -2,9 +2,8 @@
 
 <resources>
 
-    <!-- TODO: change when new version code -->
     <string name="sp_first">
-        SP_FIRST_24
+        SP_FIRST_25
     </string>
 
     <!-- General -->
