@@ -405,7 +405,9 @@ public class BrowserActivity extends Activity implements BrowserController {
 
             @Override
             public boolean canSwipe() {
-                return !switcherPanel.isKeyBoardShowing();
+                SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(BrowserActivity.this);
+                boolean ob = sp.getBoolean(getString(R.string.sp_omnibox_control), true);
+                return !switcherPanel.isKeyBoardShowing() && ob;
             }
 
             @Override

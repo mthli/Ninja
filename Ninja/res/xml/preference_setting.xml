@@ -37,6 +37,12 @@
                         android:entryValues="@array/setting_values_volume_control">
         </ListPreference>
 
+        <CheckBoxPreference android:key="@string/sp_omnibox_control"
+                            android:defaultValue="true"
+                            android:title="@string/setting_title_omnibox_control"
+                            android:summary="@string/setting_summary_omnibox_control">
+        </CheckBoxPreference>
+
         <CheckBoxPreference android:key="@string/sp_images"
                             android:defaultValue="true"
                             android:title="@string/setting_title_images"

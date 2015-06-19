@@ -223,47 +223,54 @@
     <string name="setting_summary_vc_system_default">
         系统默认
     </string>
-    <!-- Cookie -->
-    <string name="setting_title_cookie">
-        Cookie
+    <!-- Omnibox control -->
+    <string name="setting_title_omnibox_control">
+        地址栏控制
     </string>
-    <string name="setting_summary_cookie">
-        允许接收Cookie
+    <string name="setting_summary_omnibox_control">
+        允许左右滑动地址栏切换标签页
     </string>
     <!-- Images -->
     <string name="setting_title_images">
         图片
     </string>
     <string name="setting_summary_images">
-        允许加载图片
+        允许网页加载图片
+    </string>
+    <!-- Cookie -->
+    <string name="setting_title_cookie">
+        Cookie
+    </string>
+    <string name="setting_summary_cookie">
+        允许浏览器接收Cookie
     </string>
     <!-- JavaScript -->
     <string name="setting_title_javascript">
         JavaScript
     </string>
     <string name="setting_summary_javascript">
-        允许运行JavaScript
+        允许浏览器运行JavaScript
     </string>
     <!-- Location -->
     <string name="setting_title_location">
         地理位置
     </string>
     <string name="setting_summary_location">
-        允许获取地理位置
+        允许网页获取地理位置
     </string>
     <!-- Multiple windows -->
     <string name="setting_title_multiple_windows">
-        多窗口
+        多标签页
     </string>
     <string name="setting_summary_multiple_windows">
-        允许多窗口
+        允许网页自动新建标签页
     </string>
     <!-- Scroll bar -->
     <string name="setting_title_scroll_bar">
         滚动条
     </string>
     <string name="setting_summary_scroll_bar">
-        在网页中显示滚动条
+        允许在网页中显示滚动条
     </string>
     <!-- User Agent -->
     <string name="setting_title_user_agent">

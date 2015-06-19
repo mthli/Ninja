@@ -223,12 +223,12 @@
     <string name="setting_summary_vc_system_default">
         System Default
     </string>
-    <!-- Cookies -->
-    <string name="setting_title_cookie">
-        Cookies
+    <!-- Omnibox control -->
+    <string name="setting_title_omnibox_control">
+        Omnibox Control
     </string>
-    <string name="setting_summary_cookie">
-        Enable Cookies
+    <string name="setting_summary_omnibox_control">
+        Swipe omnibox left/right to switch tabs
     </string>
     <!-- Images -->
     <string name="setting_title_images">
@@ -236,6 +236,13 @@
     </string>
     <string name="setting_summary_images">
         Enable Network images
+    </string>
+    <!-- Cookies -->
+    <string name="setting_title_cookie">
+        Cookies
+    </string>
+    <string name="setting_summary_cookie">
+        Enable Cookies
     </string>
     <!-- JavaScript -->
     <string name="setting_title_javascript">

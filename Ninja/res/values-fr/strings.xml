@@ -76,7 +76,7 @@
         Personnalisé
     </string>
     <string name="dialog_title_download">
-        Voulez-vous télécharger le fichier ?
+        Voulez-vous télécharger le fichier?
     </string>
     <string name="dialog_title_resubmission">
         Renvoyer
@@ -88,16 +88,16 @@
         Se connecter
     </string>
     <string name="dialog_content_resubmission">
-       Voulez-vous renvoyez les données ?
+       Voulez-vous renvoyez les données?
     </string>
     <string name="dialog_content_ssl_error">
-        Le certificat de ce site n\'est pas de confiance. Continuer quand même ?
+        Le certificat de ce site n\'est pas de confiance. Continuer quand même?
     </string>
     <string name="dialog_content_donation">
-        Les dons vont être utilisés pour&#160;:\n
+        Les dons vont être utilisés pour:\n
         - Améliorer l\'environnement de développement.\n
         - Améliorer l\'enthousiasme du développeur.\n\n
-        Tous les dons&#160;:\n
+        Tous les dons:\n
         - Ne seront pas des rémunérations, personne ne peut donc forcer le développeur.\n
         - Seront acquis par le développeur.\n
         - Témoignent que le donateur accepte tous les points précédents.\n\n
@@ -223,12 +223,12 @@
     <string name="setting_summary_vc_system_default">
         Par défaut
     </string>
-    <!-- Cookies -->
-    <string name="setting_title_cookie">
-        Cookies
+    <!-- Omnibox control -->
+    <string name="setting_title_omnibox_control">
+        Contrôle Omnibox
     </string>
-    <string name="setting_summary_cookie">
-        Activer les cookies
+    <string name="setting_summary_omnibox_control">
+        Swipe Omnibox gauche/droite pour passer d\'un onglet
     </string>
     <!-- Images -->
     <string name="setting_title_images">
@@ -236,6 +236,13 @@
     </string>
     <string name="setting_summary_images">
         Activer les images
+    </string>
+    <!-- Cookies -->
+    <string name="setting_title_cookie">
+        Cookies
+    </string>
+    <string name="setting_summary_cookie">
+        Activer les cookies
     </string>
     <!-- JavaScript -->
     <string name="setting_title_javascript">
@@ -267,7 +274,7 @@
     </string>
     <!-- User Agent -->
     <string name="setting_title_user_agent">
-        Agent utilisateur (User-Agent)
+        Agent utilisateur(User-Agent)
     </string>
     <string name="setting_summary_user_agent_default">
         Par défaut
@@ -418,25 +425,25 @@
         Appuyez encore pour quitter
     </string>
     <string name="toast_export_bookmarks_successful">
-        Fichier de favoris exporté vers&#160;:&#160;
+        Fichier de favoris exporté vers:&#160;
     </string>
     <string name="toast_export_bookmarks_failed">
         Les favoris n\'ont pas été exportés
     </string>
     <string name="toast_export_whitelist_successful">
-        Fichier de liste blanche exporté vers&#160;:&#160;
+        Fichier de liste blanche exporté vers:&#160;
     </string>
     <string name="toast_export_whitelist_failed">
         La liste blanche n\'a pas été exportée
     </string>
     <string name="toast_import_bookmarks_successful">
-        Nombre de favoris importés&#160;:&#160;
+        Nombre de favoris importés:&#160;
     </string>
     <string name="toast_import_bookmarks_failed">
         Les favoris n\'ont pas été importés"
     </string>
     <string name="toast_import_whitelist_successful">
-        Nombre de domaines importés&#160;:&#160;
+        Nombre de domaines importés:&#160;
     </string>
     <string name="toast_import_whitelist_failed">
         La liste blanche n\'a pas été importée
@@ -469,7 +476,7 @@
         Réarrangé
     </string>
     <string name="toast_screenshot_successful">
-        Capture d\'écran sauvegardée vers&#160;:&#160;
+        Capture d\'écran sauvegardée vers:&#160;
     </string>
     <string name="toast_screenshot_failed">
         Capture d\'écran impossible
