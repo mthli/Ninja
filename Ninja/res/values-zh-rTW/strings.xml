@@ -200,15 +200,22 @@
     <string name="setting_summary_notification_priority_low">
         低
     </string>
-    <!-- Tab switcher -->
-    <string name="setting_title_tab_position">
-        標簽欄位置
+    <!-- Omnibox position -->
+    <string name="setting_title_omnibox_position">
+        地址欄位置
     </string>
-    <string name="setting_summary_tab_position_top">
+    <string name="setting_summary_omnibox_position_top">
         頂部
     </string>
-    <string name="setting_summary_tab_position_bottom">
+    <string name="setting_summary_omnibox_position_bottom">
         底部
+    </string>
+    <!-- Omnibox control -->
+    <string name="setting_title_omnibox_control">
+        地址欄控制
+    </string>
+    <string name="setting_summary_omnibox_control">
+        允許左右滑動地址欄切換標簽頁
     </string>
     <!-- Volume key scroll -->
     <string name="setting_title_volume_control">
@@ -222,13 +229,6 @@
     </string>
     <string name="setting_summary_vc_system_default">
         系統默認
-    </string>
-    <!-- Omnibox control -->
-    <string name="setting_title_omnibox_control">
-        地址欄控制
-    </string>
-    <string name="setting_summary_omnibox_control">
-        允許左右滑動地址欄切換標簽頁
     </string>
     <!-- Images -->
     <string name="setting_title_images">

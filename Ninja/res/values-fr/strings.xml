@@ -200,15 +200,22 @@
     <string name="setting_summary_notification_priority_low">
         Basse
     </string>
-    <!-- Tab switcher -->
-    <string name="setting_title_tab_position">
-        Position des onglets
+    <!-- Omnibox position -->
+    <string name="setting_title_omnibox_position">
+        Position omnibox
     </string>
-    <string name="setting_summary_tab_position_top">
+    <string name="setting_summary_omnibox_position_top">
         En haut
     </string>
-    <string name="setting_summary_tab_position_bottom">
+    <string name="setting_summary_omnibox_position_bottom">
         En bas
+    </string>
+    <!-- Omnibox control -->
+    <string name="setting_title_omnibox_control">
+        Contrôle omnibox
+    </string>
+    <string name="setting_summary_omnibox_control">
+        Swipe omnibox gauche/droite pour passer d\'un onglet
     </string>
     <!-- Volume key scroll -->
     <string name="setting_title_volume_control">
@@ -222,13 +229,6 @@
     </string>
     <string name="setting_summary_vc_system_default">
         Par défaut
-    </string>
-    <!-- Omnibox control -->
-    <string name="setting_title_omnibox_control">
-        Contrôle Omnibox
-    </string>
-    <string name="setting_summary_omnibox_control">
-        Swipe Omnibox gauche/droite pour passer d\'un onglet
     </string>
     <!-- Images -->
     <string name="setting_title_images">

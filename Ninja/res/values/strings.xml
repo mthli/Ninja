@@ -200,15 +200,22 @@
     <string name="setting_summary_notification_priority_low">
         Low
     </string>
-    <!-- Tab switcher -->
-    <string name="setting_title_tab_position">
-        Tab Position
+    <!-- Omnibox position -->
+    <string name="setting_title_omnibox_position">
+        Omnibox Position
     </string>
-    <string name="setting_summary_tab_position_top">
+    <string name="setting_summary_omnibox_position_top">
         Top
     </string>
-    <string name="setting_summary_tab_position_bottom">
+    <string name="setting_summary_omnibox_position_bottom">
         Bottom
+    </string>
+    <!-- Omnibox control -->
+    <string name="setting_title_omnibox_control">
+        Omnibox Control
+    </string>
+    <string name="setting_summary_omnibox_control">
+        Swipe omnibox left/right to switch tabs
     </string>
     <!-- Volume key scroll -->
     <string name="setting_title_volume_control">
@@ -222,13 +229,6 @@
     </string>
     <string name="setting_summary_vc_system_default">
         System Default
-    </string>
-    <!-- Omnibox control -->
-    <string name="setting_title_omnibox_control">
-        Omnibox Control
-    </string>
-    <string name="setting_summary_omnibox_control">
-        Swipe omnibox left/right to switch tabs
     </string>
     <!-- Images -->
     <string name="setting_title_images">
