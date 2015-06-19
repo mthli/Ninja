@@ -153,8 +153,8 @@
                                       android:selectAllOnFocus="true"
                                       android:completionThreshold="1"
                                       android:singleLine="true"
-                                      android:imeOptions="actionDone"
-                                      android:inputType="textNoSuggestions"
+                                      android:imeOptions="actionGo"
+                                      android:inputType="textNoSuggestions|textWebEditText"
                                       android:background="@color/white">
                 </AutoCompleteTextView>
 
