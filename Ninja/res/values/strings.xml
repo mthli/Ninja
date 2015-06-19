@@ -424,6 +424,9 @@
     <string name="toast_double_taps_quit">
         Press again to exit
     </string>
+    <string name="toast_emoji">
+        (๑•̀ㅂ•́)و✧
+    </string>
     <string name="toast_export_bookmarks_successful">
         Exported bookmarks file at:&#160;
     </string>

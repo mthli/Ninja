@@ -424,6 +424,9 @@
     <string name="toast_double_taps_quit">
         雙擊退出
     </string>
+    <string name="toast_emoji">
+        (๑•̀ㅂ•́)و✧
+    </string>
     <string name="toast_export_bookmarks_successful">
         導出的書簽文件位于：
     </string>
