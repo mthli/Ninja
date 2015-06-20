@@ -21,9 +21,9 @@
     <!-- Main -->
     <string-array name="main_overflow">
         <item>Haut de page</item>
-        <item>Ajouter à l''accueil</item>
+        <item>Ajouter à l\'\'accueil</item>
         <item>Trouver dans la page</item>
-        <item>Capture d''écran</item>
+        <item>Capture d\'\'écran</item>
         <item>Lisibilité</item>
         <item>Partager</item>
         <item>Réarranger</item>
@@ -60,8 +60,8 @@
 
     <!-- Tab switcher -->
     <string-array name="setting_entries_tab_position">
-        <item>@string/setting_summary_tab_position_top</item>
-        <item>@string/setting_summary_tab_position_bottom</item>
+        <item>@string/setting_summary_omnibox_position_top</item>
+        <item>@string/setting_summary_omnibox_position_bottom</item>
     </string-array>
     <string-array name="setting_values_tab_position">
         <item>0</item>

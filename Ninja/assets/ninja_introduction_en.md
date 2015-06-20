@@ -17,13 +17,15 @@ Basically Ninja is a simple web browser like any other, but there are some diffe
 
 ## Switch tabs:
 
- - You can set tab switcher position to be at the __screen top or screen bottom__ at `Settings/Browser/Tab position`.
+ - You can set tab switcher position to be at the __screen top or screen bottom__ at `Settings/Browser/Omnibox Position`.
 
  - Press the __address bar__ and __drag it down or up__, then the fashion tab switcher will display.
 
  - __Swipe up/down__ to dimiss a page.
 
  - Or just __swipe the omnibox left/right__ to swicth tabs :)
+
+The __Settings__ is located in the top or bottom left of tab switcher, the __gear__ icon.
 
 __Remember__ that if the soft keyboard is shown the tab switcher would not display, it's our design :)
 
@@ -63,4 +65,4 @@ But that does not mean you could screenshot a very long webpage which may cause 
 
 ---
 
-_2015.06.17 Matthew Lee_
+_2015.06.19 Matthew Lee_

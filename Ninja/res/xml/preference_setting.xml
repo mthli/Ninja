@@ -23,11 +23,17 @@
 
         <ListPreference android:key="@string/sp_anchor"
                         android:defaultValue="1"
-                        android:title="@string/setting_title_tab_position"
-                        android:summary="@string/setting_summary_tab_position_top"
+                        android:title="@string/setting_title_omnibox_position"
+                        android:summary="@string/setting_summary_omnibox_position_top"
                         android:entries="@array/setting_entries_tab_position"
                         android:entryValues="@array/setting_values_tab_position">
         </ListPreference>
+
+        <CheckBoxPreference android:key="@string/sp_omnibox_control"
+                            android:defaultValue="true"
+                            android:title="@string/setting_title_omnibox_control"
+                            android:summary="@string/setting_summary_omnibox_control">
+        </CheckBoxPreference>
 
         <ListPreference android:key="@string/sp_volume"
                         android:defaultValue="1"
