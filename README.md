@@ -7,7 +7,7 @@ Yet another web browser for Android.
 
 [Ninja in Coolapk](http://coolapk.com/apk/io.github.mthli.Ninja "Ninja in Cookapk")
 
-[Download latest Ninja.apk](https://github.com/mthli/Ninja/releases/download/v1.3.2/Ninja.1.3.2.apk "Ninja.1.3.2.apk")
+[Download latest Ninja.apk](https://github.com/mthli/Ninja/releases/download/v1.3.3/Ninja.1.3.3.apk "Ninja.1.3.3.apk")
 
 __SUPPORT: Android 4.1+__
 
