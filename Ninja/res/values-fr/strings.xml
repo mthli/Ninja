@@ -202,7 +202,7 @@
     </string>
     <!-- Omnibox position -->
     <string name="setting_title_omnibox_position">
-        Position omnibox
+        Position de l\'omnibox
     </string>
     <string name="setting_summary_omnibox_position_top">
         En haut
@@ -212,10 +212,10 @@
     </string>
     <!-- Omnibox control -->
     <string name="setting_title_omnibox_control">
-        Contrôle omnibox
+        Contrôle de l\'omnibox
     </string>
     <string name="setting_summary_omnibox_control">
-        Swipe omnibox gauche/droite pour passer d\'un onglet
+        Glisser l'omnibox à gauche/droite pour passer changer d\'onglet
     </string>
     <!-- Volume key scroll -->
     <string name="setting_title_volume_control">
