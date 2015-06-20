@@ -60,6 +60,9 @@ public class BrowserUnit {
     public static final String URL_SCHEME_HTTP = "http://";
     public static final String URL_SCHEME_HTTPS = "https://";
     public static final String URL_SCHEME_INTENT = "intent://";
+
+    public static final String URL_PREFIX_GOOGLE_PLAY = "www.google.com/url?q=";
+    public static final String URL_SUFFIX_GOOGLE_PLAY = "&sa";
     public static final String URL_PREFIX_GOOGLE_PLUS = "plus.url.google.com/url?q=";
     public static final String URL_SUFFIX_GOOGLE_PLUS = "&rct";
 
@@ -91,9 +94,14 @@ public class BrowserUnit {
 
     public static String queryWrapper(Context context, String query) {
         // Use prefix and suffix to process some special links
-        if (query.contains(URL_PREFIX_GOOGLE_PLUS)) {
-            int start = query.indexOf(URL_PREFIX_GOOGLE_PLUS) + URL_PREFIX_GOOGLE_PLUS.length();
-            int end = query.indexOf(URL_SUFFIX_GOOGLE_PLUS);
+        String temp = query.toLowerCase(Locale.getDefault());
+        if (temp.contains(URL_PREFIX_GOOGLE_PLAY) && temp.contains(URL_SUFFIX_GOOGLE_PLAY)) {
+            int start = temp.indexOf(URL_PREFIX_GOOGLE_PLAY) + URL_PREFIX_GOOGLE_PLAY.length();
+            int end = temp.indexOf(URL_SUFFIX_GOOGLE_PLAY);
+            query = query.substring(start, end);
+        } else if (temp.contains(URL_PREFIX_GOOGLE_PLUS) && temp.contains(URL_SUFFIX_GOOGLE_PLUS)) {
+            int start = temp.indexOf(URL_PREFIX_GOOGLE_PLUS) + URL_PREFIX_GOOGLE_PLUS.length();
+            int end = temp.indexOf(URL_SUFFIX_GOOGLE_PLUS);
             query = query.substring(start, end);
         }
 

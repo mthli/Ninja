@@ -52,7 +52,8 @@ import org.askerov.dynamicgrid.DynamicGridView;
 import java.util.*;
 
 public class BrowserActivity extends Activity implements BrowserController {
-    private static final int DOUBLE_TAPS_QUIT_DEFAULT = 512;
+    // Sync with NinjaToast.show() 2000ms delay
+    private static final int DOUBLE_TAPS_QUIT_DEFAULT = 2000;
 
     private SwitcherPanel switcherPanel;
     private int anchor;
