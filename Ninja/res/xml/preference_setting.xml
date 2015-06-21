@@ -79,6 +79,12 @@
                             android:summary="@string/setting_summary_scroll_bar">
         </CheckBoxPreference>
 
+        <CheckBoxPreference android:key="@string/sp_text_reflow"
+                            android:defaultValue="true"
+                            android:title="@string/setting_title_text_reflow"
+                            android:summary="@string/setting_summary_text_reflow">
+        </CheckBoxPreference>
+
         <io.github.mthli.Ninja.View.UserAgentListPreference
                 android:key="@string/sp_user_agent"
                 android:defaultValue="0"

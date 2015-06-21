@@ -15,6 +15,11 @@ public class ClearService extends Service {
     }
 
     @Override
+    public void onDestroy() {
+        System.exit(0); // For remove all WebView thread
+    }
+
+    @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         clear();
         stopSelf();

@@ -272,6 +272,13 @@
     <string name="setting_summary_scroll_bar">
         允許在網頁中顯示滾動條
     </string>
+    <!-- Text reflow -->
+    <string name="setting_title_text_reflow">
+        文本重排
+    </string>
+    <string name="setting_summary_text_reflow">
+        允許浏覽器對網頁文本進行調整
+    </string>
     <!-- User Agent -->
     <string name="setting_title_user_agent">
         浏覽器標識

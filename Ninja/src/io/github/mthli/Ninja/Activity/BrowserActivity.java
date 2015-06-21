@@ -8,6 +8,7 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -266,15 +267,19 @@ public class BrowserActivity extends Activity implements BrowserController {
         stopService(toHolderService);
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean exit = true;
         if (sp.getBoolean(getString(R.string.sp_clear_quit), false)) {
             Intent toClearService = new Intent(this, ClearService.class);
             startService(toClearService);
+            exit = false;
         }
 
         BrowserContainer.clear();
         IntentUnit.setContext(null);
         super.onDestroy();
-        System.exit(0); // For remove all WebView thread
+        if (exit) {
+            System.exit(0); // For remove all WebView thread
+        }
     }
 
     @Override
@@ -822,7 +827,6 @@ public class BrowserActivity extends Activity implements BrowserController {
         hideSoftInput(inputBox);
         hideSearchPanel();
         switcherContainer.removeAllViews();
-        // contentFrame.removeAllViews();
 
         for (AlbumController controller : BrowserContainer.list()) {
             if (controller instanceof NinjaWebView) {
@@ -845,7 +849,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
             int index = BrowserContainer.size() - 1;
             currentAlbumController = BrowserContainer.get(index);
-            contentFrame.removeAllViews(); //
+            contentFrame.removeAllViews();
             contentFrame.addView((View) currentAlbumController);
             currentAlbumController.activate();
 
@@ -870,7 +874,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             final View albumView = webView.getAlbumView();
             albumView.setVisibility(View.VISIBLE);
             switcherContainer.addView(albumView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            contentFrame.removeAllViews(); //
+            contentFrame.removeAllViews();
             contentFrame.addView(webView);
 
             if (currentAlbumController != null) {
@@ -1233,6 +1237,7 @@ public class BrowserActivity extends Activity implements BrowserController {
             }
         }
         customViewCallback = callback;
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); // Auto landscape when video shows
 
         return true;
     }

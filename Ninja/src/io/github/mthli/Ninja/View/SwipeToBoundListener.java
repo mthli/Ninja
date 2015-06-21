@@ -3,7 +3,6 @@ package io.github.mthli.Ninja.View;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.view.*;
-import io.github.mthli.Ninja.Unit.ViewUnit;
 
 public class SwipeToBoundListener implements View.OnTouchListener {
     public interface BoundCallback {
@@ -23,7 +22,6 @@ public class SwipeToBoundListener implements View.OnTouchListener {
     private float translationX;
     private boolean swiping;
     private boolean swipingLeft;
-    private boolean canOnBound;
     private int swipingSlop;
     private VelocityTracker velocityTracker;
 
@@ -36,7 +34,6 @@ public class SwipeToBoundListener implements View.OnTouchListener {
         this.animTime = this.view.getContext().getResources().getInteger(android.R.integer.config_shortAnimTime);
         this.swiping = false;
         this.swipingLeft = false;
-        this.canOnBound = false;
     }
 
     @Override
@@ -73,9 +70,7 @@ public class SwipeToBoundListener implements View.OnTouchListener {
                             .setListener(new AnimatorListenerAdapter() {
                                 @Override
                                 public void onAnimationEnd(Animator animation) {
-                                    if (canOnBound) {
-                                        callback.onBound(swipingLeft);
-                                    }
+                                    callback.onBound(swipingLeft);
                                 }
                             });
                 }
@@ -115,7 +110,6 @@ public class SwipeToBoundListener implements View.OnTouchListener {
                 if (Math.abs(deltaX) > slop) {
                     swiping = true;
                     swipingLeft = deltaX < 0;
-                    canOnBound = Math.abs(deltaX) >= ViewUnit.dp2px(view.getContext(), 48);
                     swipingSlop = (deltaX > 0 ? slop : -slop);
                     view.getParent().requestDisallowInterceptTouchEvent(true);
 

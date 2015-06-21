@@ -215,7 +215,7 @@
         Contrôle de l\'omnibox
     </string>
     <string name="setting_summary_omnibox_control">
-        Glisser l'omnibox à gauche/droite pour changer d\'onglet
+        Glisser l\'omnibox à gauche/droite pour passer changer d\'onglet
     </string>
     <!-- Volume key scroll -->
     <string name="setting_title_volume_control">
@@ -271,6 +271,13 @@
     </string>
     <string name="setting_summary_scroll_bar">
         Afficher/Cacher la Barre de défilement dans les pages Web
+    </string>
+    <!-- Text reflow -->
+    <string name="setting_title_text_reflow">
+        Redistribution de texte
+    </string>
+    <string name="setting_summary_text_reflow">
+        Activer le reflux du texte
     </string>
     <!-- User Agent -->
     <string name="setting_title_user_agent">

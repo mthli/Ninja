@@ -272,6 +272,13 @@
     <string name="setting_summary_scroll_bar">
         Show/Hide scroll bar on webpages
     </string>
+    <!-- Text reflow -->
+    <string name="setting_title_text_reflow">
+        Text Reflow
+    </string>
+    <string name="setting_summary_text_reflow">
+        Enable text reflow
+    </string>
     <!-- User Agent -->
     <string name="setting_title_user_agent">
         User Environment
