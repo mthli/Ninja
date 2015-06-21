@@ -425,16 +425,18 @@ public class BrowserActivity extends Activity implements BrowserController {
             }
 
             @Override
-            public void onBound(boolean left) {
+            public void onBound(boolean canSwitch, boolean left) {
                 inputBox.setKeyListener(keyListener);
                 inputBox.setFocusable(true);
                 inputBox.setFocusableInTouchMode(true);
                 inputBox.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
                 inputBox.clearFocus();
 
-                AlbumController controller = nextAlbumController(left);
-                showAlbum(controller, false, false, true);
-                NinjaToast.show(BrowserActivity.this, controller.getAlbumTitle());
+                if (canSwitch) {
+                    AlbumController controller = nextAlbumController(left);
+                    showAlbum(controller, false, false, true);
+                    NinjaToast.show(BrowserActivity.this, controller.getAlbumTitle());
+                }
             }
         }));
 
