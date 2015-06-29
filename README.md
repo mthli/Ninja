@@ -5,7 +5,7 @@ Ninja
 
 Yet another web browser for Android.
 
-[Ninja in 酷安](http://coolapk.com/apk/io.github.mthli.Ninja "Ninja in Cookapk")
+[Ninja in 酷安](http://coolapk.com/apk/io.github.mthli.Ninja "Ninja网络浏览器")
 
 [Ninja in 少数派](http://sspai.com/29245 "轻快到能上天下地，强悍到能四两拨千斤：Ninja 网络浏览器")
 
