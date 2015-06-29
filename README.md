@@ -5,13 +5,19 @@ Ninja
 
 Yet another web browser for Android.
 
-[Ninja in Coolapk](http://coolapk.com/apk/io.github.mthli.Ninja "Ninja in Cookapk")
+[Ninja in 酷安](http://coolapk.com/apk/io.github.mthli.Ninja "Ninja in Cookapk")
+
+[Ninja in 少数派](http://sspai.com/29245 "轻快到能上天下地，强悍到能四两拨千斤：Ninja 网络浏览器")
+
+[Ninja in 小众软件](http://www.appinn.com/ninja-for-android/ "Ninja：可以在后台打开网页的 Android 浏览器")
 
 [Download latest Ninja.apk](https://github.com/mthli/Ninja/releases/download/v1.3.4/Ninja.1.3.4.apk "Ninja.1.3.4.apk")
 
 __SUPPORT: Android 4.1+__
 
 __LONG TERM MAINTENANCE.__
+
+__BUT I HAVE TO PREPARE FOR THE FINIAL EXAM, SO SUSPENDED DEVELOPMENT__.
 
 ## Features:
 
