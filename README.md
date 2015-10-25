@@ -29,7 +29,7 @@ __BUT I HAVE TO PREPARE FOR THE FINIAL EXAM, SO SUSPENDED DEVELOPMENT__.
 
  - Fashion tab switcher.
 
- - [html5test](html5test.com "html5test.com") access __509UP__ with latest [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview "Android System WebView").
+ - [html5test](http://html5test.com "html5test.com") access __509UP__ with latest [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview "Android System WebView").
 
  - __Adblock__ and whitelist.
 
