@@ -482,6 +482,9 @@
     <string name="toast_refresh_failed">
         Can\'t refresh this page
     </string>
+    <string name="toast_cannot_forward">
+        Can\'t go forward
+    </string>
     <string name="toast_relayout_successful">
         Successfully Relayout
     </string>

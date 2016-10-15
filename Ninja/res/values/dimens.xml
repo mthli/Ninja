@@ -23,6 +23,7 @@
     <dimen name="layout_height_1dp">1dp</dimen>
 
     <dimen name="layout_margin_48dp">48dp</dimen>
+    <dimen name="layout_margin_24dp">24dp</dimen>
     <dimen name="layout_margin_20dp">20dp</dimen>
     <dimen name="layout_margin_16dp">16dp</dimen>
     <dimen name="layout_margin_14dp">14dp</dimen>
