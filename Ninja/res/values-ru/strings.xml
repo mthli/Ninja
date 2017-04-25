@@ -4,127 +4,127 @@
 
     <!-- AndroidAgo -->
     <string name="android_ago_just_now">
-        Just now
+        Только что
     </string>
 
     <!-- Album -->
     <string name="album_title_bookmarks">
-        Bookmarks
+        Закладки
     </string>
     <string name="album_title_history">
-        History
+        История
     </string>
     <string name="album_title_home">
-        Home
+        Домой
     </string>
     <string name="album_untitled">
-        Untitled
+        Без заголовка
     </string>
 
     <!-- Clear -->
     <string name="clear_label">
-        Clear
+        Очистить
     </string>
     <string name="clear_menu_done_all">
-        Done all
+        Очистить всё
     </string>
     <string name="clear_title_quit">
-        Clear when application exits
+        Очистить когда приложение закроется
     </string>
     <string name="clear_title_bookmarks">
-        Clear Bookmarks
+        Очистить Закладки
     </string>
     <string name="clear_title_cache">
-        Clear Cache
+        Очистить Кэш
     </string>
     <string name="clear_title_cookie">
-        Clear Cookies
+        Очистить Cookies
     </string>
     <string name="clear_title_form_data">
-        Clear Form data
+        Очистить Данные Форм
     </string>
     <string name="clear_title_history">
-        Clear History
+        Очистить Историю
     </string>
     <string name="clear_title_passwords">
-        Clear Passwords
+        Очистить Пароли
     </string>
 
     <!-- Dialog -->
     <string name="dialog_title_hint">
-        Input Title
+        Введите Заголовок
     </string>
     <string name="dialog_se_hint">
-        https://www.google.com/search?q=
+        https://www.google.ru/search?q=
     </string>
     <string name="dialog_ua_hint">
         Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36
     </string>
     <string name="dialog_sign_in_username">
-        Username
+        Имя пользователя
     </string>
     <string name="dialog_sign_in_password">
-        Password
+        Пароль
     </string>
     <string name="dialog_button_positive">
         OK
     </string>
     <string name="dialog_button_negative">
-        Cancel
+        Отмена
     </string>
     <string name="dialog_button_custom">
-        Custom
+        Вручную
     </string>
     <string name="dialog_title_download">
-        Do you want to download the file?
+        Вы ходите скачать файл?
     </string>
     <string name="dialog_title_resubmission">
-        Resubmit
+        Отправить снова
     </string>
     <string name="dialog_title_warning">
-        Warning
+        Внимание
     </string>
     <string name="dialog_title_sign_in">
-        Sign in
+        Вход
     </string>
     <string name="dialog_content_resubmission">
-        Would you like to resubmit your data?
+        Вы хотите отправить данные снова?
     </string>
     <string name="dialog_content_ssl_error">
-        The certificate of the site is not trusted. Proceed anyway?
+        Сертификат сайта не достоверный. Всё равно продолжить?
     </string>
     <string name="dialog_content_donation">
-        The income from donations will be used to:\n
-        - Improve the development environment.\n
-        - Improve the developer\'s enthusiasm.\n\n
-        All donations will be considered:\n
-        - Unpaid which means the donor can not command or force the developer to do anything the donor want.\n
-        - Owned by the developer.\n
-        - The donor have agreed all above points.\n\n
+        Пожертвования пойдут на:\n
+        - Улучшение окружения разработки.\n
+        - Поднятие энтузиазма разработчика.\n\n
+        Все пожертвования будут считаться:\n
+        - Безвозмездными, то есть дарите не может диктовать или принуждать разработчика делать, что он хотет.\n
+        - Принадлежащими разработчику.\n
+        - Даритель согласен со всем пунктами выше.\n\n
         Alipay:\n
         matthewlee0725@gmail.com
     </string>
     <string name="dialog_content_upload">
-        Currently, File upload is only supported on Android 5.0 and Above.
+        На данный момент Загружка файлов поддерживается только на Android 5.0 и выше.
     </string>
 
     <!-- List -->
     <string name="list_empty">
-        Current list is empty
+        Текущий список пуст
     </string>
 
     <!-- Main -->
     <string name="main_menu_new_tab">
-        New tab
+        Новая вкладка
     </string>
     <string name="main_menu_copy_link">
-        Copy link
+        Копировать ссылку
     </string>
     <string name="main_menu_save">
-        Save
+        Сохранить
     </string>
     <string name="main_omnibox_input_hint">
-        Search or type URL
+        Искать или ввести URL
     </string>
     <string name="main_relayout_ok">
         OK
@@ -135,7 +135,7 @@
 
     <!-- Notification -->
     <string name="notification_content_holder">
-        Click to View Pages
+        Нажмите, чтобы открыть страницу
     </string>
 
     <!-- Readability -->
@@ -143,31 +143,31 @@
         Readability
     </string>
     <string name="readability_menu_background">
-        Background
+        В фоне
     </string>
     <string name="readability_menu_share">
-        Share
+        Поделиться
     </string>
     <string name="readability_empty">
-        Failed to load Readability, Please check your network connection.
+        Не удалось загрудить Readability, пожалуйста, проверить соединение.
     </string>
 
     <!-- Search -->
     <string name="search_hint">
-        Search
+        Поиск
     </string>
 
     <!-- Settings -->
     <string name="setting_label">
-        Settings
+        Настройки
     </string>
     <!-- Browser setting -->
     <string name="setting_title_browser">
-        Browser Settings
+        Открыть настройки
     </string>
     <!-- Search engine -->
     <string name="setting_title_search_engine">
-        Search Engine
+        Поисковый сервис
     </string>
     <string name="setting_summary_search_engine_google">
         Google
@@ -185,82 +185,82 @@
         Baidu
     </string>
     <string name="setting_summary_search_engine_custom">
-        Custom
+        Вручную
     </string>
     <!-- Notification -->
     <string name="setting_title_notification_priority">
-        Notification Priority
+        Приоритет уведомлений
     </string>
     <string name="setting_summary_notification_priority_default">
-        Default
+        По умолчанию
     </string>
     <string name="setting_summary_notification_priority_high">
-        High
+        Высокий
     </string>
     <string name="setting_summary_notification_priority_low">
-        Low
+        Низкий
     </string>
     <!-- Omnibox position -->
     <string name="setting_title_omnibox_position">
-        Omnibox Position
+        Поизиция Omnibox
     </string>
     <string name="setting_summary_omnibox_position_top">
-        Top
+        Вверх
     </string>
     <string name="setting_summary_omnibox_position_bottom">
-        Bottom
+        Вниз
     </string>
     <!-- Omnibox control -->
     <string name="setting_title_omnibox_control">
-        Omnibox Control
+        Управление Omnibox
     </string>
     <string name="setting_summary_omnibox_control">
-        Swipe omnibox left/right to switch tabs
+        Смахните omnibox влево/вправо, чтобы переключиться на вкладку
     </string>
     <!-- Volume key scroll -->
     <string name="setting_title_volume_control">
-        Volume Control
+        Управление громкостью
     </string>
     <string name="setting_summary_vc_switch_tabs">
-        Switch Tabs
+        Переключить вкладки
     </string>
     <string name="setting_summary_vc_scroll_webpage">
-        Scroll Webpage
+        Скроллить вэб-страницу
     </string>
     <string name="setting_summary_vc_system_default">
-        System Default
+        Сбросить по умолчанию
     </string>
     <!-- Images -->
     <string name="setting_title_images">
-        Images
+        Изображения
     </string>
     <string name="setting_summary_images">
-        Enable Network images
+        Включить загрузки изображений
     </string>
     <!-- Cookies -->
     <string name="setting_title_cookie">
         Cookies
     </string>
     <string name="setting_summary_cookie">
-        Enable Cookies
+        Включить Cookies
     </string>
     <!-- JavaScript -->
     <string name="setting_title_javascript">
         JavaScript
     </string>
     <string name="setting_summary_javascript">
-        Enable JavaScript
+        Включить JavaScript
     </string>
     <!-- Location -->
     <string name="setting_title_location">
-        Location
+        Местоположение
     </string>
     <string name="setting_summary_location">
-        Allow websites to access your location
+        Разрешить вэб-сайтам получать доступ к вашему местоположению
     </string>
     <!-- Multiple windows -->
     <string name="setting_title_multiple_windows">
-        Multiple Windows
+        Несколько окон
     </string>
     <string name="setting_summary_multiple_windows">
         Enable Multiple windows
@@ -270,62 +270,62 @@
         Scroll Bar
     </string>
     <string name="setting_summary_scroll_bar">
-        Show/Hide scroll bar on webpages
+        Показать/Спрятать scroll bar на вэб-страницах
     </string>
     <!-- Text reflow -->
     <string name="setting_title_text_reflow">
-        Text Reflow
+        Перекомпановка текста
     </string>
     <string name="setting_summary_text_reflow">
-        Enable text reflow
+        Включить перекомпановку текста
     </string>
     <!-- User Agent -->
     <string name="setting_title_user_agent">
-        User Environment
+        Пользовательское окружение
     </string>
     <string name="setting_summary_user_agent_default">
-        Default
+        По умолчанию
     </string>
     <string name="setting_summary_user_agent_desktop">
-        Desktop
+        Декстоп
     </string>
     <string name="setting_summary_user_agent_custom">
-        Custom
+        Вручную
     </string>
     <!-- Rendering -->
     <string name="setting_title_rendering">
-        Rendering
+        Рендеринг
     </string>
     <string name="setting_summary_rendering_default">
-        Default
+        По умолчанию
     </string>
     <string name="setting_summary_rendering_grayscale">
-        Grayscale
+        Черно-белый
     </string>
     <string name="setting_summary_rendering_inverted">
-        Inverted
+        Инвертированный
     </string>
     <string name="setting_summary_rendering_inverted_grayscale">
-        Inverted Grayscale
+        Инвертированный черно-белый
     </string>
     <!-- AdBlock setting -->
     <string name="setting_title_adblock">
         AdBlock
     </string>
     <string name="setting_summary_adblock">
-        Enable AdBlock
+        Включить AdBlock
     </string>
     <string name="setting_title_whitelist">
         Whitelist
     </string>
     <string name="setting_summary_whitelist">
-        Allow these sites show ads
+        Разрешить этим сайтам отображать рекламу
     </string>
     <string name="setting_title_export_whilelist">
-        Export whitelist
+        Экспортировать whitelist
     </string>
     <string name="setting_title_import_whilelist">
-        Import whilelist
+        Импортировать whilelist
     </string>
     <string name="whilelist_filename">
         NinjaWhitelist
@@ -335,98 +335,98 @@
         Readability
     </string>
     <string name="setting_title_token">
-        Token
+        Токен
     </string>
     <string name="setting_summary_readability">
-        Enable Readability
+        Включить Readability
     </string>
     <string name="setting_summary_token">
-        Set Readability Token
+        Установить токен Readability
     </string>
     <!-- Data setting -->
     <string name="setting_title_data">
-        Data
+        Данные
     </string>
     <!-- Passwords -->
     <string name="setting_title_passwords">
-        Passwords
+        Пароли
     </string>
     <string name="setting_summary_passwords">
-        Save Passwords
+        Сохранить пароль
     </string>
     <!-- Bookmarks -->
     <string name="setting_title_export_bookmarks">
-        Export Bookmarks
+        Экспорт закладок
     </string>
     <string name="setting_title_import_bookmarks">
-        Import Bookmarks
+        Испорт закладок
     </string>
     <string name="bookmarks_filename">
         NinjaBookmarks
     </string>
     <!-- Clear -->
     <string name="setting_title_clear_control">
-        Clear Control
+        Управление очисткой
     </string>
     <!-- Others setting -->
     <string name="setting_title_others">
-        Others
+        Другие
     </string>
     <!-- Version -->
     <string name="setting_title_version">
-        Version
+        Версия
     </string>
     <!-- License -->
     <string name="setting_title_license">
-        License
+        Лицензия
     </string>
     <!-- Contact -->
     <string name="setting_title_donation">
-        Donate
+        Пожертвования
     </string>
 
     <!-- Toast -->
     <string name="toast_add_bookmark_successful">
-        Bookmark Successfully Added
+        Закладка успешно добавлена
     </string>
     <string name="toast_add_bookmark_failed">
-        Can\'t add this page to bookmark
+        Не удалось добавить эту страницу в закладки
     </string>
     <string name="toast_add_to_home_successful">
-        Successfully added to Home
+        Успешно добавлено Домой
     </string>
     <string name="toast_add_to_home_failed">
-        Failed to add to Home
+        Не удалось добавить Домой
     </string>
     <string name="toast_add_token_successful">
-        Successfully added Readability API
+        Успешно добавлен Readability API
     </string>
     <string name="toast_add_whitelist_successful">
-        Successfully added Domain
+        Успешно добавлен домен
     </string>
     <string name="toast_already_at_the_front">
-        Already at the front
+        Уже на главной
     </string>
     <string name="toast_already_exist_in_home">
-        Already exist in home
+        Уже есть на Домашнем экране
     </string>
     <string name="toast_clear_successful">
-        Successfully Cleared
+        Успешно очишено
     </string>
     <string name="toast_clear_failed">
-        Failed to Clear
+        Не удалось очистить
     </string>
     <string name="toast_copy_successful">
-        Successfully Copied
+        Успешно скопировано
     </string>
     <string name="toast_delete_bookmark_successful">
-        Successfully Deleted Bookmark
+        Закладка успешно удалена
     </string>
     <string name="toast_delete_successful">
-        Successfully Deleted
+        Успешно удалено
     </string>
     <string name="toast_domain_already_exists">
-        Domain already exists
+        Домен уже добавлен
     </string>
     <string name="toast_double_taps_quit">
         Press again to exit
@@ -435,87 +435,87 @@
         (๑•̀ㅂ•́)و✧
     </string>
     <string name="toast_export_bookmarks_successful">
-        Exported bookmarks file at:&#160;
+        Закладки экспортированы в файл:&#160;
     </string>
     <string name="toast_export_bookmarks_failed">
-        Failed to export Bookmarks
+        Не удалось экспортировать закоалки
     </string>
     <string name="toast_export_whitelist_successful">
-        Exported whitelist file at:&#160;
+        Whitelist экспортирован:&#160;
     </string>
     <string name="toast_export_whitelist_failed">
-        Failed to export Whitelist
+        Не удалось экспортировать Whitelist
     </string>
     <string name="toast_import_bookmarks_successful">
-        Imported bookmarks count:&#160;
+        Импортировано закладок:&#160;
     </string>
     <string name="toast_import_bookmarks_failed">
-        Failed to import Bookmarks
+        Не удалось импортировать закладки
     </string>
     <string name="toast_import_whitelist_successful">
-        Imported domains count:&#160;
+        Импортировано доменов:&#160;
     </string>
     <string name="toast_import_whitelist_failed">
-        Failed to import Whitelist
+        Не удалось импортировать Whitelist
     </string>
     <string name="toast_input_empty">
-        You haven\'t input anything
+        Вы ничего не ввели
     </string>
     <string name="toast_invalid_domain">
-        Invalid domain
+        Не правильный домен
     </string>
     <string name="toast_load_error">
-        Can\'t load this URL
+        Не удалось загружить этот URL
     </string>
     <string name="toast_load_in_background">
-        Loading in background
+        Загружаем в фоне
     </string>
     <string name="toast_need_restart">
-        Please restart the application for changes to take effect
+        Пожалуйста перезапустите приложение, чтобы изменения вступили в силу
     </string>
     <string name="toast_new_tab_successful">
-        Successfully opened in a new tab
+        Успешно открыто в новой вкладке
     </string>
     <string name="toast_open_file_manager_failed">
-        Failed to open File Manager
+        Не удалось открыть File Manager
     </string>
     <string name="toast_refresh_failed">
-        Can\'t refresh this page
+        Не удалось обновить страницу
     </string>
     <string name="toast_relayout_successful">
-        Successfully Relayout
+        Успешно перекомпановано
     </string>
     <string name="toast_screenshot_successful">
-        Saved screenshot at:&#160;
+        Скриншот сохранен:&#160;
     </string>
     <string name="toast_screenshot_failed">
-        Failed to capture Screenshot
+        Не удалось сделать Скриншот
     </string>
     <string name="toast_share_failed">
-        Can\'t share this page
+        Не удалось поделиться страницей
     </string>
     <string name="toast_start_download">
-        Starting download
+        Загружка началась
     </string>
     <string name="toast_token_empty">
-        Please set Readability token
+        Пожалуйста, установите токен Readability
     </string>
     <string name="toast_wait_a_minute">
-        Please wait for a moment
+        Подалуйста ожидайте
     </string>
 
     <!-- Token -->
     <string name="token_label">
-        Token
+        Токен
     </string>
     <string name="token_edit_hint">
-        Readability token
+        Readability токен
     </string>
     <string name="token_add">
-        Add
+        Добавить
     </string>
     <string name="token_desc">
-        Go to https://www.readability.com/developers/api to get your own Readability token
+        Перейти на https://www.readability.com/developers/api чтобы получить свой токен Readability
     </string>
 
     <!-- Whitelist -->
@@ -523,13 +523,13 @@
         Whitelist
     </string>
     <string name="whitelist_menu_clear">
-        Clear
+        Очистить
     </string>
     <string name="whitelist_edit_hint">
-        Domain
+        Домен
     </string>
     <string name="whitelist_add">
-        Add
+        Добавить
     </string>
 
 </resources>
