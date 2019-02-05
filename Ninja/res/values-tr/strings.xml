@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- AndroidAgo -->
+    <string name="android_ago_just_now">
+        Hemen şimdi
+    </string>
+
+    <!-- Album -->
+    <string name="album_title_bookmarks">
+        Yer imleri
+    </string>
+    <string name="album_title_history">
+        Geçmiş
+    </string>
+    <string name="album_title_home">
+        Ana sayfa
+    </string>
+    <string name="album_untitled">
+        Başlıksız
+    </string>
+
+    <!-- Clear -->
+    <string name="clear_label">
+        Temizle
+    </string>
+    <string name="clear_menu_done_all">
+        Hepsi tamamlandı
+    </string>
+    <string name="clear_title_quit">
+        Uygulamadan çıkıldığında temizle
+    </string>
+    <string name="clear_title_bookmarks">
+        Yer imlerini temizle
+    </string>
+    <string name="clear_title_cache">
+        Önbelleği temizle
+    </string>
+    <string name="clear_title_cookie">
+        Çerezleri temizle
+    </string>
+    <string name="clear_title_form_data">
+        Form verilerini temizle
+    </string>
+    <string name="clear_title_history">
+        Geçmişi temizle
+    </string>
+    <string name="clear_title_passwords">
+        Şifreleri temizle
+    </string>
+
+    <!-- Dialog -->
+    <string name="dialog_title_hint">
+        Giriş başlığı
+    </string>
+    <string name="dialog_se_hint">
+        https://www.google.com/search?q=
+    </string>
+    <string name="dialog_ua_hint">
+        Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36
+    </string>
+    <string name="dialog_sign_in_username">
+        Kullanıcı adı
+    </string>
+    <string name="dialog_sign_in_password">
+        Şifre
+    </string>
+    <string name="dialog_button_positive">
+        TAMAM
+    </string>
+    <string name="dialog_button_negative">
+        İptal et
+    </string>
+    <string name="dialog_button_custom">
+        Özel
+    </string>
+    <string name="dialog_title_download">
+        Do you want to download the file?
+    </string>
+    <string name="dialog_title_resubmission">
+        Yeniden gönder
+    </string>
+    <string name="dialog_title_warning">
+        Dikkat
+    </string>
+    <string name="dialog_title_sign_in">
+        Oturum aç
+    </string>
+    <string name="dialog_content_resubmission">
+        Verilerinizi tekrar göndermek ister misiniz?
+    </string>
+    <string name="dialog_content_ssl_error">
+        Sitenin sertifikasına güvenilmiyor. Yine de devam edilsin mi?
+    </string>
+    <string name="dialog_content_donation">
+        Bağışlardan elde edilecek gelir aşağıdakiler için kullanılacaktır:\n
+        - Geliştirme ortamını iyileştirme.\n
+        - Geliştiricinin heyecanını arttırma.\n\n
+        Tüm bağışlar için bunlar dikkate alınacaktır:\n
+        - Neyin ödeneceğine bağışçı karar veremez veya bir şey için geliştiriciyi zorlayamaz.\n
+        - Bağışa geliştirici sahip olur\n
+        - Bağışçı tüm yukarıdaki hususları kabul eder.\n\n
+        Alipay:\n
+        matthewlee0725@gmail.com
+    </string>
+    <string name="dialog_content_upload">
+        Şu anda, dosya yükleme yalnızca Android 5.0 ve üstünde desteklenmektedir.
+    </string>
+
+    <!-- List -->
+    <string name="list_empty">
+        Mevcut liste boş
+    </string>
+
+    <!-- Main -->
+    <string name="main_menu_new_tab">
+        Yeni sekme
+    </string>
+    <string name="main_menu_copy_link">
+        Bağlantıyı kopyala
+    </string>
+    <string name="main_menu_save">
+        Kaydet
+    </string>
+    <string name="main_omnibox_input_hint">
+        Arayın ya da URL girin
+    </string>
+    <string name="main_relayout_ok">
+        TAMAM
+    </string>
+    <string name="main_about_blank">
+        about:blank
+    </string>
+
+    <!-- Notification -->
+    <string name="notification_content_holder">
+        Sayfaları görmek için tıklayın
+    </string>
+
+    <!-- Readability -->
+    <string name="readability_label">
+        Okunabilirlik
+    </string>
+    <string name="readability_menu_background">
+        Arka plan
+    </string>
+    <string name="readability_menu_share">
+        Paylaş
+    </string>
+    <string name="readability_empty">
+        Okunabilirlik yüklenemedi. Lütfen ağ bağlantınızı kontrol ediniz.
+    </string>
+
+    <!-- Search -->
+    <string name="search_hint">
+        Ara
+    </string>
+
+    <!-- Settings -->
+    <string name="setting_label">
+        Ayarlar
+    </string>
+    <!-- Browser setting -->
+    <string name="setting_title_browser">
+        Tarayıcı ayarları
+    </string>
+    <!-- Search engine -->
+    <string name="setting_title_search_engine">
+        Arama motoru
+    </string>
+    <string name="setting_summary_search_engine_google">
+        Google
+    </string>
+    <string name="setting_summary_search_engine_duckduckgo">
+        DuckDuckGo
+    </string>
+    <string name="setting_summary_search_engine_startpage">
+        StartPage
+    </string>
+    <string name="setting_summary_search_engine_bing">
+        Bing
+    </string>
+    <string name="setting_summary_search_engine_baidu">
+        Baidu
+    </string>
+    <string name="setting_summary_search_engine_custom">
+        Özel
+    </string>
+    <!-- Notification -->
+    <string name="setting_title_notification_priority">
+        Bildirim önceliği
+    </string>
+    <string name="setting_summary_notification_priority_default">
+        Varsayılan
+    </string>
+    <string name="setting_summary_notification_priority_high">
+        Yüksek
+    </string>
+    <string name="setting_summary_notification_priority_low">
+        Düşük
+    </string>
+    <!-- Omnibox position -->
+    <string name="setting_title_omnibox_position">
+        Omnibox konumu
+    </string>
+    <string name="setting_summary_omnibox_position_top">
+        Üst
+    </string>
+    <string name="setting_summary_omnibox_position_bottom">
+        Alt
+    </string>
+    <!-- Omnibox control -->
+    <string name="setting_title_omnibox_control">
+        Omnibox denetimi
+    </string>
+    <string name="setting_summary_omnibox_control">
+        Sekmeleri değiştirmek için Omnibox'ı sola/sağa kaydırın
+    </string>
+    <!-- Volume key scroll -->
+    <string name="setting_title_volume_control">
+        Ses denetimi
+    </string>
+    <string name="setting_summary_vc_switch_tabs">
+        Sekme değişimi
+    </string>
+    <string name="setting_summary_vc_scroll_webpage">
+        Site kaydırma
+    </string>
+    <string name="setting_summary_vc_system_default">
+        Sistem varsayılanı
+    </string>
+    <!-- Images -->
+    <string name="setting_title_images">
+        Görüntüler
+    </string>
+    <string name="setting_summary_images">
+        Ağ görüntülerini etkinleştirir
+    </string>
+    <!-- Cookies -->
+    <string name="setting_title_cookie">
+        Çerezler
+    </string>
+    <string name="setting_summary_cookie">
+        Çerezleri etkinleştirir
+    </string>
+    <!-- JavaScript -->
+    <string name="setting_title_javascript">
+        JavaScript
+    </string>
+    <string name="setting_summary_javascript">
+        JavaScript'i etkinleştirir
+    </string>
+    <!-- Location -->
+    <string name="setting_title_location">
+        Konum
+    </string>
+    <string name="setting_summary_location">
+        Web sitelerinin konumunuza erişmesine izin verir
+    </string>
+    <!-- Multiple windows -->
+    <string name="setting_title_multiple_windows">
+        Çoklu pencere
+    </string>
+    <string name="setting_summary_multiple_windows">
+        Çoklu pencereyi etkinleştirir
+    </string>
+    <!-- Scroll bar -->
+    <string name="setting_title_scroll_bar">
+        Kaydırma çubuğu
+    </string>
+    <string name="setting_summary_scroll_bar">
+        Web sitelerinde kaydırma çubuğunu gösterir/gizler
+    </string>
+    <!-- Text reflow -->
+    <string name="setting_title_text_reflow">
+        Metin düzenleme
+    </string>
+    <string name="setting_summary_text_reflow">
+        Metinler için yeniden düzenlemeyi etkinleştirir
+    </string>
+    <!-- User Agent -->
+    <string name="setting_title_user_agent">
+        Kullanıcı ortamı
+    </string>
+    <string name="setting_summary_user_agent_default">
+        Varsayılan
+    </string>
+    <string name="setting_summary_user_agent_desktop">
+        Masaüstü
+    </string>
+    <string name="setting_summary_user_agent_custom">
+        Özel
+    </string>
+    <!-- Rendering -->
+    <string name="setting_title_rendering">
+        İşleme
+    </string>
+    <string name="setting_summary_rendering_default">
+        Varsayılan
+    </string>
+    <string name="setting_summary_rendering_grayscale">
+        Gri tonlama
+    </string>
+    <string name="setting_summary_rendering_inverted">
+        Ters çevrilmiş
+    </string>
+    <string name="setting_summary_rendering_inverted_grayscale">
+        Ters gri tonlama
+    </string>
+    <!-- AdBlock setting -->
+    <string name="setting_title_adblock">
+        Reklam engelleyici
+    </string>
+    <string name="setting_summary_adblock">
+        Reklam engelleyiciyi etkinleştirir
+    </string>
+    <string name="setting_title_whitelist">
+        Beyaz liste
+    </string>
+    <string name="setting_summary_whitelist">
+        Bu sitelerin reklam göstermesine izin verir
+    </string>
+    <string name="setting_title_export_whilelist">
+        Beyaz listeyi dışa aktar
+    </string>
+    <string name="setting_title_import_whilelist">
+        Beyaz listeyi içe aktar
+    </string>
+    <string name="whilelist_filename">
+        Ninja beyaz listesi
+    </string>
+    <!-- Readability setting -->
+    <string name="setting_title_readability">
+        Okunabilirlik
+    </string>
+    <string name="setting_title_token">
+        Jeton
+    </string>
+    <string name="setting_summary_readability">
+        Okunabilirliği etkinleştirir
+    </string>
+    <string name="setting_summary_token">
+        Okunabilirlik jetonunu ayarla
+    </string>
+    <!-- Data setting -->
+    <string name="setting_title_data">
+        Veri
+    </string>
+    <!-- Passwords -->
+    <string name="setting_title_passwords">
+        Şifreler
+    </string>
+    <string name="setting_summary_passwords">
+        Şifreleri kaydet
+    </string>
+    <!-- Bookmarks -->
+    <string name="setting_title_export_bookmarks">
+        Yer imlerini dışa aktar
+    </string>
+    <string name="setting_title_import_bookmarks">
+        Yer imlerini içe aktar
+    </string>
+    <string name="bookmarks_filename">
+        Ninja yer imleri
+    </string>
+    <!-- Clear -->
+    <string name="setting_title_clear_control">
+        Denetimi temizle
+    </string>
+    <!-- Others setting -->
+    <string name="setting_title_others">
+        Diğer
+    </string>
+    <!-- Version -->
+    <string name="setting_title_version">
+        Sürüm
+    </string>
+    <!-- License -->
+    <string name="setting_title_license">
+        Lisans
+    </string>
+    <!-- Contact -->
+    <string name="setting_title_donation">
+        Bağış yap
+    </string>
+
+    <!-- Toast -->
+    <string name="toast_add_bookmark_successful">
+        Yer imi başarıyla eklendi
+    </string>
+    <string name="toast_add_bookmark_failed">
+        Bu sayfa yer imine eklenemedi
+    </string>
+    <string name="toast_add_to_home_successful">
+        Ana sayfaya başarıyla eklendi
+    </string>
+    <string name="toast_add_to_home_failed">
+        Ana sayfaya ekleme başarısız
+    </string>
+    <string name="toast_add_token_successful">
+        Okunabilirlik API başarıyla eklendi
+    </string>
+    <string name="toast_add_whitelist_successful">
+        Etki alanı başarıyla eklendi
+    </string>
+    <string name="toast_already_at_the_front">
+        Zaten ön tarafta
+    </string>
+    <string name="toast_already_exist_in_home">
+        Zaten ana sayfada
+    </string>
+    <string name="toast_clear_successful">
+        Başarıyla temizlendi
+    </string>
+    <string name="toast_clear_failed">
+        Temizleme başarısız
+    </string>
+    <string name="toast_copy_successful">
+        Başarıyla kopyalandı
+    </string>
+    <string name="toast_delete_bookmark_successful">
+        Yer imi başarıyla silindi
+    </string>
+    <string name="toast_delete_successful">
+        Başarıyla silindi
+    </string>
+    <string name="toast_domain_already_exists">
+        Etki alanı zaten mevcut
+    </string>
+    <string name="toast_double_taps_quit">
+        Çıkmak için tekrar basın
+    </string>
+    <string name="toast_emoji">
+        (๑•̀ㅂ•́)و✧
+    </string>
+    <string name="toast_export_bookmarks_successful">
+        Dışa aktarılan yer imleri dosyası:&#160;
+    </string>
+    <string name="toast_export_bookmarks_failed">
+        Yer imlerini dışa aktarma başarısız
+    </string>
+    <string name="toast_export_whitelist_successful">
+        Dışa aktarılan beyaz liste dosyası:&#160;
+    </string>
+    <string name="toast_export_whitelist_failed">
+        Beyaz listeyi dışa aktarma başarısız
+    </string>
+    <string name="toast_import_bookmarks_successful">
+        Alınan yer imi sayısı:&#160;
+    </string>
+    <string name="toast_import_bookmarks_failed">
+        Yer imlerini içe aktarma başarısız
+    </string>
+    <string name="toast_import_whitelist_successful">
+        Alınan etki alanı sayısı:&#160;
+    </string>
+    <string name="toast_import_whitelist_failed">
+        Beyaz listeyi içe aktarma başarısız
+    </string>
+    <string name="toast_input_empty">
+        Hiçbir şey girmediniz
+    </string>
+    <string name="toast_invalid_domain">
+        Geçersiz etki alanı
+    </string>
+    <string name="toast_load_error">
+        Bu URL yüklenemiyor
+    </string>
+    <string name="toast_load_in_background">
+        Arka planda yükleniyor
+    </string>
+    <string name="toast_need_restart">
+        Değişikliklerin etkili olması için lütfen uygulamayı yeniden başlatın
+    </string>
+    <string name="toast_new_tab_successful">
+        Yeni bir sekmede başarıyla açıldı
+    </string>
+    <string name="toast_open_file_manager_failed">
+        Dosya Yöneticisi açılamadı
+    </string>
+    <string name="toast_refresh_failed">
+        Bu sayfayı yenilenemiyor
+    </string>
+    <string name="toast_relayout_successful">
+        Başarıyla düzen değiştirildi
+    </string>
+    <string name="toast_screenshot_successful">
+        Ekran görüntüsü kaydedildi:&#160;
+    </string>
+    <string name="toast_screenshot_failed">
+        Ekran görüntüsü alma başarısız
+    </string>
+    <string name="toast_share_failed">
+        Bu sayfa paylaşılamıyor
+    </string>
+    <string name="toast_start_download">
+        İndirmeye başla
+    </string>
+    <string name="toast_token_empty">
+        Lütfen okunabilirlik jetonunu ayarlayın
+    </string>
+    <string name="toast_wait_a_minute">
+        Lütfen biraz bekleyin
+    </string>
+
+    <!-- Token -->
+    <string name="token_label">
+        Jeton
+    </string>
+    <string name="token_edit_hint">
+        Okunabilirlik jetonu
+    </string>
+    <string name="token_add">
+        Ekle
+    </string>
+    <string name="token_desc">
+        Kendi Okunabilirlik jetonunuzu almak için  https://www.readability.com/developers/api adresine gidin
+    </string>
+
+    <!-- Whitelist -->
+    <string name="whitelist_label">
+        Beyaz liste
+    </string>
+    <string name="whitelist_menu_clear">
+        Temizle
+    </string>
+    <string name="whitelist_edit_hint">
+        Etki alanı
+    </string>
+    <string name="whitelist_add">
+        Ekle
+    </string>
+
+</resources>
