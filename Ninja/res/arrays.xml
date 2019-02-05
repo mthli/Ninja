@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Holder -->
+    <string-array name="holder_menu">
+        <item>Ön plan</item>
+        <item>Bağlantıyı kopyala</item>
+        <item>Paylaş</item>
+    </string-array>
+
+    <!-- List -->
+    <string-array name="list_menu">
+        <item>Yeni sekme</item>
+        <item>Bağlantıyı kopyala</item>
+        <item>Paylaş</item>
+        <item>Düzenle</item>
+        <item>Sil</item>
+    </string-array>
+
+    <!-- Main -->
+    <string-array name="main_overflow">
+        <item>Başa dön</item>
+        <item>Ana sayfaya ekle</item>
+        <item>Sayfada bul</item>
+        <item>Ekran görüntüsü</item>
+        <item>Okunabilirlik</item>
+        <item>Paylaş</item>
+        <item>Yeniden düzenle</item>
+        <item>Çıkış</item>
+    </string-array>
+
+    <!-- Search engine -->
+    <string-array name="setting_entries_search_engine">
+        <item>@string/setting_summary_search_engine_google</item>
+        <item>@string/setting_summary_search_engine_duckduckgo</item>
+        <item>@string/setting_summary_search_engine_startpage</item>
+        <item>@string/setting_summary_search_engine_bing</item>
+        <item>@string/setting_summary_search_engine_baidu</item>
+    </string-array>
+    <string-array name="setting_values_search_engine">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <!-- Notification -->
+    <string-array name="setting_entries_notification_priority">
+        <item>@string/setting_summary_notification_priority_default</item>
+        <item>@string/setting_summary_notification_priority_high</item>
+        <item>@string/setting_summary_notification_priority_low</item>
+    </string-array>
+    <string-array name="setting_values_notification_priority">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- Tab switcher -->
+    <string-array name="setting_entries_tab_position">
+        <item>@string/setting_summary_omnibox_position_top</item>
+        <item>@string/setting_summary_omnibox_position_bottom</item>
+    </string-array>
+    <string-array name="setting_values_tab_position">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <!-- Volume control -->
+    <string-array name="setting_entries_volume_control">
+        <item>@string/setting_summary_vc_switch_tabs</item>
+        <item>@string/setting_summary_vc_scroll_webpage</item>
+        <item>@string/setting_summary_vc_system_default</item>
+    </string-array>
+    <string-array name="setting_values_volume_control">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- User agent -->
+    <string-array name="setting_entries_user_agent">
+        <item>@string/setting_summary_user_agent_default</item>
+        <item>@string/setting_summary_user_agent_desktop</item>
+    </string-array>
+    <string-array name="setting_values_user_agent">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <!-- Rendering -->
+    <string-array name="setting_entries_rendering">
+        <item>@string/setting_summary_rendering_default</item>
+        <item>@string/setting_summary_rendering_grayscale</item>
+        <item>@string/setting_summary_rendering_inverted</item>
+        <item>@string/setting_summary_rendering_inverted_grayscale</item>
+    </string-array>
+    <string-array name="setting_values_rendering">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+</resources>
